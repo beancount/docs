@@ -1,0 +1,4 @@
+panflute==1.11.2
+pypandoc==1.4
+python-docx==0.8.10
+requests==2.21.0

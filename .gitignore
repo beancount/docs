@@ -1,0 +1,6 @@
+__pycache__/
+venv/
+*.docx
+*.md
+*.log
+!docs/*.md
