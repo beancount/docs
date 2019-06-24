@@ -15,16 +15,17 @@ def download_file(
     file_name=None,
 ) -> bytes:
     """
-    Export and download. Formats available: docx, odt, rtf, txt
+    Export and download. Formats available: html, docx, odt, rtf, txt
     https://googlesystem.blogspot.com/2007/07/download-published-documents-and.html
     """
     url = f'https://docs.google.com/document/export?format={fmt}&id={document_id}'
     response = requests.get(url)
     response.raise_for_status()
-    if not file_name:
-        file_name = f'document.{fmt}'
-    with open(file_name, 'wb') as file:
-        file.write(response.content)
+    data = response.content
+    if file_name:
+        with open(file_name, 'wb') as file:
+            file.write(data)
+    return data
 
 
 def prepare_docx(file_name: str) -> bytes:
@@ -75,7 +76,10 @@ def main():
         'download',
         help='download document')
     download_parser.add_argument('id', help='document id')
-    download_parser.add_argument('--name', help='file name')
+    download_parser.add_argument(
+        '--name',
+        help='file name',
+        default='document.docx')
 
     convert_parser = subparsers.add_parser(
         'convert',

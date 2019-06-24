@@ -24,8 +24,9 @@ logging.basicConfig(
 def prepare(doc):
     # Insert title
     title = doc.get_metadata('title')
-    title_elem = Header(Str(title), level=1, identifier='title')
-    doc.content.insert(0, title_elem)
+    if title:
+        title_elem = Header(Str(title), level=1, identifier='title')
+        doc.content.insert(0, title_elem)
 
 
 def action(elem, doc):

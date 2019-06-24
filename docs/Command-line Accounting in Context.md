@@ -377,4 +377,3 @@ But all the softwares I tried were either disappointing, broken, or too complica
 Ever since, I feel so excited about anything related to personal finance. Probably because it makes me so happy to have such a level of awareness about what’s going on with mine. I even sometimes find myself *loving* spending money in a new way, just from knowing that I’ll have to figure out how to account for it later. I feel so elated by the ability to solve these financial puzzles that I have had bouts of engaging complete weekends in building this software. They are small challenges with a truly practical application and a tangible consequence. Instant gratification. I get a feeling of *empowerment*. And I wish the same for you.
 
 [1] For a full list of differences, refer to [<span class="underline">this document</span>](http://furius.ca/beancount/doc/comparison).
-
