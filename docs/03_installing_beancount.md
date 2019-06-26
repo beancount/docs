@@ -220,7 +220,7 @@ You should be able to run the binaries from [<span class="underline">this docume
 
     $ bean-check
 
-If this works, you can now go to the [<span class="underline">tutorial</span>](https://docs.google.com/document/d/1G-gsmwK551lSyuHboVLW3xbLhh99JfoKIbNnZSJxteE/edit?pli=1#) and begin learning how Beancount works.
+If this works, you can now go to the [<span class="underline">tutorial</span>](13_tutorial_example.md) and begin learning how Beancount works.
 
 ### Reporting Problems
 
@@ -233,7 +233,7 @@ Editor Support
 
 There is support for some editors available:
 
--   Emacs support is [<span class="underline">provided in the distribution</span>](https://bitbucket.org/blais/beancount/src/tip/src/elisp/). See the [<span class="underline">Getting Started</span>](http://furius.ca/beancount/doc/getting-started) text for installation instruction.
+-   Emacs support is [<span class="underline">provided in the distribution</span>](https://bitbucket.org/blais/beancount/src/tip/src/elisp/). See the [<span class="underline">Getting Started</span>](05_getting_started_with_beancount.md) text for installation instruction.
 
 -   Support for [<span class="underline">editing with Sublime</span>](https://sublime.wbond.net/packages/Beancount) has been contributed by [<span class="underline">Martin Andreas Andersen</span>](https://groups.google.com/d/msg/beancount/WvlhcCjNl-Q/s4wOBQnRVxYJ). See [<span class="underline">his github repo</span>](https://github.com/draug3n/sublime-beancount).
 

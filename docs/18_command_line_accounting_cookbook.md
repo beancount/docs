@@ -58,7 +58,7 @@ Introduction
 
 The best way to learn the double-entry method is to look at real-world examples. The method is elegant, but it can seem unintuitive to the newcomer how transactions have to be posted in order to perform the various operations that one needs to do in counting for different types financial events. This is why I wrote this cookbook. It is not meant to be a comprehensive description of all the features supported, but rather a set of practical guidelines to help you solve problems. I think this will likely be the most useful document in the Beancount documentation set!
 
-All the examples here apply to any double-entry accounting system: Ledger, GnuCash, or even commercial systems. Some of the details may differ only slightly. This cookbook is written using the syntax and calculation method of the Beancount software. This document also assumes that you are already familiar with the [<span class="underline">general balancing concepts of the double-entry method</span>](http://furius.ca/beancount/doc/intro) and with at least some of the syntax of Beancount which is available from its [<span class="underline">user’s manual</span>](http://furius.ca/beancount/doc/users-manual) or its [<span class="underline">cheat sheet</span>](http://furius.ca/beancount/doc/cheatsheet). If you haven’t begun writing down your first file, you will want to read [<span class="underline">Getting Started with Beancount</span>](http://furius.ca/beancount/doc/getting-started) and do that first.
+All the examples here apply to any double-entry accounting system: Ledger, GnuCash, or even commercial systems. Some of the details may differ only slightly. This cookbook is written using the syntax and calculation method of the Beancount software. This document also assumes that you are already familiar with the [<span class="underline">general balancing concepts of the double-entry method</span>](http://furius.ca/beancount/doc/intro) and with at least some of the syntax of Beancount which is available from its [<span class="underline">user’s manual</span>](http://furius.ca/beancount/doc/users-manual) or its [<span class="underline">cheat sheet</span>](10_beancount_cheat_sheet.md). If you haven’t begun writing down your first file, you will want to read [<span class="underline">Getting Started with Beancount</span>](05_getting_started_with_beancount.md) and do that first.
 
 Command-line accounting systems are agnostic about the types of things they can count and allow you to get creative with the kinds of units that you can invent to track various kinds of things. For instance, you can count “IRA contribution dollars,” which are not real dollars, but which correspond to “possible contributions in real dollars,” and you obtain accounts of assets, income and expenses types for them - it works. Please do realize that some of those clever tricks may not be possible in more traditional accounting systems. In addition, some of the operations that would normally require a manual process in these systems can be automated away for us, e.g., “closing a year” is entirely done by the software at any point in time, and balance assertions provide a safeguard that allow us to change the details of past transactions with little risk, so there is no need to “reconcile” by baking the past into a frozen state. More flexibility is at hand.
 
@@ -374,7 +374,7 @@ It is common for them to do this in order to track each source of contribution s
 
 ### Vesting Stock Grants
 
-See the [<span class="underline">dedicated document</span>](http://furius.ca/beancount/doc/vesting) on this topic for more details.
+See the [<span class="underline">dedicated document</span>](20_stock_vesting_in_beancount.md) on this topic for more details.
 
 ### Other Benefits
 
@@ -451,7 +451,7 @@ Finally, a rather subtle problem is that using these price conversions back and 
 Investing and Trading
 ---------------------
 
-Tracking trades and associated gains is a fairly involved topic. You will find a more complete introduction to profit and loss and a detailed discussion of various scenarios in the [<span class="underline">Trading with Beancount</span>](http://furius.ca/beancount/doc/trading) document, which is dedicated to this topic. Here we will discuss how to setup your account and provide simple example transactions to get you started.
+Tracking trades and associated gains is a fairly involved topic. You will find a more complete introduction to profit and loss and a detailed discussion of various scenarios in the [<span class="underline">Trading with Beancount</span>](19_trading_with_beancount.md) document, which is dedicated to this topic. Here we will discuss how to setup your account and provide simple example transactions to get you started.
 
 ### Accounts Setup
 
@@ -530,7 +530,7 @@ Or you can receive dividends in shares reinvested:
 
 This is booked similarly to a stock purchase, and you also have to provide the cost basis of the received units. This would typically happen in a non-taxable retirement account.
 
-Refer to the [<span class="underline">Trading with Beancount</span>](http://furius.ca/beancount/doc/trading) document for a more thorough discussion and numerous and more complex examples.
+Refer to the [<span class="underline">Trading with Beancount</span>](19_trading_with_beancount.md) document for a more thorough discussion and numerous and more complex examples.
 
 ### Choosing a Date
 

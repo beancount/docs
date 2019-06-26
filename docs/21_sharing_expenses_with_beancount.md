@@ -14,7 +14,7 @@ The method uses the double-entry accounting system. The essence of the method co
 
 This article is structured around a simple trip with expenses shared equally by two people. However, the same method generalizes to any type of project with incomes and expenses to be shared among multiple participants, and splitting expenses evenly or not.
 
-A Travel Example<img src="media/image3.jpg" style="width:1.41146in;height:1.05859in" />
+A Travel Example<img src="media/image4.jpg" style="width:1.41146in;height:1.05859in" />
 ---------------------------------------------------------------------------------------
 
 Martin (the author) and Caroline (his girlfriend) visited Mexico in March 2015. We visited the island of Cozumel for a SCUBA diving trip for three days and then headed to Tulum for two days to relax and dive in the [<span class="underline">cenotes</span>](http://en.wikipedia.org/wiki/Cenote).
@@ -34,7 +34,7 @@ A Note About Sharing
 
 I feel that something should be said about the “sharing” aspect of our expenses, as this topic has come up on previous discussions on the mailing-lists involving sharing examples.
 
-**We are nitpicking on purpose.** For the purpose of this exercise, we are accounting for every little penny spent in an incredibly detailed manner. The point of this document is specifically to show how a complex set of transactions well accounted for can be efficiently and simply disentangled to a precise accounting of expenses for each participant, regardless of who actually makes the payments. We are not cheapskates.<img src="media/image4.jpg" style="width:1.53715in;height:2.14063in" />
+**We are nitpicking on purpose.** For the purpose of this exercise, we are accounting for every little penny spent in an incredibly detailed manner. The point of this document is specifically to show how a complex set of transactions well accounted for can be efficiently and simply disentangled to a precise accounting of expenses for each participant, regardless of who actually makes the payments. We are not cheapskates.<img src="media/image2.jpg" style="width:1.53715in;height:2.14063in" />
 
 **We will assume that we’ve decided to split expenses evenly.** Our “generosity” to each other is not a topic relevant to this document. We’re both well compensated working professionals and you can assume that we’ve agreed to split the common costs for this trip evenly (50/50).
 
@@ -172,7 +172,7 @@ Some local expenses will call for US money, which in this example I paid from my
       Expenses:Scuba                            50.00 USD
       Assets:Cash:Martin
 
-#### Cash Expenses in Local Currency<img src="media/image2.jpg" style="width:1.55003in;height:1.63021in" />
+#### Cash Expenses in Local Currency<img src="media/image5.jpg" style="width:1.55003in;height:1.63021in" />
 
 Paying cash using pesos from our shared stash of pesos looks like this:
 
@@ -259,7 +259,7 @@ During this trip I did not carry a laptop—this was vacation after all. I like 
 
 These notes look like this:
 
-<img src="media/image12.png" alt="sharing-example-note-taking.png" style="width:6.5in;height:3.68056in" />
+<img src="media/image10.png" alt="sharing-example-note-taking.png" style="width:6.5in;height:3.68056in" />
 
 I made a paper spreadsheet where each line had
 
@@ -284,7 +284,7 @@ You can view the balances in the “All Transactions” view (click on “All Tr
 
 The Balance Sheet should show empty balances for Assets accounts:
 
-<img src="media/image11.png" alt="balsheet.png" style="width:6.28646in;height:2.57906in" />
+<img src="media/image6.png" alt="balsheet.png" style="width:6.28646in;height:2.57906in" />
 
 The balances of the equity accounts should reflect the total amount of currency conversions made during the trip. You can verify this by calculating the amount-weight average rate like this: 7539.00 / 559.88 ~= 13.465 USD/MXN (which is about right).
 
@@ -300,7 +300,7 @@ From this view, we can see that we contributed a total of 4254.28 USD (and were 
 
 If you want to view the list of contribution payments and the final balance, click on a particular traveler’s root account, e.g., “Income:Caroline” (click on “Caroline”) which should take you to the Journal for that root account:
 
-<img src="media/image9.png" alt="caroline.png" style="width:6.5in;height:4.63889in" />
+<img src="media/image8.png" alt="caroline.png" style="width:6.5in;height:4.63889in" />
 
 This journal includes all the transactions in its sub-accounts. The final value at the bottom should show the total balance of those accounts, and thus, the amount of money Caroline contributed to this trip: 415 USD, and kept 5 MXN (in coin). We can do the same for Martin and find the final balance of 3839.28 USD and kept 60 MXN (in bills).
 
@@ -513,8 +513,8 @@ Other Examples
 
 There is another example file that shows how to share expenses between three participants in [<span class="underline">duxbury2015.beancount</span>](https://bitbucket.org/blais/beancount/src/66e85c8343d8704745ae16cb6ac622f4b6246c3c/examples/sharing/duxbury2015.beancount?at=default&fileviewer=file-view-default). Look to more example files to be introduced over time.
 
-Conclusion<img src="media/image13.jpg" style="width:2.02604in;height:1.52427in" />
-----------------------------------------------------------------------------------
+Conclusion<img src="media/image3.jpg" style="width:2.02604in;height:1.52427in" />
+---------------------------------------------------------------------------------
 
 There is more than just one way to carry out the task we describe here. However, the method we present extends nicely to a larger group of participants, allows us to account for situations where particular expenses are incurred for one individual as part of a group, and finally, allows for a non-even split between the participants. This is pretty general.
 

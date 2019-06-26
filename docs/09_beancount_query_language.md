@@ -373,7 +373,7 @@ However, for PRINT queries, the output format is Beancount input text format.
 Statement Operators
 -------------------
 
-The shell provides a few operators designed to facilitate the generation of balance sheets and income statements. The particular methodology used to define these operations should be described in detail in the “[<span class="underline">introduction to double-entry bookkeeping</span>](http://furius.ca/beancount/doc/double-entry)” document that accompanies Beancount and is mostly located in the source code in the [<span class="underline">summarize</span>](http://bitbucket.org/blais/beancount/src/tip/src/python/beancount/ops/summarize.py) module.
+The shell provides a few operators designed to facilitate the generation of balance sheets and income statements. The particular methodology used to define these operations should be described in detail in the “[<span class="underline">introduction to double-entry bookkeeping</span>](02_the_double_entry_counting_method.md)” document that accompanies Beancount and is mostly located in the source code in the [<span class="underline">summarize</span>](http://bitbucket.org/blais/beancount/src/tip/src/python/beancount/ops/summarize.py) module.
 
 These special operators are provided on the FROM clause that is made available on the various forms of query commands in the shell. These further transform the set of entries selected by the FROM expression at the transaction levels (not postings).
 

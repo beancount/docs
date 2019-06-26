@@ -418,7 +418,7 @@ There once was a first implementation of the process described in this document.
 
 Documents about LedgerHub are preserved, and can help you understand the origins and design choices for Beancount’s importer support. They can be found here:
 
--   [<span class="underline">Original design</span>](http://furius.ca/beancount/doc/ledgerhub/design-doc)
+-   [<span class="underline">Original design</span>](25_ledgerhub_design_doc.md)
 
 -   [<span class="underline">Original instructions & final status</span>](http://furius.ca/beancount/doc/ledgerhub/manual) (the old version of this doc)
 

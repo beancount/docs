@@ -104,7 +104,7 @@ Introduction
 
 This is a user's manual to the language of Beancount, the command-line double-entry bookkeeping system. Beancount defines a computer language that allows you to enter financial transactions in a text file and extract various reports from it. It is a generic counting tool that works with multiple currencies, commodities held at cost (e.g., stocks), and even allows you to track unusual things, like vacation hours, air miles and rewards points, and anything else you might want to count, even beans.
 
-This document provides an introduction to Beancount’s syntax and some of the technical details needed for one to understand how it carries out its calculations. This document does *not* provide an [<span class="underline">introduction to the double-entry method</span>](http://furius.ca/beancount/doc/double-entry), a [<span class="underline">motivation</span>](http://furius.ca/beancount/doc/motivation), nor [<span class="underline">examples and guidelines for entering transactions</span>](http://furius.ca/beancount/doc/cookbook) in your input file, nor how to [<span class="underline">run the tools</span>](http://furius.ca/beancount/doc/tools). These subjects have their [<span class="underline">own dedicated documents</span>](http://furius.ca/beancount/doc/index), and it is recommended that you have had a look at those before diving into this user’s manual. This manual covers the technical details for using Beancount.
+This document provides an introduction to Beancount’s syntax and some of the technical details needed for one to understand how it carries out its calculations. This document does *not* provide an [<span class="underline">introduction to the double-entry method</span>](02_the_double_entry_counting_method.md), a [<span class="underline">motivation</span>](01_command_line_accounting_in_context.md), nor [<span class="underline">examples and guidelines for entering transactions</span>](18_command_line_accounting_cookbook.md) in your input file, nor how to [<span class="underline">run the tools</span>](04_running_beancount_and_generating_reports.md). These subjects have their [<span class="underline">own dedicated documents</span>](00_beancount_documentation.md), and it is recommended that you have had a look at those before diving into this user’s manual. This manual covers the technical details for using Beancount.
 
 Syntax Overview
 ---------------
@@ -196,7 +196,7 @@ Accounts contain **currencies**, which we sometimes also call **commodities** (w
 
 There is something elegant about the fact that there is no “special” currency unit, that all commodities are treated equally the same: Beancount is inherently a multi-currency system. You will appreciate this if, like many of us, you are an expat and your life is divided between two or three continents. You can handle an international ledger of accounts without any problems.
 
-And your use of currencies can get quite creative: you can create a currency for your home, for example (e.g. MYLOFT), a currency to count accumulated vacation hours (VACHR), or a currency to count potential contributions to your retirement accounts allowed annually (IRAUSD). You can actually solve many problems this way. The [<span class="underline">cookbook</span>](http://furius.ca/beancount/doc/cookbook) describes many such concrete examples.
+And your use of currencies can get quite creative: you can create a currency for your home, for example (e.g. MYLOFT), a currency to count accumulated vacation hours (VACHR), or a currency to count potential contributions to your retirement accounts allowed annually (IRAUSD). You can actually solve many problems this way. The [<span class="underline">cookbook</span>](18_command_line_accounting_cookbook.md) describes many such concrete examples.
 
 Beancount does not support the dollar sign syntax, e.g., “$120.00”. You should always use symbols for currencies in your input file. This makes the input more regular and is a design choice. For monetary units, I suggest that you use the standard [<span class="underline">ISO 4217 currency code</span>](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) as a guideline; these quickly become familiar. However, you may include some other characters in currency names, like underscores (\_) or dashes (-), but no spaces.
 
@@ -242,7 +242,7 @@ Note to visiting Ledger users: In Ledger, “;” is used both for marking comme
 Directives
 ----------
 
-For a quick reference & overview of directive syntax, please consult the [<span class="underline">Syntax Cheat Sheet</span>](http://furius.ca/beancount/doc/cheatsheet).
+For a quick reference & overview of directive syntax, please consult the [<span class="underline">Syntax Cheat Sheet</span>](10_beancount_cheat_sheet.md).
 
 ### Open
 
@@ -346,7 +346,7 @@ You can also attach flags to the postings themselves, if you want to flag one of
       Assets:MyBank:Checking            -400.00 USD
       ! Assets:MyBank:Savings
 
-This is useful in the intermediate stage of de-duping transactions (see [<span class="underline">Getting Started</span>](http://furius.ca/beancount/doc/getting-started) document for more details).
+This is useful in the intermediate stage of de-duping transactions (see [<span class="underline">Getting Started</span>](05_getting_started_with_beancount.md) document for more details).
 
 The general format of a Transaction directive is:
 
@@ -437,7 +437,7 @@ In order to specify that a posting to an account is to be held at a specific cos
       Assets:ETrade:IVV                10 IVV {183.07 USD}
       Assets:ETrade:Cash         -1830.70 USD
 
-This is the subject of a deeper discussion. Refer to “[<span class="underline">How Inventories Work</span>](http://furius.ca/beancount/doc/booking)” and “[<span class="underline">Trading with Beancount</span>](http://furius.ca/beancount/doc/trading)” documents for an in-depth discussion of these topics.
+This is the subject of a deeper discussion. Refer to “[<span class="underline">How Inventories Work</span>](11_how_inventories_work.md)” and “[<span class="underline">Trading with Beancount</span>](19_trading_with_beancount.md)” documents for an in-depth discussion of these topics.
 
 Finally, you can include both a cost and a price on a posting:
 
@@ -474,7 +474,7 @@ Here is the explanation of how it is calculated:
 
 4.  Finally, if a posting **has both a cost and a price**, we simply ignore the price. This optional price is used later on to generate an entry in the in-memory prices database, but it is not used in balancing at all.
 
-With this rule, you should be able to easily balance all your transactions. Moreover, this rule makes it possible to let Beancount automatically calculate capital gains for you (see [<span class="underline">Trading with Beancount</span>](http://furius.ca/beancount/doc/trading) for details).
+With this rule, you should be able to easily balance all your transactions. Moreover, this rule makes it possible to let Beancount automatically calculate capital gains for you (see [<span class="underline">Trading with Beancount</span>](19_trading_with_beancount.md) for details).
 
 #### Reducing Positions
 
@@ -508,7 +508,7 @@ If multiple lots match against the reducing posting and their number is not the 
 
 You may set the account’s booking method to “FIFO” to instruct Beancount to select the oldest of the lots. Or “LIFO” for the latest (youngest) of the lots. This will automatically select all the necessary matching lots to fulfill the reduction.
 
-<table><tbody><tr class="odd"><td><em><strong>PLEASE NOTE!</strong></em> Requiring the dates to match will be dealt with more sensibly in the near future. See <a href="https://docs.google.com/document/d/1F8IJ_7fMHZ75XFPocMokLxVZczAhrBRBVN9uMhQFCZ4/"><span class="underline">A Proposal for an Improvement on Inventory Booking</span></a> for details of this upcoming change.</td></tr></tbody></table>
+<table><tbody><tr class="odd"><td><em><strong>PLEASE NOTE!</strong></em> Requiring the dates to match will be dealt with more sensibly in the near future. See <a href="27_a_proposal_for_an_improvement_on_inventory_booking.md"><span class="underline">A Proposal for an Improvement on Inventory Booking</span></a> for details of this upcoming change.</td></tr></tbody></table>
 
 For such postings, a change that results in a negative number of units is usually impossible. Beancount does not currently allow holding a negative number of a commodity held at cost. For example, an input with just this transaction will fail:
 
@@ -528,7 +528,7 @@ This is why this check is enabled by default.
 
 <table><tbody><tr class="odd"><td><em><strong>PLEASE NOTE!</strong></em> In a future version of Beancount, we will relax this constraint somewhat. We will allow an account to hold a negative number of units of a commodity if and only if there are no other units of that commodity held in the account. Either that, or we will allow you to mark an account has having no such constraints at all. The purpose is to allow the account of short positions in commodities. The only blocking factor is this constraint.</td></tr></tbody></table>
 
-For more details of the inventory booking algorithm, see the [<span class="underline">How Inventories Work</span>](http://furius.ca/beancount/doc/booking) document.
+For more details of the inventory booking algorithm, see the [<span class="underline">How Inventories Work</span>](11_how_inventories_work.md) document.
 
 #### Amount Interpolation
 
@@ -639,7 +639,7 @@ A balance assertion is a way for you to input your statement balance into the fl
 
 says “Check that the number of USD units in account “Liabilities:US:CreditCard” on the *morning* of December 26th, 2014 is -3492.02 USD.” When processing the list of entries, if Beancount encounters a different balance than this for USD it will report an error.
 
-If no error is reported, you should have some confidence that the list of transactions that precedes it in this account is highly likely to be correct. This is useful in practice, because in many cases some transactions can get imported separately from the accounts of each of their postings (see [<span class="underline">the de-duping problem</span>](https://docs.google.com/document/d/1P5At-z1sP8rgwYLHso5sEy3u4rMnIUDDgob9Y_BYuWE/edit#heading=h.7etz9bkjxarq)). This can result in you booking the same transaction twice without noticing, and regularly inserting a balance assertion will catch that problem every time.
+If no error is reported, you should have some confidence that the list of transactions that precedes it in this account is highly likely to be correct. This is useful in practice, because in many cases some transactions can get imported separately from the accounts of each of their postings (see [<span class="underline">the de-duping problem</span>](05_getting_started_with_beancount.md)). This can result in you booking the same transaction twice without noticing, and regularly inserting a balance assertion will catch that problem every time.
 
 The general format of the Balance directive is:
 
@@ -660,7 +660,7 @@ A Beancount account may contain more than one commodity (although in practice, y
     2014-08-09 balance Assets:Cash     210.00 CAD
     2014-08-09 balance Assets:Cash      60.00 EUR
 
-There is currently no way to exhaustively check the full list of commodities in an account ([<span class="underline">a proposal is underway</span>](http://furius.ca/beancount/doc/proposal-balance)).
+There is currently no way to exhaustively check the full list of commodities in an account ([<span class="underline">a proposal is underway</span>](29_balance_assertions_in_beancount.md)).
 
 Note that in this example if an exhaustive check really matters to you, you could circumvent by defining a subaccount of the cash account to segregate each commodity separately, like this Assets:Cash:USD, Assets:Cash:CAD.
 
@@ -995,7 +995,7 @@ Note that depending the option, the effect may be to set a single value, or add 
 
 There are three ways to view the list of options:
 
--   In [<span class="underline">this document</span>](http://furius.ca/beancount/doc/options), which I update regularly.
+-   In [<span class="underline">this document</span>](07_beancount_options_reference.md), which I update regularly.
 
 -   To view the definitive list of options supported by your installed version, use the following command: bean-doctor list-options
 
@@ -1056,7 +1056,7 @@ However, for the moment, options are parsed per-file. The options-map that is ke
 What’s Next?
 ------------
 
-This document described all the possible syntax of the Beancount language. If you haven’t written any Beancount input yet, you can head to the [<span class="underline">Getting Started</span>](http://furius.ca/beancount/doc/getting-started) guide, or browse through a list of practical use cases in the [<span class="underline">Command-line Accounting Cookbook</span>](http://furius.ca/beancount/doc/cookbook).
+This document described all the possible syntax of the Beancount language. If you haven’t written any Beancount input yet, you can head to the [<span class="underline">Getting Started</span>](05_getting_started_with_beancount.md) guide, or browse through a list of practical use cases in the [<span class="underline">Command-line Accounting Cookbook</span>](18_command_line_accounting_cookbook.md).
 
 [1] Note that there exists an “Open” directive that is used to provide the start date of each account. That can be located anywhere in the file, it does not have to appear in the file somewhere before you use an account name. You can just start using account names in transactions right away, though all account names that receive postings to them will eventually have to have a corresponding Open directive with a date that precedes all transactions posted to the account in the input file.
 

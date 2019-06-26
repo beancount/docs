@@ -223,7 +223,7 @@ At the time of this writing, the bean-web interface does not convert the units i
 Selling Vested Stock
 --------------------
 
-After each vesting event, the stock is left in your brokerage account. Selling this stock proceeds just as in any other trading transaction (see [<span class="underline">Trading with Beancount</span>](http://furius.ca/beancount/doc/trading) for full details). For example, selling the shares from the example would look something like this:
+After each vesting event, the stock is left in your brokerage account. Selling this stock proceeds just as in any other trading transaction (see [<span class="underline">Trading with Beancount</span>](19_trading_with_beancount.md) for full details). For example, selling the shares from the example would look something like this:
 
     2015-09-10 * "Selling shares"
       Assets:US:Schwab:HOOL        -26 HOOL {131.3700 USD} @ 138.23 USD

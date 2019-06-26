@@ -86,7 +86,7 @@ Running Beancount & Generating Reports
 Introduction
 ------------
 
-This document describes the tools you use to process Beancount input files, and many of the reports available from it. The syntax of the language is described in the [<span class="underline">Beancount Language Syntax</span>](http://furius.ca/beancount/doc/syntax) document. This manual only covers the technical details for using Beancount from the command-line.
+This document describes the tools you use to process Beancount input files, and many of the reports available from it. The syntax of the language is described in the [<span class="underline">Beancount Language Syntax</span>](06_beancount_language_syntax.md) document. This manual only covers the technical details for using Beancount from the command-line.
 
 Tools
 -----
@@ -144,7 +144,7 @@ Beancount’s parsed list of transactions and postings is like an in-memory data
     Ready with 14212 directives (21284 postings in 8879 transactions).
     beancount> _
 
-More details are available [<span class="underline">in its own document</span>](http://furius.ca/beancount/doc/query).
+More details are available [<span class="underline">in its own document</span>](09_beancount_query_language.md).
 
 ### bean-web
 
@@ -249,7 +249,7 @@ This pure text processing tool will reformat Beancount input to right-align all 
 
 ### bean-example
 
-This program generates an example Beancount input file. See the [<span class="underline">Tutorial</span>](http://furius.ca/beancount/doc/example) for more details about the contents of this example file.
+This program generates an example Beancount input file. See the [<span class="underline">Tutorial</span>](13_tutorial_example.md) for more details about the contents of this example file.
 
 Filtering Transactions
 ----------------------
@@ -355,7 +355,7 @@ The equivalent bean-query command is:
 
 #### Opening Balances (openbal)
 
-The opening balances report is simply a balance sheet drawn at the beginning of the reporting period. This report only makes sense for a list of filtered entries that represents a period of time, such as “year 2014.” The balance sheet is generated using only the summarization entries that were synthesized when the transactions were filtered (see the [<span class="underline">double-entry method document</span>](http://furius.ca/beancount/doc/double-entry)).
+The opening balances report is simply a balance sheet drawn at the beginning of the reporting period. This report only makes sense for a list of filtered entries that represents a period of time, such as “year 2014.” The balance sheet is generated using only the summarization entries that were synthesized when the transactions were filtered (see the [<span class="underline">double-entry method document</span>](02_the_double_entry_counting_method.md)).
 
 #### Income Statement (income)
 

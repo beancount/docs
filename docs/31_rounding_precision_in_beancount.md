@@ -156,4 +156,4 @@ By default, this accumulation should be turned off. It’s not clear whether the
 Implementation
 --------------
 
-The implementation of this proposal is [<span class="underline">documented here</span>](http://furius.ca/beancount/doc/tolerances).
+The implementation of this proposal is [<span class="underline">documented here</span>](08_precision_tolerances.md).

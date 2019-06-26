@@ -1,4 +1,6 @@
-# Beancount doc converter
+[Index](docs/00_beancount_documentation.md)
+
+# Beancount Google Doc converter
 
 ## Requirements
 

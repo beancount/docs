@@ -34,11 +34,11 @@ Trading with Beancount
 Introduction
 ------------
 
-This is a companion document for the [<span class="underline">Command-Line Accounting Cookbook</span>](http://furius.ca/beancount/doc/cookbook) that deals exclusively with the subject of trading and investments in Beancount. You probably should have read an [<span class="underline">introduction to the double-entry method</span>](http://furius.ca/beancount/doc/double-entry) before reading this document.
+This is a companion document for the [<span class="underline">Command-Line Accounting Cookbook</span>](18_command_line_accounting_cookbook.md) that deals exclusively with the subject of trading and investments in Beancount. You probably should have read an [<span class="underline">introduction to the double-entry method</span>](02_the_double_entry_counting_method.md) before reading this document.
 
 The subject of stock trading needs to be preceded by a discussion of “profit and loss,” or P/L, for short (pronounce: “P and L”), also called capital gains or losses. The notion of P/L against multiple trades can be difficult for a novice to understand, and I’ve even seen professional traders lack sophistication in their understanding of P/L over varying time periods. It is worth spending a bit of time to explain this, and necessary to understand how to book your trades in a double-entry system.
 
-This discussion will be weaved with detailed examples of how to book these trades in Beancount, wherever possible. There is a related, active [<span class="underline">proposal for improving the booking methods</span>](https://docs.google.com/document/d/1F8IJ_7fMHZ75XFPocMokLxVZczAhrBRBVN9uMhQFCZ4/) in Beancount that you might also be interested in. Discussions of basis for tax-deferred accounts will not be treated here, but in the more general cookbook.
+This discussion will be weaved with detailed examples of how to book these trades in Beancount, wherever possible. There is a related, active [<span class="underline">proposal for improving the booking methods</span>](27_a_proposal_for_an_improvement_on_inventory_booking.md) in Beancount that you might also be interested in. Discussions of basis for tax-deferred accounts will not be treated here, but in the more general cookbook.
 
 What is Profit and Loss?
 ------------------------
@@ -289,7 +289,7 @@ You could even go one step further and fold the commission on *sale* into the pr
 
 This may seem overkill, but imagine that those costs were much higher, as is the case on large commercial transactions; the details do begin to matter to the tax man. Accurate accounting is important, and we need to develop a method to do this more precisely.
 
-<table><tbody><tr class="odd"><td><em><strong>We don’t currently have a good method of doing this with our input syntax. A suitable method is currently being developed and a <a href="https://docs.google.com/document/d/1F8IJ_7fMHZ75XFPocMokLxVZczAhrBRBVN9uMhQFCZ4/"><span class="underline">proposal</span></a> is on the table. Also see mailing-list for details. [June 2014]</strong></em></td></tr></tbody></table>
+<table><tbody><tr class="odd"><td><em><strong>We don’t currently have a good method of doing this with our input syntax. A suitable method is currently being developed and a <a href="27_a_proposal_for_an_improvement_on_inventory_booking.md"><span class="underline">proposal</span></a> is on the table. Also see mailing-list for details. [June 2014]</strong></em></td></tr></tbody></table>
 
 Stock Splits
 ------------
@@ -313,7 +313,7 @@ One problem with this approach is that the *continuity* of the trade lots is los
 
 One way to handle this is by using the Dated Lots (see the appropriate section of this doc). That way, the original trade date can be preserved on the new lots. This provides accurate timing information in addition to the capital gain/loss based on the price.
 
-Another method for solving this and for easily propagating the lot trade date [<span class="underline">has been proposed</span>](https://docs.google.com/document/d/1F8IJ_7fMHZ75XFPocMokLxVZczAhrBRBVN9uMhQFCZ4/edit#heading=h.7k8w61poow7y) and will be implemented in Beancount later on.
+Another method for solving this and for easily propagating the lot trade date [<span class="underline">has been proposed</span>](27_a_proposal_for_an_improvement_on_inventory_booking.md) and will be implemented in Beancount later on.
 
 A more important problem with the current implementation is that the meaning of a unit of ADSK before and after the stock split is different. The price graph for this commodity unit will show a radical discontinuity! This is a more general problem that has yet to be addressed in both Beancount and Ledger. The [<span class="underline">Commodity Definition Changes</span>](https://docs.google.com/document/d/1Y_h5sjUTJzdK1riRh-mrVQm9KCzqFlU65KMsMsrQgXk/) document has a discussion to address this topic.
 
@@ -329,7 +329,7 @@ If we have the specific lot prices being adjusted, it is doable to book these in
       Assets:CA:RRSP:XSP            100 ADSK {23.40 CAD}
       Income:CA:RRSP:Gains      -230.00 CAD
 
-However, this is really uncommon. The more common case of this is of an account using the average cost booking method, we don’t currently have a way to deal with this. There is an [<span class="underline">active proposal</span>](https://docs.google.com/document/d/1F8IJ_7fMHZ75XFPocMokLxVZczAhrBRBVN9uMhQFCZ4/) in place to make this possible.
+However, this is really uncommon. The more common case of this is of an account using the average cost booking method, we don’t currently have a way to deal with this. There is an [<span class="underline">active proposal</span>](27_a_proposal_for_an_improvement_on_inventory_booking.md) in place to make this possible.
 
 The cost basis adjustment is commonly found in Return of Capital events. These happen, for example, when funds are returning capital to the shareholders. This can be caused by winding down the operation. From the taxation point of view, these are non-taxable events and affect the cost basis of the equity in the fund. The number of shares might stay the same, but their cost basis needs to be adjusted for potential Gain/Loss calculation at the point of sale in the future.
 
@@ -353,7 +353,7 @@ In the case of dividends received as stock, as for stock purchases, you provide 
 Average Cost Booking
 --------------------
 
-At the moment, the only way to perform booking at average cost is painful: you would have to use the method outlined in the Stock Split section in order to revalue your inventory. This is impractical, however. There is an [<span class="underline">active proposal</span>](https://docs.google.com/document/d/1F8IJ_7fMHZ75XFPocMokLxVZczAhrBRBVN9uMhQFCZ4/) with an associated syntax to fully solve this problem.
+At the moment, the only way to perform booking at average cost is painful: you would have to use the method outlined in the Stock Split section in order to revalue your inventory. This is impractical, however. There is an [<span class="underline">active proposal</span>](27_a_proposal_for_an_improvement_on_inventory_booking.md) with an associated syntax to fully solve this problem.
 
 Once the proposal is implemented, it will look like this:
 

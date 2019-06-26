@@ -188,7 +188,7 @@ Other than that, you can select any name you like for your accounts. You can cre
 
 Let us now revisit our example and add some more accounts:
 
-<img src="media/image9.png" style="width:5.5in;height:2.03125in" />
+<img src="media/image10.png" style="width:5.5in;height:2.03125in" />
 
 And let’s imagine there are more transactions:
 
@@ -200,7 +200,7 @@ And let’s imagine there are more transactions:
 
 Finally, we can label each of those accounts with one of the four types of accounts by prepending the type to their account names:
 
-<img src="media/image6.png" style="width:6.5in;height:2.98611in" />
+<img src="media/image7.png" style="width:6.5in;height:2.98611in" />
 
 A realistic book from someone tracking all of their personal affairs might easily contain thousands of transactions per year. But the principles remain simple and they remain the same: postings are applied to accounts over time, and must be parented to a transaction, and within this transaction the sum of all the postings is zero.
 
@@ -213,13 +213,13 @@ Trial Balance
 
 Take our last example: we can easily reorder all the accounts such that all the Asset accounts appear together at the top, then all the Liabilities accounts, then Income, and finally Expenses accounts. We are simply changing the order without modifying the structure of transactions, in order to group each type of accounts together:
 
-<img src="media/image7.png" style="width:6.5in;height:3in" />
+<img src="media/image3.png" style="width:6.5in;height:3in" />
 
 We’ve reordered the accounts with Assets accounts grouped at the top, then Liabilities, then some Equity accounts (which we have just introduced, more about them is discussed later), then Income and finally Expenses at the bottom.
 
 If we sum up the postings on all of the accounts and render just the account name and its final balance on the right, we obtain a report we call the “trial balance.”
 
-<img src="media/image3.png" style="width:2.83154in;height:4.47917in" />
+<img src="media/image6.png" style="width:2.83154in;height:4.47917in" />
 
 This simply reflects the balance of each account at a particular point in time. And because each of the accounts began with a zero balance, and each transaction has itself a zero balance, we know that the sum of all those balances must equal zero.[1] This is a consequence of our constraining that each of the postings be part of a transaction, and that each transaction have postings that balance each other out.
 
@@ -230,7 +230,7 @@ One kind of common information that is useful to extract from the list of transa
 
 In order to generate this summary, we simply turn our attention to the balances of the accounts of types Income and Expenses, summing up just the transactions for a particular period, and we draw the Income balances on the left, and Expenses balances on the right:
 
-<img src="media/image20.png" alt="out.png" style="width:6.5in;height:2.29167in" />
+<img src="media/image14.png" alt="out.png" style="width:6.5in;height:2.29167in" />
 
 It is important to take note of the signs here: Income numbers are negative, and Expenses numbers are positive. So if you earned more than you spent (a good outcome), the final sum of Income + Expenses balances will be a negative number. Like any other income, a net income that has a negative number means that there is a corresponding amount of Assets and/or Expenses with positive numbers (this is good for you).
 
@@ -249,7 +249,7 @@ A better way to achieve the same thing is to zero out the balances of the Income
 
 Those transactions inserted for all income statement accounts are pictured in green below. Now summing the entire set of transactions through the end of the ledger would yield only the changes during year 2016 because the balances were zero on that date:
 
-<img src="media/image4.png" style="width:6.5in;height:2.91667in" />
+<img src="media/image5.png" style="width:6.5in;height:2.91667in" />
 
 This is the semantics of the “CLEAR” operation of the bean-query shell.
 
@@ -279,13 +279,13 @@ Balance Sheet
 
 Another kind of summary is a listing of the owner’s assets and debts, for each of the accounts. This answers the question: “*Where’s the money?*” In theory, we could just restrict our focus to the Assets and Liabilities accounts and draw those up in a report:
 
-<img src="media/image10.png" alt="out.png" style="width:4.14583in;height:1.70833in" />
+<img src="media/image9.png" alt="out.png" style="width:4.14583in;height:1.70833in" />
 
 However, in practice, there is another closely related question that comes up and which is usually answered at the same time: “*Once all debts are paid off, how much are we left with?*” This is called the **net worth**.
 
 If the Income & Expenses accounts have been cleared to zero and all their balances have been transferred to Equity accounts, the net worth should be equal to the sum of all the Equity accounts. So in building up the Balance Sheet, it it customary to clear the net income and then display the balances of the Equity accounts. The report looks like this:
 
-<img src="media/image14.png" alt="out.png" style="width:6.5in;height:1.25in" />
+<img src="media/image13.png" alt="out.png" style="width:6.5in;height:1.25in" />
 
 Note that the balance sheet can be drawn for *any point in time*, simply by truncating the list of transactions following a particular date. A balance sheet displays a snapshot of balances at one date; an income statement displays the difference of those balances between two dates.
 
@@ -296,11 +296,11 @@ It is useful to summarize a history of past transactions into a single equivalen
 
 That somewhere else will be the Equity account **Opening Balances**. First, we can do this for all Assets and Liabilities accounts (see transactions in blue):
 
-<img src="media/image5.png" style="width:6.5in;height:3.04167in" />
+<img src="media/image8.png" style="width:6.5in;height:3.04167in" />
 
 Then we delete all the transactions that precede the opening date, to obtain a truncated list of transactions:
 
-<img src="media/image8.png" style="width:6.5in;height:3.01389in" />
+<img src="media/image11.png" style="width:6.5in;height:3.01389in" />
 
 This is a useful operation when we’re focused on the transactions for a particular interval of time.
 
@@ -325,13 +325,13 @@ These are the meaning of the “OPEN” and “CLOSE” operations of the bean-q
 
 “Closing” involves two steps. First, we remove all transactions following the closing date:
 
-<img src="media/image11.png" style="width:6.5in;height:3.01389in" />
+<img src="media/image12.png" style="width:6.5in;height:3.01389in" />
 
 We can process this stream of transactions to produce an Income Statement for the period.
 
 Then we clear again at the *end* date of the desired report, but this time we clear the net income to “Equity:Earnings:Current”:
 
-<img src="media/image12.png" style="width:6.5in;height:3.09722in" />
+<img src="media/image4.png" style="width:6.5in;height:3.09722in" />
 
 From these transactions, we produce the Balance Sheet at the end of the period.
 
@@ -364,7 +364,7 @@ For example, a checking account could be chosen to be “Assets:US:BofA:Checking
 
 I’ve found it doesn’t make sense for me to use this scheme for expense accounts, since those tend to represent generic categories. For those, it seems to make more sense to group them by category, as in using “Expenses:Food:Restaurant” instead of just “Expenses:Restaurant”.
 
-In any case, Beancount doesn’t enforce anything other than the root accounts; this is just a suggestion and this convention is not coded anywhere in the software. You have great freedom to experiment, and you can easily change all the names later by processing the text file. See the [<span class="underline">Cookbook</span>](http://furius.ca/beancount/doc/cookbook) for more practical guidance.
+In any case, Beancount doesn’t enforce anything other than the root accounts; this is just a suggestion and this convention is not coded anywhere in the software. You have great freedom to experiment, and you can easily change all the names later by processing the text file. See the [<span class="underline">Cookbook</span>](18_command_line_accounting_cookbook.md) for more practical guidance.
 
 Credits & Debits
 ----------------

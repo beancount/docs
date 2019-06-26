@@ -69,7 +69,7 @@ As you saw in the previous section, loading a Beancount file essentially produce
 
 There is no limit to what you can do, as long as the entries your plugin produces fulfill certain constraints (all postings balance, all data types are as expected).
 
-A plugin is added to the input file via the [<span class="underline">option syntax</span>](https://docs.google.com/document/d/1wAMVrKIA2qtRGmoVDSUBJGmYZSygUaR0uOMW1GV3YE0/edit#heading=h.e2iyrfrmstl), for example, like this:
+A plugin is added to the input file via the [<span class="underline">option syntax</span>](06_beancount_language_syntax.md), for example, like this:
 
     plugin "accounting.wash_sales"
 
@@ -208,6 +208,6 @@ To understand how to manipulate entries, you should refer to the source code, an
 
 -   [<span class="underline">beancount.core.inventory</span>](https://bitbucket.org/blais/beancount/src/tip/beancount/core/inventory.py)
 
-Refer to the [<span class="underline">Design Doc</span>](http://furius.ca/beancount/doc/design-doc) for more details. Enjoy!
+Refer to the [<span class="underline">Design Doc</span>](24_beancount_design_doc.md) for more details. Enjoy!
 
 [1] [<span class="underline"> </span> Technically, Python does not prevent the modifications of namedtuple attributes that are themselves mutable such as lists and sets, but in practice, by convention, once an entry is created we never modify it in any way. Avoiding side-effects and using a functional style provides benefits in any language.](http://validator.w3.org/check?uri=referer)
