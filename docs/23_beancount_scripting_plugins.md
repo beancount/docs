@@ -33,6 +33,8 @@ Load Pipeline
 
 You need to know a little bit about how Beancount processes its input files. Internally, the single point of entry to load an input file is the beancount.loader.load\_file() function, which accepts an input file and carries out a list of transformation steps, as in this diagram:
 
+<img src="docs/23_beancount_scripting_plugins/media/image2.png" style="width:8.66667in;height:3.23611in" />
+
 The stages of loading are as follows:
 
 1.  **Parser.** Run the input file through the parser. The output of this stage is

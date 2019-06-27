@@ -38,7 +38,7 @@ Another way to look at these balance assertions, is that they are simply the bot
 
 Following [<span class="underline">this thread</span>](https://groups.google.com/forum/#!topic/ledger-cli/vwkrPh74NFI), we established that there were differing interpretations of balance assertions in the current versions of Ledger (3.0) and Beancount (2.0b).
 
-<img src="media/image1.png" alt="balance-statement-1.png" style="width:6.5in;height:3.20833in" />
+<img src="docs/29_balance_assertions_in_beancount/media/image1.png" alt="balance-statement-1.png" style="width:6.5in;height:3.20833in" />
 
 Partial vs. Complete Assertions
 -------------------------------
