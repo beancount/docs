@@ -1,4 +1,5 @@
 import argparse
+import hashlib
 import io
 import os
 import shutil
@@ -8,6 +9,8 @@ import pypandoc
 from bs4 import BeautifulSoup
 from docx import Document
 from docx.enum.style import WD_STYLE_TYPE
+from docx.opc.packuri import PackURI
+from docx.parts.image import ImagePart
 
 INTERMEDIATE_FMT = 'docx'
 
@@ -71,6 +74,16 @@ def prepare_docx(file_name: str, drawing_dir: str = None) -> bytes:
                                             f'{drawing_idx:02d}.png')
                 para.runs[0].add_picture(drawing_path)
                 drawing_idx += 1
+
+    for part in doc.part.related_parts.values():
+        if isinstance(part, ImagePart):
+            # Use deterministic names for images
+            image_hash = part.image.sha1
+            image_name = os.path.join(
+                part.partname.baseURI,
+                f'{image_hash}.{part.partname.ext}',
+            )
+            part.partname = PackURI(image_name)
 
     buffer = io.BytesIO()
     doc.save(buffer)
