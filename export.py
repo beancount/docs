@@ -2,6 +2,7 @@ import argparse
 import io
 import os
 import pathlib
+import shutil
 
 import requests
 import pypandoc
@@ -84,7 +85,10 @@ def convert(
     input_fmt: str = INTERMEDIATE_FMT,
     output_fmt: str = 'markdown_strict',
 ):
+    output_dir = os.path.dirname(output)
     image_dir = os.path.splitext(output)[0]
+    # Directory path for --extract-media must be relative to the output dir
+    image_dir_rel = os.path.relpath(image_dir, output_dir)
     pypandoc.convert_text(
         document,
         output_fmt,
@@ -92,13 +96,17 @@ def convert(
         extra_args=[
             '--wrap=none',  # Don't wrap lines
             '--standalone',  # Don't strip headers
-            '--extract-media', image_dir,
+            '--extract-media', image_dir_rel,
         ],
         filters=[
             'filter.py',
         ],
         outputfile=output,
     )
+    if output_dir and os.path.exists(image_dir_rel):
+        # Move image dir to output dir
+        shutil.rmtree(image_dir)
+        shutil.move(image_dir_rel, image_dir)
 
 
 def main():
