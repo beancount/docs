@@ -1,7 +1,6 @@
 import argparse
 import io
 import os
-import pathlib
 import shutil
 
 import requests
@@ -52,10 +51,7 @@ def prepare_docx(file_name: str, drawing_dir: str = None) -> bytes:
     """
     doc = Document(file_name)
     doc.styles.add_style('SourceCode', WD_STYLE_TYPE.PARAGRAPH)
-    if drawing_dir:
-        drawing_list = pathlib.Path(drawing_dir).glob('*.png')
-    else:
-        drawing_list = None
+    drawing_idx = 0
 
     for para in doc.paragraphs:
         if len(para.runs) == 0:
@@ -68,11 +64,13 @@ def prepare_docx(file_name: str, drawing_dir: str = None) -> bytes:
             './/*[@uri="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup"]'
         ):
             # WordprocessingML group found
-            if drawing_list:
+            if drawing_dir:
                 # Pandoc can't convert embedded vector graphics
                 # So we insert previously downloaded image in the same run
-                drawing_path = str(next(drawing_list))
+                drawing_path = os.path.join(drawing_dir,
+                                            f'{drawing_idx:02d}.png')
                 para.runs[0].add_picture(drawing_path)
+                drawing_idx += 1
 
     buffer = io.BytesIO()
     doc.save(buffer)
@@ -105,7 +103,7 @@ def convert(
     )
     if output_dir and os.path.exists(image_dir_rel):
         # Move image dir to output dir
-        shutil.rmtree(image_dir)
+        shutil.rmtree(image_dir, ignore_errors=True)
         shutil.move(image_dir_rel, image_dir)
 
 
