@@ -468,6 +468,22 @@ This report renders balances in commodities not held at cost, in other words, ca
 
     bean-report example.beancount cash -c USD
 
+    Account                         Units  Currency  Cost Currency  Average Cost  Price  Book Value  Market Value
+
+    --------------------------  ---------  --------  -------------  ------------  -----  ----------  ------------
+
+    Assets:US:BofA:Checking        596.05       USD            USD                           596.05        596.05
+
+    Assets:US:ETrade:Cash        5,120.50       USD            USD                         5,120.50      5,120.50
+
+    Assets:US:Hoogle:Vacation      337.26     VACHR                                                              
+
+    Assets:US:Vanguard:Cash         -0.02       USD            USD                            -0.02         -0.02
+
+    Liabilities:US:Chase:Slate  -2,891.85       USD            USD                        -2,891.85     -2,891.85
+
+    --------------------------  ---------  --------  -------------  ------------  -----  ----------  ------------
+
 The report allows you to convert all currencies to a common currency (in the example above, "convert everything to USD"). There's also an option to report only on the operating currencies. I use this to get an overview of all uninvested cash.
 
 #### Prices (prices)

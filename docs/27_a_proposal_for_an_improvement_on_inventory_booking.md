@@ -134,7 +134,15 @@ In some cases you may even need to be able to apply multiple booking methods to 
 
 Things get more complicated for tax-sheltered accounts. Because there are no tax consequences to closing positions in these accounts, brokers will normally choose to account for the book value of your positions as if they were a single lot. That is, the cost of each share is computed using the weighted average of the cost of the position you are holding. This can equivalently be calculated by summing the total cost of each position and then dividing by the total number of shares. To continue with our first example:
 
-    10 HOOL x 500 USD/HOOL = 5000 USD
+> *10 HOOL x 500 USD/HOOL = 5000 USD*
+>
+> *8 HOOL x 510 USD/HOOL = 4080 USD*
+>
+> *Cost basis = 5000 USD + 4080 USD = 9080 USD*
+>
+> *Total number of shares = 10 HOOL + 8 HOOL = 18 HOOL*
+>
+> *Cost basis per share = 9080 USD / 18 HOOL = 504.44 USD/HOOL*
 
 So if you were to close some of your position and sell some shares, you would do so at a cost of 504.44 USD/HOOL. The gain you would realize would be relative to this cost; for example if you sold 5 shares at 520 USD/HOOL, your gain would be calculated like this:
 
@@ -526,7 +534,45 @@ The interpolation capabilities will be extended to cover eliding a single number
 
 For a use case, see [<span class="underline">this thread</span>](https://groups.google.com/d/msg/beancount/2fUcidr7oEs/Z-Fpzo0VYZMJ):
 
-    On Mon, Nov 24, 2014 at 12:33 PM, ELI <eliptus@gmail.com> wrote:
+*On Mon, Nov 24, 2014 at 12:33 PM, ELI &lt;eliptus@gmail.com&gt; wrote:*
+
+*Regarding the last piece on which there seems to be a misunderstanding between you and I, let me provide an standalone example, outside the context of the plugin. Since Vanguard only makes three decimal places of precision available me, I need to have the actual share count calculated from the price and transaction amount.*
+
+*For example, I have a transaction on my activities page with these details:*
+
+*Shares Transacted: 0.000*
+
+*Share Price: 48.62*
+
+*Amount: 0.02*
+
+*The only way to enter this transaction and have it balance would be to manually calculate the Shares Transacted with four decimal places of precision. My preferred way of entering this would be to enter the Share Price and Amount and have Beancount calculate Shares Transacted to a precision associated with my Vanguard account. Additionally, as metadata, I'd record "Shares Transacted: 0.000" as history of "what the statement said".*
+
+*Maybe you can give me your thoughts on how such a case would be addressed with planned Beancount features or as a plugin I could right?*
+
+What does the downloadable file contain? 0.000 or 0.0004 or even 0.00041?
+
+What this is, most likely, is the quarterly fee that they take, which they price in terms of shares. If this is your Vanguard account, and you sum all the similar such transactions around it, you should observe that it sums to 5$ per quarter.
+
+I would log it like this:
+
+      2014-11-23 * "Quarterly fee"
+        Assets:US:Vanguard:VIIPX      -0.00041 VIIPX {* 48.62 USD}
+        Expenses:Financial:Fees    0.02 USD
+
+The "\*" will be required to merge all the lots into a single one (average cost booking) because the 48.62 USD they declare is \_not\_ one of your lots, but rather just the price of the asset that happened to be there on the day they took the fee. In other words, they take their fee in terms of units of each asset, priced at the current price, deducting against the cost basis of all your lots together (it doesn't matter which because this is a pre-tax account, so no capital gains are reported).
+
+Now you're asking, how could I avoid calculating 0.00041 myself?
+
+My first answer would be: let's first see if the OFX download from Vanguard includes the precision. That would solve it. I believe it does (I checked my own history of downloads and I have some numbers in there with 4 fractional digits).
+
+My second answer would be that - if you don't have the number of shares from the file - after I implement the much needed new inventory booking proposal ([<span class="underline">http://furius.ca/beancount/doc/proposal-booking</span>](http://furius.ca/beancount/doc/proposal-booking)), the interpolation capabilities will be vastly extended, such that eliding the number of shares would even be possible, like this:
+
+      2014-11-23 * "Quarterly fee"
+        Assets:US:Vanguard:VIIPX      VIIPX {* 48.62 USD}
+        Expenses:Financial:Fees    0.02 USD
+
+Now this by itself still would not solve the problem: this would store 0.000411353353 which is limited at 12 fractional digits because of the default context. So that's incorrect. **What would need to be done to deal with this is to infer the most common number of digits used on units of VIIPX and to quantize the result to that number of digits (I think this could be safe enough). The number of digits appearing in the file for each currency** is already tracked in a DisplayContext object that is stored in the options\_map from the parser. I'll have to take that into account in the inventory booking proposal. I'm adding this to the proposal.
 
 Requirements
 ------------
@@ -764,7 +810,9 @@ Nothing speaks more clearly than concrete examples. If otherwise unspecified, we
 
 Given the following inventory lots:
 
-    21, (HOOL, 500, USD, 2012-05-01, null)
+> 21, (HOOL, 500, USD, 2012-05-01, null)
+>
+> 22, (AAPL, 380, USD, 2012-06-01, null)
 
 This booking should succeed:
 
@@ -794,7 +842,11 @@ So should this one (invalid date when a date is specified):
 
 Given the following inventory:
 
-    21, (HOOL, 500, USD, 2012-05-01, null)
+> 21, (HOOL, 500, USD, 2012-05-01, null)
+>
+> 32, (HOOL, 500, USD, 2012-06-01, “abc”)
+>
+> 25, (HOOL, 510, USD, 2012-06-01, null)
 
 This booking should succeed:
 
@@ -838,7 +890,9 @@ This booking should succeed, because there is a single lot with the “abc“ la
 
 If multiple lots have the same label, ambiguous cases may occur; with this inventory, for example:
 
-    32, (HOOL, 500, USD, 2012-06-01, “abc”)
+> 32, (HOOL, 500, USD, 2012-06-01, “abc”)
+>
+> 31, (HOOL, 510, USD, 2012-07-01, “abc”)
 
 The same booking should fail.
 

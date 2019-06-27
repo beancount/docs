@@ -180,6 +180,14 @@ Possible syntax ideas:
 
     2012-02-03 balance* Assets:CA:Bank:Checking        417.61 CAD, 162 USD
 
+    2012-02-03 balance Assets:CA:Bank:Checking       = 417.61 CAD, 162 USD
+
+    2012-02-03 balance full Assets:CA:Bank:Checking    417.61 CAD, 162 USD
+
+    2012-02-03 balance 
+      Assets:CA:Bank:Checking    417.61 CAD
+      Assets:CA:Bank:Checking       162 USD
+
 I’m still undecided which is best. So far it seems a matter of taste.
 
 [1] As far as we know, the notion of inputting an explicit expected amount is unique to command-line accounting systems. Other systems “reconcile” by freezing changes in the past.

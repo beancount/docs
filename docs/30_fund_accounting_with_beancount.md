@@ -17,15 +17,25 @@ What is Fund Accounting?
 
 For example, see [<span class="underline">this thread</span>](https://groups.google.com/d/msg/ledger-cli/N8Slh2t45K0/nu1ZACCueQYJ):
 
-    “Another religious duty I compute is effectively tithing (we call it Huqúqu'lláh, and it's computed differently, but that's another story). In order to compute the tithe owed, I accrue 19% of every deposit to a virtual account, and then subtract from that account 19% of every needful expenditure.
+> *“Another religious duty I compute is effectively tithing (we call it Huqúqu'lláh, and it's computed differently, but that's another story). In order to compute the tithe owed, I accrue 19% of every deposit to a virtual account, and then subtract from that account 19% of every needful expenditure.*
+>
+> *The total remaining at the end of the year is what I owe in tithe. This tithing account is not a real account, as it exists in no financial institution; but it is real enough as a personal duty. By using virtual account, I can track this "side-band" Liability, and then pay it off from an assets account when the time comes. If I report with --real I will simply see how much I've paid to this Liability; and if I report without --real I see how much Huqúqu'lláh is presently owed.”*
+>
+> *— John Wiegley*
 
 Here’s another description, as a comment from another user:
 
-    [...] basically the idea that you split your financial life into separate pots called "funds". Each fund has its own chart of accounts (to a certain extent) and each fund obeys Assets+Liabilities+Equities == 0. This is often needed in non-profits where money given for specific purposes has to be accounted separately. The one area of non-separation is that actual asset accounts (e.g. bank accounts) and actual liability accounts (credit cards) may hold or owe money on behalf of multiple funds, so you can't use entirely separate ledger files. At our church we use a program called PowerChurchPlus for this and it works really well. My wife is now treasurer for a community music organization and facing the same problem but on such a small scale that the cost of a commercial program isn't warranted.
+> *\[...\] basically the idea that you split your financial life into separate pots called "funds". Each fund has its own chart of accounts (to a certain extent) and each fund obeys Assets+Liabilities+Equities == 0. This is often needed in non-profits where money given for specific purposes has to be accounted separately. The one area of non-separation is that actual asset accounts (e.g. bank accounts) and actual liability accounts (credit cards) may hold or owe money on behalf of multiple funds, so you can't use entirely separate ledger files. At our church we use a program called PowerChurchPlus for this and it works really well. My wife is now treasurer for a community music organization and facing the same problem but on such a small scale that the cost of a commercial program isn't warranted.*
+>
+> *I've seen what was posted in the ledger-cli list about non-profit accounting using C++ ledger and it just looks like it requires way too much discipline to use the tags correctly and consistently. The fund idea is much easier to explain and use (and the balance account invariant naturally enforced). So I was looking at the Beancount code to see whether I could adapt it to support fund accounting. I think the answer is "yes and relatively easily so". Furthermore, I think this idea has uses even for individuals: a couple of scenarios present themselves. First, I live in a community property state. My wife and I are each likely to inherit property which will be ours individually, but we also have the community property. These can each be treated as a separate fund and we will be able to report on them separately but also together for understanding our overall financial situation. Similarly, it potentially makes sense to account for retirement money with a separate fund for each person.*
+>
+> *— Carl Hauser*
 
 From the PowerChurchPlus 11.5 Manual (PowerChurch, Inc. 2013):
 
-    “In accounting, the term fund has a very specific meaning. An Accounting Fund is a self-balancing Chart of Accounts. [...] In accounting we need to think of a fund as a division, or sub-group of your church. Each Accounting Fund has its own assets, liabilities, equity, income, transfer and expense accounts.
+> *“In accounting, the term fund has a very specific meaning. An Accounting Fund is a self-balancing Chart of Accounts. \[...\] In accounting we need to think of a fund as a division, or sub-group of your church. Each Accounting Fund has its own assets, liabilities, equity, income, transfer and expense accounts.*
+>
+> *So when would you use an additional fund? If you have an area of your church that needs to produce its own reporting, you would need to use an additional fund. For example, if your church operates a preschool or play school, you might want to set up an additional fund to keep their finances separate from the church's. Depending on your needs, you might want to setup a separate fund for the men's or women's group. You might even setup a new fund to keep track of all fixed assets separately from the daily operating accounts.”*
 
 This is an interesting and apparently common problem. We will describe use cases in the rest of this section.
 

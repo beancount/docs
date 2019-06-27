@@ -178,6 +178,16 @@ In order to reconcile (2), we basically compare the balances of the Income:Mom a
 
     $ reconcile_shared.py kyle.beancount
 
+    Total contributions:                       71009.30
+
+    Dad expected contribution:              42605.58
+    Dad actual contribution:                42906.58
+
+    Mom expected contribution:              28403.72
+    Mom actual contribution:                28102.72
+
+    Mom OWES Dad:       301.00
+
 After reconciling, the final number should be zero.
 
 ### Reconciling the Child Ledger
@@ -197,6 +207,16 @@ When this gets pulled into dad.beancount (as explained previously), it looks lik
 After that, going back to the Kyle ledger, pulling in all the transactions again (this is done by using a Makefile) would show an updated balance of 0:
 
     $ reconcile_shared.py kyle.beancount
+
+    Total contributions:                       71009.30
+
+    Dad expected contribution:              42605.58
+    Dad actual contribution:                42605.58
+
+    Mom expected contribution:              28403.72
+    Mom actual contribution:                28403.72
+
+    Mom OWES Dad:       301.00
 
 Summary of the System
 ---------------------

@@ -116,15 +116,21 @@ Prices from a Beancount Input File
 
 Generally, one uses a Beancount input file to specify the list of currencies to fetch. In order to do that, you should have Commodity directives in your input file for each of the currencies you mean to fetch prices for, like this:
 
-    2007-07-20 commodity VEA
+> **2007-07-20 commodity VEA**
+>
+> **price: "USD:google/NYSEARCA:VEA"**
 
 The "price" metadata should contain a list of price source strings. For example, a stock product might look like this:
 
-    2007-07-20 commodity CAD
+> 2007-07-20 commodity CAD
+>
+> price: "**USD:google/CURRENCY:USDCAD,yahoo/USDCAD"**
 
 While a currency may have multiple target currencies it needs to get converted to:
 
-    1990-01-01 commodity GBP
+> 1990-01-01 commodity GBP
+>
+> price: "**USD:yahoo/GBPUSD CAD:yahoo/GBPCAD CHF:yahoo/GBPCHF"**
 
 ### Which Assets are Fetched
 

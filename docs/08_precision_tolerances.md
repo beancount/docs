@@ -291,7 +291,9 @@ Historical Notes
 
 Here’s an overview of the status of numbers rendering in Beancount as of March 2016, [<span class="underline">from the mailing-list</span>](https://groups.google.com/d/msg/beancount/frfN1zc6TEc/d5OjuDnREgAJ):
 
-    First, it's important to realize how these numbers are represented in memory. They are using the Decimal representation which beyond being able to accurately representing decimal numbers (as opposed to the approximation that binary floats provides) also contains a specific precision. That is, the number 2.00 is represented differently than the numbers 2.0 and 2.000. The numbers "remember" which precision they are represented up to. This is important. When I say rendering the numbers to their "natural precision" I mean the precision with which they are represented, i.e., 2.0 renders as "2.0", 2.000 renders as "2.000".
+> First, it's important to realize how these numbers are represented in memory. They are using the Decimal representation which beyond being able to accurately representing decimal numbers (as opposed to the approximation that binary floats provides) also contains a specific precision. That is, the number 2.00 is represented differently than the numbers 2.0 and 2.000. The numbers "remember" which precision they are represented up to. This is important. When I say rendering the numbers to their "natural precision" I mean the precision with which they are represented, i.e., 2.0 renders as "2.0", 2.000 renders as "2.000".
+>
+> Then, there are two DISTINCT topics: (1) tolerances, and (2) precision.
 
 -   "Tolerances" are values used to determine how much imprecision is acceptable in balancing transactions. This is used in the verification stage, to determine how much looseness to allow. It should not affect how numbers are rendered.
 

@@ -191,6 +191,8 @@ Here is a brief example, using the wash\_sales.py plugin we wrote above. Your be
 
     option "insert_pythonpath" "True"
 
+    plugin "wash_sales"
+
 The Python file wash\_sales.py would be stored in the same folder as the .beancount file.
 
 Going Further

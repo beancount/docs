@@ -121,6 +121,10 @@ Here are some example directives, just to give you an idea of the aesthetics:
 
     2014-02-03 open Assets:US:BofA:Checking
 
+    2014-04-10 note Assets:US:BofA:Checking “Called to confirm wire transfer.”
+
+    2014-05-02 balance Assets:US:BofA:Checking   154.20 USD
+
 The end product of a parsed input file is a simple list of these entries, in a data structure. All operations in Beancount are performed on these entries.
 
 Each particular directive type is documented in a section below.
@@ -492,10 +496,26 @@ For example, if in the past you had the following transactions:
       Assets:ETrade:IVV                20 IVV {183.07 USD, "ref-001"}
       … 
 
+    2014-03-22 * "Bought shares of S&P 500"
+      Assets:ETrade:IVV                15 IVV {187.12 USD}
+      … 
+
 Each of the following reductions would be unambiguous:
 
     2014-05-01 * "Sold shares of S&P 500"
       Assets:ETrade:IVV               -20 IVV {183.07 USD}
+      … 
+
+    2014-05-01 * "Sold shares of S&P 500"
+      Assets:ETrade:IVV               -20 IVV {2014-02-11}
+      … 
+
+    2014-05-01 * "Sold shares of S&P 500"
+      Assets:ETrade:IVV               -20 IVV {"ref-001"}
+      … 
+
+    2014-05-01 * "Sold shares of S&P 500"
+      Assets:ETrade:IVV               -35 IVV {}
       … 
 
 However, the following would be ambiguous:
@@ -949,6 +969,12 @@ You may attach arbitrary data to each of your entries and postings. The syntax f
 
     2013-03-14 open Assets:BTrade:HOOLI
       category: "taxable"
+
+    2013-08-26 * "Buying some shares of Hooli"
+      statement: "confirmation-826453.pdf"
+      Assets:BTrade:HOOLI      10 HOOL @ {498.45 USD}
+        decision: "scheduled"
+      Assets:BTrade:Cash
 
 In this example, a “category” attribute is attached to an account’s Open directive, a “statement” attribute is attached to a Transaction directive (with a string value that represents a filename) and a “decision” attribute has been attached to the first posting of the transaction (the additional indentation from the posting is not strictly necessary but it helps with readability).
 

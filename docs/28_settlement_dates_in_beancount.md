@@ -139,7 +139,13 @@ References
 
 The IRS [<span class="underline">requires you to use the trade date and NOT the settlement date</span>](http://www.irs.gov/publications/p17/ch14.html) for tax reporting; from the IRS Publication 17:
 
-    Securities traded on established market. For securities traded on an established securities market, your holding period begins the day after the trade date you bought the securities, and ends on the trade date you sold them.
+> **Securities traded on established market.** For securities traded on an established securities market, your holding period begins the day after the trade date you bought the securities, and ends on the trade date you sold them.
+>
+> <img src="28_settlement_dates_in_beancount/media/1336b54a60f8aa4b92957260378207d6479e7c39.gif" style="width:0.5625in;height:0.5625in" />Do not confuse the trade date with the settlement date, which is the date by which the stock must be delivered and payment must be made.
+>
+> **Example.**
+>
+> You are a cash method, calendar year taxpayer. You sold stock at a gain on December 30, 2013. According to the rules of the stock exchange, the sale was closed by delivery of the stock 4 trading days after the sale, on January 6, 2014. You received payment of the sales price on that same day. Report your gain on your 2013 return, even though you received the payment in 2014. The gain is long term or short term depending on whether you held the stock more than 1 year. Your holding period ended on December 30. If you had sold the stock at a loss, you would also report it on your 2013 return.
 
 ### Threads
 

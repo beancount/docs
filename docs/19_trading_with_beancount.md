@@ -62,7 +62,9 @@ The next day, the market opens and IBM shares are going for 170$/share. In this 
 
 The difference between these two amounts is what we will call the P/L:
 
-    market value - book value = P/L
+> market value - book value = P/L
+>
+> 10 x 170$ - 10 x 160$ = 1700$ - 1600$ = 100$ (profit)
 
 We will call a positive amount “a profit” and if the amount is negative, “a loss.”
 
@@ -73,11 +75,15 @@ The profit from the previous section is called an “unrealized profit.” That 
 
 So let’s say you like this unrealized profit and you feel that it’s temporary luck that IBM went up. You decide to sell 3 of these 10 shares to the market at 170$/share. The profit on these share will now be “realized”:
 
-    market value - book value = P/L
+> market value - book value = P/L
+>
+> 3 x 170$ - 3 x 160$ = 3 x (170 - 160) = 30$ (profit)
 
 This 30$ is a “realized P/L.” The remaining portion of your position is still showing an unrealized profit, that is, the price could fluctuate some more until you sell it:
 
-    market value - book value = P/L
+> market value - book value = P/L
+>
+> 7 x 170$ - 7 x 160$ = 70$
 
 This is how you would book this partial sale of your position in Beancount (again including a commission):
 
@@ -98,7 +104,11 @@ The last leg will be automatically filled in by Beancount to -30 USD, as we’re
 
 In summary, you now have:
 
-    A position of 7 “shares at book value of 160$” = 1120$ (its book value)
+> A position of 7 “shares at book value of 160$” = 1120$ (its book value)
+>
+> A realized P/L of 30$
+>
+> An unrealized P/L of 70$
 
 Now at this point, some of you will jump up and down and say: “But wait, waiiit! I sold at 170$/share, not 160$/share, why do you put 160$ here?” The answer is that you did not have shares held at 170$ to sell. In order to explain this, I need to make a little detour to explain how we keep track of things in accounts...
 
@@ -214,6 +224,11 @@ Well… I had simplified things a tiny bit earlier, just to make it simpler to u
       Assets:US:ETrade:Cash           -909.95 USD
       Expenses:Financial:Commissions     9.95 USD
 
+    2014-05-21 * "Second trade"
+      Assets:US:ETrade:IBM          3 IBM {180.00 USD, 2014-05-21}
+      Assets:US:ETrade:Cash           -549.95 USD
+      Expenses:Financial:Commissions     9.95 USD
+
 Now when you sell, you can do the same thing to disambiguate which lot’s position you want to reduce:
 
     2014-08-04 * "Selling off first trade"
@@ -267,25 +282,37 @@ In the examples above, the capital gains and commission expenses get tracked int
 
 Imagine that we have an account with a commission rate of $10 per trade, 100 shares of ITOT were bought in 2013, 40 of those shares were later sold in that same year, and the remaining 60 were sold the year after, a scenario that looks like this:
 
-    2013-09-01 Buy 100 ITOT at $80, commission = 10$
+> 2013-09-01 Buy 100 ITOT at $80, **commission = 10$**
+>
+> 2013-11-01 Sell 40 ITOT at $82, commission = 10$
+>
+> 2014-02-01 Sell 60 ITOT at $84, commission = 10$
 
 If you computed the sum of commissions paid at the end of 2013, you would have $20, and using the approximate method outlined previously, for so 2013 and 2014 you would declare
 
-    2013: P/L of 40 x ($82 - $80) - ($10 + $10) = $60
+> 2013: P/L of 40 x ($82 - $80) - ($10 + $10) = $60
+>
+> 2014: P/L of 60 x ($84 - $80) - $10 = $230
 
 However, strictly speaking, this is incorrect. The $10 commission paid on *acquiring* the 100 shares has to be pro-rated with respect to the number of shares sold. This means that on that first sale of 40 shares only 4$ of the commission is deductible: $10 x (40 shares / 100 shares), and so we obtain:
 
-    2013: P/L of 40 x ($82 - $80) - $(4 + 10) = $66
+> 2013: P/L of 40 x ($82 - $80) - $(4 + 10) = $66
+>
+> 2014: P/L of 60 x ($84 - $80) - $(6 + 10) = $224
 
 As you can see, the P/L declared for each year differs, even if the sum of the P/L for both years is the same ($290).
 
 A convenient method to automatically allocate the acquisition costs to the pro-rata value of the number of shares sold is to add the acquisition trading cost to the total book value of the position. In this example, you would say that the position of 100 shares has a book value $8010 instead of $8000: 100 share x $80/share + $10, or equivalently, that the individual shares have a book value of $80.10 each. This would result in the following calculation:
 
-    2013: P/L of 40 x ($82 - $80.10) - $10 = $66
+> 2013: P/L of 40 x ($82 - $80.10) - $10 = $66
+>
+> 2014: P/L of 60 x ($84 - $80.10) - $10 = $224
 
 You could even go one step further and fold the commission on *sale* into the price of each share sold as well:
 
-    2013: P/L of 40 x ($81.75 - $80.10) = $66
+> 2013: P/L of 40 x ($81.75 - $80.10) = $66
+>
+> 2014: P/L of 60 x ($83.8333 - $80.10) = $224
 
 This may seem overkill, but imagine that those costs were much higher, as is the case on large commercial transactions; the details do begin to matter to the tax man. Accurate accounting is important, and we need to develop a method to do this more precisely.
 

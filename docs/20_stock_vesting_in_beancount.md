@@ -220,6 +220,14 @@ At the time of this writing, the bean-web interface does not convert the units i
 
     $ bean-query examples/vesting/vesting.beancount 
 
+    beancount> select account, sum(convert(position, 'USD.UNVEST')) as unvested 
+               where account ~ 'Unvested' group by account;
+
+                 account                     unvested       
+    --------------------------------- ----------------------
+    Assets:US:Hooli:Unvested:S0012345 217847.3500 USD.UNVEST
+    Assets:US:Hooli:Unvested:C123456   93363.1500 USD.UNVEST
+
 Selling Vested Stock
 --------------------
 

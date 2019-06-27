@@ -316,6 +316,16 @@ You can also get the same amounts by using bean-query to achieve the same thing:
 
     ~/p/.../examples/sharing$ bean-query cozumel2015.beancount 
 
+    Input file: "Mexico Trip: Cozumel & Tulum SCUBA Diving"
+    Ready with 105 directives (160 postings in 45 transactions).
+
+    beancount> SELECT sum(position) WHERE account ~ '^Income:.*Caroline'
+
+    sum_positio
+    -----------
+    -415.00 USD
+       5    MXN
+
 ### Splitting Expenses
 
 The expenses side of the Income Statement shows the breakdown of expenses. Note how some of the expense accounts are explicitly booked to each member separately by their account name, e.g., “Expenses:Scuba:Martin”. The other accounts, e.g. “Expenses:Groceries” are intended to be split.
@@ -353,6 +363,18 @@ The web tool does not provide such a filtering capability at the moment[1], but 
 
     beancount> SELECT sum(position) WHERE account ~ '^Expenses:.*Martin'
 
+    sum_positio
+    -----------
+    2007.43 USD
+    3837.0  MXN
+
+    beancount> SELECT sum(position) WHERE account '^Expenses:.*Caroline'
+
+    sum_positio
+    -----------
+    1686.97 USD
+    3637.0  MXN
+
 This says “Martin accrued expenses of 2007.43 USD and 3837.0 MXN.”
 
 You can manually convert this to a dollar amount:
@@ -363,6 +385,16 @@ You can manually convert this to a dollar amount:
 Or you can use the recently introduced “CONVERT” function of bean-query to do this:
 
     beancount> SELECT convert(sum(position), 'USD') WHERE account ~ '^Expenses:.*Martin'
+
+         convert_sum_position_c_     
+    ---------------------------------
+    2288.528901098901098901098901 USD
+
+    beancount> SELECT convert(sum(position), 'USD') WHERE account ~ '^Expenses:.*Caroline'
+
+         convert_sum_position_c_     
+    ---------------------------------
+    1953.416886446886446886446886 USD
 
 (The difference between the 2291.43 and 2288.53 amounts can be attributed to the usage of slightly different exchange rates used in the converting transactions.)
 
@@ -377,6 +409,16 @@ In order to figure out the total amount owed by each member, the process is simi
 
     beancount> SELECT convert(sum(position), 'USD') WHERE account ~ 'Caroline'
 
+         convert_sum_position_c_     
+    ---------------------------------
+    1538.783186813186813186813187 USD
+
+    beancount> SELECT convert(sum(position), 'USD') WHERE account ~ 'Martin'
+
+         convert_sum_position_c_      
+    ----------------------------------
+    -1546.355494505494505494505494 USD
+
 Notice that this includes the Income and Expenses accounts for that person. It’s as if we had two separate ledgers merged into one. (Once again, the small differences can be attributed to differences in exchange rate over time.)
 
 We can now make a final transfer amount in order to account for each of our expenses; we’ve agreed to round this to 1500 USD:
@@ -388,6 +430,16 @@ We can now make a final transfer amount in order to account for each of our expe
 If you uncomment this transaction from the input file (near the end), you will find corrected balances:
 
     beancount> SELECT convert(sum(position), 'USD') WHERE account ~ 'Martin'
+
+         convert_sum_position_c_     
+    ---------------------------------
+    -46.3554945054945054945054945 USD
+
+    beancount> SELECT convert(sum(position), 'USD') WHERE account ~ 'Caroline'
+
+        convert_sum_position_c_     
+    --------------------------------
+    38.7831868131868131868131868 USD
 
 Updating your Personal Ledger
 -----------------------------
@@ -436,6 +488,25 @@ After the trip is concluded, we want to convert the balance in the pending accou
 
     beancount> SELECT account, sum(position) WHERE account ~ '^Expenses:.*:Martin' 
                GROUP BY 1 ORDER BY 1
+
+                account             sum_positio
+    ------------------------------- -----------
+    Expenses:Accommodation:Martin    735.45 USD
+    Expenses:Alcohol:Martin          483    MXN
+    Expenses:Bicycles:Martin          69.5  MXN
+    Expenses:Flights:Martin          488.00 USD
+    Expenses:Groceries:Martin        197.0  MXN
+    Expenses:Museum:Martin            64    MXN
+    Expenses:Restaurant:Martin        22.28 USD
+                                    1795.5  MXN
+    Expenses:Scuba:Martin            506.14 USD
+    Expenses:Scuba:ParkFees:Martin     7.50 USD
+    Expenses:Tips:Martin             225    MXN
+                                     189.16 USD
+    Expenses:Transport:Bus:Martin    709    MXN
+    Expenses:Transport:Taxi:Martin    53.90 USD
+                                     294    MXN
+    Expenses:Transport:Train:Martin    5.00 USD
 
 I suppose you could script away this part to remove the member’s name from the account names and have the script spit output already formatted as a nicely formatted Transaction, but because the account names will not match the personal ledger file’s 1-to-1, you will have to perform a manual conversion anyway, so I did not bother automating this. Furthermore, you only have a single one of these to make after your trip, so it’s not worth spending too much time making this part easier[2].
 

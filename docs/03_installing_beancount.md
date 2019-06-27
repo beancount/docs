@@ -220,6 +220,9 @@ You should be able to run the binaries from [<span class="underline">this docume
 
     $ bean-check
 
+    usage: bean-check [-h] [-v] filename
+    bean-check: error: the following arguments are required: filename
+
 If this works, you can now go to the [<span class="underline">tutorial</span>](13_tutorial_example.md) and begin learning how Beancount works.
 
 ### Reporting Problems
