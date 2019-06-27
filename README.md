@@ -12,8 +12,9 @@
 Export and convert single document:
 
 ```
-python export.py download "1e44jtLyVRl2H2Pj4K3WUc66otAlTOFOc90-tsrFEQdo" --name "Generating Reports.docx"
-python export.py convert "Generating Reports.docx" > "Generating Reports.md"
+python export.py document "100tGcA4blh6KSXPRGCZpUlyxaRUwFHEvnz_k9DyZFn4" doubleentry.docx
+python export.py drawings "100tGcA4blh6KSXPRGCZpUlyxaRUwFHEvnz_k9DyZFn4" drawings
+python export.py convert doubleentry.docx doubleentry.md --drawing-dir=drawings
 ```
 
 Export and convert all documents:

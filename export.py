@@ -1,15 +1,18 @@
 import argparse
 import io
+import os
+import pathlib
 
 import requests
 import pypandoc
+from bs4 import BeautifulSoup
 from docx import Document
 from docx.enum.style import WD_STYLE_TYPE
 
 INTERMEDIATE_FMT = 'docx'
 
 
-def download_file(
+def download_document(
     document_id: str,
     fmt=INTERMEDIATE_FMT,
     file_name=None,
@@ -28,18 +31,48 @@ def download_file(
     return data
 
 
-def prepare_docx(file_name: str) -> bytes:
+def download_drawings(document_id: str, drawing_dir: str):
+    document_html = download_document(document_id, fmt='html')
+    soup = BeautifulSoup(document_html, 'html.parser')
+    os.makedirs(drawing_dir, exist_ok=True)
+    for idx, image in enumerate(soup.select('img[src*="drawings"]')):
+        response = requests.get(image['src'])
+        response.raise_for_status()
+        file_name = os.path.join(drawing_dir, f'{idx:02d}.png')
+        with open(file_name, 'wb') as file:
+            file.write(response.content)
+
+
+def prepare_docx(file_name: str, drawing_dir: str = None) -> bytes:
     """
-    Add SourceCode style
-    https://groups.google.com/d/msg/pandoc-discuss/SIwE9dhGF4U/Wjy8zmQ1CQAJ
+    Prepare docx document for Pandoc conversion:
+    * Mark code blocks with SourceCode style
+    * Replace vector graphics with raster
     """
     doc = Document(file_name)
     doc.styles.add_style('SourceCode', WD_STYLE_TYPE.PARAGRAPH)
+    if drawing_dir:
+        drawing_list = pathlib.Path(drawing_dir).glob('*.png')
+    else:
+        drawing_list = None
+
     for para in doc.paragraphs:
         if len(para.runs) == 0:
             continue
         if para.runs[0].font.name == 'Consolas':
+            # Add SourceCode style
+            # https://groups.google.com/d/msg/pandoc-discuss/SIwE9dhGF4U/Wjy8zmQ1CQAJ
             para.style = doc.styles['SourceCode']
+        if para.runs[0].element.xpath(
+            './/*[@uri="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup"]'
+        ):
+            # WordprocessingML group found
+            if drawing_list:
+                # Pandoc can't convert embedded vector graphics
+                # So we insert previously downloaded image in the same run
+                drawing_path = str(next(drawing_list))
+                para.runs[0].add_picture(drawing_path)
+
     buffer = io.BytesIO()
     doc.save(buffer)
     return buffer.getvalue()
@@ -47,57 +80,71 @@ def prepare_docx(file_name: str) -> bytes:
 
 def convert(
     document: bytes,
+    output: str,
     input_fmt: str = INTERMEDIATE_FMT,
     output_fmt: str = 'markdown_strict',
-) -> str:
-    """
-    Equivalent to
-    pandoc document.docx -f docx -t markdown_strict --standalone --wrap=none --filter filter.py
-    """
-    output = pypandoc.convert_text(
+):
+    image_dir = os.path.splitext(output)[0]
+    pypandoc.convert_text(
         document,
         output_fmt,
         format=input_fmt,
         extra_args=[
             '--wrap=none',  # Don't wrap lines
             '--standalone',  # Don't strip headers
+            '--extract-media', image_dir,
         ],
         filters=[
             'filter.py',
         ],
+        outputfile=output,
     )
-    return output
 
 
 def main():
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers(dest='command')
-    download_parser = subparsers.add_parser(
-        'download',
+    document_parser = subparsers.add_parser(
+        'document',
         help='download document')
-    download_parser.add_argument('id', help='document id')
-    download_parser.add_argument(
-        '--name',
-        help='file name',
-        default='document.docx')
+    document_parser.add_argument('id', help='document id')
+    document_parser.add_argument('output', help='output file name')
+
+    drawings_parser = subparsers.add_parser(
+        'drawings',
+        help='download drawings')
+    drawings_parser.add_argument('id', help='document id')
+    drawings_parser.add_argument('dir', help='output directory name')
 
     convert_parser = subparsers.add_parser(
         'convert',
         help='convert document')
     convert_parser.add_argument('name', help='docx file name')
+    convert_parser.add_argument('output', help='output file name')
     convert_parser.add_argument(
         '--format',
         help='output format',
         default='markdown_strict')
+    convert_parser.add_argument(
+        '--drawing-dir',
+        help='drawing directory')
     args = parser.parse_args()
 
-    if args.command == 'download':
-        download_file(args.id, file_name=args.name)
+    if args.command == 'document':
+        download_document(args.id, file_name=args.output)
+    elif args.command == 'drawings':
+        download_drawings(args.id, args.dir)
     elif args.command == 'convert':
         document_path = args.name
-        document = prepare_docx(document_path)
-        result = convert(document, output_fmt=args.format)
-        print(result)
+        document = prepare_docx(
+            document_path,
+            drawing_dir=args.drawing_dir,
+        )
+        convert(
+            document,
+            args.output,
+            output_fmt=args.format,
+        )
 
 
 if __name__ == '__main__':

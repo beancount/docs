@@ -6,7 +6,12 @@ from bs4 import BeautifulSoup
 from slugify import slugify
 
 from constants import GOOGLE_DOC_INDEX_ID, GOOGLE_DOC_URL_REGEXP
-from export import download_file, prepare_docx, convert
+from export import (
+    download_document,
+    download_drawings,
+    prepare_docx,
+    convert,
+)
 
 
 def get_index() -> dict:
@@ -14,8 +19,8 @@ def get_index() -> dict:
     Find all Google Docs links in documentation index
     """
     document_map = {GOOGLE_DOC_INDEX_ID: '00_beancount_documentation.md'}
-    index_html = download_file(GOOGLE_DOC_INDEX_ID, fmt='html')
-    soup = BeautifulSoup(index_html, 'lxml')
+    index_html = download_document(GOOGLE_DOC_INDEX_ID, fmt='html')
+    soup = BeautifulSoup(index_html, 'html.parser')
     for elem in soup.find_all('a'):
         match = GOOGLE_DOC_URL_REGEXP.search(elem['href'])
         if not match:
@@ -45,13 +50,13 @@ def main():
     documents = get_index()
     for document_id, filename in documents.items():
         print(f'Processing https://docs.google.com/document/d/{document_id}/')
-        with tempfile.NamedTemporaryFile() as temp_file:
-            download_file(document_id, file_name=temp_file.name)
-            document = prepare_docx(temp_file.name)
+        with tempfile.NamedTemporaryFile() as document_file, \
+                tempfile.TemporaryDirectory() as drawings_dir:
+            download_document(document_id, file_name=document_file.name)
+            download_drawings(document_id, drawings_dir)
+            document = prepare_docx(document_file.name, drawings_dir)
         output_path = os.path.join('docs', filename)
-        output = convert(document)
-        with open(output_path, 'w') as output_file:
-            output_file.write(output)
+        convert(document, output_path)
 
     print('Done.')
 
