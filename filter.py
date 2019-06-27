@@ -56,11 +56,12 @@ def action(elem, doc):
     if isinstance(elem, BlockQuote):
         if isinstance(elem.parent, ListItem):
             # Don't use blockquotes in lists
+            assert len(elem.content) == 1
             return elem.content[0]
-        elif isinstance(elem.content[0], CodeBlock):
-            # Remove blockquotes from code blocks
-            return elem.content[0]
-        else:
+        elif any(isinstance(item, CodeBlock) for item in elem.content):
+            # Remove blockquotes around code blocks
+            return [item for item in elem.content]
+        elif len(elem.content) == 1:
             # Convert blockquotes to code blocks
             code = ''
             for item in elem.content[0].content:
@@ -77,10 +78,12 @@ def action(elem, doc):
                     code += stringify(item)
             else:
                 return CodeBlock(code)
+
     elif isinstance(elem, Header):
         # There must be only one level 1 header
         if elem.identifier != 'title':
             elem.level += 1
+
     elif isinstance(elem, Link):
         if elem.url == stringify(elem):
             # Displayed as url, skip
