@@ -347,7 +347,7 @@ It is useful to know how positions are represented in an inventory object. A *Po
 
 We often refer to these position objects as “lots” or “legs.” Schematically, a position object looks like this:
 
-<img src="docs/11_how_inventories_work/media/image2.png" style="width:3.76389in;height:3.75in" />
+<img src="11_how_inventories_work/media/image2.png" style="width:3.76389in;height:3.75in" />
 
 The structure of a *Position* object.
 
