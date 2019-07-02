@@ -1,13 +1,17 @@
-[Index](docs/00_beancount_documentation.md)
+# Beancount Documentation
 
-# Beancount Google Doc converter
+* [Index](docs/00_beancount_documentation.md)
 
-## Requirements
+These documents in markdown format are automatically generated from [official Beancount Documentation](http://furius.ca/beancount/doc/index).
+
+## Beancount Google Doc converter
+
+### Requirements
 
 * python 3
 * pandoc
 
-## Usage
+### Usage
 
 Export and convert single document:
 
