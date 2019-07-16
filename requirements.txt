@@ -1,5 +1,6 @@
 beautifulsoup4==4.7.1
 panflute==1.11.2
+py-pandoc==2.7.1.1
 pypandoc==1.4
 python-docx==0.8.10
 python-slugify==3.0.2

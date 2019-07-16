@@ -6,10 +6,13 @@ These documents in markdown format are automatically generated from [official Be
 
 ## Beancount Google Doc converter
 
-### Requirements
+### Installation
 
-* python 3
-* pandoc
+Install dependencies (python 3 is required):
+
+```
+pip install -r requirements.txt
+```
 
 ### Usage
 
