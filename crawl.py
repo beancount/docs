@@ -18,7 +18,7 @@ def get_index() -> dict:
     """
     Find all Google Docs links in documentation index
     """
-    document_map = {GOOGLE_DOC_INDEX_ID: '00_beancount_documentation.md'}
+    document_map = {GOOGLE_DOC_INDEX_ID: 'index.md'}
     index_html = download_document(GOOGLE_DOC_INDEX_ID, fmt='html')
     soup = BeautifulSoup(index_html, 'html.parser')
     for elem in soup.find_all('a'):
