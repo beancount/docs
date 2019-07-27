@@ -1,6 +1,8 @@
 # Beancount Documentation
 
-* [Index](docs/00_beancount_documentation.md)
+https://xuhcc.github.io/beancount-docs/
+
+Source files are in [docs](docs/) directory.
 
 These documents in markdown format are automatically generated from [official Beancount Documentation](http://furius.ca/beancount/doc/index).
 
