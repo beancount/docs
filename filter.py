@@ -1,5 +1,6 @@
 import json
 import logging
+import re
 
 from panflute import (
     run_filter,
@@ -92,6 +93,10 @@ def action(elem, doc):
             resolved = resolve_url(elem.url)
             if resolved:
                 elem.url = resolved
+
+    elif isinstance(elem, CodeBlock):
+        # Remove unnecessary leading tabs from code blocks
+        elem.text = re.sub(r'^\t', '', elem.text, flags=re.MULTILINE)
 
 
 def main(doc=None):

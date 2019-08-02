@@ -59,10 +59,16 @@ def prepare_docx(file_name: str, drawing_dir: str = None) -> bytes:
     for para in doc.paragraphs:
         if len(para.runs) == 0:
             continue
-        if para.runs[0].font.name == 'Consolas':
-            # Add SourceCode style
-            # https://groups.google.com/d/msg/pandoc-discuss/SIwE9dhGF4U/Wjy8zmQ1CQAJ
-            para.style = doc.styles['SourceCode']
+
+        # Find snippets in monospace font and add SourceCode style to them
+        # https://groups.google.com/d/msg/pandoc-discuss/SIwE9dhGF4U/Wjy8zmQ1CQAJ
+        for run in para.runs:
+            if run.text == '\t':
+                continue  # Ignore leading tabs
+            if run.font.name in ['Consolas', 'Courier New']:
+                para.style = doc.styles['SourceCode']
+            break
+
         if para.runs[0].element.xpath(
             './/*[@uri="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup"]'
         ):
