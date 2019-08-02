@@ -42,6 +42,10 @@ Tools
 
 [<span class="underline">hoostus/portfolio-returns</span>](https://github.com/hoostus/portfolio-returns) (Justus Pendleton): portfolio returns calculator
 
+[<span class="underline">redstreet/beancount\_assert\_allocation</span>](https://github.com/redstreet/beancount_asset_allocation) (Red S): allocation analysis tool to understand the asset allocation of a portfolio.
+
+[<span class="underline">costflow/syntax</span>](https://github.com/costflow/syntax) (Leplay Li): A product that allows users to keep plain text accounting from their favorite messaging apps. A syntax for converting one-line message to beancount/\*ledger format.
+
 Importers
 ---------
 

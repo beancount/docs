@@ -122,7 +122,7 @@ Martin Blais ([<span class="underline">blais@furius.ca</span>](mailto:blais@furi
 Introduction
 ------------
 
-This document describes the principles behind the design of Beancount and a high-level overview of its codebase, data structures, algorithms, implementation and methodology. This is not a user's manual; if you are interested in just using Beancount, see the associated [<span class="underline">User's Manual</span>](http://furius.ca/beancount/doc/users-manual) and all the other documents [<span class="underline">available here</span>](00_beancount_documentation.md).
+This document describes the principles behind the design of Beancount and a high-level overview of its codebase, data structures, algorithms, implementation and methodology. This is not a user's manual; if you are interested in just using Beancount, see the associated [<span class="underline">User's Manual</span>](http://furius.ca/beancount/doc/users-manual) and all the other documents [<span class="underline">available here</span>](index.md).
 
 However, if you just want to understand more deeply how Beancount works this document should be very helpful. This should also be of interest to developers. This is a place where I wrote about a lot of the ideas behind Beancount that did not find any other venue. Expect some random thoughts that aren’t important for users.
 
