@@ -12,10 +12,10 @@ Processing a Beancount file is, by definition, constrained to the contents of th
 
 However, we do need access to price information in order to compute market values of assets. To this end, Beancount provides a Price directive which can be used to fill its in-memory price database by inserting these price points inline in the input file:
 
-2015-11-20 price ITOT 95.46 USD  
-2015-11-20 price LQD 115.63 USD  
-2015-11-21 price USD 1.33495 CAD  
-…
+    2015-11-20 price ITOT    95.46 USD
+    2015-11-20 price LQD    115.63 USD
+    2015-11-21 price USD   1.33495 CAD
+    …
 
 Of course, you could do this manually, looking up the prices online and writing the directives yourself. But for assets which are traded publicly you can automate it, by invoking some code that will download prices and write out the directives for you.
 
@@ -39,11 +39,11 @@ The “bean-price” Tool
 
 Beancount comes with a “bean-price” command-line tool that integrates the ideas above. By default, this script accepts a list of Beancount input filenames, and fetches prices required to compute latest market values for current positions held in accounts:
 
-bean-price /home/joe/finances/joe.beancount
+    bean-price /home/joe/finances/joe.beancount                                                                                                               
 
 It is also possible to provide a list of specific price fetching jobs to run, e.g.,
 
-bean-price **-e USD:google/TSE:XUS CAD:mysources.morningstar/RBF1005**
+    bean-price -e USD:google/TSE:XUS CAD:mysources.morningstar/RBF1005                                                                                                                                                      
 
 These jobs are run concurrently so it should be fairly fast.
 
@@ -55,7 +55,7 @@ The general format of each of these "job source strings" is
 
 For example:
 
-USD:beancount.prices.sources.google/NASDAQ:AAPL
+    USD:beancount.prices.sources.google/NASDAQ:AAPL
 
 The “quote-currency” is the currency the Commodity is quoted in. For example, shares of Apple are quoted in US dollars.
 
@@ -71,7 +71,7 @@ In practice, fetching prices online often fails. Data sources typically only sup
 
 To this extent, a source string may provide multiple sources for the data, separated with commas. For example:
 
-USD:google/CURRENCY:GBPUSD,yahoo/GBPUSD
+    USD:google/CURRENCY:GBPUSD,yahoo/GBPUSD
 
 Each source is tried in turn, and if one fails to return a valid price, the next source is tried as a fallback. The hope is that at least one of the specified sources will work out.
 
@@ -79,7 +79,7 @@ Each source is tried in turn, and if one fails to return a valid price, the next
 
 Sometimes, prices are only available for the inverse of an instrument. This is often the case for currencies. For example, the price of Canadian dollars quoted in US dollars is provided by the USD/CAD market, which gives the price of a US dollar in Canadian dollars (the inverse). In order use this, you can prepend "^" to the instrument name to instruct the tool to compute the inverse of the fetched price:
 
-USD:google/**^**CURRENCY:USDCAD
+    USD:google/^CURRENCY:USDCAD
 
 If a source price is to be inverted, like this, the precision could be different than what is fetched. For instance, if the price of USD/CAD is 1.32759, for the above directive to price the “CAD” instrument it would output this:
 
@@ -95,7 +95,7 @@ As you may now, Beancount's in-memory price database works in both directions (t
 
 By default, the latest prices for the assets are pulled in. You can use an option to fetch prices for a desired date in the past instead:
 
-bean-price –**date=2015-02-03** …
+    bean-price –date=2015-02-03 …
 
 If you are using an input file to specify the list of prices to be fetched, the tool will figure out the list of assets held on the books *at that time* and fetch historical prices for those assets only.
 
@@ -109,28 +109,28 @@ You can disable the cache with an option:
 
 You can also instruct the script to clear the cache before fetching its prices:
 
-bean-price --clear-cache
+    bean-price --clear-cache
 
 Prices from a Beancount Input File
 ----------------------------------
 
 Generally, one uses a Beancount input file to specify the list of currencies to fetch. In order to do that, you should have Commodity directives in your input file for each of the currencies you mean to fetch prices for, like this:
 
-> **2007-07-20 commodity VEA**
->
-> **price: "USD:google/NYSEARCA:VEA"**
+    2007-07-20 commodity VEA
+
+**price: "USD:google/NYSEARCA:VEA"**
 
 The "price" metadata should contain a list of price source strings. For example, a stock product might look like this:
 
-> 2007-07-20 commodity CAD
->
-> price: "**USD:google/CURRENCY:USDCAD,yahoo/USDCAD"**
+    2007-07-20 commodity CAD
+
+      price: "USD:google/CURRENCY:USDCAD,yahoo/USDCAD"
 
 While a currency may have multiple target currencies it needs to get converted to:
 
-> 1990-01-01 commodity GBP
->
-> price: "**USD:yahoo/GBPUSD CAD:yahoo/GBPCAD CHF:yahoo/GBPCHF"**
+    1990-01-01 commodity GBP
+
+      price: "USD:yahoo/GBPUSD CAD:yahoo/GBPCAD CHF:yahoo/GBPCHF"
 
 ### Which Assets are Fetched
 
