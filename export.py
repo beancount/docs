@@ -102,6 +102,10 @@ def convert(
     input_fmt: str = INTERMEDIATE_FMT,
     output_fmt: str = 'markdown_strict',
 ):
+    # Enable footnotes extension
+    if output_fmt.startswith('markdown'):
+        output_fmt += '+footnotes'
+
     output_dir = os.path.dirname(output)
     image_dir = os.path.splitext(output)[0]
     # Directory path for --extract-media must be relative to the output dir
