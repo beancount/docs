@@ -1,12 +1,12 @@
-Beancount Documentation
-=======================
+<a id="title"></a>Beancount Documentation
+=========================================
 
 *This is the top-level page for all documentation related to Beancount.*
 
 [<span class="underline">http://furius.ca/beancount/doc/index</span>](http://furius.ca/beancount/doc/index)
 
-Documentation for Users
------------------------
+<a id="documentation-for-users"></a>Documentation for Users
+-----------------------------------------------------------
 
 [<span class="underline">Command-line Accounting in Context</span>: A motivational document that](01_command_line_accounting_in_context.md) explains what command-line accounting is, *why* I do it, with a simple example of *how* I do it. Read this as an introduction.
 
@@ -44,8 +44,8 @@ Documentation for Users
 
 [<span class="underline">Importing External Data</span>](17_importing_external_data.md): A description of the process of importing data from external files that can be downloaded from financial institutions and the tools and libraries that Beancount provides to automate some of this.
 
-Cookbook & Examples
--------------------
+<a id="cookbook-examples"></a>Cookbook & Examples
+-------------------------------------------------
 
 *These documents are examples of using the double-entry method to carry out specific tasks. Use these documents to develop an intuition for how to structure your accounts.*
 
@@ -59,8 +59,8 @@ Cookbook & Examples
 
 [<span class="underline">How We Share Expenses</span>](22_how_we_share_expenses.md): A more involved description of a continuous system for (a) sharing expenses between partners when both are contributing and (b) sharing expenses to a specific project (our son) who has a ledger of his own. This describes our real system.
 
-Documentation for Developers
-----------------------------
+<a id="documentation-for-developers"></a>Documentation for Developers
+---------------------------------------------------------------------
 
 [<span class="underline">Beancount Scripting & Plugins</span>](23_beancount_scripting_plugins.md): A guide to writing scripts that load your ledger contents in memory and process the directives, and how to write plugins that transform them.
 
@@ -72,8 +72,8 @@ Documentation for Developers
 
 [<span class="underline">External Contributions</span>](26_external_contributions.md): A list of plugins, importers and other codes that build on Beancount’s libraries that other people have made and shared.
 
-Enhancement Proposals & Discussions
------------------------------------
+<a id="enhancement-proposals-discussions"></a>Enhancement Proposals & Discussions
+---------------------------------------------------------------------------------
 
 *I occasionally write proposals for enhancements in order to organize and summarize my thoughts before moving forward, and solicit feedback from other users. This is good material to find out what features I’m planning to add, how things work in detail, or compare the differences with other similar software such as Ledger or HLedger.*
 
@@ -87,8 +87,8 @@ Enhancement Proposals & Discussions
 
 [<span class="underline">Rounding & Precision in Beancount</span>](31_rounding_precision_in_beancount.md): A discussion of important rounding and precision issues for balance checks and a proposal for a better method to infer required precision. ([<span class="underline">Implemented</span>](08_precision_tolerances.md))
 
-External Links
---------------
+<a id="external-links"></a>External Links
+-----------------------------------------
 
 *Documents, links, blog entries, writings, etc. about Beancount written by other authors.\]*
 
@@ -96,8 +96,8 @@ External Links
 
 [<span class="underline">Beancount ou la comptabilité pour les hackers</span>](http://blog.deguet.fr/beancount-comptabilite-pour-hackers/) (Cyril Deguet): An overview blog entry (in french).
 
-About this Documentation
-------------------------
+<a id="about-this-documentation"></a>About this Documentation
+-------------------------------------------------------------
 
 You may have noticed that I’m using [<span class="underline">Google Docs</span>](https://docs.google.com/). I realize that this is unusual for an open source project. If you [<span class="underline">take offense to this</span>](https://groups.google.com/d/msg/ledger-cli/u648SA1o-Ek/yom_P38FCAAJ), so you know, I do like text formats too: in graduate school I used [<span class="underline">LaTeX</span>](http://www.latex-project.org/) extensively, and for the last decade I was in love with the [<span class="underline">reStructuredText</span>](http://docutils.sourceforge.net) format, I even wrote Emacs’ support for it. But something happened around 2013: [<span class="underline">Google Docs</span>](https://docs.google.com/) became good enough to write solid technical documentation and I’ve begun enjoying its revision and commenting facilities extensively: I am hooked, I love it. For users to be able to suggest a correction or place a comment in context is an incredibly useful feature that helps improve the quality of my writing a lot more than patches or comments on a mailing-list. It also gives users a chance to point out passages that need improvement. I have already received orders of magnitude more feedback on documentation than on any of my other projects; it works.
 

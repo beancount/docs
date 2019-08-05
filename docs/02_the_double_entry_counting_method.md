@@ -1,5 +1,5 @@
-The Double-Entry Counting Method
-================================
+<a id="title"></a>The Double-Entry Counting Method
+==================================================
 
 Martin Blais, December 2016
 
@@ -47,8 +47,8 @@ Martin Blais, December 2016
 
 [<span class="underline">The Table Perspective</span>](#the-table-perspective)
 
-Introduction
-------------
+<a id="introduction"></a>Introduction
+-------------------------------------
 
 This document is a gentle introduction to the double-entry counting method, as written from the perspective of a computer scientist. It is an attempt to explain basic bookkeeping using as simple an approach as possible, doing away with some of the idiosyncrasies normally involved in accounting. It is also representative of how [<span class="underline">Beancount</span>](http://furius.ca/beancount/) works, and it should be useful to all users of [<span class="underline">plain-text accounting</span>](http://plaintextaccounting.org/).
 
@@ -56,8 +56,8 @@ Note that I am not an accountant, and in the process of writing this document I 
 
 I believe that the method of double-entry counting should be taught to everyone at the high school level everywhere as it is a tremendously useful organizational skill, and I hope that this text can help spread its knowledge beyond professional circles.
 
-Basics of Double-Entry Bookkeeping
-----------------------------------
+<a id="basics-of-double-entry-bookkeeping"></a>Basics of Double-Entry Bookkeeping
+---------------------------------------------------------------------------------
 
 The double-entry system is just a simple *method of counting*, with some simple rules.
 
@@ -91,7 +91,7 @@ Account balances can also become *negative*, if we remove more dollars than ther
 
 It’s perfectly fine for accounts to contain a negative balance number. Remember that all we’re doing is counting things. As we will see shortly, some accounts will remain with a negative balance for most of their timeline.
 
-### Statements
+### <a id="statements"></a>Statements
 
 Something worthy of notice is how the timeline notation I’ve written in the previous section is analogous to paper account statements institutions maintain for each client and which you typically receive through the mail:
 
@@ -105,7 +105,7 @@ Here, “debit” means “removed from your account” and “credit” means �
 
 In any case, the “balance” column always shows the resulting balance *after* the amount has been posted to the account. And sometimes the statements are rendered in decreasing order of time.
 
-### Single-Entry Bookkeeping
+### <a id="single-entry-bookkeeping"></a>Single-Entry Bookkeeping
 
 In this story, this account belongs to someone. We’ll call this person the **owner** of the account. The account can be used to represent a real world account, for example, imagine that we use it to represent the content of the owner’s checking account at a bank. So we’re going to label the account by giving it a name, in this case “Checking”:
 
@@ -123,7 +123,7 @@ Now, if we have a lot of these, we could write a computer program to accumulate 
 
 But we’re not going to do it this way; we have a better way. Bear with me for a few more sections.
 
-### Double-Entry Bookkeeping
+### <a id="double-entry-bookkeeping"></a>Double-Entry Bookkeeping
 
 An owner may have multiple accounts. I will represent this by drawing many similar account timelines on the same graphic. As before, these are labeled with unique names. Let’s assume that the owner has the same “Checking” account as previously, but now also a **“**Restaurant**”** account as well, which can be used to accumulate all food expenses at restaurants. It looks like this:
 
@@ -151,7 +151,7 @@ In our example, we remove $79 from the “Checking” account and “give it” 
 
 <img src="02_the_double_entry_counting_method/media/b4182b9f64113868123cbcec20d468ab18b2786f.png" style="width:2.18055in;height:2.5in" />
 
-### Many Accounts
+### <a id="many-accounts"></a>Many Accounts
 
 There may be many such transactions, over many different accounts. For example, if the owner of the accounts had a lunch the next day which she paid using a credit card, it could be represented by creating a “Credit Card” account dedicated to tracking the real world credit card balance, and with a corresponding transaction:
 
@@ -163,7 +163,7 @@ For each real world account, the owner can create a bookkeeping account like we 
 
 Note that the balance in the example is a negative number; this is not an error. Balances for credit card accounts are normally negative: they represent an amount *you owe*, that the bank is lending you *on credit*. When your credit card company keeps track of your expenses, they write out your statement from their perspective, as positive numbers. For you, those are amounts you need to eventually pay. But here, in our accounting system, we’re representing numbers from the owner’s point-of-view, and from her perspective, this is money she owes, not something she has. What we have is a meal sitting in our stomach (a positive number of $ of “Restaurant”).
 
-### Multiple Postings
+### <a id="multiple-postings"></a>Multiple Postings
 
 Finally, transactions may have more than two postings; in fact, they may have any number of postings. The only thing that matters is that the sum of their amounts is zero (from the rule of double-entry bookkeeping above).
 
@@ -177,8 +177,8 @@ Now, you may ask: Why is her salary recorded as a negative number? The reasoning
 
 Note also that we’ve simplified this paycheck transaction a bit, for the sake of keeping things simple. A more realistic recording of one’s pay stub would have many more accounts; we would separately account for state and federal tax amounts, as well as social security and medicare payments, deductions, insurance paid through work, and vacation time accrued during the period. But it wouldn’t be much more complicated: the owner would simply translate all the amounts available from her pay stub into a single transaction with more postings. The structure remains similar.
 
-Types of Accounts
------------------
+<a id="types-of-accounts"></a>Types of Accounts
+-----------------------------------------------
 
 Let’s now turn our attention to the different types of accounts an owner can have.
 
@@ -238,8 +238,8 @@ When you do **bookkeeping** for a set of accounts, you are essentially describin
 
 We will now turn our attention to obtaining useful information from this data, summarizing information from the book.
 
-Trial Balance
--------------
+<a id="trial-balance"></a>Trial Balance
+---------------------------------------
 
 Take our last example: we can easily reorder all the accounts such that all the Asset accounts appear together at the top, then all the Liabilities accounts, then Income, and finally Expenses accounts. We are simply changing the order without modifying the structure of transactions, in order to group each type of accounts together:
 
@@ -253,8 +253,8 @@ If we sum up the postings on all of the accounts and render just the account nam
 
 This simply reflects the balance of each account at a particular point in time. And because each of the accounts began with a zero balance, and each transaction has itself a zero balance, we know that the sum of all those balances must equal zero.[^1] This is a consequence of our constraining that each of the postings be part of a transaction, and that each transaction have postings that balance each other out.
 
-Income Statement
-----------------
+<a id="income-statement"></a>Income Statement
+---------------------------------------------
 
 One kind of common information that is useful to extract from the list of transactions is a summary of changes in income statement accounts during a particular period of time. This tells us how much money was earned and spent during this period, and the difference tells us how much profit (or loss) was incurred. We call this the “net income.”
 
@@ -266,8 +266,8 @@ It is important to take note of the signs here: Income numbers are negative, and
 
 An Income Statement tells us what changed during a particular period of time. Companies typically report this information **quarterly** to investors and perhaps the public (if they are a publicly traded company) in order to share how much profit they were able to make. Individuals typically report this information on their **annual** tax returns.
 
-Clearing Income
----------------
+<a id="clearing-income"></a>Clearing Income
+-------------------------------------------
 
 Notice how in the income statement only the transactions within a particular interval of time are summed up. This allows one, for instance, to compute the sum of all income earned during a year. If we were to sum up all of the transactions of this account since its inception we would obtain the total amount of income earned since the account was created.
 
@@ -285,8 +285,8 @@ This is the semantics of the “CLEAR” operation of the bean-query shell.
 
 (Note that another way to achieve the same thing for income statement accounts would be to segregate and count amounts only for the transactions after the clearing date; however, jointly reporting on income statement accounts and balance sheet accounts would have incorrect balances for the balance sheet accounts.)
 
-Equity
-------
+<a id="equity"></a>Equity
+-------------------------
 
 The account that receives those previously accumulated incomes is called “Previous Earnings”. It lives in a fifth and final type of accounts: **Equity**. We did not talk about this type of accounts earlier because they are most often only used to transfer amounts to build up reports, and the owner usually doesn’t post changes to those types of accounts; the software does that automatically, e.g., when clearing net income.
 
@@ -304,8 +304,8 @@ There are a few different Equity accounts in use in Beancount:
 
 Once again: you don’t need to define nor use these accounts yourself, as these are created for the purpose of summarizing transactions. Generally, the accounts are filled in by the clearing process described above, or filled in by Pad directives to “opening balances” equity accounts, to account for summarized balances from the past. They are created and filled in automatically by the software. We’ll see how these get used in the following sections.
 
-Balance Sheet
--------------
+<a id="balance-sheet"></a>Balance Sheet
+---------------------------------------
 
 Another kind of summary is a listing of the owner’s assets and debts, for each of the accounts. This answers the question: “*Where’s the money?*” In theory, we could just restrict our focus to the Assets and Liabilities accounts and draw those up in a report:
 
@@ -319,8 +319,8 @@ If the Income & Expenses accounts have been cleared to zero and all their balanc
 
 Note that the balance sheet can be drawn for *any point in time*, simply by truncating the list of transactions following a particular date. A balance sheet displays a snapshot of balances at one date; an income statement displays the difference of those balances between two dates.
 
-Summarizing
------------
+<a id="summarizing"></a>Summarizing
+-----------------------------------
 
 It is useful to summarize a history of past transactions into a single equivalent deposit. For example, if we’re interested in transactions for year 2016 for an account which has a balance of $450 on Jan 1, 2016, we can delete all the previous transactions and replace them with a single one that deposits $450 on Dec 31, 2015 and that takes it from somewhere else.
 
@@ -338,8 +338,8 @@ This is a useful operation when we’re focused on the transactions for a partic
 
 From a program design perspective, this is appealing because the only state of the program is a stream of transactions, and it is never modified directly. It’s simple and robust.)
 
-Period Reporting
-----------------
+<a id="period-reporting"></a>Period Reporting
+---------------------------------------------
 
 Now we know we can produce a statement of changes over a period of time, by “clearing” and looking at just the Income & Expenses accounts (the Income Statement). We also know we can clear to produce a snapshot of Assets, Liabilities & Equity at any point in time (the Balance Sheet).
 
@@ -367,8 +367,8 @@ From these transactions, we produce the Balance Sheet at the end of the period.
 
 This sums up the operations involved in preparing the streams of transactions to produce reports with Beancount, as well as a basic introduction to those types of reports.
 
-Chart of Accounts
------------------
+<a id="chart-of-accounts"></a>Chart of Accounts
+-----------------------------------------------
 
 New users are often wondering how much detail they should use in their account names. For example, should one include the payee in the account name itself, such as in these examples?
 
@@ -384,7 +384,7 @@ The answer is that *it depends on you*. This is an arbitrary choice to make. It�
 
 One consideration to keep in mind is that account names implicitly define a hierarchy. The “:” separator is interpreted by some reporting code to create an in-memory tree and can allow you to collapse a node’s children subaccounts and compute aggregates on the parent. Think of this as an additional way to group postings.
 
-### Country-Institution Convention
+### <a id="country-institution-convention"></a>Country-Institution Convention
 
 One convention I’ve come up with that works well for my assets, liabilities and income accounts is to root the tree with a code for the country the account lives in, followed by a short string for the institution it corresponds to. Underneath that, a unique name for the particular account in that institution. Like this:
 
@@ -396,8 +396,8 @@ I’ve found it doesn’t make sense for me to use this scheme for expense accou
 
 In any case, Beancount doesn’t enforce anything other than the root accounts; this is just a suggestion and this convention is not coded anywhere in the software. You have great freedom to experiment, and you can easily change all the names later by processing the text file. See the [<span class="underline">Cookbook</span>](18_command_line_accounting_cookbook.md) for more practical guidance.
 
-Credits & Debits
-----------------
+<a id="credits-debits"></a>Credits & Debits
+-------------------------------------------
 
 At this point, we haven’t discussed the concepts of “credits” and “debits.” This is on purpose: Beancount largely does away with these concepts because it makes everything else simpler. I believe that it is simpler to just learn that the signs of Income, Liabilities and Equity accounts are normally negative and to treat all accounts the same way than to deal with the debits and credits terminology and to treat different account categories differently. In any case, this section explains what these are.
 
@@ -413,8 +413,8 @@ In plain-text accounting, we would rather just do away with this inconvenient ba
 
 Save yourself some pain: Flush your brain from the "debit" and "credit" terminology.
 
-Accounting Equations
---------------------
+<a id="accounting-equations"></a>Accounting Equations
+-----------------------------------------------------
 
 In light of the previous sections, we can easily express the accounting equations in signed terms. If,
 
@@ -458,8 +458,8 @@ If we were to adjust the signs for credits and debits (see previous section) and
 
 As you can see, it’s much easier to just always add up the numbers.
 
-Plain-Text Accounting
----------------------
+<a id="plain-text-accounting"></a>Plain-Text Accounting
+-------------------------------------------------------
 
 Ok, so now we understand the method and what it can do for us, at least in theory. The purpose of a double-entry bookkeeping system is to allow you to replicate the transactions that occur in various real world accounts into a single, unified system, in a common representation, and to extract various views and reports from this data. Let us now turn our attention to how we record this data in practice.
 
@@ -481,8 +481,8 @@ You write many of declarations like these in a file, and Beancount will read it 
 
 There are a few more details, for example, Beancount allows you to track cost basis and make currency conversions, but that’s the essence of it.
 
-The Table Perspective
----------------------
+<a id="the-table-perspective"></a>The Table Perspective
+-------------------------------------------------------
 
 Almost always, questions asked by users on the mailing-list about how to calculate or track some value or other can be resolved easily simply by thinking of the data as a long list of rows, some of which need to be filtered and aggregated. If you consider that all that we’re doing in the end is deriving “sums” of these postings, and that the attributes of transactions and postings are what allows us to filter subsets of postings, it always becomes very simple. In almost all the cases, the answer is to find some way to disambiguate postings to select them, e.g. by account name, by attaching some tag, by using some metadata, etc. It can be illuminating to consider how this data can be represented as a table.
 

@@ -1,5 +1,5 @@
-External Contributions to Beancount
-===================================
+<a id="title"></a>External Contributions to Beancount
+=====================================================
 
 [<span class="underline">Martin Blais</span>](mailto:blais@furius.ca) - Updated: April 2016
 
@@ -8,8 +8,8 @@ External Contributions to Beancount
 *Links to codes written by other people that build on top of  
 or that are related to Beancount and/or Ledgerhub.*
 
-Plugins
--------
+<a id="plugins"></a>Plugins
+---------------------------
 
 [<span class="underline">split\_transactions</span>](https://www.google.com/url?q=https%3A%2F%2Fgist.github.com%2Fkljohann%2Faebac3f0146680fd9aa5&sa=D&sntz=1&usg=AFQjCNGn2AkL35onTeXgOQzLzkjVpvLcpg): Johann Klähn [<span class="underline">wrote a plugin</span>](https://groups.google.com/d/msg/beancount/z9sPboW4U3c/1qIIzro4zFoJ) that can split a single transaction into many against a limbo account, as would be done for depreciation.
 
@@ -29,8 +29,8 @@ Plugins
 
 [<span class="underline">metadata-spray</span>](https://github.com/seltzered/beancount-plugins-metadata-spray): Add metadata across entries by regex expression rather than having explicit entries (by Vivek Gani).
 
-Tools
------
+<a id="tools"></a>Tools
+-----------------------
 
 [<span class="underline">alfred-beancount</span>](https://github.com/blaulan/alfred-beancount) (Yue Wu): An add-on to the “Alfred” macOS tool to quickly enter transactions in one’s Beancount file. Supports full account names and payees match.
 
@@ -46,8 +46,8 @@ Tools
 
 [<span class="underline">costflow/syntax</span>](https://github.com/costflow/syntax) (Leplay Li): A product that allows users to keep plain text accounting from their favorite messaging apps. A syntax for converting one-line message to beancount/\*ledger format.
 
-Importers
----------
+<a id="importers"></a>Importers
+-------------------------------
 
 [<span class="underline">yodlee importer</span>](https://bitbucket.org/redstreet/ledgerhub/commits/5cad3e7495479b1598585a3cfcdd9a06051efcc1): redstreet0 wrote an importer for fetching data from the Yodlee account aggregator. Apparently you can get free access [<span class="underline">as per this thread</span>](https://groups.google.com/d/msg/beancount/nsRCbC6nP4I/Dx5NlTioDq0J).
 
@@ -63,8 +63,8 @@ Importers
 
 [<span class="underline">siddhantgoel/beancount-dkb</span>](https://github.com/siddhantgoel/beancount-dkb) (Siddhant Goel): importer for DKB CSV files.
 
-Converters
-----------
+<a id="converters"></a>Converters
+---------------------------------
 
 <span class="underline">p[laid2text](https://github.com/madhat2r/plaid2text)</span>: Python Scripts to export Plaid transactions and transform them into Ledger or Beancount syntax formatted files.
 
@@ -84,8 +84,8 @@ Converters
 
 [<span class="underline">alensiljak/pta-converters</span>](https://gitlab.com/alensiljak/pta-converters) (Alen Šiljak): GnuCash -&gt; Beancount converter (2019).
 
-Price Sources
--------------
+<a id="price-sources"></a>Price Sources
+---------------------------------------
 
 [<span class="underline">hoostus/beancount-price-sources</span>](https://github.com/hoostus/beancount-price-sources) : A Morningstar price fetcher which aggregates multiple exchanges, including non-US ones.
 
@@ -93,13 +93,13 @@ Price Sources
 
 [<span class="underline">aamerabbas/beancount-coinmarketcap</span>](https://github.com/aamerabbas/beancount-coinmarketcap): Price fetcher for coinmarketcap ([<span class="underline">see post</span>](https://medium.com/@danielcimring/downloading-historical-data-from-coinmarketcap-41a2b0111baf)).
 
-Development
------------
+<a id="development"></a>Development
+-----------------------------------
 
 [<span class="underline">Py3k type annotations</span>](https://github.com/yegle/beancount-type-stubs): Yuchen Ying is implementing python3 type annotations for Beancount.
 
-Documentation
--------------
+<a id="documentation"></a>Documentation
+---------------------------------------
 
 [<span class="underline">Beancount Source Code Documentation</span>](http://aumayr.github.io/beancount-docs-static/) (Dominik Aumayr): Sphinx-generated source code documentation of the Beancount codebase. The code to produce this is [<span class="underline">located here</span>](https://github.com/aumayr/beancount-docs).
 
@@ -111,7 +111,7 @@ Documentation
 
 [<span class="underline">Counting beans—and more—with Beancount</span>](https://lwn.net/SubscriberLink/751874/a38128abb72e45c5/) (LWN)
 
-Interfaces / Web
-----------------
+<a id="interfaces-web"></a>Interfaces / Web
+-------------------------------------------
 
 [<span class="underline">fava: A web interface for Beancount</span>](https://github.com/aumayr/fava) (Dominik Aumayr): Beancount comes with its own simple web front-end (“bean-web”) intended merely as a thin shell to invoke and display HTML versions of its reports. “Fava” is an alternative web application front-end with more & different features, intended initially as a playground and proof-of-concept to explore a newer, better design for presenting the contents of a Beancount file.

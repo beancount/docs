@@ -1,5 +1,5 @@
-Balance Assertions in Beancount
-===============================
+<a id="title"></a>Balance Assertions in Beancount
+=================================================
 
 Martin Blais, July 2014
 
@@ -27,8 +27,8 @@ Martin Blais, July 2014
 >
 > [<span class="underline">Complete Assertions</span>](#complete-assertions)
 
-Motivation
-----------
+<a id="motivation"></a>Motivation
+---------------------------------
 
 Both Beancount and Ledger implement *balance assertions.* These provide the system with checkpoints it can use to verify the integrity of the data entry[^1].
 
@@ -40,8 +40,8 @@ Following [<span class="underline">this thread</span>](https://groups.google.com
 
 <img src="29_balance_assertions_in_beancount/media/539ac8accaa66eeb45ed7865fcad381fa35af295.png" alt="balance-statement-1.png" style="width:6.5in;height:3.20833in" />
 
-Partial vs. Complete Assertions
--------------------------------
+<a id="partial-vs.-complete-assertions"></a>Partial vs. Complete Assertions
+---------------------------------------------------------------------------
 
 An assertion in Beancount currently looks like this:
 
@@ -53,8 +53,8 @@ An alternative assertion would be exhaustive: “please assert that the inventor
 
 Further note that we are not asserting the cost basis of an inventory, just the number of units.
 
-File vs. Date Assertions
-------------------------
+<a id="file-vs.-date-assertions"></a>File vs. Date Assertions
+-------------------------------------------------------------
 
 There are two differing interpretations and implementations of the running balances for assertions:
 
@@ -62,7 +62,7 @@ There are two differing interpretations and implementations of the running balan
 
 -   Ledger keeps a running balance of each account’s inventory during its parsing phase and performs the check *at the site of the assertion in the file.* We will call this **file assertions** or **file-order,** or **file-based assertions**. This kind of assertion has no date associated with it (this is slightly misleading in Ledger because of the way assertions are specified, as attached to a transaction’s posting, which appears to imply that they occur on the transaction date, but they don’t, they strictly apply to the file location).
 
-### Ordering & Ambiguity
+### <a id="ordering-ambiguity"></a>Ordering & Ambiguity
 
 An important difference between those two types of assertions is that file-based assertions are not order-independent. For example, take the following input file:
 
@@ -110,7 +110,7 @@ This subtle problem could be difficult for beginners to understand. Moving the f
 
 The absence of a date indicates that the check is not applied at a particular point in time.
 
-### Intra-Day Assertions
+### <a id="intra-day-assertions"></a>Intra-Day Assertions
 
 On the other hand, date-based assertions, because of their order-independence, preclude intra-day assertions, that is, a balance assertion that occurs *between* two postings on the same account during the same day.
 
@@ -136,25 +136,25 @@ The spell would be broken as soon as a directive would appear at a different dat
 
 Another idea would be to always sort the balance assertions in file-order as the second sort key (after the date) and apply them as such. I’m not sure this would be easy to understand though.
 
-### Beginning vs. End of Day
+### <a id="beginning-vs.-end-of-day"></a>Beginning vs. End of Day
 
 Finally, just for completeness, it is worth mentioning that date assertions have to have well-defined semantics regarding *when* they apply during the day. In Beancount, they currently apply at the beginning of the day.
 
 It might be worthwhile to provide an alternate version of date-based assertions that applies at the end of the day, e.g. “balance\_end”. Beancount v1 used to have this (“check\_end”) but it was removed in the v2 rewrite, as it wasn’t clear it would be really needed. The simplicity of a single meaning for balance assertions is nice too.
 
-Status
-------
+<a id="status"></a>Status
+-------------------------
 
 [<span class="underline">Ledger</span>](http://ledger-cli.org) 3.0 currently supports only partial file-order assertions, on transactions.
 
 [<span class="underline">Beancount</span>](http://furius.ca/beancount/) 2.0 currently supports only partial date-based assertions at the beginning of the day.
 
-Proposal
---------
+<a id="proposal"></a>Proposal
+-----------------------------
 
 I propose the following improvements to Beancount’s balance assertions.
 
-### File Assertions
+### <a id="file-assertions"></a>File Assertions
 
 File assertions should be provided as a plugin. They would look like this:
 
@@ -172,7 +172,7 @@ In order to implement this, the plugin would simply resort all the directives ac
 
 Moreover, another advantage of doing this in a plugin is that people who don’t use this directive won’t have to pay the cost of calculating these inventories.
 
-### Complete Assertions
+### <a id="complete-assertions"></a>Complete Assertions
 
 Complete assertions should be supported in Beancount by the current balance assertion directive. They aren’t very important but are potentially useful.
 

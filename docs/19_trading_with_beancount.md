@@ -1,5 +1,5 @@
-Trading with Beancount
-======================
+<a id="title"></a>Trading with Beancount
+========================================
 
 [<span class="underline">Martin Blais</span>](mailto:blais@furius.ca), July 2014
 
@@ -31,8 +31,8 @@ Trading with Beancount
 >
 > [<span class="underline">Future Topics</span>](#future-topics)
 
-Introduction
-------------
+<a id="introduction"></a>Introduction
+-------------------------------------
 
 This is a companion document for the [<span class="underline">Command-Line Accounting Cookbook</span>](18_command_line_accounting_cookbook.md) that deals exclusively with the subject of trading and investments in Beancount. You probably should have read an [<span class="underline">introduction to the double-entry method</span>](02_the_double_entry_counting_method.md) before reading this document.
 
@@ -40,8 +40,8 @@ The subject of stock trading needs to be preceded by a discussion of “profit a
 
 This discussion will be weaved with detailed examples of how to book these trades in Beancount, wherever possible. There is a related, active [<span class="underline">proposal for improving the booking methods</span>](27_a_proposal_for_an_improvement_on_inventory_booking.md) in Beancount that you might also be interested in. Discussions of basis for tax-deferred accounts will not be treated here, but in the more general cookbook.
 
-What is Profit and Loss?
-------------------------
+<a id="what-is-profit-and-loss"></a>What is Profit and Loss?
+------------------------------------------------------------
 
 Let’s imagine you have an account at the E\*Trade discount broker and you buy some shares of a company, say IBM. If you buy 10 shares of IBM when its price is 160$/share, it will cost you 1600$. That value is what we will call the “book value”, or equivalently, “the cost.” This is how much money you had to spend in order to acquire the shares, also called “the position.” This is how you would enter this transaction in Beancount:
 
@@ -68,8 +68,8 @@ The difference between these two amounts is what we will call the P/L:
 
 We will call a positive amount “a profit” and if the amount is negative, “a loss.”
 
-Realized and Unrealized P/L
----------------------------
+<a id="realized-and-unrealized-pl"></a>Realized and Unrealized P/L
+------------------------------------------------------------------
 
 The profit from the previous section is called an “unrealized profit.” That is because the shares have not actually been sold yet - this is a hypothetical profit: *if* I can sell those shares at the market value, this is how much I *would* pocket. The 100$ I mentioned in the previous section is actually an “unrealized P/L.”
 
@@ -138,8 +138,8 @@ So the complete and final transaction for selling those shares should be:
       Expenses:Financial:Commissions   9.95 USD
       Income:US:ETrade:PnL
 
-Trade Lots
-----------
+<a id="trade-lots"></a>Trade Lots
+---------------------------------
 
 In practice, the reality of trading gets a tiny bit more complicated than this. You might decide to buy some IBM multiple times, and each time, it is likely that you would buy them at a different price. Let’s see how this works with another example trade. Given your previous position of 7 shares held at 160$ cost, the following day you see that the price went up some more, you change your mind on IBM and decide to “go long” and buy 5 more shares. The price you get is 180$/share this time:
 
@@ -177,8 +177,8 @@ Alternatively, since you’re selling the entire position, Beancount should be a
 
 Note that this won’t work if the total amount of shares doesn’t match all the lots (this would be ambiguous… which subset of the lots should be chosen isn’t obvious).
 
-Booking Methods
----------------
+<a id="booking-methods"></a>Booking Methods
+-------------------------------------------
 
 But what if you decided to sell only some of those shares? Say you need some cash to buy a gift to your loved one and you want to sell 4 shares this time. Say the price is now 175$/share.
 
@@ -210,8 +210,8 @@ Note that in practice this choice will depend on a number of factors:
 
 There are more… but I’m not going to elaborate on them here. My goal is to show you how to book these things with the double-entry method.
 
-Dated lots
-----------
+<a id="dated-lots"></a>Dated lots
+---------------------------------
 
 We’ve almost completed the whole picture of how this works. There is one more rather technical detail to add and it begins with a question: What if I bought multiple lots of share at the same price?
 
@@ -241,8 +241,8 @@ Note that it’s really unlikely that your broker will provide the information i
 
 (*Technical Detail*: that we’re working on bettering the mechanism for lot selection so that you never have to insert the lot-date yourself, and so that you could disambiguate lot selection by supplying a name instead. See upcoming changes.)
 
-Reporting Unrealized P/L
-------------------------
+<a id="reporting-unrealized-pl"></a>Reporting Unrealized P/L
+------------------------------------------------------------
 
 Okay, so our account balances are holding the cost of each unit, and that provides us with the book value of these positions. Nice. But what about viewing the market value?
 
@@ -268,8 +268,8 @@ This will create a synthetic transaction at the date of the last of directives, 
 
 Note that I used an option in this example to specify a sub-account to book the unrealized gains to. The unrealized P/L shows up on a separate line in the balance sheet and the parent account should show the market value on its balance (which includes that of its sub-accounts).
 
-Commissions
------------
+<a id="commissions"></a>Commissions
+-----------------------------------
 
 So far we have not discussed trading commissions. Depending on the tax law that applies to you, the costs associated with trading may be deductible from the raw capital gain as we’ve calculated it in the previous examples. These are considered expenses by the government, and it is often the case that you can deduct those trading commissions (it’s entirely reasonable from their part, you did not pocket that money after all).
 
@@ -318,8 +318,8 @@ This may seem overkill, but imagine that those costs were much higher, as is the
 
 <table><tbody><tr class="odd"><td><em><strong>We don’t currently have a good method of doing this with our input syntax. A suitable method is currently being developed and a <a href="27_a_proposal_for_an_improvement_on_inventory_booking.md"><span class="underline">proposal</span></a> is on the table. Also see mailing-list for details. [June 2014]</strong></em></td></tr></tbody></table>
 
-Stock Splits
-------------
+<a id="stock-splits"></a>Stock Splits
+-------------------------------------
 
 Stock splits are currently dealt with by emptying an account’s positions and recreating the positions at a different price:
 
@@ -344,8 +344,8 @@ Another method for solving this and for easily propagating the lot trade date [<
 
 A more important problem with the current implementation is that the meaning of a unit of ADSK before and after the stock split is different. The price graph for this commodity unit will show a radical discontinuity! This is a more general problem that has yet to be addressed in both Beancount and Ledger. The [<span class="underline">Commodity Definition Changes</span>](https://docs.google.com/document/d/1Y_h5sjUTJzdK1riRh-mrVQm9KCzqFlU65KMsMsrQgXk/) document has a discussion to address this topic.
 
-Cost Basis Adjustment and Return of Capital
--------------------------------------------
+<a id="cost-basis-adjustment-and-return-of-capital"></a>Cost Basis Adjustment and Return of Capital
+---------------------------------------------------------------------------------------------------
 
 Readjustment in cost basis may occur in managed funds, due to the fund’s internal trading activities. This will typically occur in tax-sheltered accounts where the gain that occurs from such an adjustment has no impact on taxes, and where the cost basis is held at the average cost of all shares in each position.
 
@@ -360,8 +360,8 @@ However, this is really uncommon. The more common case of this is of an account 
 
 The cost basis adjustment is commonly found in Return of Capital events. These happen, for example, when funds are returning capital to the shareholders. This can be caused by winding down the operation. From the taxation point of view, these are non-taxable events and affect the cost basis of the equity in the fund. The number of shares might stay the same, but their cost basis needs to be adjusted for potential Gain/Loss calculation at the point of sale in the future.
 
-Dividends
----------
+<a id="dividends"></a>Dividends
+-------------------------------
 
 Dividends don’t pose a particular problem. They are just income. They can be received as cash:
 
@@ -377,8 +377,8 @@ Or they can be received as stock itself:
 
 In the case of dividends received as stock, as for stock purchases, you provide the cost basis at which the dividend was received (this should be available in your statements). If the account is held at average cost, this posting will simply merge with the other legs at the time an average cost booking is needed to be performed.
 
-Average Cost Booking
---------------------
+<a id="average-cost-booking"></a>Average Cost Booking
+-----------------------------------------------------
 
 At the moment, the only way to perform booking at average cost is painful: you would have to use the method outlined in the Stock Split section in order to revalue your inventory. This is impractical, however. There is an [<span class="underline">active proposal</span>](27_a_proposal_for_an_improvement_on_inventory_booking.md) with an associated syntax to fully solve this problem.
 
@@ -392,8 +392,8 @@ Once the proposal is implemented, it will look like this:
 
 Any posting with a cost of “\*” acting on an inventory will select all the shares of that currency (GOOG), merge them into a single one at the average cost, and then reduce that position at this new average cost.
 
-Future Topics
--------------
+<a id="future-topics"></a>Future Topics
+---------------------------------------
 
 I’ll be handling the following topics later on:
 

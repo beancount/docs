@@ -1,28 +1,28 @@
-Stock Vesting in Beancount
-==========================
+<a id="title"></a>Stock Vesting in Beancount
+============================================
 
 [<span class="underline">Martin Blais</span>](mailto:blais@furius.ca), June 2015
 
 [<span class="underline">http://furius.ca/beancount/doc/vesting</span>](http://furius.ca/beancount/doc/vesting)
 
-Introduction
-------------
+<a id="introduction"></a>Introduction
+-------------------------------------
 
 This document explains the vesting of restricted stock units in Beancount, by way of an example. This example may not exactly match your situation, but enough detail is provided that you should be able to adapt it for your own particular differences.
 
 A working example file can be found [<span class="underline">here</span>](https://bitbucket.org/blais/beancount/src/tip/examples/vesting/vesting.beancount) to follow along with this text.
 
-Restricted Stock Compensation
------------------------------
+<a id="restricted-stock-compensation"></a>Restricted Stock Compensation
+-----------------------------------------------------------------------
 
 Many technology companies offer their employees incentive compensation in the form of “grants” (or “awards”) of “restricted stock units” (RSU), which is essentially a promise for the “release” to you of actual shares in the future. The stock is “restricted” in the sense that you cannot access it—you only receive it when it “vests”, and this happens based on a schedule. Typically, you are promised a fixed number of shares that vest every quarter or every month over a period of 3 or 4 years. If you leave the company, your remaining unvested shares are lost. <img src="20_stock_vesting_in_beancount/media/6a910c80cfb0385f9cff8de1b5976716a1eb7324.jpg" style="width:2.18229in;height:1.26744in" />
 
 One way you can view these RSUs is as an asset, a receivable that arrives regularly over time. These RSUs are essentially compensation denominated in the currency of the company’s shares itself. We want to track the unraveling of these unvested units, and correctly account for their conversion to real stock with a cost basis and including whatever taxes were paid upon vesting.
 
-Tracking Awards
----------------
+<a id="tracking-awards"></a>Tracking Awards
+-------------------------------------------
 
-### Commodities
+### <a id="commodities"></a>Commodities
 
 First we want to define some commodities. In this example, I work for “Hooli Inc.” and will eventually receive shares of that company (valued in US dollars):
 
@@ -35,7 +35,7 @@ We will also want to track the amount of unvested shares:
     2013-01-28 commodity HOOL.UNVEST
       name: "Unvested shares of Hooli from awards."
 
-### Accounts for Awards
+### <a id="accounts-for-awards"></a>Accounts for Awards
 
 Grants received is income. I use “Income:US:Hooli” as the root for all income accounts from Hooli, but in particular, I define an account for the awards, which contains units of unvested stock:
 
@@ -45,7 +45,7 @@ When the stock vests, we will need to book the other side of this income somewhe
 
     2014-01-28 open Expenses:Hooli:Vested         HOOL.UNVEST
 
-### Receiving Awards
+### <a id="receiving-awards"></a>Receiving Awards
 
 When you receive a new award (this may occur every year, for example, some people call this a “stock refresh”), you receive it as income and deposit it into a fresh new account, used to track this particular award:
 
@@ -59,12 +59,12 @@ You may have multiple active awards at the same time. It’s nice to have a sepa
 
 I like to keep all the awards in a small dedicated section.
 
-Vesting Events
---------------
+<a id="vesting-events"></a>Vesting Events
+-----------------------------------------
 
 Then I have a different section that contains all the transactions that follow a vesting event.
 
-### Accounts
+### <a id="accounts"></a>Accounts
 
 First, when we vest stock, it’s a taxable income event. The cash value for the stock needs an Income account:
 
@@ -93,7 +93,7 @@ And we also need some sort of checking account to receive cash in lieu of fracti
 
     2001-01-01 open Assets:US:BofA:Checking
 
-### Vesting
+### <a id="vesting"></a>Vesting
 
 First, the vesting events themselves:
 
@@ -122,7 +122,7 @@ This way, each transaction corresponds exactly to one pay stub. It makes it easi
 
 Also note that I used a unique link (^392f97dd62d0) to group all the transactions for a particular vesting event. You could also use tags if you prefer.
 
-### Conversion to Actual Stock
+### <a id="conversion-to-actual-stock"></a>Conversion to Actual Stock
 
 Now we’re ready to convert the remaining cash to stock units. This happens in the brokerage firm and you should see the new shares in your brokerage account. The brokerage will typically issue a “stock release report” statement for each vesting event for each award, with the details necessary to make the conversion, namely, the actual number of shares converted from cash and the cost basis (the FMV on the vesting day):
 
@@ -138,7 +138,7 @@ The last two postings deduct from the balance of unvested shares and I “receiv
 
 Here again you will probably have one of these conversions for each stock grant you have. I enter them separately, so that one statement matches one transaction. This is a good rule to follow.
 
-### Refund for Fractions
+### <a id="refund-for-fractions"></a>Refund for Fractions
 
 After all the conversion events have moved cash out of the limbo account, it is left the fractional remainders from all the conversions. In my case, this remainder is refunded by Hooli 3-4 weeks after vesting as a single separate pay stub that includes all the remainders (it even lists each of them separately). I enter this as a transaction as well:
 
@@ -154,7 +154,7 @@ After the fractions have been paid the limbo account should be empty. I verify t
 
 This provides me with some sense that the numbers are right.
 
-### Organizing your Input
+### <a id="organizing-your-input"></a>Organizing your Input
 
 I like to put all the vesting events together in my input file; this makes them much easier to update and reconcile, especially with multiple awards. For example, with two awards I would have multiple chunks of transactions like this, separated with 4-5 empty lines to delineate them:
 
@@ -200,17 +200,17 @@ I like to put all the vesting events together in my input file; this makes them 
 
     2015-02-14 balance Assets:US:Hooli:RSURefund    0 USD
 
-Unvested Shares
----------------
+<a id="unvested-shares"></a>Unvested Shares
+-------------------------------------------
 
-### Asserting Unvested Balances
+### <a id="asserting-unvested-balances"></a>Asserting Unvested Balances
 
 Finally, you may occasionally want to assert the number of unvested shares. I like to do this semi-annually, for example. The brokerage company that handles the RSUs for Hooli should be able to list how many unvested shares of each award remain, so it’s as simple as looking it up on a website:
 
     2015-06-04 balance Assets:US:Hooli:Unvested:S0012345  1645 HOOL.UNVEST
     2015-06-04 balance Assets:US:Hooli:Unvested:C123456    705 HOOL.UNVEST
 
-### Pricing Unvested Shares
+### <a id="pricing-unvested-shares"></a>Pricing Unvested Shares
 
 You can also put a price on the unvested shares in order to estimate the unvested dollar amount. You should use a fictional currency for this, because we want to avoid a situation where a balance sheet is produced that includes these unvested assets as regular dollars:
 
@@ -228,8 +228,8 @@ At the time of this writing, the bean-web interface does not convert the units i
     Assets:US:Hooli:Unvested:S0012345 217847.3500 USD.UNVEST
     Assets:US:Hooli:Unvested:C123456   93363.1500 USD.UNVEST
 
-Selling Vested Stock
---------------------
+<a id="selling-vested-stock"></a>Selling Vested Stock
+-----------------------------------------------------
 
 After each vesting event, the stock is left in your brokerage account. Selling this stock proceeds just as in any other trading transaction (see [<span class="underline">Trading with Beancount</span>](19_trading_with_beancount.md) for full details). For example, selling the shares from the example would look something like this:
 
@@ -242,7 +242,7 @@ Here you can see why it matters that the cost basis you used on the conversion e
 
 I like to keep all the brokerage transactions in a separate section of my document, where other transactions related to the brokerage occur, such as fees, dividends and transfers.
 
-Conclusion<img src="20_stock_vesting_in_beancount/media/04de27aeb8e7b7cbc9201ce82ae780d21cec36fb.jpg" style="width:2.04688in;height:1.39525in" />
--------------------------------------------------------------------------------------------------------------------------------------------------
+<a id="conclusion"></a>Conclusion<img src="20_stock_vesting_in_beancount/media/04de27aeb8e7b7cbc9201ce82ae780d21cec36fb.jpg" style="width:2.04688in;height:1.39525in" />
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 This is a simple example that is modeled after how technology companies deal with this type of compensation. It is by no means comprehensive, and some of the details will necessarily vary in your situation. In particular, it does not explain how to deal with options (ISOs). My hope is that there is enough meat in this document to allow you to extrapolate and adapt to your particular situation. If you get stuck, please reach out on the [<span class="underline">mailing-list</span>](http://furius.ca/beancount/doc/mailing-list).

@@ -1,5 +1,5 @@
-Proposal: Rounding & Precision in Beancount
-===========================================
+<a id="title"></a>Proposal: Rounding & Precision in Beancount
+=============================================================
 
 [<span class="underline">Martin Blais</span>](http://plus.google.com/+MartinBlais), October 2014
 
@@ -8,10 +8,10 @@ Beancount transactions and how they are handled. It also includes*
 
 *a proposal for better handling precision issues in Beancount.*
 
-Motivation
-----------
+<a id="motivation"></a>Motivation
+---------------------------------
 
-### Balancing Precision
+### <a id="balancing-precision"></a>Balancing Precision
 
 Balancing transactions cannot be done precisely. This has been [<span class="underline">discussed on the Ledger mailing-list before</span>](https://groups.google.com/d/msg/ledger-cli/m-TgILbfrwA/YjkmOM3LHXIJ). It is necessary to allow for some tolerance on the amounts used to balance a transaction.
 
@@ -25,7 +25,7 @@ If you calculate it, the first posting’s precise balance amount is 227.2067 US
 
 The great majority of the cases where mathematical operations occur involve the conversion from a number of units and a price or a cost to a corresponding cash value (e.g., units x cost = total cost). Our task in representing transactional information is the replication of operations that take place mostly in institutions. These operations always involve the rounding of numbers for units and currencies (banks do apply stochastic rounding), and the *correct* numbers to be used from the perspective of these institutions, and from the perspective of the government, are indeed the *rounded* numbers themselves. It is a not a question of mathematical purity, but one of practicality, and our system should do the same that banks do. Therefore, I think that we should always post the rounded numbers to accounts. Using rational numbers is not a limitation in that sense, but we must be careful to store rounded numbers where it matters.
 
-### Automatic Rounding
+### <a id="automatic-rounding"></a>Automatic Rounding
 
 Another related issue is that of automatically rounding amounts for interpolated numbers. Let’s take our original problematic example again:
 
@@ -45,7 +45,7 @@ Here, the cost is intended to be automatically calculated from the cash legs: 22
 
 This mechanism cannot unfortunately be solely based on commodity: different accounts may track currencies with different precisions. As a real-world example, I have a retail FOREX trading account that really uses 4 digits of precision for its prices and deposits.
 
-### Precision of Balance Assertions
+### <a id="precision-of-balance-assertions"></a>Precision of Balance Assertions
 
 The precision of a balance assertions is also subject to this problem, assertions like this one:
 
@@ -55,8 +55,8 @@ The user does not intend for this balance check to precisely sum up to 4526.7700
 
 Beancount’s current approach is a kludge: it uses a [<span class="underline">user-configurable tolerance</span>](https://bitbucket.org/blais/beancount/src/f9f90945dd751ecec5d0f63c1bccc372ed21f58f/src/python/beancount/ops/balance.py?at=default#cl-92) of 0.0150 (in any unit). We’d like to change this so that the tolerance used is able to depend on the commodity, the account, or even the particular directive in use.
 
-Other Systems
--------------
+<a id="other-systems"></a>Other Systems
+---------------------------------------
 
 Other command-line accounting systems differ in how they choose that tolerance:
 
@@ -66,10 +66,10 @@ Other command-line accounting systems differ in how they choose that tolerance:
 
 -   At the moment, Beancount uses a [<span class="underline">constant value</span>](https://bitbucket.org/blais/beancount/src/c194c7fa6c15a0356e9d26b20b471f0868843c42/src/python/beancount/core/complete.py?at=default#cl-25) for the tolerance used in its [<span class="underline">balance checking algorithm</span>](https://bitbucket.org/blais/beancount/src/c194c7fa6c15a0356e9d26b20b471f0868843c42/src/python/beancount/ops/validation.py?at=default#cl-391) (0.005 of any unit). This is weak and should, at the very least, be commodity-dependent, if not also dependent on the particular account in which the commodity is used.
 
-Proposal
---------
+<a id="proposal"></a>Proposal
+-----------------------------
 
-### Automatically Inferring Tolerance
+### <a id="automatically-inferring-tolerance"></a>Automatically Inferring Tolerance
 
 Beancount should derive its precision using a method entirely *local* to each transaction, perhaps with a global value for defaults. That is, for each transaction, it will inspect postings with simple amounts (no cost, no price) and infer the precision to be used for tolerance as half of that of the most precise amount entered by the user on this transaction. For example:
 
@@ -96,7 +96,7 @@ Or better, use 1000.00 USD. This has the disadvantage that is prevents the user 
 
 Finally, no global effect implied by transactions will be applied. No transaction should ever affect any other transaction’s balancing context.
 
-### Inference on Amounts Held at Cost
+### <a id="inference-on-amounts-held-at-cost"></a>Inference on Amounts Held at Cost
 
 An idea from by Matthew Harris ([<span class="underline">here</span>](https://groups.google.com/d/msg/beancount/5u-xgR-ttjg/sXfU32ItRscJ)) is that we could also use the value of the to the smallest decimal of the number of units times the cost as a number to use in establishing the tolerance for balancing transactions. For example, in the following transaction:
 
@@ -116,11 +116,11 @@ The original use case presented by Matthew was of a transaction that did not con
 
 I’ve actually tried to implement this and the resulting tolerances are either unacceptably wide or unacceptably small. **It does not work well in practice so I’ve abandoned the idea.**
 
-### Automated Rounding
+### <a id="automated-rounding"></a>Automated Rounding
 
 For values that are automatically calculated, for example, on auto-postings where the remaining value is derived automatically, we should consider rounding the values. No work has been done on this yet; these values are currently not rounded.
 
-### Fixing Balance Assertions
+### <a id="fixing-balance-assertions"></a>Fixing Balance Assertions
 
 To fix balance assertions, we will derive the required precision by the number of digits used in the balance amount itself, by looking at the most precision fractional digit and using half of that digit’s value to compute the tolerance:
 
@@ -138,7 +138,7 @@ If you want to allow for sub-dollar variance, use a single comma:
 
 This balance check implies a precision of 0.50 USD.
 
-### Approximate Assertions
+### <a id="approximate-assertions"></a>Approximate Assertions
 
 Another idea, proposed in [<span class="underline">this ticket on Ledger</span>](https://github.com/ledger/ledger/pull/329), proposes an explicitly approximate assertion.
 
@@ -146,14 +146,14 @@ We could implement it this way (just an idea):
 
     2014-04-01 balance Assets:Investments:Cash   4526.00 +/- 0.05 USD 
 
-Accumulating & Reporting Residuals
-----------------------------------
+<a id="accumulating-reporting-residuals"></a>Accumulating & Reporting Residuals
+-------------------------------------------------------------------------------
 
 In order to explicitly render and monitor the amount of rounding errors that occur in a Ledger, we should [<span class="underline">accumulate it to an Equity account</span>](https://groups.google.com/d/msg/ledger-cli/m-TgILbfrwA/YjkmOM3LHXIJ), such as “Equity:Rounding”. This should be turned on optionally. It should be possible for the user to specify an account to be used to accumulate the error. Whenever a transaction does not balance exactly, the residual, or rounding error, will be inserted as a posting of the transaction to the equity account.
 
 By default, this accumulation should be turned off. It’s not clear whether the extra postings will be disruptive yet (if they’re not, maybe this should be turned on by default; practice will inform us).
 
-Implementation
---------------
+<a id="implementation"></a>Implementation
+-----------------------------------------
 
 The implementation of this proposal is [<span class="underline">documented here</span>](08_precision_tolerances.md).

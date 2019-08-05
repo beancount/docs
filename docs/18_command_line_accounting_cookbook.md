@@ -1,5 +1,5 @@
-Command-line Accounting Cookbook
-================================
+<a id="title"></a>Command-line Accounting Cookbook
+==================================================
 
 [<span class="underline">Martin Blais</span>](mailto:blais@furius.ca), July 2014
 
@@ -53,8 +53,8 @@ Command-line Accounting Cookbook
 >
 > [<span class="underline">Conclusion</span>](#conclusion)
 
-Introduction
-------------
+<a id="introduction"></a>Introduction
+-------------------------------------
 
 The best way to learn the double-entry method is to look at real-world examples. The method is elegant, but it can seem unintuitive to the newcomer how transactions have to be posted in order to perform the various operations that one needs to do in counting for different types financial events. This is why I wrote this cookbook. It is not meant to be a comprehensive description of all the features supported, but rather a set of practical guidelines to help you solve problems. I think this will likely be the most useful document in the Beancount documentation set!
 
@@ -64,12 +64,12 @@ Command-line accounting systems are agnostic about the types of things they can 
 
 Finally, if you have a transaction entry problem that is not covered in this document, please do leave a comment in the margin, or write up your problem to the [<span class="underline">Ledger mailing-list</span>](https://groups.google.com/forum/#!forum/ledger-cli). I would like for this document to cover as many realistic scenarios as possible.
 
-### A Note of Caution
+### <a id="a-note-of-caution"></a>A Note of Caution
 
 While reading this, please take note that the author is a dilettante: I am a computer scientist, not an accountant. In fact, apart from a general course I took in college and having completed the first year of a CFA program, I have no real training in accounting. Despite this, I do have some practical experience in maintaining three set of books using this software: my personal ledger (8 years worth of full financial data for all accounts), a joint ledger with my spouse, and the books of a contracting and consulting company I used to own. I also used my double-entry system to communicate with my accountant for many years and he made suggestions. Nevertheless… I may be making fundamental mistakes here and there, and I would appreciate you leaving a comment in the margin if you find anything dubious.
 
-Account Naming Conventions
---------------------------
+<a id="account-naming-conventions"></a>Account Naming Conventions
+-----------------------------------------------------------------
 
 You can define any account name you like, as long as it begins with one of the five categories: Assets, Liabilities, Income, Expenses, or Equity (note that you can customize those names with options - see the [<span class="underline">Language Syntax document</span>](http://furius.ca/beancount/doc/users-manual) for details). The accounts names are generally defined to have multiple name *components,* separated by a colon (:), which imply an accounts hierarchy, or “[<span class="underline">chart of accounts</span>](http://en.wikipedia.org/wiki/Chart_of_accounts)”:
 
@@ -143,7 +143,7 @@ Finally, for “Equity” accounts, well, …. normally you don’t end up defin
 
 You can customize the name of the other Equity accounts that get automatically created for the balance sheet.
 
-### Choosing an Account Type
+### <a id="choosing-an-account-type"></a>Choosing an Account Type
 
 Part of the art of learning what accounts to book transactions to is to come up with relevant account names and design a scheme for how money will flow between those accounts, by jotting down some example transactions. It can get a bit creative. As you’re working out how to “count” all the financial events in your life, you will often end up wondering what account type to select for some of the accounts. Should this be an “Assets” account? Or an “Income” account? After all, other than for creating reports, Beancount doesn’t treat any of these account types differently…
 
@@ -159,14 +159,14 @@ Based on these two indicators, you should be able to figure out any case. Let’
 
 -   You own some shares of a bond, and receive an interest payment. This interest is cash deposited in an Assets account, for example, a trading account. What is the other leg to be booked to?
 
-### Choosing Opening Dates
+### <a id="choosing-opening-dates"></a>Choosing Opening Dates
 
 Some of the accounts you need to define don’t correspond to real world accounts. The Expenses:Groceries account represents the sum total of grocery expenses since you started counting. Personally, I like to use my *birth date* on those. There’s a rationale to it: it sums all the groceries you’ve ever spent money on, and this started only when you came to this world.
 
 You can use this rationale on other accounts. For example, all the income accounts associated with an employer should probably be opened at the date you began the job, and end on the date you left. Makes sense.
 
-How to Deal with Cash
----------------------
+<a id="how-to-deal-with-cash"></a>How to Deal with Cash
+-------------------------------------------------------
 
 Let’s start with cash. I typically define two accounts at my birth date:
 
@@ -177,7 +177,7 @@ The first account is for active use, this represents my wallet, and usually cont
 
 The second account is meant to hold all the paper bills that I keep stashed in a pocket from trips around the world, so they’re out of the way in some other account and I don’t see them in my cash balance. I transfer those to the main account when I do travel to such places, e.g., if I return to Japan, I’ll move my JPY from Assets:ForeignCash to Assets:Cash right before the trip and use them during that time.
 
-### Cash Withdrawals
+### <a id="cash-withdrawals"></a>Cash Withdrawals
 
 An ATM withdrawal from a checking account to cash will typically look like this:
 
@@ -187,7 +187,7 @@ An ATM withdrawal from a checking account to cash will typically look like this:
 
 You would see this transaction be imported in your checking account transactions download.
 
-### Tracking Cash Expenses
+### <a id="tracking-cash-expenses"></a>Tracking Cash Expenses
 
 One mistake people make when you tell them you’re tracking all of your financial accounts is to assume that you have to book every single little irrelevant cash transaction to a notebook. Not so! It is your choice to decide *how many* of these cash transactions to take down (or not).
 
@@ -218,8 +218,8 @@ I could have made my life simpler and used a Pad directive if I had booked every
 
 Finally, if you end up with a long time period between the times that you do this, you may want to “spread out” your expenses by adding more than one cash distribution[^3] manually, so that if you generate a monthly report, a large cash expense does not appear as a single lump in or outside that month.
 
-Salary Income
--------------
+<a id="salary-income"></a>Salary Income
+---------------------------------------
 
 Accounting for your salary is rewarding: you will be able to obtain a summary of income earned during the year as well as the detail of where the various deductions are going, and you will enjoy the satisfaction of seeing matching numbers from your Beancount reports when you receive your W-2 form from your employer (or on your T4 if you’re located in Canada).
 
@@ -233,7 +233,7 @@ This allows me to automatically calculate the number of days I’ve been working
 
 This section will make several assumptions. The goal is to expose you to the various ideas you can use to account for your income correctly. You will almost certainly end up having to adapt these ideas to your specific situation.
 
-### Employment Income Accounts
+### <a id="employment-income-accounts"></a>Employment Income Accounts
 
 Then you define accounts for your pay stubs. You need to make sure that you have an account corresponding to each line of your pay stub. For example, here are some of the income accounts I define for this employment income at Hooli Inc.:
 
@@ -267,7 +267,7 @@ You will also need to have some accounts defined elsewhere for the various expen
 
 These correspond to typical company group plan life insurance payments, premiums for dental, medical and vision insurances, reimbursements for home internet usage, and pre-tax payments for public transit (the city of New York allows you to pay for your MetroCard with pre-tax money through your employer).
 
-### Booking Salary Deposits
+### <a id="booking-salary-deposits"></a>Booking Salary Deposits
 
 Then, when I import details for a payment via direct deposit to my checking account, it will look like this:
 
@@ -303,7 +303,7 @@ It’s quite unusual for a salary payment to have no variation at all from its p
 
 It’s worth noting some unusual things about the previous entry. The “group term life” entry has both a $25.38 income leg and an expense one. This is because Hooli pays for the premium (it reads exactly like that on the stubs.) Hooli also reimburses some of home internet, because I use it to deal with production issues. This appears as a *negative* posting to reduce the amount of my expense Expenses:Internet account.
 
-### Vacation Hours
+### <a id="vacation-hours"></a>Vacation Hours
 
 Our pay stubs also include accrued vacation and the total vacation balance, in vacation hours. You can also track these amounts on the same transactions. You need to declare corresponding accounts:
 
@@ -337,7 +337,7 @@ You can “price” your vacation hour units to your hourly rate, so that your v
 
 Similarly, if your vacation hours expires or caps, you can calculate how much dollar-equivalent you’re forfeiting by working too much and giving up your vacation time. You would write off some of the VACHR from your *Assets* account into an income account (representing losses).
 
-### 401k Contributions
+### <a id="k-contributions"></a>401k Contributions
 
 The 401k plan allows you to make contributions to a tax-deferred retirement account using pre-tax dollars. This is carried out via withholdings from your pay. To account for those, you simply include a posting with the corresponding contribution towards your retirement account:
 
@@ -376,15 +376,15 @@ Note that the fund that manages your 401k accounts may be tracking your contribu
 
 It is common for them to do this in order to track each source of contribution separately, because there are several constraints on rollovers to other accounts that depend on it.
 
-### Vesting Stock Grants
+### <a id="vesting-stock-grants"></a>Vesting Stock Grants
 
 See the [<span class="underline">dedicated document</span>](20_stock_vesting_in_beancount.md) on this topic for more details.
 
-### Other Benefits
+### <a id="other-benefits"></a>Other Benefits
 
 You can go crazy with tracking benefits if you want. Here are a few wild ideas.
 
-#### Points
+#### <a id="points"></a>Points
 
 If your employer offers a sponsored massage therapy program on-site, you could presumably book a massage out of your paycheck or even from some internal website (if the company is modern), and you could pay for them using some sort of internal points system, say, “Hooli points”. You could track those using a made-up currency, e.g., “MASSA’s” and which could be priced at 0.50 USD, the price at which you could purchase them:
 
@@ -399,7 +399,7 @@ When I purchase new massage points, I
 
 If you’re occasionally awarded some of these points, and you can track that in an Income account.
 
-#### Food Benefits
+#### <a id="food-benefits"></a>Food Benefits
 
 Like many of the larger technology companies, Hooli presumably provides free food for its employees. This saves time and encourages people to eat healthy. This is a bit of a trend in the tech world right now. This benefit does not show up anywhere, but if you want to price it as part of your compensation package, you can track it using an *Income* account:
 
@@ -411,8 +411,8 @@ Depending on how often you end up eating at work, you could guesstimate some mon
       Income:US:Hooli:Food		-350 USD
       Expenses:Food:Restaurant
 
-Currency Transfers & Conversions
---------------------------------
+<a id="currency-transfers-conversions"></a>Currency Transfers & Conversions
+---------------------------------------------------------------------------
 
 If you convert between currencies, such as when performing an international transfer between banks, you need to provide the exchange rate to Beancount. It looks like this:
 
@@ -452,12 +452,12 @@ If you did that by mistake, you would incur errors when you attempted to use the
 
 Finally, a rather subtle problem is that using these price conversions back and forth at different rates over time breaks the accounting equation to some extent: changes in exchange rate may create small amounts of money out of thin air and all the balances don’t end up summing up to zero. However, this is not a problem, because Beancount implements an elegant solution to automatically correct for this problem, so you can use these conversions freely without having to worry about this: it inserts a special conversions entry on the balance sheet to invert the cumulative effect of conversions for the report and obtain a clean balance of zero. (A discussion of the conversions problem is beyond the scope of this cookbook; please refer to [<span class="underline">Solving the Conversions Problem</span>](http://furius.ca/beancount/doc/conversions) if you’d like to know more.)
 
-Investing and Trading
----------------------
+<a id="investing-and-trading"></a>Investing and Trading
+-------------------------------------------------------
 
 Tracking trades and associated gains is a fairly involved topic. You will find a more complete introduction to profit and loss and a detailed discussion of various scenarios in the [<span class="underline">Trading with Beancount</span>](19_trading_with_beancount.md) document, which is dedicated to this topic. Here we will discuss how to setup your account and provide simple example transactions to get you started.
 
-### Accounts Setup
+### <a id="accounts-setup"></a>Accounts Setup
 
 You should create an account prefix to root various sub-accounts associated with your investment account. Say you have an account at ETrade, this could be “Assets:US:ETrade”. Choose an appropriate institution name.
 
@@ -485,7 +485,7 @@ Finally, to account for transaction fees and commissions, you will need some gen
     1973-04-27 open Expenses:Financial:Fees
     1973-04-27 open Expenses:Financial:Commissions
 
-### Funds Transfers
+### <a id="funds-transfers"></a>Funds Transfers
 
 You will normally add some initial money in this account by making a transfer from an external account, say, a checking account:
 
@@ -493,7 +493,7 @@ You will normally add some initial money in this account by making a transfer fr
       Assets:US:BofA:Checking        -2000.00 USD
       Assets:US:ETrade:Cash           2000.00 USD
 
-### Making a Trade
+### <a id="making-a-trade"></a>Making a Trade
 
 Buying stock should have a posting that deposits the new commodity in the commodity’s sub-account, and debits the cash account to the corresponding amounts plus commissions:
 
@@ -516,7 +516,7 @@ Note that the postings of shares removed from the Assets:US:ETrade:LQD account i
 
 I normally let Beancount calculate the capital gain or loss for me, which is why I don’t specify it in the last posting. Beancount will automatically balance the transaction by setting the amount of this posting to -20.80 USD, which is a *gain* of 20.80 USD (remember that the signs are inverted for income accounts). Specifying the sale price of 123.40 USD is optional, and it is *ignored* for the purpose of balancing the transaction, the cash deposit and commissions legs determine the profit.
 
-### Receiving Dividends
+### <a id="receiving-dividends"></a>Receiving Dividends
 
 Receiving dividends takes on two forms. First, you can receive dividends in cash, which will go into the cash account:
 
@@ -536,7 +536,7 @@ This is booked similarly to a stock purchase, and you also have to provide the c
 
 Refer to the [<span class="underline">Trading with Beancount</span>](19_trading_with_beancount.md) document for a more thorough discussion and numerous and more complex examples.
 
-### Choosing a Date
+### <a id="choosing-a-date"></a>Choosing a Date
 
 Buying or selling a single lot of stock typically involves multiple events over time: the trade is placed, the trade is filled (usually on the same day), the trade is settled. Settlement usually occurs 2 or 3 business days after the trade is filled.
 
@@ -544,8 +544,8 @@ For simplicity, I recommend using the trade date as the date of your transaction
 
 More complex schemes can be envisioned, e.g. you could store the settlement date as a metadata field and then use it in scripts later on, but that’s beyond the scope of this document.
 
-Conclusion
-----------
+<a id="conclusion"></a>Conclusion
+---------------------------------
 
 This document is incomplete. I have many more example use cases that I’m planning to add here as I complete them. I will be announcing those on the mailing-list as they materialize. In particular, the following topics will be discussed:
 
