@@ -11,6 +11,7 @@ from panflute import (
     LineBreak,
     Link,
     ListItem,
+    RawInline,
     Space,
     Str,
 )
@@ -84,6 +85,8 @@ def action(elem, doc):
         # There must be only one level 1 header
         if elem.identifier != 'title':
             elem.level += 1
+        # Add explicit anchor
+        elem.content.insert(0, RawInline(f'<a id="{elem.identifier}"></a>'))
 
     elif isinstance(elem, Link):
         if elem.url == stringify(elem):
