@@ -40,7 +40,7 @@ How to Install
 
 ### Installing Python
 
-Beancount uses Python 3.5[1] or above, which is a pretty recent version of Python (as of this writing), and a few common library dependencies. I try to minimize dependencies, but you do have to install a few. This is very easy.
+Beancount uses Python 3.5[^1] or above, which is a pretty recent version of Python (as of this writing), and a few common library dependencies. I try to minimize dependencies, but you do have to install a few. This is very easy.
 
 First, you should have a working Python install. Install the latest stable version &gt;=3.5 using the download from [<span class="underline">python.org</span>](http://python.org). Make sure you have the development headers and libraries installed as well (e.g., the “Python.h” header file). For example, on a Debian/Ubuntu system you would install the **python3-dev** package.
 
@@ -359,7 +359,7 @@ It is expected that the user will build their own importers. However, Beancount 
 
 #### Virtualenv Installation
 
-If you’d like to use virtualenv, you can try this (suggestion by Remy X). First install Python 3.5 or beyond[2]:
+If you’d like to use virtualenv, you can try this (suggestion by Remy X). First install Python 3.5 or beyond[^2]:
 
     sudo add-apt-repository ppa:fkrull/deadsnakes
     sudo apt-get update
@@ -421,6 +421,6 @@ Beancount needs a few more tools for development. If you’re reading this, you�
 
 I think that’s about it. You certainly don’t need *everything* above, but that’s the list of tools I use. If you find anything missing, please leave a comment, I may have missed something.
 
-[1] Some people have [<span class="underline">reported</span>](https://www.google.com/url?q=https://groups.google.com/d/msgid/beancount/51fec791-1c38-46e8-b152-08c49e7686c3%2540googlegroups.com?utm_medium%3Demail%26utm_source%3Dfooter&sa=D&ust=1461188801128000&usg=AFQjCNH8StkxqPYKLKMhir6YAz6rXCOKsQ) bugs with the cdecimal library in 3.4. I would recommend actually installing 3.5, which appears to have fixed the problem. Technically, 3.3 will still run, but I’ll deprecate it for 3.5 at some point, probably when the Ubuntu and Mac OS X distributions have it installed by default.
+[^1]: Some people have [<span class="underline">reported</span>](https://www.google.com/url?q=https://groups.google.com/d/msgid/beancount/51fec791-1c38-46e8-b152-08c49e7686c3%2540googlegroups.com?utm_medium%3Demail%26utm_source%3Dfooter&sa=D&ust=1461188801128000&usg=AFQjCNH8StkxqPYKLKMhir6YAz6rXCOKsQ) bugs with the cdecimal library in 3.4. I would recommend actually installing 3.5, which appears to have fixed the problem. Technically, 3.3 will still run, but I’ll deprecate it for 3.5 at some point, probably when the Ubuntu and Mac OS X distributions have it installed by default.
 
-[2] Installing py3.5: <http://www.jianshu.com/p/4f4b2ed568f4>
+[^2]: Installing py3.5: <http://www.jianshu.com/p/4f4b2ed568f4>

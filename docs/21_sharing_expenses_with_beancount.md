@@ -359,7 +359,7 @@ The plugin is enabled like this:
 
 Reloading the web page after uncommenting this line from the input file and visiting the Income Statement page should show a long list of Expenses accounts split by person. Now, in order to generate the total amount of expenses incurred for each person, we have to produce the balance of all Expenses accounts with a member’s name in it, accounts like “Expenses:.\*Martin”.
 
-The web tool does not provide such a filtering capability at the moment[1], but we can use the bean-query tool to produce the total of expenses for each person:
+The web tool does not provide such a filtering capability at the moment[^1], but we can use the bean-query tool to produce the total of expenses for each person:
 
     beancount> SELECT sum(position) WHERE account ~ '^Expenses:.*Martin'
 
@@ -508,7 +508,7 @@ After the trip is concluded, we want to convert the balance in the pending accou
                                      294    MXN
     Expenses:Transport:Train:Martin    5.00 USD
 
-I suppose you could script away this part to remove the member’s name from the account names and have the script spit output already formatted as a nicely formatted Transaction, but because the account names will not match the personal ledger file’s 1-to-1, you will have to perform a manual conversion anyway, so I did not bother automating this. Furthermore, you only have a single one of these to make after your trip, so it’s not worth spending too much time making this part easier[2].
+I suppose you could script away this part to remove the member’s name from the account names and have the script spit output already formatted as a nicely formatted Transaction, but because the account names will not match the personal ledger file’s 1-to-1, you will have to perform a manual conversion anyway, so I did not bother automating this. Furthermore, you only have a single one of these to make after your trip, so it’s not worth spending too much time making this part easier[^2].
 
 Here’s what the final transaction looks like; I have a section in my input file with this:
 
@@ -599,6 +599,6 @@ There is more than just one way to carry out the task we describe here. However,
 
 It’s also a short step to accounting for an ongoing project with a longer term. The ideas presented in this document provide a nice use case for the usage of the double-entry method in a simple setting. I hope that working through this use case will help people develop the intuitions necessary in using the double-entry method.
 
-[1] As our SQL-like query language matures, bean-web will eventually allow the user to create views from a set of transactions filtered from an expression. This will be implemented eventually.
+[^1]: As our SQL-like query language matures, bean-web will eventually allow the user to create views from a set of transactions filtered from an expression. This will be implemented eventually.
 
-[2] Note that we could implement a special “beancount” supported format to the bean-query tool in order to write out balances in Transaction form. I’m not sure how useful that would be but it’s an idea worth considering for the future.
+[^2]: Note that we could implement a special “beancount” supported format to the bean-query tool in order to write out balances in Transaction form. I’m not sure how useful that would be but it’s an idea worth considering for the future.

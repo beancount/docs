@@ -30,9 +30,9 @@ Martin Blais, July 2014
 Motivation
 ----------
 
-Both Beancount and Ledger implement *balance assertions.* These provide the system with checkpoints it can use to verify the integrity of the data entry[1].
+Both Beancount and Ledger implement *balance assertions.* These provide the system with checkpoints it can use to verify the integrity of the data entry[^1].
 
-Traditional accounting principles state that a user may never change the past—correcting the past involves inserting new entries to undo past mistakes[2]—but we in the command-line accounting community take issue with that: we want to remain able to reconstruct the past and more importantly, to correct past mistakes at the site of their original data entry. Yes, we are dilettantes but we are bent on simplifying the process of bookkeeping by challenging existing concepts and think that this is perfectly reasonable, as long as it does not break known balances. These known balances are what we provide via balance assertions.
+Traditional accounting principles state that a user may never change the past—correcting the past involves inserting new entries to undo past mistakes[^2]—but we in the command-line accounting community take issue with that: we want to remain able to reconstruct the past and more importantly, to correct past mistakes at the site of their original data entry. Yes, we are dilettantes but we are bent on simplifying the process of bookkeeping by challenging existing concepts and think that this is perfectly reasonable, as long as it does not break known balances. These known balances are what we provide via balance assertions.
 
 Another way to look at these balance assertions, is that they are simply the bottom line amounts reported on various account statements, as exemplified in the figure below.
 
@@ -190,6 +190,6 @@ Possible syntax ideas:
 
 I’m still undecided which is best. So far it seems a matter of taste.
 
-[1] As far as we know, the notion of inputting an explicit expected amount is unique to command-line accounting systems. Other systems “reconcile” by freezing changes in the past.
+[^1]: As far as we know, the notion of inputting an explicit expected amount is unique to command-line accounting systems. Other systems “reconcile” by freezing changes in the past.
 
-[2] There are multiple reasons for this. First, in pre-computer times, accounting was done using books, and recomputing running balances manually would have involved making multiple annoying corrections to a book. This must have been incredibly inconvenient, and inserting correcting entries at the current time is a lot easier. Secondly, if your accounting balances are used to file taxes, changing some of the balances retroactively makes it difficult to go back and check the detail of reported amounts in case of an audit. This problem also applies to our context, but whether a past correction should be allowed is a choice that depends on the context and the particular account, and we leave it up to the user to decide whether it should be allowed.
+[^2]: There are multiple reasons for this. First, in pre-computer times, accounting was done using books, and recomputing running balances manually would have involved making multiple annoying corrections to a book. This must have been incredibly inconvenient, and inserting correcting entries at the current time is a lot easier. Secondly, if your accounting balances are used to file taxes, changing some of the balances retroactively makes it difficult to go back and check the detail of reported amounts in case of an audit. This problem also applies to our context, but whether a past correction should be allowed is a choice that depends on the context and the particular account, and we leave it up to the user to decide whether it should be allowed.

@@ -41,7 +41,7 @@ This is an interesting and apparently common problem. We will describe use cases
 
 ### Joint Account Management
 
-I have personally used this “fund accounting” idea to manage a joint account that I had with my ex-wife, where we would both hold individual accounts—we were both working professionals— and chip in to the joint account as needed. This section describes how I did this[1].
+I have personally used this “fund accounting” idea to manage a joint account that I had with my ex-wife, where we would both hold individual accounts—we were both working professionals— and chip in to the joint account as needed. This section describes how I did this[^1].
 
 The accounting for the joint account was held in a separate file. Two sub-accounts were created to hold each of our “portions”:
 
@@ -341,4 +341,4 @@ Simon Michael mentions that this is related to HLedger [<span class="underline">
 
 > “I think this is related to the situation where you want to view entities' finances both separately and merged. Account aliases can be another way to approximate this, as in[<span class="underline">http://hledger.org/how-to-use-account-aliases</span>](http://hledger.org/how-to-use-account-aliases).”
 
-[1] If you find yourself culturally challenged by our modern lifestyle, perhaps you can imagine the case of roommates, although I don’t like the reductionist view this association brings to my mind.
+[^1]: If you find yourself culturally challenged by our modern lifestyle, perhaps you can imagine the case of roommates, although I don’t like the reductionist view this association brings to my mind.

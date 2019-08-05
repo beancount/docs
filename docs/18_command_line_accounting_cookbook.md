@@ -151,7 +151,7 @@ But this does not mean that you can just use any type willy nilly. Whether an ac
 
 > First, if the amounts to be posted to the account are only relevant to be reported for a *period of time*, they should be one of the income statement accounts: Income or Expenses. On the other hand, if the amount *always* needs to be included in the total balance of an account, then it should be a balance sheet account: Assets or Liabilities.
 >
-> Second, if the amounts are generally[1] positive, or “good from your perspective,” the account should be either an Assets or an Expenses account. If the amounts are generally negative, or “bad from your perspective,” the account should be either a Liabilities or an Income account.
+> Second, if the amounts are generally[^1] positive, or “good from your perspective,” the account should be either an Assets or an Expenses account. If the amounts are generally negative, or “bad from your perspective,” the account should be either a Liabilities or an Income account.
 
 Based on these two indicators, you should be able to figure out any case. Let’s work through some examples:
 
@@ -214,9 +214,9 @@ Every time I do this I’ll also add a cash distribution adjusted to balance the
 
 If you wonder why the amounts in the cash account don’t add up (234.13 -502.30 ≠ 194.34), it is because between the two assertions I added to the cash account by doing some ATM withdrawals against the checking account, and those appear somewhere else (in the checking account section). The withdrawal increased the balance of the cash account. It would appear if I rendered a journal for Assets:Cash.
 
-I could have made my life simpler and used a Pad directive if I had booked everything to food—pad entries don’t work solely at the beginning of an account’s history, but also between any two balance assertions on the same account—but I want to book 80% of it to food and 20% alcohol, to more accurately represent my real usage of cash[2].
+I could have made my life simpler and used a Pad directive if I had booked everything to food—pad entries don’t work solely at the beginning of an account’s history, but also between any two balance assertions on the same account—but I want to book 80% of it to food and 20% alcohol, to more accurately represent my real usage of cash[^2].
 
-Finally, if you end up with a long time period between the times that you do this, you may want to “spread out” your expenses by adding more than one cash distribution[3] manually, so that if you generate a monthly report, a large cash expense does not appear as a single lump in or outside that month.
+Finally, if you end up with a long time period between the times that you do this, you may want to “spread out” your expenses by adding more than one cash distribution[^3] manually, so that if you generate a monthly report, a large cash expense does not appear as a single lump in or outside that month.
 
 Salary Income
 -------------
@@ -426,7 +426,7 @@ The balance amount of the second posting is calculated as 10,000.00 USD x 0.90 C
       Assets:CH:UBS:Checking       -9000.00 CHF @ 1.11111 USD
       Assets:US:BofA:Checking      10000.00 USD
 
-The balance amount of the first posting is calculated as -9000.00 CHF x 1.11111 USD/CHF = 10000.00 USD[4]. Typically I will choose the rate that was reported to me and put it on the corresponding side. You may also want to use the direction that F/X markets use for trading the rate, for example, the Swiss franc trades as USD/CHF, so I would prefer the first transaction. The price database converts the rates in both directions, so it is not that important[5].
+The balance amount of the first posting is calculated as -9000.00 CHF x 1.11111 USD/CHF = 10000.00 USD[^4]. Typically I will choose the rate that was reported to me and put it on the corresponding side. You may also want to use the direction that F/X markets use for trading the rate, for example, the Swiss franc trades as USD/CHF, so I would prefer the first transaction. The price database converts the rates in both directions, so it is not that important[^5].
 
 If you use wire transfers, which is typical for this type of money transfer, you might incur a fee:
 
@@ -559,12 +559,12 @@ This document is incomplete. I have many more example use cases that I’m plann
 
 -   Options
 
-[1] This is not strictly always true: in accounting for companies, some account types are held at their opposite value for reasons, usually to offset the value of another account of the same type. These are called “contra” accounts. But as an individual, you’re quite unlikely to have one of those. If you’re setting up a chart of accounts for a company, Beancount doesn’t actually care whether the balance is of one sign or other. You declare contra-accounts just like regular accounts.
+[^1]: This is not strictly always true: in accounting for companies, some account types are held at their opposite value for reasons, usually to offset the value of another account of the same type. These are called “contra” accounts. But as an individual, you’re quite unlikely to have one of those. If you’re setting up a chart of accounts for a company, Beancount doesn’t actually care whether the balance is of one sign or other. You declare contra-accounts just like regular accounts.
 
-[2] I am considering supporting an extended version of the Pad directive that can take a percentage value and make it possible to pad only a percentage of the full amount, to automate this.
+[^2]: I am considering supporting an extended version of the Pad directive that can take a percentage value and make it possible to pad only a percentage of the full amount, to automate this.
 
-[3] Yet another extension to Beancount involves support multiple Pad directives between two balance assertions and automatically support this spreading out of padding directives.
+[^3]: Yet another extension to Beancount involves support multiple Pad directives between two balance assertions and automatically support this spreading out of padding directives.
 
-[4] If you’re concerned about the issue of precision or rounding in balancing, see [<span class="underline">this document</span>](http://furius.ca/beancount/doc/rounding).
+[^4]: If you’re concerned about the issue of precision or rounding in balancing, see [<span class="underline">this document</span>](http://furius.ca/beancount/doc/rounding).
 
-[5] Note that if the price database needs to invert the date its calculation may result in a price with a large number of digits. Beancount uses IEEE decimal objects and the default context of the Python implementation is 28 digits, so inverting 0.9 will result in 1.111111….111 with 28 digits.
+[^5]: Note that if the price database needs to invert the date its calculation may result in a price with a large number of digits. Beancount uses IEEE decimal objects and the default context of the Python implementation is 28 digits, so inverting 0.9 will result in 1.111111….111 with 28 digits.

@@ -33,7 +33,7 @@ From Beancount’s point-of-view, both of the examples above are balancing trans
 How Precision is Determined
 ---------------------------
 
-Beancount attempts to derive the precision from each transaction **automatically**, from the input, for each Transaction **in isolation**[1]. Let us inspect our last example again:
+Beancount attempts to derive the precision from each transaction **automatically**, from the input, for each Transaction **in isolation**[^1]. Let us inspect our last example again:
 
     2013-04-03 * "Buy Mutual Fund - Price as of date based on closing price"
       Assets:US:Vanguard:RGAGX       10.22626 RGAGX {37.61 USD}
@@ -84,7 +84,7 @@ By default, the tolerance used on amounts without an inferred precision is **zer
 
 You can customize what the default tolerance should be for each currency separately and for any currency as well (see section below on how to do this).
 
-This treatment of integer amounts implies that the **maximum amount of precision** that one can specify just by inputting numbers is 0.05 units of the currency, for example, by providing a number such as 10.7 as input[2]. On the other hand, the settings for the default tolerance to use allows specifying arbitrary numbers.
+This treatment of integer amounts implies that the **maximum amount of precision** that one can specify just by inputting numbers is 0.05 units of the currency, for example, by providing a number such as 10.7 as input[^2]. On the other hand, the settings for the default tolerance to use allows specifying arbitrary numbers.
 
 ### Resolving Ambiguities
 
@@ -322,6 +322,6 @@ Further Reading
 
 [<span class="underline">What Every Computer Scientist Should Know About Floating-Point Arithmetic</span>](http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html#689)
 
-[1] This stands in contrast to Ledger which attempts to infer the precision based on other transactions recently parsed in the file, in file order. This has the unfortunate effect of creating “cross-talk” between the transactions in terms of what precision can be used.
+[^1]: This stands in contrast to Ledger which attempts to infer the precision based on other transactions recently parsed in the file, in file order. This has the unfortunate effect of creating “cross-talk” between the transactions in terms of what precision can be used.
 
-[2] Note that due to the way Beancount represents numbers internally, it is also not able to distinguish between “230” and “230.”; these parse into the same representation for Beancount. Therefore, we are not able to use that distinction in the input to support a precision of 0.5.
+[^2]: Note that due to the way Beancount represents numbers internally, it is also not able to distinguish between “230” and “230.”; these parse into the same representation for Beancount. Therefore, we are not able to use that distinction in the input to support a precision of 0.5.

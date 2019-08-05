@@ -149,7 +149,7 @@ This also explains why balance assertions are verified before any transactions t
 
 ### Accounts
 
-Beancount accumulates commodities in accounts. The names of these accounts do not have to be declared before being used in the file, they are recognized as “accounts” by virtue of their syntax alone[1]. An account name is a colon-separated list of capitalized words which begin with a letter, and whose first word must be one of five account types:
+Beancount accumulates commodities in accounts. The names of these accounts do not have to be declared before being used in the file, they are recognized as “accounts” by virtue of their syntax alone[^1]. An account name is a colon-separated list of capitalized words which begin with a letter, and whose first word must be one of five account types:
 
     Assets Liabilities Equity Income Expenses
 
@@ -472,7 +472,7 @@ Here is the explanation of how it is calculated:
 
 1.  If the posting has **only an amount** and no cost, the balance amount is just the amount and currency on that posting. Using the first example from the previous section, the amount is -400.00 USD, and that is balanced against the 400.00 USD of the second leg.
 
-2.  If the posting has **only a price**, the price is multiplied by the number of units and the price currency is used. In the second example from the preceding section, that is -400.00 USD x 1.09 CAD(/USD) = -436.00 CAD, and that is balanced against the other posting of 436.00 CAD[2].
+2.  If the posting has **only a price**, the price is multiplied by the number of units and the price currency is used. In the second example from the preceding section, that is -400.00 USD x 1.09 CAD(/USD) = -436.00 CAD, and that is balanced against the other posting of 436.00 CAD[^2].
 
 3.  If the posting **has a cost**, the cost is multiplied by the number of units and the cost currency is used. In the third example from the preceding section, that is 10 IVV x 183.08 USD(/IVV) = 1830.70 USD. That is balanced against the cash leg of -1830.70 USD, so all is good.
 
@@ -903,7 +903,7 @@ When multiple Price directives do exist for the same day, the last one to appear
 
 ### Events
 
-Event directives[3] are used to track the value of *some variable of your choice* over time. For example, your location:
+Event directives[^3] are used to track the value of *some variable of your choice* over time. For example, your location:
 
     2014-07-09 event "location" "Paris, France"
 
@@ -1084,8 +1084,8 @@ What’s Next?
 
 This document described all the possible syntax of the Beancount language. If you haven’t written any Beancount input yet, you can head to the [<span class="underline">Getting Started</span>](05_getting_started_with_beancount.md) guide, or browse through a list of practical use cases in the [<span class="underline">Command-line Accounting Cookbook</span>](18_command_line_accounting_cookbook.md).
 
-[1] Note that there exists an “Open” directive that is used to provide the start date of each account. That can be located anywhere in the file, it does not have to appear in the file somewhere before you use an account name. You can just start using account names in transactions right away, though all account names that receive postings to them will eventually have to have a corresponding Open directive with a date that precedes all transactions posted to the account in the input file.
+[^1]: Note that there exists an “Open” directive that is used to provide the start date of each account. That can be located anywhere in the file, it does not have to appear in the file somewhere before you use an account name. You can just start using account names in transactions right away, though all account names that receive postings to them will eventually have to have a corresponding Open directive with a date that precedes all transactions posted to the account in the input file.
 
-[2] Note that this is valid whether the price is specified as a per-unit price with the @ syntax or as a total price using the @@ syntax.
+[^2]: Note that this is valid whether the price is specified as a per-unit price with the @ syntax or as a total price using the @@ syntax.
 
-[3] I really dislike the name “event” for this directive. I’ve been trying to find a better alternative, so far without success. The name “register” might be more appropriate, as it resembles that of a processor’s register, but that could be confused with an *account register* report. “variable” might work, but somehow that just sounds too computer-sciency and out of context. If you can think of something better, please make a suggestion and I’ll seriously entertain a complete rename (with legacy support for “event”).
+[^3]: I really dislike the name “event” for this directive. I’ve been trying to find a better alternative, so far without success. The name “register” might be more appropriate, as it resembles that of a processor’s register, but that could be confused with an *account register* report. “variable” might work, but somehow that just sounds too computer-sciency and out of context. If you can think of something better, please make a suggestion and I’ll seriously entertain a complete rename (with legacy support for “event”).

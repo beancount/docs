@@ -103,7 +103,7 @@ In this section we provide general guidelines for how to organize your file. Thi
 
 ### Preamble to your Input File
 
-I recommend that you begin with just a single file[1]. My file has a header that tells my editor (Emacs) what “mode” to open the file with, followed by some common options:
+I recommend that you begin with just a single file[^1]. My file has a header that tells my editor (Emacs) what “mode” to open the file with, followed by some common options:
 
     ;; -*- mode: org; mode: beancount; coding: utf-8; fill-column: 400; -*-
     option "title" "My Personal Ledger"
@@ -195,7 +195,7 @@ Later on, when I import the checking account’s transactions and go fishing for
 
 So if you organize your account in sections the way I suggest above, which section of the file should you leave such “merged” transactions in, that is, transactions that involve two separate accounts? Well, it’s your call. For example, in the case of a transfer between two accounts organized such that they have their own dedicated sections, it would be nice to be able to leave both transactions there so that when you edit your input file you see them in either section, but unfortunately, the transaction must occur in only one place in your document. You have to choose one.
 
-Personally I’m a little careless about being consistent which of the section I choose to leave the transaction in; sometimes I choose one section of my input file, or that of the other account, for the same pair of accounts. It hasn’t been a problem, as I use Emacs and i-search liberally which makes it easy to dig around my gigantic input file. If you want to keep your input more tidy and organized, you could come up with a rule for yourself, e.g. “credit card payments are always left in the paying account’s section, not in the credit card account’s section”, or perhaps you could leave the transaction in both sections and comment one out[2].
+Personally I’m a little careless about being consistent which of the section I choose to leave the transaction in; sometimes I choose one section of my input file, or that of the other account, for the same pair of accounts. It hasn’t been a problem, as I use Emacs and i-search liberally which makes it easy to dig around my gigantic input file. If you want to keep your input more tidy and organized, you could come up with a rule for yourself, e.g. “credit card payments are always left in the paying account’s section, not in the credit card account’s section”, or perhaps you could leave the transaction in both sections and comment one out[^2].
 
 Padding
 -------
@@ -273,6 +273,6 @@ What’s Next?
 
 At this point you will probably move onwards to the [<span class="underline">Cookbook</span>](18_command_line_accounting_cookbook.md), or read the [<span class="underline">User’s Manual</span>](http://furius.ca/beancount/doc/users-manual) if you haven’t already done that.
 
-[1] It is tempting to want to break down a large file into many smaller ones, but especially at first, the convenience of having everything in a single place is great.
+[^1]: It is tempting to want to break down a large file into many smaller ones, but especially at first, the convenience of having everything in a single place is great.
 
-[2] Some people have suggested that Beancount automatically detect duplicated transactions based on a heuristic and automatically ignore (remove) one of the two, but this has not been tried out yet. In particular, this would lend itself well to organizing transactions not just per section, but in separate files, i.e., all files would contain all the transactions for the accounts they represent. If you’re interested in adding this feature, you could easily implement this as a plugin, without disrupting the rest of the system.
+[^2]: Some people have suggested that Beancount automatically detect duplicated transactions based on a heuristic and automatically ignore (remove) one of the two, but this has not been tried out yet. In particular, this would lend itself well to organizing transactions not just per section, but in separate files, i.e., all files would contain all the transactions for the accounts they represent. If you’re interested in adding this feature, you could easily implement this as a plugin, without disrupting the rest of the system.

@@ -73,7 +73,7 @@ Importing transactions from these documents involves:
 
 -   Manually reviewing the transactions for **correctness** or even fraud;
 
--   **Merging** new transactions with previous transactions imported from another account. For example, a payment from a bank account to pay off one’s credit card will typically be imported from both the bank AND the credit card account. You must manually merge the corresponding transactions together[1].
+-   **Merging** new transactions with previous transactions imported from another account. For example, a payment from a bank account to pay off one’s credit card will typically be imported from both the bank AND the credit card account. You must manually merge the corresponding transactions together[^1].
 
 -   Assigning the right **category** to an expense transaction
 
@@ -85,7 +85,7 @@ If my importers work without bugs, this is a process that takes me 30-60 minutes
 
 ### Automating Network Downloads
 
-The downloading of files is not something I automate, and Beancount provides no tools to connect to the network and fetch your files. There is simply too great a variety of protocols out there to make a meaningful contribution to this problem[2]. Given the nature of today's secure websites and the castles of JavaScript used to implement them, it would be a nightmare to implement. Web scraping is probably too much to be a worthwhile, viable solution.
+The downloading of files is not something I automate, and Beancount provides no tools to connect to the network and fetch your files. There is simply too great a variety of protocols out there to make a meaningful contribution to this problem[^2]. Given the nature of today's secure websites and the castles of JavaScript used to implement them, it would be a nightmare to implement. Web scraping is probably too much to be a worthwhile, viable solution.
 
 I **manually** log into the various websites with my usernames & passwords and click the right buttons to generate the downloaded files I need. These files are recognized automatically by the importers and extracting transactions and filing the documents in a well-organized directory hierarchy is automated using the tools described in this document.
 
@@ -109,7 +109,7 @@ I've made some headway toward converting data from PDF file, which is a common n
 
 Nevertheless, I usually have good success with my importers grepping around PDF statements converted to ugly text in order to identify what institution they are for and extracting the date of issuance of the document.
 
-Finally, there are a number of different tools used to extract text from PDF documents, such as [<span class="underline">PDFMiner</span>](https://pypi.python.org/pypi/pdfminer2), [<span class="underline">LibreOffice</span>](https://www.libreoffice.org), the [<span class="underline">xpdf</span>](http://www.tutorialspoint.com/unix_commands/pdftotext.htm) library, the [<span class="underline">poppler</span>](https://poppler.freedesktop.org/) library[3] and more... but none of them works consistently on all input documents; you will likely end up installing many and relying on different ones for different input files. For this reason, I’m not requiring a dependency on PDF conversion tools from within Beancount. You should test what works on your specific documents and invoke those tools from your importer implementations.
+Finally, there are a number of different tools used to extract text from PDF documents, such as [<span class="underline">PDFMiner</span>](https://pypi.python.org/pypi/pdfminer2), [<span class="underline">LibreOffice</span>](https://www.libreoffice.org), the [<span class="underline">xpdf</span>](http://www.tutorialspoint.com/unix_commands/pdftotext.htm) library, the [<span class="underline">poppler</span>](https://poppler.freedesktop.org/) library[^3] and more... but none of them works consistently on all input documents; you will likely end up installing many and relying on different ones for different input files. For this reason, I’m not requiring a dependency on PDF conversion tools from within Beancount. You should test what works on your specific documents and invoke those tools from your importer implementations.
 
 Tools
 -----
@@ -202,7 +202,7 @@ Typically I create my importer module files in directories dedicated to each imp
 
 ### Regression Testing your Importers
 
-I've found over time that regression testing is *key* to maintaining your importer code working. Importers are often written against file formats with no official spec and unexpected surprises routinely occur. For example, I have XML files with some unescaped "&" characters, which require a custom fix just for that bank[4]. I’ve also witnessed a discount brokerage switching its dates format between MM/DD/YY and DD/MM/YY; that importer now needs to be able to handle both types. So you make the necessary adjustment, and eventually you find out that something else breaks; this isn’t great. And the timing is particularly annoying: usually things break when you’re trying to update your ledger: you have other things to do.
+I've found over time that regression testing is *key* to maintaining your importer code working. Importers are often written against file formats with no official spec and unexpected surprises routinely occur. For example, I have XML files with some unescaped "&" characters, which require a custom fix just for that bank[^4]. I’ve also witnessed a discount brokerage switching its dates format between MM/DD/YY and DD/MM/YY; that importer now needs to be able to handle both types. So you make the necessary adjustment, and eventually you find out that something else breaks; this isn’t great. And the timing is particularly annoying: usually things break when you’re trying to update your ledger: you have other things to do.
 
 The easiest, laziest and most relevant way to test those importers is to use some **real data files** and compare what your importer extracts from them to expected outputs. For the importers to be at least somewhat reliable, you really need to be able to reproduce the extractions on a number of real inputs. And since the inputs are so unpredictable and poorly defined, it’s not practical to write exhaustive tests on what they could be. In practice, I have to make at least *some* fix to *some* of my importers every couple of months, and with this process, it only sinks about a half-hour of my time: I add the new downloaded file which causes breakage to the importer directory, I fix the code by running it there locally as a test. And I also run the tests over *all* the previously downloaded test inputs in that directory (old and new) to ensure my importer is still working as intended on the older files.
 
@@ -248,7 +248,7 @@ You should inspect the contents of the expected output files to visually assert 
 
 If you run the tests again with those files present, the expected output files will be used as inputs to the tests. If the contents differ in the future, the test will fail and an error will be generated. (You can test this out now if you want, by manually editing and inserting some unexpected data in one of those files.)
 
-When you edit your source code, you can always re-run the tests to make sure it still works on those older files. When a newly downloaded file fails, you repeat the process above: You make a copy of it in that directory, fix the importer, run it, check the expected files. That’s it[5].
+When you edit your source code, you can always re-run the tests to make sure it still works on those older files. When a newly downloaded file fails, you repeat the process above: You make a copy of it in that directory, fix the importer, run it, check the expected files. That’s it[^5].
 
 #### Making Incremental Improvements
 
@@ -256,7 +256,7 @@ Sometimes I make improvements to the importers that result in more or better out
 
 ### Caching Data
 
-Some of the data conversions for binary files can be costly and slow. This is usually the case for converting PDF files to text[6]. This is particularly painful, since in the process of ingesting our downloaded data we’re typically going to run the tools multiple times—at least twice if everything works without flaw: once to extract, twice to file—and usually many more times if there are problems. For this reason, we want to cache these conversions, so that a painful 40 second PDF-to-text conversion doesn’t have to be run twice, for example.
+Some of the data conversions for binary files can be costly and slow. This is usually the case for converting PDF files to text[^6]. This is particularly painful, since in the process of ingesting our downloaded data we’re typically going to run the tools multiple times—at least twice if everything works without flaw: once to extract, twice to file—and usually many more times if there are problems. For this reason, we want to cache these conversions, so that a painful 40 second PDF-to-text conversion doesn’t have to be run twice, for example.
 
 Beancount aims to provide two levels of caching for conversions on downloaded files:
 
@@ -295,7 +295,7 @@ The tools described in this document are pretty flexible in terms of letting you
 
 You can specify these from any location you want. Despite this, some people are often asking how to organize their files, so I provide a template example under beancount/examples/ingest/office, and I describe this here.
 
-I recommend that you create a Git or Mercurial[7] source-controlled repository following this structure:
+I recommend that you create a Git or Mercurial[^7] source-controlled repository following this structure:
 
     office
     ├── documents
@@ -424,16 +424,16 @@ Documents about LedgerHub are preserved, and can help you understand the origins
 
 -   [<span class="underline">An analysis of the reasons why it the project was terminated</span>](http://furius.ca/beancount/doc/ledgerhub/postmortem) (post-mortem)
 
-[1] There are essentially three conceptual modes of entering such transactions: (1) a user crafts a single transaction manually, (2) another where a user inputs the two sides as a single transaction to transfer accounts, and (3) the two separate transactions get merged into a single one automatically. These are dual modes of each other. The twist in this story is that the same transaction often posts at different dates in each of its accounts. Beancount currently \[March 2016\] does not support multiple dates for a single transaction’s postings, but a discussion is ongoing to implement support for these input modes. See [<span class="underline">this document</span>](http://furius.ca/beancount/doc/proposal-settlement) for more details.
+[^1]: There are essentially three conceptual modes of entering such transactions: (1) a user crafts a single transaction manually, (2) another where a user inputs the two sides as a single transaction to transfer accounts, and (3) the two separate transactions get merged into a single one automatically. These are dual modes of each other. The twist in this story is that the same transaction often posts at different dates in each of its accounts. Beancount currently \[March 2016\] does not support multiple dates for a single transaction’s postings, but a discussion is ongoing to implement support for these input modes. See [<span class="underline">this document</span>](http://furius.ca/beancount/doc/proposal-settlement) for more details.
 
-[2] The closest to universal downloader you will find in the free software world is [<span class="underline">ofxclient</span>](https://github.com/captin411/ofxclient) for OFX files, and in the commercial world, [<span class="underline">Yodlee</span>](http://www.yodlee.com/) provides a service that connects to many financial institutions.
+[^2]: The closest to universal downloader you will find in the free software world is [<span class="underline">ofxclient</span>](https://github.com/captin411/ofxclient) for OFX files, and in the commercial world, [<span class="underline">Yodlee</span>](http://www.yodlee.com/) provides a service that connects to many financial institutions.
 
-[3] The ‘pdftotext’ utility in poppler provides the useful ‘-layout’ flag which outputs a text file without mangling tables, which can be helpful in the normal case of ‘transaction-per-row’
+[^3]: The ‘pdftotext’ utility in poppler provides the useful ‘-layout’ flag which outputs a text file without mangling tables, which can be helpful in the normal case of ‘transaction-per-row’
 
-[4] After sending them a few detailed emails about this and getting no response nor seeing any change in the downloaded files, I have given up on them fixing the issue.
+[^4]: After sending them a few detailed emails about this and getting no response nor seeing any change in the downloaded files, I have given up on them fixing the issue.
 
-[5] As you can see, this process is partly why I don’t share my importers code. It requires the storage of way too much personal data in order to keep them working.
+[^5]: As you can see, this process is partly why I don’t share my importers code. It requires the storage of way too much personal data in order to keep them working.
 
-[6] I don’t really understand why, since opening them up for viewing is almost instant, but nearly all the tools to convert them to other formats are vastly slower.
+[^6]: I don’t really understand why, since opening them up for viewing is almost instant, but nearly all the tools to convert them to other formats are vastly slower.
 
-[7] I personally much prefer Mercurial for the clarity of its commands and output and its extensibility, but an advantage of Git’s storage model is that moving files within it comes for free (no extra copy is stored). Moving files in a Mercurial repository costs you a bit in storage space. And if you rename accounts or change how you organize your files you will end up potentially copying many large files.
+[^7]: I personally much prefer Mercurial for the clarity of its commands and output and its extensibility, but an advantage of Git’s storage model is that moving files within it comes for free (no extra copy is stored). Moving files in a Mercurial repository costs you a bit in storage space. And if you rename accounts or change how you organize your files you will end up potentially copying many large files.

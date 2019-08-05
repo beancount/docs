@@ -251,7 +251,7 @@ If we sum up the postings on all of the accounts and render just the account nam
 
 <img src="02_the_double_entry_counting_method/media/71edc0da7e156b4e07cd6f4f0addded7f15cb33e.png" style="width:2.83154in;height:4.47917in" />
 
-This simply reflects the balance of each account at a particular point in time. And because each of the accounts began with a zero balance, and each transaction has itself a zero balance, we know that the sum of all those balances must equal zero.[1] This is a consequence of our constraining that each of the postings be part of a transaction, and that each transaction have postings that balance each other out.
+This simply reflects the balance of each account at a particular point in time. And because each of the accounts began with a zero balance, and each transaction has itself a zero balance, we know that the sum of all those balances must equal zero.[^1] This is a consequence of our constraining that each of the postings be part of a transaction, and that each transaction have postings that balance each other out.
 
 Income Statement
 ----------------
@@ -271,7 +271,7 @@ Clearing Income
 
 Notice how in the income statement only the transactions within a particular interval of time are summed up. This allows one, for instance, to compute the sum of all income earned during a year. If we were to sum up all of the transactions of this account since its inception we would obtain the total amount of income earned since the account was created.
 
-A better way to achieve the same thing is to zero out the balances of the Income and Expenses accounts. Beancount calls this basic transformation “clearing[2].” It is carried out by:
+A better way to achieve the same thing is to zero out the balances of the Income and Expenses accounts. Beancount calls this basic transformation “clearing[^2].” It is carried out by:
 
 1.  Computing the balances of those accounts from the beginning of time to the start of the reporting period. For example, if you created your accounts in year 2000 and you wanted to generate an income statement for year 2016, you would sum up the balances from 2000 to Jan 1, 2016.
 
@@ -351,7 +351,7 @@ In order to do this, we apply the following transformations:
 
 -   **Close.** We also truncate all the transactions following the end of the reporting period. We call this operation “Closing.”
 
-These are the meaning of the “OPEN” and “CLOSE” operations of the bean-query shell[3]. The resulting set of transactions should look like this.
+These are the meaning of the “OPEN” and “CLOSE” operations of the bean-query shell[^3]. The resulting set of transactions should look like this.
 
 “Closing” involves two steps. First, we remove all transactions following the closing date:
 
@@ -409,7 +409,7 @@ The problem with this approach is that summing of amounts over the postings of a
 
 Moreover, when you look at the accounting equations, you have to consider their signs as well. This makes it awkward to do transformations on them and make what is essentially a simple summation over postings into a convoluted mess that is difficult to understand.
 
-In plain-text accounting, we would rather just do away with this inconvenient baggage. We just use additions everywhere and learn to keep in mind that Liabilities, Equity and Income accounts normally have a negative balance. While this is unconventional, it’s much easier to grok. And If there is a need to view a conventional report with positive numbers only, we will be able to trigger that in reporting code[4], inverting the signs just to render them in the output.
+In plain-text accounting, we would rather just do away with this inconvenient baggage. We just use additions everywhere and learn to keep in mind that Liabilities, Equity and Income accounts normally have a negative balance. While this is unconventional, it’s much easier to grok. And If there is a need to view a conventional report with positive numbers only, we will be able to trigger that in reporting code[^4], inverting the signs just to render them in the output.
 
 Save yourself some pain: Flush your brain from the "debit" and "credit" terminology.
 
@@ -531,10 +531,10 @@ This is why Beancount provides a custom tool to directly process and query its d
 
 (In any case, if you’re not convinced, Beancount provides a [<span class="underline">tool</span>](https://bitbucket.org/blais/beancount/src/tip/bin/bean-sql) to export its contents to a regular SQL database system. Feel free to experiment with it if you like, knock yourself out.)
 
-[1] Please don’t pay attention to the numbers in these large figures, they were randomly generated and don’t reflect this. We’re just interested in showing the structure, in these figures.
+[^1]: Please don’t pay attention to the numbers in these large figures, they were randomly generated and don’t reflect this. We’re just interested in showing the structure, in these figures.
 
-[2] Note that this is unrelated to the term “clearing transactions” which means acknowledging or marking that some transactions have been eyeballed by the bookkeeper and checked for correctness.
+[^2]: Note that this is unrelated to the term “clearing transactions” which means acknowledging or marking that some transactions have been eyeballed by the bookkeeper and checked for correctness.
 
-[3] Note that operations have nothing to do with the Open and Close directives Beancount provides.
+[^3]: Note that operations have nothing to do with the Open and Close directives Beancount provides.
 
-[4] This is not provided yet in Beancount, but would be trivial to implement. All we'd need to do is invert the signs of balances from Liabilities, Income and Equity accounts. It's on the roadmap to provide this eventually.
+[^4]: This is not provided yet in Beancount, but would be trivial to implement. All we'd need to do is invert the signs of balances from Liabilities, Income and Equity accounts. It's on the roadmap to provide this eventually.
