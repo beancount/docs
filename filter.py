@@ -11,6 +11,7 @@ from panflute import (
     LineBreak,
     Link,
     ListItem,
+    Para,
     RawInline,
     Space,
     Str,
@@ -55,6 +56,17 @@ def resolve_url(url: str) -> str:
 
 
 def action(elem, doc):
+    if doc.get_metadata('title') is None:
+        # No title -> Beancount Options Reference
+        if isinstance(elem, Para):
+            # Convert all paragraphs to code blocks
+            text = stringify(elem)
+            if not text.startswith('option'):
+                text = '    ' + text
+            return CodeBlock(text)
+        # Skip everything else
+        return
+
     if isinstance(elem, BlockQuote):
         if isinstance(elem.parent, ListItem):
             # Don't use blockquotes in lists
