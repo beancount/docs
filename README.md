@@ -31,3 +31,12 @@ Export and convert all documents:
 ```
 python crawl.py
 ```
+
+## Website
+
+Generate static website from markdown documents:
+
+```
+bundle install --path vendor/bundle
+bundle exec jekyll serve --source docs/
+```

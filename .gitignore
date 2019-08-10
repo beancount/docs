@@ -1,5 +1,14 @@
+# Python
 __pycache__/
 venv/
+
+# Jekyll
+Gemfile.lock
+vendor/
+.bundle/
+_site/
+
+# Other
 *.docx
 *.md
 *.html
