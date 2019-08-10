@@ -39,9 +39,9 @@ def prepare(doc):
 def resolve_url(url: str) -> str:
     if '//furius.ca' in url:
         # Get Google Doc url
-        response = requests.get(url, allow_redirects=False)
-        if response.status_code == 302:
-            url = response.headers['Location']
+        response = requests.get(url, allow_redirects=True, stream=True)
+        if any(res.status_code == 302 for res in response.history):
+            url = response.url  # Final location
         else:
             # Not a redirect, leave as is
             return None
