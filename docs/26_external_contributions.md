@@ -103,6 +103,8 @@ or that are related to Beancount and/or Ledgerhub.*
 
 [<span class="underline">Beancount Source Code Documentation</span>](http://aumayr.github.io/beancount-docs-static/) (Dominik Aumayr): Sphinx-generated source code documentation of the Beancount codebase. The code to produce this is [<span class="underline">located here</span>](https://github.com/aumayr/beancount-docs).
 
+[<span class="underline">Beancount-docs to Markdown</span>](https://github.com/xuhcc/beancount-docs) (xuhcc@ / Kirill Goncharov): Another conversion of the Google Docs using pandoc. Has less conversion artifacts.
+
 [<span class="underline">SQL queries for Beancount</span>](http://aumayr.github.io/beancount-sql-queries/) (Dominik Aumayr): Example SQL queries.
 
 [<span class="underline">Beancount —— 命令行复式簿记</span>](https://wzyboy.im/post/1063.html) (Zhuoyun Wei): A tutorial (blog post) in Chinese on how to use Beancount.

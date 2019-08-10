@@ -10,7 +10,7 @@
 
 This document is a gentle guide to creating your first Beancount file, initializing it with some options, some guidelines for how to organize your file, and instructions for declaring accounts and making sure their initial balance does not raise errors. It also contains some material on configuring the Emacs text editor, if you use that.
 
-You will probably want to have read some of the [<span class="underline">User’s Manual</span>](http://furius.ca/beancount/doc/users-manual) first in order to familiarize yourself with the syntax and kinds of available directives, or move on to the [<span class="underline">Cookbook</span>](18_command_line_accounting_cookbook.md) if you’ve already setup a file or know how to do that. If you’re familiar with Ledger, you may want to read up on the [<span class="underline">differences between Ledger and Beancount</span>](15_a_comparison_of_beancount_and_ledger_hledger.md) first.
+You will probably want to have read some of the [<span class="underline">User’s Manual</span>](06_beancount_language_syntax.md) first in order to familiarize yourself with the syntax and kinds of available directives, or move on to the [<span class="underline">Cookbook</span>](18_command_line_accounting_cookbook.md) if you’ve already setup a file or know how to do that. If you’re familiar with Ledger, you may want to read up on the [<span class="underline">differences between Ledger and Beancount</span>](15_a_comparison_of_beancount_and_ledger_hledger.md) first.
 
 <a id="editor-support"></a>Editor Support
 -----------------------------------------
@@ -74,7 +74,7 @@ A few notes and an ultra brief overview of the Beancount syntax:
 
 -   Tags must begin with “\#”, and links with “^”.
 
-For a complete description of the syntax, visit the [<span class="underline">User’s Manual</span>](http://furius.ca/beancount/doc/users-manual).
+For a complete description of the syntax, visit the [<span class="underline">User’s Manual</span>](06_beancount_language_syntax.md).
 
 <a id="validating-your-file"></a>Validating your File
 -----------------------------------------------------
@@ -271,7 +271,7 @@ So you will probably want to get started with Open & Pad directives for each Ass
 <a id="whats-next"></a>What’s Next?
 -----------------------------------
 
-At this point you will probably move onwards to the [<span class="underline">Cookbook</span>](18_command_line_accounting_cookbook.md), or read the [<span class="underline">User’s Manual</span>](http://furius.ca/beancount/doc/users-manual) if you haven’t already done that.
+At this point you will probably move onwards to the [<span class="underline">Cookbook</span>](18_command_line_accounting_cookbook.md), or read the [<span class="underline">User’s Manual</span>](06_beancount_language_syntax.md) if you haven’t already done that.
 
 [^1]: It is tempting to want to break down a large file into many smaller ones, but especially at first, the convenience of having everything in a single place is great.
 

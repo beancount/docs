@@ -341,7 +341,7 @@ A [<span class="underline">balance sheet</span>](http://en.wikipedia.org/wiki/Ba
 
 5.  render a tree of the Equity accounts below the Liabilities accounts.
 
-See the [<span class="underline">introduction document</span>](http://furius.ca/beancount/doc/intro) for an example.
+See the [<span class="underline">introduction document</span>](02_the_double_entry_counting_method.md) for an example.
 
 Note that the Equity accounts include the amounts reported from the Income and Expenses accounts, also often called “Net Income.”
 
@@ -359,7 +359,7 @@ The opening balances report is simply a balance sheet drawn at the beginning of 
 
 #### <a id="income-statement-income"></a>Income Statement (income)
 
-An [<span class="underline">income statement</span>](http://en.wikipedia.org/wiki/Income_statement) lists the final balances of the Income and Expenses accounts. It represents a summary of the transient activity within these accounts. If the balance sheet is the snapshot at a particular point in time, this is the difference between the beginning and the end of a period (in our case: of a filtered set of transactions). The balances of the active Income accounts are rendered on the left, and those of the active Expenses accounts on the right. See the [<span class="underline">introduction document</span>](http://furius.ca/beancount/doc/intro) for an example.
+An [<span class="underline">income statement</span>](http://en.wikipedia.org/wiki/Income_statement) lists the final balances of the Income and Expenses accounts. It represents a summary of the transient activity within these accounts. If the balance sheet is the snapshot at a particular point in time, this is the difference between the beginning and the end of a period (in our case: of a filtered set of transactions). The balances of the active Income accounts are rendered on the left, and those of the active Expenses accounts on the right. See the [<span class="underline">introduction document</span>](02_the_double_entry_counting_method.md) for an example.
 
 The difference between the total of Income and Expenses balances is the Net Income.
 

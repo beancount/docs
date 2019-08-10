@@ -216,7 +216,7 @@ Some users have reported problems installing lxml, and a solution: when installi
 
 ### <a id="checking-your-install"></a>Checking your Install
 
-You should be able to run the binaries from [<span class="underline">this document</span>](http://furius.ca/beancount/doc/running). For example, running bean-check should produce something like this:
+You should be able to run the binaries from [<span class="underline">this document</span>](04_running_beancount_and_generating_reports.md). For example, running bean-check should produce something like this:
 
     $ bean-check
 

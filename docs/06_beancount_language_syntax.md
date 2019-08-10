@@ -1048,7 +1048,7 @@ In order to load plugin Python modules, use the dedicated “plugin” directive
 
     plugin "beancount.plugins.module_name"
 
-The name of a plugin should be the name of a Python module in your PYTHONPATH. Those modules will be imported by the Beancount loader and run on the list of parsed entries in order for the plugins to transform the entries or output errors. This allows you to integrate some of your code within Beancount, making arbitrary transformations on the entries. See [<span class="underline">Scripting & Plugins</span>](http://furius.ca/beancount/doc/plugins) for details.
+The name of a plugin should be the name of a Python module in your PYTHONPATH. Those modules will be imported by the Beancount loader and run on the list of parsed entries in order for the plugins to transform the entries or output errors. This allows you to integrate some of your code within Beancount, making arbitrary transformations on the entries. See [<span class="underline">Scripting & Plugins</span>](23_beancount_scripting_plugins.md) for details.
 
 Plugins also optionally accept some configuration parameters. These can be provided by an optional final string argument, like this:
 

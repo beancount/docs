@@ -121,7 +121,7 @@ For me, this approach to fund accounting is appealing because it relies on and p
 
 ***Some random ideas for now. This needs a bit more work.***
 
--   If multiple redundant postings are required, the generation of these can be **automated using a [<span class="underline">plugin</span>](http://furius.ca/beancount/doc/plugins)**. For instance, if a technique similar to [<span class="underline">mirror accounting</span>](http://furius.ca/beancount/doc/mirror) is used in order to “send the same dollars to multiple accounts”, at least the user should not have to do this manually, which would be both tedious and prone to errors.
+-   If multiple redundant postings are required, the generation of these can be **automated using a [<span class="underline">plugin</span>](23_beancount_scripting_plugins.md)**. For instance, if a technique similar to [<span class="underline">mirror accounting</span>](http://furius.ca/beancount/doc/mirror) is used in order to “send the same dollars to multiple accounts”, at least the user should not have to do this manually, which would be both tedious and prone to errors.
 
 -   A procedure to **rename accounts** upon parsing could be used, in order to merge multiple files into one. (Allowing the user to install such a mapping is an idea I’ve had for a while but never implemented, though it could be implemented by a plugin filter.)
 

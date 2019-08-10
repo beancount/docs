@@ -122,7 +122,7 @@ Martin Blais ([<span class="underline">blais@furius.ca</span>](mailto:blais@furi
 <a id="introduction"></a>Introduction
 -------------------------------------
 
-This document describes the principles behind the design of Beancount and a high-level overview of its codebase, data structures, algorithms, implementation and methodology. This is not a user's manual; if you are interested in just using Beancount, see the associated [<span class="underline">User's Manual</span>](http://furius.ca/beancount/doc/users-manual) and all the other documents [<span class="underline">available here</span>](index.md).
+This document describes the principles behind the design of Beancount and a high-level overview of its codebase, data structures, algorithms, implementation and methodology. This is not a user's manual; if you are interested in just using Beancount, see the associated [<span class="underline">User's Manual</span>](06_beancount_language_syntax.md) and all the other documents [<span class="underline">available here</span>](index.md).
 
 However, if you just want to understand more deeply how Beancount works this document should be very helpful. This should also be of interest to developers. This is a place where I wrote about a lot of the ideas behind Beancount that did not find any other venue. Expect some random thoughts that aren’t important for users.
 
@@ -368,7 +368,7 @@ An Inventory is a container for an account’s balance in various lots of commod
 
 Generally, the combination of a position’s (*Units.Currency, Cost)* is kept unique in the list, like the key of a mapping. Positions for equal values of currency and cost are merged together by summing up their *Units.Number* and keeping a single position for it. And simple positions are mixed in the list with positions held at cost.
 
-The *Inventory* is one of the most important and oft-used object in Beancount’s implementation, because it is used to sum the balance of one or more accounts over time. It is also the place where the inventory reduction algorithms get applied to, and traces of that mechanism can be found there. The “[<span class="underline">How Inventories Work</span>](http://furius.ca/beancount/doc/inventories)” document provides the full detail of that process.
+The *Inventory* is one of the most important and oft-used object in Beancount’s implementation, because it is used to sum the balance of one or more accounts over time. It is also the place where the inventory reduction algorithms get applied to, and traces of that mechanism can be found there. The “[<span class="underline">How Inventories Work</span>](11_how_inventories_work.md)” document provides the full detail of that process.
 
 For testing, you can create initialized instances of Inventory using inventory.from\_string(). All the inventory code is written in [<span class="underline">beancount.core.inventory</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/inventory.py).
 
