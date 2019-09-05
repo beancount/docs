@@ -117,3 +117,8 @@ or that are related to Beancount and/or Ledgerhub.*
 -------------------------------------------
 
 [<span class="underline">fava: A web interface for Beancount</span>](https://github.com/aumayr/fava) (Dominik Aumayr): Beancount comes with its own simple web front-end (“bean-web”) intended merely as a thin shell to invoke and display HTML versions of its reports. “Fava” is an alternative web application front-end with more & different features, intended initially as a playground and proof-of-concept to explore a newer, better design for presenting the contents of a Beancount file.
+
+<a id="mobilephone-data-entry"></a>Mobile/Phone Data Entry
+----------------------------------------------------------
+
+[<span class="underline">Beancount Mobile</span>](https://play.google.com/store/apps/details?id=link.beancount.mobile) App (Kirill Goncharov): A mobile data entry app for Beancount. (Currently only Android is supported.) Repo: [<span class="underline">https://github.com/xuhcc/beancount-mobile</span>](https://github.com/xuhcc/beancount-mobile) ([<span class="underline">Annoucement</span>](https://groups.google.com/d/msgid/beancount/014e0879-70e0-4cac-b884-82d8004e1b43%40googlegroups.com?utm_medium=email&utm_source=footer)).
