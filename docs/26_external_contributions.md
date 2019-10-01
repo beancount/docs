@@ -46,6 +46,8 @@ or that are related to Beancount and/or Ledgerhub.*
 
 [<span class="underline">costflow/syntax</span>](https://github.com/costflow/syntax) (Leplay Li): A product that allows users to keep plain text accounting from their favorite messaging apps. A syntax for converting one-line message to beancount/\*ledger format.
 
+[<span class="underline">process control chart</span>](https://github.com/hoostus/beancount-control-chart) (Justus Pendleton): Spending relative to portfolio size. [<span class="underline">Thread.</span>](https://groups.google.com/d/msgid/beancount/0cd47f9a-37d6-444e-8516-25e247a9e0cd%40googlegroups.com?utm_medium=email&utm_source=footer)
+
 <a id="importers"></a>Importers
 -------------------------------
 

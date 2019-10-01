@@ -271,7 +271,7 @@ An account is basically just the name of a bucket associated with a posting and 
 
 Accounts don’t have a corresponding object type; we just refer to them by their unique name string (like filenames in Python). When per-account attributes are needed, we can extract the Open directives from the stream of entries and find the one corresponding to the particular account we’re looking for.
 
-Similar to Python’s os.path module, there are some routines to manipulate account names in [<span class="underline">beancount.core.account</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/account.py) and the functions are named similarly to those of the [<span class="underline">os.path</span>](https://docs.python.org/3.3/library/os.path.html) module.
+Similar to Python’s os.path module, there are some routines to manipulate account names in [<span class="underline">beancount.core.account</span>](https://bitbucket.org/blais/beancount/src/default/beancount/core/account.py) and the functions are named similarly to those of the [<span class="underline">os.path</span>](https://docs.python.org/3.3/library/os.path.html) module.
 
 The first component of an account’s name is limited to one of five types:
 
@@ -500,7 +500,7 @@ In contrast to tags, their strings are most often unique numbers produced by the
 
 A list of Postings are attached to the Transaction object. Technically this list object is mutable but in practice we try not to modify it. A Posting can ever only be part of a single Transaction.
 
-Sometimes different postings of the same transaction will settle at different dates in their respective accounts, so eventually we may allow a posting to have its own date to override the transaction's date, to be used as documentation; in the simplest version, we enforce all transactions to occur punctually, which is simple to understand and was not found to be a significant problem in practice. Eventually we might implement this by implicitly converting Transactions with multiple dates into multiple Transactions and using some sort of transfer account to hold the pending balance in-between dates. See the [<span class="underline">associated proposal</span>](http://furius.ca/beacount/doc/proposal-settlement) for details.
+Sometimes different postings of the same transaction will settle at different dates in their respective accounts, so eventually we may allow a posting to have its own date to override the transaction's date, to be used as documentation; in the simplest version, we enforce all transactions to occur punctually, which is simple to understand and was not found to be a significant problem in practice. Eventually we might implement this by implicitly converting Transactions with multiple dates into multiple Transactions and using some sort of transfer account to hold the pending balance in-between dates. See the [<span class="underline">associated proposal</span>](28_settlement_dates_in_beancount.md) for details.
 
 #### <a id="balancing-postings"></a>Balancing Postings
 
