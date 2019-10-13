@@ -78,6 +78,8 @@ or that are related to Beancount and/or Ledgerhub.*
 
 [<span class="underline">hoostus/beancount-ynab</span>](https://github.com/hoostus/beancount-ynab) : A converter from YNAB to Beancount.
 
+[<span class="underline">hoostus/beancount-ynab5</span>](https://github.com/hoostus/beancount-ynab5) : Same convert for YNAB from the same author, but for the more recent version 5.
+
 [<span class="underline">ledger2beancount</span>](https://github.com/zacchiro/ledger2beancount/): A script to convert ledger files to beancount. It was developed by Stefano Zacchiroli and Martin Michlmayr.
 
 [<span class="underline">smart\_importer</span>](https://github.com/johannesjh/smart_importer): A smart importer for beancount and fava, with intelligent suggestions for account names. By Johannes Harms.
@@ -85,6 +87,8 @@ or that are related to Beancount and/or Ledgerhub.*
 [<span class="underline">beancount-export-patreon.js</span>](https://gist.github.com/riking/0f0dab2b7761d2f6895c5d58c0b62a66): JavaScript that will export your Patreon transactions so you can see details of exactly who you've been giving money to. By kanepyork@gmail.
 
 [<span class="underline">alensiljak/pta-converters</span>](https://gitlab.com/alensiljak/pta-converters) (Alen Šiljak): GnuCash -&gt; Beancount converter (2019).
+
+[<span class="underline">grostim/Beancount-myTools</span>](https://github.com/grostim/Beancount-myTools) (Timothee Gros): Personal importer tools of the author for French banks.
 
 <a id="price-sources"></a>Price Sources
 ---------------------------------------
@@ -94,6 +98,8 @@ or that are related to Beancount and/or Ledgerhub.*
 [<span class="underline">andyjscott/beancount-financequote</span>](https://github.com/andyjscott/beancount-financequote) : Finance::Quote support for bean-price.
 
 [<span class="underline">aamerabbas/beancount-coinmarketcap</span>](https://github.com/aamerabbas/beancount-coinmarketcap): Price fetcher for coinmarketcap ([<span class="underline">see post</span>](https://medium.com/@danielcimring/downloading-historical-data-from-coinmarketcap-41a2b0111baf)).
+
+[<span class="underline">grostim/Beancount-myTools/.../iexcloud.py</span>](https://github.com/grostim/Beancount-myTools/blob/master/price/iexcloud.py) : Price fetcher for iexcloud by Timothee Gros.
 
 <a id="development"></a>Development
 -----------------------------------
