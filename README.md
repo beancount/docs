@@ -10,7 +10,7 @@ These documents in markdown format are automatically generated from [official Be
 
 ### Installation
 
-Install dependencies (python 3 is required):
+Install dependencies (python 3 is required, virtualenv is recommended):
 
 ```
 pip install -r requirements.txt
