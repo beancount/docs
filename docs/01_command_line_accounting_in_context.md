@@ -1,5 +1,5 @@
-<a id="title"></a>Command-line Accounting in Context
-====================================================
+Command-line Accounting in Context
+==================================
 
 [<span class="underline">Martin Blais</span>](http://plus.google.com/+MartinBlais), July 2014
 
@@ -46,8 +46,8 @@ command-line accounting systems to manage personal finances.*
 >
 > [<span class="underline">Why am I so Excited?</span>](#why-am-i-so-excited)
 
-<a id="motivation"></a>Motivation
----------------------------------
+Motivation
+----------
 
 When I tell people about my command-line accounting hacking activities, I get a variety of reactions.
 
@@ -55,8 +55,8 @@ Sometimes I hear echoes of desperation about their own finances: many people wis
 
 This document attempts to explain what command-line bookkeeping is about in concrete terms, what you will get out of doing it, how the various software pieces fit together, and what kinds of results you can expect from this method. The fact is, the double-entry method is a basic technique that everyone should have been taught in high school. And using it for yourself is a simple and powerful process you can use to drive your entire financial life.
 
-<a id="what-exactly-is-accounting"></a>What exactly is “Accounting”?
---------------------------------------------------------------------
+What exactly is “Accounting”?
+-----------------------------
 
 When one talks about “accounting,” they often implicitly refer to one or more of various distinct financial processes:
 
@@ -76,8 +76,8 @@ When one talks about “accounting,” they often implicitly refer to one or mor
 
 In this document, I will describe how command-line accounting can provide help and support for these activities.
 
-<a id="what-can-it-do-for-me"></a>What can it do for me?
---------------------------------------------------------
+What can it do for me?
+----------------------
 
 You might legitimately ask: sure, but why bother? We can look at the uses of accounting in terms of the questions it can answer for you:
 
@@ -103,8 +103,8 @@ You might legitimately ask: sure, but why bother? We can look at the uses of acc
 
 I’m sure there is a lot more you can think of. Let me know.
 
-<a id="keeping-books"></a>Keeping Books
----------------------------------------
+Keeping Books
+-------------
 
 Alright, so here’s the part where I give you the insight of the method. The central and most basic activity that provides support for all the other ones is *bookkeeping*. A most important and fundamental realization is that this relatively simple act—that of copying all of the financial transactions into a single integrated system—allows you to produce reports that solve all of the other problems. You are building a corpus of data, a list of dated transaction objects that each represents movements of money between some of the accounts that you own. This data provides a full timeline of your financial activity.
 
@@ -138,8 +138,8 @@ The syntax gets a little bit more complicated, for example it allows you to repr
 
 What you obtain is a full history, a complete timeline of all the financial transactions from all the accounts over time, often connected together, your financial life, *in a single text file*.
 
-<a id="generating-reports"></a>Generating Reports
--------------------------------------------------
+Generating Reports
+------------------
 
 So what’s the point of manicuring this file? I have code that reads it, parses it, and that can serve various views and aggregations of it on a local web server running on my machine, or produce custom reports from this stream of data. The most useful views are undeniably the *balance sheet* and *income statement*, but there are others:
 
@@ -163,8 +163,8 @@ So what’s the point of manicuring this file? I have code that reads it, parses
 
 You basically end up managing your personal finances like a company would… but it’s very easy because you’re using a simple and cleverly designed computer language that makes a lot of simplifications (doing away with the concepts of “credit and debits” for example), reducing the process to its essential minimum.
 
-<a id="custom-scripting"></a>Custom Scripting
----------------------------------------------
+Custom Scripting
+----------------
 
 The applications are endless. I have all sorts of wild ideas for generating reports for custom projects. These are useful and fun experiments, “challenges” as I call them. Some examples:
 
@@ -188,8 +188,8 @@ The beauty of it is that once you have the corpus of data, which is relatively e
 
 Voila. You’re on your way to spitting out whatever output you want. You have access to all the libraries in the Python world, and my code is mostly functional, heavily documented and thoroughly unit-tested. You should be able to find your way easily. Moreover, if you’re uncertain about using this system, you could just use it to begin entering your data and later write a script that converts it into something else.
 
-<a id="filing-documents"></a>Filing Documents
----------------------------------------------
+Filing Documents
+----------------
 
 If you have defined accounts for each of your real-world accounts, you have also created a natural method for organizing your statements and other paper documents. As we are communicating more and more by email with our accountants and institutions, it is becoming increasingly common to scan letters to PDFs and have those available as computer files. All the banks have now gone paperless, and you can download these statements if you care (I tend to do this once at the end of the year, for preservation, just in case). It’s nice to be able to organize these nicely and retrieve those documents easily.
 
@@ -220,8 +220,8 @@ These example files would correspond to accounts with names Assets:US:TDBank:Che
 
 Moreover, the importing software I wrote is able to identify downloaded files and automatically move them into the corresponding account’s directory.
 
-<a id="how-the-pieces-fit-together"></a>How the Pieces Fit Together
--------------------------------------------------------------------
+How the Pieces Fit Together
+---------------------------
 
 So I’ve described what I do to organize my finances. Here I’ll tell you about the various software pieces and how they fit together:
 
@@ -237,8 +237,8 @@ See the diagram below for a pretty picture that illustrates how these work toget
 
 <img src="01_command_line_accounting_in_context/media/06b0187ae0b90e183f5f7480deb0701b3441ed64.png" style="width:5.56944in;height:6.22222in" />
 
-<a id="why-not-just-use-a-spreadsheet"></a>Why not just use a spreadsheet?
---------------------------------------------------------------------------
+Why not just use a spreadsheet?
+-------------------------------
 
 This is indeed a good question, and spreadsheets are incredibly useful for sure. I certainly would not be writing my own software if I could track my finances with a spreadsheet.
 
@@ -248,10 +248,10 @@ Moreover, dealing with the accumulation of units with a cost basis would require
 
 I believe that the “transaction &lt;-&gt; postings” data representation combined with a sensible method for updating inventories is the essence of this system. The need for these is the justification to create a dedicated method to build this data, such as a computer language. Finally, having our own syntax offers the opportunity to provide other types of useful directives such as balance assertions, open/close dates, and sophisticated filtering of subsets of transactions. You just cannot do what we’re doing in a spreadsheet.
 
-<a id="why-not-just-use-a-commercial-app"></a>Why not just use a commercial app?
---------------------------------------------------------------------------------
+Why not just use a commercial app?
+----------------------------------
 
-### <a id="how-about-mint.com"></a>How about Mint.com?
+### How about Mint.com?
 
 Oftentimes people tell me they’re using [<span class="underline">Mint.com</span>](http://mint.com) to track their finances, usually with some amount of specific complaints following close behind. Online services such as Mint provide a subset of the functionality of double-entry accounting. The main focus of these services is the reporting of expenses by category, and the maintenance of a budget. As such, they do a great job at automating the download of your credit card and bank transactions. I think that if you want a low-maintenance option to tracking your finances and you don’t have a problem with the obvious privacy risks, this is a *fantastic* option: it comes with a web interface, mobile apps, and updating your accounts probably requires clicking some buttons, providing some passwords, and a small amount of manual corrections every couple of weeks.
 
@@ -275,11 +275,11 @@ I have several reservations about using it for myself, however:
 
 In other words, I’m a very sophisticated user and yes, a bit of a *control freak*. I’m not lying about it. I don’t have any ideological objections about using a commercial service, it is probably not for me. If it’s good enough for you, suit yourself. Despite their beautiful and promising websites, I haven’t heard of anyone being completely satisfied with these services. I hear a fair amount of complaining, some mild satisfaction, but I have yet to meet anyone who raves about it.
 
-### <a id="how-about-quicken"></a>How about Quicken?
+### How about Quicken?
 
 Quicken is a single-entry system, that is, it replicates the transactions of a remote account locally, and allows you to add a label to each transaction to place it in a category. I believe it also has support for synchronizing investment accounts. This is not enough for me, I want to track all kinds of things, and I want to use the double-entry method, which provides an intrinsic check that I’ve entered my data correctly. Single-entry accounting is just not good enough if you’ve already crossed the bridge of understanding the double-entry method.
 
-### <a id="how-about-quickbooks"></a>How about Quickbooks?
+### How about Quickbooks?
 
 So let’s talk about sophisticated software that is good enough for a company. Why wouldn’t I use that instead? If it’s good enough for small businesses, it should be good enough for me, no? There’s Quickbooks and other ones. Why don’t I use them:
 
@@ -295,11 +295,11 @@ So let’s talk about sophisticated software that is good enough for a company. 
 
 -   **Inflexible.** How would I go about re-organizing all my account names? I think I’m still learning about the double-entry bookkeeping method and I have made mistakes in the past, mistakes where I desire to revisit the way I organize my accounts in a hierarchy. With my text file, I was able to safely rename a large number of accounts several times, and evolve my chart-of-accounts to reflect my improving understanding of how to organize my financial tracking system. Text is powerful!
 
-### <a id="how-about-gnucash"></a>How about GnuCash?
+### How about GnuCash?
 
 I don’t like UIs; they’re inconvenient. There’s nothing quite like editing a text file if you are a programmer. Moreover, GnuCash does not deal with multiple currencies well. I find bugs in it within the first hour every time I kick the tires on it, which I do every couple of years, out of curiosity. Other programs, such as Skrooge, also take the heavy-handed big UI approach.
 
-### <a id="why-build-a-computer-language"></a>Why build a computer language?
+### Why build a computer language?
 
 A bookkeeping system provides conditions for a solution that involves a simple computer language for many reasons.
 
@@ -323,7 +323,7 @@ Finally, systems that attempt to automate the process of importing all your data
 
 For all the reasons mentioned above, I feel that a computer language is more appropriate to express this data structure than a heavy piece of software with a customized interface. Being able to easily bring up a text file and quickly type in a few lines of text to add a transaction is great–it's fast and easy. The ledger file provides a naturally open way to express one's data, and can be source-controlled or shared between people as well. Multiple files can be merged together, and scripted manipulations on a source file can be used to reorganize one's data history. Furthermore, a read-only web interface that presents the various reports one expects and allows the user to explore different views on the dataset is sufficient for the purpose of viewing the data.
 
-### <a id="advantages-of-command-line-bookkeeping"></a>Advantages of Command-Line Bookkeeping
+### Advantages of Command-Line Bookkeeping
 
 In summary, there are many advantages to using a command-line accounting system over a commercial package that provides a user-interface:
 
@@ -335,8 +335,8 @@ In summary, there are many advantages to using a command-line accounting system 
 
 -   **Customized.** You can produce very customized reports, that address *exactly* the kinds of problems you are having. One complaint I often hear from people about other financial software is that it doesn’t quite do what they want. With command-line accounting systems you can at least write it yourself, as a small extension that uses your corpus of data.
 
-<a id="why-not-just-use-an-sql-database"></a>Why not just use an SQL database?
-------------------------------------------------------------------------------
+Why not just use an SQL database?
+---------------------------------
 
 I don’t like to reinvent the wheel. If this problem could be solved by filling up an SQL database and then making queries on it, that’s exactly what I would do. Creating a language is a large overhead, it needs to be maintained and evolved, it’s not an easy task, but as it turns out, necessary and justified to solve this problem.
 
@@ -354,8 +354,8 @@ Finally, input would be difficult. By defining a language, we side-step the prob
 
 Nevertheless, I really like the idea of working with databases. A script (bean-sql) is provided to convert the contents of a Beancount file to an SQL database; it’s not super elegant to carry out computations on those tables, but it’s provided nonetheless. You should be able to play around with it, even if operations are difficult. I might even pre-compute some of the operation’s outputs to make it easier to run SQL queries.
 
-<a id="but...-i-just-want-to-do-x"></a>But... I just want to do *X*?
---------------------------------------------------------------------
+But... I just want to do *X*?
+-----------------------------
 
 Some may infer that what we’re doing must be terribly complicated given that they envision they might want to use such a system only for a single purpose. But the fact is, how many accounts you decide to track is a personal choice. You can choose to track as little as you want in as little detail as you deem sufficient. For example, if all that you’re interested in is investing, then you can keep books on only your investment accounts. If you’re interested in replacing your usage of [<span class="underline">Mint.com</span>](http://mint.com) or [<span class="underline">Quicken</span>](http://quicken.intuit.com/), you can simply just replicate the statements for your credit cards and see your corresponding expenses.
 
@@ -363,8 +363,8 @@ The simplicity of having to just replicate the transactions in all your accounts
 
 To those I say: try it out, accounting just for the bits that you’re interested in. Once you’ll have a taste of how the double-entry method works and have learned a little bit about the language syntax, you will want to get a fuller picture. You will get sucked in.
 
-<a id="why-am-i-so-excited"></a>Why am I so Excited?
-----------------------------------------------------
+Why am I so Excited?
+--------------------
 
 Okay, so I’ve become an accounting nerd. I did not ask for it. Just kind-of happened while I wasn’t looking (I still don’t wear brown socks though). Why is it I can’t stop talking about this stuff?
 

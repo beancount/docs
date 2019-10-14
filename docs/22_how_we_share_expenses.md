@@ -1,10 +1,10 @@
-<a id="title"></a>How We Share Expenses
-=======================================
+How We Share Expenses
+=====================
 
 *This document explains how I share expenses with my wife. This is a bit involved and I’ve developed a good working system, but it’s not so simple for most people to do that, so I figured I would take the time to describe it to help others with designing similar processes for themselves.*
 
-<a id="context"></a>Context
----------------------------
+Context
+-------
 
 We’re both working professionals and have decided to share all expenses 2:1, where I pay 2 parts. Roughly this is what we shoot for, this is not a hard rule, but we track it as if it were rigid, and accept it as a good base approximation. We have two types of shared expenses:
 
@@ -14,14 +14,14 @@ We’re both working professionals and have decided to share all expenses 2:1, w
 
 These get handled very differently, because we book our child's expenses as if it were a separate project on its own. (If you prefer pictures, there’s a diagram at the end of this document that provides an overview of the system.)
 
-<a id="shared-expenses"></a>Shared Expenses
--------------------------------------------
+Shared Expenses
+---------------
 
 For our shared expenses, I maintain an account for her on my personal ledger file. This is simple and I’m not too interested in maintaining a separate ledger for the totality of our common shared expenses. It’s sufficient for me to just keep track of her balance on that one account. You can imagine that account like a credit card (I’m the credit provider) that she pays off with transfers and also by making her own shared expenses.
 
 I just declare a Assets:US:Share:Carolyn account on my personal ledger (blais.beancount).
 
-### <a id="my-shared-expenses"></a>My Shared Expenses
+### My Shared Expenses
 
 Whenever I incur an expense that is for both of us, I book it normally but I will tag it with \#carolyn:
 
@@ -39,7 +39,7 @@ This gets automatically converted to:
 
 This is done by the beancount.plugins.divert\_expenses plugin. In this example, 40% of 32.66 (13.06) gets rerouted to her account. Note that this is an asset account for me, because she owes this.
 
-### <a id="her-shared-expenses"></a>Her Shared Expenses
+### Her Shared Expenses
 
 We also have to keep track of the money she spends on her own for shared expenses. Since she’s not a Beancount user, I’ve set up a Google Sheets doc in which she can add rows to a particular sheet. This sheet has fields: Date, Description, Account, Amount. I try to keep it simple.
 
@@ -76,7 +76,7 @@ In my personal ledger, I include this file to merge those expenses with my own d
      where account ~ 'Assets:US:Share:Carolyn'                                                                                                                                                                                                                                                                                                                                                                                             
     "
 
-### <a id="reviewing-statement"></a>Reviewing & Statement
+### Reviewing & Statement
 
 In order to produce a statement for her to review (and spot the occasional mistake in data entry), I simply produce a journal of that account to a CSV file and upload that to another sheet in the same Google Sheets doc she inputs her expenses:
 
@@ -87,7 +87,7 @@ This makes it easy for her to eyeball all the amounts posted to her balance with
 
 Note that this system has the benefit of correctly accruing my expenses, by reducing my portion on categories for the stuff I pay and by including her portion on categories for the stuff she pays for.
 
-### <a id="reconciling-our-shared-expenses"></a>Reconciling our Shared Expenses
+### Reconciling our Shared Expenses
 
 Finally, in order to reconcile this account, my wife (or I, but usually she’s behind) just makes a bank transfer to my account, which I book to reduce her running account balance:
 
@@ -97,14 +97,14 @@ Finally, in order to reconcile this account, my wife (or I, but usually she’s 
 
 Typically she's do this every month or two. She'll be fiddling on her laptop and ask casually "Hey, what's my balance I can do a transfer now?" It’s all fine to relax about the particulars since the system is keeping track of everything precisely, so she can send some approximate amount, it doesn't matter, it'll post to her account.
 
-<a id="child-expenses"></a>Child Expenses
------------------------------------------
+Child Expenses
+--------------
 
 I designed a very different system to track our child’s expenses. For Kyle, I’m definitely interested in tracking the total cash flows and expenses related to him, regardless of who paid for them. It’s interesting to be able to ask (our ledger) a question like: “How much did his schooling cost?”, for example, or “How much did we pay in diapers, in total?”. Furthermore, we tend to pay for different things for Kyle, e.g. I deal with the daycare expenses (I’m the accounting nerd after all, so this shouldn’t be surprising), and his mother tends to buy all the clothing and prepare his food. To have a global picture of all costs related to him, we need to account for these things correctly.
 
 One interesting detail is that it would be difficult to do this with the previously described method, because I’d have to have a mirror of all expense accounts I’d use for him. This would make my personal ledger really ugly. For example, I want to book diapers to Expenses:Pharmacy, but I also have my own personal pharmacy expenses. So in theory, to do that I’d like to have separate accounts for him and me, e.g., Expenses:Kyle:Pharmacy and Expenses:Pharmacy. This would have to be done for all the accounts we use for him. I don't do that.
 
-### <a id="my-child-expenses-on-my-personal-ledger"></a>My Child Expenses on my Personal Ledger
+### My Child Expenses on my Personal Ledger
 
 Instead of doing that, what I want is for my personal ledger to book all the expenses I make for him to a single category: Expenses:Kyle, and to track all the detail in a shared ledger. But I still have to book all the expenses to some category, and these appear on my personal ledger, there’s no option (I won’t maintain a separate credit card to pay for his expenses, that would be overkill, so I have to find a way).
 
@@ -130,7 +130,7 @@ So from my personal side, all those expenses get booked to my “Kyle project”
 
 The “diverted\_account” metadata is used to keep track of the original account, and this is used later by another script that generates a ledger file decided to my expenses for him (more below).
 
-### <a id="my-child-expenses-in-kyles-own-ledger"></a>My Child Expenses in Kyle’s own Ledger
+### My Child Expenses in Kyle’s own Ledger
 
 Now, because we’re considering Kyle’s expenses a project of his own, I have to maintain a set of ledgers for him. I automatically pull the transactions I described in the previous section from my personal ledger and automatically convert them to a file dedicated to his dad (me). This is done by calling the [<span class="underline">extract\_tagged</span>](https://bitbucket.org/blais/beancount/src/tip/experiments/sharing/extract_tagged.py) script:
 
@@ -146,7 +146,7 @@ As you can see, the script was able to reconstruct the original account name in 
 
 This ledger contains the sum total of all expenses I’ve made for him to date. The file gets entirely overwritten each time I run this (this is a purely generated output, no hand editing is ever done here, if I change anything I change it in my personal ledger file).
 
-### <a id="her-child-expenses"></a>Her Child Expenses
+### Her Child Expenses
 
 In order to keep track of her expenses for Kyle, we use the same method (and programs) as we use for our shared accounts in order to pull a set of “Carolyn’s expenses for Kyle” from another sheet in the same Google Sheets doc:
 
@@ -160,7 +160,7 @@ This pulls in transactions that look like this:
 
 The expenses accounts are pulled from the sheet—sometimes I have to go fix that by hand a bit, as they may not track precisely those from our ledger—and the income shows that the contribution was made by his mother.
 
-### <a id="putting-it-all-together"></a>Putting it All Together
+### Putting it All Together
 
 Finally, we need to put together all these files. I created a top-level kyle.beancount file that simple declares all of his account categories and includes his mom and dad files. We have three files:
 
@@ -190,7 +190,7 @@ In order to reconcile (2), we basically compare the balances of the Income:Mom a
 
 After reconciling, the final number should be zero.
 
-### <a id="reconciling-the-child-ledger"></a>Reconciling the Child Ledger
+### Reconciling the Child Ledger
 
 In order to account for the difference and make the contributions to Kyle’s upbringing in line with our mutual arrangement of 60%/40%, in the previous section, my wife would need to transfer $301 to me. Of course, we don’t *actually* transfer anything in practice, I just add a virtual transfer to book the difference to her shared account on my ledger. To do this, all I have to do is insert a transaction in blais.beancount that looks like this:
 
@@ -218,8 +218,8 @@ After that, going back to the Kyle ledger, pulling in all the transactions again
 
     Mom OWES Dad:       301.00
 
-<a id="summary-of-the-system"></a>Summary of the System
--------------------------------------------------------
+Summary of the System
+---------------------
 
 Here’s a diagram that puts in perspective the entire system together:
 
@@ -231,7 +231,7 @@ I’m not going to claim it’s simple and that it’s always up-to-date. I tend
 
 And we have enough loose change between the two of us that it’s never that urgent to reconcile every week. My wife tends to pay more shared expenses and I tend to pay more Kyle’s expenses, so I often end up doing a transfer from one to the other to even things out and it’s relatively close—the shortfall in Kyle expenses makes up for my shortfall on the shared expenses.
 
-<a id="conclusion"></a>Conclusion
----------------------------------
+Conclusion
+----------
 
 I hope this was useful to some of you trying to solve problems using the double-entry bookkeeping method. Please write questions and comments on the Beancount mailing-list, or as comments on this doc.

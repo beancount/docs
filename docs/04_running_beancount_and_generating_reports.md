@@ -1,5 +1,5 @@
-<a id="title"></a>Running Beancount & Generating Reports
-========================================================
+Running Beancount & Generating Reports
+======================================
 
 [<span class="underline">Martin Blais</span>](mailto:blais@furius.ca), July-Sep 2014
 
@@ -83,15 +83,15 @@
 >
 > [<span class="underline">Update Activity (activity)</span>](#update-activity-activity)
 
-<a id="introduction"></a>Introduction
--------------------------------------
+Introduction
+------------
 
 This document describes the tools you use to process Beancount input files, and many of the reports available from it. The syntax of the language is described in the [<span class="underline">Beancount Language Syntax</span>](06_beancount_language_syntax.md) document. This manual only covers the technical details for using Beancount from the command-line.
 
-<a id="tools"></a>Tools
------------------------
+Tools
+-----
 
-### <a id="bean-check"></a>bean-check
+### bean-check
 
 **bean-check** is the program you use to verify that your input syntax and transactions work correctly. All it does is load your input file and run the various plugins you configured in it, plus some extra validation checks. It report errors (if any), and then exits. You run it on your input file, like this:
 
@@ -107,7 +107,7 @@ If there are no errors, there should be no output, it should exit quietly. If th
 
 You should always fix all the errors before producing reports.
 
-### <a id="bean-report"></a>bean-report
+### bean-report
 
 This is the main tool used to extract specialized reports to the console in text or one of the various other formats. You invoke it like this:
 
@@ -135,7 +135,7 @@ The other reports are what you’d expect: they print out various tables of aggr
 
 <table><tbody><tr class="odd"><td><em><strong>PLEASE NOTE!</strong></em> At the moment of release, the list of reports available from the web page will differ from the list available from the console. In a future release, I will consolidate those two lists and all the reports that are available from the web pages will also be available from the console, and in many different formats. Stay tuned.</td></tr></tbody></table>
 
-### <a id="bean-query"></a>bean-query
+### bean-query
 
 Beancount’s parsed list of transactions and postings is like an in-memory database. **bean-query** is a command-line tool that acts like a client to that in-memory database in which you can type queries in a variant of SQL. You invoke it like this:
 
@@ -146,7 +146,7 @@ Beancount’s parsed list of transactions and postings is like an in-memory data
 
 More details are available [<span class="underline">in its own document</span>](09_beancount_query_language.md).
 
-### <a id="bean-web"></a>bean-web
+### bean-web
 
 **bean-web** serves all the reports on a web server that runs on your computer. You run it like this:
 
@@ -156,7 +156,7 @@ It will serve all pages on port 8080 on your machine. Navigate to [<span class="
 
 The web interface provides a set of global pages and a set of report pages for each “view.”
 
-#### <a id="global-pages"></a>Global Pages
+#### Global Pages
 
 The top-level table of contents page provides links to all the global pages at the top:
 
@@ -176,7 +176,7 @@ The table of contents provides a convenient list of links to all the common view
 
 There are a few more.
 
-#### <a id="view-reports-pages"></a>View Reports Pages
+#### View Reports Pages
 
 When you click on a view report page, you enter a set of pages for the subset of transactions for that view. Various reports about those transactions are available from here:
 
@@ -196,7 +196,7 @@ When you click on a view report page, you enter a set of pages for the subset of
 
 … and much more. There should be an index of all the available view reports.
 
-### <a id="bean-bake"></a>bean-bake
+### bean-bake
 
 **bean-bake** runs a **bean-web** instance and bakes all the pages to a directory:
 
@@ -210,7 +210,7 @@ Various compression methods are supported, e.g. .tar.gz.
 
 This is useful to share the web interface with your accountant or other people, who usually don’t have the ability to run Beancount. The page links have all been converted to relative links, and they should be able to extract the archive to a directory and browse all the reports the same way you do with **bean-web**.
 
-### <a id="bean-doctor"></a>bean-doctor
+### bean-doctor
 
 This is a debugging tool used to perform various diagnostics and run debugging commands, and to help provide information for reporting bugs. For example, it can do the following:
 
@@ -222,7 +222,7 @@ This is a debugging tool used to perform various diagnostics and run debugging c
 
 -   It can check that a directory hierarchy corresponds to a Beancount input file’s chart-of-accounts, and reporting directories that do not comply. This is useful in case you decide to change some account names and are maintaining a corresponding archive of documents which needs to be adjusted accordingly.
 
-#### <a id="context"></a>Context
+#### Context
 
 It can list the context upon which a transaction is applied, i.e., the inventory balances of each account the transaction postings modify, before and after it is applied. Use it like this:
 
@@ -243,16 +243,16 @@ It can list the context upon which a transaction is applied, i.e., the inventory
 
 There is a corresponding Emacs binding (C-c x) to invoke this around the cursor.
 
-### <a id="bean-format"></a>bean-format
+### bean-format
 
 This pure text processing tool will reformat Beancount input to right-align all the numbers at the same, minimal column. It left-aligns all the currencies. It only modifies whitespace. This tool accepts a filename as arguments and outputs the aligned file on stdout (similar to UNIX cat).
 
-### <a id="bean-example"></a>bean-example
+### bean-example
 
 This program generates an example Beancount input file. See the [<span class="underline">Tutorial</span>](13_tutorial_example.md) for more details about the contents of this example file.
 
-<a id="filtering-transactions"></a>Filtering Transactions
----------------------------------------------------------
+Filtering Transactions
+----------------------
 
 In order to produce different views of your financial transactions, we select a subset of full list of parsed transactions, for example, “all the transactions that occurred in year 2013”, and then use that to produce the various available reports that Beancount provides.
 
@@ -270,8 +270,8 @@ At the moment, only a preset list of filters are available as “views” from t
 
 At the moment, in order to access reports from these subsets of transactions, you need to use the **bean-web** web interface, and click on the related keyword in the root global page, which enters you into a set of reports for that view.
 
-<a id="reports"></a>Reports
----------------------------
+Reports
+-------
 
 The whole point of entering your transactions in a single input file in the first place is that it allows you to sum, filter, aggregate and arrange various subsets of your data into well-known reports. There are three distinct ways to produce reports from Beancount: by using **bean-web** and browsing to a view and then to a specific report (this is the easy way), by using **bean-query** and providing the name of a desired report (and possibly some report-specific arguments), and by using **bean-query** and requesting data by specifying a SQL statement.
 
@@ -283,7 +283,7 @@ There are many types of reports available, and there will be many more in the fu
 
 <table><tbody><tr class="odd"><td><em><strong>PLEASE NOTE!</strong></em> At the moment, the sets of reports that are available from the web interface and from the console are different, though there is some overlap. In a subsequent version, the list of reports will be reconciled and all reports will be made available via both the web interface and the console, in a variety of data formats (text, CSV, HTML and maybe others.) For now, we will document these in the sections below.</td></tr></tbody></table>
 
-### <a id="balance-reports"></a>Balance Reports
+### Balance Reports
 
 All the balance reports are similar in that they produce tables of some set of accounts and their associated balances: [<span class="underline">\[output\]</span>](http://furius.ca/beancount/examples/tutorial/balances.output)
 
@@ -315,7 +315,7 @@ You may use this option multiple times if you have many of them (this is my case
 
 Finally, some accounts are deemed “active” if they have not been closed. A closed account with no transactions in the filtered set of transactions will not be rendered.
 
-#### <a id="trial-balance-balances"></a>Trial Balance (balances)
+#### Trial Balance (balances)
 
 A [<span class="underline">trial balance</span>](http://en.wikipedia.org/wiki/Trial_balance) report simply produces a table of final balances of all the active accounts, with all the accounts rendered vertically.
 
@@ -327,7 +327,7 @@ The equivalent bean-query command is:
     GROUP BY account 
     ORDER BY account;
 
-#### <a id="balance-sheet-balsheet"></a>Balance Sheet (balsheet)
+#### Balance Sheet (balsheet)
 
 A [<span class="underline">balance sheet</span>](http://en.wikipedia.org/wiki/Balance_sheet) is a snapshot of the balances of the Assets, Liabilities and Equity accounts at a particular point in time. In order to build such a report, we have to move balances from the other accounts to it:
 
@@ -353,11 +353,11 @@ The equivalent bean-query command is:
     FROM CLOSE ON 2016-01-01 
     GROUP BY account ORDER BY account;      
 
-#### <a id="opening-balances-openbal"></a>Opening Balances (openbal)
+#### Opening Balances (openbal)
 
 The opening balances report is simply a balance sheet drawn at the beginning of the reporting period. This report only makes sense for a list of filtered entries that represents a period of time, such as “year 2014.” The balance sheet is generated using only the summarization entries that were synthesized when the transactions were filtered (see the [<span class="underline">double-entry method document</span>](02_the_double_entry_counting_method.md)).
 
-#### <a id="income-statement-income"></a>Income Statement (income)
+#### Income Statement (income)
 
 An [<span class="underline">income statement</span>](http://en.wikipedia.org/wiki/Income_statement) lists the final balances of the Income and Expenses accounts. It represents a summary of the transient activity within these accounts. If the balance sheet is the snapshot at a particular point in time, this is the difference between the beginning and the end of a period (in our case: of a filtered set of transactions). The balances of the active Income accounts are rendered on the left, and those of the active Expenses accounts on the right. See the [<span class="underline">introduction document</span>](02_the_double_entry_counting_method.md) for an example.
 
@@ -365,11 +365,11 @@ The difference between the total of Income and Expenses balances is the Net Inco
 
 Note that the initial balances of the Income and Expenses accounts should have been zero’ed out by summarization transactions that occur at the beginning of the period, because we’re only interested in the changes in these accounts.
 
-### <a id="journal-reports"></a>Journal Reports
+### Journal Reports
 
 The reports in this section render lists of transactions and other directives in a linear fashion.
 
-#### <a id="journal-journal"></a>Journal (journal)
+#### Journal (journal)
 
 This report is the equivalent of an “account statement” from an institution, a list of transactions with at least one posting in that account. This is the equivalent of Ledger’s register report (reg).
 
@@ -383,7 +383,7 @@ By default, this renders a journal of *all* the transactions, which is unlikely 
 
 At the moment, the “-a” option accepts only a complete account name, or the name of one of the parent accounts. Eventually we will extend it to handle expressions.
 
-##### <a id="rendering-at-cost"></a>Rendering at Cost
+##### Rendering at Cost
 
 The numbers column on the right displays the changes from the postings of the selected account. Notice that only the balances for the postings affecting the given account are rendered.
 
@@ -397,25 +397,25 @@ There is no “market value” option. Unrealized gains are automatically insert
 
 Note that if the sum of the selected postings is zero, no amount is rendered in the change column.
 
-##### <a id="adding-a-balance-column"></a>Adding a Balance Column
+##### Adding a Balance Column
 
 If you want to add a column that sums up the running balance for the reported changes, use the “--render-balance” or “-b” option. This does not always make sense to report, so it is up to you to decide whether you want a running balance.
 
-##### <a id="character-width"></a>Character Width
+##### Character Width
 
 By default, the report will be as wide as your terminal allows. Restrict the width to a set number of characters with the “-w” option.
 
-##### <a id="precision"></a>Precision
+##### Precision
 
 The number of fractional digits for the number rendering can be specified via “--precision” or “-k”.
 
-##### <a id="compact-normal-or-verbose"></a>Compact, Normal or Verbose
+##### Compact, Normal or Verbose
 
 In its normal operation, Beancount renders an empty line between transactions. This helps delineate transactions where there are multiple currencies affected, as they render on separate lines. If you want a more compact rendering, use the “--compact” or “-x” option.
 
 On the other hand, if you want to render the affected postings under the transaction line, use the “--verbose” or “-X” option.
 
-##### <a id="summary"></a>Summary
+##### Summary
 
 Here is a summary of its arguments:
 
@@ -434,35 +434,35 @@ Here is a summary of its arguments:
       -x, --compact         Rendering compactly
       -X, --verbose         Rendering verbosely
 
-##### <a id="equivalent-sql-query"></a>Equivalent SQL Query
+##### Equivalent SQL Query
 
 The equivalent bean-query command is:
 
     SELECT date, flag, description, account, cost(position), cost(balance);
 
-#### <a id="conversions-conversions"></a>Conversions (conversions)
+#### Conversions (conversions)
 
 This report lists the total of currency conversions that result from the selected transactions. (Most people won’t need this.)
 
-#### <a id="documents-documents"></a>Documents (documents)
+#### Documents (documents)
 
 This report produces an HTML list of all the external documents found in the ledger, either from explicit directives or from plugins that automatically find the documents and add them to the stream of transactions.
 
-### <a id="holdings-reports"></a>Holdings Reports
+### Holdings Reports
 
 These reports produces aggregations for assets held at cost.
 
-#### <a id="holdings-aggregations-holdings"></a>Holdings & Aggregations (holdings\*)
+#### Holdings & Aggregations (holdings\*)
 
 This report produces a detailed list of all holdings found in the ledger. You can produce aggregates by commodity and accounts using the “-g” option.
 
-#### <a id="net-worth-networth"></a>Net Worth (networth)
+#### Net Worth (networth)
 
 This report produces a short summary of the net worth (equity) of the ledger, in each of the operating currencies.
 
-### <a id="other-report-types"></a>Other Report Types
+### Other Report Types
 
-#### <a id="cash"></a>Cash
+#### Cash
 
 This report renders balances in commodities not held at cost, in other words, cash:
 
@@ -486,14 +486,14 @@ This report renders balances in commodities not held at cost, in other words, ca
 
 The report allows you to convert all currencies to a common currency (in the example above, "convert everything to USD"). There's also an option to report only on the operating currencies. I use this to get an overview of all uninvested cash.
 
-#### <a id="prices-prices"></a>Prices (prices)
+#### Prices (prices)
 
 This report renders a list of price points for a base currency in terms of a quote currency. The list is sorted by date. You can output this table in beancount format as well. This is convenient to save a price database to a file, that can then be combined and loaded into another input file.
 
-#### <a id="statistics-stats"></a>Statistics (stats)
+#### Statistics (stats)
 
 This report simply provides various statistics on the parsed entries.
 
-#### <a id="update-activity-activity"></a>Update Activity (activity)
+#### Update Activity (activity)
 
 This table renders for each account the date of the last entry.

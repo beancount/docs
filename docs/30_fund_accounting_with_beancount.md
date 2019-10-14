@@ -1,5 +1,5 @@
-<a id="title"></a>Fund Accounting with Beancount
-================================================
+Fund Accounting with Beancount
+==============================
 
 [<span class="underline">Martin Blais</span>](http://plus.google.com/+MartinBlais), Carl Hauser, August 2014
 
@@ -7,13 +7,13 @@
 
 *A discussion about how to carry out fund accounting within Beancount, various approaches, solutions and possible extensions.*
 
-<a id="motivation"></a>Motivation
----------------------------------
+Motivation
+----------
 
 Multiple users are attempting to solve the problem of fund accounting using command-line accounting systems, partially because this type of accounting occurs in the context of non-profit organizations that have small budgets and would prefer to use free software, and partially because the flexibility and customization required appear to be a good fit for command-line bookkeeping systems.
 
-<a id="what-is-fund-accounting"></a>What is Fund Accounting?
-------------------------------------------------------------
+What is Fund Accounting?
+------------------------
 
 For example, see [<span class="underline">this thread</span>](https://groups.google.com/d/msg/ledger-cli/N8Slh2t45K0/nu1ZACCueQYJ):
 
@@ -39,7 +39,7 @@ From the PowerChurchPlus 11.5 Manual (PowerChurch, Inc. 2013):
 
 This is an interesting and apparently common problem. We will describe use cases in the rest of this section.
 
-### <a id="joint-account-management"></a>Joint Account Management
+### Joint Account Management
 
 I have personally used this “fund accounting” idea to manage a joint account that I had with my ex-wife, where we would both hold individual accounts—we were both working professionals— and chip in to the joint account as needed. This section describes how I did this[^1].
 
@@ -69,7 +69,7 @@ When we would incur expenses, we would reduce the asset account with two legs, o
 
 It was convenient to elide one of the two amounts, as we weren’t being very precise about this.
 
-### <a id="handling-multiple-funds"></a>Handling Multiple Funds
+### Handling Multiple Funds
 
 *(Contributed from Carl Hauser)*
 
@@ -116,8 +116,8 @@ For John W.’s *Huqúqu'lláh* example one might set up a Fund whose liabilitie
 
 For me, this approach to fund accounting is appealing because it relies on and preserves the fundamental principles of double-entry bookkeeping: when transactions sum to 0 the balance sheet equation is always true. Out of this we automatically get the ability to combine *any set of funds* (we don’t have to do anything special when entering transactions or organizing the deep structure of the accounts) and have it make at least arithmetical sense, and we don’t rely on any “magic” associated with renaming or tagging. I don’t see how this can be so easily or neatly achieved by pushing the idea of the “funds” down into the account hierarchy: funds belong *above* the five root accounts (Assets, Liabilities, Equity, Income and Expenses), not below them.
 
-<a id="ideas-for-implementation"></a>Ideas for Implementation
--------------------------------------------------------------
+Ideas for Implementation
+------------------------
 
 ***Some random ideas for now. This needs a bit more work.***
 
@@ -141,12 +141,12 @@ For me, this approach to fund accounting is appealing because it relies on and p
 
     From an implementation perspective this seems more orthogonal to the current status quo, requiring even less change to existing code. It adds a new feature -- value tags and that can then be used by plugins and new reports to do what we want for fund accounting.
 
-<a id="examples"></a>Examples
------------------------------
+Examples
+--------
 
 *(Carl)* Here is an example of how I might try to handle things associated with my paycheck, which involves deferred compensation (403(b) -- extremely similar to a 401(k)) and a Flexible Spending Account (somewhat similar to an HSA which has been discussed previously on the ledger-cli group).
 
-### <a id="without-funds"></a>Without Funds
+### Without Funds
 
 (Carl) First, without Funds (this passes a bean-check):
 
@@ -206,7 +206,7 @@ See the next example for how it would look using Funds. If you stick out your to
       Assets:Bank:Checking                                         	25 USD
       Assets:FSA
 
-### <a id="using-funds"></a>Using Funds
+### Using Funds
 
 (Carl) And now using Funds (uses proposed features and hence can’t be checked by bean-check):
 
@@ -286,8 +286,8 @@ I've used the convention that the Fund name precedes the root account name. Note
       FSA:Assets                                                   -25 USD
       FSA:Expenses:ReimburseMedical
 
-<a id="transfer-accounts-proposal"></a>Transfer Accounts Proposal
------------------------------------------------------------------
+Transfer Accounts Proposal
+--------------------------
 
 One problem that I’ve experienced using the Fund approach is that it’s a bit too easy to make mistakes when transferring money between funds, such as in the very last transaction above. Formalizing the idea of Transfer accounts can help with this. The most common mistake is to end up with something that moves assets in both accounts in the same direction -- both up or both down as in this mistaken version of the transaction in question:
 
@@ -334,8 +334,8 @@ The paycheck transaction using transfer accounts for the FSA and the retirement 
 
 Some might think that this is too complicated. Without changing the Transfer accounts idea or rule, you can simplify booking to just a single account per fund, Fund:Transfer, losing some ability for precision in reporting but without losing the ability to check correctness of transfer transactions.
 
-<a id="account-aliases"></a>Account Aliases
--------------------------------------------
+Account Aliases
+---------------
 
 Simon Michael mentions that this is related to HLedger [<span class="underline">account aliases</span>](http://hledger.org/how-to-use-account-aliases):
 

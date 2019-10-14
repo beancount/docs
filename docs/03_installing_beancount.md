@@ -1,5 +1,5 @@
-<a id="title"></a>Installing Beancount
-======================================
+Installing Beancount
+====================
 
 [<span class="underline">Martin Blais</span>](mailto:blais@furius.ca) - Updated: June 2015
 
@@ -7,8 +7,8 @@
 
 *Instructions for downloading and installing Beancount on your computer.*
 
-<a id="releases"></a>Releases
------------------------------
+Releases
+--------
 
 Beancount is a mature project: the first version was written in 2008. The current rewrite of Beancount is stable. (Technically, this is what I call version 2.x beta).
 
@@ -18,8 +18,8 @@ I’m still working on this Beancount code every weekend these days, so it is ve
 
 Until development slows down and I decide to bake numbered releases, I recommend cloning and updating regularly from the bitbucket repository and building and running in place the “default” branch (if you’re not familiar with Mercurial, “default” is the default, same as master under Git).
 
-<a id="where-to-get-it"></a>Where to Get It
--------------------------------------------
+Where to Get It
+---------------
 
 This is the official location for the source code:
 
@@ -35,10 +35,10 @@ The author tries to maintain a [<span class="underline">GitHub</span>](http://gi
 
 Other GitHub clones that can be found in the wild are undoubtedly out of date. Don’t use them.
 
-<a id="how-to-install"></a>How to Install
------------------------------------------
+How to Install
+--------------
 
-### <a id="installing-python"></a>Installing Python
+### Installing Python
 
 Beancount uses Python 3.5[^1] or above, which is a pretty recent version of Python (as of this writing), and a few common library dependencies. I try to minimize dependencies, but you do have to install a few. This is very easy.
 
@@ -48,11 +48,11 @@ Beancount supports setuptools since Feb 2016, and you will need to install depen
 
     Note for Arch Linux: Arch’s Python package does not correctly install all of its runtime dependencies. With the Python installation that comes with it, you have to install the “mpdecimal” package in order for the C decimal implementation to work. See this issue for a discussion. Others say easiest might just be to use the AUR package, which installs all the required dependencies.
 
-#### <a id="python-dependencies"></a>Python Dependencies
+#### Python Dependencies
 
 Note that in order to build a full working Python install from source, you will probably need to install a host of other development libraries and their corresponding header files, e.g., libxml2, libxslt1, libgdbm, libmp, libssl, etc. Installing those is dependent on your particular distribution and/or OS. Just make sure that your Python installation has all the basic modules compiled for its default configuration.
 
-### <a id="installing-beancount-using-pip"></a>Installing Beancount using pip
+### Installing Beancount using pip
 
 This is the easiest way to install Beancount. You just install Beancount using
 
@@ -62,30 +62,30 @@ This should automatically download and install all the dependencies.
 
 Note, however, that this will install the latest version that was pushed to the [<span class="underline">PyPI repository</span>](https://pypi.python.org/pypi/beancount/) and not the very latest version available from source. Releases to PyPI are made sporadically but frequently enough not to be too far behind. Consult the [<span class="underline">CHANGES file</span>](https://bitbucket.org/blais/beancount/src/tip/CHANGES) if you’d like to find out what is not included since the release date.
 
-### <a id="installing-beancount-from-source"></a>Installing Beancount from Source
+### Installing Beancount from Source
 
 Installing from source offers the advantage of providing you with the very latest version of the stable branch (“default”). The default branch is as stable as the released version.
 
-#### <a id="obtain-the-source-code"></a>Obtain the Source Code
+#### Obtain the Source Code
 
 Get the source code from the official repository:
 
     hg clone https://bitbucket.org/blais/beancount
 
-#### <a id="install-third-party-dependencies"></a>Install third-party dependencies
+#### Install third-party dependencies
 
 You might need to install some non-Python library dependencies, such as libxml2-dev, libxslt1-dev, and perhaps a few more. Try to build, it should be obvious what’s missing. If on Ubuntu, use apt-get.
 
 If installing on Windows, see the Windows section below.
 
-#### <a id="install-beancount-from-source-using-pip3"></a>Install Beancount from source using pip3
+#### Install Beancount from source using pip3
 
 You can then install all the dependencies and Beancount itself using pip:
 
     cd beancount
     sudo pip3 install .
 
-#### <a id="install-beancount-from-source-using-setup.py"></a>Install Beancount from source using setup.py
+#### Install Beancount from source using setup.py
 
 First you’ll need to install dependent libraries. You can do this using pip:
 
@@ -106,7 +106,7 @@ Or you can install the package in your user-local Python library using this:
 
 Remember to add ~/.local/bin to your path to access the local install.
 
-#### <a id="installing-for-development"></a>Installing for Development
+#### Installing for Development
 
 If you want to execute the source in-place for making changes to it, you can use the setuptools “develop” command to point to it:
 
@@ -125,15 +125,15 @@ Finally, both the PATH and PYTHONPATH environment variables need to be updated f
     export PATH=$PATH:/path/to/beancount/bin
     export PYTHONPATH=$PYTHONPATH:/path/to/beancount
 
-### <a id="installing-from-packages"></a>Installing from Packages
+### Installing from Packages
 
 Various distributions may package Beancount. Here are links to those known to exist:
 
 -   Arch: [<span class="underline">https://aur.archlinux.org/packages/beancount/</span>](https://aur.archlinux.org/packages/beancount/)
 
-### <a id="windows-installation"></a>Windows Installation
+### Windows Installation
 
-#### <a id="native"></a>Native
+#### Native
 
 Installing this package by pip requires compiling some C++ code during the installation procedure which is only possible if an appropriate compiler is available on the computer, otherwise you will receive an error message about missing *vsvarsall.bat* or *cl.exe*.
 
@@ -163,7 +163,7 @@ According to my experience both Python 3.5 and 3.6 was compiled with MSC v.1900 
 
 If cl.exe is not in your path after installation, run Developer Command Prompt for Visual Studio and run the commands there.
 
-#### <a id="with-cygwin"></a>With Cygwin
+#### With Cygwin
 
 Windows installation is, of course, a bit different. It’s a breeze if you use Cygwin. You just have to prep your machine first. Here’s how.
 
@@ -195,7 +195,7 @@ Windows installation is, of course, a bit different. It’s a breeze if you use 
 
 At this point, you should be able to follow the instructions from the previous sections as is, starting from “Install Beancount using pip”.
 
-#### <a id="with-wsl"></a>With WSL
+#### With WSL
 
 The newly released Windows 10 Anniversary Update brings WSL 'Windows Subsystem for Linux' with [<span class="underline">bash on Ubuntu on Windows</span>](https://blogs.msdn.microsoft.com/wsl/2016/07/08/bash-on-ubuntu-on-windows-10-anniversary-update/) (installation instructions and more at [<span class="underline">https://msdn.microsoft.com/commandline/wsl/about</span>](https://msdn.microsoft.com/commandline/wsl/about)).
 
@@ -208,13 +208,13 @@ This makes beancount installation easy, from bash:
 
 This is not totally “Windows compatible”, as it is running in a pico-process, but provides a convenient way to get the Linux command-line experience on Windows. *(Contrib: willwray)*
 
-#### <a id="notes-on-lxml"></a>Notes on lxml
+#### Notes on lxml
 
 Some users have reported problems installing lxml, and a solution: when installing lxml with pip (under Cygwin), using this may help:
 
     STATIC_DEPS=true pip install lxml
 
-### <a id="checking-your-install"></a>Checking your Install
+### Checking your Install
 
 You should be able to run the binaries from [<span class="underline">this document</span>](04_running_beancount_and_generating_reports.md). For example, running bean-check should produce something like this:
 
@@ -225,14 +225,14 @@ You should be able to run the binaries from [<span class="underline">this docume
 
 If this works, you can now go to the [<span class="underline">tutorial</span>](13_tutorial_example.md) and begin learning how Beancount works.
 
-### <a id="reporting-problems"></a>Reporting Problems
+### Reporting Problems
 
 If you need to report a problem, either send email on the mailing-list or [<span class="underline">file a ticket</span>](https://bitbucket.org/blais/beancount/issues) on Bitbucket. Running the following command lists the presence and versions of dependencies installed on your computer and it might be useful to include the output of this command in your bug report:
 
     bean-doctor checkdeps
 
-<a id="editor-support"></a>Editor Support
------------------------------------------
+Editor Support
+--------------
 
 There is support for some editors available:
 
@@ -248,24 +248,24 @@ There is support for some editors available:
 
     -   [<span class="underline">Beancount Formatter</span>](https://marketplace.visualstudio.com/items?itemName=dongfg.vscode-beancount-formatter), which can format the whole document, aligning the numbers, etc. using bean-format.
 
-<a id="if-you-have-problems"></a>If You Have Problems
------------------------------------------------------
+If You Have Problems
+--------------------
 
 If you run into any installation problems, [<span class="underline">file a ticket</span>](https://bitbucket.org/blais/beancount/issues), [<span class="underline">email me</span>](mailto:blais@furius.ca), or hit the [<span class="underline">mailing-list</span>](https://groups.google.com/forum/#!forum/beancount).
 
-<a id="post-installation-usage"></a>Post-Installation Usage
------------------------------------------------------------
+Post-Installation Usage
+-----------------------
 
 Normally the [<span class="underline">scripts located under beancount/bin</span>](https://bitbucket.org/blais/beancount/src/tip/bin/) should be automatically installed somewhere in your executable path. For example, you should be able to just run “bean-check” on the command-line.
 
-<a id="appendix"></a>Appendix
------------------------------
+Appendix
+--------
 
 **If everything worked, you can stop reading here.** Here I just discuss the various dependencies and why you need them (or why you don’t, some of them are optional). This is of interest to developers and some of this info might help troubleshoot problems if you encounter any.
 
-### <a id="notes-on-dependencies"></a>Notes on Dependencies
+### Notes on Dependencies
 
-#### <a id="python-3.5-or-greater"></a>Python 3.5 or greater
+#### Python 3.5 or greater
 
 Python 3.5 is widely available at this point, released more than a year ago. However, my experience with open source distribution tells me that a lot of users are running on old machines that won’t be upgraded for a while. So for those users, you might have to install your own Python… don’t worry, installing Python manually is pretty straightforward.
 
@@ -289,7 +289,7 @@ Some users have reported that there are distributions which package the cdecimal
 
 and Beancount will then use it.
 
-#### <a id="python-libraries"></a>Python Libraries
+#### Python Libraries
 
 If you need to install Python libraries, there are a few different ways. First, there is the easy way: there is a package management tool called “pip3” (or just “pip” for version 2 of Python) and you install libraries like this:
 
@@ -299,29 +299,29 @@ Installing libraries from their source code is also pretty easy: download and un
 
     sudo python3 setup.py install
 
-#### <a id="just-make-sure-the-python3-executable-you-run-when-you-do-that-is-the-same-one-you-will-use-to-run-beancount."></a>Just make sure the “python3” executable you run when you do that is the same one you will use to run Beancount. 
+#### Just make sure the “python3” executable you run when you do that is the same one you will use to run Beancount. 
 
-#### <a id="here-are-the-libraries-beancount-depends-on-and-a-short-discussion-of-why."></a>Here are the libraries Beancount depends on and a short discussion of why.
+#### Here are the libraries Beancount depends on and a short discussion of why.
 
-##### <a id="python-dateutil"></a>python-dateutil
+##### python-dateutil
 
 This library provides Beancount with the ability to parse dates in various formats, it is very convenient for users to have flexible options on the command-line and in the SQL shell.
 
-##### <a id="bottle"></a>bottle
+##### bottle
 
 The Beancount web interface (invoked via bean-web) runs a little self-contained web server accessible locally on your machine. This is implemented using a tiny library that makes it easy to implement such web applications: [<span class="underline">bottle.py</span>](http://bottlepy.org/).
 
-##### <a id="ply"></a>ply
+##### ply
 
 The query client (bean-query) which is used to extract data tables from a ledger file depends on a parser generator: I use Dave Beazley’s popular [<span class="underline">PLY</span>](http://www.dabeaz.com/ply/) library (version 3.4 or above) because it makes it really easy to implement a custom SQL language parser.
 
-##### <a id="lxml"></a>lxml
+##### lxml
 
-##### <a id="a-tool-is-provided-to-bake-a-static-html-version-of-the-web-interface-to-a-zip-file-bean-bake.-this-is-convenient-to-share-files-with-an-accountant-who-may-not-have-your-software-installed.-the-web-scraping-code-that-is-used-to-do-that-used-the-lxml-html-parsing-library."></a>A tool is provided to bake a static HTML version of the web interface to a zip file (bean-bake). This is convenient to share files with an accountant who may not have your software installed. The web scraping code that is used to do that used the lxml HTML parsing library.
+##### A tool is provided to bake a static HTML version of the web interface to a zip file (bean-bake). This is convenient to share files with an accountant who may not have your software installed. The web scraping code that is used to do that used the lxml HTML parsing library.
 
-#### <a id="python-libraries-for-export-optional"></a>Python Libraries for Export (optional)
+#### Python Libraries for Export (optional)
 
-##### <a id="google-api-python-client"></a>google-api-python-client
+##### google-api-python-client
 
 Some of the scripts I use to export outputs to Google Drive (as well as scripts to maintain and download documentation from it) are checked into the codebase. You don’t have to install these libraries if you’re not exporting to Google Drive; everything else should work fine without them. These are thus optional.
 
@@ -341,11 +341,11 @@ Update: as of 2016, you should be able to install all of the above like this:
 
 **IMPORTANT:** The support for Python3 is fairly recent, and if you have an old install you might experience some failures, e.g. with missing dependencies, such as a missing “gflags” import. Please install those from recent releases and you should be fine. You can install them manually.
 
-#### <a id="python-libraries-for-imports-optional"></a>Python Libraries for Imports (Optional)
+#### Python Libraries for Imports (Optional)
 
 Support for importing identifying, extracting and filing transactions from externally downloaded files is built into Beancount. (This used to be in the LedgerHub project, which has been deprecated.) If you don’t take advantage of those importing tools and libraries, you don’t need these imports.
 
-##### <a id="python-magic-optional"></a>python-magic (optional)
+##### python-magic (optional)
 
 Beancount attempt to identify the types of files using the stdlib “mimetypes” module and some local heuristics for types which aren’t supported, but in addition, it is also useful to install libmagic, which it will use if it is not present:
 
@@ -353,11 +353,11 @@ Beancount attempt to identify the types of files using the stdlib “mimetypes�
 
 Note that there exists another, older library which provides libmagic support called “filemagic”. You need “python-magic” and not “filemagic.” More confusingly, under Debian the “python-magic” library is called “filemagic.”
 
-##### <a id="other-tools"></a>Other Tools
+##### Other Tools
 
 It is expected that the user will build their own importers. However, Beancount will provide some modules to help you invoke various external tools. The dependencies you need for these depends on which tool you’ve configured your importer to use.
 
-#### <a id="virtualenv-installation"></a>Virtualenv Installation
+#### Virtualenv Installation
 
 If you’d like to use virtualenv, you can try this (suggestion by Remy X). First install Python 3.5 or beyond[^2]:
 
@@ -377,9 +377,9 @@ Then install and activate virtualenv:
     pip install lxml
     pip install beancount
 
-### <a id="development-setup"></a>Development Setup
+### Development Setup
 
-#### <a id="installation-for-development"></a>Installation for Development
+#### Installation for Development
 
 For development, you will want to avoid installing Beancount in your Python distribution and instead just modify your PYTHONPATH environment variable to run it from source:
 
@@ -395,7 +395,7 @@ Or equivalently, the root directory has a Makefile that does the same thing and 
 
 With this, you should be able to run the executables under the bin/ subdirectory. You may want to add this to your PATH as well.
 
-#### <a id="dependencies-for-development"></a>Dependencies for Development
+#### Dependencies for Development
 
 Beancount needs a few more tools for development. If you’re reading this, you’re a developer, so I’ll assume you can figure out how to install packages, skip the detail, and just list what you might need:
 

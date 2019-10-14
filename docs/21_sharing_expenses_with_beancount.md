@@ -1,12 +1,12 @@
-<a id="title"></a>Sharing Expenses in Beancount
-===============================================
+Sharing Expenses in Beancount
+=============================
 
 [<span class="underline">Martin Blais</span>](mailto:blais@furius.ca), May 2015
 
 [<span class="underline">http://furius.ca/beancount/doc/shared</span>](http://furius.ca/beancount/doc/shared)
 
-<a id="introduction"></a>Introduction
--------------------------------------
+Introduction
+------------
 
 This document presents a method for precisely and easily accounting for shared expenses in complicated group situations. For example, traveling with a group of friends where people pay for different things. We show it is possible to deal with expenses to be split evenly among the group as well as group expenses that should be allocated to specific persons.
 
@@ -14,8 +14,8 @@ The method uses the double-entry accounting system. The essence of the method co
 
 This article is structured around a simple trip with expenses shared equally by two people. However, the same method generalizes to any type of project with incomes and expenses to be shared among multiple participants, and splitting expenses evenly or not.
 
-<a id="a-travel-example"></a>A Travel Example<img src="21_sharing_expenses_with_beancount/media/72a67e4807826142ec5f6535a66dc7fca5f797a3.jpg" style="width:1.41146in;height:1.05859in" />
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+A Travel Example<img src="21_sharing_expenses_with_beancount/media/72a67e4807826142ec5f6535a66dc7fca5f797a3.jpg" style="width:1.41146in;height:1.05859in" />
+------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Martin (the author) and Caroline (his girlfriend) visited Mexico in March 2015. We visited the island of Cozumel for a SCUBA diving trip for three days and then headed to Tulum for two days to relax and dive in the [<span class="underline">cenotes</span>](http://en.wikipedia.org/wiki/Cenote).
 
@@ -29,8 +29,8 @@ Our assumptions are:
 
 -   **Individual expenses in shared pool.** While most of the expenses are to be shared equally, some of the expenses will apply to only one of us, and we want to account for those explicitly. For example, Caroline took a SCUBA certification course ([<span class="underline">PADI Open Water</span>](http://www.padi.com/scuba-diving/padi-courses/course-catalog/open-water-diver/)) and will pay for that on her own; similarly, she should not be paying for Martin’s expensive boat diving costs. To complicate matters, the dive shop issued us a single joint bill for everything at the end of our stay.
 
-<a id="a-note-about-sharing"></a>A Note About Sharing
------------------------------------------------------
+A Note About Sharing
+--------------------
 
 I feel that something should be said about the “sharing” aspect of our expenses, as this topic has come up on previous discussions on the mailing-lists involving sharing examples.
 
@@ -40,8 +40,8 @@ I feel that something should be said about the “sharing” aspect of our expen
 
 One of the attributes of the method we show here is that the decision of how we choose to split expenses can be made *separately* from the actual payment of costs. For example, we may decide in the end that I pay for ⅔rd of the trip, but that can be decided precisely rather than in an ad-hoc “oh, I think I remember I paid for this” manner. This is especially useful in a larger group of people because when expenses aren’t tracked accurately, usually *<span class="underline">everyone</span>* is left with a feeling that they paid more than the others. The sum of the *perceived* fractions of expenses paid in a group is always greater than 100%...
 
-<a id="overview-of-the-method"></a>Overview of the Method
----------------------------------------------------------
+Overview of the Method
+----------------------
 
 In this section we present a brief illustrated overview of the method. A set of common Assets accounts that belong to the project, and book all our individual expenses and transfer for the trip as coming from external Income accounts:
 
@@ -61,12 +61,12 @@ Finally, the list of shared Expenses are split between each other—using a plug
 
 Note that the final balance of expenses for each participant may differ, and these are due to particular expenses that were attributed separately, or if we decide to split the total unevenly.
 
-<a id="how-to-track-expenses"></a>How to Track Expenses
--------------------------------------------------------
+How to Track Expenses
+---------------------
 
 In order to write down all expenses for this trip we will open a brand new Beancount input file. Despite the fact that the expenses will come from each person’s personal accounts, it is useful to think of the trip as a special project, as if it were a separate entity, e.g., a company that exists only for the duration of the trip. The example file we wrote for our trip [<span class="underline">can be found here</span>](http://bitbucket.org/blais/beancount/src/tip/examples/sharing/cozumel2015.beancount) and should help you follow along this text.
 
-### <a id="accounts"></a>Accounts
+### Accounts
 
 The set of accounts in the input file should not have to match your personal Beancount file’s account names. The accounts we will use include accounts that correspond to Martin and Caroline’s personal accounts but with generic names (e.g., Income:Martin:CreditCard instead of Liabilities:US:Chase), and expense accounts may not match any regular expenses in my personal Beancount file—it’s not important.
 
@@ -74,7 +74,7 @@ As a convention, any account that pertains specifically to one of the travelers 
 
 Let’s examine the different types of accounts we will need to carry this out.
 
-#### <a id="external-income-accounts"></a>External Income Accounts
+#### External Income Accounts
 
 The “project” will receive income in the form of transfers from personal accounts of either traveler. These are accounts we will consider external to the project and so will define them as Income accounts:
 
@@ -92,7 +92,7 @@ The “project” will receive income in the form of transfers from personal acc
 
 Transactions carried out from these accounts must be copied from your personal Beancount file. Obviously, you must be careful to include all the transactions pertaining to the trip. I used a tag to do this in my personal file.
 
-#### <a id="assets-liabilities-accounts"></a>Assets & Liabilities Accounts
+#### Assets & Liabilities Accounts
 
 There will have a few Asset accounts that will be active and exist for the duration of the trip. These temporary accounts will be zero’ed out at the end of it. One example is a pool of petty cash in local currency:
 
@@ -107,9 +107,9 @@ We also carried cash in each of our pockets while traveling, so I created two se
     2015-02-01 open Assets:Cash:Caroline
       description: "Cash for the trip held by Caroline"
 
-#### <a id="note-however-that-despite-their-individual-names-those-accounts-are-considered-as-part-of-the-project.-it-was-just-convenient-to-separately-track-balances-for-the-cash-we-each-held-during-the-trip."></a>Note however that despite their individual names, those accounts are considered as part of the project. It was just convenient to separately track balances for the cash we each held during the trip.
+#### Note however that despite their individual names, those accounts are considered as part of the project. It was just convenient to separately track balances for the cash we each held during the trip.
 
-#### <a id="expenses-accounts"></a>Expenses Accounts
+#### Expenses Accounts
 
 We will define various accounts to book our Expenses to. For example, “Expenses:Flights” will contains our costs associated with flight travel. For convenience, and because there are many types of expenses in this file, we chose to leverage the “auto-accounts” plugin and let Beancount automatically open these accounts:
 
@@ -119,11 +119,11 @@ The great majority of these accounts are for shared expenses to be split between
 
 However, for expenses that are intended to be covered by one of us only, we simply include the name of the traveler in the account name. For example, Martin’s extra costs for boat diving will be booked to the “Expenses:Scuba:Martin” account.
 
-### <a id="example-transactions"></a>Example Transactions
+### Example Transactions
 
 Let’s turn our attention to the different types of transactions present in the file. In this section I will walk you through some representative transactions (the names I give to these is arbitrary).
 
-#### <a id="contributing-transactions"></a>Contributing Transactions
+#### Contributing Transactions
 
 Contributions to the project’s costs are usually done in the form of expenses paid from external accounts. For example, Caroline paying for flights with her credit card looks like this:
 
@@ -137,7 +137,7 @@ Martin paying for the taxi to the airport looks like this:
       Expenses:Transport:Taxi                   62.80 USD
       Income:Martin:CreditCard
 
-#### <a id="bringing-cash"></a>Bringing Cash
+#### Bringing Cash
 
 We both brought some cash on us, as we were warned it might be difficult to use credit cards in Mexico. In my personal Beancount file, the cash account is “Assets:Cash” but here it must get booked as an external contribution with my name on it:
 
@@ -154,7 +154,7 @@ Caroline’s cash is similar:
 
 Once again, note that the Assets:Cash:Martin and Assets:Cash:Caroline accounts are considered a part of the project, in this case it just refers to who is carrying it. (These accounts are cleared at the end, so it does not matter that our names are in them.)
 
-#### <a id="transfers"></a>Transfers
+#### Transfers
 
 Before the trip, I was really busy. It looked like Caroline was going to make most of arrangements and upfront payments, so I made a transfer to her Google Wallet to help her cover for some expenses ahead of time:
 
@@ -162,7 +162,7 @@ Before the trip, I was really busy. It looked like Caroline was going to make mo
       Income:Martin:Wallet                      -1000 USD
       Income:Caroline:Wallet                     1000 USD
 
-#### <a id="cash-conversions"></a>Cash Conversions
+#### Cash Conversions
 
 Obtaining local currency was done by changing a small amount of cash at the airport (at a very bad rate):
 
@@ -172,7 +172,7 @@ Obtaining local currency was done by changing a small amount of cash at the airp
 
 The “Assets:Cash:Pesos” account tracks our common pool of local currency that we use for various small expenses.
 
-#### <a id="cash-expenses-in-us-dollars"></a>Cash Expenses in US Dollars
+#### Cash Expenses in US Dollars
 
 Some local expenses will call for US money, which in this example I paid from my cash pocket:
 
@@ -180,7 +180,7 @@ Some local expenses will call for US money, which in this example I paid from my
       Expenses:Scuba                            50.00 USD
       Assets:Cash:Martin
 
-#### <a id="cash-expenses-in-local-currency"></a>Cash Expenses in Local Currency<img src="21_sharing_expenses_with_beancount/media/6c5e7a3ecdb57f82345ca38ad79cee393ec1fdba.jpg" style="width:1.55003in;height:1.63021in" />
+#### Cash Expenses in Local Currency<img src="21_sharing_expenses_with_beancount/media/6c5e7a3ecdb57f82345ca38ad79cee393ec1fdba.jpg" style="width:1.55003in;height:1.63021in" />
 
 Paying cash using pesos from our shared stash of pesos looks like this:
 
@@ -195,9 +195,9 @@ Sometimes we even had to pay with a mix of US dollars and pesos. In this example
       Assets:Cash:Pesos                   -1400 MXN
       Assets:Cash:Martin                 -40.00 USD @ 12.00 MXN
 
-#### <a id="i-used-the-unfavorable-rate-the-restaurant-was-offering-to-accept-dollars-at-the-market-rate-was-14.5-at-the-time."></a>I used the unfavorable rate the restaurant was offering to accept dollars at (the market rate was 14.5 at the time).
+#### I used the unfavorable rate the restaurant was offering to accept dollars at (the market rate was 14.5 at the time).
 
-#### <a id="individual-expenses"></a>Individual Expenses
+#### Individual Expenses
 
 Here is an example of booking individual expenses using shared money. In order for us have access to the reef for diving, we had to pay a “marine park” fee of $2.50 per day to the island. This was a short trip where I dove only three days there and Caroline’s fee was included in her course except for one day:<img src="21_sharing_expenses_with_beancount/media/e0cef7785d12af297926017d805ccad2efc51dbd.jpg" style="width:1.44375in;height:1.92188in" />
 
@@ -228,7 +228,7 @@ Here is a more complicated example: the dive shop at Scuba Club Cozumel charged 
       Expenses:Scuba:Martin                     28.64 USD ;; Taxes
       Expenses:Scuba:Caroline                   24.00 USD ;; Taxes
 
-#### <a id="final-balances"></a>Final Balances
+#### Final Balances
 
 Of course you can use balance assertions at any time during the trip. For example, just before leaving at the Cancun airport we knew we wouldn’t spend any more Mexican pesos for a while, so I counted what we had left after Caroline decided to splurge the remainder of them into overpriced chocolate sold at the airport shop:
 
@@ -236,7 +236,7 @@ Of course you can use balance assertions at any time during the trip. For exampl
 
 Ideally the bookkeeper should want to do this at a quiet moment at the end of every day or couple of days, which makes it easier to triangulate an expense you might have forgotten to enter (we are on vacation after all, in our relaxed state of mind we forget to write down stuff here and there).
 
-#### <a id="clearing-asset-accounts"></a>Clearing Asset Accounts
+#### Clearing Asset Accounts
 
 At the end of the trip, you should clear the final balances of all Assets and Liabilities accounts by transferring the remaining funds out to the participants, i.e., to the Income accounts. This should leave all the balances of the trip at zero and ensures all the cash put forward for trip expenses has been moved out to travelers.
 
@@ -260,8 +260,8 @@ Our clearing transaction looked like this:
 
 We had three 20 peso bills, and I kept the bills for future travels. Caroline kept the 5 peso coin (forgot to hand it over as tip). We transferred out the respective cash amounts we had been carrying together during the trip.
 
-<a id="how-to-take-notes"></a>How to Take Notes
------------------------------------------------
+How to Take Notes
+-----------------
 
 During this trip I did not carry a laptop—this was vacation after all. I like to disconnect. I did not carry a notebook either. Instead, I just took notes at the end of the day on a few sheets of paper at the hotel. This process took about 5-10 minutes each night, just recalling from memory and writing things down.
 
@@ -281,8 +281,8 @@ After our trip, I sat down at the computer and typed [<span class="underline">th
 
 The bottom line is: if you’re organized well, the overhead of doing this is minimal.
 
-<a id="reconciling-expenses"></a>Reconciling Expenses
------------------------------------------------------
+Reconciling Expenses
+--------------------
 
 Running bean-web on the trip’s file:
 
@@ -296,7 +296,7 @@ The Balance Sheet should show empty balances for Assets accounts:
 
 The balances of the equity accounts should reflect the total amount of currency conversions made during the trip. You can verify this by calculating the amount-weight average rate like this: 7539.00 / 559.88 ~= 13.465 USD/MXN (which is about right).
 
-### <a id="reviewing-contributions"></a>Reviewing Contributions
+### Reviewing Contributions
 
 The Income Statement should show a summary of all expenses and contributions to the project:
 
@@ -326,7 +326,7 @@ You can also get the same amounts by using bean-query to achieve the same thing:
     -415.00 USD
        5    MXN
 
-### <a id="splitting-expenses"></a>Splitting Expenses
+### Splitting Expenses
 
 The expenses side of the Income Statement shows the breakdown of expenses. Note how some of the expense accounts are explicitly booked to each member separately by their account name, e.g., “Expenses:Scuba:Martin”. The other accounts, e.g. “Expenses:Groceries” are intended to be split.
 
@@ -402,8 +402,8 @@ Similarly, you can generate the list of payments made by each person, e.g.:
 
     beancount> SELECT sum(position) WHERE account ~ '^Income:.*Caroline'
 
-<a id="final-transfer"></a>Final Transfer
------------------------------------------
+Final Transfer
+--------------
 
 In order to figure out the total amount owed by each member, the process is similar: Simply sum up the balances of all the accounts attributed to that particular member:
 
@@ -441,20 +441,20 @@ If you uncomment this transaction from the input file (near the end), you will f
     --------------------------------
     38.7831868131868131868131868 USD
 
-<a id="updating-your-personal-ledger"></a>Updating your Personal Ledger
------------------------------------------------------------------------
+Updating your Personal Ledger
+-----------------------------
 
 So great! Now we’ve reconciled each other for the trip. But you still need to reflect these expenses in your personal ledger (if you have one). In this section, I will explain how you should reflect these transactions in that file.
 
-### <a id="account-names"></a>Account Names
+### Account Names
 
 First, let us take note that the accounts in your personal ledger do not have to match the account names used in the trip’s ledger file. I never process those files together. (A good argument for not attempting this is that each trip will include account names from other people and I prefer not to have those leak into my main ledger file.)
 
-### <a id="using-a-tag"></a>Using a Tag
+### Using a Tag
 
 I like to use a tag to report on the entire set of transactions related to the trip. In this example, I used the tag \#trip-cozumel2015.
 
-### <a id="booking-contributions"></a>Booking Contributions
+### Booking Contributions
 
 Your contributions into the project should be booked to a temporary holding account. I call mine “Assets:Travel:Pending”. For example, this transaction from the trip’s file:
 
@@ -482,7 +482,7 @@ Note that absolutely **all** of the transactions related to the trip should be b
       Assets:Google:Wallet                       1500 USD
       Assets:Travel:Pending                      -1500 USD
 
-### <a id="booking-expenses"></a>Booking Expenses
+### Booking Expenses
 
 After the trip is concluded, we want to convert the balance in the pending account to a list of Expenses. To find the list of expenses for yourself, you can issue a query like this:
 
@@ -568,8 +568,8 @@ Observations:
 
 I found the missing amounts by running bean-check or using bean-doctor context on an incomplete transaction from Emacs.
 
-<a id="generating-reports"></a>Generating Reports
--------------------------------------------------
+Generating Reports
+------------------
 
 If you want to automate the generation of reports for each of the participants in a trip, there is a script that generates text (and eventually CSV) reports for the queries mentioned in the previous sections. You can use this script to provide expenses status after or even during the trip or project, for each of the participants.
 
@@ -587,13 +587,13 @@ For each person, it will generate the following reports:
 
 Finally, it will also generate a final balance for each person, which you can use to send final reconciling transfers to each other. Try it now on one of the [<span class="underline">example files</span>](https://bitbucket.org/blais/beancount/src/tip/examples/sharing/) provided with Beancount.
 
-<a id="other-examples"></a>Other Examples
------------------------------------------
+Other Examples
+--------------
 
 There is another example file that shows how to share expenses between three participants in [<span class="underline">duxbury2015.beancount</span>](https://bitbucket.org/blais/beancount/src/66e85c8343d8704745ae16cb6ac622f4b6246c3c/examples/sharing/duxbury2015.beancount?at=default&fileviewer=file-view-default). Look to more example files to be introduced over time.
 
-<a id="conclusion"></a>Conclusion<img src="21_sharing_expenses_with_beancount/media/b2573bbadd485ef104e25a4b13b53f46c4b541ca.jpg" style="width:2.02604in;height:1.52427in" />
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Conclusion<img src="21_sharing_expenses_with_beancount/media/b2573bbadd485ef104e25a4b13b53f46c4b541ca.jpg" style="width:2.02604in;height:1.52427in" />
+------------------------------------------------------------------------------------------------------------------------------------------------------
 
 There is more than just one way to carry out the task we describe here. However, the method we present extends nicely to a larger group of participants, allows us to account for situations where particular expenses are incurred for one individual as part of a group, and finally, allows for a non-even split between the participants. This is pretty general.
 

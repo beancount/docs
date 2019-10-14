@@ -1,21 +1,21 @@
-<a id="title"></a>Getting Started with Beancount
-================================================
+Getting Started with Beancount
+==============================
 
 [<span class="underline">Martin Blais</span>](mailto:blais@furius.ca), July 2014
 
 [<span class="underline">http://furius.ca/beancount/doc/getting-started</span>](http://furius.ca/beancount/doc/getting-started)
 
-<a id="introduction"></a>Introduction
--------------------------------------
+Introduction
+------------
 
 This document is a gentle guide to creating your first Beancount file, initializing it with some options, some guidelines for how to organize your file, and instructions for declaring accounts and making sure their initial balance does not raise errors. It also contains some material on configuring the Emacs text editor, if you use that.
 
 You will probably want to have read some of the [<span class="underline">User’s Manual</span>](06_beancount_language_syntax.md) first in order to familiarize yourself with the syntax and kinds of available directives, or move on to the [<span class="underline">Cookbook</span>](18_command_line_accounting_cookbook.md) if you’ve already setup a file or know how to do that. If you’re familiar with Ledger, you may want to read up on the [<span class="underline">differences between Ledger and Beancount</span>](15_a_comparison_of_beancount_and_ledger_hledger.md) first.
 
-<a id="editor-support"></a>Editor Support
------------------------------------------
+Editor Support
+--------------
 
-### <a id="emacs"></a>Emacs
+### Emacs
 
 First, you will want a bit of support for your text editor. I’m using Emacs, so I’ll explain my setup for this, but certainly you can use any text editor to compose your input file.
 
@@ -33,7 +33,7 @@ You can configure Emacs to automatically open files with a “.beancount” exte
 
 -   It’s also nice to align the amounts in a transaction nicely; this formatting can be done automatically with “C-c ;” with the cursor on the transaction you want to align.
 
-### <a id="vim"></a>Vim
+### Vim
 
 Nathan Grigg implement support for vim in [<span class="underline">this github repo</span>](https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fnathangrigg%2Fvim-beancount&sa=D&sntz=1&usg=AFQjCNFgEjRsUHfpvOFxn8gD4-c_eK_wsA). It supports:
 
@@ -43,12 +43,12 @@ Nathan Grigg implement support for vim in [<span class="underline">this github r
 
 -   Aligning the decimal points across transactions (:AlignCommodity)
 
-### <a id="sublime"></a>Sublime
+### Sublime
 
 Support for [<span class="underline">editing with Sublime</span>](https://sublime.wbond.net/packages/Beancount) has been contributed by [<span class="underline">Martin Andreas Andersen</span>](https://groups.google.com/d/msg/beancount/WvlhcCjNl-Q/s4wOBQnRVxYJ). See [<span class="underline">his github repo</span>](https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fdraug3n%2Fsublime-beancount&sa=D&sntz=1&usg=AFQjCNExx6wdX5QF1hnixgHcKJV-5XJwMA).
 
-<a id="creating-your-first-input-file"></a>Creating your First Input File
--------------------------------------------------------------------------
+Creating your First Input File
+------------------------------
 
 To get started, let’s create a minimal input file with two accounts and a single transaction. Enter or copy the following input to a text file:
 
@@ -59,8 +59,8 @@ To get started, let’s create a minimal input file with two accounts and a sing
       Assets:Checking           100.00 USD
       Equity:Opening-Balances
 
-<a id="brief-syntax-overview"></a>Brief Syntax Overview
--------------------------------------------------------
+Brief Syntax Overview
+---------------------
 
 A few notes and an ultra brief overview of the Beancount syntax:
 
@@ -76,8 +76,8 @@ A few notes and an ultra brief overview of the Beancount syntax:
 
 For a complete description of the syntax, visit the [<span class="underline">User’s Manual</span>](06_beancount_language_syntax.md).
 
-<a id="validating-your-file"></a>Validating your File
------------------------------------------------------
+Validating your File
+--------------------
 
 The purpose of Beancount is to produce reports from your input file (either on the console or serve via its web interface). However, there is a tool that you can use to simply load its contents and make some validation checks on it, to ensure that your input does not contain errors. Beancount can be quite strict; this is a tool that you use while you’re entering your data to ensure that your input file is legal. The tool is called “bean-check” and you invoke it like this:
 
@@ -85,8 +85,8 @@ The purpose of Beancount is to produce reports from your input file (either on t
 
 Try it now on the file you just created from the previous section. It should exit with no output. If there are errors, they will be printed on the console. The errors are printed out in a format that Emacs recognizes by default, so you can use Emacs’ next-error and previous-error built-in functions to move the cursor to the location of the problem.
 
-<a id="viewing-the-web-interface"></a>Viewing the Web Interface
----------------------------------------------------------------
+Viewing the Web Interface
+-------------------------
 
 A convenient way to view reports is to bring up the “bean-web” tool on your input file. Try it:
 
@@ -96,12 +96,12 @@ You can then point a web browser to [<span class="underline">http://localhost:80
 
 At this point, you should probably read some of the [<span class="underline">Language Syntax</span>](06_beancount_language_syntax.md) document.
 
-<a id="how-to-organize-your-file"></a>How to Organize your File
----------------------------------------------------------------
+How to Organize your File
+-------------------------
 
 In this section we provide general guidelines for how to organize your file. This assumes you’ve read the [<span class="underline">Language Syntax</span>](06_beancount_language_syntax.md) document.
 
-### <a id="preamble-to-your-input-file"></a>Preamble to your Input File
+### Preamble to your Input File
 
 I recommend that you begin with just a single file[^1]. My file has a header that tells my editor (Emacs) what “mode” to open the file with, followed by some common options:
 
@@ -112,7 +112,7 @@ I recommend that you begin with just a single file[^1]. My file has a header tha
 
 The title options is used in reports. The list of “operating currencies” identify those commodities which you use most commonly as “currencies” and which warrant rendering in their own dedicated columns in reports (this declaration has no other effect on the behavior of any of the calculations).
 
-### <a id="sections-declaring-accounts"></a>Sections & Declaring Accounts
+### Sections & Declaring Accounts
 
 I like to organize my input file in sections that correspond to each real-world account. Each section defines all the accounts related to this real-world account by using an Open directive. For example, this is a checking account:
 
@@ -148,7 +148,7 @@ Not all sections have to be that way. For example, I have the following sections
 
 You can organize it any way you like, because Beancount doesn’t care about the ordering of declarations.
 
-### <a id="closing-accounts"></a>Closing Accounts
+### Closing Accounts
 
 If a real-world account has closed, or is never going to have any more transactions posted to it, you can declare it “closed” at a particular date by using a Close directive:
 
@@ -157,8 +157,8 @@ If a real-world account has closed, or is never going to have any more transacti
 
 This tells Beancount not to show the account in reports that don’t include any date where it was active. It also avoids errors by triggering an error if you do try to post to it at a later date.
 
-<a id="de-duping"></a>De-duping
--------------------------------
+De-duping
+---------
 
 One problem that will occur frequently is that once you have [<span class="underline">some sort of code or process</span>](17_importing_external_data.md) set up to automatically extract postings from downloaded files, you will end up importing postings which provide two separate sides of the same transaction. An example is the payment of a credit card balance via a transfer from a checking account. If you download the transactions for your checking account, you will extract something like this:
 
@@ -191,14 +191,14 @@ Later on, when I import the checking account’s transactions and go fishing for
 
 (If you’re interested in more of a discussion around de-duping and merging transaction, see this [<span class="underline">feature proposal</span>](28_settlement_dates_in_beancount.md). Also, you might be interested in the [<span class="underline">“effective\_date” plugin</span>](https://www.google.com/url?q=https://github.com/redstreet/beancount_plugins_redstreet&sa=D&ust=1458615376548000&usg=AFQjCNGY-CWtCRP75-3p8Yr02BC_itG76g) external contribution, which splits transactions in two.)
 
-### <a id="which-side"></a>Which Side?
+### Which Side?
 
 So if you organize your account in sections the way I suggest above, which section of the file should you leave such “merged” transactions in, that is, transactions that involve two separate accounts? Well, it’s your call. For example, in the case of a transfer between two accounts organized such that they have their own dedicated sections, it would be nice to be able to leave both transactions there so that when you edit your input file you see them in either section, but unfortunately, the transaction must occur in only one place in your document. You have to choose one.
 
 Personally I’m a little careless about being consistent which of the section I choose to leave the transaction in; sometimes I choose one section of my input file, or that of the other account, for the same pair of accounts. It hasn’t been a problem, as I use Emacs and i-search liberally which makes it easy to dig around my gigantic input file. If you want to keep your input more tidy and organized, you could come up with a rule for yourself, e.g. “credit card payments are always left in the paying account’s section, not in the credit card account’s section”, or perhaps you could leave the transaction in both sections and comment one out[^2].
 
-<a id="padding"></a>Padding
----------------------------
+Padding
+-------
 
 If you’re just starting out—and you probably are if you’re reading this—you will have no historical data. This means that the balances of your Assets and Liabilities accounts in Beancount will all be zero. But the first thing you should want to do after defining some accounts is establish a balance sheet and bring those amounts to their actual current value.
 
@@ -268,8 +268,8 @@ Note that this is only needed for balance sheet accounts (Assets and Liabilities
 
 So you will probably want to get started with Open & Pad directives for each Assets and Liabilities accounts.
 
-<a id="whats-next"></a>What’s Next?
------------------------------------
+What’s Next?
+------------
 
 At this point you will probably move onwards to the [<span class="underline">Cookbook</span>](18_command_line_accounting_cookbook.md), or read the [<span class="underline">User’s Manual</span>](06_beancount_language_syntax.md) if you haven’t already done that.
 

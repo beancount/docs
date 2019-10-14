@@ -1,5 +1,5 @@
-<a id="title"></a>Beancount Syntax Cheat Sheet
-==============================================
+Beancount Syntax Cheat Sheet
+============================
 
 <table><tbody><tr class="odd"><td><p><em>Example Account Name:</em> Assets:US:BofA:Checking</p><table><tbody><tr class="odd"><td><h2 id="account-types"><a id="account-types"></a>Account Types</h2><table><tbody><tr class="odd"><td><p>Assets</p><p>Liabilities</p><p>Income</p><p>Expenses</p><p>Equity</p></td><td><p><strong>+</strong></p><p><strong>-</strong></p><p><strong>-</strong></p><p><strong>+</strong></p><p><strong>-</strong></p></td></tr></tbody></table></td><td><h2 id="commodities"><a id="commodities"></a>Commodities</h2><p><em>All in CAPS:</em></p><p>USD, EUR, CAD, AUD</p><p>GOOG, AAPL, RBF1005</p><p>HOME_MAYST, AIRMILES<br />
 HOURS</p></td></tr></tbody></table><h2 id="directives"><a id="directives"></a>Directives</h2><blockquote><p><em>General syntax:</em></p><p><strong>YYYY-MM-DD <em>&lt;directive&gt; &lt;arguments...&gt;</em></strong></p></blockquote><h2 id="opening-closing-accounts"><a id="opening-closing-accounts"></a>Opening &amp; Closing Accounts</h2><p>2001-05-29 open Expenses:Restaurant</p><p>2001-05-29 open Assets:Checking USD,EUR <em>; Currency constraints</em></p><p>2015-04-23 close Assets:Checking</p><h2 id="declaring-commodities"><a id="declaring-commodities"></a>Declaring Commodities</h2><p><em>This is optional; use this only if you want to attach metadata by currency.</em></p><p>1998-07-22 commodity AAPL<br />

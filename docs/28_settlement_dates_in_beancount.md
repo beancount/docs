@@ -1,5 +1,5 @@
-<a id="title"></a>Settlement Dates & Transfer Accounts in Beancount
-===================================================================
+Settlement Dates & Transfer Accounts in Beancount
+=================================================
 
 Martin Blais, July 2014
 
@@ -17,15 +17,15 @@ Martin Blais, July 2014
 >
 > [<span class="underline">References</span>](#references)
 
-<a id="motivation"></a>Motivation
----------------------------------
+Motivation
+----------
 
 When a trade executes in an investment account, there is most often a delay between the date that the transaction is carried out (the “transaction date”) and the date that the funds are deposited in an associated cash account (the “settlement date”). This makes balance imported balance assertions sometimes requiring the fudging of their dates, and sometimes they can even be impossible. This document proposes the addition of an optional “settlement date” to be attached to a transaction or a posting, and associated semantics for how to deal with the problem.
 
-<a id="proposal-description"></a>Proposal Description
------------------------------------------------------
+Proposal Description
+--------------------
 
-### <a id="settlement-dates"></a>Settlement Dates
+### Settlement Dates
 
 In the first implementation of Beancount I used to have two dates attached to a transaction, but I never did anything with them. The alternate date would get attached but was ignored thereafter. The meaning of it is that it should have split the transaction into two, with some sort of transfer account, that might have been useful semantics, I never developed it.
 
@@ -59,7 +59,7 @@ So far, I’ve been getting away with fudging the dates on balance assertions wh
 
 Maybe someone can convince me otherwise.
 
-### <a id="transfer-accounts"></a>Transfer Accounts
+### Transfer Accounts
 
 In the previous section, we discuss a style whereby a single entry moving money between two accounts contains two dates and results in two separate entries. An auxiliary problem, which is related in its solution, is how to carry out the reverse operation, that is, how to *merge* two separate entries posting to a common transfer account (sometimes called a “[<span class="underline">suspense account</span>](https://en.wikipedia.org/wiki/Suspense_account)”).
 
@@ -71,8 +71,8 @@ Most importantly, we want to be able to easily identify which of the transaction
 
 -   Also see redstreet0’s “[<span class="underline">zerosum</span>](https://groups.google.com/d/msgid/beancount/8adbb83d-a7c7-476a-97ca-d600d110db20%40googlegroups.com?utm_medium=email&utm_source=footer)” plugin from [<span class="underline">this thread</span>](https://groups.google.com/d/msgid/beancount/8adbb83d-a7c7-476a-97ca-d600d110db20%40googlegroups.com?utm_medium=email&utm_source=footer).
 
-<a id="remaining-questions"></a>Remaining Questions
----------------------------------------------------
+Remaining Questions
+-------------------
 
 *How do we determine a proper transfer account name? Is a subaccount a reasonable approach? What if a user would like to have a single global limbo account?*
 
@@ -90,17 +90,17 @@ Most importantly, we want to be able to easily identify which of the transaction
 
     TODO
 
-<a id="unrooting-transactions"></a>Unrooting Transactions
----------------------------------------------------------
+Unrooting Transactions
+----------------------
 
 A wilder idea would be to add an extra level in the transaction-posting hierarchy, adding the capability to group multiple partial transactions, and move the balancing rule to that level. Basically, two transactions input separately and then grouped - by some rule, or trivially by themselves - could form a new unit of balance rule.
 
 That would be a much more demanding change on the schema and on the Beancount design but would allow to natively support partial transactions, keeping their individual dates, descriptions, etc. Maybe that's a better model? Consider the advantages.
 
-<a id="previous-work"></a>Previous Work
----------------------------------------
+Previous Work
+-------------
 
-### <a id="ledger-effective-and-auxiliary-dates"></a>Ledger Effective and Auxiliary Dates
+### Ledger Effective and Auxiliary Dates
 
 Ledger has the concept of “[<span class="underline">auxiliary dates</span>](http://ledger-cli.org/3.0/doc/ledger3.html#Auxiliary-dates)”. The way these work is straightforward: any transaction may have a second date, and the user can select at runtime (with --aux-date) whether the main date or the auxiliary dates are meant to be used.
 
@@ -130,12 +130,12 @@ That’s what I thought. This works, but a problem with this approach is that an
 
 This would break an invariant in Beancount: we require that you should always be able to draw a balance sheet at any point in time, and any subset of transactions should balance. I would rather implement this by splitting this example transaction into many other ones, as in the proposal above, moving those temporary amounts living in limbo in an explicit “limbo” or “transfer” account, where each transaction balances. Moreover, this step can be implemented as a transformation stage, replacing the transaction with effective dates by one transaction for each posting where the effective date differs from the transaction’s date (this could be enabled on demand via a plugin).
 
-### <a id="gnucash"></a>GnuCash
+### GnuCash
 
 *TODO(blais) - How is this handled in GnuCash and other GUI systems? Is there a standard account method?*
 
-<a id="references"></a>References
----------------------------------
+References
+----------
 
 The IRS [<span class="underline">requires you to use the trade date and NOT the settlement date</span>](http://www.irs.gov/publications/p17/ch14.html) for tax reporting; from the IRS Publication 17:
 
@@ -147,7 +147,7 @@ The IRS [<span class="underline">requires you to use the trade date and NOT the 
 >
 > You are a cash method, calendar year taxpayer. You sold stock at a gain on December 30, 2013. According to the rules of the stock exchange, the sale was closed by delivery of the stock 4 trading days after the sale, on January 6, 2014. You received payment of the sales price on that same day. Report your gain on your 2013 return, even though you received the payment in 2014. The gain is long term or short term depending on whether you held the stock more than 1 year. Your holding period ended on December 30. If you had sold the stock at a loss, you would also report it on your 2013 return.
 
-### <a id="threads"></a>Threads
+### Threads
 
 -   [<span class="underline">An interesting "feature by coincidence"</span>](https://groups.google.com/d/msg/ledger-cli/ooxbPVRinSs/ymkRCerhxjcJ)
 

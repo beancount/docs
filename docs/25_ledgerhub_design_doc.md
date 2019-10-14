@@ -1,5 +1,5 @@
-<a id="title"></a>Design Doc for Ledgerhub
-==========================================
+Design Doc for Ledgerhub
+========================
 
 [<span class="underline">Martin Blais</span>](mailto:blais@furius.ca), February 2014
 
@@ -31,8 +31,8 @@
 
 ***Please note that this document is the original design doc for LedgerHub. LedgerHub is being transitioned back to Beancount. See [<span class="underline">this postmortem document</span>](https://docs.google.com/document/d/1Bln8Zo11Cvez2rdEgpnM-oBHC1B6uPC18Qm7ulobolM/) for details \[blais, 2015-12\].***
 
-<a id="motivation"></a>Motivation
----------------------------------
+Motivation
+----------
 
 Several open source projects currently exist that provide the capability to create double-entry transactions for bookkeeping from a text file input. These various double-entry bookkeeping projects include [<span class="underline">Beancount</span>](http://furius.ca/beancount/), [<span class="underline">Ledger</span>](http://ledger-cli.org/), [<span class="underline">HLedger</span>](http://hledger.org/), [<span class="underline">Abandon</span>](https://github.com/hrj/abandon), and they are independent implementations of a similar goal: the creation of an in-memory representation for double-entry accounting transactions from a text file, and the production of various reports from it, such as balance sheets, income statements, journals, and others. Each implementation explores slightly different feature sets, but essentially all work by reading their input from a file whose format is custom declarative language that describe the transactions, a language which is meant to be written by humans and whose syntax is designed with that goal in mind. While the languages do vary somewhat, the underlying data structures that they define are fairly similar.
 
@@ -42,8 +42,8 @@ The process of translating these external data formats can be automated to some 
 
 The programs that fetch and convert external data files do not have to be tied to a single system. Moreover, this is often cumbersome code that would benefit greatly from having a large number of contributors, which could each benefit each other from having common parsers ready and working for the various institutions that they’re using or likely to use in the future. I - the author of Beancount - have decided to move Beancount’s importing and filing source code outside of its home project and to decouple it from the Beancount source code, so that others can contribute to it, with the intent of providing project-agnostic functionality. This document describes the goals and design of this project.
 
-<a id="goals-stages"></a>Goals & Stages
----------------------------------------
+Goals & Stages
+--------------
 
 This new project should address the following aspects in a project-agnostic manner:
 
@@ -66,10 +66,10 @@ Apart from the Render stage, all the other stages should be implemented without 
 
 Where necessary, interfaces to obtain particular data sets from each ledger implementation’s input files should be provided to shield the common code from the particular implementation details of that project. For instance, a categorization Transform step would need to train its algorithm on some of the transaction data (i.e., the narration fields and perhaps some of the amounts, account names, and dates). Each project should provide a way to obtain the necessary data from its input data file, in the same format.
 
-<a id="details-of-stages"></a>Details of Stages
------------------------------------------------
+Details of Stages
+-----------------
 
-### <a id="fetching"></a>Fetching
+### Fetching
 
 By default, a user should be able to click their way to their institution’s website and download documents to their ~/Downloads directory. A directory with some files in it should be the reasonable default input to the identification stage. This directory should be allowed to have other/garbage files in it, the identification step should be able to skip those automatically.
 
@@ -79,11 +79,11 @@ This is the domain of the ledger-autosync project. Perhaps we should coordinate 
 
 Automatic fetching support will vary widely depending on where the institutions are located. Some places have solid support, some less. Use the data from [<span class="underline">ofxhome.com</span>](http://ofxhome.com) to configure.
 
-#### <a id="fetching-prices"></a>Fetching Prices
+#### Fetching Prices
 
 For fetching prices, there are many libraries out there. Initially we will port Beancount’s bean-prices to ledgerhub.
 
-### <a id="identification"></a>Identification
+### Identification
 
 The identification stage consists in running a driver program that
 
@@ -127,7 +127,7 @@ The textification consists in a simple and imperfect conversion of downloaded fi
 
 It is not entirely clear whether the regular expressions can be standardized to avoid having the user configure them manually. In practice, I have found it often necessary, or at least very convenient, to place an account id in my import configuration. It is true that configuring each of the possible downloads can be a hassle that requires the user to do a bit of guesswork while looking at the contents of each file, but this has been much more reliable in practice than attempts at normalizing this process, likely because it is a much easier problem to uniquely distinguish between all the files of a particular user than to distinguish between all the types of files. Using an account id in one of the regular expressions is the easy way to do that, and it works well. This also provides a clear place to attach the list of accounts to a particular importer, something that necessarily requires user input anyway.
 
-### <a id="extraction"></a>Extraction
+### Extraction
 
 Once the association is made, we run the importers on each of the files. Some data structure is produced. The importers each do what they do - this is where the ugly tricks go. Ideally, we should build a library of common utilities to help parsing similar file types.
 
@@ -135,7 +135,7 @@ Though each of the importer modules should be pretty much independent, some comm
 
 Note \[AMaffei\]: This could output a generic and well-defined CSV file format if you want to have the option of running the various steps as separate UNIX-style tools and/or process the intermediate files with regular text processing tools.
 
-### <a id="transform"></a>Transform
+### Transform
 
 Some transformations should be independent of importers. In particular, automatically categorizing incomplete transactions is not dependent on which importer created the transaction. I’d like to keep this step as general as possible so that other embellishment steps can be inserted here in the future. Right now, I can only think of the following uses:
 
@@ -149,7 +149,7 @@ This step involves a bootstrapping phase, where we will extract some data from t
 
 The output data here should be in the same format as its input, so that we can optionally skip this phase.
 
-### <a id="rendering"></a>Rendering
+### Rendering
 
 An output renderer should be selected by the driver. This is where we convert the extracted data structures to the particular flavor of ledger implementation you’re using. Each of the renderer implementations should be free to import modules from its particular implementation, and we should be careful to constraint these import dependencies to only these modules, to make sure that only a single ledger implementation is required in order for the code to run.
 
@@ -157,7 +157,7 @@ Options for rendering style could be defined here, for each renderer, because ea
 
 \[AMaffei\] Also, it should be possible to provide a generic renderer that takes printf-style format strings to output in any desired format.
 
-### <a id="filing"></a>Filing
+### Filing
 
 Importers should be able to look at the textified contents of the files and find the file/statement date. This is useful, because we can rename the file by prepending the date of the statement, and the date at which we download the statement or transaction files is rarely the same date at which it was generated. In the case where we are not able to extract a date from the file, we fall back on the filename’s last modified time.
 
@@ -173,8 +173,8 @@ if it is associated by the identification step with an importer for the Assets:U
 
 As far as I know only Beancount implements this at the moment, but I suspect this convenient mechanism of organizing and preserving your imported files will be found useful by others. Given a list of directories, Beancount automatically finds those files and using the date in the filename, is able to render links to the files as line items in the journal web pages, and serve their contents when the user clicks on the links. Even without this capability, it can be used to maintain a cache of your documents (I maintain mine in a repository which I sync to an external drive for backup).
 
-<a id="implementation-details"></a>Implementation Details
----------------------------------------------------------
+Implementation Details
+----------------------
 
 Notes about the initial implementation:
 
@@ -202,8 +202,8 @@ Notes about the initial implementation:
 
 This is obviously based on my current importers code in Beancount. I’m very open to new ideas and suggestions for this project. Collaborations will be most welcome. The more importers we can support, the better.
 
-<a id="importers-interface"></a>Importers Interface
----------------------------------------------------
+Importers Interface
+-------------------
 
 Each importer should be implemented as a class that derives from this one:
 
@@ -264,8 +264,8 @@ raise NotImplementedError
 
 For each importer, a detailed explanation of how the original input file on the institution’s website is to be found and downloaded should be provided, to help those find the correct download when adding this importer (some institutions provide a variety of download formats). In addition, a one-line description of the input file support should be provided, so that we can render at runtime a list of the supported file types.
 
-<a id="references"></a>References
----------------------------------
+References
+----------
 
 Other projects with the same goal as importing account data into Ledger are listed here.
 

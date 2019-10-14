@@ -1,5 +1,5 @@
-<a id="title"></a>Beancount History and Credits
-===============================================
+Beancount History and Credits
+=============================
 
 [<span class="underline">Martin Blais</span>](http://plus.google.com/+MartinBlais), July 2014
 
@@ -7,8 +7,8 @@
 
 *A history of the development of Beancount and credits for contributors..*
 
-<a id="history-of-beancount"></a>History of Beancount
------------------------------------------------------
+History of Beancount
+--------------------
 
 John Wiegley's Ledger was the inspiration for the first version of Beancount. His system is where much of the original ideas for this system came from. When I first learned about double-entry bookkeeping and realized that it could be the perfect method to solve many of the tracking problems I was having in counting various installments for my company, and after a quick disappointment in the solutions that were available at the time (including GnuCash, which I could break very easily), I was quickly led to the Ledger website. There, John laid out his vision for a text-based system, in particular, the idea of doing away with credits and debits and just the signs, and the basics of a convenient input syntax which allows you to omit the amount of one of the postings. I got really excited and had various enthusiastic discussions with him about Ledger and how I wanted to use it. There was some cross-pollination of ideas and John was very receptive to proposals for adding new features.
 
@@ -26,8 +26,8 @@ In the redesign, I separated out configuration directives that I had used for im
 
 In June and July 2014, I decided to dump seven years’ worth of thinking about command-line accounting in a set of Google Docs and this now forms the basis for the current documentation of Beancount. I hope to be evolving it gradually from here on.
 
-<a id="chronology"></a>Chronology
----------------------------------
+Chronology
+----------
 
 -   Ledger was begun in August 2003  
     [<span class="underline">http://web.archive.org/web/\*/http://www.newartisans.com/ledger/</span>](http://web.archive.org/web/*/http://www.newartisans.com/ledger/)
@@ -42,8 +42,8 @@ In June and July 2014, I decided to dump seven years’ worth of thinking about 
 -   HLedger was also begun in 2008  
     [<span class="underline">https://github.com/simonmichael/hledger/graphs/contributors?from=2007-01-21&to=2014-09-08&type=c</span>](https://github.com/simonmichael/hledger/graphs/contributors?from=2007-01-21&to=2014-09-08&type=c)
 
-<a id="credits"></a>Credits
----------------------------
+Credits
+-------
 
 So far I’ve been contributing all the code to Beancount. Some users have made significant contributions in other ways:
 

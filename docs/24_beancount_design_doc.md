@@ -1,5 +1,5 @@
-<a id="title"></a>Beancount Design Doc
-======================================
+Beancount Design Doc
+====================
 
 Martin Blais ([<span class="underline">blais@furius.ca</span>](mailto:blais@furius.ca))
 
@@ -119,8 +119,8 @@ Martin Blais ([<span class="underline">blais@furius.ca</span>](mailto:blais@furi
 >
 > [<span class="underline">Conclusion</span>](#conclusion)
 
-<a id="introduction"></a>Introduction
--------------------------------------
+Introduction
+------------
 
 This document describes the principles behind the design of Beancount and a high-level overview of its codebase, data structures, algorithms, implementation and methodology. This is not a user's manual; if you are interested in just using Beancount, see the associated [<span class="underline">User's Manual</span>](06_beancount_language_syntax.md) and all the other documents [<span class="underline">available here</span>](index.md).
 
@@ -128,16 +128,16 @@ However, if you just want to understand more deeply how Beancount works this doc
 
 Normally one writes a design document before writing the software. I did not do that. But I figured it would still be worthwhile to spell out some of the ideas that led to this design here. I hope someone finds this useful.
 
-<a id="invariants"></a>Invariants
----------------------------------
+Invariants
+----------
 
-### <a id="isolation-of-inputs"></a>Isolation of Inputs
+### Isolation of Inputs
 
 Beancount should accept input *only* from the text file you provide to its tools. In particular, it should not contact any external networked service or open any “global” files, even just a cache of historical prices or otherwise. This isolation is by design. Isolating the input to a single source makes it easier to debug, reproduce and isolate problems when they occur. This is a nice property for the tool.
 
 In addition, fetching and converting external data is very messy. External data formats can be notoriously bad, and they are too numerous to handle all of them (handling just the most common subset would beg the question of where to include the implementation of new converters). Most importantly, the problems of representing the data vs. that of fetching and converting it segment from each other very well naturally: Beancount provides a core which allows you to ingest all the transactional data and derive reports from it, and its syntax is the hinge that connects it to these external repositories of transactions or prices. It isolates itself from the ugly details of external sources of data in this way.
 
-### <a id="order-independence"></a>Order-Independence
+### Order-Independence
 
 Beancount offers a guarantee that the ordering of its *directives* in an input file is irrelevant to the outcome of its computations. You should be able to organize your input text and reorder any declaration as is most convenient for you, without having to worry about how the software will make its calculations. This also makes it trivial to implement inclusions of multiple files: you can just concatenate the files if you want, and you can process them in any order.
 
@@ -151,7 +151,7 @@ There is an exception:
 
 -   What’s more, options in included files are currently ignored. You should put all your options in the top-level ledger file.
 
-### <a id="all-transactions-must-balance"></a>All Transactions Must Balance
+### All Transactions Must Balance
 
 All transactions must balance by “weight.” There is no exception. Beancount transactions are required to have balanced, period.
 
@@ -159,7 +159,7 @@ In particular, there is no allowance for exceptions such as the “virtual posti
 
 This provides the property that any subsets of transactions will sum up to zero. This is a nice property to have, it means we can generate balance sheets at any point in time. Even when we eventually [<span class="underline">support settlement dates or per-posting dates</span>](28_settlement_dates_in_beancount.md), we will split up transactions in a way that does not break this invariant.
 
-### <a id="accounts-have-types"></a>Accounts Have Types
+### Accounts Have Types
 
 Beancount accounts should be constrained to be of one of five types: Assets, Liabilities, Income, Expenses and Equity. The rationale behind this is to realize that all matters of counting can be characterized by being either permanent (Assets, Liabilities) or transitory (Income, Expenses), and that the great majority of accounts have a usual balance sign: positive (Assets, Expenses) or negative (Liabilities, Income). Given a quantity to accumulate, we can always select one of these four types of labels for it.
 
@@ -167,7 +167,7 @@ Enforcing this makes it possible to implement reports of accumulates values for 
 
 These concepts of time and sign generalize beyond that of traditional accounting. Not having them raises difficult and unnecessary questions about how to handle calculating these types of reports. We simply require that you label your accounts into this model. I’ll admit that this requires a bit of practice and forethought, but the end result is a structure that easily allows us to build commonly expected outputs.
 
-### <a id="account-lifetimes-open-directives"></a>Account Lifetimes & Open Directives
+### Account Lifetimes & Open Directives
 
 Accounts have lifetimes; an account opens at a particular date and optionally closes at another. This is directed by the Open and Close directives.
 
@@ -175,13 +175,13 @@ All accounts are required to have a corresponding Open directive in the stream. 
 
 (Eventually a similar constraint will be applied for Commodity directives so that the stream always include one before it is used; and they should be auto-generated as well. This is not the case right now \[June 2015\].)
 
-### <a id="supports-dates-only-and-no-time"></a>Supports Dates Only (and No Time)
+### Supports Dates Only (and No Time)
 
 Beancount does not represent time, only dates. The minimal time interval is one day. This is for simplicity’s sake. The situations where time would be necessary to disambiguate account balances exist, but in practice they are rare enough that their presence does not justify the added complexity of handling time values and providing syntax to deal with it.
 
 If you have a use case whereby times are required, you may use metadata to add it in, or more likely, you should probably write custom software for it. This is outside the scope of Beancount by choice.
 
-### <a id="metadata-is-for-user-data"></a>Metadata is for User Data
+### Metadata is for User Data
 
 By default, Beancount will not make assumptions about metadata fields and values. Metadata is reserved for private usage by the user and for plugins. The Beancount core does not read metadata and change its processing based on it. However, plugins may define special metadata values that affect what they produce.
 
@@ -197,8 +197,8 @@ That being said, there are a few special metadata fields *produced* by the Beanc
 
 There may be a few more produced in the future but in any case, the core should not read any metadata and affect its behavior as a consequence. (I should probably created a central registry or location where all the special values can be found in one place.)
 
-<a id="overview-of-the-codebase"></a>Overview of the Codebase
--------------------------------------------------------------
+Overview of the Codebase
+------------------------
 
 All source code lives under a “[<span class="underline">beancount</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/)” Python package. It consists of several packages with well-defined roles, the dependencies between which are enforced strictly.
 
@@ -232,14 +232,14 @@ Finally, there is a [<span class="underline">beancount.utils</span>](https://bit
 
 Enforcing the dependency relationships between those packages is done by a [<span class="underline">custom script</span>](https://bitbucket.org/blais/beancount/src/tip/tools/dependency_constraints.py?at=default&fileviewer=file-view-default).
 
-<a id="core-data-structures"></a>Core Data Structures
------------------------------------------------------
+Core Data Structures
+--------------------
 
 This section describes the basic data structures that are used as building blocks to represent directives. Where possible I will describe the data structure in conceptual terms.
 
 *(Note for Ledger users*: This section introduces some terminology for Beancount; look [<span class="underline">here</span>](http://ledger-cli.org/3.0/doc/ledger3.html#Ledger-for-Developers) if you’re interested to contrast it with concepts and terminology found in Ledger.)
 
-### <a id="number"></a>Number
+### Number
 
 **Numbers** are represented using [<span class="underline">decimal</span>](https://en.wikipedia.org/wiki/Decimal_data_type) objects, which are perfectly suited for this. The great majority of numbers entered in accounting systems are naturally decimal numbers and binary representations involve representational errors which cause many problems for display and in precision. Rational numbers avoid this problem, but they do not carry the limited amount of precision that the user intended in the input. We must deal with [<span class="underline">tolerances</span>](08_precision_tolerances.md) explicitly.
 
@@ -255,7 +255,7 @@ I like to import the “D” symbol by itself (and not use number.D). All the nu
 
 Some number constants have been defined as well: ZERO, ONE, and HALF. Use those instead of explicitly constructed numbers (such as D("1")) as it makes it easier to grep for such initializations.
 
-### <a id="commodity"></a>Commodity
+### Commodity
 
 A **commodity**, or **currency** (I use both names interchangeably in the code and documentation) is a string that represents a kind of “thing” that can be stored in accounts. In the implementation, it is represented as a Python str object (there is no module with currency manipulation code). These strings may only contain capital letters and numbers and some special characters (see the lexer code).
 
@@ -265,7 +265,7 @@ Moreover, Beancount does not make a distinction between commodities which repres
 
 Currencies need *not* be defined explicitly in the input file format; you can just start using them in the file and they will be recognized as such by their unique syntax (the lexer recognizes and emits currency tokens). However, you *may* declare some using a Commodity directive. This is only provided so that a per-commodity entity exists upon which the user can attach some metadata, and some report and plugins are able to find and use that metadata.
 
-### <a id="account"></a>Account
+### Account
 
 An account is basically just the name of a bucket associated with a posting and is represented as a simple string (a Python str object). Accounts are detected and tokenized by the lexer and have names with at least two words separated by a colon (":").
 
@@ -294,11 +294,11 @@ Note that the set of account names forms an implicit hierarchy. For example, the
 
 implicitly defines a tree of nodes with parent nodes "Assets", "US", "TDBank" with two leaf nodes "Checking" and "Savings". This implicit tree is never realized during processing, but there is a Python module that allows one to do this easily (see [<span class="underline">beancount.core.realization</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/realization.py)) and create linearized renderings of the tree.
 
-### <a id="flag"></a>Flag
+### Flag
 
-### <a id="a-flag-is-a-single-character-string-that-may-be-associated-with-transactions-and-postings-to-indicate-whether-they-are-assumed-to-be-correct-reconciled-or-flagged-as-suspicious.-the-typical-value-used-on-transaction-instances-is-the-character-.-on-postings-it-is-usually-left-absent-and-set-to-a-none."></a>A “flag” is a single-character string that may be associated with Transactions and Postings to indicate whether they are assumed to be correct ("reconciled") or flagged as suspicious. The typical value used on transaction instances is the character “\*”. On Postings, it is usually left absent (and set to a None).
+### A “flag” is a single-character string that may be associated with Transactions and Postings to indicate whether they are assumed to be correct ("reconciled") or flagged as suspicious. The typical value used on transaction instances is the character “\*”. On Postings, it is usually left absent (and set to a None).
 
-### <a id="amount"></a>Amount
+### Amount
 
 An **Amount** is the combination of a number and an associated currency, conceptually:
 
@@ -310,7 +310,7 @@ A class is defined in [<span class="underline">beancount.core.amount</span>](htt
 
     value = amount.from_string("201.32 USD")
 
-### <a id="cost"></a>Cost
+### Cost
 
 A Cost object represents the cost basis for a particular lot of a commodity. Conceptually, it is
 
@@ -326,7 +326,7 @@ The *Label* can be any string. It is provided as a convenience for a user to ref
 
 On a Cost object, the number, currency and date attributes are always set. If the label is unset, it has a value of “None.”
 
-#### <a id="costspec"></a>CostSpec
+#### CostSpec
 
 In the input syntax, we allow users to provide as little information as necessary in order to disambiguate between the lots contained in the inventory prior to posting. The data provided filters the set of matching lots to an unambiguous choice, or to a subset from which an automated booking algorithm will apply (e.g., “FIFO”).
 
@@ -338,7 +338,7 @@ Since any of the input elements may be omitted, any of the attributes of a CostS
 
 The *Merge* attribute it used to record a user request to merge all the input lots before applying the transaction and to merge them after. This is the method used for all transactions posted to an account with the “AVERAGE” booking method.
 
-### <a id="position"></a>Position
+### Position
 
 A position represents some units of a particular commodity held at cost. It consists simply in
 
@@ -346,7 +346,7 @@ A position represents some units of a particular commodity held at cost. It cons
 
 *Units* is an instance of *Amount*, and *Cost* is an instance of *Cost*, or a null value if the commodity is not held at cost. Inventories contain lists of *Position* instances. See its definition in [<span class="underline">beancount.core.position</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/position.py)<s>.</s>
 
-### <a id="posting"></a>Posting
+### Posting
 
 Each Transaction directive is composed of multiple Postings (I often informally refer to these in the code and on the mailing-list as the “legs” of a transaction). Each of these postings is associated with an account, a position and an optional price and flag:
 
@@ -358,9 +358,9 @@ The *Price* is an instance of *Amount* or a null value. It is used to declare a 
 
 Flags on postings are relatively rare; users will normally find it sufficient to flag an entire transaction instead of a specific posting. The flag is usually left to None; if set, it is a single-character string.
 
-### <a id="the-posting-type-is-defined-in-beancount.core.data-along-with-all-the-directive-types."></a>The Posting type is defined in [<span class="underline">beancount.core.data</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/data.py), along with all the directive types.
+### The Posting type is defined in [<span class="underline">beancount.core.data</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/data.py), along with all the directive types.
 
-### <a id="inventory"></a>Inventory
+### Inventory
 
 An Inventory is a container for an account’s balance in various lots of commodities. It is essentially a list of *Position* instances with suitable operations defined on it. Conceptually you may think of it as a mapping with unique keys:
 
@@ -372,7 +372,7 @@ The *Inventory* is one of the most important and oft-used object in Beancount’
 
 For testing, you can create initialized instances of Inventory using inventory.from\_string(). All the inventory code is written in [<span class="underline">beancount.core.inventory</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/inventory.py).
 
-### <a id="about-tuples-mutability"></a>About Tuples & Mutability
+### About Tuples & Mutability
 
 Despite the program being written in a language which does not make mutability “difficult by default”, I designed the software to avoid mutability in most places. Python provides a “collections.namedtuple” factory that makes up new record types whose attributes cannot be overridden. Well… this is only partially true: mutable attributes of immutable tuples can be modified. Python does not provide very strong mechanisms to enforce this property.
 
@@ -392,7 +392,7 @@ Finally, the loader produces lists of directives which are all simple namedtuple
 
 *I credit my ability to make wide-ranging changes to a mid-size Python codebase to the adoption of these principles. I would love to have **types** in order to safeguard against another class of potential errors, and I plan to experiment with [<span class="underline">Python 3.5’s upcoming typing module</span>](https://www.python.org/dev/peps/pep-0484/).*
 
-### <a id="summary"></a>Summary
+### Summary
 
 The following diagram explains how these objects relate to each other, starting from a Posting.
 
@@ -408,14 +408,14 @@ For the cost currency:
 
 You can print out the tuples in Python to figure out their structure.
 
-#### <a id="previous-design"></a>Previous Design 
+#### Previous Design 
 
 For the sake of preservation, if you go back in time in the repository, the structure of postings was deeper and more complex. The new design reflects a flatter and simpler version of it. Here is what the old design used to look like:
 
 <img src="24_beancount_design_doc/media/a36336143a27c30f063d6ef8edc147ff87d0beb2.png" style="width:6.69444in;height:4.19444in" />
 
-<a id="directives"></a>Directives
----------------------------------
+Directives
+----------
 
 The main production from loading a Beancount input file is a list of **directives**. I also call these **entries** interchangeably in the codebase and in the documents. There are directives of various types:
 
@@ -439,7 +439,7 @@ In a typical Beancount input file, the great majority of entries will be Transac
 
 Since these combined with a map of option values form the entire application state, you should be able to feed those entries to functions that will produce reports. The system is built around this idea of processing a stream of directives to extract all contents and produce reports, which are essentially different flavors of filtering and aggregations of values attached to this stream of directives.
 
-### <a id="common-properties"></a>Common Properties
+### Common Properties
 
 Some properties are in common to *all* the directives:
 
@@ -449,24 +449,24 @@ Some properties are in common to *all* the directives:
 
 -   **Meta**. All the directives have metadata attribute (a Python dict object). The purpose of metadata is to allow the user to hang any kind of ancillary data they want and then use this in scripts or queries. Posting instances also have a metadata attribute.
 
-### <a id="transactions"></a>Transactions
+### Transactions
 
 The Transaction directive is the subject of Beancount and is by far the most common directive found in input files and is worth of special attention. The function of a bookkeeping system is to organize the Postings attached to Transactions in various ways. All the other types of entries occupy supporting roles in our system.
 
 A Transaction has the following additional fields.
 
-#### <a id="flag-1"></a>Flag
+#### Flag
 
 The single-character flag is usually there to replace the “txn” keyword (Transaction is the only directive which allows being entered without entering its keyword). I’ve been considering changing the syntax definition somewhat to allow not entering the flag nor the keyword, because I’d like to eventually support that. Right now, either the flag or keyword is required. The flag attribute may be set to None.
 
-#### <a id="payee-narration"></a>Payee & Narration
+#### Payee & Narration
 
 The narration field is a user-provided description of the transaction, such as "Dinner with Mary-Ann." You can put any information in this string. It shows up in the journal report. Oftentimes it is used to enrich the transaction with context that cannot be imported automatically, such as "transfer from savings account to pay for car repairs."  
 The payee name is optional, and exists to describe the entity with which the transaction is conducted, such as "Whole Foods Market" or "Shell."  
 Note that I want to be able to produce reports for all transactions associated with a particular payee, so it would be nice to enter consistent payee names. The problem with this is that the effort to do this right is sometimes too great. Either better tools or looser matching over names is required in order to make this work.  
 The input syntax also allows only a single string to be provided. By default this becomes the narration, but I’ve found that in practice it can be useful to have just the payee. It’s just a matter of convenience. At the moment, if you want to enter just the payee string you need to append an empty narration string. This should be revisited at some point.
 
-#### <a id="tags"></a>Tags
+#### Tags
 
 Tags are sets of strings that can be used to group sets of transactions (or set to None if there are no tags). A view of this subset of transactions can then be generated, including all the usual reports (balance sheet, income statement, journals, etc.). You can tag transactions for a variety of purposes; here are some examples:
 
@@ -486,7 +486,7 @@ In general, tags are useful where adding a sub-accounts won't do. This is often 
 
 Given the right support from the query tools, they could eventually be subsumed by metadata—I have been considering converting tags into metadata keys with a boolean value of True, in order to remove unnecessary complexity.
 
-#### <a id="links"></a>Links
+#### Links
 
 Links are a unique sets of strings or None, and in practice will be usually empty for most transactions. They differ from tags only in purpose.
 
@@ -496,13 +496,13 @@ Examples include: transaction-ids from trading accounts (these often provide an 
 
 In contrast to tags, their strings are most often unique numbers produced by the importers. No views are produced for links; only a journal of a particular links transactions can be produced and a rendered transaction should be accompanied by an actual "link" icon you can click on to view all the other related transactions.
 
-#### <a id="postings"></a>Postings
+#### Postings
 
 A list of Postings are attached to the Transaction object. Technically this list object is mutable but in practice we try not to modify it. A Posting can ever only be part of a single Transaction.
 
 Sometimes different postings of the same transaction will settle at different dates in their respective accounts, so eventually we may allow a posting to have its own date to override the transaction's date, to be used as documentation; in the simplest version, we enforce all transactions to occur punctually, which is simple to understand and was not found to be a significant problem in practice. Eventually we might implement this by implicitly converting Transactions with multiple dates into multiple Transactions and using some sort of transfer account to hold the pending balance in-between dates. See the [<span class="underline">associated proposal</span>](28_settlement_dates_in_beancount.md) for details.
 
-#### <a id="balancing-postings"></a>Balancing Postings
+#### Balancing Postings
 
 The fundamental principle of double-entry book-keeping is enforced in each of the Transaction entries: the sum of all postings must be zero. This section describes the specific way in which we do this, and is the **key piece of logic** that allow the entire system to balance nicely. This is also one of the few places in this system where calculations go beyond simple filtering and aggregation.
 
@@ -581,7 +581,7 @@ Here there are three groups of weights to balance:
 
 -   VACHR: (4.62) + (-4.62) ~= 0 VACHR
 
-##### <a id="elision-of-amounts"></a>Elision of Amounts
+##### Elision of Amounts
 
 Transactions allow for at most one posting to be elided and automatically set; if an amount was elided, the final balance of all the other postings is attributed to the balance.
 
@@ -597,7 +597,7 @@ With the [<span class="underline">inventory booking proposal</span>](27_a_propos
            Assets:US:Company:Vacation                          4.62 VACHR
            Income:US:Company:Vacation                               VACHR
 
-### <a id="stream-processing"></a>Stream Processing
+### Stream Processing
 
 An important by-product of representing all state using a single stream of directives is that most of the operations in Beancount can be implemented by simple functions that accept the list of directives as input and output a modified list of directives.
 
@@ -615,7 +615,7 @@ These are just some examples. I’m aiming to make most operations work this way
 
 *I am considering experimenting with weaving the errors within the stream of directives by providing a new “Error” directive that could be inserted by stream processing functions. I’m not sure whether this would make anything simpler yet, it’s just an idea at this point \[July 2015\].*
 
-### <a id="stream-invariants"></a>Stream Invariants
+### Stream Invariants
 
 The stream of directives comes with a few guarantees you can rest upon:
 
@@ -625,8 +625,8 @@ The stream of directives comes with a few guarantees you can rest upon:
 
 -   All Balance directives precede any other directive on a particular day. This is enforced in order to make the processing of balance assertions straightforward and to emphasize that their semantics is to occur at the beginning of the day.
 
-<a id="loader-processing-order"></a>Loader & Processing Order
--------------------------------------------------------------
+Loader & Processing Order
+-------------------------
 
 The process of **loading** a list of entries from an input file is the heart of the project. It is important to understand it in order to understand how Beancount works. Refer to the diagram below.
 
@@ -646,7 +646,7 @@ The user-specified plugins are run in the order they are provided in the input f
 
 **Raw mode.** Some users have expressed a desire for more control over which built-in plugins are run and in which order they are to be run, and so enabling the “raw” option disables the automatic loading of all built-in plugins (you have to replace those with explicit “plugin” directives if you want to do that). I’m not sure if this is going to be useful yet, but it allows for tighter control over the loading process for experimentation.
 
-### <a id="loader-output"></a>Loader Output
+### Loader Output
 
 The parser and the loader produce three lists:
 
@@ -656,8 +656,8 @@ The parser and the loader produce three lists:
 
 -   options_map: A dict of the options provided in the file and derived during parsing. Though this is a mutable object, we never modify it once produced by the parser.
 
-<a id="parser-implementation"></a>Parser Implementation
--------------------------------------------------------
+Parser Implementation
+---------------------
 
 The Beancount parser is a mix of C and Python 3 code. This is the reason you need to compile anything in the first place. The parser is implemented in C using a [<span class="underline">flex</span>](http://flex.sourceforge.net/) tokenizer and a [<span class="underline">Bison</span>](http://www.gnu.org/software/bison/) parser generator, mainly for performance reasons.
 
@@ -685,7 +685,7 @@ I just came up with this; I haven’t seen this done anywhere else. I tried it a
 
 This has worked well so far but for one thing: There are several limitations inherent in the flex tokenizer that have proved problematic. In particular, in order to recognize transaction postings using indent I have had to tokenize the whitespace that occurs at the beginning of a line. Also, single-characters in the input should be parsed as flags and at the moment this is limited to a small subset of characters. I’d like to eventually write a custom lexer with some lookahead capabilities to better deal with these problems (this is easy to do).
 
-### <a id="two-stages-of-parsing-incomplete-entries"></a>Two Stages of Parsing: Incomplete Entries
+### Two Stages of Parsing: Incomplete Entries
 
 At the moment, the parser produces transactions which may or may not balance. The validation stage which runs after the plugins carries out the balance assertions. This degree of freedom is allowed to provide the opportunity for users to enter incomplete lists of postings and for corresponding plugins to automate some data entry and insert completing postings.
 
@@ -709,7 +709,7 @@ So the parser will need to be split into two phases:
 
 See the diagram above for reference. Once implemented, everything else should be the same.
 
-### <a id="the-printer"></a>The Printer
+### The Printer
 
 In the same package as the parser lives a printer. This isolates all the functionality that deals with the Beancount “language” in the beancount.parser package: the parser converts from input syntax to data structure and the printer does the reverse. No code outside this package should concern itself with the Beancount syntax.
 
@@ -727,7 +727,7 @@ This is a nice property to have. Among other things, it allows us to use the par
 
 This probably needs to get refined a bit at some point with a more complete test (it’s not far as it is).
 
-### <a id="uniqueness-hashing"></a>Uniqueness & Hashing
+### Uniqueness & Hashing
 
 In order to make it possible to compare directives quickly, we support unique hashing of all directives, that is, from each directive we should be able to produce a short and unique id. We can then use these ids to [<span class="underline">perform set inclusion/exclusion/comparison tests</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/compare.py) for our unit tests. We provide a [<span class="underline">base test case class with assertion methods that use this capability</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/parser/cmptest.py). This feature is used liberally throughout our test suites.
 
@@ -735,7 +735,7 @@ This is also used to detect and remove duplicates. This feature is optional and 
 
 Note that the hashing of directives currently [<span class="underline">does not include user meta-data</span>](https://bitbucket.org/blais/beancount/src/24acbceb37aef8ab6bc6f324599fe434b7bad31c/src/python/beancount/core/compare.py?at=default#cl-14).
 
-### <a id="display-context"></a>Display Context
+### Display Context
 
 Number are input with different numbers of fractional digits:
 
@@ -762,13 +762,13 @@ In order to deal with this thorny problem, I built a kind of accumulator which i
 
 I refer to those objects using the variable names dcontext and dformat throughout the code. The parser automatically creates a DisplayContext object and feeds it all the numbers it sees during parsing. The object is available in the options\_map produced by the loader.
 
-<a id="realization"></a>Realization
------------------------------------
+Realization
+-----------
 
 It occurs often that one needs to compute the final balances of a list of filtered transactions, and to report on them in a hierarchical account structure. See diagram below.
 
-<a id="section"></a><img src="24_beancount_design_doc/media/736b05ad5dbed8af111f3f9d01d38b8b99914e7b.png" style="width:8.66667in;height:3.06944in" />
------------------------------------------------------------------------------------------------------------------------------------------------------
+<img src="24_beancount_design_doc/media/736b05ad5dbed8af111f3f9d01d38b8b99914e7b.png" style="width:8.66667in;height:3.06944in" />
+---------------------------------------------------------------------------------------------------------------------------------
 
 For the purpose of creating hierarchical renderings, I provide a process called a “[<span class="underline">realization</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/realization.py).” A realization is a tree of nodes, each of which contains
 
@@ -792,23 +792,23 @@ For example, here is a bit of code that will dump a tree of balances of your acc
     real_root = realization.realize(entries)
     realization.dump_balances(real_root, file=sys.stdout)
 
-<a id="the-web-interface"></a>The Web Interface
------------------------------------------------
+The Web Interface
+-----------------
 
 Before the appearance of the SQL syntax to filter and aggregate postings, the only report produced by Beancount was the web interface provide by bean-web. As such, bean-web evolved to be good enough for most usage and general reports.
 
-### <a id="reports-vs.-web"></a>Reports vs. Web
+### Reports vs. Web
 
 One of the important characteristics of bean-web is that it should just be a thin dispatching shell that serves reports generated from the [<span class="underline">beancount.reports</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/reports/) layer. It used to contain the report rendering code itself, but at some point I began to factor out all the reporting code to a separate package in order to produce reports to other formats, such as text reports and output to CSV. This is mostly finished, but at this time \[July 2015\] some reports remain that only support HTML output. This is why.
 
-### <a id="client-side-javascript"></a>Client-Side JavaScript
+### Client-Side JavaScript
 
 I would like to eventually include a lot more client-side scripting in the web interface. However, I don’t think I’ll be able to work on this for a while, at least not until all the proposals for changes to the core are complete (e.g., inventory booking improvements, settlement splitting and merging, etc.).
 
 If you’d like to contribute to Beancount, improving bean-web or creating your own visualizations would be a great venue.
 
-<a id="the-query-interface"></a>The Query Interface
----------------------------------------------------
+The Query Interface
+-------------------
 
 The current query interface is the result of a *prototype*. It has not yet been subjected to the amount of testing and refinement as the rest of the codebase. I’ve been experimenting with it and have a lot of ideas for improving the SQL language and the kinds of outputs that can be produced from it. I think of it as “70% done”.
 
@@ -816,10 +816,10 @@ However, it works, and though some of the reports can be a little clunky to spec
 
 It will be the subject of a complete rewrite at some point and when I do, I will keep the current implementation for a little while so that existing scripts don’t just break; I’ll implement a v2 of the shell.
 
-<a id="design-principles"></a>Design Principles
------------------------------------------------
+Design Principles
+-----------------
 
-### <a id="minimize-configurability"></a>Minimize Configurability
+### Minimize Configurability
 
 First, Beancount should have as few options as possible. Second, command-line programs should have no options that pertain to the processing and semantic of the input file (options that affect the output or that pertain to the script itself are fine).
 
@@ -831,7 +831,7 @@ Having less options also makes the software much easier to refactor. The main ob
 
 So.. by default I will resist making changes that aren't generic or that would not work for most users. On the other hand, large-scale changes that would generalize well and that require little configurability are more likely to see implementation.
 
-### <a id="favor-code-over-dsls"></a>Favor Code over DSLs
+### Favor Code over DSLs
 
 Beancount provides a simple syntax, a parser and printer for it, and a library of very simple data record types to allow a user to easily write their scripts to process their data, taking advantage of the multitude of libraries available from the Python environment. Should the built-in querying tools fail to suffice, I want it to be trivially easy for someone to build what they need on top of Beancount.
 
@@ -839,7 +839,7 @@ This also means that the tools provided by Beancount don’t have to support *al
 
 In contrast, the implementation of the Ledger system provides high-level operations that are invoked as "expressions" defined in a domain-specific language, expressions which are either provided on the command-line or in the input file itself. For the user, this expression language is yet another thing to learn, and it’s yet another thing that might involve limitations require expansion and work… I prefer to avoid DSLs if possible and use Python’s well understood semantics instead, though this is not always sensible.
 
-### <a id="file-format-or-input-language"></a>File Format or Input Language?
+### File Format or Input Language?
 
 One may wonder whether Beancount’s input syntax should be a computer language or just a data format. The problem we're trying to solve is essentially that of making it easy for a human being to create a transactions-to-postings-to-accounts-&-positions data structure.
 
@@ -851,7 +851,7 @@ We can also judge it by the power of its semantics. Beancount’s language is no
 
 Just something to think about, especially in the context of adding new semantics.
 
-### <a id="grammar-via-parser-generator"></a>Grammar via Parser Generator
+### Grammar via Parser Generator
 
 The grammar of its language should be compatible with the use of commonly used parser generator tools. It should be possible to parse the language with a simple lexer and some grammar input file.
 
@@ -867,28 +867,28 @@ This has important advantages:
 
 (Eventually I’d like to create a file format to generate parsers in multiple languages from a single input. That will be done later, once all the major features are implemented.)
 
-<a id="future-work"></a>Future Work
------------------------------------
+Future Work
+-----------
 
-### <a id="tagged-strings"></a>Tagged Strings
+### Tagged Strings
 
 At the moment, account names, tags, links and commodities are represented as simple Python strings. I’ve tried to keep things simple. At some point I’d like to refine this a bit and create a specialization of strings for each of these types. I’d need to assess the performance impact of doing that beforehand. I’m not entirely sure how it could benefit functionality yet.
 
-### <a id="errors-cleanup"></a>Errors Cleanup
+### Errors Cleanup
 
 I’ve been thinking about removing the separate “errors” list and integrating it into the stream of entries as automatically produced “Error” entries. This has the advantage that the errors could be rendered as part of the rest of the stream, but it means we have to process the whole list of entries any time we need to print and find errors (probably not a big deal, given how rarely we output errors).
 
-### <a id="types"></a>Types
+### Types
 
 Python 3.5 introduces types. I plan to use that throughout Beancount sometime after 3.5 is released, and I hope for it to catch a different class of errors than I’m already handling by unit tests.
 
-<a id="conclusion"></a>Conclusion
----------------------------------
+Conclusion
+----------
 
 This document is bound to evolve. If you have questions about the internals, please post them to the [<span class="underline">mailing-list</span>](http://furius.ca/beancount/doc/mailing-list).
 
-<a id="references"></a>References
----------------------------------
+References
+----------
 
 Nothing in Beancount is inspired from the following docs, but you may find them interesting as well:
 

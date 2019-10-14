@@ -1,5 +1,5 @@
-<a id="title"></a>Importing External Data in Beancount
-======================================================
+Importing External Data in Beancount
+====================================
 
 [<span class="underline">Martin Blais</span>](mailto:blais@furius.ca), March 2016
 
@@ -55,13 +55,13 @@
 >
 > [<span class="underline">Historical Note</span>](#historical-note)
 
-<a id="introduction"></a>Introduction
--------------------------------------
+Introduction
+------------
 
 This is the user’s manual for the library and tools in Beancount which can help you **automate the importing of external transaction data** into your Beancount input file and manage the documents you download from your financial institutions’ websites.
 
-<a id="the-importing-process"></a>The Importing Process
--------------------------------------------------------
+The Importing Process
+---------------------
 
 People often wonder how we do this, so let me describe candidly and in more detail what we’re talking about doing here.
 
@@ -83,7 +83,7 @@ Importing transactions from these documents involves:
 
 If my importers work without bugs, this is a process that takes me 30-60 minutes to update the majority of my active accounts. Less active accounts are updated every quarter or when I feel like it. I tend to do this on Saturday morning maybe twice per month, or sometimes weekly. If you maintain a well-organized input file with lots of assertions, mismatches are easily found, it’s a pleasant and easy process, and after you’re done generating an updated balance sheet is rewarding (I typically re-export to a Google Finance portfolio).
 
-### <a id="automating-network-downloads"></a>Automating Network Downloads
+### Automating Network Downloads
 
 The downloading of files is not something I automate, and Beancount provides no tools to connect to the network and fetch your files. There is simply too great a variety of protocols out there to make a meaningful contribution to this problem[^2]. Given the nature of today's secure websites and the castles of JavaScript used to implement them, it would be a nightmare to implement. Web scraping is probably too much to be a worthwhile, viable solution.
 
@@ -91,7 +91,7 @@ I **manually** log into the various websites with my usernames & passwords and c
 
 While I’m not scripting the fetching, I think it’s possible to do so on some sites. That work is left for you to implement where you think it’s worth the time.
 
-### <a id="typical-downloads"></a>Typical Downloads
+### Typical Downloads
 
 Here’s a description of the typical kinds of files involved; this describes my use case and what I’ve managed to do. This should give you a qualitative sense of what’s involved.
 
@@ -103,7 +103,7 @@ Here’s a description of the typical kinds of files involved; this describes my
 
 -   **Cash transactions**: I have to enter those by hand. I only book non-food expenses as individual transactions directly, and for food maybe once every six months I'll count my wallet balance and insert a summarizing transaction for each month to debit away the cash account towards food to make it balance. If you do this, you end up with surprisingly little transactions to type manually, maybe just a few each week (it depends on lifestyle choices, for me this works). When I’m on the go, I just note those on my phone in Google Keep and eventually transcribe them after they accumulate.
 
-### <a id="extracting-data-from-pdf-files"></a>Extracting Data from PDF Files
+### Extracting Data from PDF Files
 
 I've made some headway toward converting data from PDF file, which is a common need, but it's incomplete; it turns out that fully automating table extraction from PDF isn't easy in the general case. I have some code that is close to working and will release it when the time is right. Otherwise, the best FOSS solution I’ve found for this is a tool called [<span class="underline">TabulaPDF</span>](http://tabula.technology/) but you still need to manually identify where the tables of data are located on the page; you may be able to automate some fetching its sister project [<span class="underline">tabula-java</span>](https://github.com/tabulapdf/tabula-java).
 
@@ -111,8 +111,8 @@ Nevertheless, I usually have good success with my importers grepping around PDF 
 
 Finally, there are a number of different tools used to extract text from PDF documents, such as [<span class="underline">PDFMiner</span>](https://pypi.python.org/pypi/pdfminer2), [<span class="underline">LibreOffice</span>](https://www.libreoffice.org), the [<span class="underline">xpdf</span>](http://www.tutorialspoint.com/unix_commands/pdftotext.htm) library, the [<span class="underline">poppler</span>](https://poppler.freedesktop.org/) library[^3] and more... but none of them works consistently on all input documents; you will likely end up installing many and relying on different ones for different input files. For this reason, I’m not requiring a dependency on PDF conversion tools from within Beancount. You should test what works on your specific documents and invoke those tools from your importer implementations.
 
-<a id="tools"></a>Tools
------------------------
+Tools
+-----
 
 There are three Beancount tools provided to orchestrate the three stages of importing:
 
@@ -122,7 +122,7 @@ There are three Beancount tools provided to orchestrate the three stages of impo
 
 3.  [**<span class="underline">bean-file</span>**](https://bitbucket.org/blais/beancount/src/tip/bin/bean-file): Filing away the downloaded files to a directory hierarchy which mirrors the chart of accounts, for preservation, e.g. in a personal git repo. The filenames are cleaned, the files are moved and an appropriate statement date is prepended to each of them so that Beancount may produce corresponding Document directives.
 
-### <a id="invocation"></a>Invocation
+### Invocation
 
 All tools accept the same input parameters:
 
@@ -138,8 +138,8 @@ The filing tool accepts an extra option that lets the user decide where to move 
 
 Its default behavior is to move the files to the same directory as that of the configuration file.
 
-<a id="configuration"></a>Configuration
----------------------------------------
+Configuration
+-------------
 
 The tools introduced previously orchestrate the processes, but they don’t do all that much of the concrete work of groking the individual downloads themselves. They call methods on importer objects. You must provide a list of such importers; this list is the configuration for the importing process (without it, those tools don’t do anything useful).
 
@@ -164,12 +164,12 @@ In particular, it’s a good idea to write your importers as generically as poss
 
 Or not… at the end of the day, these importer codes live in some of your own personal place, not with Beancount. If you so desire, you can keep them as messy and unshareable as you like.
 
-### <a id="configuring-from-an-input-file"></a>Configuring from an Input File
+### Configuring from an Input File
 
 An interesting idea that I haven’t tested yet is to use one’s Beancount input file to infer the configuration of importers. If you want to try this out and hack something, you can load your input file from the import configuration Python config, by using the API’s beancount.loader.load\_file() function.
 
-<a id="writing-an-importer"></a>Writing an Importer
----------------------------------------------------
+Writing an Importer
+-------------------
 
 Each of the importers must comply with a particular protocol and implement at least some of its methods. The full detail of this protocol is best found in the source code itself: [<span class="underline">importer.py</span>](https://bitbucket.org/blais/beancount/src/tip/beancount/ingest/importer.py). The tools above will take care of finding the downloads and invoking the appropriate methods on your importer objects.
 
@@ -200,7 +200,7 @@ So basically, you create some module somewhere on your PYTHONPATH—anywhere you
 
 Typically I create my importer module files in directories dedicated to each importer, so that I can place example input files all in that directory for regression testing.
 
-### <a id="regression-testing-your-importers"></a>Regression Testing your Importers
+### Regression Testing your Importers
 
 I've found over time that regression testing is *key* to maintaining your importer code working. Importers are often written against file formats with no official spec and unexpected surprises routinely occur. For example, I have XML files with some unescaped "&" characters, which require a custom fix just for that bank[^4]. I’ve also witnessed a discount brokerage switching its dates format between MM/DD/YY and DD/MM/YY; that importer now needs to be able to handle both types. So you make the necessary adjustment, and eventually you find out that something else breaks; this isn’t great. And the timing is particularly annoying: usually things break when you’re trying to update your ledger: you have other things to do.
 
@@ -232,7 +232,7 @@ If your importer overrides the extract() and file\_date() methods, this will gen
 
 4.  A test like (2) but on sample2.csv
 
-#### <a id="generating-test-input"></a>Generating Test Input
+#### Generating Test Input
 
 At first, the files containing the expected outputs do not exist. When an expected output file is absent like this, the regression tests automatically generate those files from the extracted output. This would result in the following list of files:
 
@@ -250,11 +250,11 @@ If you run the tests again with those files present, the expected output files w
 
 When you edit your source code, you can always re-run the tests to make sure it still works on those older files. When a newly downloaded file fails, you repeat the process above: You make a copy of it in that directory, fix the importer, run it, check the expected files. That’s it[^5].
 
-#### <a id="making-incremental-improvements"></a>Making Incremental Improvements
+#### Making Incremental Improvements
 
 Sometimes I make improvements to the importers that result in more or better output being generated even in the older files, so that all the old tests will now fail. A good way to deal with this is to keep all of these files under source control, locally delete all the expected files, run the tests to regenerate new ones, and then diff against the most recent commit to check that the changes are as expected.
 
-### <a id="caching-data"></a>Caching Data
+### Caching Data
 
 Some of the data conversions for binary files can be costly and slow. This is usually the case for converting PDF files to text[^6]. This is particularly painful, since in the process of ingesting our downloaded data we’re typically going to run the tools multiple times—at least twice if everything works without flaw: once to extract, twice to file—and usually many more times if there are problems. For this reason, we want to cache these conversions, so that a painful 40 second PDF-to-text conversion doesn’t have to be run twice, for example.
 
@@ -264,7 +264,7 @@ Beancount aims to provide two levels of caching for conversions on downloaded fi
 
 2.  An on-disk caching of conversions so that multiple invocations of the tools get reused.
 
-#### <a id="in-memory-caching"></a>In-Memory Caching
+#### In-Memory Caching
 
 In-memory caching works like this: Your methods receive a wrapper object for a given file and invoke the wrapper’s convert() method, providing a converter callable/function.
 
@@ -276,12 +276,12 @@ In-memory caching works like this: Your methods receive a wrapper object for a g
 
 This conversion is automatically memoized: if two importers or two different methods use the same converter on the file, the conversion is only run once. This is a simple way of handling redundant conversions in-memory. Make sure to always call those through the .convert() method and share the converter functions to take advantage of this.
 
-#### <a id="on-disk-caching"></a>On-Disk Caching
+#### On-Disk Caching
 
 At the moment. Beancount only implements (1). On-disk caching will be implemented later. *Track this [<span class="underline">ticket</span>](https://bitbucket.org/blais/beancount/issues/113/implement-on-disk-caching-of-conversions) for status updates.*
 
-<a id="organizing-your-files"></a>Organizing your Files
--------------------------------------------------------
+Organizing your Files
+---------------------
 
 The tools described in this document are pretty flexible in terms of letting you specify
 
@@ -340,8 +340,8 @@ To run the regression tests of the custom importers, use the following command:
 
 Personally, I have a Makefile in my root directory with these targets to make my life easier. Note that you will have to install “pytest”, which is a test runner; it is often packaged as “python3-pytest” or “pytest”.
 
-<a id="example-importers"></a>Example Importers
------------------------------------------------
+Example Importers
+-----------------
 
 Beyond the documentation above, I cooked up an example importer for a made-up CSV file format for a made-up investment account. See [<span class="underline">this directory</span>](https://bitbucket.org/blais/beancount/src/tip/examples/ingest/office/importers/utrade/).
 
@@ -355,10 +355,10 @@ Beancount also comes with some very basic generic importers. See [<span class="u
 
 Eventually I plan to build and provide a generic CSV file parser in this framework, as well as a parser for QIF files which should allow one to transition from Quicken to Beancount. (I need example inputs to do this; if you’re comfortable sharing your file I could use it to build this, as I don’t have any real input, I don’t use Quicken.) It would also be nice to build a converter from GnuCash at some point; this would go here as well.
 
-<a id="cleaning-up"></a>Cleaning Up
------------------------------------
+Cleaning Up
+-----------
 
-### <a id="automatic-categorization"></a>Automatic Categorization
+### Automatic Categorization
 
 A frequently asked question and common idea from first-time users is “How do I automatically assign a category to transactions I’ve imported which have only one side?” For example, importing transactions from a credit card account usually provides only one posting, like this:
 
@@ -379,7 +379,7 @@ It’s something that could eventually be solved by letting the user provide som
 
 *Beancount does not currently provide a mechanism to automatically categorize transactions. You can build this into your importer code. I want to provide a hook for the user to register a completion function that could run across all the importers where you could hook that code in.*
 
-### <a id="cleaning-up-payees"></a>Cleaning up Payees
+### Cleaning up Payees
 
 The payees that one can find in the downloads are usually ugly names:
 
@@ -393,8 +393,8 @@ It would be nice to be able to normalize the payee names by translating them at 
 
 *Beancount does not provide a hook for letting you do this this yet. It will eventually. You could also build a plugin to rename those accounts when loading your ledger. I’ll build that too—it’s easy and would result in much nicer output.*
 
-<a id="future-work"></a>Future Work
------------------------------------
+Future Work
+-----------
 
 A list of things I’d really want to add, beyond fortifying what’s already there:
 
@@ -402,8 +402,8 @@ A list of things I’d really want to add, beyond fortifying what’s already th
 
 -   A hook to allow you to register a callback for post-processing transactions that works across all importers.
 
-<a id="related-discussion-threads"></a>Related Discussion Threads
------------------------------------------------------------------
+Related Discussion Threads
+--------------------------
 
 -   [<span class="underline">Getting started; assigning accounts to bank .csv data</span>](https://groups.google.com/d/msg/ledger-cli/u648SA1o-Ek/DzZmu8wVCAAJ)
 
@@ -411,8 +411,8 @@ A list of things I’d really want to add, beyond fortifying what’s already th
 
 -   [<span class="underline">Rekon wants your CSV files</span>](https://groups.google.com/d/msg/ledger-cli/n_WNc-tZabU/sh09irl-C-kJ)
 
-<a id="historical-note"></a>Historical Note
--------------------------------------------
+Historical Note
+---------------
 
 There once was a first implementation of the process described in this document. The project was called LedgerHub and has been decommissioned in February 2016, rewritten and the resulting code integrated in Beancount itself, into this [<span class="underline">beancount.ingest</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/ingest/) library. The original project was intended to include the implementation of various importers to share them with other people, but this sharing was not very successful, and so the rewrite includes only the scaffolding for building your own importers and invoking them, and only a very limited number of example importer implementations.
 
