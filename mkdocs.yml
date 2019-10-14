@@ -1,6 +1,8 @@
 site_name: Beancount Documentation
 site_description: Auto-generated markdown version
 
+repo_url: https://github.com/xuhcc/beancount-docs/
+
 nav:
     - Index: index.md
     - Outline:
