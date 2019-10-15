@@ -1,4 +1,4 @@
-<a id="title"></a>How Inventories Work
+How Inventories Work<a id="title"></a>
 ======================================
 
 [<span class="underline">Martin Blais</span>](mailto:blais@furius.ca), December 2016
@@ -8,17 +8,17 @@
 *This document explains how we accumulate commodities and  
 match sales (reductions) against accumulated inventory contents.*
 
-<a id="introduction"></a>Introduction
+Introduction<a id="introduction"></a>
 -------------------------------------
 
 Beyond the ability to track and list the postings made to each of the accounts (an operation that produces a *journal* of entries), one of the most common and useful operations of Beancount is to sum up the positions of arbitrary sets of postings. These aggregations are at the heart of how Beancount works, and are implemented in an object called “inventory.” This document explains how this aggregation process works. If you’re going to track investments, it’s necessary to understand what follows.
 
-<a id="matches-booking-methods"></a>Matches & Booking Methods
+Matches & Booking Methods<a id="matches-booking-methods"></a>
 -------------------------------------------------------------
 
 In order to get the big picture, let’s walk through the various booking features by way of a simple examples. This should expose you to all the main ideas in one go.
 
-### <a id="simple-postings-no-cost"></a>Simple Postings — No Cost
+### Simple Postings — No Cost<a id="simple-postings-no-cost"></a>
 
 Consider a set of simple postings to an account, e.g.,
 
@@ -38,7 +38,7 @@ The inventory of the Checking account begins empty. After the first transaction,
 
 It might be obvious, but note also that the numbers are allowed to change the sign (go negative).
 
-### <a id="multiple-commodities"></a>Multiple Commodities
+### Multiple Commodities<a id="multiple-commodities"></a>
 
 An inventory may contain more than one type of commodity. It is equivalent to a mapping from commodity to some number of units. For example,
 
@@ -60,7 +60,7 @@ brings the balance of that account to 34.58 USD and 86.02 CAD. The number of uni
 
 Note that accounts may contain any number of commodities, and this is also true for commodities held at cost, which we’ll see shortly. While this is made possible, I recommend that you define enough accounts to keep a single commodity in each; this can be enforced with the “[<span class="underline">onecommodity</span>](https://bitbucket.org/blais/beancount/src/default/beancount/plugins/onecommodity.py)” plugin.
 
-### <a id="cost-basis"></a>Cost Basis
+### Cost Basis<a id="cost-basis"></a>
 
 Things get a little more hairy when we consider the tracking of investments with a cost basis. Beancount allows you to associate a cost basis and an optional label with a particular lot acquired. Consider these two purchases to an investment account:
 
@@ -84,7 +84,7 @@ Note how Beancount automatically associated the acquisition date to each lot; yo
 
 Postings that *add* to the content of an inventory are called **augmentations**.
 
-### <a id="reductions"></a>Reductions
+### Reductions<a id="reductions"></a>
 
 But how do we remove commodities from an inventory?
 
@@ -118,7 +118,7 @@ Or a combination of these. Any combination of attributes will be matched against
       Assets:Invest           -12 HOOL {}
       … 
 
-### <a id="ambiguous-matches"></a>Ambiguous Matches
+### Ambiguous Matches<a id="ambiguous-matches"></a>
 
 But what happens if multiple lots match the reduction? For example, with the previous inventory containing two lots, if you wrote your sale like this:
 
@@ -143,13 +143,13 @@ And you attempted to reduce like this:
 
 The first two lots are selected as matches.
 
-### <a id="strict-booking"></a>Strict Booking
+### Strict Booking<a id="strict-booking"></a>
 
 What does Beancount do with ambiguous matches? By default, it issues an error.
 
 More precisely, what happens is that Beancount invokes the **booking method** and it handles the ambiguous match depending on what it is set. The default booking method is “**STRICT**” and it just gives up and spits out an error, telling you you need to refine your input in order to disambiguate your inventory reduction.
 
-### <a id="fifo-and-lifo-booking"></a>FIFO and LIFO Booking
+### FIFO and LIFO Booking<a id="fifo-and-lifo-booking"></a>
 
 Other booking methods are available. They can be configured using options, like this:
 
@@ -174,7 +174,7 @@ would match both lots, completely reduce the first one to zero units and remove 
 
 The “LIFO” method works similarly, but consumes the youngest (latest) lots first, working its way backward in time to remove the volume.
 
-### <a id="per-account-booking-method"></a>Per-account Booking Method
+### Per-account Booking Method<a id="per-account-booking-method"></a>
 
 You don’t have to make all accounts follow the same booking method; the option in the previous section sets the default method for all accounts. In order to override the booking method for a particular account, you can use an optional string option on the account’s Open directive, like this:
 
@@ -182,7 +182,7 @@ You don’t have to make all accounts follow the same booking method; the option
 
 This allows you to treat different accounts with a different booking resolution.
 
-### <a id="total-matches"></a>Total Matches
+### Total Matches<a id="total-matches"></a>
 
 There is an exception to strict booking: if the entire inventory is being reduced by exactly the total number of units, it’s clear that all the matching lots are to be selected and this is considered unambiguous, even under “STRICT” booking. For example, under “STRICT” booking, this reduction would empty up the previous inventory without raising an error, because there are 25 + 35 shares matching:
 
@@ -190,7 +190,7 @@ There is an exception to strict booking: if the entire inventory is being reduce
       Assets:Invest           -60 HOOL {}
       … 
 
-### <a id="average-booking"></a>Average Booking
+### Average Booking<a id="average-booking"></a>
 
 Retirement accounts created by government incentive programs (such as the 401k plan in the US or the RRSP in Canada) typically consist in pre-tax money. For these types of accounts, brokers usually disregard the calculation of cost basis because the taxation is to be made upon distributing money outside the account. These accounts are often managed to the extent that they are fully invested; therefore, fees are often taken as shares of the investment portfolio, priced on the day the fee is paid out. This makes it awkward to track the cost basis of individual lots.
 
@@ -222,7 +222,7 @@ Even with negative units the number and cost get aggregated separately:
 
 <table><tbody><tr class="odd"><td><em>This feature isn’t yet supported in Beancount; it’s fairly tricky to implement, and will be the subject for in a minor release in the future.</em></td></tr></tbody></table>
 
-### <a id="no-booking"></a>No Booking
+### No Booking<a id="no-booking"></a>
 
 However, there is another way to deal with non-taxable accounts in the meantime: you can simply disable the booking. There is a booking method called “**NONE**” which implements a very liberal strategy which accepts any new lot.. New lots are always appended unconditionally to the inventory. Using this strategy on the transactions from the previous section would result in this inventory:
 
@@ -235,7 +235,7 @@ Observe how the resulting inventory has a mix of signs; normally this is not all
 
 Note: If you are familiar with Ledger, this is the default and only booking method that it supports.
 
-<a id="summary"></a>Summary
+Summary<a id="summary"></a>
 ---------------------------
 
 In summary, here’s what we presented in the walkthrough. *Augmentations* are never problematic; they always add a new position to an existing inventory. On the other hand, *reductions* may result in a few outcomes:
@@ -272,14 +272,14 @@ The method can be specified for each account by adding a string to its Open dire
 
     2016-05-01 open Assets:Vanguard:RGAGX  "AVERAGE"
 
-<a id="how-prices-are-used"></a>How Prices are Used
+How Prices are Used<a id="how-prices-are-used"></a>
 ---------------------------------------------------
 
 The short answer is that prices aren’t used nor affect the booking algorithm at all. However, it is relevant to discuss what they do in this context because users invariably get confused about their interpretation.
 
 There are two use cases for prices: making conversions between commodities and tagging a reducing lot with its sale price in order to record it and optionally balance the proceeds.
 
-### <a id="commodity-conversions"></a>Commodity Conversions
+### Commodity Conversions<a id="commodity-conversions"></a>
 
 Conversions are used to exchange one currency for another. They look like this:
 
@@ -289,7 +289,7 @@ Conversions are used to exchange one currency for another. They look like this:
 
 For the purpose of booking it against the Checking account’s inventory, the posting with the price attached to it is treated just the same as if there was no price: the Checking account simply receives a deposit of 220.00 units of USD and will match against positions of commodity “USD”. The price is used only to verify that the transaction balances and ensure the double-entry accounting rule is respected (220.00 x 1.3 CAD + -286.00 CAD = 0.00). It is otherwise ignored for the purpose of modifying the inventory contents. In a sense, after the postings have been applied to the account inventories, the price is forgotten and the inventory balance retains no memory of the deposit having occurred from a conversion.
 
-### <a id="price-vs.-cost-basis"></a>Price vs. Cost Basis
+### Price vs. Cost Basis<a id="price-vs.-cost-basis"></a>
 
 One might wonder how the price is used if there is a cost basis specification, like this:
 
@@ -310,7 +310,7 @@ The price is an annotation for your records. It remains attached to the Posting 
 
 See the [<span class="underline">Trading with Beancount</span>](19_trading_with_beancount.md) document for more details on this topic.
 
-<a id="trades"></a>Trades
+Trades<a id="trades"></a>
 -------------------------
 
 The combination of acquiring some asset and selling it back is what we call a “trade.” In Beancount we consider only assets with a cost basis to be the subject of trades. Since booking reductions against accumulated inventory contents happens during the booking process, this is where trades should be identified and recorded.
@@ -319,7 +319,7 @@ The combination of acquiring some asset and selling it back is what we call a �
 
 The way trades will be implemented is by allowing the booking process to insert matching metadata with unique UUIDs on both the augmenting and reducing postings, in the stream of transactions. Functions and reports will be provided that are able to easily extract the pairs of postings for each reducing postings and filter those out in different ways. Ultimately, one should be able to extract a list of all trades to a table, with the acquisition and sale price, as well as other fees.
 
-<a id="debugging-booking-issues"></a>Debugging Booking Issues
+Debugging Booking Issues<a id="debugging-booking-issues"></a>
 -------------------------------------------------------------
 
 If you’re experiencing difficulties in recording your sales due to the matching process, there are tools you can use to view an account’s detailed inventory contents before and after applying a Transaction to it. To do this, you can use the bean-doctor command. You invoke the program providing it with the file and line number close to the Transaction you want to select, like this:
@@ -330,12 +330,12 @@ The resulting output will show the list of inventory contents of all affected ac
 
 From Emacs or VI, placing the cursor near a transaction and invoking the corresponding command is the easiest way to invoke the command, as it inserts the line number automatically.
 
-<a id="appendix"></a>Appendix
+Appendix<a id="appendix"></a>
 -----------------------------
 
 The rest of this document delves into more technical details. You should feel free to ignore this entirely, it’s not necessary reading to understand how Beancount works. Only bother if you’re interested in the details.
 
-### <a id="data-representation"></a>Data Representation
+### Data Representation<a id="data-representation"></a>
 
 It is useful to know how positions are represented in an inventory object. A *Position* is essentially some number of units of a commodity with some optional information about its acquisition:
 
@@ -363,7 +363,7 @@ A *Posting* is an object which is a superset of a position: in addition to units
 
 For more details on the internal data structures used in Beancount, please refer to the [<span class="underline">Design Doc</span>](24_beancount_design_doc.md) which expands on this topic further.
 
-### <a id="why-booking-is-not-simple"></a>Why Booking is Not Simple
+### Why Booking is Not Simple<a id="why-booking-is-not-simple"></a>
 
 The complexity of the reduction process shows itself when we consider how to keep track of the cost basis of various lots. To demonstrate how this works, let us consider a simple example that we shall reuse in the different sections below:
 
@@ -392,7 +392,7 @@ Now, the entire question revolves around *which* of the shares are selected to b
 
 Whichever lot(s) we elect to be the ones sold will determine the amount of gains, because that is a function of the cost basis of those shares. This is why this matters.
 
-### <a id="augmentations-vs.-reductions"></a>Augmentations vs. Reductions
+### Augmentations vs. Reductions<a id="augmentations-vs.-reductions"></a>
 
 The most important observation is that there are two distinct kinds of lot specifications which look very similar in the input but which are processed very differently.
 
@@ -452,7 +452,7 @@ In summary:
 
 -   When you’re removing from an account’s inventory (reducing), the information you provide is used to filter the inventory contents to select which of the lot(s) to reduce, and information from the selected lots is filled in.
 
-### <a id="homogeneous-and-mixed-inventories"></a>Homogeneous and Mixed Inventories
+### Homogeneous and Mixed Inventories<a id="homogeneous-and-mixed-inventories"></a>
 
 So far in the example and in the vast majority of the examples in the documentation, “augmenting” means adding a positive number of shares. But in Beancount many of the accounts normally have a negative balance, e.g., liabilities accounts. It’s fair to ask if it makes sense to hold a negative balance of commodities held at cost.
 
@@ -475,6 +475,6 @@ The two inventories portrayed above are homogeneous in units of HOOL, that is, a
 
 As you may intuit, the notion of “augmenting” or “reducing” only makes sense for homogeneous inventories.
 
-### <a id="original-proposal"></a>Original Proposal
+### Original Proposal<a id="original-proposal"></a>
 
 If you’re interested in the design doc that led to this implementation, you can find the document [<span class="underline">here</span>](27_a_proposal_for_an_improvement_on_inventory_booking.md). I hope the resulting implementation is simple enough yet general.

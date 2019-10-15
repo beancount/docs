@@ -1,11 +1,11 @@
-<a id="title"></a>Prices in Beancount
+Prices in Beancount<a id="title"></a>
 =====================================
 
 [Martin](mailto:blais@furius.ca) [Blais](mailto:blais@furius.ca), December 2015
 
 [<span class="underline">http://furius.ca/beancount/doc/prices</span>](http://furius.ca/beancount/doc/prices)
 
-<a id="introduction"></a>Introduction
+Introduction<a id="introduction"></a>
 -------------------------------------
 
 Processing a Beancount file is, by definition, constrained to the contents of the file itself. In particular, the latest prices of commodities are *never* fetched automatically from the internet. This is by design, so that any run of a report is deterministic and can also be run offline. No surprises.
@@ -21,7 +21,7 @@ Of course, you could do this manually, looking up the prices online and writing 
 
 Beancount comes with some tools to help you do this. This document describes these tools.
 
-<a id="the-problem"></a>The Problem
+The Problem<a id="the-problem"></a>
 -----------------------------------
 
 In the context of maintaining a Beancount file, we have a few particular needs to address.
@@ -34,7 +34,7 @@ Third, we don't want to fetch the same price if it already appears in the input 
 
 Finally, while we provide some basic implementations of price sources, we cannot provide such codes for all possible online sources and websites. The problem is analogous to that of importing and extracting data from various institutions. In order to address that, we provide a mechanism for **extensibility**, a way that you can implement your own price source fetcher in a Python module and point to it from your input file by specifying the module's name as the source for that commodity.
 
-<a id="the-bean-price-tool"></a>The “bean-price” Tool
+The “bean-price” Tool<a id="the-bean-price-tool"></a>
 -----------------------------------------------------
 
 Beancount comes with a “bean-price” command-line tool that integrates the ideas above. By default, this script accepts a list of Beancount input filenames, and fetches prices required to compute latest market values for current positions held in accounts:
@@ -47,7 +47,7 @@ It is also possible to provide a list of specific price fetching jobs to run, e.
 
 These jobs are run concurrently so it should be fairly fast.
 
-### <a id="source-strings"></a>Source Strings
+### Source Strings<a id="source-strings"></a>
 
 The general format of each of these "job source strings" is
 
@@ -65,7 +65,7 @@ The “symbol” is a string that is fed to the price fetcher to lookup the curr
 
 Default implementations of price sources are provided; we provide fetchers for Yahoo! Finance or Google Finance, which cover a large universe of common public investment types (e.g. stock and some mutual funds). As a convenience, the module name is always first searched under the "beancount.prices.sources" package, where those implementations live. This is how, for example, in order to use the provided Yahoo! Finance data fetcher you don't have to write all of "beancount.prices.sources.yahoo/AAPL" but you can simply use "yahoo/AAPL".
 
-### <a id="fallback-sources"></a>Fallback Sources
+### Fallback Sources<a id="fallback-sources"></a>
 
 In practice, fetching prices online often fails. Data sources typically only support some limited number of assets and even then, the support may vary between assets. As an example, Google Finance supports historical prices for stocks, but does not return historical prices for currency instruments (these restrictions may be more related to contractual arrangements between them and the data providers upstream than with technical limitations).
 
@@ -75,7 +75,7 @@ To this extent, a source string may provide multiple sources for the data, separ
 
 Each source is tried in turn, and if one fails to return a valid price, the next source is tried as a fallback. The hope is that at least one of the specified sources will work out.
 
-### <a id="inverted-prices"></a>Inverted Prices
+### Inverted Prices<a id="inverted-prices"></a>
 
 Sometimes, prices are only available for the inverse of an instrument. This is often the case for currencies. For example, the price of Canadian dollars quoted in US dollars is provided by the USD/CAD market, which gives the price of a US dollar in Canadian dollars (the inverse). In order use this, you can prepend "^" to the instrument name to instruct the tool to compute the inverse of the fetched price:
 
@@ -91,7 +91,7 @@ As you may now, Beancount's in-memory price database works in both directions (t
 
 2015-10-28 price USD 1.32759 CAD
 
-### <a id="date"></a>Date 
+### Date <a id="date"></a>
 
 By default, the latest prices for the assets are pulled in. You can use an option to fetch prices for a desired date in the past instead:
 
@@ -99,7 +99,7 @@ By default, the latest prices for the assets are pulled in. You can use an optio
 
 If you are using an input file to specify the list of prices to be fetched, the tool will figure out the list of assets held on the books *at that time* and fetch historical prices for those assets only.
 
-### <a id="caching"></a>Caching
+### Caching<a id="caching"></a>
 
 Prices are automatically cached (if current and latest, prices are cached for only a short period of time, about half an hour). This is convenient when you're having to run the script multiple times in a row for troubleshooting.
 
@@ -111,7 +111,7 @@ You can also instruct the script to clear the cache before fetching its prices:
 
     bean-price --clear-cache
 
-<a id="prices-from-a-beancount-input-file"></a>Prices from a Beancount Input File
+Prices from a Beancount Input File<a id="prices-from-a-beancount-input-file"></a>
 ---------------------------------------------------------------------------------
 
 Generally, one uses a Beancount input file to specify the list of currencies to fetch. In order to do that, you should have Commodity directives in your input file for each of the currencies you mean to fetch prices for, like this:
@@ -132,7 +132,7 @@ While a currency may have multiple target currencies it needs to get converted t
 
       price: "USD:yahoo/GBPUSD CAD:yahoo/GBPCAD CHF:yahoo/GBPCHF"
 
-### <a id="which-assets-are-fetched"></a>Which Assets are Fetched
+### Which Assets are Fetched<a id="which-assets-are-fetched"></a>
 
 There are many ways to compute a list of commodities with needed prices from a Beancount input file:
 
@@ -154,13 +154,13 @@ Finally, you can use “--all” to include inactive and undeclared commodities 
 
 If you'd like to do some troubleshooting and print out the list of seen commodities, use the “--verbose” option twice, i.e., “-vv”. You can also just print the list of prices to be fetched with the “--dry-run” option, which stops short of actually fetching the missing prices.
 
-<a id="conclusion"></a>Conclusion
+Conclusion<a id="conclusion"></a>
 ---------------------------------
 
-### <a id="writing-your-own-script"></a>Writing Your Own Script
+### Writing Your Own Script<a id="writing-your-own-script"></a>
 
 If the workflow defined by this tool does not fit your needs and you would like to cook up your own script, you should not have to start from scratch; you should be able to reuse the existing price fetching code to do that. I'm hoping to provide a few examples of such scripts in the experiments directory. For example, given an existing file it would be convenient to fetch all prices of assets every Friday in order to fill up a history of missing prices. Another example would be to fetch all price directives required in order to correctly compute investment returns in the presence of contributions and distributions.
 
-### <a id="contributions"></a>Contributions
+### Contributions<a id="contributions"></a>
 
 If this workflow suits your needs well and you'd like to contribute some price source fetcher to Beancount, please contact the mailing-list. I'm open to including very general fetchers that have been very carefully unit-tested and used for a while.

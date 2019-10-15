@@ -1,4 +1,4 @@
-<a id="title"></a>Beancount Language Syntax
+Beancount Language Syntax<a id="title"></a>
 ===========================================
 
 [<span class="underline">Martin Blais</span>](mailto:blais@furius.ca), Updated: April 2016
@@ -99,17 +99,17 @@
 
 [<span class="underline">What’s Next?</span>](#whats-next)
 
-<a id="introduction"></a>Introduction
+Introduction<a id="introduction"></a>
 -------------------------------------
 
 This is a user's manual to the language of Beancount, the command-line double-entry bookkeeping system. Beancount defines a computer language that allows you to enter financial transactions in a text file and extract various reports from it. It is a generic counting tool that works with multiple currencies, commodities held at cost (e.g., stocks), and even allows you to track unusual things, like vacation hours, air miles and rewards points, and anything else you might want to count, even beans.
 
 This document provides an introduction to Beancount’s syntax and some of the technical details needed for one to understand how it carries out its calculations. This document does *not* provide an [<span class="underline">introduction to the double-entry method</span>](02_the_double_entry_counting_method.md), a [<span class="underline">motivation</span>](01_command_line_accounting_in_context.md), nor [<span class="underline">examples and guidelines for entering transactions</span>](18_command_line_accounting_cookbook.md) in your input file, nor how to [<span class="underline">run the tools</span>](04_running_beancount_and_generating_reports.md). These subjects have their [<span class="underline">own dedicated documents</span>](index.md), and it is recommended that you have had a look at those before diving into this user’s manual. This manual covers the technical details for using Beancount.
 
-<a id="syntax-overview"></a>Syntax Overview
+Syntax Overview<a id="syntax-overview"></a>
 -------------------------------------------
 
-### <a id="directives"></a>Directives
+### Directives<a id="directives"></a>
 
 Beancount is a declarative language. The input consists of a text file containing mainly a list of **directives**, or **entries** (we use these terms interchangeably in the code and documentation); there is also syntax for defining various **options**. Each directive begins with an associated *date*, which determines the point in time at which the directive will apply, and its *type*, which defines which kind of event this directive represents. All the directives begin with a syntax that looks like this:
 
@@ -129,7 +129,7 @@ The end product of a parsed input file is a simple list of these entries, in a d
 
 Each particular directive type is documented in a section below.
 
-#### <a id="ordering-of-directives"></a>Ordering of Directives
+#### Ordering of Directives<a id="ordering-of-directives"></a>
 
 The order of declaration of the directives is not important. In fact, the entries are re-sorted chronologically after parsing and before being processed. This is an important feature of the language, because it makes it possible for you to organize your input file any way you like without having to worry about affecting the meaning of the directives.
 
@@ -147,7 +147,7 @@ However, if you hypothetically closed that account immediately, you could not de
 
 This also explains why balance assertions are verified before any transactions that occur on the same date. This is for consistency.
 
-### <a id="accounts"></a>Accounts
+### Accounts<a id="accounts"></a>
 
 Beancount accumulates commodities in accounts. The names of these accounts do not have to be declared before being used in the file, they are recognized as “accounts” by virtue of their syntax alone[^1]. An account name is a colon-separated list of capitalized words which begin with a letter, and whose first word must be one of five account types:
 
@@ -185,7 +185,7 @@ implicitly declare a tree of accounts that looks like this:
 
 We would say that “Assets:US:BofA” is the parent account of “Assets:US:BofA:Checking”, and that the latter is a child account of the former.
 
-### <a id="commodities-currencies"></a>Commodities / Currencies
+### Commodities / Currencies<a id="commodities-currencies"></a>
 
 Accounts contain **currencies**, which we sometimes also call **commodities** (we use both terms interchangeably). Like account names, currency names are recognized by their syntax, though, unlike account names, they need not be declared before being used). The syntax for a currency is a word all in capital letters, like these:
 
@@ -206,13 +206,13 @@ Beancount does not support the dollar sign syntax, e.g., “$120.00”. You shou
 
 Finally, you will notice that there exists a “Commodity” directive that can be used to declare currencies. It is entirely optional: currencies come into being as you use them. The purpose of the directive is simply to attach metadata to it.
 
-### <a id="strings"></a>Strings
+### Strings<a id="strings"></a>
 
 Whenever we need to insert some free text as part of an entry, it should be surrounded by double-quotes. This applies to the payee and narration fields, mainly; basically anything that’s not a date, a number, a currency, an account name.
 
 Strings may be split over multiple lines. (Strings with multiple lines will include their newline characters and those need to be handled accordingly when rendering.)
 
-### <a id="comments"></a>Comments
+### Comments<a id="comments"></a>
 
 The Beancount input file isn’t intended to contain only your directives: you can be liberal in placing comments and headers in it to organize your file. Any text on a line after the character “;” is ignored, text like this:
 
@@ -243,12 +243,12 @@ The unmatching lines are simply ignored.
 
 Note to visiting Ledger users: In Ledger, “;” is used both for marking comments and for attaching “Ledger tags” (Beancount metadata) to postings. This is not the case in Beancount. In Beancount comments are always just comments. Metadata has its own separate syntax.
 
-<a id="directives-1"></a>Directives
+Directives<a id="directives-1"></a>
 -----------------------------------
 
 For a quick reference & overview of directive syntax, please consult the [<span class="underline">Syntax Cheat Sheet</span>](10_beancount_cheat_sheet.md).
 
-### <a id="open"></a>Open
+### Open<a id="open"></a>
 
 All accounts need to be declared “open” in order to accept amounts posted to them. You do this by writing a directive that looks like this:
 
@@ -275,7 +275,7 @@ Another optional declaration for opening accounts is the “booking method”, w
 
 -   **NONE**: No lot matching is performed. Lots of any price will be accepted. A mix of positive and negative numbers of lots for the same currency is allowed. (This is similar to how Ledger treats matching… it ignores it.)
 
-### <a id="close"></a>Close
+### Close<a id="close"></a>
 
 Similarly to the Open directive, there is a Close directive that can be used to tell Beancount that an account has become inactive, for example:
 
@@ -296,7 +296,7 @@ Note that a Close directive does not currently generate an implicit zero balance
 
 At the moment, once an account is closed, you cannot reopen it after that date. (Though you can, of course, delete or comment-out the directive that closed it.) Finally, there are utility functions in the code that allow you to establish which accounts are open on a particular date. I strongly recommend that you close accounts when they actually close in reality, it will keep your ledger more tidy.
 
-### <a id="commodity"></a>Commodity
+### Commodity<a id="commodity"></a>
 
 There is a “Commodity” directive that can be used to declare currencies, financial instruments, commodities (different names for the same thing in Beancount):
 
@@ -322,7 +322,7 @@ You can use any date for a commodity… but a relevant date is the date at which
 
 It is an error to declare the same commodity twice.
 
-### <a id="transactions"></a>Transactions
+### Transactions<a id="transactions"></a>
 
 Transactions are the most common type of directives that occur in a ledger. They are slightly different than the other ones, because they can be followed by a list of postings. Here is an example:
 
@@ -369,7 +369,7 @@ The lines that follow the first line are for “Postings.” You can attach as m
 
 The crucial and only constraint on postings is that the sum of their balance amounts must be zero. This is explained in full detail below.
 
-#### <a id="metadata"></a>Metadata
+#### Metadata<a id="metadata"></a>
 
 It’s also possible to attach metadata to the transaction and/or any of its postings, so the fully general format is:
 
@@ -377,7 +377,7 @@ It’s also possible to attach metadata to the transaction and/or any of its pos
 
 See the dedicated section on metadata below.
 
-#### <a id="payee-narration"></a>Payee & Narration
+#### Payee & Narration<a id="payee-narration"></a>
 
 A transaction may have an optional “payee” and/or a “narration.” In the first example above, the payee is “Cafe Mogador” and the narration is “Lamb tagine with wine”.
 
@@ -409,7 +409,7 @@ You may also leave out either (but you must provide a flag):
 
 For a deeper discussion of how and when to use payees or not, see [<span class="underline">Payees, Subaccounts, and Assets</span>](http://furius.ca/beancount/doc/payees).
 
-#### <a id="costs-and-prices"></a>Costs and Prices
+#### Costs and Prices<a id="costs-and-prices"></a>
 
 Postings represent a single amount being deposited to or withdrawn from an account. The simplest type of posting includes only its amount:
 
@@ -454,7 +454,7 @@ The price will only be used to insert a price entry in the prices database (see 
 
 ***Important Note.*** Amounts specified as either per-share or total prices or costs are *always unsigned*. It is an error to use a negative sign or a negative cost and Beancount will raise an error if you attempt to do so.
 
-#### <a id="balancing-rule---the-weight-of-postings"></a>Balancing Rule - The “weight” of postings
+#### Balancing Rule - The “weight” of postings<a id="balancing-rule---the-weight-of-postings"></a>
 
 A crucial aspect of the double-entry method is ensuring that the sum of all the amounts on its postings equals ZERO, in all currencies. This is the central, non-negotiable condition that engenders the accounting equation, and makes it possible to filter any subset of transactions and drawing balance sheets that balance to zero.
 
@@ -480,7 +480,7 @@ Here is the explanation of how it is calculated:
 
 With this rule, you should be able to easily balance all your transactions. Moreover, this rule makes it possible to let Beancount automatically calculate capital gains for you (see [<span class="underline">Trading with Beancount</span>](19_trading_with_beancount.md) for details).
 
-#### <a id="reducing-positions"></a>Reducing Positions
+#### Reducing Positions<a id="reducing-positions"></a>
 
 When you post a *reduction* to a position in an account, the reduction must always match an existing lot. For example, if an account holds 3200 USD and a transaction posts a -1200 USD change to that account, the 1200 USD match against the existing 3200 USD, and the result is a single position of 2000 USD. This also works for negative values. For example, if an account has a -1300 USD balance and you post a +2000 USD change to it, you obtain a 700 USD balance.
 
@@ -550,7 +550,7 @@ This is why this check is enabled by default.
 
 For more details of the inventory booking algorithm, see the [<span class="underline">How Inventories Work</span>](11_how_inventories_work.md) document.
 
-#### <a id="amount-interpolation"></a>Amount Interpolation
+#### Amount Interpolation<a id="amount-interpolation"></a>
 
 Beancount is able to fill in some of the details of a transaction automatically. You can currently elide the amount of *at most* one posting within a transaction:
 
@@ -585,7 +585,7 @@ Finally, this also works when the balance includes multiple commodities:
 
 Multiple postings (one for each commodity required to balance) will be inserted to replace the elided one.
 
-#### <a id="tags"></a>Tags
+#### Tags<a id="tags"></a>
 
 Transactions can be tagged with arbitrary strings:
 
@@ -603,7 +603,7 @@ Multiple tags can be specified as well:
 
 (If you want to store key-value pairs on directives, see the section on metadata below.)
 
-##### <a id="the-tag-stack"></a>The Tag Stack
+##### The Tag Stack<a id="the-tag-stack"></a>
 
 Oftentimes multiple transactions related to a single tag will be entered consecutively in a file. As a convenience, the parser can automatically tag transactions within a block of text. How this works is simple: the parser has a “stack” of current tags which it applies to all transactions as it reads them one-by-one. You can push and pop tags onto/from this stack, like this:
 
@@ -617,7 +617,7 @@ Oftentimes multiple transactions related to a single tag will be entered consecu
 
 This way, you can also push multiple tags onto a long, consecutive set of transactions without having to type them all in.
 
-#### <a id="links"></a>Links
+#### Links<a id="links"></a>
 
 Transactions can also be linked together. You may think of the link as a special kind of tag that can be used to group together a set of financially related transactions over time. For example you may use links to group together transactions that are each related with a specific invoice. This allows to track payments (or write-offs) associated with the invoice:
 
@@ -651,7 +651,7 @@ Or track multiple transfers related to a single nefarious purpose:
 
 Linked transactions can be rendered by the web interface in their own dedicated journal, regardless of the current view/filtered set of transactions (the list of links is a global page).
 
-### <a id="balance-assertions"></a>Balance Assertions
+### Balance Assertions<a id="balance-assertions"></a>
 
 A balance assertion is a way for you to input your statement balance into the flow of transactions. It tells Beancount to verify that the number of units of a particular commodity in some account should equal some expected value at some point in time. For instance, this
 
@@ -671,7 +671,7 @@ Balance assertions only make sense on balance sheet accounts (Assets and Liabili
 
 Also, take note that each account benefits from an implicit balance assertion that the account is empty after it is opened at the date of its Open directive. You do not need to explicitly assert a zero balance when opening accounts.
 
-#### <a id="multiple-commodities"></a>Multiple Commodities
+#### Multiple Commodities<a id="multiple-commodities"></a>
 
 A Beancount account may contain more than one commodity (although in practice, you will find that this does not occur often, it is sensible to create dedicated sub-accounts to hold each commodity, for example, holding a portfolio of stocks). A balance assertion applies *only* to the commodity of the assertion; it leaves the other commodities in the balance unchecked. If you want to check multiple commodities, use multiple balance assertions, like this:
 
@@ -684,7 +684,7 @@ There is currently no way to exhaustively check the full list of commodities in 
 
 Note that in this example if an exhaustive check really matters to you, you could circumvent by defining a subaccount of the cash account to segregate each commodity separately, like this Assets:Cash:USD, Assets:Cash:CAD.
 
-#### <a id="lots-are-aggregated"></a>Lots Are Aggregated
+#### Lots Are Aggregated<a id="lots-are-aggregated"></a>
 
 The balance assertion applies to the sum of units of a particular commodities, irrespective of their cost. For example, if you hold three lots of the same commodity in an account, for example, 5 HOOL {500 USD} and 6 HOOL {510 USD}, the following balance check should succeed:
 
@@ -692,7 +692,7 @@ The balance assertion applies to the sum of units of a particular commodities, i
 
 All the lots are aggregated together and you can verify their number of units.
 
-#### <a id="checks-on-parent-accounts"></a>Checks on Parent Accounts
+#### Checks on Parent Accounts<a id="checks-on-parent-accounts"></a>
 
 Balance assertions may be performed on parent accounts, and will include the balances of theirs and their sub-accounts:
 
@@ -714,11 +714,11 @@ Balance assertions may be performed on parent accounts, and will include the bal
 
 Note that this does require that a parent account have been declared as Open, in order to be legitimately used in the balance assertions directive.
 
-#### <a id="before-close"></a>Before Close
+#### Before Close<a id="before-close"></a>
 
 It is useful to insert a balance assertion for 0 units just before closing an account, just to make sure its contents are empty as you close it. The Close directive does not insert that for you automatically (we may eventually build a plug-in for it).
 
-### <a id="pad"></a>Pad
+### Pad<a id="pad"></a>
 
 A padding directive automatically inserts a transaction that will make the subsequent balance assertion succeed, if it is needed. It inserts the difference needed to fulfill that balance assertion. (What “rubber space” is in LaTeX, Pad directives are to balances in Beancount.)
 
@@ -769,7 +769,7 @@ Without intervening transactions, this would insert the following padding transa
 
 In case that’s not obvious, 149.89 USD is the difference between 1137.23 USD and 987.34 USD. If there were more intervening transactions posting amounts to the checking account, the amount would automatically have been adjusted to make the second assertion pass.
 
-#### <a id="unused-pad-directives"></a>Unused Pad Directives
+#### Unused Pad Directives<a id="unused-pad-directives"></a>
 
 You may not currently leave unused Pad directives in your input file. They will trigger an error:
 
@@ -785,7 +785,7 @@ You may not currently leave unused Pad directives in your input file. They will 
 
 (Being this strict is a matter for debate, I suppose, and it could eventually be moved to an optional plugin.)
 
-#### <a id="commodities"></a>Commodities
+#### Commodities<a id="commodities"></a>
 
 Note that the Pad directive does not specify any commodities at all. All commodities with corresponding balance assertions in the account are affected. For instance, the following code would have a padding directive insert a transaction with separate postings for USD and CAD:
 
@@ -798,11 +798,11 @@ Note that the Pad directive does not specify any commodities at all. All commodi
 
 If the account contained other commodities that aren’t balance asserted, no posting would be inserted for those.
 
-#### <a id="cost-basis"></a>Cost Basis
+#### Cost Basis<a id="cost-basis"></a>
 
 At the moment, Pad directives do not work with accounts holding positions held at cost. The directive is really only useful for cash accounts. (This is mainly because balance assertions do not yet allow specifying a cost basis to assert. It is possible that in the future we decide to support asserting the total cost basis, and that point we could consider supporting padding with cost basis.)
 
-#### <a id="multiple-paddings"></a>Multiple Paddings
+#### Multiple Paddings<a id="multiple-paddings"></a>
 
 You cannot currently insert multiple padding entries for the same account and commodity:
 
@@ -816,7 +816,7 @@ You cannot currently insert multiple padding entries for the same account and co
 
 (There is a [<span class="underline">proposal</span>](http://furius.ca/beancount/doc/proposal-padding) pending to allowing this and spread the padding amount evenly among all the intervening Pad directives, but it is as of yet unimplemented.)
 
-### <a id="notes"></a>Notes
+### Notes<a id="notes"></a>
 
 A Note directive is simply used to attach a dated comment to the journal of a particular account, like this:
 
@@ -830,7 +830,7 @@ The general format of the Note directive is:
 
 The description string may be split among multiple lines.
 
-### <a id="documents"></a>Documents
+### Documents<a id="documents"></a>
 
 A Document directive can be used to attach an external file to the journal of an account:
 
@@ -842,7 +842,7 @@ The general format of the Document directive is:
 
     YYYY-MM-DD document Account PathToDocument
 
-#### <a id="documents-from-a-directory"></a>Documents from a Directory
+#### Documents from a Directory<a id="documents-from-a-directory"></a>
 
 A more convenient way to create these entries is to use a special option to specify directories that contain a hierarchy of sub-directories that mirrors that of the chart of accounts. For example, the Document directive shown in the previous section could have been created from a directory hierarchy that looks like this:
 
@@ -859,7 +859,7 @@ The files that will be picked up are those that begin with a date as above, in t
 
 Organizing your electronic document statements and scans using the hierarchy of your ledger’s accounts is a fantastic way to organize them and establish a clear, unambiguous place to find these documents later on, when they’re needed.
 
-### <a id="prices"></a>Prices
+### Prices<a id="prices"></a>
 
 Beancount sometimes creates an in-memory data store of prices for each commodity, that is used for various reasons. In particular, it is used to report unrealized gains on account holdings. Price directives can be used to provide data points for this database. A Price directive establishes the rate of exchange between one commodity (the base currency) and another (the quote currency):
 
@@ -877,7 +877,7 @@ Remember that Beancount knows nothing about what HOOL, USD or CAD are. They are 
 
     2014-07-09 price VACHR  38.46 USD  ; Equiv. $80,000 year
 
-#### <a id="prices-from-postings"></a>Prices from Postings
+#### Prices from Postings<a id="prices-from-postings"></a>
 
 If you use the beancount.plugins.implicit\_prices plugin, every time a Posting appears that has a cost or an optional price declared, it will use that cost or price to automatically synthesize a Price directive. For example, this transaction:
 
@@ -895,13 +895,13 @@ automatically becomes this after parsing:
 
 This is convenient and if you enable it, will probably be where most of the price points in your ledger’s price database will come from. You can print a table of the parsed prices from a ledger (it is just another type of report).
 
-#### <a id="prices-on-the-same-day"></a>Prices on the Same Day
+#### Prices on the Same Day<a id="prices-on-the-same-day"></a>
 
 Notice that there is no notion of time; Beancount is not designed to solve problems for intra-day traders, though of course, it certainly is able to handle multiple trades per day. It just stores its prices per day. (Generally, if you need many features that require a notion of intra-day time, you’re better off using another system, this is not the scope of a bookkeeping system.)
 
 When multiple Price directives do exist for the same day, the last one to appear in the file will be selected for inclusion in the Price database.
 
-### <a id="events"></a>Events
+### Events<a id="events"></a>
 
 Event directives[^3] are used to track the value of *some variable of your choice* over time. For example, your location:
 
@@ -935,7 +935,7 @@ Events will also be usable in the filtering language, to specify non-contiguous 
 
 It is worth noticing that the Price and Event directives are the only ones not associated to an account.
 
-### <a id="query"></a>Query
+### Query<a id="query"></a>
 
 It can be convenient to be able to associate SQL queries in a Beancount file to be able to run these as a report automatically. This is still an early development / experimental directive. In any case, you can insert queries in the stream of transactions like this:
 
@@ -948,7 +948,7 @@ The grammar is
 
 Each query has a name, which will probably be used to invoke its running as a report type. Also, the date of the query is intended to be the date at which the query is intended to be run for, that is, transactions following it should be ignored. If you’re familiar with the SQL syntax, it’s an implicit CLOSE.
 
-### <a id="custom"></a>Custom
+### Custom<a id="custom"></a>
 
 The long-term plan for Beancount is to allow plugins and external clients to define their own directive types, to be declared and validated by the Beancount input language parser. In the meantime, a generic directive is provided for clients to **prototype** new features, e.g., budgeting.
 
@@ -962,7 +962,7 @@ The first argument is a string and is intended to be unique to your directive. T
 
 (See [<span class="underline">this thread</span>](https://groups.google.com/d/msg/beancount/R9wWrdP6mVU/yfCaD3XaDgAJ) for the origin story around this feature.)
 
-<a id="metadata-1"></a>Metadata
+Metadata<a id="metadata-1"></a>
 -------------------------------
 
 You may attach arbitrary data to each of your entries and postings. The syntax for it looks like this:
@@ -1004,7 +1004,7 @@ There are no special meanings attached to particular attributes, these are inten
 
 Finally, attributes without a value will be parsed and have a value of 'None'. If an attribute is repeated multiple times, only the first value for this attribute will be parsed and retained and the following values ignored.
 
-<a id="options"></a>Options
+Options<a id="options"></a>
 ---------------------------
 
 The great majority of a Beancount input file consists in directives, as seen in the previous section. However, there are a few global options that can be set in the input file as well, by using a special undated “option” directive:
@@ -1027,7 +1027,7 @@ There are three ways to view the list of options:
 
 -   Finally, you can [<span class="underline">peek at the source code</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/parser/options.py?at=default) as well.
 
-### <a id="operating-currencies"></a>Operating Currencies
+### Operating Currencies<a id="operating-currencies"></a>
 
 One notable option is “operating\_currency”. By default Beancount does not treat any of the commodities any different from each other. In particular, it doesn’t know that there’s anything special about the most common of commodities one uses: their currencies. For example, if you live in New Zealand, you’re going to have an overwhelming number of NZD commodities in your transactions.
 
@@ -1041,7 +1041,7 @@ You may declare more than one.
 
 In any case, this option is only ever used by reporting code, it never changes the behavior of Beancount’s processing or semantics.
 
-<a id="plugins"></a>Plugins
+Plugins<a id="plugins"></a>
 ---------------------------
 
 In order to load plugin Python modules, use the dedicated “plugin” directive:
@@ -1062,7 +1062,7 @@ The format of the configuration data is plugin-dependent. At the moment, an arbi
 
 Also see the “plugin processing mode” option which affects the list of built-in plugins that get run.
 
-<a id="includes"></a>Includes
+Includes<a id="includes"></a>
 -----------------------------
 
 Include directives are supported. This allows you to split up large input files into multiple files. The syntax looks like this:
@@ -1079,7 +1079,7 @@ Include directives are not processed strictly (as in C, for example). The includ
 
 However, for the moment, options are parsed per-file. The options-map that is kept for post-parse processing is the options-map returned for the top-level file. This is probably subject to review in the future.
 
-<a id="whats-next"></a>What’s Next?
+What’s Next?<a id="whats-next"></a>
 -----------------------------------
 
 This document described all the possible syntax of the Beancount language. If you haven’t written any Beancount input yet, you can head to the [<span class="underline">Getting Started</span>](05_getting_started_with_beancount.md) guide, or browse through a list of practical use cases in the [<span class="underline">Command-line Accounting Cookbook</span>](18_command_line_accounting_cookbook.md).

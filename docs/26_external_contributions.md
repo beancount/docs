@@ -1,4 +1,4 @@
-<a id="title"></a>External Contributions to Beancount
+External Contributions to Beancount<a id="title"></a>
 =====================================================
 
 [<span class="underline">Martin Blais</span>](mailto:blais@furius.ca) - Updated: April 2016
@@ -8,7 +8,7 @@
 *Links to codes written by other people that build on top of  
 or that are related to Beancount and/or Ledgerhub.*
 
-<a id="plugins"></a>Plugins
+Plugins<a id="plugins"></a>
 ---------------------------
 
 [<span class="underline">split\_transactions</span>](https://www.google.com/url?q=https%3A%2F%2Fgist.github.com%2Fkljohann%2Faebac3f0146680fd9aa5&sa=D&sntz=1&usg=AFQjCNGn2AkL35onTeXgOQzLzkjVpvLcpg): Johann Klähn [<span class="underline">wrote a plugin</span>](https://groups.google.com/d/msg/beancount/z9sPboW4U3c/1qIIzro4zFoJ) that can split a single transaction into many against a limbo account, as would be done for depreciation.
@@ -29,7 +29,7 @@ or that are related to Beancount and/or Ledgerhub.*
 
 [<span class="underline">metadata-spray</span>](https://github.com/seltzered/beancount-plugins-metadata-spray): Add metadata across entries by regex expression rather than having explicit entries (by Vivek Gani).
 
-<a id="tools"></a>Tools
+Tools<a id="tools"></a>
 -----------------------
 
 [<span class="underline">alfred-beancount</span>](https://github.com/blaulan/alfred-beancount) (Yue Wu): An add-on to the “Alfred” macOS tool to quickly enter transactions in one’s Beancount file. Supports full account names and payees match.
@@ -48,7 +48,7 @@ or that are related to Beancount and/or Ledgerhub.*
 
 [<span class="underline">process control chart</span>](https://github.com/hoostus/beancount-control-chart) (Justus Pendleton): Spending relative to portfolio size. [<span class="underline">Thread.</span>](https://groups.google.com/d/msgid/beancount/0cd47f9a-37d6-444e-8516-25e247a9e0cd%40googlegroups.com?utm_medium=email&utm_source=footer)
 
-<a id="importers"></a>Importers
+Importers<a id="importers"></a>
 -------------------------------
 
 [<span class="underline">yodlee importer</span>](https://bitbucket.org/redstreet/ledgerhub/commits/5cad3e7495479b1598585a3cfcdd9a06051efcc1): redstreet0 wrote an importer for fetching data from the Yodlee account aggregator. Apparently you can get free access [<span class="underline">as per this thread</span>](https://groups.google.com/d/msg/beancount/nsRCbC6nP4I/Dx5NlTioDq0J).
@@ -65,7 +65,7 @@ or that are related to Beancount and/or Ledgerhub.*
 
 [<span class="underline">siddhantgoel/beancount-dkb</span>](https://github.com/siddhantgoel/beancount-dkb) (Siddhant Goel): importer for DKB CSV files.
 
-<a id="converters"></a>Converters
+Converters<a id="converters"></a>
 ---------------------------------
 
 <span class="underline">p[laid2text](https://github.com/madhat2r/plaid2text)</span>: Python Scripts to export Plaid transactions and transform them into Ledger or Beancount syntax formatted files.
@@ -90,7 +90,7 @@ or that are related to Beancount and/or Ledgerhub.*
 
 [<span class="underline">grostim/Beancount-myTools</span>](https://github.com/grostim/Beancount-myTools) (Timothee Gros): Personal importer tools of the author for French banks.
 
-<a id="price-sources"></a>Price Sources
+Price Sources<a id="price-sources"></a>
 ---------------------------------------
 
 [<span class="underline">hoostus/beancount-price-sources</span>](https://github.com/hoostus/beancount-price-sources) : A Morningstar price fetcher which aggregates multiple exchanges, including non-US ones.
@@ -101,12 +101,12 @@ or that are related to Beancount and/or Ledgerhub.*
 
 [<span class="underline">grostim/Beancount-myTools/.../iexcloud.py</span>](https://github.com/grostim/Beancount-myTools/blob/master/price/iexcloud.py) : Price fetcher for iexcloud by Timothee Gros.
 
-<a id="development"></a>Development
+Development<a id="development"></a>
 -----------------------------------
 
 [<span class="underline">Py3k type annotations</span>](https://github.com/yegle/beancount-type-stubs): Yuchen Ying is implementing python3 type annotations for Beancount.
 
-<a id="documentation"></a>Documentation
+Documentation<a id="documentation"></a>
 ---------------------------------------
 
 [<span class="underline">Beancount Source Code Documentation</span>](http://aumayr.github.io/beancount-docs-static/) (Dominik Aumayr): Sphinx-generated source code documentation of the Beancount codebase. The code to produce this is [<span class="underline">located here</span>](https://github.com/aumayr/beancount-docs).
@@ -121,14 +121,14 @@ or that are related to Beancount and/or Ledgerhub.*
 
 [<span class="underline">Counting beans—and more—with Beancount</span>](https://lwn.net/SubscriberLink/751874/a38128abb72e45c5/) (LWN)
 
-<a id="interfaces-web"></a>Interfaces / Web
+Interfaces / Web<a id="interfaces-web"></a>
 -------------------------------------------
 
 [<span class="underline">fava: A web interface for Beancount</span>](https://github.com/aumayr/fava) (Dominik Aumayr): Beancount comes with its own simple web front-end (“bean-web”) intended merely as a thin shell to invoke and display HTML versions of its reports. “Fava” is an alternative web application front-end with more & different features, intended initially as a playground and proof-of-concept to explore a newer, better design for presenting the contents of a Beancount file.
 
 [<span class="underline">Fava Classy Portfolio</span>](https://github.com/seltzered/fava-classy-portfolio) (Vivek Gani): Classy Portfolio is an Extension for Fava, a web interface for the Beancount plaintext accounting software. The extension displays a list of different portfolios (e.g. 'taxable' vs. 'retirement'), with breakdowns using 'asset-class' and 'asset-subclass' metadata labels on commodities.
 
-<a id="mobilephone-data-entry"></a>Mobile/Phone Data Entry
+Mobile/Phone Data Entry<a id="mobilephone-data-entry"></a>
 ----------------------------------------------------------
 
 [<span class="underline">Beancount Mobile</span>](https://play.google.com/store/apps/details?id=link.beancount.mobile) App (Kirill Goncharov): A mobile data entry app for Beancount. (Currently only Android is supported.) Repo: [<span class="underline">https://github.com/xuhcc/beancount-mobile</span>](https://github.com/xuhcc/beancount-mobile) ([<span class="underline">Annoucement</span>](https://groups.google.com/d/msgid/beancount/014e0879-70e0-4cac-b884-82d8004e1b43%40googlegroups.com?utm_medium=email&utm_source=footer)).
