@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Command Line Accounting Cookbook - Beancount Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Command Line Accounting Cookbook";
+    var mkdocs_page_input_path = "18_command_line_accounting_cookbook.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="icon icon-home"> Beancount Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="index.html">Index</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Outline</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">Documentation for Users</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="01_command_line_accounting_in_context.html">Command Line Accounting in Context</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="02_the_double_entry_counting_method.html">The Double Entry Counting Method</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="03_installing_beancount.html">Installing Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="04_running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="05_getting_started_with_beancount.html">Getting Started with Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="06_beancount_language_syntax.html">Beancount Language Syntax</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="07_beancount_options_reference.html">Beancount Options Reference</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="08_precision_tolerances.html">Precision Tolerances</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="09_beancount_query_language.html">Beancount Query Language</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="10_beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="11_how_inventories_work.html">How Inventories Work</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="12_exporting_your_portfolio.html">Exporting Your Portfolio</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="13_tutorial_example.html">Tutorial & Example</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="14_beancount_history_and_credits.html">Beancount History and Credits</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="15_a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="16_fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="17_importing_external_data.html">Importing External Data</a>
+                </li>
+    </ul>
+                </li>
+                <li class=" current">
+                    
+    <span class="caption-text">Cookbooks & Examples</span>
+    <ul class="subnav">
+                <li class="toctree-l3 current">
+                    
+    <a class="current" href="18_command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l4"><a href="#command-line-accounting-cookbook">Command-line Accounting Cookbook</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l5" href="#introduction">Introduction</a></li>
+        
+            <li><a class="toctree-l5" href="#account-naming-conventions">Account Naming Conventions</a></li>
+        
+            <li><a class="toctree-l5" href="#how-to-deal-with-cash">How to Deal with Cash</a></li>
+        
+            <li><a class="toctree-l5" href="#salary-income">Salary Income</a></li>
+        
+            <li><a class="toctree-l5" href="#currency-transfers-conversions">Currency Transfers &amp; Conversions</a></li>
+        
+            <li><a class="toctree-l5" href="#investing-and-trading">Investing and Trading</a></li>
+        
+            <li><a class="toctree-l5" href="#conclusion">Conclusion</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="19_trading_with_beancount.html">Trading with Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="20_stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="21_sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="22_how_we_share_expenses.html">How We Share Expenses</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Documentation for Developers</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="23_beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="24_beancount_design_doc.html">Beancount Design Doc</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="25_ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="26_external_contributions.html">External Contributions</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Enhancement Proposals & Discussions</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="27_a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="28_settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="29_balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="30_fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="31_rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Beancount Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Cookbooks & Examples &raquo;</li>
+        
+      
+        
+          <li>Outline &raquo;</li>
+        
+      
+    
+    <li>Command Line Accounting Cookbook</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/xuhcc/beancount-docs/edit/master/docs/18_command_line_accounting_cookbook.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="command-line-accounting-cookbook">Command-line Accounting Cookbook<a id="title"></a><a class="headerlink" href="#command-line-accounting-cookbook" title="Permanent link"></a></h1>
+<p><a href="mailto:blais@furius.ca"><span class="underline">Martin Blais</span></a>, July 2014</p>
+<p><a href="http://furius.ca/beancount/doc/cookbook"><span class="underline">http://furius.ca/beancount/doc/cookbook</span></a></p>
+<blockquote>
+<p><a href="#introduction"><span class="underline">Introduction</span></a></p>
+<p><a href="#a-note-of-caution"><span class="underline">A Note of Caution</span></a></p>
+<p><a href="#account-naming-conventions"><span class="underline">Account Naming Conventions</span></a></p>
+<p><a href="#choosing-an-account-type"><span class="underline">Choosing an Account Type</span></a></p>
+<p><a href="#choosing-opening-dates"><span class="underline">Choosing Opening Dates</span></a></p>
+<p><a href="#how-to-deal-with-cash"><span class="underline">How to Deal with Cash</span></a></p>
+<p><a href="#cash-withdrawals"><span class="underline">Cash Withdrawals</span></a></p>
+<p><a href="#tracking-cash-expenses"><span class="underline">Tracking Cash Expenses</span></a></p>
+<p><a href="#salary-income"><span class="underline">Salary Income</span></a></p>
+<p><a href="#employment-income-accounts"><span class="underline">Employment Income Accounts</span></a></p>
+<p><a href="#booking-salary-deposits"><span class="underline">Booking Salary Deposits</span></a></p>
+<p><a href="#vacation-hours"><span class="underline">Vacation Hours</span></a></p>
+<p><a href="#k-contributions"><span class="underline">401k Contributions</span></a></p>
+<p><a href="#vesting-stock-grants"><span class="underline">Vesting Stock Grants</span></a></p>
+<p><a href="#other-benefits"><span class="underline">Other Benefits</span></a></p>
+<p><a href="#points"><span class="underline">Points</span></a></p>
+<p><a href="#food-benefits"><span class="underline">Food Benefits</span></a></p>
+<p><a href="#currency-transfers-conversions"><span class="underline">Currency Transfers &amp; Conversions</span></a></p>
+<p><a href="#investing-and-trading"><span class="underline">Investing and Trading</span></a></p>
+<p><a href="#accounts-setup"><span class="underline">Accounts Setup</span></a></p>
+<p><a href="#funds-transfers"><span class="underline">Funds Transfers</span></a></p>
+<p><a href="#making-a-trade"><span class="underline">Making a Trade</span></a></p>
+<p><a href="#receiving-dividends"><span class="underline">Receiving Dividends</span></a></p>
+<p><a href="#conclusion"><span class="underline">Conclusion</span></a></p>
+</blockquote>
+<h2 id="introduction">Introduction<a id="introduction"></a><a class="headerlink" href="#introduction" title="Permanent link"></a></h2>
+<p>The best way to learn the double-entry method is to look at real-world examples. The method is elegant, but it can seem unintuitive to the newcomer how transactions have to be posted in order to perform the various operations that one needs to do in counting for different types financial events. This is why I wrote this cookbook. It is not meant to be a comprehensive description of all the features supported, but rather a set of practical guidelines to help you solve problems. I think this will likely be the most useful document in the Beancount documentation set!</p>
+<p>All the examples here apply to any double-entry accounting system: Ledger, GnuCash, or even commercial systems. Some of the details may differ only slightly. This cookbook is written using the syntax and calculation method of the Beancount software. This document also assumes that you are already familiar with the <a href="02_the_double_entry_counting_method.html"><span class="underline">general balancing concepts of the double-entry method</span></a> and with at least some of the syntax of Beancount which is available from its <a href="06_beancount_language_syntax.html"><span class="underline">user’s manual</span></a> or its <a href="10_beancount_cheat_sheet.html"><span class="underline">cheat sheet</span></a>. If you haven’t begun writing down your first file, you will want to read <a href="05_getting_started_with_beancount.html"><span class="underline">Getting Started with Beancount</span></a> and do that first.</p>
+<p>Command-line accounting systems are agnostic about the types of things they can count and allow you to get creative with the kinds of units that you can invent to track various kinds of things. For instance, you can count “IRA contribution dollars,” which are not real dollars, but which correspond to “possible contributions in real dollars,” and you obtain accounts of assets, income and expenses types for them - it works. Please do realize that some of those clever tricks may not be possible in more traditional accounting systems. In addition, some of the operations that would normally require a manual process in these systems can be automated away for us, e.g., “closing a year” is entirely done by the software at any point in time, and balance assertions provide a safeguard that allow us to change the details of past transactions with little risk, so there is no need to “reconcile” by baking the past into a frozen state. More flexibility is at hand.</p>
+<p>Finally, if you have a transaction entry problem that is not covered in this document, please do leave a comment in the margin, or write up your problem to the <a href="https://groups.google.com/forum/#!forum/ledger-cli"><span class="underline">Ledger mailing-list</span></a>. I would like for this document to cover as many realistic scenarios as possible.</p>
+<h3 id="a-note-of-caution">A Note of Caution<a id="a-note-of-caution"></a><a class="headerlink" href="#a-note-of-caution" title="Permanent link"></a></h3>
+<p>While reading this, please take note that the author is a dilettante: I am a computer scientist, not an accountant. In fact, apart from a general course I took in college and having completed the first year of a CFA program, I have no real training in accounting. Despite this, I do have some practical experience in maintaining three set of books using this software: my personal ledger (8 years worth of full financial data for all accounts), a joint ledger with my spouse, and the books of a contracting and consulting company I used to own. I also used my double-entry system to communicate with my accountant for many years and he made suggestions. Nevertheless… I may be making fundamental mistakes here and there, and I would appreciate you leaving a comment in the margin if you find anything dubious.</p>
+<h2 id="account-naming-conventions">Account Naming Conventions<a id="account-naming-conventions"></a><a class="headerlink" href="#account-naming-conventions" title="Permanent link"></a></h2>
+<p>You can define any account name you like, as long as it begins with one of the five categories: Assets, Liabilities, Income, Expenses, or Equity (note that you can customize those names with options - see the <a href="06_beancount_language_syntax.html"><span class="underline">Language Syntax document</span></a> for details). The accounts names are generally defined to have multiple name <em>components,</em> separated by a colon (:), which imply an accounts hierarchy, or “<a href="http://en.wikipedia.org/wiki/Chart_of_accounts"><span class="underline">chart of accounts</span></a>”:</p>
+<pre><code>Assets:Component1:Component2:Component3:...
+</code></pre>
+<p>Over time, I’ve iterated over many ways of defining my account names and I have converged to the following convention for Assets, Liabilities, and Income accounts:</p>
+<pre><code>Type : Country : Institution : Account : SubAccount
+</code></pre>
+<p>What I like about this is that when you render a balance sheet, the tree that gets rendered nicely displays accounts by country first, then by institution.</p>
+<p>Some example account names:</p>
+<pre><code>Assets:US:BofA:Savings       ; Bank of America “Savings” account
+Assets:CA:RBC:Checking       ; Royal Bank of Canada “Checking” account
+Liabilities:US:Amex:Platinum ; American Express Platinum credit card
+Liabilities:CA:RBC:Mortgage  ; Mortgage loan account at RBC
+Income:US:ETrade:Interest    ; Interest payments in E*Trade account
+Income:US:Acme:Salary        ; Salary income from ACME corp.
+</code></pre>
+<p>Sometimes I use a further sub-account or two, when it makes sense. For example, Vanguard internally keeps separate accounts depending on whether the contributions were from the employee or the employer’s matching amount:</p>
+<pre><code>Assets:US:Vanguard:Contrib401k:RGAGX  ; My contributions to this fund
+Assets:US:Vanguard:Match401k:RGAGX    ; Employer contributions
+</code></pre>
+<p>For investment accounts, I tend organize all their contents by storing each particular type of stock in its own sub-account:</p>
+<pre><code>Assets:US:ETrade:Cash        ; The cash contents of the account
+Assets:US:ETrade:FB          ; Shares of Facebook
+Assets:US:ETrade:AAPL        ; Shares of Apple
+Assets:US:ETrade:MSFT        ; Shares of Microsoft
+…
+</code></pre>
+<p>This automatically organizes the balance sheet by types of shares, which I find really nice.</p>
+<p>Another convention that I like is to use the same institution component name when I have different related types of accounts. For instance, the E*Trade assets account above has associated income streams that would be booked under similarly named accounts:</p>
+<pre><code>Income:US:ETrade:Interest    ; Interest income from cash deposits
+Income:US:ETrade:Dividends   ; Dividends received in this account
+Income:US:ETrade:PnL         ; Capital gains or losses from trades
+…
+</code></pre>
+<p>For “Expenses” accounts, I find that there are generally no relevant institutions. For those it makes more sense to treat them as categories and just have a simple hierarchy that corresponds to the kinds of expenses they count, some examples:</p>
+<pre><code>Expenses:Sports:Scuba        ; All matters of diving expenses
+Expenses:Transport:Train     ; Train (mostly Amtrak, but not always)
+Expenses:Transport:Bus       ; Various “chinese bus” companies
+Expenses:Transport:Flights   ; Flights (various airlines)
+…
+</code></pre>
+<p>I have a <em>lot</em> of these, like 250 or more. It is really up to you to decide how many to define and how finely to aggregate or “categorize” your expenses this way. But of course, you should only define them as you need them; don’t bother defining a huge list ahead of time. It’s always easy to add new ones.</p>
+<p>It is worth noting that the institution does not have to be a “real” institution. For instance, I owned a condo unit in a building, and I used the Loft4530 “institution” for all its related accounts:</p>
+<pre><code>Assets:CA:Loft4530:Property
+Assets:CA:Loft4530:Association
+Income:CA:Loft4530:Rental
+Expenses:Loft4530:Acquisition:Legal
+Expenses:Loft4530:Acquisition:SaleAgent
+Expenses:Loft4530:Loan-Interest
+Expenses:Loft4530:Electricity
+Expenses:Loft4530:Insurance
+Expenses:Loft4530:Taxes:Municipal
+Expenses:Loft4530:Taxes:School
+</code></pre>
+<p>If you have all of your business in a single country and have no plans to move to another, you might want to skip the country component for brevity.</p>
+<p>Finally, for “Equity” accounts, well, …. normally you don’t end up defining many of them, because these are mostly created to report the net income and currency conversions from previous years or the current exercise period on the balance sheet. Typically you will need at least one, and it doesn’t matter much what you name it:</p>
+<pre><code>Equity:Opening-Balances           ; Balances used to open accounts
+</code></pre>
+<p>You can customize the name of the other Equity accounts that get automatically created for the balance sheet.</p>
+<h3 id="choosing-an-account-type">Choosing an Account Type<a id="choosing-an-account-type"></a><a class="headerlink" href="#choosing-an-account-type" title="Permanent link"></a></h3>
+<p>Part of the art of learning what accounts to book transactions to is to come up with relevant account names and design a scheme for how money will flow between those accounts, by jotting down some example transactions. It can get a bit creative. As you’re working out how to “count” all the financial events in your life, you will often end up wondering what account type to select for some of the accounts. Should this be an “Assets” account? Or an “Income” account? After all, other than for creating reports, Beancount doesn’t treat any of these account types differently…</p>
+<p>But this does not mean that you can just use any type willy nilly. Whether an account appears in the balance sheet or income statement does matter—there is usually a correct choice. When in doubt, here are some guidelines to choose an account type.</p>
+<blockquote>
+<p>First, if the amounts to be posted to the account are only relevant to be reported for a <em>period of time</em>, they should be one of the income statement accounts: Income or Expenses. On the other hand, if the amount <em>always</em> needs to be included in the total balance of an account, then it should be a balance sheet account: Assets or Liabilities.</p>
+<p>Second, if the amounts are generally<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> positive, or “good from your perspective,” the account should be either an Assets or an Expenses account. If the amounts are generally negative, or “bad from your perspective,” the account should be either a Liabilities or an Income account.</p>
+</blockquote>
+<p>Based on these two indicators, you should be able to figure out any case. Let’s work through some examples:</p>
+<ul>
+<li>
+<p>A restaurant meal represents something that you obtained in exchange for some assets (cash) or a liability (paid by credit card). Nobody ever cares what the “sum total of all food since you were born” amounts to. Only the <em>transitional</em> value matters: “How much did I spend in restaurants <em>this month</em>?” Or, <em>since the beginning of the year</em>? Or, <em>during this trip?</em> This clearly points to an Expenses account. But you might wonder… this is a positive number, but it is money I spent? Yes, the account that you spent from was subtracted from (debited) in exchange for the expense you <em>received</em>. Think of the numbers in the expenses account as things you received that vanish into the ether right after you receive them. These meals are consumed.. and then they go somewhere. Okay, we’ll stop the analogy here.</p>
+</li>
+<li>
+<p>You own some shares of a bond, and receive an interest payment. This interest is cash deposited in an Assets account, for example, a trading account. What is the other leg to be booked to?</p>
+</li>
+</ul>
+<h3 id="choosing-opening-dates">Choosing Opening Dates<a id="choosing-opening-dates"></a><a class="headerlink" href="#choosing-opening-dates" title="Permanent link"></a></h3>
+<p>Some of the accounts you need to define don’t correspond to real world accounts. The Expenses:Groceries account represents the sum total of grocery expenses since you started counting. Personally, I like to use my <em>birth date</em> on those. There’s a rationale to it: it sums all the groceries you’ve ever spent money on, and this started only when you came to this world.</p>
+<p>You can use this rationale on other accounts. For example, all the income accounts associated with an employer should probably be opened at the date you began the job, and end on the date you left. Makes sense.</p>
+<h2 id="how-to-deal-with-cash">How to Deal with Cash<a id="how-to-deal-with-cash"></a><a class="headerlink" href="#how-to-deal-with-cash" title="Permanent link"></a></h2>
+<p>Let’s start with cash. I typically define two accounts at my birth date:</p>
+<pre><code>1973-04-27 open Assets:Cash
+1973-04-27 open Assets:ForeignCash
+</code></pre>
+<p>The first account is for active use, this represents my wallet, and usually contains only units of my operating currencies, that is, the commodities I usually think of as “cash.” For me, they are USD and CAD commodities.</p>
+<p>The second account is meant to hold all the paper bills that I keep stashed in a pocket from trips around the world, so they’re out of the way in some other account and I don’t see them in my cash balance. I transfer those to the main account when I do travel to such places, e.g., if I return to Japan, I’ll move my JPY from Assets:ForeignCash to Assets:Cash right before the trip and use them during that time.</p>
+<h3 id="cash-withdrawals">Cash Withdrawals<a id="cash-withdrawals"></a><a class="headerlink" href="#cash-withdrawals" title="Permanent link"></a></h3>
+<p>An ATM withdrawal from a checking account to cash will typically look like this:</p>
+<pre><code>2014-06-28 * "DDA WITHDRAW 0609C"
+  Assets:CA:BofA:Checking                     -700.00 USD
+  Assets:Cash
+</code></pre>
+<p>You would see this transaction be imported in your checking account transactions download.</p>
+<h3 id="tracking-cash-expenses">Tracking Cash Expenses<a id="tracking-cash-expenses"></a><a class="headerlink" href="#tracking-cash-expenses" title="Permanent link"></a></h3>
+<p>One mistake people make when you tell them you’re tracking all of your financial accounts is to assume that you have to book every single little irrelevant cash transaction to a notebook. Not so! It is your choice to decide <em>how many</em> of these cash transactions to take down (or not).</p>
+<p>Personally, I try to minimize the amount of manual effort I put into updating my Ledger. My rule for dealing with cash is this:</p>
+<blockquote>
+<p><em>If it is for food or alcohol, I don’t track it.</em></p>
+<p><em>If it is for something else, I keep the receipt and enter it later.</em></p>
+</blockquote>
+<p>This works for me, because the great majority of my cash expenses tend to be food (or maybe I just make it that way by paying for everything else with credit cards). Only a few receipts pile up somewhere on my desk for a couple of months before I bother to type them in.</p>
+<p>However, you will need to make occasional adjustments to your cash account to account for these expenses. I don’t actually bother doing this very often… maybe once every three months, when I feel like it. The method I use is to take a snapshot of my wallet (manually, by counting the bills) and enter a corresponding balance assertion:</p>
+<pre><code>2014-05-12 balance Assets:Cash       234.13 USD
+</code></pre>
+<p>Every time I do this I’ll also add a cash distribution adjusted to balance the account:</p>
+<pre><code>2014-06-19 * "Cash distribution"
+  Expenses:Food:Restaurant           402.30 USD
+  Expenses:Food:Alcohol              100.00 USD
+  Assets:Cash                     ; -502.30 USD
+
+2014-06-20 balance Assets:Cash       194.34 USD
+</code></pre>
+<p>If you wonder why the amounts in the cash account don’t add up (234.13 -502.30 ≠ 194.34), it is because between the two assertions I added to the cash account by doing some ATM withdrawals against the checking account, and those appear somewhere else (in the checking account section). The withdrawal increased the balance of the cash account. It would appear if I rendered a journal for Assets:Cash.</p>
+<p>I could have made my life simpler and used a Pad directive if I had booked everything to food—pad entries don’t work solely at the beginning of an account’s history, but also between any two balance assertions on the same account—but I want to book 80% of it to food and 20% alcohol, to more accurately represent my real usage of cash<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
+<p>Finally, if you end up with a long time period between the times that you do this, you may want to “spread out” your expenses by adding more than one cash distribution<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> manually, so that if you generate a monthly report, a large cash expense does not appear as a single lump in or outside that month.</p>
+<h2 id="salary-income">Salary Income<a id="salary-income"></a><a class="headerlink" href="#salary-income" title="Permanent link"></a></h2>
+<p>Accounting for your salary is rewarding: you will be able to obtain a summary of income earned during the year as well as the detail of where the various deductions are going, and you will enjoy the satisfaction of seeing matching numbers from your Beancount reports when you receive your W-2 form from your employer (or on your T4 if you’re located in Canada).</p>
+<p>I put all entries related to an employer in their own dedicated section. I start it by setting an event to the date I began working there, for example, using the hypothetical company “Hooli” (from the Silicon Valley show):</p>
+<pre><code>2012-12-13 event "employer" "Hooli Inc."
+</code></pre>
+<p>This allows me to automatically calculate the number of days I’ve been working there. When I leave a job, I’ll change it to the new one, or an empty string, if I don’t leave for another job:</p>
+<pre><code>2019-03-02 event "employer" ""
+</code></pre>
+<p>This section will make several assumptions. The goal is to expose you to the various ideas you can use to account for your income correctly. You will almost certainly end up having to adapt these ideas to your specific situation.</p>
+<h3 id="employment-income-accounts">Employment Income Accounts<a id="employment-income-accounts"></a><a class="headerlink" href="#employment-income-accounts" title="Permanent link"></a></h3>
+<p>Then you define accounts for your pay stubs. You need to make sure that you have an account corresponding to each line of your pay stub. For example, here are some of the income accounts I define for this employment income at Hooli Inc.:</p>
+<pre><code>2012-12-13 open Income:US:Hooli:Salary          USD ; "Regular Pay"
+2012-12-13 open Income:US:Hooli:ReferralBonus   USD ; "Referral bonuses"
+2012-12-13 open Income:US:Hooli:AnnualBonus     USD ; "Annual bonus"
+2012-12-13 open Income:US:Hooli:Match401k       USD ; "Employer 401k match"
+2012-12-13 open Income:US:Hooli:GroupTermLife   USD ; "Group Term Life"
+</code></pre>
+<p>These correspond to regular salary pay, bonuses received for employee referrals, annual bonus, receipts for 401k (Hooli in this example will match some percentage of your contributions to your retirement account), receipts for life insurance (it appears both as an income and an expense), and benefits paid for your gym subscription. There are more, but this is a good example. (In this example I wrote down the names used in the stub as a comment, but you could insert them as metadata instead if you prefer.)</p>
+<p>You will need to book taxes withheld at the source to accounts for that year (see the tax section for details on this):</p>
+<pre><code>2014-01-01 open Expenses:Taxes:TY2014:US:Medicare  USD
+2014-01-01 open Expenses:Taxes:TY2014:US:Federal   USD
+2014-01-01 open Expenses:Taxes:TY2014:US:StateNY   USD
+2014-01-01 open Expenses:Taxes:TY2014:US:CityNYC   USD
+2014-01-01 open Expenses:Taxes:TY2014:US:SDI       USD
+2014-01-01 open Expenses:Taxes:TY2014:US:SocSec    USD
+</code></pre>
+<p>These accounts are for Medicare taxes, Federal, New York State and NYC taxes (yes, New York City residents have an additional tax on top of state tax), state disability insurance (SDI) payments, and finally, taxes to pay for social security.</p>
+<p>You will also need to have some accounts defined elsewhere for the various expenses that are paid automatically from your pay:</p>
+<pre><code>2012-12-13 open Expenses:Health:Life:GroupTermLife  USD ; "Life Ins."
+2012-12-13 open Expenses:Health:Dental:Insurance    USD ; "Dental"
+2012-12-13 open Expenses:Health:Medical:Insurance   USD ; "Medical"
+2012-12-13 open Expenses:Health:Vision:Insurance    USD ; "Vision"
+2012-12-13 open Expenses:Internet:Reimbursement     USD ; "Internet Reim"
+2012-12-13 open Expenses:Transportation:PreTax      USD ; "Transit PreTax"
+</code></pre>
+<p>These correspond to typical company group plan life insurance payments, premiums for dental, medical and vision insurances, reimbursements for home internet usage, and pre-tax payments for public transit (the city of New York allows you to pay for your MetroCard with pre-tax money through your employer).</p>
+<h3 id="booking-salary-deposits">Booking Salary Deposits<a id="booking-salary-deposits"></a><a class="headerlink" href="#booking-salary-deposits" title="Permanent link"></a></h3>
+<p>Then, when I import details for a payment via direct deposit to my checking account, it will look like this:</p>
+<pre><code>2014-02-28 * "HOOLI INC       PAYROLL"
+  Assets:US:BofA:Checking               3364.67 USD
+</code></pre>
+<p>If I haven’t received my pay stub yet, I might book it temporarily to the salary account until I do:</p>
+<pre><code>2014-02-28 * "HOOLI INC       PAYROLL"
+  Assets:US:BofA:Checking               3364.67 USD
+  ! Income:US:Hooli:Salary
+</code></pre>
+<p>When I receive or fetch my pay stub, I remove this and complete the rest of the postings. A realistic entry for a gross salary of $140,000 would look something like this:</p>
+<pre><code>2014-02-28 * "HOOLI INC       PAYROLL"
+  Assets:US:BofA:Checking               3364.67 USD
+  Income:US:Hooli:GroupTermLife          -25.38 USD
+  Income:US:Hooli:Salary               -5384.62 USD
+  Expenses:Health:Dental:Insurance         2.88 USD
+  Expenses:Health:Life:GroupTermLife      25.38 USD
+  Expenses:Internet:Reimbursement        -34.65 USD
+  Expenses:Health:Medical:Insurance       36.33 USD
+  Expenses:Transportation:PreTax          56.00 USD
+  Expenses:Health:Vision:Insurance         0.69 USD
+  Expenses:Taxes:TY2014:US:Medicare       78.08 USD
+  Expenses:Taxes:TY2014:US:Federal      1135.91 USD
+  Expenses:Taxes:TY2014:US:CityNYC        75.03 USD
+  Expenses:Taxes:TY2014:US:SDI             1.20 USD
+  Expenses:Taxes:TY2014:US:StateNY       340.06 USD
+  Expenses:Taxes:TY2014:US:SocSec        328.42 USD
+</code></pre>
+<p>It’s quite unusual for a salary payment to have no variation at all from its previous one: rounding up or down from the payroll processor will often result in a difference of a penny, social security payments will cap to their maximum, and there are various deductions that will occur from time to time, e.g., deductions on taxable benefits received. Moreover, contributions to a 401k will affect that amounts of taxes withheld at the source. Therefore, you end up having to look at each pay stub individually to enter its information correctly. But this is not as time-consuming as it sounds! Here’s a trick: it’s a lot easier to update your transactions if you list your postings <em>in the same order as they appear</em> on your pay stub. You just copy-paste the previous entry, read the pay stub from top to bottom and adjust the numbers accordingly. It takes a minute for each.</p>
+<p>It’s worth noting some unusual things about the previous entry. The “group term life” entry has both a $25.38 income leg and an expense one. This is because Hooli pays for the premium (it reads exactly like that on the stubs.) Hooli also reimburses some of home internet, because I use it to deal with production issues. This appears as a <em>negative</em> posting to reduce the amount of my expense Expenses:Internet account.</p>
+<h3 id="vacation-hours">Vacation Hours<a id="vacation-hours"></a><a class="headerlink" href="#vacation-hours" title="Permanent link"></a></h3>
+<p>Our pay stubs also include accrued vacation and the total vacation balance, in vacation hours. You can also track these amounts on the same transactions. You need to declare corresponding accounts:</p>
+<pre><code>2012-12-13 open Income:US:Hooli:Vacation           VACHR
+2012-12-13 open Assets:US:Hooli:Vacation           VACHR
+2012-12-13 open Expenses:Vacation:Hooli            VACHR
+</code></pre>
+<p>Vacation that accrues is something you receive and thus is treated as <em>Income</em> in units of “VACHR”, and accumulates in an <em>Assets</em> account, which holds how many of these hours you currently have available to “spend” as time off. Updating the previous salary income transaction entry:</p>
+<pre><code>2014-02-28 * "HOOLI INC       PAYROLL"
+  Assets:US:BofA:Checking               3364.67 USD
+  … 
+  Assets:US:Hooli:Vacation                 4.62 VACHR
+  Income:US:Hooli:Vacation                -4.62 VACHR
+</code></pre>
+<p>4.62 VACHR on a bi-weekly paycheck 26 times per year is 26 x 4.62 ~= 120 hours. At 8 hours per day, that is 15 work days, or 3 weeks, which is a standard vacation package for new US Hooligans in this example.</p>
+<p>When you do take time off, you book an expense against your accumulated vacation time:</p>
+<pre><code>2014-06-17 * "Going to the beach today"
+  Assets:US:Hooli:Vacation     -8 VACHR
+  Expenses:Vacation:Hooli
+</code></pre>
+<p>The <em>Expenses</em> account tracks how much vacation you’ve used. From time to time you can check that the balance reported on your pay stub—the amount of vacation left that your employer thinks you have—is the same as that which you have accounted for:</p>
+<pre><code>2014-02-29 balance Assets:US:Hooli:Vacation   112.3400 VACHR
+</code></pre>
+<p>You can “price” your vacation hour units to your hourly rate, so that your vacations <em>Assets</em> account shows how much the company would pay you if you decided to quit. Assuming that $140,000/year salary, 40 hour weeks and 50 weeks of work, which is 2000 hours per year, we obtain a rate of $70/hour, which you enter like this:</p>
+<pre><code>2012-12-13 price VACHR  70.00 USD
+</code></pre>
+<p>Similarly, if your vacation hours expires or caps, you can calculate how much dollar-equivalent you’re forfeiting by working too much and giving up your vacation time. You would write off some of the VACHR from your <em>Assets</em> account into an income account (representing losses).</p>
+<h3 id="401k-contributions">401k Contributions<a id="k-contributions"></a><a class="headerlink" href="#401k-contributions" title="Permanent link"></a></h3>
+<p>The 401k plan allows you to make contributions to a tax-deferred retirement account using pre-tax dollars. This is carried out via withholdings from your pay. To account for those, you simply include a posting with the corresponding contribution towards your retirement account:</p>
+<pre><code>2014-02-28 * "HOOLI INC       PAYROLL"
+  Assets:US:BofA:Checking               3364.67 USD
+  …
+  Assets:US:Vanguard:Cash               1000.00 USD
+  …
+</code></pre>
+<p>If you’re accounting for your available contributions (see the tax section of this document), you will want to reduce your “401k contribution” <em>Assets</em> account at the same time. You would add two more postings to the transaction:</p>
+<pre><code>2014-02-28 * "HOOLI INC       PAYROLL"
+  Assets:US:BofA:Checking                       3364.67 USD
+  …
+  Assets:US:Vanguard:Cash                       1000.00 USD
+  Assets:US:Federal:PreTax401k                 -1000.00 US401K
+  Expenses:Taxes:TY2014:US:Federal:PreTax401k   1000.00 US401K
+  …
+</code></pre>
+<p>If your employer matches your contributions, this may not show on your pay stubs. Because these contributions are not taxable—they are deposited directly to a tax-deferred account—your employer does not have to include them in the withholding statement. You will see them appear directly in your investment account as deposits. You can book them like this to the retirement account’s tax balance:</p>
+<pre><code>2013-03-16 * "BUYMF - MATCH"
+  Income:US:Hooli:Match401k           -1173.08 USD
+  Assets:US:Vanguard:Cash              1173.08 USD
+</code></pre>
+<p>And then insert a second transaction when you invest this case, or directly purchasing assets from the contribution if you have specified an asset allocation and this is automated by the broker:</p>
+<pre><code>2013-03-16 * "BUYMF - MATCH"
+  Income:US:Hooli:Match401k    -1173.08 USD
+  Assets:US:Vanguard:VMBPX       106.741 VMBPX {10.99 USD}
+</code></pre>
+<p>Note that the fund that manages your 401k accounts may be tracking your contributions and your employer’s contributions in separate buckets. You would declare sub-accounts for this and make the corresponding changes:</p>
+<pre><code>2012-12-13 open Assets:US:Vanguard:PreTax401k:VMBPX  VMBPX
+2012-12-13 open Assets:US:Vanguard:Match401k:VMBPX   VMBPX
+</code></pre>
+<p>It is common for them to do this in order to track each source of contribution separately, because there are several constraints on rollovers to other accounts that depend on it.</p>
+<h3 id="vesting-stock-grants">Vesting Stock Grants<a id="vesting-stock-grants"></a><a class="headerlink" href="#vesting-stock-grants" title="Permanent link"></a></h3>
+<p>See the <a href="20_stock_vesting_in_beancount.html"><span class="underline">dedicated document</span></a> on this topic for more details.</p>
+<h3 id="other-benefits">Other Benefits<a id="other-benefits"></a><a class="headerlink" href="#other-benefits" title="Permanent link"></a></h3>
+<p>You can go crazy with tracking benefits if you want. Here are a few wild ideas.</p>
+<h4 id="points">Points<a id="points"></a><a class="headerlink" href="#points" title="Permanent link"></a></h4>
+<p>If your employer offers a sponsored massage therapy program on-site, you could presumably book a massage out of your paycheck or even from some internal website (if the company is modern), and you could pay for them using some sort of internal points system, say, “Hooli points”. You could track those using a made-up currency, e.g., “MASSA’s” and which could be priced at 0.50 USD, the price at which you could purchase them:</p>
+<pre><code>2012-12-13 open Assets:US:Hooli:Massage    MASSA
+2012-12-13 price MASSA  0.50 USD
+</code></pre>
+<p>When I purchase new massage points, I</p>
+<pre><code>2013-03-15 * "Buying points for future massages"
+  Liabilities:US:BofA:CreditCard    -45.00 USD
+  Assets:US:Hooli:Massage              90 MASSA {0.50 USD}
+</code></pre>
+<p>If you’re occasionally awarded some of these points, and you can track that in an Income account.</p>
+<h4 id="food-benefits">Food Benefits<a id="food-benefits"></a><a class="headerlink" href="#food-benefits" title="Permanent link"></a></h4>
+<p>Like many of the larger technology companies, Hooli presumably provides free food for its employees. This saves time and encourages people to eat healthy. This is a bit of a trend in the tech world right now. This benefit does not show up anywhere, but if you want to price it as part of your compensation package, you can track it using an <em>Income</em> account:</p>
+<pre><code>2012-12-13 open Income:US:Hooli:Food
+</code></pre>
+<p>Depending on how often you end up eating at work, you could guesstimate some monthly allowance per month:</p>
+<pre><code>2013-06-30 * "Distribution for food eaten at Hooli"
+  Income:US:Hooli:Food      -350 USD
+  Expenses:Food:Restaurant
+</code></pre>
+<h2 id="currency-transfers-conversions">Currency Transfers &amp; Conversions<a id="currency-transfers-conversions"></a><a class="headerlink" href="#currency-transfers-conversions" title="Permanent link"></a></h2>
+<p>If you convert between currencies, such as when performing an international transfer between banks, you need to provide the exchange rate to Beancount. It looks like this:</p>
+<pre><code>2014-03-03 * "Transfer from Swiss account"
+  Assets:CH:UBS:Checking       -9000.00 CHF
+  Assets:US:BofA:Checking      10000.00 USD @ 0.90 CHF
+</code></pre>
+<p>The balance amount of the second posting is calculated as 10,000.00 USD x 0.90 CHF/USD = 9,000 CHF, and the transaction balances. Depending on your preference, you could have placed the rate on the other posting, like this:</p>
+<pre><code>2014-03-03 * "Transfer from Swiss account"
+  Assets:CH:UBS:Checking       -9000.00 CHF @ 1.11111 USD
+  Assets:US:BofA:Checking      10000.00 USD
+</code></pre>
+<p>The balance amount of the first posting is calculated as -9000.00 CHF x 1.11111 USD/CHF = 10000.00 USD<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>. Typically I will choose the rate that was reported to me and put it on the corresponding side. You may also want to use the direction that F/X markets use for trading the rate, for example, the Swiss franc trades as USD/CHF, so I would prefer the first transaction. The price database converts the rates in both directions, so it is not that important<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>.</p>
+<p>If you use wire transfers, which is typical for this type of money transfer, you might incur a fee:</p>
+<pre><code>2014-03-03 * "Transfer from Swiss account"
+  Assets:CH:UBS:Checking       -9025.00 CHF
+  Assets:US:BofA:Checking      10000.00 USD @ 0.90 CHF
+  Expenses:Fees:Wires             25.00 CHF
+</code></pre>
+<p>If you convert cash at one of these shady-looking currency exchange parlors found in tourist locations, it might look like this:</p>
+<pre><code>2014-03-03 * "Changed some cash at the airport in Lausanne"
+  Assets:Cash             -400.00 USD @ 0.90 CHF
+  Assets:Cash              355.00 CHF
+  Expenses:Fees:Services     5.00 CHF
+</code></pre>
+<p>In any case, you should <em>never</em> convert currency units using the cost basis syntax, because the original conversion rate needs to be forgotten after depositing the units, and not kept around attached to simple currency. For example, this would be incorrect usage:</p>
+<pre><code>2014-03-03 * "Transfer from Swiss account"
+  Assets:CH:UBS:Checking       -9000.00 CHF
+  Assets:US:BofA:Checking      10000.00 USD {0.90 CHF}  ; &lt;-bad!
+</code></pre>
+<p>If you did that by mistake, you would incur errors when you attempted to use the newly USD deposited: Beancount would require that you specify the cost of these “USD” in CHF, e.g., “debit from my USD that I changed at 0.90 USD/CHF”. Nobody does this in the real world, and neither should you when you represent your transactions: <em>once the money has converted, it’s just money in a different currency, with no associated cost.</em></p>
+<p>Finally, a rather subtle problem is that using these price conversions back and forth at different rates over time breaks the accounting equation to some extent: changes in exchange rate may create small amounts of money out of thin air and all the balances don’t end up summing up to zero. However, this is not a problem, because Beancount implements an elegant solution to automatically correct for this problem, so you can use these conversions freely without having to worry about this: it inserts a special conversions entry on the balance sheet to invert the cumulative effect of conversions for the report and obtain a clean balance of zero. (A discussion of the conversions problem is beyond the scope of this cookbook; please refer to <a href="http://furius.ca/beancount/doc/conversions"><span class="underline">Solving the Conversions Problem</span></a> if you’d like to know more.)</p>
+<h2 id="investing-and-trading">Investing and Trading<a id="investing-and-trading"></a><a class="headerlink" href="#investing-and-trading" title="Permanent link"></a></h2>
+<p>Tracking trades and associated gains is a fairly involved topic. You will find a more complete introduction to profit and loss and a detailed discussion of various scenarios in the <a href="19_trading_with_beancount.html"><span class="underline">Trading with Beancount</span></a> document, which is dedicated to this topic. Here we will discuss how to setup your account and provide simple example transactions to get you started.</p>
+<h3 id="accounts-setup">Accounts Setup<a id="accounts-setup"></a><a class="headerlink" href="#accounts-setup" title="Permanent link"></a></h3>
+<p>You should create an account prefix to root various sub-accounts associated with your investment account. Say you have an account at ETrade, this could be “Assets:US:ETrade”. Choose an appropriate institution name.</p>
+<p>Your investment account will have a cash component. You should create a dedicated sub-account will represent uninvested cash deposits:</p>
+<pre><code>2013-02-01 open Assets:US:ETrade:Cash     USD
+</code></pre>
+<p>I recommend that you further define a sub-account for each of the commodity types that you will invest in. Although this is not strictly necessary—Beancount accounts may contain any number of commodities—it is a nice way to aggregate all the positions in that commodity together for reporting. Say you will buy shares of LQD and BND, two popular bond ETFs:</p>
+<pre><code>2013-02-01 open Assets:US:ETrade:LQD      LQD
+2013-02-01 open Assets:US:ETrade:BND      BND
+</code></pre>
+<p>This also helps produce nicer reports: balances are often shown at cost and it’s nice to see the total cost aggregated by commodity for various reasons (i.e., each commodity provides exposure to different market characteristics). Using a dedicated sub-account for each commodity held within an institution is a good way to do that. Unless you have specific reasons not to do so, I highly suggest sticking with this by default (you can always change it later by renaming accounts).</p>
+<p>Specifying commodity constraints on your accounts will help you detect data entry mistakes. Stock trades tend to be a bit more involved than regular transactions, and this is certainly going to be helpful.</p>
+<p>Then, you will hopefully receive income in this account, in two forms: capital gains, or “P&amp;L”, and dividends. I like to account for these by institution, because this is how they have to be declared for taxes. You may also receive interest income. Define these:</p>
+<pre><code>2013-02-01 open Income:US:ETrade:PnL          USD
+2013-02-01 open Income:US:ETrade:Dividends    USD
+2013-02-01 open Income:US:ETrade:Interest     USD
+</code></pre>
+<p>Finally, to account for transaction fees and commissions, you will need some general accounts to receive these:</p>
+<pre><code>1973-04-27 open Expenses:Financial:Fees
+1973-04-27 open Expenses:Financial:Commissions
+</code></pre>
+<h3 id="funds-transfers">Funds Transfers<a id="funds-transfers"></a><a class="headerlink" href="#funds-transfers" title="Permanent link"></a></h3>
+<p>You will normally add some initial money in this account by making a transfer from an external account, say, a checking account:</p>
+<pre><code>2014-02-04 * "Transferring money for investing"
+  Assets:US:BofA:Checking        -2000.00 USD
+  Assets:US:ETrade:Cash           2000.00 USD
+</code></pre>
+<h3 id="making-a-trade">Making a Trade<a id="making-a-trade"></a><a class="headerlink" href="#making-a-trade" title="Permanent link"></a></h3>
+<p>Buying stock should have a posting that deposits the new commodity in the commodity’s sub-account, and debits the cash account to the corresponding amounts plus commissions:</p>
+<pre><code>2014-02-16 * "Buying some LQD"
+  Assets:US:ETrade:LQD                 10 LQD {119.24 USD}
+  Assets:US:ETrade:Cash          -1199.35 USD
+  Expenses:Financial:Commissions     6.95 USD
+</code></pre>
+<p>Note that when you’re buying units of a commodity, you are establishing a new trade lot in the account’s inventory and it is necessary that you provide the cost of each unit (in this example, 119.24 USD per share of LQD). This allows us to account for capital gains correctly.</p>
+<p>Selling some of the same stock work similarly, except that an extra posting is added to absorb the capital gain or loss:</p>
+<pre><code>2014-02-16 * "Selling some LQD"
+  Assets:US:ETrade:LQD                 -5 LQD {119.24 USD} @ 123.40 USD
+  Assets:US:ETrade:Cash            610.05 USD
+  Expenses:Financial:Commissions     6.95 USD
+  Income:US:Etrade:PnL
+</code></pre>
+<p>Note that the postings of shares removed from the Assets:US:ETrade:LQD account is a lot <em>reduction</em> and you must provide information to identify which lot you’re reducing, in this case, by providing the per-share cost basis of 119.24 USD.</p>
+<p>I normally let Beancount calculate the capital gain or loss for me, which is why I don’t specify it in the last posting. Beancount will automatically balance the transaction by setting the amount of this posting to -20.80 USD, which is a <em>gain</em> of 20.80 USD (remember that the signs are inverted for income accounts). Specifying the sale price of 123.40 USD is optional, and it is <em>ignored</em> for the purpose of balancing the transaction, the cash deposit and commissions legs determine the profit.</p>
+<h3 id="receiving-dividends">Receiving Dividends<a id="receiving-dividends"></a><a class="headerlink" href="#receiving-dividends" title="Permanent link"></a></h3>
+<p>Receiving dividends takes on two forms. First, you can receive dividends in cash, which will go into the cash account:</p>
+<pre><code>2014-02-16 * "Dividends from LQD"
+  Income:US:ETrade:Dividends      -87.45 USD
+  Assets:US:ETrade:Cash            87.45 USD
+</code></pre>
+<p>Note that the source of the dividends isn’t specified here. You could use a sub-account of the income account to count it separately.</p>
+<p>Or you can receive dividends in shares reinvested:</p>
+<pre><code>2014-06-27 * "Dividends reinvested"
+  Assets:US:Vanguard:VBMPX      1.77400 VBMPX {10.83 USD}
+  Income:US:Vanguard:Dividends   -19.21 USD
+</code></pre>
+<p>This is booked similarly to a stock purchase, and you also have to provide the cost basis of the received units. This would typically happen in a non-taxable retirement account.</p>
+<p>Refer to the <a href="19_trading_with_beancount.html"><span class="underline">Trading with Beancount</span></a> document for a more thorough discussion and numerous and more complex examples.</p>
+<h3 id="choosing-a-date">Choosing a Date<a id="choosing-a-date"></a><a class="headerlink" href="#choosing-a-date" title="Permanent link"></a></h3>
+<p>Buying or selling a single lot of stock typically involves multiple events over time: the trade is placed, the trade is filled (usually on the same day), the trade is settled. Settlement usually occurs 2 or 3 business days after the trade is filled.</p>
+<p>For simplicity, I recommend using the trade date as the date of your transaction. In the US, this is the date that is recognized for tax purposes, and settlement has no impact on your account (brokers typically won’t allow you to trade without the corresponding cash or margin anyhow). So normally I don’t bother creating separate entries for settlement, it’s not very useful.</p>
+<p>More complex schemes can be envisioned, e.g. you could store the settlement date as a metadata field and then use it in scripts later on, but that’s beyond the scope of this document.</p>
+<h2 id="conclusion">Conclusion<a id="conclusion"></a><a class="headerlink" href="#conclusion" title="Permanent link"></a></h2>
+<p>This document is incomplete. I have many more example use cases that I’m planning to add here as I complete them. I will be announcing those on the mailing-list as they materialize. In particular, the following topics will be discussed:</p>
+<ul>
+<li>
+<p>Health Care Expenses, e.g., insurance premiums and rebates</p>
+</li>
+<li>
+<p>Taxes</p>
+</li>
+<li>
+<p>IRAs, 401k and other tax-deferred accounts</p>
+</li>
+<li>
+<p>Real Estate</p>
+</li>
+<li>
+<p>Options</p>
+</li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>This is not strictly always true: in accounting for companies, some account types are held at their opposite value for reasons, usually to offset the value of another account of the same type. These are called “contra” accounts. But as an individual, you’re quite unlikely to have one of those. If you’re setting up a chart of accounts for a company, Beancount doesn’t actually care whether the balance is of one sign or other. You declare contra-accounts just like regular accounts.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>I am considering supporting an extended version of the Pad directive that can take a percentage value and make it possible to pad only a percentage of the full amount, to automate this.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>Yet another extension to Beancount involves support multiple Pad directives between two balance assertions and automatically support this spreading out of padding directives.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>If you’re concerned about the issue of precision or rounding in balancing, see <a href="08_precision_tolerances.html"><span class="underline">this document</span></a>.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>Note that if the price database needs to invert the date its calculation may result in a price with a large number of digits. Beancount uses IEEE decimal objects and the default context of the Python implementation is 28 digits, so inverting 0.9 will result in 1.111111….111 with 28 digits.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="19_trading_with_beancount.html" class="btn btn-neutral float-right" title="Trading with Beancount">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="17_importing_external_data.html" class="btn btn-neutral" title="Importing External Data"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/xuhcc/beancount-docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="17_importing_external_data.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="19_trading_with_beancount.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+
+</body>
+</html>

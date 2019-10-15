@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Balance Assertions in Beancount - Beancount Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Balance Assertions in Beancount";
+    var mkdocs_page_input_path = "29_balance_assertions_in_beancount.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="icon icon-home"> Beancount Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="index.html">Index</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Outline</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">Documentation for Users</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="01_command_line_accounting_in_context.html">Command Line Accounting in Context</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="02_the_double_entry_counting_method.html">The Double Entry Counting Method</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="03_installing_beancount.html">Installing Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="04_running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="05_getting_started_with_beancount.html">Getting Started with Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="06_beancount_language_syntax.html">Beancount Language Syntax</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="07_beancount_options_reference.html">Beancount Options Reference</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="08_precision_tolerances.html">Precision Tolerances</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="09_beancount_query_language.html">Beancount Query Language</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="10_beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="11_how_inventories_work.html">How Inventories Work</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="12_exporting_your_portfolio.html">Exporting Your Portfolio</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="13_tutorial_example.html">Tutorial & Example</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="14_beancount_history_and_credits.html">Beancount History and Credits</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="15_a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="16_fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="17_importing_external_data.html">Importing External Data</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Cookbooks & Examples</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="18_command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="19_trading_with_beancount.html">Trading with Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="20_stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="21_sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="22_how_we_share_expenses.html">How We Share Expenses</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Documentation for Developers</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="23_beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="24_beancount_design_doc.html">Beancount Design Doc</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="25_ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="26_external_contributions.html">External Contributions</a>
+                </li>
+    </ul>
+                </li>
+                <li class=" current">
+                    
+    <span class="caption-text">Enhancement Proposals & Discussions</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="27_a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="28_settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
+                </li>
+                <li class="toctree-l3 current">
+                    
+    <a class="current" href="29_balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l4"><a href="#balance-assertions-in-beancount">Balance Assertions in Beancount</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l5" href="#motivation">Motivation</a></li>
+        
+            <li><a class="toctree-l5" href="#partial-vs-complete-assertions">Partial vs. Complete Assertions</a></li>
+        
+            <li><a class="toctree-l5" href="#file-vs-date-assertions">File vs. Date Assertions</a></li>
+        
+            <li><a class="toctree-l5" href="#status">Status</a></li>
+        
+            <li><a class="toctree-l5" href="#proposal">Proposal</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="30_fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="31_rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Beancount Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Enhancement Proposals & Discussions &raquo;</li>
+        
+      
+        
+          <li>Outline &raquo;</li>
+        
+      
+    
+    <li>Balance Assertions in Beancount</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/xuhcc/beancount-docs/edit/master/docs/29_balance_assertions_in_beancount.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="balance-assertions-in-beancount">Balance Assertions in Beancount<a id="title"></a><a class="headerlink" href="#balance-assertions-in-beancount" title="Permanent link"></a></h1>
+<p>Martin Blais, July 2014</p>
+<p><a href="http://furius.ca/beancount/doc/proposal-balance"><span class="underline">http://furius.ca/beancount/doc/proposal-balance</span></a></p>
+<p><em>This document summarizes the different kinds of semantics for balance assertions in all command-line accounting systems and proposes new syntax for total and file-order running assertions in Beancount.</em></p>
+<blockquote>
+<p><a href="#motivation"><span class="underline">Motivation</span></a></p>
+<p><a href="#partial-vs.-complete-assertions"><span class="underline">Partial vs. Complete Assertions</span></a></p>
+<p><a href="#file-vs.-date-assertions"><span class="underline">File vs. Date Assertions</span></a></p>
+<p><a href="#ordering-ambiguity"><span class="underline">Ordering &amp; Ambiguity</span></a></p>
+<p><a href="#intra-day-assertions"><span class="underline">Intra-Day Assertions</span></a></p>
+<p><a href="#beginning-vs.-end-of-day"><span class="underline">Beginning vs. End of Day</span></a></p>
+<p><a href="#status"><span class="underline">Status</span></a></p>
+<p><a href="#proposal"><span class="underline">Proposal</span></a></p>
+<p><a href="#file-assertions"><span class="underline">File Assertions</span></a></p>
+<p><a href="#complete-assertions"><span class="underline">Complete Assertions</span></a></p>
+</blockquote>
+<h2 id="motivation">Motivation<a id="motivation"></a><a class="headerlink" href="#motivation" title="Permanent link"></a></h2>
+<p>Both Beancount and Ledger implement <em>balance assertions.</em> These provide the system with checkpoints it can use to verify the integrity of the data entry<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
+<p>Traditional accounting principles state that a user may never change the past—correcting the past involves inserting new entries to undo past mistakes<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>—but we in the command-line accounting community take issue with that: we want to remain able to reconstruct the past and more importantly, to correct past mistakes at the site of their original data entry. Yes, we are dilettantes but we are bent on simplifying the process of bookkeeping by challenging existing concepts and think that this is perfectly reasonable, as long as it does not break known balances. These known balances are what we provide via balance assertions.</p>
+<p>Another way to look at these balance assertions, is that they are simply the bottom line amounts reported on various account statements, as exemplified in the figure below.</p>
+<p>Following <a href="https://groups.google.com/forum/#!topic/ledger-cli/vwkrPh74NFI"><span class="underline">this thread</span></a>, we established that there were differing interpretations of balance assertions in the current versions of Ledger (3.0) and Beancount (2.0b).</p>
+<p><img src="29_balance_assertions_in_beancount/media/539ac8accaa66eeb45ed7865fcad381fa35af295.png" alt="balance-statement-1.png" style="width:6.5in;height:3.20833in" /></p>
+<h2 id="partial-vs-complete-assertions">Partial vs. Complete Assertions<a id="partial-vs.-complete-assertions"></a><a class="headerlink" href="#partial-vs-complete-assertions" title="Permanent link"></a></h2>
+<p>An assertion in Beancount currently looks like this:</p>
+<pre><code>2012-02-04 balance Assets:CA:Bank:Checking    417.61 CAD
+</code></pre>
+<p>The meaning of this directive is: “please assert that the inventory of account ‘Assets:CA:Bank:Checking’ contains exactly 417.61 units of CAD at the end of February 3, 2012” (so it’s dated on the 4th because in Beancount balance assertions are specified at the beginning of the date). It says nothing about other commodities in the account’s inventory. For example, if the account contains units of “USD”, those are unchecked. We will call this interpretation a <strong>partial balance assertion</strong> or <strong>single-commodity assertion</strong>.</p>
+<p>An alternative assertion would be exhaustive: “please assert that the inventory of account ‘Assets:CA:Bank:Checking’ contains only 417.61 units of CAD at the end of February 3, 2012.” We call this a <strong>complete balance assertion</strong>. In order to work, this second type of assertion would have to support the specification of the full contents of an inventory. This is currently not supported.</p>
+<p>Further note that we are not asserting the cost basis of an inventory, just the number of units.</p>
+<h2 id="file-vs-date-assertions">File vs. Date Assertions<a id="file-vs.-date-assertions"></a><a class="headerlink" href="#file-vs-date-assertions" title="Permanent link"></a></h2>
+<p>There are two differing interpretations and implementations of the running balances for assertions:</p>
+<ul>
+<li>
+<p>Beancount first sorts all the directives and verifies the balance at the <em>beginning</em> of the date of the directive. In the previous example, that is “<em>the balance before any transactions on 2012-02-04 are applied.”</em> We will call this <strong>date assertions</strong> or <strong>date-based assertions</strong>.</p>
+</li>
+<li>
+<p>Ledger keeps a running balance of each account’s inventory during its parsing phase and performs the check <em>at the site of the assertion in the file.</em> We will call this <strong>file assertions</strong> or <strong>file-order,</strong> or <strong>file-based assertions</strong>. This kind of assertion has no date associated with it (this is slightly misleading in Ledger because of the way assertions are specified, as attached to a transaction’s posting, which appears to imply that they occur on the transaction date, but they don’t, they strictly apply to the file location).</p>
+</li>
+</ul>
+<h3 id="ordering-ambiguity">Ordering &amp; Ambiguity<a id="ordering-ambiguity"></a><a class="headerlink" href="#ordering-ambiguity" title="Permanent link"></a></h3>
+<p>An important difference between those two types of assertions is that file-based assertions are not order-independent. For example, take the following input file:</p>
+<pre><code>;; Credit card account
+2014/05/01 opening
+  Liabilities:CreditCard    $-1000.00
+  Expenses:Opening-Balances
+
+2014/05/12 dinner
+  Liabilities:CreditCard    $-74.20
+  Expenses:Restaurant
+
+;; Checking account
+2014/06/05 salary
+  Assets:Checking            $4082.87
+  Income:Salary
+
+2014/06/05 cc payment
+  Assets:Checking            $-1074.20 = $3008.67
+  Liabilities:CreditCard     = $0
+</code></pre>
+<p>If you move the credit card payment up to the credit card account section, the same set of transactions fails:</p>
+<pre><code>;; Credit card account
+2014/05/01 opening
+  Liabilities:CreditCard    $-1000.00
+  Expenses:Opening-Balances
+
+2014/05/12 dinner
+  Liabilities:CreditCard    $-74.20
+  Expenses:Restaurant
+
+2014/06/05 cc payment
+  Assets:Checking            $-1074.20 = $3008.67
+  Liabilities:CreditCard     = $0
+
+;; Checking account
+2014/06/05 salary
+  Assets:Checking            $4082.87
+  Income:Salary
+</code></pre>
+<p>This subtle problem could be difficult for beginners to understand. Moving the file assertion to its own, undated directive might be more indicative syntax of its semantics, something that would look like this:</p>
+<pre><code>balance Assets:Checking = $3008.67
+</code></pre>
+<p>The absence of a date indicates that the check is not applied at a particular point in time.</p>
+<h3 id="intra-day-assertions">Intra-Day Assertions<a id="intra-day-assertions"></a><a class="headerlink" href="#intra-day-assertions" title="Permanent link"></a></h3>
+<p>On the other hand, date-based assertions, because of their order-independence, preclude intra-day assertions, that is, a balance assertion that occurs <em>between</em> two postings on the same account during the same day.</p>
+<p>Beancount does not support intra-day assertions at the moment.</p>
+<p>Note despite this shortcoming, this has not been much of a problem, because it is often possible to fudge the date where necessary by adding or removing a day, or even just skipping an assertion where it would be impossible (skipping assertions is not a big deal, as they are optional and their purpose is just to provide certainty. As long as you have one that appears some date after the skipped one, it isn’t much of an issue).</p>
+<p>It would be nice to find a solution to intra-day assertions for date-based assertions, however. One interesting idea would be to extend the semantics to apply the balance in file order within the set of all transactions directly before and after the balance check that occur on the same date as the balance check, for example, this would balance:</p>
+<pre><code>2013-05-05 balance Assets:Checking    100 USD
+
+2013-05-20 * “Interest payment”
+  Assets:Checking           12.01 USD
+  Income:Interest
+
+2013-05-20 balance Assets:Checking    121.01 USD
+
+2013-05-20 * “Check deposit”
+  Assets:Checking           731.73 USD
+  Assets:Receivable
+</code></pre>
+<p>The spell would be broken as soon as a directive would appear at a different date.</p>
+<p>Another idea would be to always sort the balance assertions in file-order as the second sort key (after the date) and apply them as such. I’m not sure this would be easy to understand though.</p>
+<h3 id="beginning-vs-end-of-day">Beginning vs. End of Day<a id="beginning-vs.-end-of-day"></a><a class="headerlink" href="#beginning-vs-end-of-day" title="Permanent link"></a></h3>
+<p>Finally, just for completeness, it is worth mentioning that date assertions have to have well-defined semantics regarding <em>when</em> they apply during the day. In Beancount, they currently apply at the beginning of the day.</p>
+<p>It might be worthwhile to provide an alternate version of date-based assertions that applies at the end of the day, e.g. “balance_end”. Beancount v1 used to have this (“check_end”) but it was removed in the v2 rewrite, as it wasn’t clear it would be really needed. The simplicity of a single meaning for balance assertions is nice too.</p>
+<h2 id="status">Status<a id="status"></a><a class="headerlink" href="#status" title="Permanent link"></a></h2>
+<p><a href="http://ledger-cli.org"><span class="underline">Ledger</span></a> 3.0 currently supports only partial file-order assertions, on transactions.</p>
+<p><a href="http://furius.ca/beancount/"><span class="underline">Beancount</span></a> 2.0 currently supports only partial date-based assertions at the beginning of the day.</p>
+<h2 id="proposal">Proposal<a id="proposal"></a><a class="headerlink" href="#proposal" title="Permanent link"></a></h2>
+<p>I propose the following improvements to Beancount’s balance assertions.</p>
+<h3 id="file-assertions">File Assertions<a id="file-assertions"></a><a class="headerlink" href="#file-assertions" title="Permanent link"></a></h3>
+<p>File assertions should be provided as a plugin. They would look like this:</p>
+<pre><code>2012-02-03 file_balance Assets:CA:Bank:Checking    417.61 CAD
+</code></pre>
+<p>Ideally, in order to make it clear that they apply strictly in file order, they would not have a date, something like this:</p>
+<pre><code>file_balance Assets:CA:Bank:Checking    417.61 CAD
+</code></pre>
+<p>But this breaks the regularity of the syntax for all other directives. It also complicates an otherwise very regular and simple parser just that much more… <em>all</em> other directives begin with a date and a word, and all other lines are pretty much ignored. It would be a bit of a departure from this. Finally, it would still be nice to have a date just to insert those directives somewhere in the rendered journal. So I’m considering keeping a date for it. If you decide to use those odd assertions, you should know what they mean.</p>
+<p>I also don’t like the idea of attaching assertions to transactions; transaction syntax is already busy enough, it is calling to remain simple. This should be a standalone directive that few people use.</p>
+<p>In order to implement this, the plugin would simply resort all the directives according to their file location only (using the fileloc attribute of entries), disregarding the date, and recompute the running balances top to bottom while applying the checks. This can entirely be done via post-processing, like date-based assertions, without disturbing any of the other processing.</p>
+<p>Moreover, another advantage of doing this in a plugin is that people who don’t use this directive won’t have to pay the cost of calculating these inventories.</p>
+<h3 id="complete-assertions">Complete Assertions<a id="complete-assertions"></a><a class="headerlink" href="#complete-assertions" title="Permanent link"></a></h3>
+<p>Complete assertions should be supported in Beancount by the current balance assertion directive. They aren’t very important but are potentially useful.</p>
+<p>Possible syntax ideas:</p>
+<pre><code>2012-02-03 balance* Assets:CA:Bank:Checking        417.61 CAD, 162 USD
+
+2012-02-03 balance Assets:CA:Bank:Checking       = 417.61 CAD, 162 USD
+
+2012-02-03 balance full Assets:CA:Bank:Checking    417.61 CAD, 162 USD
+
+2012-02-03 balance 
+  Assets:CA:Bank:Checking    417.61 CAD
+  Assets:CA:Bank:Checking       162 USD
+</code></pre>
+<p>I’m still undecided which is best. So far it seems a matter of taste.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>As far as we know, the notion of inputting an explicit expected amount is unique to command-line accounting systems. Other systems “reconcile” by freezing changes in the past.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>There are multiple reasons for this. First, in pre-computer times, accounting was done using books, and recomputing running balances manually would have involved making multiple annoying corrections to a book. This must have been incredibly inconvenient, and inserting correcting entries at the current time is a lot easier. Secondly, if your accounting balances are used to file taxes, changing some of the balances retroactively makes it difficult to go back and check the detail of reported amounts in case of an audit. This problem also applies to our context, but whether a past correction should be allowed is a choice that depends on the context and the particular account, and we leave it up to the user to decide whether it should be allowed.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="30_fund_accounting_with_beancount.html" class="btn btn-neutral float-right" title="Fund Accounting with Beancount">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="28_settlement_dates_in_beancount.html" class="btn btn-neutral" title="Settlement Dates in Beancount"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/xuhcc/beancount-docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="28_settlement_dates_in_beancount.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="30_fund_accounting_with_beancount.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+
+</body>
+</html>

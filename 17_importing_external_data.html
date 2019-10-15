@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Importing External Data - Beancount Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Importing External Data";
+    var mkdocs_page_input_path = "17_importing_external_data.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="icon icon-home"> Beancount Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="index.html">Index</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Outline</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <span class="caption-text">Documentation for Users</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="01_command_line_accounting_in_context.html">Command Line Accounting in Context</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="02_the_double_entry_counting_method.html">The Double Entry Counting Method</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="03_installing_beancount.html">Installing Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="04_running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="05_getting_started_with_beancount.html">Getting Started with Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="06_beancount_language_syntax.html">Beancount Language Syntax</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="07_beancount_options_reference.html">Beancount Options Reference</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="08_precision_tolerances.html">Precision Tolerances</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="09_beancount_query_language.html">Beancount Query Language</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="10_beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="11_how_inventories_work.html">How Inventories Work</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="12_exporting_your_portfolio.html">Exporting Your Portfolio</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="13_tutorial_example.html">Tutorial & Example</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="14_beancount_history_and_credits.html">Beancount History and Credits</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="15_a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="16_fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
+                </li>
+                <li class="toctree-l3 current">
+                    
+    <a class="current" href="17_importing_external_data.html">Importing External Data</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l4"><a href="#importing-external-data-in-beancount">Importing External Data in Beancount</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l5" href="#introduction">Introduction</a></li>
+        
+            <li><a class="toctree-l5" href="#the-importing-process">The Importing Process</a></li>
+        
+            <li><a class="toctree-l5" href="#tools">Tools</a></li>
+        
+            <li><a class="toctree-l5" href="#configuration">Configuration</a></li>
+        
+            <li><a class="toctree-l5" href="#writing-an-importer">Writing an Importer</a></li>
+        
+            <li><a class="toctree-l5" href="#organizing-your-files">Organizing your Files</a></li>
+        
+            <li><a class="toctree-l5" href="#example-importers">Example Importers</a></li>
+        
+            <li><a class="toctree-l5" href="#cleaning-up">Cleaning Up</a></li>
+        
+            <li><a class="toctree-l5" href="#future-work">Future Work</a></li>
+        
+            <li><a class="toctree-l5" href="#related-discussion-threads">Related Discussion Threads</a></li>
+        
+            <li><a class="toctree-l5" href="#historical-note">Historical Note</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Cookbooks & Examples</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="18_command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="19_trading_with_beancount.html">Trading with Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="20_stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="21_sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="22_how_we_share_expenses.html">How We Share Expenses</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Documentation for Developers</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="23_beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="24_beancount_design_doc.html">Beancount Design Doc</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="25_ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="26_external_contributions.html">External Contributions</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Enhancement Proposals & Discussions</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="27_a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="28_settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="29_balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="30_fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="31_rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Beancount Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Documentation for Users &raquo;</li>
+        
+      
+        
+          <li>Outline &raquo;</li>
+        
+      
+    
+    <li>Importing External Data</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/xuhcc/beancount-docs/edit/master/docs/17_importing_external_data.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="importing-external-data-in-beancount">Importing External Data in Beancount<a id="title"></a><a class="headerlink" href="#importing-external-data-in-beancount" title="Permanent link"></a></h1>
+<p><a href="mailto:blais@furius.ca"><span class="underline">Martin Blais</span></a>, March 2016</p>
+<p><a href="http://furius.ca/beancount/doc/ingest"><span class="underline">http://furius.ca/beancount/doc/ingest</span></a></p>
+<blockquote>
+<p><a href="#introduction"><span class="underline">Introduction</span></a></p>
+<p><a href="#the-importing-process"><span class="underline">The Importing Process</span></a></p>
+<p><a href="#automating-network-downloads"><span class="underline">Automating Network Downloads</span></a></p>
+<p><a href="#typical-downloads"><span class="underline">Typical Downloads</span></a></p>
+<p><a href="#extracting-data-from-pdf-files"><span class="underline">Extracting Data from PDF Files</span></a></p>
+<p><a href="#tools"><span class="underline">Tools</span></a></p>
+<p><a href="#invocation"><span class="underline">Invocation</span></a></p>
+<p><a href="#configuration"><span class="underline">Configuration</span></a></p>
+<p><a href="#configuring-from-an-input-file"><span class="underline">Configuring from an Input File</span></a></p>
+<p><a href="#writing-an-importer"><span class="underline">Writing an Importer</span></a></p>
+<p><a href="#regression-testing-your-importers"><span class="underline">Regression Testing your Importers</span></a></p>
+<p><a href="#generating-test-input"><span class="underline">Generating Test Input</span></a></p>
+<p><a href="#making-incremental-improvements"><span class="underline">Making Incremental Improvements</span></a></p>
+<p><a href="#_vittms8qvnsr"><span class="underline">Running the Tests</span></a></p>
+<p><a href="#caching-data"><span class="underline">Caching Data</span></a></p>
+<p><a href="#in-memory-caching"><span class="underline">In-Memory Caching</span></a></p>
+<p><a href="#on-disk-caching"><span class="underline">On-Disk Caching</span></a></p>
+<p><a href="#organizing-your-files"><span class="underline">Organizing your Files</span></a></p>
+<p><a href="#example-importers"><span class="underline">Example Importers</span></a></p>
+<p><a href="#cleaning-up"><span class="underline">Cleaning Up</span></a></p>
+<p><a href="#automatic-categorization"><span class="underline">Automatic Categorization</span></a></p>
+<p><a href="#cleaning-up-payees"><span class="underline">Cleaning up Payees</span></a></p>
+<p><a href="#future-work"><span class="underline">Future Work</span></a></p>
+<p><a href="#related-discussion-threads"><span class="underline">Related Discussion Threads</span></a></p>
+<p><a href="#historical-note"><span class="underline">Historical Note</span></a></p>
+</blockquote>
+<h2 id="introduction">Introduction<a id="introduction"></a><a class="headerlink" href="#introduction" title="Permanent link"></a></h2>
+<p>This is the user’s manual for the library and tools in Beancount which can help you <strong>automate the importing of external transaction data</strong> into your Beancount input file and manage the documents you download from your financial institutions’ websites.</p>
+<h2 id="the-importing-process">The Importing Process<a id="the-importing-process"></a><a class="headerlink" href="#the-importing-process" title="Permanent link"></a></h2>
+<p>People often wonder how we do this, so let me describe candidly and in more detail what we’re talking about doing here.</p>
+<p>The essence of the task at hand is to transcribe the transactions that occur in a person’s entire set of accounts to a single text file: the Beancount input file. Having the entire set of transactions ingested in a single system is what we need to do in order to generate comprehensive reports about one’s wealth and expenses. Some people call this “reconciling”.</p>
+<p>We could transcribe all the transactions manually from paper statements by typing them in. However nowadays most financial institutions have a website where you can download a statement of historical transactions in a number of data formats which you can parse to output Beancount syntax for them.</p>
+<p>Importing transactions from these documents involves:</p>
+<ul>
+<li>
+<p>Manually reviewing the transactions for <strong>correctness</strong> or even fraud;</p>
+</li>
+<li>
+<p><strong>Merging</strong> new transactions with previous transactions imported from another account. For example, a payment from a bank account to pay off one’s credit card will typically be imported from both the bank AND the credit card account. You must manually merge the corresponding transactions together<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
+</li>
+<li>
+<p>Assigning the right <strong>category</strong> to an expense transaction</p>
+</li>
+<li>
+<p><strong>Organizing</strong> your file by moving the resulting directives to the right place in your file.</p>
+</li>
+<li>
+<p><strong>Verifying balances</strong> either visually or inserting a Balance directive which asserts what the final account balance should be after the new transactions are inserted.</p>
+</li>
+</ul>
+<p>If my importers work without bugs, this is a process that takes me 30-60 minutes to update the majority of my active accounts. Less active accounts are updated every quarter or when I feel like it. I tend to do this on Saturday morning maybe twice per month, or sometimes weekly. If you maintain a well-organized input file with lots of assertions, mismatches are easily found, it’s a pleasant and easy process, and after you’re done generating an updated balance sheet is rewarding (I typically re-export to a Google Finance portfolio).</p>
+<h3 id="automating-network-downloads">Automating Network Downloads<a id="automating-network-downloads"></a><a class="headerlink" href="#automating-network-downloads" title="Permanent link"></a></h3>
+<p>The downloading of files is not something I automate, and Beancount provides no tools to connect to the network and fetch your files. There is simply too great a variety of protocols out there to make a meaningful contribution to this problem<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. Given the nature of today's secure websites and the castles of JavaScript used to implement them, it would be a nightmare to implement. Web scraping is probably too much to be a worthwhile, viable solution.</p>
+<p>I <strong>manually</strong> log into the various websites with my usernames &amp; passwords and click the right buttons to generate the downloaded files I need. These files are recognized automatically by the importers and extracting transactions and filing the documents in a well-organized directory hierarchy is automated using the tools described in this document.</p>
+<p>While I’m not scripting the fetching, I think it’s possible to do so on some sites. That work is left for you to implement where you think it’s worth the time.</p>
+<h3 id="typical-downloads">Typical Downloads<a id="typical-downloads"></a><a class="headerlink" href="#typical-downloads" title="Permanent link"></a></h3>
+<p>Here’s a description of the typical kinds of files involved; this describes my use case and what I’ve managed to do. This should give you a qualitative sense of what’s involved.</p>
+<ul>
+<li>
+<p><strong>Credit cards and banks</strong> provide fairly good quality historical statement downloads in OFX or CSV file formats but I need to categorize the other side of those transactions manually and merge some of the transactions together.</p>
+</li>
+<li>
+<p><strong>Investment accounts</strong> provide me with great quality of processable statements and the extraction of purchase transactions is fully automated, but I need to manually edit sales transactions in order to associate the correct cost basis. Some institutions for specialized products (e.g., P2P lending) provide only PDF files and those are translated manually.</p>
+</li>
+<li>
+<p><strong>Payroll stubs and vesting events</strong> are usually provided only as PDFs and I don't bother trying to extract data automatically; I transcribe those manually, keeping the input very regular and with postings in the same order as they appear on the statements. This makes it easier.</p>
+</li>
+<li>
+<p><strong>Cash transactions</strong>: I have to enter those by hand. I only book non-food expenses as individual transactions directly, and for food maybe once every six months I'll count my wallet balance and insert a summarizing transaction for each month to debit away the cash account towards food to make it balance. If you do this, you end up with surprisingly little transactions to type manually, maybe just a few each week (it depends on lifestyle choices, for me this works). When I’m on the go, I just note those on my phone in Google Keep and eventually transcribe them after they accumulate.</p>
+</li>
+</ul>
+<h3 id="extracting-data-from-pdf-files">Extracting Data from PDF Files<a id="extracting-data-from-pdf-files"></a><a class="headerlink" href="#extracting-data-from-pdf-files" title="Permanent link"></a></h3>
+<p>I've made some headway toward converting data from PDF file, which is a common need, but it's incomplete; it turns out that fully automating table extraction from PDF isn't easy in the general case. I have some code that is close to working and will release it when the time is right. Otherwise, the best FOSS solution I’ve found for this is a tool called <a href="http://tabula.technology/"><span class="underline">TabulaPDF</span></a> but you still need to manually identify where the tables of data are located on the page; you may be able to automate some fetching its sister project <a href="https://github.com/tabulapdf/tabula-java"><span class="underline">tabula-java</span></a>.</p>
+<p>Nevertheless, I usually have good success with my importers grepping around PDF statements converted to ugly text in order to identify what institution they are for and extracting the date of issuance of the document.</p>
+<p>Finally, there are a number of different tools used to extract text from PDF documents, such as <a href="https://pypi.python.org/pypi/pdfminer2"><span class="underline">PDFMiner</span></a>, <a href="https://www.libreoffice.org"><span class="underline">LibreOffice</span></a>, the <a href="http://www.tutorialspoint.com/unix_commands/pdftotext.htm"><span class="underline">xpdf</span></a> library, the <a href="https://poppler.freedesktop.org/"><span class="underline">poppler</span></a> library<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> and more... but none of them works consistently on all input documents; you will likely end up installing many and relying on different ones for different input files. For this reason, I’m not requiring a dependency on PDF conversion tools from within Beancount. You should test what works on your specific documents and invoke those tools from your importer implementations.</p>
+<h2 id="tools">Tools<a id="tools"></a><a class="headerlink" href="#tools" title="Permanent link"></a></h2>
+<p>There are three Beancount tools provided to orchestrate the three stages of importing:</p>
+<ol>
+<li>
+<p><a href="http://bitbucket.org/blais/beancount/src/tip/bin/bean-identify"><strong><span class="underline">bean-identify</span></strong></a>: Given a messy list of downloaded files (e.g. in ~/Downloads), automatically identify which of your configured importers is able to handle them and print them out. This is to be used for debugging and figuring out if your configuration is properly associating a suitable importer for each of the files you downloaded;</p>
+</li>
+<li>
+<p><a href="https://bitbucket.org/blais/beancount/src/tip/bin/bean-extract"><strong><span class="underline">bean-extract</span></strong></a>: Extracting transactions and statement date from each file, if at all possible. This produces some Beancount input text to be moved to your input file;</p>
+</li>
+<li>
+<p><a href="https://bitbucket.org/blais/beancount/src/tip/bin/bean-file"><strong><span class="underline">bean-file</span></strong></a>: Filing away the downloaded files to a directory hierarchy which mirrors the chart of accounts, for preservation, e.g. in a personal git repo. The filenames are cleaned, the files are moved and an appropriate statement date is prepended to each of them so that Beancount may produce corresponding Document directives.</p>
+</li>
+</ol>
+<h3 id="invocation">Invocation<a id="invocation"></a><a class="headerlink" href="#invocation" title="Permanent link"></a></h3>
+<p>All tools accept the same input parameters:</p>
+<pre><code>bean-&lt;tool&gt; &lt;config&gt; &lt;downloads-dir&gt;
+</code></pre>
+<p>For example,</p>
+<pre><code>bean-extract blais.config ~/Downloads
+</code></pre>
+<p>The filing tool accepts an extra option that lets the user decide where to move the files, e.g.,</p>
+<pre><code>bean-file -o ~/accounting/documents blais.config ~/Downloads
+</code></pre>
+<p>Its default behavior is to move the files to the same directory as that of the configuration file.</p>
+<h2 id="configuration">Configuration<a id="configuration"></a><a class="headerlink" href="#configuration" title="Permanent link"></a></h2>
+<p>The tools introduced previously orchestrate the processes, but they don’t do all that much of the concrete work of groking the individual downloads themselves. They call methods on importer objects. You must provide a list of such importers; this list is the configuration for the importing process (without it, those tools don’t do anything useful).</p>
+<p>For each file found, each of the importers is called to assert whether it can or cannot handle that file. If it deems that it can, methods can be called to produce a list of transactions, extract a date, or produce a cleaned up filename for the downloaded file.</p>
+<p>The configuration should be a Python3 module in which you instantiate the importers and assign the list to the module-level “CONFIG” variable, like this:</p>
+<pre><code>#!/usr/bin/env python3
+from myimporters.bank import acmebank
+from myimporters.bank import chase
+…
+
+CONFIG = [
+  acmebank.Importer(),
+  chase.Importer(),
+  …
+]
+</code></pre>
+<p>Of course, since you’re crafting a Python script, you can insert whatever other code in there you like. All that matters is that this “CONFIG” variable refer to a list of objects which comply with the importer protocol (described in the next section). Their order does not matter.</p>
+<p>In particular, it’s a good idea to write your importers as generically as possible and to parameterize them with the particular account names you use in your input file. This helps keep your code independent of the particular accounts and forces you to define logical accounts, and I’ve found that this helps with clarity.</p>
+<p>Or not… at the end of the day, these importer codes live in some of your own personal place, not with Beancount. If you so desire, you can keep them as messy and unshareable as you like.</p>
+<h3 id="configuring-from-an-input-file">Configuring from an Input File<a id="configuring-from-an-input-file"></a><a class="headerlink" href="#configuring-from-an-input-file" title="Permanent link"></a></h3>
+<p>An interesting idea that I haven’t tested yet is to use one’s Beancount input file to infer the configuration of importers. If you want to try this out and hack something, you can load your input file from the import configuration Python config, by using the API’s beancount.loader.load_file() function.</p>
+<h2 id="writing-an-importer">Writing an Importer<a id="writing-an-importer"></a><a class="headerlink" href="#writing-an-importer" title="Permanent link"></a></h2>
+<p>Each of the importers must comply with a particular protocol and implement at least some of its methods. The full detail of this protocol is best found in the source code itself: <a href="https://bitbucket.org/blais/beancount/src/tip/beancount/ingest/importer.py"><span class="underline">importer.py</span></a>. The tools above will take care of finding the downloads and invoking the appropriate methods on your importer objects.</p>
+<p>Here’s a brief summary of the methods you need to, or may want to, implement:</p>
+<ul>
+<li>
+<p>name(): This method provides a unique id for each importer instance. It’s convenient to be able to refer to your importers with a unique name; it gets printed out by the identification process, for instance.</p>
+</li>
+<li>
+<p>identify(): This method just returns true if this importer can handle the given file. You must implement this method, and all the tools invoke it to figure out the list of (file, importer) pairs.</p>
+</li>
+<li>
+<p>extract(): This is called to attempt to extract some Beancount directives from the file contents. It must create the directives by instantiating the objects defined in beancount.core.data and return them.</p>
+</li>
+<li>
+<p>file_account(): This method returns the root account associated with this importer. This is where the downloaded file will be moved by the filing script</p>
+</li>
+<li>
+<p>file_date(): If a date can be extracted from the statement’s contents, return it here. This is useful for dated PDF statements… it’s often possible using regular expressions to grep out the date from a PDF converted to text. This allows the filing script to prepend a relevant date instead of using the date when the file was downloaded (the default).</p>
+</li>
+<li>
+<p>file_name(): It’s most convenient not to bother renaming downloaded files. Oftentimes, the files generated from your bank either all have a unique name and they end up getting renamed by your browser when you download multiple ones and the names collide. This function is used for the importer to provide a “nice” name to file the download under.</p>
+</li>
+</ul>
+<p>So basically, you create some module somewhere on your PYTHONPATH—anywhere you like, somewhere private—and you implement a class, something like this:</p>
+<pre><code>from beancount.ingest import importer
+
+class Importer(importer.ImporterProtocol):
+
+    def identify(self, file):
+        …
+
+    # Override other methods…
+</code></pre>
+<p>Typically I create my importer module files in directories dedicated to each importer, so that I can place example input files all in that directory for regression testing.</p>
+<h3 id="regression-testing-your-importers">Regression Testing your Importers<a id="regression-testing-your-importers"></a><a class="headerlink" href="#regression-testing-your-importers" title="Permanent link"></a></h3>
+<p>I've found over time that regression testing is <em>key</em> to maintaining your importer code working. Importers are often written against file formats with no official spec and unexpected surprises routinely occur. For example, I have XML files with some unescaped "&amp;" characters, which require a custom fix just for that bank<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>. I’ve also witnessed a discount brokerage switching its dates format between MM/DD/YY and DD/MM/YY; that importer now needs to be able to handle both types. So you make the necessary adjustment, and eventually you find out that something else breaks; this isn’t great. And the timing is particularly annoying: usually things break when you’re trying to update your ledger: you have other things to do.</p>
+<p>The easiest, laziest and most relevant way to test those importers is to use some <strong>real data files</strong> and compare what your importer extracts from them to expected outputs. For the importers to be at least somewhat reliable, you really need to be able to reproduce the extractions on a number of real inputs. And since the inputs are so unpredictable and poorly defined, it’s not practical to write exhaustive tests on what they could be. In practice, I have to make at least <em>some</em> fix to <em>some</em> of my importers every couple of months, and with this process, it only sinks about a half-hour of my time: I add the new downloaded file which causes breakage to the importer directory, I fix the code by running it there locally as a test. And I also run the tests over <em>all</em> the previously downloaded test inputs in that directory (old and new) to ensure my importer is still working as intended on the older files.</p>
+<p>There is some support for automating this process in <a href="https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/ingest/regression.py"><span class="underline">beancount.ingest.regression</span></a>. What we want is some routine that will list the importer’s package directory, identify the input files which are to be used for testing, and generate a suite of unit tests which compares the output produced by importer methods to the contents of “expected files” placed next to the test file.</p>
+<p>For example, given a package with an implementation of an importer and two sample input files:</p>
+<pre><code>/home/joe/importers/acmebank/__init__.py   &lt;- code goes here
+/home/joe/importers/acmebank/sample1.csv
+/home/joe/importers/acmebank/sample2.csv
+</code></pre>
+<p>You can place this code in the Python module (the __init__.py file):</p>
+<pre><code>from beancount.ingest import regression
+…
+def test():
+    importer = Importer(...)
+    yield from regression.compare_sample_files(importer)
+</code></pre>
+<p>If your importer overrides the extract() and file_date() methods, this will generate four unit tests which get run automatically by <a href="https://nose.readthedocs.org/en/latest/"><span class="underline">nosetests</span></a>:</p>
+<ol>
+<li>
+<p>A test which calls extract() on sample1.csv, prints the extracted entries to a string, and compares this string with the contents of sample1.csv.extract</p>
+</li>
+<li>
+<p>A test which calls file_date() on sample1.csv and compares the date with the one found in the sample1.csv.file_date file.</p>
+</li>
+<li>
+<p>A test like (1) but on sample2.csv</p>
+</li>
+<li>
+<p>A test like (2) but on sample2.csv</p>
+</li>
+</ol>
+<h4 id="generating-test-input">Generating Test Input<a id="generating-test-input"></a><a class="headerlink" href="#generating-test-input" title="Permanent link"></a></h4>
+<p>At first, the files containing the expected outputs do not exist. When an expected output file is absent like this, the regression tests automatically generate those files from the extracted output. This would result in the following list of files:</p>
+<pre><code>/home/joe/importers/acmebank/__init__.py   &lt;- code goes here
+/home/joe/importers/acmebank/sample1.csv
+/home/joe/importers/acmebank/sample1.csv.extract
+/home/joe/importers/acmebank/sample1.csv.file_date
+/home/joe/importers/acmebank/sample2.csv
+/home/joe/importers/acmebank/sample2.csv.extract
+/home/joe/importers/acmebank/sample2.csv.file_date
+</code></pre>
+<p>You should inspect the contents of the expected output files to visually assert that they represent the contents of the downloaded files.</p>
+<p>If you run the tests again with those files present, the expected output files will be used as inputs to the tests. If the contents differ in the future, the test will fail and an error will be generated. (You can test this out now if you want, by manually editing and inserting some unexpected data in one of those files.)</p>
+<p>When you edit your source code, you can always re-run the tests to make sure it still works on those older files. When a newly downloaded file fails, you repeat the process above: You make a copy of it in that directory, fix the importer, run it, check the expected files. That’s it<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>.</p>
+<h4 id="making-incremental-improvements">Making Incremental Improvements<a id="making-incremental-improvements"></a><a class="headerlink" href="#making-incremental-improvements" title="Permanent link"></a></h4>
+<p>Sometimes I make improvements to the importers that result in more or better output being generated even in the older files, so that all the old tests will now fail. A good way to deal with this is to keep all of these files under source control, locally delete all the expected files, run the tests to regenerate new ones, and then diff against the most recent commit to check that the changes are as expected.</p>
+<h3 id="caching-data">Caching Data<a id="caching-data"></a><a class="headerlink" href="#caching-data" title="Permanent link"></a></h3>
+<p>Some of the data conversions for binary files can be costly and slow. This is usually the case for converting PDF files to text<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>. This is particularly painful, since in the process of ingesting our downloaded data we’re typically going to run the tools multiple times—at least twice if everything works without flaw: once to extract, twice to file—and usually many more times if there are problems. For this reason, we want to cache these conversions, so that a painful 40 second PDF-to-text conversion doesn’t have to be run twice, for example.</p>
+<p>Beancount aims to provide two levels of caching for conversions on downloaded files:</p>
+<ol>
+<li>
+<p>An in-memory caching of conversions so that multiple importers requesting the same conversion runs them only once, and</p>
+</li>
+<li>
+<p>An on-disk caching of conversions so that multiple invocations of the tools get reused.</p>
+</li>
+</ol>
+<h4 id="in-memory-caching">In-Memory Caching<a id="in-memory-caching"></a><a class="headerlink" href="#in-memory-caching" title="Permanent link"></a></h4>
+<p>In-memory caching works like this: Your methods receive a wrapper object for a given file and invoke the wrapper’s convert() method, providing a converter callable/function.</p>
+<pre><code>class MyImporter(ImporterProtocol):
+    ...
+    def extract(self, file):
+        text = file.convert(slow_convert_pdf_to_text)
+        match = re.search(..., text)
+</code></pre>
+<p>This conversion is automatically memoized: if two importers or two different methods use the same converter on the file, the conversion is only run once. This is a simple way of handling redundant conversions in-memory. Make sure to always call those through the .convert() method and share the converter functions to take advantage of this.</p>
+<h4 id="on-disk-caching">On-Disk Caching<a id="on-disk-caching"></a><a class="headerlink" href="#on-disk-caching" title="Permanent link"></a></h4>
+<p>At the moment. Beancount only implements (1). On-disk caching will be implemented later. <em>Track this <a href="https://bitbucket.org/blais/beancount/issues/113/implement-on-disk-caching-of-conversions"><span class="underline">ticket</span></a> for status updates.</em></p>
+<h2 id="organizing-your-files">Organizing your Files<a id="organizing-your-files"></a><a class="headerlink" href="#organizing-your-files" title="Permanent link"></a></h2>
+<p>The tools described in this document are pretty flexible in terms of letting you specify</p>
+<ul>
+<li>
+<p><strong>Import configuration</strong>: The Python file which provides the list of importer objects as a configuration;</p>
+</li>
+<li>
+<p><strong>Importers implementation</strong>: The Python modules which implement the individual importers and their regression testing files;</p>
+</li>
+<li>
+<p><strong>Downloads directory</strong>: Which directory the downloaded files are to be found in;</p>
+</li>
+<li>
+<p><strong>Filing directory</strong>: Which directory the downloaded files are intended to be filed to.</p>
+</li>
+</ul>
+<p>You can specify these from any location you want. Despite this, some people are often asking how to organize their files, so I provide a template example under beancount/examples/ingest/office, and I describe this here.</p>
+<p>I recommend that you create a Git or Mercurial<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup> source-controlled repository following this structure:</p>
+<pre><code>office
+├── documents
+│   ├── Assets
+│   ├── Liabilities
+│   ├── Income
+│   └── Expenses
+├── importers
+│   ├── __init__.py
+│   └── … 
+│       ├── __init__.py
+│       ├── sample-download-1.csv
+│       ├── sample-download-1.extract
+│       ├── sample-download-1.file_date
+│       └── sample-download-1.file_name
+├── personal.beancount
+└── personal.import
+</code></pre>
+<p>The root “office” directory is your repository. It contains your ledger file (“personal.beancount”), your importer configuration (“personal.import”), your custom importers source code (“importers/”) and your history of documents (“documents/”), which should be well-organized by bean-file. You always run the commands from this root directory.</p>
+<p>An advantage of storing your documents in the same repository as your importers source code is that you can just symlink your regression tests to some files under the documents/ directory.</p>
+<p>You can check your configuration by running identify:</p>
+<pre><code>bean-identify example.import ~/Downloads
+</code></pre>
+<p>If it works, you can extract transactions from your downloaded files at once:</p>
+<pre><code>bean-extract -e example.beancount example.import ~/Downloads &gt; tmp.beancount
+</code></pre>
+<p>You then open tmp.beancount and move its contents to your personal.beancount file.</p>
+<p>Once you’re finished, you can stash away the downloaded files for posterity like this:</p>
+<pre><code>bean-file example.import ~/Downloads -o documents
+</code></pre>
+<p>If my importers work, I usually don’t even bother opening those files. You can use the --dry-run option to test moving destinations before doing so.</p>
+<p>To run the regression tests of the custom importers, use the following command:</p>
+<pre><code>pytest -v importers
+</code></pre>
+<p>Personally, I have a Makefile in my root directory with these targets to make my life easier. Note that you will have to install “pytest”, which is a test runner; it is often packaged as “python3-pytest” or “pytest”.</p>
+<h2 id="example-importers">Example Importers<a id="example-importers"></a><a class="headerlink" href="#example-importers" title="Permanent link"></a></h2>
+<p>Beyond the documentation above, I cooked up an example importer for a made-up CSV file format for a made-up investment account. See <a href="https://bitbucket.org/blais/beancount/src/tip/examples/ingest/office/importers/utrade/"><span class="underline">this directory</span></a>.</p>
+<p>There’s also an example of an importer which uses an external tool (PDFMiner2) to convert a PDF file to text to identify it and to extract the statement date from it. See <a href="https://bitbucket.org/blais/beancount/src/tip/examples/ingest/office/importers/acme/"><span class="underline">this directory</span></a>.</p>
+<p>Beancount also comes with some very basic generic importers. See <a href="https://bitbucket.org/blais/beancount/src/tip/beancount/ingest/importers/"><span class="underline">this directory</span></a>.</p>
+<ul>
+<li>
+<p>There is a simple OFX importer that has worked for me for a long time. Though it’s pretty simple, I’ve used it for years, it’s good enough to pull info out of most credit card accounts.</p>
+</li>
+<li>
+<p>There are also a couple of mixin classes you can mix into your importer implementation to make it more convenient; these are relics from the LedgerHub project—you don’t really need to use them—which can help in the transition to it.</p>
+</li>
+</ul>
+<p>Eventually I plan to build and provide a generic CSV file parser in this framework, as well as a parser for QIF files which should allow one to transition from Quicken to Beancount. (I need example inputs to do this; if you’re comfortable sharing your file I could use it to build this, as I don’t have any real input, I don’t use Quicken.) It would also be nice to build a converter from GnuCash at some point; this would go here as well.</p>
+<h2 id="cleaning-up">Cleaning Up<a id="cleaning-up"></a><a class="headerlink" href="#cleaning-up" title="Permanent link"></a></h2>
+<h3 id="automatic-categorization">Automatic Categorization<a id="automatic-categorization"></a><a class="headerlink" href="#automatic-categorization" title="Permanent link"></a></h3>
+<p>A frequently asked question and common idea from first-time users is “How do I automatically assign a category to transactions I’ve imported which have only one side?” For example, importing transactions from a credit card account usually provides only one posting, like this:</p>
+<pre><code>2016-03-18 * "UNION MARKET"
+  Liabilities:US:CreditCard    -12.99 USD
+</code></pre>
+<p>For which you must manually insert an Expenses posting, like this:</p>
+<pre><code>2016-03-18 * "UNION MARKET"
+  Liabilities:US:CreditCard    -12.99 USD
+  Expenses:Food:Grocery
+</code></pre>
+<p>People often have the impression that it is time-consuming to do this.</p>
+<p>My standard answer is that while it would be fun to have, if you have a text editor with account name completion configured properly, it’s a breeze to do this manually and you don’t really need it. You wouldn’t save much time by automating this away. And personally I like to go over each of the transactions to check what they are and sometimes add comments (e.g., who I had dinner with, what that Amazon charge was for, etc.) and that’s when I categorize.</p>
+<p>It’s something that could eventually be solved by letting the user provide some simple rules, or by using the history of past transactions to feed into a simple learning classifier.</p>
+<p><em>Beancount does not currently provide a mechanism to automatically categorize transactions. You can build this into your importer code. I want to provide a hook for the user to register a completion function that could run across all the importers where you could hook that code in.</em></p>
+<h3 id="cleaning-up-payees">Cleaning up Payees<a id="cleaning-up-payees"></a><a class="headerlink" href="#cleaning-up-payees" title="Permanent link"></a></h3>
+<p>The payees that one can find in the downloads are usually ugly names:</p>
+<ul>
+<li>
+<p>They are sometimes the legal names of the business, which often does not reflect the street name of the place you went, for various reasons. For example, I recently ate at a restaurant called the “Lucky Bee” in New York, and the memo from the OFX file was “KING BEE”.</p>
+</li>
+<li>
+<p>The names are sometimes abbreviation or contain some crud. In the previous example, the actual memo was “KING BEE NEW YO”, where “NEW YO” is a truncated location string.</p>
+</li>
+<li>
+<p>The amount of ugliness is inconsistent between data sources.</p>
+</li>
+</ul>
+<p>It would be nice to be able to normalize the payee names by translating them at import time. I think you can do most of it using some simple rules mapping regular expressions to names provided by the user. There’s really no good automated way to obtain the “clean name” of the payee.</p>
+<p><em>Beancount does not provide a hook for letting you do this this yet. It will eventually. You could also build a plugin to rename those accounts when loading your ledger. I’ll build that too—it’s easy and would result in much nicer output.</em></p>
+<h2 id="future-work">Future Work<a id="future-work"></a><a class="headerlink" href="#future-work" title="Permanent link"></a></h2>
+<p>A list of things I’d really want to add, beyond fortifying what’s already there:</p>
+<ul>
+<li>
+<p>A generic, configurable CSV importer which you can instantiate. I plan to play with this a bit and build a sniffer that could automatically figure out the role of each column.</p>
+</li>
+<li>
+<p>A hook to allow you to register a callback for post-processing transactions that works across all importers.</p>
+</li>
+</ul>
+<h2 id="related-discussion-threads">Related Discussion Threads<a id="related-discussion-threads"></a><a class="headerlink" href="#related-discussion-threads" title="Permanent link"></a></h2>
+<ul>
+<li>
+<p><a href="https://groups.google.com/d/msg/ledger-cli/u648SA1o-Ek/DzZmu8wVCAAJ"><span class="underline">Getting started; assigning accounts to bank .csv data</span></a></p>
+</li>
+<li>
+<p><a href="https://groups.google.com/d/msg/beancount/qFZvGBLuJos/WSaNY0sEc-wJ"><span class="underline">Status of LedgerHub… how can I get started?</span></a></p>
+</li>
+<li>
+<p><a href="https://groups.google.com/d/msg/ledger-cli/n_WNc-tZabU/sh09irl-C-kJ"><span class="underline">Rekon wants your CSV files</span></a></p>
+</li>
+</ul>
+<h2 id="historical-note">Historical Note<a id="historical-note"></a><a class="headerlink" href="#historical-note" title="Permanent link"></a></h2>
+<p>There once was a first implementation of the process described in this document. The project was called LedgerHub and has been decommissioned in February 2016, rewritten and the resulting code integrated in Beancount itself, into this <a href="https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/ingest/"><span class="underline">beancount.ingest</span></a> library. The original project was intended to include the implementation of various importers to share them with other people, but this sharing was not very successful, and so the rewrite includes only the scaffolding for building your own importers and invoking them, and only a very limited number of example importer implementations.</p>
+<p>Documents about LedgerHub are preserved, and can help you understand the origins and design choices for Beancount’s importer support. They can be found here:</p>
+<ul>
+<li>
+<p><a href="25_ledgerhub_design_doc.html"><span class="underline">Original design</span></a></p>
+</li>
+<li>
+<p><a href="http://furius.ca/beancount/doc/ledgerhub/manual"><span class="underline">Original instructions &amp; final status</span></a> (the old version of this doc)</p>
+</li>
+<li>
+<p><a href="http://furius.ca/beancount/doc/ledgerhub/postmortem"><span class="underline">An analysis of the reasons why it the project was terminated</span></a> (post-mortem)</p>
+</li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>There are essentially three conceptual modes of entering such transactions: (1) a user crafts a single transaction manually, (2) another where a user inputs the two sides as a single transaction to transfer accounts, and (3) the two separate transactions get merged into a single one automatically. These are dual modes of each other. The twist in this story is that the same transaction often posts at different dates in each of its accounts. Beancount currently [March 2016] does not support multiple dates for a single transaction’s postings, but a discussion is ongoing to implement support for these input modes. See <a href="28_settlement_dates_in_beancount.html"><span class="underline">this document</span></a> for more details.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>The closest to universal downloader you will find in the free software world is <a href="https://github.com/captin411/ofxclient"><span class="underline">ofxclient</span></a> for OFX files, and in the commercial world, <a href="http://www.yodlee.com/"><span class="underline">Yodlee</span></a> provides a service that connects to many financial institutions.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>The ‘pdftotext’ utility in poppler provides the useful ‘-layout’ flag which outputs a text file without mangling tables, which can be helpful in the normal case of ‘transaction-per-row’&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>After sending them a few detailed emails about this and getting no response nor seeing any change in the downloaded files, I have given up on them fixing the issue.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>As you can see, this process is partly why I don’t share my importers code. It requires the storage of way too much personal data in order to keep them working.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:6">
+<p>I don’t really understand why, since opening them up for viewing is almost instant, but nearly all the tools to convert them to other formats are vastly slower.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:7">
+<p>I personally much prefer Mercurial for the clarity of its commands and output and its extensibility, but an advantage of Git’s storage model is that moving files within it comes for free (no extra copy is stored). Moving files in a Mercurial repository costs you a bit in storage space. And if you rename accounts or change how you organize your files you will end up potentially copying many large files.&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="18_command_line_accounting_cookbook.html" class="btn btn-neutral float-right" title="Command Line Accounting Cookbook">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="16_fetching_prices_in_beancount.html" class="btn btn-neutral" title="Fetching Prices in Beancount"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/xuhcc/beancount-docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="16_fetching_prices_in_beancount.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="18_command_line_accounting_cookbook.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+
+</body>
+</html>

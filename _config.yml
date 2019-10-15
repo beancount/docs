@@ -1,0 +1,5 @@
+theme: jekyll-theme-cayman
+title: Beancount Documentation
+description: Auto-generated markdown version
+kramdown:
+  gfm_quirks: [paragraph_end, no_auto_typographic]

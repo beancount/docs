@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Getting Started with Beancount - Beancount Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Getting Started with Beancount";
+    var mkdocs_page_input_path = "05_getting_started_with_beancount.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="icon icon-home"> Beancount Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="index.html">Index</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Outline</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <span class="caption-text">Documentation for Users</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="01_command_line_accounting_in_context.html">Command Line Accounting in Context</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="02_the_double_entry_counting_method.html">The Double Entry Counting Method</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="03_installing_beancount.html">Installing Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="04_running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
+                </li>
+                <li class="toctree-l3 current">
+                    
+    <a class="current" href="05_getting_started_with_beancount.html">Getting Started with Beancount</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l4"><a href="#getting-started-with-beancount">Getting Started with Beancount</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l5" href="#introduction">Introduction</a></li>
+        
+            <li><a class="toctree-l5" href="#editor-support">Editor Support</a></li>
+        
+            <li><a class="toctree-l5" href="#creating-your-first-input-file">Creating your First Input File</a></li>
+        
+            <li><a class="toctree-l5" href="#brief-syntax-overview">Brief Syntax Overview</a></li>
+        
+            <li><a class="toctree-l5" href="#validating-your-file">Validating your File</a></li>
+        
+            <li><a class="toctree-l5" href="#viewing-the-web-interface">Viewing the Web Interface</a></li>
+        
+            <li><a class="toctree-l5" href="#how-to-organize-your-file">How to Organize your File</a></li>
+        
+            <li><a class="toctree-l5" href="#de-duping">De-duping</a></li>
+        
+            <li><a class="toctree-l5" href="#padding">Padding</a></li>
+        
+            <li><a class="toctree-l5" href="#whats-next">What’s Next?</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="06_beancount_language_syntax.html">Beancount Language Syntax</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="07_beancount_options_reference.html">Beancount Options Reference</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="08_precision_tolerances.html">Precision Tolerances</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="09_beancount_query_language.html">Beancount Query Language</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="10_beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="11_how_inventories_work.html">How Inventories Work</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="12_exporting_your_portfolio.html">Exporting Your Portfolio</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="13_tutorial_example.html">Tutorial & Example</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="14_beancount_history_and_credits.html">Beancount History and Credits</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="15_a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="16_fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="17_importing_external_data.html">Importing External Data</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Cookbooks & Examples</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="18_command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="19_trading_with_beancount.html">Trading with Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="20_stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="21_sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="22_how_we_share_expenses.html">How We Share Expenses</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Documentation for Developers</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="23_beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="24_beancount_design_doc.html">Beancount Design Doc</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="25_ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="26_external_contributions.html">External Contributions</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Enhancement Proposals & Discussions</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="27_a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="28_settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="29_balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="30_fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="31_rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Beancount Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Documentation for Users &raquo;</li>
+        
+      
+        
+          <li>Outline &raquo;</li>
+        
+      
+    
+    <li>Getting Started with Beancount</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/xuhcc/beancount-docs/edit/master/docs/05_getting_started_with_beancount.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="getting-started-with-beancount">Getting Started with Beancount<a id="title"></a><a class="headerlink" href="#getting-started-with-beancount" title="Permanent link"></a></h1>
+<p><a href="mailto:blais@furius.ca"><span class="underline">Martin Blais</span></a>, July 2014</p>
+<p><a href="http://furius.ca/beancount/doc/getting-started"><span class="underline">http://furius.ca/beancount/doc/getting-started</span></a></p>
+<h2 id="introduction">Introduction<a id="introduction"></a><a class="headerlink" href="#introduction" title="Permanent link"></a></h2>
+<p>This document is a gentle guide to creating your first Beancount file, initializing it with some options, some guidelines for how to organize your file, and instructions for declaring accounts and making sure their initial balance does not raise errors. It also contains some material on configuring the Emacs text editor, if you use that.</p>
+<p>You will probably want to have read some of the <a href="06_beancount_language_syntax.html"><span class="underline">User’s Manual</span></a> first in order to familiarize yourself with the syntax and kinds of available directives, or move on to the <a href="18_command_line_accounting_cookbook.html"><span class="underline">Cookbook</span></a> if you’ve already setup a file or know how to do that. If you’re familiar with Ledger, you may want to read up on the <a href="15_a_comparison_of_beancount_and_ledger_hledger.html"><span class="underline">differences between Ledger and Beancount</span></a> first.</p>
+<h2 id="editor-support">Editor Support<a id="editor-support"></a><a class="headerlink" href="#editor-support" title="Permanent link"></a></h2>
+<h3 id="emacs">Emacs<a id="emacs"></a><a class="headerlink" href="#emacs" title="Permanent link"></a></h3>
+<p>First, you will want a bit of support for your text editor. I’m using Emacs, so I’ll explain my setup for this, but certainly you can use any text editor to compose your input file.</p>
+<p>Beancount’s Emacs support provides a <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Minor-Modes.html"><em><span class="underline">Minor Mode</span></em></a> (as opposed to a <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Major-Modes.html"><em><span class="underline">Major Mode</span></em></a>) on purpose, so that you can combine it with your favorite text editing mode. I like to use <a href="http://orgmode.org/"><em><span class="underline">Org-Mode</span></em></a>, which is an outline mode for Emacs which allows you to fold and unfold its sections to view the outline of your document. This makes it much easier to edit a very long text file. (I don’t use Org-Mode’s literal programming blocks, I only use it to fold and unfold sections of text.)</p>
+<p>You can configure Emacs to automatically open files with a “.beancount” extension to enable beancount-mode by adding this code to your ~/.emacs file:</p>
+<pre><code>(add-to-list 'load-path "/path/to/beancount/src/elisp")
+(require 'beancount)
+(add-to-list 'auto-mode-alist '("\\.beancount\\'" . beancount-mode))
+</code></pre>
+<p><a href="https://bitbucket.org/blais/beancount/src/tip/editors/emacs/beancount.el"><span class="underline">Beancount-mode</span></a> provides some nice editing features:</p>
+<ul>
+<li>
+<p>In order to quickly and painlessly insert account names, you need completion on the account names. You will probably get frustrated with all the typing if you don’t have completion. Beancount-mode automatically recognizes account names already present in the input file (refresh the list with “C-c r”) and you can insert a new account name with ”C-c ‘”.</p>
+</li>
+<li>
+<p>It’s also nice to align the amounts in a transaction nicely; this formatting can be done automatically with “C-c ;” with the cursor on the transaction you want to align.</p>
+</li>
+</ul>
+<h3 id="vim">Vim<a id="vim"></a><a class="headerlink" href="#vim" title="Permanent link"></a></h3>
+<p>Nathan Grigg implement support for vim in <a href="https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fnathangrigg%2Fvim-beancount&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFgEjRsUHfpvOFxn8gD4-c_eK_wsA"><span class="underline">this github repo</span></a>. It supports:</p>
+<ul>
+<li>
+<p>Syntax highlighting (not exhaustive, but all the basics)</p>
+</li>
+<li>
+<p>Account name completion (using omnifunc, C-X C-O)</p>
+</li>
+<li>
+<p>Aligning the decimal points across transactions (:AlignCommodity)</p>
+</li>
+</ul>
+<h3 id="sublime">Sublime<a id="sublime"></a><a class="headerlink" href="#sublime" title="Permanent link"></a></h3>
+<p>Support for <a href="https://sublime.wbond.net/packages/Beancount"><span class="underline">editing with Sublime</span></a> has been contributed by <a href="https://groups.google.com/d/msg/beancount/WvlhcCjNl-Q/s4wOBQnRVxYJ"><span class="underline">Martin Andreas Andersen</span></a>. See <a href="https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fdraug3n%2Fsublime-beancount&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNExx6wdX5QF1hnixgHcKJV-5XJwMA"><span class="underline">his github repo</span></a>.</p>
+<h2 id="creating-your-first-input-file">Creating your First Input File<a id="creating-your-first-input-file"></a><a class="headerlink" href="#creating-your-first-input-file" title="Permanent link"></a></h2>
+<p>To get started, let’s create a minimal input file with two accounts and a single transaction. Enter or copy the following input to a text file:</p>
+<pre><code>2014-01-01 open Assets:Checking
+2014-01-01 open Equity:Opening-Balances
+
+2014-01-02 * "Deposit"
+  Assets:Checking           100.00 USD
+  Equity:Opening-Balances
+</code></pre>
+<h2 id="brief-syntax-overview">Brief Syntax Overview<a id="brief-syntax-overview"></a><a class="headerlink" href="#brief-syntax-overview" title="Permanent link"></a></h2>
+<p>A few notes and an ultra brief overview of the Beancount syntax:</p>
+<ul>
+<li>
+<p>Currencies must be entirely in capital letters (allowing numbers and some special characters, like “_” or “-”). Currency symbols (such as $ or €) are not supported.</p>
+</li>
+<li>
+<p>Account names do not admit spaces (though you can use dashes), and must have at least two components, separated by colons.</p>
+</li>
+<li>
+<p>Description strings must be quoted, like this: "AMEX PMNT".</p>
+</li>
+<li>
+<p>Dates are only parsed in ISO8601 format, that is, YYYY-MM-DD.</p>
+</li>
+<li>
+<p>Tags must begin with “#”, and links with “^”.</p>
+</li>
+</ul>
+<p>For a complete description of the syntax, visit the <a href="06_beancount_language_syntax.html"><span class="underline">User’s Manual</span></a>.</p>
+<h2 id="validating-your-file">Validating your File<a id="validating-your-file"></a><a class="headerlink" href="#validating-your-file" title="Permanent link"></a></h2>
+<p>The purpose of Beancount is to produce reports from your input file (either on the console or serve via its web interface). However, there is a tool that you can use to simply load its contents and make some validation checks on it, to ensure that your input does not contain errors. Beancount can be quite strict; this is a tool that you use while you’re entering your data to ensure that your input file is legal. The tool is called “bean-check” and you invoke it like this:</p>
+<pre><code>bean-check /path/to/your/file.beancount
+</code></pre>
+<p>Try it now on the file you just created from the previous section. It should exit with no output. If there are errors, they will be printed on the console. The errors are printed out in a format that Emacs recognizes by default, so you can use Emacs’ next-error and previous-error built-in functions to move the cursor to the location of the problem.</p>
+<h2 id="viewing-the-web-interface">Viewing the Web Interface<a id="viewing-the-web-interface"></a><a class="headerlink" href="#viewing-the-web-interface" title="Permanent link"></a></h2>
+<p>A convenient way to view reports is to bring up the “bean-web” tool on your input file. Try it:</p>
+<pre><code>bean-web /path/to/your/file.beancount
+</code></pre>
+<p>You can then point a web browser to <a href="http://localhost:8080"><span class="underline">http://localhost:8080</span></a> and click your way around the various reports generated by Beancount. You can then modify the input file and reload the web page your browser is pointing to—bean-web will automatically reload the file contents.</p>
+<p>At this point, you should probably read some of the <a href="06_beancount_language_syntax.html"><span class="underline">Language Syntax</span></a> document.</p>
+<h2 id="how-to-organize-your-file">How to Organize your File<a id="how-to-organize-your-file"></a><a class="headerlink" href="#how-to-organize-your-file" title="Permanent link"></a></h2>
+<p>In this section we provide general guidelines for how to organize your file. This assumes you’ve read the <a href="06_beancount_language_syntax.html"><span class="underline">Language Syntax</span></a> document.</p>
+<h3 id="preamble-to-your-input-file">Preamble to your Input File<a id="preamble-to-your-input-file"></a><a class="headerlink" href="#preamble-to-your-input-file" title="Permanent link"></a></h3>
+<p>I recommend that you begin with just a single file<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. My file has a header that tells my editor (Emacs) what “mode” to open the file with, followed by some common options:</p>
+<pre><code>;; -*- mode: org; mode: beancount; coding: utf-8; fill-column: 400; -*-
+option "title" "My Personal Ledger"
+option "operating_currency" "USD"
+option "operating_currency" "CAD"
+</code></pre>
+<p>The title options is used in reports. The list of “operating currencies” identify those commodities which you use most commonly as “currencies” and which warrant rendering in their own dedicated columns in reports (this declaration has no other effect on the behavior of any of the calculations).</p>
+<h3 id="sections-declaring-accounts">Sections &amp; Declaring Accounts<a id="sections-declaring-accounts"></a><a class="headerlink" href="#sections-declaring-accounts" title="Permanent link"></a></h3>
+<p>I like to organize my input file in sections that correspond to each real-world account. Each section defines all the accounts related to this real-world account by using an Open directive. For example, this is a checking account:</p>
+<pre><code>2007-02-01 open Assets:US:BofA:Savings              USD
+2007-02-01 open Income:US:BofA:Savings:Interest     USD
+</code></pre>
+<p>I like to declare the currency constraints as much as possible, to avoid mistakes. Also, note how I declare an income account specific to this account. This helps break down income in reporting for taxes, as you will likely receive a tax document in relation to that specific account’s income (in the US this would be a 1099-INT form produced by your bank).</p>
+<p>Here’s what the opening accounts might look like for an investment account:</p>
+<pre><code>2012-03-01 open Assets:US:Etrade:Main:Cash            USD
+2012-03-01 open Assets:US:Etrade:Main:ITOT            ITOT
+2012-03-01 open Assets:US:Etrade:Main:IXUS            IXUS
+2012-03-01 open Assets:US:Etrade:Main:IEFA            IEFA
+2012-03-01 open Income:US:Etrade:Main:Interest        USD
+2012-03-01 open Income:US:Etrade:Main:PnL             USD
+2012-03-01 open Income:US:Etrade:Main:Dividend        USD
+2012-03-01 open Income:US:Etrade:Main:DividendNoTax   USD
+</code></pre>
+<p>The point is that all these accounts are related somehow. The various sections of the cookbook will describe the set of accounts suggested to create for each section.</p>
+<p>Not all sections have to be that way. For example, I have the following sections:</p>
+<ul>
+<li>
+<p><strong>Eternal accounts.</strong> I have a section at the top dedicated to contain special and “eternal” accounts, such as payables and receivables.</p>
+</li>
+<li>
+<p><strong>Daybook.</strong> I have a “daybook” section at the bottom that contains all cash expenses, in chronological order.</p>
+</li>
+<li>
+<p><strong>Expense accounts.</strong> All my expenses accounts (categories) are defined in their own section.</p>
+</li>
+<li>
+<p><strong>Employers.</strong> For each employer I’ve defined a section where I put the entries for their direct deposits, and track vacations, stock vesting and other job-related transactions.</p>
+</li>
+<li>
+<p><strong>Taxes.</strong> I have a section for taxes, organized by taxation year.</p>
+</li>
+</ul>
+<p>You can organize it any way you like, because Beancount doesn’t care about the ordering of declarations.</p>
+<h3 id="closing-accounts">Closing Accounts<a id="closing-accounts"></a><a class="headerlink" href="#closing-accounts" title="Permanent link"></a></h3>
+<p>If a real-world account has closed, or is never going to have any more transactions posted to it, you can declare it “closed” at a particular date by using a Close directive:</p>
+<pre><code>; Moving to another bank.
+2013-06-13 close Assets:US:BofA:Savings
+</code></pre>
+<p>This tells Beancount not to show the account in reports that don’t include any date where it was active. It also avoids errors by triggering an error if you do try to post to it at a later date.</p>
+<h2 id="de-duping">De-duping<a id="de-duping"></a><a class="headerlink" href="#de-duping" title="Permanent link"></a></h2>
+<p>One problem that will occur frequently is that once you have <a href="17_importing_external_data.html"><span class="underline">some sort of code or process</span></a> set up to automatically extract postings from downloaded files, you will end up importing postings which provide two separate sides of the same transaction. An example is the payment of a credit card balance via a transfer from a checking account. If you download the transactions for your checking account, you will extract something like this:</p>
+<pre><code>2014-06-08 * "ONLINE PAYMENT - THANK YOU"
+  Assets:CA:BofA:Checking           -923.24 USD
+</code></pre>
+<p>The credit card download will yield you this:</p>
+<pre><code>2014-06-10 * "AMEX EPAYMENT    ACH PMT"
+  Liabilities:US:Amex:Platinum       923.24 USD
+</code></pre>
+<p>Many times, transactions from these accounts need to be booked to an expense account, but in this case, these are two separate legs of the same transaction: a transfer. When you import one of these, you normally look for the other side and merge them together:</p>
+<pre><code>;2014-06-08 * "ONLINE PAYMENT - THANK YOU"
+2014-06-10 * "AMEX EPAYMENT    ACH PMT"
+  Liabilities:US:Amex:Platinum       923.24 USD
+  Assets:CA:BofA:Checking           -923.24 USD
+</code></pre>
+<p>I often leave one of the description lines in comments—just my choice, Beancount ignores it. Also note that I had to choose one of the two dates. I just choose the one I prefer, as long as it does not break any balance assertion.</p>
+<p>In the case that you would forget to merge those two imported transactions, worry not! That’s what balance assertions are for. Regularly place a balance assertion in either of these accounts, e.g., every time you import, and you will get a nice error if you ended up entering the transaction twice. This is pretty common and after a while it becomes second nature to interpret that compiler error and fix it in seconds.</p>
+<p>Finally, when I know I import just one side of these, I select the other account manually and I mark the posting I know will be imported later with a flag, which tells me I haven’t de-duped this transaction yet:</p>
+<pre><code>2014-06-10 * "AMEX EPAYMENT    ACH PMT"
+  Liabilities:US:Amex:Platinum       923.24 USD
+  ! Assets:CA:BofA:Checking
+</code></pre>
+<p>Later on, when I import the checking account’s transactions and go fishing for the other side of this payment, I will find this and get a good feeling that the world is operating as it should.</p>
+<p>(If you’re interested in more of a discussion around de-duping and merging transaction, see this <a href="28_settlement_dates_in_beancount.html"><span class="underline">feature proposal</span></a>. Also, you might be interested in the <a href="https://www.google.com/url?q=https://github.com/redstreet/beancount_plugins_redstreet&amp;sa=D&amp;ust=1458615376548000&amp;usg=AFQjCNGY-CWtCRP75-3p8Yr02BC_itG76g"><span class="underline">“effective_date” plugin</span></a> external contribution, which splits transactions in two.)</p>
+<h3 id="which-side">Which Side?<a id="which-side"></a><a class="headerlink" href="#which-side" title="Permanent link"></a></h3>
+<p>So if you organize your account in sections the way I suggest above, which section of the file should you leave such “merged” transactions in, that is, transactions that involve two separate accounts? Well, it’s your call. For example, in the case of a transfer between two accounts organized such that they have their own dedicated sections, it would be nice to be able to leave both transactions there so that when you edit your input file you see them in either section, but unfortunately, the transaction must occur in only one place in your document. You have to choose one.</p>
+<p>Personally I’m a little careless about being consistent which of the section I choose to leave the transaction in; sometimes I choose one section of my input file, or that of the other account, for the same pair of accounts. It hasn’t been a problem, as I use Emacs and i-search liberally which makes it easy to dig around my gigantic input file. If you want to keep your input more tidy and organized, you could come up with a rule for yourself, e.g. “credit card payments are always left in the paying account’s section, not in the credit card account’s section”, or perhaps you could leave the transaction in both sections and comment one out<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
+<h2 id="padding">Padding<a id="padding"></a><a class="headerlink" href="#padding" title="Permanent link"></a></h2>
+<p>If you’re just starting out—and you probably are if you’re reading this—you will have no historical data. This means that the balances of your Assets and Liabilities accounts in Beancount will all be zero. But the first thing you should want to do after defining some accounts is establish a balance sheet and bring those amounts to their actual current value.</p>
+<p>Let’s take your checking account as an example, say you opened it a while back. You don’t remember exactly when, so let’s use an approximate date:</p>
+<pre><code>2000-05-28 open Assets:CA:BofA:Checking  USD
+</code></pre>
+<p>The next thing you do is look up your current balance and put a balance assertion for the corresponding amount:</p>
+<pre><code>2014-07-01 balance Assets:CA:BofA:Checking    1256.35 USD
+</code></pre>
+<p>Running Beancount on just this will correctly produce an error because Beancount assumes an implicit balance assertion of “empty” at the time you open an account. You will have to “pad” your account to today’s balance by inserting a <em>balance adjustment</em> at some point in time between the opening and the balance, against some equity account, which is an arbitrary place to book “where you received the initial balance from.” For this purpose, this is usually the “Equity:Opening-Balances” account. So let’s include this padding transaction and recap what we have so far:</p>
+<pre><code>2000-05-28 open Assets:CA:BofA:Checking  USD
+
+2000-05-28 * "Initialize account"
+  Equity:Opening-Balances                    -1256.35 USD
+  Assets:CA:BofA:Checking                     1256.35 USD
+
+2014-07-01 balance Assets:CA:BofA:Checking    1256.35 USD
+</code></pre>
+<p>From here onwards, you would start adding entries reflecting everything that happened after 7/1. However, what if you wanted to go <em>back</em> in time? It is perfectly reasonable that once you’ve got your chart-of-accounts set up you might want to fill in the missing history until at least the beginning of this year.</p>
+<p>Let’s assume you had a single transaction in June 2014, and let’s add it:</p>
+<pre><code>2000-05-28 open Assets:CA:BofA:Checking  USD
+
+2000-05-28 * "Initialize account"
+  Equity:Opening-Balances                    -1256.35 USD
+  Assets:CA:BofA:Checking                     1256.35 USD
+
+2014-06-28 * "Paid credit card bill"
+  Assets:CA:BofA:Checking                     -700.00 USD
+  Liabilities:US:Amex:Platinum                 700.00 USD
+
+2014-07-01 balance Assets:CA:BofA:Checking    1256.35 USD
+</code></pre>
+<p>Now the balance assertion fails! You would need to adjust the initialization entry to fix this:</p>
+<pre><code>2000-05-28 open Assets:CA:BofA:Checking  USD
+
+2000-05-28 * "Initialize account"
+  Equity:Opening-Balances                    -1956.35 USD
+  Assets:CA:BofA:Checking                     1956.35 USD
+
+2014-06-28 * "Paid credit card bill"
+  Assets:CA:BofA:Checking                     -700.00 USD
+  Liabilities:US:Amex:Platinum                 700.00 USD
+
+2014-07-01 balance Assets:CA:BofA:Checking    1256.35 USD
+</code></pre>
+<p>Now this works. So basically, every single time you insert an entry in the past, you would have to adjust the balance. Isn’t this annoying? Well, yes.</p>
+<p>Fortunately, we can provide some help: you can use a Pad directive to replace and automatically synthesize the balance adjustment to match the next balance check, like this:</p>
+<pre><code>2000-05-28 open Assets:CA:BofA:Checking  USD
+
+2000-05-28 pad Assets:CA:BofA:Checking Equity:Opening-Balances
+
+2014-06-28 * "Paid credit card bill"
+  Assets:CA:BofA:Checking                     -700.00 USD
+  Liabilities:US:Amex:Platinum                 700.00 USD
+
+2014-07-01 balance Assets:CA:BofA:Checking    1256.35 USD
+</code></pre>
+<p>Note that this is only needed for balance sheet accounts (Assets and Liabilities) because we don’t care about the initial balances of the Income and Expenses accounts, we only care about their transitional value (the changes they post during a period). For example, it makes no sense to bring up the Expenses:Restaurant account to the sum total value of all the costs of the meals you consumed since you were born.</p>
+<p>So you will probably want to get started with Open &amp; Pad directives for each Assets and Liabilities accounts.</p>
+<h2 id="whats-next">What’s Next?<a id="whats-next"></a><a class="headerlink" href="#whats-next" title="Permanent link"></a></h2>
+<p>At this point you will probably move onwards to the <a href="18_command_line_accounting_cookbook.html"><span class="underline">Cookbook</span></a>, or read the <a href="06_beancount_language_syntax.html"><span class="underline">User’s Manual</span></a> if you haven’t already done that.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>It is tempting to want to break down a large file into many smaller ones, but especially at first, the convenience of having everything in a single place is great.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Some people have suggested that Beancount automatically detect duplicated transactions based on a heuristic and automatically ignore (remove) one of the two, but this has not been tried out yet. In particular, this would lend itself well to organizing transactions not just per section, but in separate files, i.e., all files would contain all the transactions for the accounts they represent. If you’re interested in adding this feature, you could easily implement this as a plugin, without disrupting the rest of the system.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="06_beancount_language_syntax.html" class="btn btn-neutral float-right" title="Beancount Language Syntax">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="04_running_beancount_and_generating_reports.html" class="btn btn-neutral" title="Running Beancount and Generating Reports"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/xuhcc/beancount-docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="04_running_beancount_and_generating_reports.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="06_beancount_language_syntax.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+
+</body>
+</html>

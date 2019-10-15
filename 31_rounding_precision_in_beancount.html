@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Rounding Precision in Beancount - Beancount Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Rounding Precision in Beancount";
+    var mkdocs_page_input_path = "31_rounding_precision_in_beancount.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="icon icon-home"> Beancount Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="index.html">Index</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Outline</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">Documentation for Users</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="01_command_line_accounting_in_context.html">Command Line Accounting in Context</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="02_the_double_entry_counting_method.html">The Double Entry Counting Method</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="03_installing_beancount.html">Installing Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="04_running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="05_getting_started_with_beancount.html">Getting Started with Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="06_beancount_language_syntax.html">Beancount Language Syntax</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="07_beancount_options_reference.html">Beancount Options Reference</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="08_precision_tolerances.html">Precision Tolerances</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="09_beancount_query_language.html">Beancount Query Language</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="10_beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="11_how_inventories_work.html">How Inventories Work</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="12_exporting_your_portfolio.html">Exporting Your Portfolio</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="13_tutorial_example.html">Tutorial & Example</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="14_beancount_history_and_credits.html">Beancount History and Credits</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="15_a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="16_fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="17_importing_external_data.html">Importing External Data</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Cookbooks & Examples</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="18_command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="19_trading_with_beancount.html">Trading with Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="20_stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="21_sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="22_how_we_share_expenses.html">How We Share Expenses</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Documentation for Developers</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="23_beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="24_beancount_design_doc.html">Beancount Design Doc</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="25_ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="26_external_contributions.html">External Contributions</a>
+                </li>
+    </ul>
+                </li>
+                <li class=" current">
+                    
+    <span class="caption-text">Enhancement Proposals & Discussions</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="27_a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="28_settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="29_balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="30_fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
+                </li>
+                <li class="toctree-l3 current">
+                    
+    <a class="current" href="31_rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l4"><a href="#motivation">Motivation</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l5" href="#balancing-precision">Balancing Precision</a></li>
+        
+            <li><a class="toctree-l5" href="#automatic-rounding">Automatic Rounding</a></li>
+        
+            <li><a class="toctree-l5" href="#precision-of-balance-assertions">Precision of Balance Assertions</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l4"><a href="#other-systems">Other Systems</a></li>
+    
+
+    <li class="toctree-l4"><a href="#proposal">Proposal</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l5" href="#automatically-inferring-tolerance">Automatically Inferring Tolerance</a></li>
+        
+            <li><a class="toctree-l5" href="#inference-on-amounts-held-at-cost">Inference on Amounts Held at Cost</a></li>
+        
+            <li><a class="toctree-l5" href="#automated-rounding">Automated Rounding</a></li>
+        
+            <li><a class="toctree-l5" href="#fixing-balance-assertions">Fixing Balance Assertions</a></li>
+        
+            <li><a class="toctree-l5" href="#approximate-assertions">Approximate Assertions</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l4"><a href="#accumulating-reporting-residuals">Accumulating &amp; Reporting Residuals</a></li>
+    
+
+    <li class="toctree-l4"><a href="#implementation">Implementation</a></li>
+    
+
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Beancount Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Enhancement Proposals & Discussions &raquo;</li>
+        
+      
+        
+          <li>Outline &raquo;</li>
+        
+      
+    
+    <li>Rounding Precision in Beancount</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/xuhcc/beancount-docs/edit/master/docs/31_rounding_precision_in_beancount.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>=============================================================</p>
+<p><a href="http://plus.google.com/+MartinBlais"><span class="underline">Martin Blais</span></a>, October 2014</p>
+<p><em>This document describes the problem of rounding errors on<br />
+Beancount transactions and how they are handled. It also includes</em></p>
+<p><em>a proposal for better handling precision issues in Beancount.</em></p>
+<h2 id="motivation">Motivation<a id="motivation"></a><a class="headerlink" href="#motivation" title="Permanent link"></a></h2>
+<h3 id="balancing-precision">Balancing Precision<a id="balancing-precision"></a><a class="headerlink" href="#balancing-precision" title="Permanent link"></a></h3>
+<p>Balancing transactions cannot be done precisely. This has been <a href="https://groups.google.com/d/msg/ledger-cli/m-TgILbfrwA/YjkmOM3LHXIJ"><span class="underline">discussed on the Ledger mailing-list before</span></a>. It is necessary to allow for some tolerance on the amounts used to balance a transaction.</p>
+<p>This need is clear when you consider that inputting numbers in a text file implies a limited decimal representation. For example, if you’re going to multiply a number of units and a cost, say both written down with 2 fractional digits, you might end up with a number that has 4 fractional digits, and then you need to compare that result with a cash amount that would typically be entered with only 2 fractional digits, something like this example:</p>
+<pre><code>2014-05-06 * “Buy mutual fund”
+  Assets:Investments:RGXGX       4.27 RGAGX {53.21 USD} 
+  Assets:Investments:Cash     -227.21 USD
+</code></pre>
+<p>If you calculate it, the first posting’s precise balance amount is 227.2067 USD, not 227.21 USD. However, the broker company managing the investment account will apply rounding to the closest cent for the cash withdrawal, and the rounded amount is the correct one to be used. This transaction has to balance; we need to allow for some looseness somehow.</p>
+<p>The great majority of the cases where mathematical operations occur involve the conversion from a number of units and a price or a cost to a corresponding cash value (e.g., units x cost = total cost). Our task in representing transactional information is the replication of operations that take place mostly in institutions. These operations always involve the rounding of numbers for units and currencies (banks do apply stochastic rounding), and the <em>correct</em> numbers to be used from the perspective of these institutions, and from the perspective of the government, are indeed the <em>rounded</em> numbers themselves. It is a not a question of mathematical purity, but one of practicality, and our system should do the same that banks do. Therefore, I think that we should always post the rounded numbers to accounts. Using rational numbers is not a limitation in that sense, but we must be careful to store rounded numbers where it matters.</p>
+<h3 id="automatic-rounding">Automatic Rounding<a id="automatic-rounding"></a><a class="headerlink" href="#automatic-rounding" title="Permanent link"></a></h3>
+<p>Another related issue is that of automatically rounding amounts for interpolated numbers. Let’s take our original problematic example again:</p>
+<pre><code>2014-05-06 * “Buy mutual fund”
+  Assets:Investments:RGXGX       4.27 RGAGX {53.21 USD} 
+  Assets:Investments:Cash     ;; Interpolated posting = -227.2067 USD
+</code></pre>
+<p>Here the amount from the second posting is interpolated from the balance amount for the first posting. Ideally, we should find a way to specify how it should round to 2 fractional digits of precision.</p>
+<p>Note that this affects interpolated prices and costs too:</p>
+<pre><code>2014-05-06 * “Buy mutual fund”
+  Assets:Investments:RGXGX       4.27 RGAGX {USD} 
+  Assets:Investments:Cash     -227.21 USD
+</code></pre>
+<p>Here, the cost is intended to be automatically calculated from the cash legs: 227.21 / 4.27 = 53.2107728337… USD. The correct cost to be inferred is also the rounded amount of 53.21 USD. We would like a mechanism to allow us to infer the desired precision.</p>
+<p>This mechanism cannot unfortunately be solely based on commodity: different accounts may track currencies with different precisions. As a real-world example, I have a retail FOREX trading account that really uses 4 digits of precision for its prices and deposits.</p>
+<h3 id="precision-of-balance-assertions">Precision of Balance Assertions<a id="precision-of-balance-assertions"></a><a class="headerlink" href="#precision-of-balance-assertions" title="Permanent link"></a></h3>
+<p>The precision of a balance assertions is also subject to this problem, assertions like this one:</p>
+<pre><code>2014-04-01 balance Assets:Investments:Cash   4526.77 USD
+</code></pre>
+<p>The user does not intend for this balance check to precisely sum up to 4526.77000000… USD. However, it this cash account previously received a deposit with a greater precision as in the previous section’s example, then we have a problem. Now the cash amount contains some of the crumbs deposited from the interpolation (0.0067 USD). If we were able to find a good solution for the automatic rounding of postings in the previous section, this would not be a problem. But in the meantime, we must find a solution.</p>
+<p>Beancount’s current approach is a kludge: it uses a <a href="https://bitbucket.org/blais/beancount/src/f9f90945dd751ecec5d0f63c1bccc372ed21f58f/src/python/beancount/ops/balance.py?at=default#cl-92"><span class="underline">user-configurable tolerance</span></a> of 0.0150 (in any unit). We’d like to change this so that the tolerance used is able to depend on the commodity, the account, or even the particular directive in use.</p>
+<h2 id="other-systems">Other Systems<a id="other-systems"></a><a class="headerlink" href="#other-systems" title="Permanent link"></a></h2>
+<p>Other command-line accounting systems differ in how they choose that tolerance:</p>
+<ul>
+<li>
+<p>Ledger attempts to automatically derive the precision to use for its balance checks by using recently parsed context (in file order). The precision to be used is that of the last value parsed for the particular commodity under consideration. This can be problematic: it can lead to <a href="https://groups.google.com/d/msg/ledger-cli/m-TgILbfrwA/cTHg2juqEJgJ"><span class="underline">unnecessary side-effects between transactions which can be difficult to debug</span></a>.</p>
+</li>
+<li>
+<p>HLedger, on the other hand, uses global precision settings. <a href="https://groups.google.com/d/msg/ledger-cli/m-TgILbfrwA/SoGZDNhlDOkJ"><span class="underline">The whole file is processed first, then the precisions are derived from the most precise numbers seen in the entire input file.</span></a></p>
+</li>
+<li>
+<p>At the moment, Beancount uses a <a href="https://bitbucket.org/blais/beancount/src/c194c7fa6c15a0356e9d26b20b471f0868843c42/src/python/beancount/core/complete.py?at=default#cl-25"><span class="underline">constant value</span></a> for the tolerance used in its <a href="https://bitbucket.org/blais/beancount/src/c194c7fa6c15a0356e9d26b20b471f0868843c42/src/python/beancount/ops/validation.py?at=default#cl-391"><span class="underline">balance checking algorithm</span></a> (0.005 of any unit). This is weak and should, at the very least, be commodity-dependent, if not also dependent on the particular account in which the commodity is used.</p>
+</li>
+</ul>
+<h2 id="proposal">Proposal<a id="proposal"></a><a class="headerlink" href="#proposal" title="Permanent link"></a></h2>
+<h3 id="automatically-inferring-tolerance">Automatically Inferring Tolerance<a id="automatically-inferring-tolerance"></a><a class="headerlink" href="#automatically-inferring-tolerance" title="Permanent link"></a></h3>
+<p>Beancount should derive its precision using a method entirely <em>local</em> to each transaction, perhaps with a global value for defaults. That is, for each transaction, it will inspect postings with simple amounts (no cost, no price) and infer the precision to be used for tolerance as half of that of the most precise amount entered by the user on this transaction. For example:</p>
+<pre><code>2014-05-06 * “Buy mutual fund”
+  Assets:Investments:RGXGX       4.278  RGAGX {53.21 USD} 
+  Assets:Investments:Cash     -227.6324 USD
+  Expenses:Commissions           9.95   USD
+</code></pre>
+<p>The number of digits for the precision to be used here is the maximum of the 2nd and 3rd postings, that is, max(4, 2) = 4. The first postings is ignored because its amount is the result of a mathematical operation. The tolerance value should be <em>half</em> of the most precise digit, that is 0.00005 USD. This should allow the user to use an arbitrary precision, simply by inserting more digits in the input.</p>
+<p>Only fractional digits will be used to derive precision… an integer should imply exact matching. The user could specify a single trailing period to imply a sub-dollar precision. For example, the following transaction should fail to balance because the calculated amount is 999.999455 USD:</p>
+<pre><code>2014-05-06 * “Buy mutual fund”
+  Assets:Investments:RGXGX       23.45 RGAGX {42.6439 USD} 
+  Assets:Investments:Cash        -1000 USD
+</code></pre>
+<p>Instead, the user should explicitly allow for some tolerance to be used:</p>
+<pre><code>2014-05-06 * “Buy mutual fund”
+  Assets:Investments:RGXGX       23.45 RGAGX {42.6439 USD} 
+  Assets:Investments:Cash       -1000. USD
+</code></pre>
+<p>Or better, use 1000.00 USD. This has the disadvantage that is prevents the user from specifying the simpler integer amount. I’m not sure if this is a big deal.</p>
+<p>Finally, no global effect implied by transactions will be applied. No transaction should ever affect any other transaction’s balancing context.</p>
+<h3 id="inference-on-amounts-held-at-cost">Inference on Amounts Held at Cost<a id="inference-on-amounts-held-at-cost"></a><a class="headerlink" href="#inference-on-amounts-held-at-cost" title="Permanent link"></a></h3>
+<p>An idea from by Matthew Harris (<a href="https://groups.google.com/d/msg/beancount/5u-xgR-ttjg/sXfU32ItRscJ"><span class="underline">here</span></a>) is that we could also use the value of the to the smallest decimal of the number of units times the cost as a number to use in establishing the tolerance for balancing transactions. For example, in the following transaction:</p>
+<pre><code>2014-05-06 * “Buy mutual fund”
+  Assets:Investments:RGXGX       23.45 RGAGX {42.6439 USD} 
+  ...
+</code></pre>
+<p>The tolerance value that could be derived is</p>
+<p>0.01 RGAGX x 42.6439 USD = <strong>0.426439 USD</strong></p>
+<p>The original use case presented by Matthew was of a transaction that did not contain a simple amount, just a conversion with both legs held at cost:</p>
+<pre><code>  2011-01-25 * "Transfer of Assets, 3467.90 USD"
+    * Assets:RothIRA:Vanguard:VTIVX  250.752 VTIVX {18.35 USD} @ 13.83 USD  
+    * Assets:RothIRA:DodgeCox:DODGX  -30.892 DODGX {148.93 USD} @ 112.26 USD
+</code></pre>
+<p>I’ve actually tried to implement this and the resulting tolerances are either unacceptably wide or unacceptably small. <strong>It does not work well in practice so I’ve abandoned the idea.</strong></p>
+<h3 id="automated-rounding">Automated Rounding<a id="automated-rounding"></a><a class="headerlink" href="#automated-rounding" title="Permanent link"></a></h3>
+<p>For values that are automatically calculated, for example, on auto-postings where the remaining value is derived automatically, we should consider rounding the values. No work has been done on this yet; these values are currently not rounded.</p>
+<h3 id="fixing-balance-assertions">Fixing Balance Assertions<a id="fixing-balance-assertions"></a><a class="headerlink" href="#fixing-balance-assertions" title="Permanent link"></a></h3>
+<p>To fix balance assertions, we will derive the required precision by the number of digits used in the balance amount itself, by looking at the most precision fractional digit and using half of that digit’s value to compute the tolerance:</p>
+<pre><code>2014-04-01 balance Assets:Investments:Cash   4526.7702 USD
+</code></pre>
+<p>This balance check implies a precision of 0.00005 USD.</p>
+<p>If you use an integer number of units, no tolerance is allowed. The precise number should match:</p>
+<pre><code>2014-04-01 balance Assets:Investments:Cash   4526 USD
+</code></pre>
+<p>If you want to allow for sub-dollar variance, use a single comma:</p>
+<pre><code>2014-04-01 balance Assets:Investments:Cash   4526. USD
+</code></pre>
+<p>This balance check implies a precision of 0.50 USD.</p>
+<h3 id="approximate-assertions">Approximate Assertions<a id="approximate-assertions"></a><a class="headerlink" href="#approximate-assertions" title="Permanent link"></a></h3>
+<p>Another idea, proposed in <a href="https://github.com/ledger/ledger/pull/329"><span class="underline">this ticket on Ledger</span></a>, proposes an explicitly approximate assertion.</p>
+<p>We could implement it this way (just an idea):</p>
+<pre><code>2014-04-01 balance Assets:Investments:Cash   4526.00 +/- 0.05 USD
+</code></pre>
+<h2 id="accumulating-reporting-residuals">Accumulating &amp; Reporting Residuals<a id="accumulating-reporting-residuals"></a><a class="headerlink" href="#accumulating-reporting-residuals" title="Permanent link"></a></h2>
+<p>In order to explicitly render and monitor the amount of rounding errors that occur in a Ledger, we should <a href="https://groups.google.com/d/msg/ledger-cli/m-TgILbfrwA/YjkmOM3LHXIJ"><span class="underline">accumulate it to an Equity account</span></a>, such as “Equity:Rounding”. This should be turned on optionally. It should be possible for the user to specify an account to be used to accumulate the error. Whenever a transaction does not balance exactly, the residual, or rounding error, will be inserted as a posting of the transaction to the equity account.</p>
+<p>By default, this accumulation should be turned off. It’s not clear whether the extra postings will be disruptive yet (if they’re not, maybe this should be turned on by default; practice will inform us).</p>
+<h2 id="implementation">Implementation<a id="implementation"></a><a class="headerlink" href="#implementation" title="Permanent link"></a></h2>
+<p>The implementation of this proposal is <a href="08_precision_tolerances.html"><span class="underline">documented here</span></a>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="30_fund_accounting_with_beancount.html" class="btn btn-neutral" title="Fund Accounting with Beancount"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/xuhcc/beancount-docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="30_fund_accounting_with_beancount.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+
+</body>
+</html>
