@@ -40,3 +40,11 @@ Generate static website from markdown documents:
 bundle install --path vendor/bundle
 bundle exec jekyll serve --source docs/
 ```
+
+### MkDocs
+
+Generate website using MkDocs:
+
+```
+mkdocs serve
+```

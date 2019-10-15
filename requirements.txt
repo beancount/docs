@@ -1,4 +1,5 @@
 beautifulsoup4==4.7.1
+mkdocs==1.0.4
 panflute==1.11.2
 py-pandoc==2.7.2
 pypandoc==1.4
