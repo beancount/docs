@@ -98,7 +98,7 @@ def action(elem, doc):
         if elem.identifier != 'title':
             elem.level += 1
         # Add explicit anchor
-        elem.content.insert(0, RawInline(f'<a id="{elem.identifier}"></a>'))
+        elem.content.append(RawInline(f'<a id="{elem.identifier}"></a>'))
 
     elif isinstance(elem, Link):
         if elem.url == stringify(elem):
