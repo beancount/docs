@@ -34,17 +34,25 @@ python crawl.py
 
 ## Website
 
-Generate static website from markdown documents:
+### MkDocs
+
+Generate static website using MkDocs:
+
+```
+mkdocs serve
+```
+
+Deploy to GitHub pages:
+
+```
+mkdocs gh-deploy
+```
+
+### Jekyll
+
+Generate static website using Jekyll:
 
 ```
 bundle install --path vendor/bundle
 bundle exec jekyll serve --source docs/
-```
-
-### MkDocs
-
-Generate website using MkDocs:
-
-```
-mkdocs serve
 ```
