@@ -201,16 +201,6 @@
         
             <li><a class="toctree-l5" href="#flattening-inventories">Flattening Inventories</a></li>
         
-            <li><a class="toctree-l5" href="#if-you-provide-the-flatten-option-after-a-query-it-tells-the-query-engine-to-flatten-inventories-with-multiple-lots-into-separate-rows-for-each-lot-for-example-if-you-have-an-inventory-balance-with-the-following-contents">If you provide the FLATTEN option after a query, it tells the query engine to flatten inventories with multiple lots into separate rows for each lot. For example, if you have an inventory balance with the following contents:</a></li>
-        
-            <li><a class="toctree-l5" href="#3-aapl-10234-usd-4-aapl-10453-usd-5-aapl-10623-usd">3 AAPL {102.34 USD} 4 AAPL {104.53 USD} 5 AAPL {106.23 USD}</a></li>
-        
-            <li><a class="toctree-l5" href="#using-the-following-query">Using the following query:</a></li>
-        
-            <li><a class="toctree-l5" href="#it-should-return-a-single-row-of-results-rendered-over-three-lines-however-adding-the-option">It should return a single row of results, rendered over three lines. However, adding the option:</a></li>
-        
-            <li><a class="toctree-l5" href="#this-should-return-three-separate-rows-with-all-the-selected-attributes-as-if-there-were-that-many-postings">This should return three separate rows, with all the selected attributes, as if there were that many postings.</a></li>
-        
             <li><a class="toctree-l5" href="#sub-selects">Sub-Selects</a></li>
         
             <li><a class="toctree-l5" href="#pivot-by">Pivot By</a></li>
@@ -797,15 +787,18 @@ WHERE year &lt;= 2015
 <h2 id="future-features">Future Features<a id="future-features"></a><a class="headerlink" href="#future-features" title="Permanent link"></a></h2>
 <p>The following list of features were planned for the first release but I’ve decided to make a first cut without them. I’ll be adding those during a revision.</p>
 <h3 id="flattening-inventories">Flattening Inventories<a id="flattening-inventories"></a><a class="headerlink" href="#flattening-inventories" title="Permanent link"></a></h3>
-<h3 id="if-you-provide-the-flatten-option-after-a-query-it-tells-the-query-engine-to-flatten-inventories-with-multiple-lots-into-separate-rows-for-each-lot-for-example-if-you-have-an-inventory-balance-with-the-following-contents">If you provide the FLATTEN option after a query, it tells the query engine to flatten inventories with multiple lots into separate rows for each lot. For example, if you have an inventory balance with the following contents:<a id="if-you-provide-the-flatten-option-after-a-query-it-tells-the-query-engine-to-flatten-inventories-with-multiple-lots-into-separate-rows-for-each-lot.-for-example-if-you-have-an-inventory-balance-with-the-following-contents"></a><a class="headerlink" href="#if-you-provide-the-flatten-option-after-a-query-it-tells-the-query-engine-to-flatten-inventories-with-multiple-lots-into-separate-rows-for-each-lot-for-example-if-you-have-an-inventory-balance-with-the-following-contents" title="Permanent link"></a></h3>
-<h3 id="3-aapl-10234-usd-4-aapl-10453-usd-5-aapl-10623-usd">3 AAPL {102.34 USD} 4 AAPL {104.53 USD} 5 AAPL {106.23 USD}<a id="aapl-102.34-usd-4-aapl-104.53-usd-5-aapl-106.23-usd"></a><a class="headerlink" href="#3-aapl-10234-usd-4-aapl-10453-usd-5-aapl-10623-usd" title="Permanent link"></a></h3>
-<h3 id="using-the-following-query">Using the following query:<a id="using-the-following-query"></a><a class="headerlink" href="#using-the-following-query" title="Permanent link"></a></h3>
+<p>If you provide the FLATTEN option after a query, it tells the query engine to flatten inventories with multiple lots into separate rows for each lot. For example, if you have an inventory balance with the following contents:</p>
+<pre><code>3 AAPL {102.34 USD}
+4 AAPL {104.53 USD}
+5 AAPL {106.23 USD}
+</code></pre>
+<p>Using the following query:</p>
 <pre><code>SELECT account, sum(position) GROUP BY account;
 </code></pre>
-<h3 id="it-should-return-a-single-row-of-results-rendered-over-three-lines-however-adding-the-option">It should return a single row of results, rendered over three lines. However, adding the option:<a id="it-should-return-a-single-row-of-results-rendered-over-three-lines.-however-adding-the-option"></a><a class="headerlink" href="#it-should-return-a-single-row-of-results-rendered-over-three-lines-however-adding-the-option" title="Permanent link"></a></h3>
+<p>It should return a single row of results, rendered over three lines. However, adding the option:</p>
 <pre><code>SELECT account, sum(position) GROUP BY account FLATTEN;
 </code></pre>
-<h3 id="this-should-return-three-separate-rows-with-all-the-selected-attributes-as-if-there-were-that-many-postings">This should return three separate rows, with all the selected attributes, as if there were that many postings.<a id="this-should-return-three-separate-rows-with-all-the-selected-attributes-as-if-there-were-that-many-postings."></a><a class="headerlink" href="#this-should-return-three-separate-rows-with-all-the-selected-attributes-as-if-there-were-that-many-postings" title="Permanent link"></a></h3>
+<p>This should return three separate rows, with all the selected attributes, as if there were that many postings.</p>
 <h3 id="sub-selects">Sub-Selects<a id="sub-selects"></a><a class="headerlink" href="#sub-selects" title="Permanent link"></a></h3>
 <p>The ability to select from the result of another SELECT is not currently supported, but the internals of the query code are prepared to do so.</p>
 <h3 id="pivot-by">Pivot By<a id="pivot-by"></a><a class="headerlink" href="#pivot-by" title="Permanent link"></a></h3>

@@ -492,7 +492,7 @@ Assets:US:TDBank:Savings
 <p>The number and currency is that of the cost itself, not of the commodity. For example, if you bought 40 shares of AAPL stock at 56.78 USD, the <em>Number</em> is a “56.78” decimal and the <em>Currency</em> is “USD.” For example:</p>
 <pre><code>Cost(Decimal("56.78"), "USD", date(2012, 3, 5), "lot15")
 </code></pre>
-<p>The <em>Date</em> is the acquisition date of the corresponding lot (a datetime.date object). This is automatically attached to the Cost object when a posting augments an inventory—the Transaction’s date is automatically attached to the Cost object—or if the input syntax provides an explicit date override.</p>
+<p>The <em>Date</em> is the acquisition date of the corresponding lot (a datetime.date object). This is automatically attached to the Cost object when a posting augments an inventory—the Transaction’s date is automatically attached to the Cost object—or if the input syntax provides an explicit date overriden.</p>
 <p>The <em>Label</em> can be any string. It is provided as a convenience for a user to refer to a particular lot or disambiguate similar lots.</p>
 <p>On a Cost object, the number, currency and date attributes are always set. If the label is unset, it has a value of “None.”</p>
 <h4 id="costspec">CostSpec<a id="costspec"></a><a class="headerlink" href="#costspec" title="Permanent link"></a></h4>
