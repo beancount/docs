@@ -109,8 +109,6 @@
         
             <li><a class="toctree-l5" href="#transactions-and-postings">Transactions and Postings</a></li>
         
-            <li><a class="toctree-l5" href="#the-structure-of-transactions-and-entries-can-be-explained-by-the-following-simplified-diagram">The structure of transactions and entries can be explained by the following simplified diagram:</a></li>
-        
             <li><a class="toctree-l5" href="#posting-data-columns">Posting Data Columns</a></li>
         
             <li><a class="toctree-l5" href="#entry-data-columns">Entry Data Columns</a></li>
@@ -437,7 +435,7 @@ beancount&gt; _
 </li>
 </ul>
 <h2 id="transactions-and-postings">Transactions and Postings<a id="transactions-and-postings"></a><a class="headerlink" href="#transactions-and-postings" title="Permanent link"></a></h2>
-<h2 id="the-structure-of-transactions-and-entries-can-be-explained-by-the-following-simplified-diagram">The structure of transactions and entries can be explained by the following simplified diagram:<a id="the-structure-of-transactions-and-entries-can-be-explained-by-the-following-simplified-diagram"></a><a class="headerlink" href="#the-structure-of-transactions-and-entries-can-be-explained-by-the-following-simplified-diagram" title="Permanent link"></a></h2>
+<p>The structure of transactions and entries can be explained by the following simplified diagram:</p>
 <h2 id="_1"><img src="09_beancount_query_language/media/99e941362869147aff7bb5b64676940fdeebe7f1.png" style="width:5.19444in;height:1.81944in" /><a id="section"></a><a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <p>The contents of a ledger is parsed into a list of directives, most of which are “Transaction” objects which contain two or more “Posting” objects. Postings are always linked only to a single transaction (they are never shared between transactions). Each posting refers to its parent transaction but has a unique account name, amount and associates lot (possibly with a cost), a price and some other attributes. The parent transaction itself contains a few useful attributes as well, such as a date, the name of a payee, a narration string, a flag, links, tags, etc.</p>
 <p>If we ignore the list of directives other than transactions, you can view the dataset as a single table of all postings joined with their parent transaction. It is mainly on this joined table of postings that we want to perform filtering and aggregation operations.</p>
