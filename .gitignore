@@ -7,6 +7,7 @@ Gemfile.lock
 vendor/
 .bundle/
 _site/
+site/
 
 # Other
 *.docx
