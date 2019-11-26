@@ -320,7 +320,7 @@ The number and currency is that of the cost itself, not of the commodity. For ex
 
     Cost(Decimal("56.78"), "USD", date(2012, 3, 5), "lot15")
 
-The *Date* is the acquisition date of the corresponding lot (a datetime.date object). This is automatically attached to the Cost object when a posting augments an inventory—the Transaction’s date is automatically attached to the Cost object—or if the input syntax provides an explicit date override.
+The *Date* is the acquisition date of the corresponding lot (a datetime.date object). This is automatically attached to the Cost object when a posting augments an inventory—the Transaction’s date is automatically attached to the Cost object—or if the input syntax provides an explicit date overriden.
 
 The *Label* can be any string. It is provided as a convenience for a user to refer to a particular lot or disambiguate similar lots.
 

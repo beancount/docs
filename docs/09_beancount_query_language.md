@@ -539,19 +539,21 @@ The following list of features were planned for the first release but I’ve dec
 
 ### Flattening Inventories<a id="flattening-inventories"></a>
 
-### If you provide the FLATTEN option after a query, it tells the query engine to flatten inventories with multiple lots into separate rows for each lot. For example, if you have an inventory balance with the following contents:<a id="if-you-provide-the-flatten-option-after-a-query-it-tells-the-query-engine-to-flatten-inventories-with-multiple-lots-into-separate-rows-for-each-lot.-for-example-if-you-have-an-inventory-balance-with-the-following-contents"></a>
+If you provide the FLATTEN option after a query, it tells the query engine to flatten inventories with multiple lots into separate rows for each lot. For example, if you have an inventory balance with the following contents:
 
-### 3 AAPL {102.34 USD} 4 AAPL {104.53 USD} 5 AAPL {106.23 USD}<a id="aapl-102.34-usd-4-aapl-104.53-usd-5-aapl-106.23-usd"></a>
+    3 AAPL {102.34 USD}
+    4 AAPL {104.53 USD}
+    5 AAPL {106.23 USD}
 
-### Using the following query:<a id="using-the-following-query"></a>
+Using the following query:
 
     SELECT account, sum(position) GROUP BY account;
 
-### It should return a single row of results, rendered over three lines. However, adding the option:<a id="it-should-return-a-single-row-of-results-rendered-over-three-lines.-however-adding-the-option"></a>
+It should return a single row of results, rendered over three lines. However, adding the option:
 
     SELECT account, sum(position) GROUP BY account FLATTEN;
 
-### This should return three separate rows, with all the selected attributes, as if there were that many postings.<a id="this-should-return-three-separate-rows-with-all-the-selected-attributes-as-if-there-were-that-many-postings."></a>
+This should return three separate rows, with all the selected attributes, as if there were that many postings.
 
 ### Sub-Selects<a id="sub-selects"></a>
 
