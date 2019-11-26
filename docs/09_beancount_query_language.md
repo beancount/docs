@@ -88,8 +88,7 @@ The variables are:
 Transactions and Postings<a id="transactions-and-postings"></a>
 ---------------------------------------------------------------
 
-The structure of transactions and entries can be explained by the following simplified diagram:<a id="the-structure-of-transactions-and-entries-can-be-explained-by-the-following-simplified-diagram"></a>
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+The structure of transactions and entries can be explained by the following simplified diagram:
 
 <img src="09_beancount_query_language/media/99e941362869147aff7bb5b64676940fdeebe7f1.png" style="width:5.19444in;height:1.81944in" /><a id="section"></a>
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
