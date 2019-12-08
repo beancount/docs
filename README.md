@@ -34,8 +34,6 @@ python crawl.py
 
 ## Website
 
-### MkDocs
-
 Generate static website using MkDocs:
 
 ```
@@ -46,13 +44,4 @@ Deploy to GitHub pages:
 
 ```
 mkdocs gh-deploy
-```
-
-### Jekyll
-
-Generate static website using Jekyll:
-
-```
-bundle install --path vendor/bundle
-bundle exec jekyll serve --source docs/
 ```

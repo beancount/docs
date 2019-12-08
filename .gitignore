@@ -2,11 +2,7 @@
 __pycache__/
 venv/
 
-# Jekyll
-Gemfile.lock
-vendor/
-.bundle/
-_site/
+# MkDocs
 site/
 
 # Other
