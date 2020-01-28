@@ -20,7 +20,7 @@ Martin Blais, July 2014
 Motivation<a id="motivation"></a>
 ---------------------------------
 
-When a trade executes in an investment account, there is most often a delay between the date that the transaction is carried out (the “transaction date”) and the date that the funds are deposited in an associated cash account (the “settlement date”). This makes balance imported balance assertions sometimes requiring the fudging of their dates, and sometimes they can even be impossible. This document proposes the addition of an optional “settlement date” to be attached to a transaction or a posting, and associated semantics for how to deal with the problem.
+When a trade executes in an investment account, there is most often a delay between the date that the transaction is carried out (the “transaction date”) and the date that the funds are deposited in an associated cash account (the “settlement date”). This makes imported balance assertions sometimes requiring the fudging of their dates, and sometimes they can even be impossible. This document proposes the addition of an optional “settlement date” to be attached to a transaction or a posting, and associated semantics for how to deal with the problem.
 
 Proposal Description<a id="proposal-description"></a>
 -----------------------------------------------------
@@ -121,7 +121,7 @@ Auxiliary dates are also known as “[<span class="underline">effective dates</s
 
 The original motivation for this was for budgeting, allow one to move accounting of expenses to neighboring budget periods in order to carry over actual paid amounts to those periods. Bank amounts in one month could be set against a budget from the immediately preceding or following month, as needed. (Note: John Wiegley)
 
-This is similar to one of the syntaxes I’m suggesting above—letting the user specify a date for each posting—but the other postings are not split as independent transactions. The usage of those dates is similarly triggered by a command-line option (--effective). I’m assuming that the posting on the checking account above occurs at once at 2008/10/16, regardless of reporting date. Let’s verify this:
+This is similar to one of the syntaxes I’m suggesting above—letting the user specify a date for each posting—but the other postings are not split as independent transactions. The usage of those dates are similarly triggered by a command-line option (--effective). I’m assuming that the posting on the checking account above occurs at once at 2008/10/16, regardless of reporting date. Let’s verify this:
 
     $ ledger -f settlement1.lgr reg checking --effective
     08-Oct-16 Bountiful Blessings.. Assets:Checking           $ -225.00    $ -225.00
