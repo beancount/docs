@@ -223,7 +223,7 @@ Summary of the System<a id="summary-of-the-system"></a>
 
 Here’s a diagram that puts in perspective the entire system together:
 
-<img src="22_how_we_share_expenses/media/4c38b552619d4f280449758db07c5c01dade8f77.png" style="width:8.79167in;height:6.94444in" />
+<img src="22_how_we_share_expenses/media/3b095f59fa63e77aaff24f1f22f6560a404e5c1b.png" style="width:8.79167in;height:6.94444in" />
 
 I (“Dad”) use Beancount via Emacs, exclusively. Carolyn (“Mom”) only interacts with a single Google Sheets doc with three sheets in it. I pull in Carolyn’s shared expenses from a sheet that she fills in to a ledger which gets included in my personal ledger. I also pull in her expenses for Kyle in a similar document, and from my personal ledger I generate my own expenses for Kyle. Both of these documents are merged in a top-level ledger dedicated to Kyle’s expenses.
 

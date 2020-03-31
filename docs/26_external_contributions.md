@@ -48,7 +48,7 @@ Tools<a id="tools"></a>
 
 [<span class="underline">process control chart</span>](https://github.com/hoostus/beancount-control-chart) (Justus Pendleton): Spending relative to portfolio size. [<span class="underline">Thread.</span>](https://groups.google.com/d/msgid/beancount/0cd47f9a-37d6-444e-8516-25e247a9e0cd%40googlegroups.com?utm_medium=email&utm_source=footer)
 
-[<span class="underline">redstreet/beancount\_tax\_loss\_harvester</span>](https://github.com/redstreet/beancount_tax_loss_harvester): (RedStreet): Tax loss harvester. Reports the set of lots that can be tax loss harvested from your beancount input file.
+[<span class="underline">redstreet/fava\_tax\_loss\_harvester</span>](https://github.com/redstreet/fava_tax_loss_harvester) (RedStreet): Tax loss harvester. Reports the set of lots that can be tax loss harvested from your beancount input file. Plugin for Fava.
 
 Importers<a id="importers"></a>
 -------------------------------
