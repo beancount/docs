@@ -1,5 +1,5 @@
-Beancount Users's Manual<a id="title"></a>
-==========================================
+Beancount User's Manual<a id="title"></a>
+=========================================
 
 *This is the top-level page for all documentation related to Beancount.*
 

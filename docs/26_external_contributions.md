@@ -130,6 +130,8 @@ Interfaces / Web<a id="interfaces-web"></a>
 
 [<span class="underline">Fava Classy Portfolio</span>](https://github.com/seltzered/fava-classy-portfolio) (Vivek Gani): Classy Portfolio is an Extension for Fava, a web interface for the Beancount plaintext accounting software. The extension displays a list of different portfolios (e.g. 'taxable' vs. 'retirement'), with breakdowns using 'asset-class' and 'asset-subclass' metadata labels on commodities.
 
+[<span class="underline">Fava Investor</span>](https://github.com/redstreet/fava_investor) project: Asset allocation plugin for fava/beancount (personal finance software).
+
 Mobile/Phone Data Entry<a id="mobilephone-data-entry"></a>
 ----------------------------------------------------------
 
