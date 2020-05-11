@@ -1,163 +1,143 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
+     <loc>https://xuhcc.github.io/beancount-docs/index.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/01_command_line_accounting_in_context.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/02_the_double_entry_counting_method.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/03_installing_beancount.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/04_running_beancount_and_generating_reports.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/05_getting_started_with_beancount.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/06_beancount_language_syntax.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/07_beancount_options_reference.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/08_precision_tolerances.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/09_beancount_query_language.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/10_beancount_cheat_sheet.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/11_how_inventories_work.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/12_exporting_your_portfolio.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/13_tutorial_example.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/14_beancount_history_and_credits.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/15_a_comparison_of_beancount_and_ledger_hledger.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/16_fetching_prices_in_beancount.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/17_importing_external_data.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/18_command_line_accounting_cookbook.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/19_trading_with_beancount.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/20_stock_vesting_in_beancount.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/21_sharing_expenses_with_beancount.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/22_how_we_share_expenses.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/23_beancount_scripting_plugins.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/24_beancount_design_doc.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/25_ledgerhub_design_doc.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/26_external_contributions.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/27_a_proposal_for_an_improvement_on_inventory_booking.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/28_settlement_dates_in_beancount.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/29_balance_assertions_in_beancount.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/30_fund_accounting_with_beancount.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-04-14</lastmod>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/31_rounding_precision_in_beancount.html</loc>
+     <lastmod>2020-05-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/api_reference/index.html</loc>
+     <lastmod>2020-05-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/api_reference/beancount.ops.html</loc>
+     <lastmod>2020-05-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/api_reference/beancount.utils.html</loc>
+     <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

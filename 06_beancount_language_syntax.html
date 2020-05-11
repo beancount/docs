@@ -1,280 +1,213 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  <link rel="shortcut icon" href="img/favicon.ico">
-  <title>Beancount Language Syntax - Beancount Documentation</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
-  
-  <script>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://xuhcc.github.io/beancount-docs/06_beancount_language_syntax.html" rel="canonical"/>
+<link href="img/favicon.ico" rel="shortcut icon"/>
+<title>Beancount Language Syntax - Beancount Documentation</title>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
+<link href="css/theme.css" rel="stylesheet">
+<link href="css/theme_extra.css" rel="stylesheet"/>
+<script>
     // Current page data
     var mkdocs_page_name = "Beancount Language Syntax";
     var mkdocs_page_input_path = "06_beancount_language_syntax.md";
-    var mkdocs_page_url = null;
+    var mkdocs_page_url = "/beancount-docs/06_beancount_language_syntax.html";
   </script>
-  
-  <script src="js/jquery-2.1.1.min.js" defer></script>
-  <script src="js/modernizr-2.8.3.min.js" defer></script> 
-  
-</head>
-
+<script defer="" src="js/jquery-2.1.1.min.js"></script>
+<script defer="" src="js/modernizr-2.8.3.min.js"></script>
+</link></link></head>
 <body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href="index.html" class="icon icon-home"> Beancount Documentation</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="."> Beancount Documentation</a>
 </div>
-      </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="index.html">Index</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Outline</span>
-    <ul class="subnav">
-                <li class=" current">
-                    
-    <span class="caption-text">Documentation for Users</span>
-    <ul class="subnav">
-                <li class="toctree-l3">
-                    
-    <a class="" href="01_command_line_accounting_in_context.html">Command Line Accounting in Context</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="02_the_double_entry_counting_method.html">The Double Entry Counting Method</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="03_installing_beancount.html">Installing Beancount</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="04_running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="05_getting_started_with_beancount.html">Getting Started with Beancount</a>
-                </li>
-                <li class="toctree-l3 current">
-                    
-    <a class="current" href="06_beancount_language_syntax.html">Beancount Language Syntax</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l4"><a href="#beancount-language-syntax">Beancount Language Syntax</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l5" href="#introduction">Introduction</a></li>
-        
-            <li><a class="toctree-l5" href="#syntax-overview">Syntax Overview</a></li>
-        
-            <li><a class="toctree-l5" href="#directives_1">Directives</a></li>
-        
-            <li><a class="toctree-l5" href="#metadata_1">Metadata</a></li>
-        
-            <li><a class="toctree-l5" href="#options">Options</a></li>
-        
-            <li><a class="toctree-l5" href="#plugins">Plugins</a></li>
-        
-            <li><a class="toctree-l5" href="#includes">Includes</a></li>
-        
-            <li><a class="toctree-l5" href="#whats-next">What’s Next?</a></li>
-        
-        </ul>
-    
-
-    </ul>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="07_beancount_options_reference.html">Beancount Options Reference</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="08_precision_tolerances.html">Precision Tolerances</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="09_beancount_query_language.html">Beancount Query Language</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="10_beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="11_how_inventories_work.html">How Inventories Work</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="12_exporting_your_portfolio.html">Exporting Your Portfolio</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="13_tutorial_example.html">Tutorial & Example</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="14_beancount_history_and_credits.html">Beancount History and Credits</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="15_a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="16_fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="17_importing_external_data.html">Importing External Data</a>
-                </li>
-    </ul>
-                </li>
-                <li class="">
-                    
-    <span class="caption-text">Cookbooks & Examples</span>
-    <ul class="subnav">
-                <li class="toctree-l3">
-                    
-    <a class="" href="18_command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="19_trading_with_beancount.html">Trading with Beancount</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="20_stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="21_sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="22_how_we_share_expenses.html">How We Share Expenses</a>
-                </li>
-    </ul>
-                </li>
-                <li class="">
-                    
-    <span class="caption-text">Documentation for Developers</span>
-    <ul class="subnav">
-                <li class="toctree-l3">
-                    
-    <a class="" href="23_beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="24_beancount_design_doc.html">Beancount Design Doc</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="25_ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="26_external_contributions.html">External Contributions</a>
-                </li>
-    </ul>
-                </li>
-                <li class="">
-                    
-    <span class="caption-text">Enhancement Proposals & Discussions</span>
-    <ul class="subnav">
-                <li class="toctree-l3">
-                    
-    <a class="" href="27_a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="28_settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="29_balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="30_fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="31_rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
-                </li>
-    </ul>
-                </li>
-    </ul>
-	    </li>
-          
-        </ul>
-      </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="index.html">Beancount Documentation</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="index.html">Docs</a> &raquo;</li>
-    
-      
-        
-          <li>Documentation for Users &raquo;</li>
-        
-      
-        
-          <li>Outline &raquo;</li>
-        
-      
-    
-    <li>Beancount Language Syntax</li>
-    <li class="wy-breadcrumbs-aside">
-      
-        <a href="https://github.com/xuhcc/beancount-docs/edit/master/docs/06_beancount_language_syntax.md"
-          class="icon icon-github"> Edit on GitHub</a>
-      
-    </li>
-  </ul>
-  <hr/>
+<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Index</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Outline</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal current" href="#">Documentation for Users</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_command_line_accounting_in_context.html">Command Line Accounting in Context</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="02_the_double_entry_counting_method.html">The Double Entry Counting Method</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="03_installing_beancount.html">Installing Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="04_running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="05_getting_started_with_beancount.html">Getting Started with Beancount</a>
+</li>
+<li class="toctree-l2 current"><a class="reference internal current" href="06_beancount_language_syntax.html">Beancount Language Syntax</a>
+<ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#syntax-overview">Syntax Overview</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#directives">Directives</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#accounts">Accounts</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#commodities-currencies">Commodities / Currencies</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#strings">Strings</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#comments">Comments</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#directives_1">Directives</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#open">Open</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#close">Close</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#commodity">Commodity</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#transactions">Transactions</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#balance-assertions">Balance Assertions</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#pad">Pad</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#notes">Notes</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#documents">Documents</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#prices">Prices</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#events">Events</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#query">Query</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#custom">Custom</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#metadata_1">Metadata</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#options">Options</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#operating-currencies">Operating Currencies</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#plugins">Plugins</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#includes">Includes</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#whats-next">What’s Next?</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="07_beancount_options_reference.html">Beancount Options Reference</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="08_precision_tolerances.html">Precision Tolerances</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="09_beancount_query_language.html">Beancount Query Language</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="10_beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="11_how_inventories_work.html">How Inventories Work</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="12_exporting_your_portfolio.html">Exporting Your Portfolio</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="13_tutorial_example.html">Tutorial &amp; Example</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="14_beancount_history_and_credits.html">Beancount History and Credits</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="15_a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="16_fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="17_importing_external_data.html">Importing External Data</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#">Cookbooks &amp; Examples</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="18_command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="19_trading_with_beancount.html">Trading with Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="20_stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="21_sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="22_how_we_share_expenses.html">How We Share Expenses</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#">Documentation for Developers</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="23_beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="24_beancount_design_doc.html">Beancount Design Doc</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="25_ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="26_external_contributions.html">External Contributions</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#">Enhancement Proposals &amp; Discussions</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="27_a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="28_settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29_balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="30_fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="31_rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/index.html">beancount</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ops.html">beancount.ops</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.utils.html">beancount.utils</a>
+</li>
+</ul>
 </div>
-          <div role="main">
-            <div class="section">
-              
-                <h1 id="beancount-language-syntax">Beancount Language Syntax<a id="title"></a><a class="headerlink" href="#beancount-language-syntax" title="Permanent link"></a></h1>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href=".">Beancount Documentation</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a href=".">Docs</a> »</li>
+<li>Documentation for Users »</li>
+<li>Outline »</li>
+<li>Beancount Language Syntax</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/xuhcc/beancount-docs/edit/master/docs/06_beancount_language_syntax.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div role="main">
+<div class="section">
+<h1 id="beancount-language-syntax">Beancount Language Syntax<a id="title"></a><a class="headerlink" href="#beancount-language-syntax" title="Permanent link"></a></h1>
 <p><a href="mailto:blais@furius.ca"><span class="underline">Martin Blais</span></a>, Updated: April 2016</p>
 <p><a href="http://furius.ca/beancount/doc/syntax"><span class="underline">http://furius.ca/beancount/doc/syntax</span></a></p>
 <p><a href="#introduction"><span class="underline">Introduction</span></a></p>
@@ -665,7 +598,6 @@ AIRMILE
 <p>If multiple lots match against the reducing posting and their number is not the total number, we are in a situation of <em>ambiguous matches</em>. What happens then, is that the account’s <em>booking method</em> is invoked. There are multiple booking methods, but by default, all accounts are set to use the “STRICT” booking method. This method simply issues an error in an ambiguous situation.</p>
 <p>You may set the account’s booking method to “FIFO” to instruct Beancount to select the oldest of the lots. Or “LIFO” for the latest (youngest) of the lots. This will automatically select all the necessary matching lots to fulfill the reduction.</p>
 <table><tbody><tr class="odd"><td><em><strong>PLEASE NOTE!</strong></em> Requiring the dates to match will be dealt with more sensibly in the near future. See <a href="27_a_proposal_for_an_improvement_on_inventory_booking.md"><span class="underline">A Proposal for an Improvement on Inventory Booking</span></a> for details of this upcoming change.</td></tr></tbody></table>
-
 <p>For such postings, a change that results in a negative number of units is usually impossible. Beancount does not currently allow holding a negative number of a commodity held at cost. For example, an input with just this transaction will fail:</p>
 <pre><code>2014-05-23 *
   Assets:Investments:MSFT        -10 MSFT {43.40 USD}
@@ -683,7 +615,6 @@ AIRMILE
 </ul>
 <p>This is why this check is enabled by default.</p>
 <table><tbody><tr class="odd"><td><em><strong>PLEASE NOTE!</strong></em> In a future version of Beancount, we will relax this constraint somewhat. We will allow an account to hold a negative number of units of a commodity if and only if there are no other units of that commodity held in the account. Either that, or we will allow you to mark an account has having no such constraints at all. The purpose is to allow the account of short positions in commodities. The only blocking factor is this constraint.</td></tr></tbody></table>
-
 <p>For more details of the inventory booking algorithm, see the <a href="11_how_inventories_work.html"><span class="underline">How Inventories Work</span></a> document.</p>
 <h4 id="amount-interpolation">Amount Interpolation<a id="amount-interpolation"></a><a class="headerlink" href="#amount-interpolation" title="Permanent link"></a></h4>
 <p>Beancount is able to fill in some of the details of a transaction automatically. You can currently elide the amount of <em>at most</em> one posting within a transaction:</p>
@@ -974,7 +905,6 @@ poptag #berlin-trip-2014
 <p>In the same vein, the IRS recognizes US immigrants as “resident alien”—and thus subject to filing taxes, yay!—if you pass the <a href="http://www.irs.gov/Individuals/International-Taxpayers/Substantial-Presence-Test"><span class="underline">Substantial Presence Test</span></a>, which is defined as “being physically present in the US on at least 31 days during the current year, and 193 days during the 3 year period that includes the current year and the 2 years immediately before that, counting: all the days you were present in the current year, and ⅓ of the days of the year before that, and ⅙ of the year preceding that one.” Ouch… my head hurts. This gets complicated. Armed with your location over time, you could report it automatically.</p>
 <p>Events will also be usable in the filtering language, to specify non-contiguous periods of time. For example, if you are tracking your location using Event directives, you could produce reports for transactions that occur only when you are in a specific location, e.g., “Show me my expenses on all my trips to Germany,” or “Give me a list of payees for restaurant transactions when I’m in Montreal.”</p>
 <table><tbody><tr class="odd"><td><em><strong>PLEASE NOTE!</strong></em> Filters haven’t been implemented yet. Also, reports on events have not yet been re-implemented in Beancount 2.0. They will be reintroduced again soon, as well as filtering.</td></tr></tbody></table>
-
 <p>It is worth noticing that the Price and Event directives are the only ones not associated to an account.</p>
 <h3 id="query">Query<a id="query"></a><a class="headerlink" href="#query" title="Permanent link"></a></h3>
 <p>It can be convenient to be able to associate SQL queries in a Beancount file to be able to run these as a report automatically. This is still an early development / experimental directive. In any case, you can insert queries in the stream of transactions like this:</p>
@@ -1096,67 +1026,50 @@ poptag #berlin-trip-2014
 <h2 id="whats-next">What’s Next?<a id="whats-next"></a><a class="headerlink" href="#whats-next" title="Permanent link"></a></h2>
 <p>This document described all the possible syntax of the Beancount language. If you haven’t written any Beancount input yet, you can head to the <a href="05_getting_started_with_beancount.html"><span class="underline">Getting Started</span></a> guide, or browse through a list of practical use cases in the <a href="18_command_line_accounting_cookbook.html"><span class="underline">Command-line Accounting Cookbook</span></a>.</p>
 <div class="footnote">
-<hr />
+<hr/>
 <ol>
 <li id="fn:1">
-<p>Note that there exists an “Open” directive that is used to provide the start date of each account. That can be located anywhere in the file, it does not have to appear in the file somewhere before you use an account name. You can just start using account names in transactions right away, though all account names that receive postings to them will eventually have to have a corresponding Open directive with a date that precedes all transactions posted to the account in the input file.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>Note that there exists an “Open” directive that is used to provide the start date of each account. That can be located anywhere in the file, it does not have to appear in the file somewhere before you use an account name. You can just start using account names in transactions right away, though all account names that receive postings to them will eventually have to have a corresponding Open directive with a date that precedes all transactions posted to the account in the input file. <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
 <li id="fn:2">
-<p>Note that this is valid whether the price is specified as a per-unit price with the @ syntax or as a total price using the @@ syntax.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>Note that this is valid whether the price is specified as a per-unit price with the @ syntax or as a total price using the @@ syntax. <a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">↩</a></p>
 </li>
 <li id="fn:3">
-<p>I really dislike the name “event” for this directive. I’ve been trying to find a better alternative, so far without success. The name “register” might be more appropriate, as it resembles that of a processor’s register, but that could be confused with an <em>account register</em> report. “variable” might work, but somehow that just sounds too computer-sciency and out of context. If you can think of something better, please make a suggestion and I’ll seriously entertain a complete rename (with legacy support for “event”).&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>I really dislike the name “event” for this directive. I’ve been trying to find a better alternative, so far without success. The name “register” might be more appropriate, as it resembles that of a processor’s register, but that could be confused with an <em>account register</em> report. “variable” might work, but somehow that just sounds too computer-sciency and out of context. If you can think of something better, please make a suggestion and I’ll seriously entertain a complete rename (with legacy support for “event”). <a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">↩</a></p>
 </li>
 </ol>
 </div>
-              
-            </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="07_beancount_options_reference.html" class="btn btn-neutral float-right" title="Beancount Options Reference">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="05_getting_started_with_beancount.html" class="btn btn-neutral" title="Getting Started with Beancount"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
-    </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-    
-  </div>
-
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-      
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-          <a href="https://github.com/xuhcc/beancount-docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
-      
-      
-        <span><a href="05_getting_started_with_beancount.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="07_beancount_options_reference.html" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
 </div>
-    <script>var base_url = '.';</script>
-    <script src="js/theme.js" defer></script>
-      <script src="search/main.js" defer></script>
+</div>
+<footer>
+<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-right" href="07_beancount_options_reference.html" title="Beancount Options Reference">Next <span class="icon icon-circle-arrow-right"></span></a>
+<a class="btn btn-neutral" href="05_getting_started_with_beancount.html" title="Getting Started with Beancount"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
 
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<a class="fa fa-github" href="https://github.com/xuhcc/beancount-docs/" style="float: left; color: #fcfcfc"> GitHub</a>
+<span><a href="05_getting_started_with_beancount.html" style="color: #fcfcfc;">« Previous</a></span>
+<span style="margin-left: 15px"><a href="07_beancount_options_reference.html" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script>var base_url = '.';</script>
+<script defer="" src="js/theme.js"></script>
+<script defer="">
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 </body>
 </html>

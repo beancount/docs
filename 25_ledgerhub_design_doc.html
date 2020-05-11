@@ -1,276 +1,181 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  <link rel="shortcut icon" href="img/favicon.ico">
-  <title>Ledgerhub Design Doc - Beancount Documentation</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
-  
-  <script>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://xuhcc.github.io/beancount-docs/25_ledgerhub_design_doc.html" rel="canonical"/>
+<link href="img/favicon.ico" rel="shortcut icon"/>
+<title>Ledgerhub Design Doc - Beancount Documentation</title>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
+<link href="css/theme.css" rel="stylesheet">
+<link href="css/theme_extra.css" rel="stylesheet"/>
+<script>
     // Current page data
     var mkdocs_page_name = "Ledgerhub Design Doc";
     var mkdocs_page_input_path = "25_ledgerhub_design_doc.md";
-    var mkdocs_page_url = null;
+    var mkdocs_page_url = "/beancount-docs/25_ledgerhub_design_doc.html";
   </script>
-  
-  <script src="js/jquery-2.1.1.min.js" defer></script>
-  <script src="js/modernizr-2.8.3.min.js" defer></script> 
-  
-</head>
-
+<script defer="" src="js/jquery-2.1.1.min.js"></script>
+<script defer="" src="js/modernizr-2.8.3.min.js"></script>
+</link></link></head>
 <body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href="index.html" class="icon icon-home"> Beancount Documentation</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="."> Beancount Documentation</a>
 </div>
-      </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="index.html">Index</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Outline</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <span class="caption-text">Documentation for Users</span>
-    <ul class="subnav">
-                <li class="toctree-l3">
-                    
-    <a class="" href="01_command_line_accounting_in_context.html">Command Line Accounting in Context</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="02_the_double_entry_counting_method.html">The Double Entry Counting Method</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="03_installing_beancount.html">Installing Beancount</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="04_running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="05_getting_started_with_beancount.html">Getting Started with Beancount</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="06_beancount_language_syntax.html">Beancount Language Syntax</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="07_beancount_options_reference.html">Beancount Options Reference</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="08_precision_tolerances.html">Precision Tolerances</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="09_beancount_query_language.html">Beancount Query Language</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="10_beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="11_how_inventories_work.html">How Inventories Work</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="12_exporting_your_portfolio.html">Exporting Your Portfolio</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="13_tutorial_example.html">Tutorial & Example</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="14_beancount_history_and_credits.html">Beancount History and Credits</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="15_a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="16_fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="17_importing_external_data.html">Importing External Data</a>
-                </li>
-    </ul>
-                </li>
-                <li class="">
-                    
-    <span class="caption-text">Cookbooks & Examples</span>
-    <ul class="subnav">
-                <li class="toctree-l3">
-                    
-    <a class="" href="18_command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="19_trading_with_beancount.html">Trading with Beancount</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="20_stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="21_sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="22_how_we_share_expenses.html">How We Share Expenses</a>
-                </li>
-    </ul>
-                </li>
-                <li class=" current">
-                    
-    <span class="caption-text">Documentation for Developers</span>
-    <ul class="subnav">
-                <li class="toctree-l3">
-                    
-    <a class="" href="23_beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="24_beancount_design_doc.html">Beancount Design Doc</a>
-                </li>
-                <li class="toctree-l3 current">
-                    
-    <a class="current" href="25_ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l4"><a href="#design-doc-for-ledgerhub">Design Doc for Ledgerhub</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l5" href="#motivation">Motivation</a></li>
-        
-            <li><a class="toctree-l5" href="#goals-stages">Goals &amp; Stages</a></li>
-        
-            <li><a class="toctree-l5" href="#details-of-stages">Details of Stages</a></li>
-        
-            <li><a class="toctree-l5" href="#implementation-details">Implementation Details</a></li>
-        
-            <li><a class="toctree-l5" href="#importers-interface">Importers Interface</a></li>
-        
-            <li><a class="toctree-l5" href="#references">References</a></li>
-        
-        </ul>
-    
-
-    </ul>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="26_external_contributions.html">External Contributions</a>
-                </li>
-    </ul>
-                </li>
-                <li class="">
-                    
-    <span class="caption-text">Enhancement Proposals & Discussions</span>
-    <ul class="subnav">
-                <li class="toctree-l3">
-                    
-    <a class="" href="27_a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="28_settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="29_balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="30_fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
-                </li>
-                <li class="toctree-l3">
-                    
-    <a class="" href="31_rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
-                </li>
-    </ul>
-                </li>
-    </ul>
-	    </li>
-          
-        </ul>
-      </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="index.html">Beancount Documentation</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="index.html">Docs</a> &raquo;</li>
-    
-      
-        
-          <li>Documentation for Developers &raquo;</li>
-        
-      
-        
-          <li>Outline &raquo;</li>
-        
-      
-    
-    <li>Ledgerhub Design Doc</li>
-    <li class="wy-breadcrumbs-aside">
-      
-        <a href="https://github.com/xuhcc/beancount-docs/edit/master/docs/25_ledgerhub_design_doc.md"
-          class="icon icon-github"> Edit on GitHub</a>
-      
-    </li>
-  </ul>
-  <hr/>
+<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Index</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Outline</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="#">Documentation for Users</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="01_command_line_accounting_in_context.html">Command Line Accounting in Context</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="02_the_double_entry_counting_method.html">The Double Entry Counting Method</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="03_installing_beancount.html">Installing Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="04_running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="05_getting_started_with_beancount.html">Getting Started with Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="06_beancount_language_syntax.html">Beancount Language Syntax</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="07_beancount_options_reference.html">Beancount Options Reference</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="08_precision_tolerances.html">Precision Tolerances</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="09_beancount_query_language.html">Beancount Query Language</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="10_beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="11_how_inventories_work.html">How Inventories Work</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="12_exporting_your_portfolio.html">Exporting Your Portfolio</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="13_tutorial_example.html">Tutorial &amp; Example</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="14_beancount_history_and_credits.html">Beancount History and Credits</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="15_a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="16_fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="17_importing_external_data.html">Importing External Data</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#">Cookbooks &amp; Examples</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="18_command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="19_trading_with_beancount.html">Trading with Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="20_stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="21_sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="22_how_we_share_expenses.html">How We Share Expenses</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal current" href="#">Documentation for Developers</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="23_beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="24_beancount_design_doc.html">Beancount Design Doc</a>
+</li>
+<li class="toctree-l2 current"><a class="reference internal current" href="25_ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
+<ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#motivation">Motivation</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#goals-stages">Goals &amp; Stages</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#details-of-stages">Details of Stages</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#fetching">Fetching</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#identification">Identification</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#extraction">Extraction</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#transform">Transform</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#rendering">Rendering</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#filing">Filing</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#implementation-details">Implementation Details</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#importers-interface">Importers Interface</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#references">References</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="26_external_contributions.html">External Contributions</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#">Enhancement Proposals &amp; Discussions</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="27_a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="28_settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29_balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="30_fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="31_rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/index.html">beancount</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ops.html">beancount.ops</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.utils.html">beancount.utils</a>
+</li>
+</ul>
 </div>
-          <div role="main">
-            <div class="section">
-              
-                <h1 id="design-doc-for-ledgerhub">Design Doc for Ledgerhub<a id="title"></a><a class="headerlink" href="#design-doc-for-ledgerhub" title="Permanent link"></a></h1>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href=".">Beancount Documentation</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a href=".">Docs</a> »</li>
+<li>Documentation for Developers »</li>
+<li>Outline »</li>
+<li>Ledgerhub Design Doc</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/xuhcc/beancount-docs/edit/master/docs/25_ledgerhub_design_doc.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div role="main">
+<div class="section">
+<h1 id="design-doc-for-ledgerhub">Design Doc for Ledgerhub<a id="title"></a><a class="headerlink" href="#design-doc-for-ledgerhub" title="Permanent link"></a></h1>
 <p><a href="mailto:blais@furius.ca"><span class="underline">Martin Blais</span></a>, February 2014</p>
 <p><a href="http://furius.ca/beancount/doc/ledgerhub-design-doc"><span class="underline">http://furius.ca/beancount/doc/ledgerhub-design-doc</span></a></p>
 <blockquote>
@@ -297,7 +202,7 @@
 <p>This new project should address the following aspects in a project-agnostic manner:</p>
 <ul>
 <li>
-<p><strong>Fetching</strong>: Automate <em>obtaining</em> the external data files by connecting to the data sources directly. External tools and libraries such as <a href="https://github.com/captin411/ofxclient"><span class="underline">ofxclient</span></a> for OFX sources can be leveraged for this purpose. Web scraping could be used to fetch downloadable files where possible. The output of this stage is a list of institution-specific files downloaded to a directory.<br />
+<p><strong>Fetching</strong>: Automate <em>obtaining</em> the external data files by connecting to the data sources directly. External tools and libraries such as <a href="https://github.com/captin411/ofxclient"><span class="underline">ofxclient</span></a> for OFX sources can be leveraged for this purpose. Web scraping could be used to fetch downloadable files where possible. The output of this stage is a list of institution-specific files downloaded to a directory.<br/>
     Note that fetching does not just apply to transaction data here; we will also support fetching <em>prices</em>. A list of (date, price) entries may be created from this data. We will likely want to support an intermediate format for expressing a list of positions (and appropriate support in the ledgerhub-Ledger/Beancount/HLedger interface to obtain it).</p>
 </li>
 <li>
@@ -311,7 +216,6 @@
 </li>
 </ul>
 <!-- -->
-
 <ul>
 <li>
 <p><strong>Rendering</strong>: Convert the internal transactions data structures to the particular syntax of a double-entry bookkeeping project implementation and to the particular desired syntax variants (e.g. currency formatting, comma vs. dot decimal separator, localized input date format). This steps spits out text to be inserted into an input file compatible with the ledger software of choice.</p>
@@ -348,21 +252,21 @@
 <p>from ledgerhub.sources.rbc import rbcinvesting, rbcpdf</p>
 <p>CONFIG = [</p>
 <p>...</p>
-<p>(('FileType: application/vnd.ms-excel', r'Filename: .*Activity-123456789-', ),<br />
-rbcinvesting.Importer({<br />
-'FILE' : 'Assets:CA:RBC-Investing:Taxable',<br />
-'cash' : 'Assets:CA:RBC-Investing:Taxable:Cash',<br />
-'positions' : 'Assets:CA:RBC-Investing:Taxable',<br />
-'interest' : 'Income:CA:RBC-Investing:Taxable:Interest',<br />
-'dividend' : 'Income:CA:RBC-Investing:Taxable:Dividends',<br />
-'fees' : 'Expenses:Financial:Fees',<br />
-'commission' : 'Expenses:Financial:Commissions',<br />
-'transfer' : 'Assets:CA:RBC:Checking',<br />
+<p>(('FileType: application/vnd.ms-excel', r'Filename: .*Activity-123456789-', ),<br/>
+rbcinvesting.Importer({<br/>
+'FILE' : 'Assets:CA:RBC-Investing:Taxable',<br/>
+'cash' : 'Assets:CA:RBC-Investing:Taxable:Cash',<br/>
+'positions' : 'Assets:CA:RBC-Investing:Taxable',<br/>
+'interest' : 'Income:CA:RBC-Investing:Taxable:Interest',<br/>
+'dividend' : 'Income:CA:RBC-Investing:Taxable:Dividends',<br/>
+'fees' : 'Expenses:Financial:Fees',<br/>
+'commission' : 'Expenses:Financial:Commissions',<br/>
+'transfer' : 'Assets:CA:RBC:Checking',<br/>
 })),  </p>
-<p>(('FileType: application/pdf',<br />
-'Filename:.*/123456789-\d\d\d\d[A-Z][a-z][a-z]\d\d-\d\d\d\d[A-Z][a-z][a-z]\d\d.pdf'),<br />
-rbcpdf.Importer({<br />
-'FILE': 'Assets:CA:RBC-Investing:RRSP',<br />
+<p>(('FileType: application/pdf',<br/>
+'Filename:.*/123456789-\d\d\d\d[A-Z][a-z][a-z]\d\d-\d\d\d\d[A-Z][a-z][a-z]\d\d.pdf'),<br/>
+rbcpdf.Importer({<br/>
+'FILE': 'Assets:CA:RBC-Investing:RRSP',<br/>
 })),</p>
 <p>The configuration consists in a list, for each possible importer, of a pair of 1) a list of regular expressions which all should match against a “match text”, which is a “textified” version of the contents of a file to be imported, and 2) an importer object, configured with a specific set of accounts to use for producing transactions. Each importer requires a particular set of output accounts which it uses to create its transactions and postings. The ledger’s filename, and a list of these (regexps, importer) pairs is all that is necessary for the driver to carry out all of its work.</p>
 <p>The textification consists in a simple and imperfect conversion of downloaded file that are in binary format to something that we can run regular expressions against. For an OFX file or CSV file there is no conversion required for textification, we can just match against the text contents of those files; for an Excel/XLS file, we need to convert that to a CSV file, which can then be searched; for a PDF file, a number of different pdf-to-text converters are attempted until one succeeds (the tools for this are notoriously unreliable, so we have to try various ones). Note that this converted "match text" is only created temporarily and only for the purpose of identification; the importer will get the original binary file to do its work.</p>
@@ -442,49 +346,49 @@ rbcpdf.Importer({<br />
 <p>This is obviously based on my current importers code in Beancount. I’m very open to new ideas and suggestions for this project. Collaborations will be most welcome. The more importers we can support, the better.</p>
 <h2 id="importers-interface">Importers Interface<a id="importers-interface"></a><a class="headerlink" href="#importers-interface" title="Permanent link"></a></h2>
 <p>Each importer should be implemented as a class that derives from this one:</p>
-<p>class ImporterBase:<br />
+<p>class ImporterBase:<br/>
 "Base class/interface for all source importers."  </p>
-<p># A dict of required configuration variables to their docstring.<br />
-# This declares the list of options required for the importer<br />
-# to be provided with, and their meaning.<br />
+<p># A dict of required configuration variables to their docstring.<br/>
+# This declares the list of options required for the importer<br/>
+# to be provided with, and their meaning.<br/>
 <strong>REQUIRED_CONFIG</strong> = {}  </p>
-<p>def __init__(self, config):<br />
-"""Create an importer.<br />
+<p>def __init__(self, config):<br/>
+"""Create an importer.<br/>
 Most concrete implementations can just use this without overriding.  </p>
-<p>Args:<br />
-config: A dict of configuration accounts, that must match the<br />
-REQUIRED_CONFIG values.<br />
-"""<br />
-# a dict of Configuration values. This can be accessed publicly.<br />
-assert isinstance(config, dict)<br />
+<p>Args:<br/>
+config: A dict of configuration accounts, that must match the<br/>
+REQUIRED_CONFIG values.<br/>
+"""<br/>
+# a dict of Configuration values. This can be accessed publicly.<br/>
+assert isinstance(config, dict)<br/>
 self.config = config  </p>
-<p># Check that the config has just the required configuration values.<br />
-if not verify_config(self, config, self.REQUIRED_CONFIG):<br />
-raise ValueError("Invalid config {}, requires {}".format(<br />
+<p># Check that the config has just the required configuration values.<br/>
+if not verify_config(self, config, self.REQUIRED_CONFIG):<br/>
+raise ValueError("Invalid config {}, requires {}".format(<br/>
 config, self.REQUIRED_CONFIG))  </p>
-<p>def get_filing_account(self):<br />
+<p>def get_filing_account(self):<br/>
 """Return the account for moving the input file to.  </p>
-<p>Returns:<br />
-The name of the account that corresponds to this importer.<br />
-"""<br />
+<p>Returns:<br/>
+The name of the account that corresponds to this importer.<br/>
+"""<br/>
 return self.config['FILE']  </p>
-<p>def <strong>import_file</strong>(self, filename):<br />
+<p>def <strong>import_file</strong>(self, filename):<br/>
 """Attempt to import a file.  </p>
-<p>Args:<br />
-filename: the name of the file to be imported.<br />
-Returns:<br />
-A list of new, imported entries extracted from the file.<br />
-"""<br />
+<p>Args:<br/>
+filename: the name of the file to be imported.<br/>
+Returns:<br/>
+A list of new, imported entries extracted from the file.<br/>
+"""<br/>
 raise NotImplementedError  </p>
-<p>def <strong>import_date</strong>(self, filename, text_contents):<br />
+<p>def <strong>import_date</strong>(self, filename, text_contents):<br/>
 """Attempt to obtain a date that corresponds to the given file.  </p>
-<p>Args:<br />
-filename: the name of the file to extract the date from<br />
-text_contents: an ASCII text version of the file contents,<br />
-whatever format it is originally in.<br />
-Returns:<br />
-A date object, if successful, or None.<br />
-"""<br />
+<p>Args:<br/>
+filename: the name of the file to extract the date from<br/>
+text_contents: an ASCII text version of the file contents,<br/>
+whatever format it is originally in.<br/>
+Returns:<br/>
+A date object, if successful, or None.<br/>
+"""<br/>
 raise NotImplementedError</p>
 <p>For each importer, a detailed explanation of how the original input file on the institution’s website is to be found and downloaded should be provided, to help those find the correct download when adding this importer (some institutions provide a variety of download formats). In addition, a one-line description of the input file support should be provided, so that we can render at runtime a list of the supported file types.</p>
 <h2 id="references">References<a id="references"></a><a class="headerlink" href="#references" title="Permanent link"></a></h2>
@@ -513,54 +417,37 @@ raise NotImplementedError</p>
 </li>
 </ul>
 <p>Update (Nov 2015): This design doc has been implemented and the project is being transitioned back to Beancount. Read the details <a href="https://docs.google.com/document/d/1Bln8Zo11Cvez2rdEgpnM-oBHC1B6uPC18Qm7ulobolM/"><span class="underline">here</span></a>.</p>
-              
-            </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="26_external_contributions.html" class="btn btn-neutral float-right" title="External Contributions">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="24_beancount_design_doc.html" class="btn btn-neutral" title="Beancount Design Doc"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
-    </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-    
-  </div>
-
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-      
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-          <a href="https://github.com/xuhcc/beancount-docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
-      
-      
-        <span><a href="24_beancount_design_doc.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="26_external_contributions.html" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
 </div>
-    <script>var base_url = '.';</script>
-    <script src="js/theme.js" defer></script>
-      <script src="search/main.js" defer></script>
+</div>
+<footer>
+<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-right" href="26_external_contributions.html" title="External Contributions">Next <span class="icon icon-circle-arrow-right"></span></a>
+<a class="btn btn-neutral" href="24_beancount_design_doc.html" title="Beancount Design Doc"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
 
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<a class="fa fa-github" href="https://github.com/xuhcc/beancount-docs/" style="float: left; color: #fcfcfc"> GitHub</a>
+<span><a href="24_beancount_design_doc.html" style="color: #fcfcfc;">« Previous</a></span>
+<span style="margin-left: 15px"><a href="26_external_contributions.html" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script>var base_url = '.';</script>
+<script defer="" src="js/theme.js"></script>
+<script defer="">
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 </body>
 </html>
