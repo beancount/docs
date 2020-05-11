@@ -64,3 +64,12 @@ plugins:
         python:
           rendering:
             show_source: true
+
+# Waiting for mkdocstrings to support readthedocs theme
+# https://github.com/pawamoy/mkdocstrings/issues/107
+extra_css:
+  - css/custom.css
+
+# Workaround for https://github.com/mkdocs/mkdocs/issues/2028
+extra_javascript:
+  - js/extra.js
