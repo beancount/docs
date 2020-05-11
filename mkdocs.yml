@@ -5,49 +5,49 @@ repo_url: https://github.com/xuhcc/beancount-docs/
 use_directory_urls: false
 
 theme:
-    name: readthedocs
-    highlightjs: false
+  name: readthedocs
+  highlightjs: false
 
 nav:
-    - Index: index.md
-    - Outline:
-      - Documentation for Users:
-        - Command Line Accounting in Context: 01_command_line_accounting_in_context.md
-        - The Double Entry Counting Method: 02_the_double_entry_counting_method.md
-        - Installing Beancount: 03_installing_beancount.md
-        - Running Beancount and Generating Reports: 04_running_beancount_and_generating_reports.md
-        - Getting Started with Beancount: 05_getting_started_with_beancount.md
-        - Beancount Language Syntax: 06_beancount_language_syntax.md
-        - Beancount Options Reference: 07_beancount_options_reference.md
-        - Precision Tolerances: 08_precision_tolerances.md
-        - Beancount Query Language: 09_beancount_query_language.md
-        - Beancount Cheat Sheet: 10_beancount_cheat_sheet.md
-        - How Inventories Work: 11_how_inventories_work.md
-        - Exporting Your Portfolio: 12_exporting_your_portfolio.md
-        - Tutorial & Example: 13_tutorial_example.md
-        - Beancount History and Credits: 14_beancount_history_and_credits.md
-        - A Comparison of Beancount and Ledger Hledger: 15_a_comparison_of_beancount_and_ledger_hledger.md
-        - Fetching Prices in Beancount: 16_fetching_prices_in_beancount.md
-        - Importing External Data: 17_importing_external_data.md
-      - Cookbooks & Examples:
-        - Command Line Accounting Cookbook: 18_command_line_accounting_cookbook.md
-        - Trading with Beancount: 19_trading_with_beancount.md
-        - Stock Vesting in Beancount: 20_stock_vesting_in_beancount.md
-        - Sharing Expenses with Beancount: 21_sharing_expenses_with_beancount.md
-        - How We Share Expenses: 22_how_we_share_expenses.md
-      - Documentation for Developers:
-        - Beancount Scripting Plugins: 23_beancount_scripting_plugins.md
-        - Beancount Design Doc: 24_beancount_design_doc.md
-        - Ledgerhub Design Doc: 25_ledgerhub_design_doc.md
-        - External Contributions: 26_external_contributions.md
-      - Enhancement Proposals & Discussions:
-        - A Proposal for an Improvement on Inventory Booking: 27_a_proposal_for_an_improvement_on_inventory_booking.md
-        - Settlement Dates in Beancount: 28_settlement_dates_in_beancount.md
-        - Balance Assertions in Beancount: 29_balance_assertions_in_beancount.md
-        - Fund Accounting with Beancount: 30_fund_accounting_with_beancount.md
-        - Rounding Precision in Beancount: 31_rounding_precision_in_beancount.md
+  - Index: index.md
+  - Outline:
+    - Documentation for Users:
+      - Command Line Accounting in Context: 01_command_line_accounting_in_context.md
+      - The Double Entry Counting Method: 02_the_double_entry_counting_method.md
+      - Installing Beancount: 03_installing_beancount.md
+      - Running Beancount and Generating Reports: 04_running_beancount_and_generating_reports.md
+      - Getting Started with Beancount: 05_getting_started_with_beancount.md
+      - Beancount Language Syntax: 06_beancount_language_syntax.md
+      - Beancount Options Reference: 07_beancount_options_reference.md
+      - Precision Tolerances: 08_precision_tolerances.md
+      - Beancount Query Language: 09_beancount_query_language.md
+      - Beancount Cheat Sheet: 10_beancount_cheat_sheet.md
+      - How Inventories Work: 11_how_inventories_work.md
+      - Exporting Your Portfolio: 12_exporting_your_portfolio.md
+      - Tutorial & Example: 13_tutorial_example.md
+      - Beancount History and Credits: 14_beancount_history_and_credits.md
+      - A Comparison of Beancount and Ledger Hledger: 15_a_comparison_of_beancount_and_ledger_hledger.md
+      - Fetching Prices in Beancount: 16_fetching_prices_in_beancount.md
+      - Importing External Data: 17_importing_external_data.md
+    - Cookbooks & Examples:
+      - Command Line Accounting Cookbook: 18_command_line_accounting_cookbook.md
+      - Trading with Beancount: 19_trading_with_beancount.md
+      - Stock Vesting in Beancount: 20_stock_vesting_in_beancount.md
+      - Sharing Expenses with Beancount: 21_sharing_expenses_with_beancount.md
+      - How We Share Expenses: 22_how_we_share_expenses.md
+    - Documentation for Developers:
+      - Beancount Scripting Plugins: 23_beancount_scripting_plugins.md
+      - Beancount Design Doc: 24_beancount_design_doc.md
+      - Ledgerhub Design Doc: 25_ledgerhub_design_doc.md
+      - External Contributions: 26_external_contributions.md
+    - Enhancement Proposals & Discussions:
+      - A Proposal for an Improvement on Inventory Booking: 27_a_proposal_for_an_improvement_on_inventory_booking.md
+      - Settlement Dates in Beancount: 28_settlement_dates_in_beancount.md
+      - Balance Assertions in Beancount: 29_balance_assertions_in_beancount.md
+      - Fund Accounting with Beancount: 30_fund_accounting_with_beancount.md
+      - Rounding Precision in Beancount: 31_rounding_precision_in_beancount.md
 
 markdown_extensions:
-    - toc:
-        permalink: 
-    - footnotes
+  - toc:
+      permalink: 
+  - footnotes
