@@ -1,5 +1,6 @@
 site_name: Beancount Documentation
 site_description: Auto-generated markdown version
+site_url: "https://xuhcc.github.io/beancount-docs"
 
 repo_url: https://github.com/xuhcc/beancount-docs/
 use_directory_urls: false
@@ -46,8 +47,20 @@ nav:
       - Balance Assertions in Beancount: 29_balance_assertions_in_beancount.md
       - Fund Accounting with Beancount: 30_fund_accounting_with_beancount.md
       - Rounding Precision in Beancount: 31_rounding_precision_in_beancount.md
+  - API reference:
+    - beancount: api_reference/index.md
+    - api_reference/beancount.ops.md
+    - api_reference/beancount.utils.md
 
 markdown_extensions:
   - toc:
       permalink: 
   - footnotes
+
+plugins:
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          rendering:
+            show_source: true

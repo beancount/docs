@@ -15,7 +15,7 @@ site/
 *.log
 !README.md
 !CONTRIBUTING.md
-!docs/*.md
+!docs/**/*.md
 !docs/**/*.png
 !docs/**/*.jpg
 !docs/**/*.gif
