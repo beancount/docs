@@ -132,7 +132,35 @@
      <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/api_reference/beancount.core.html</loc>
+     <lastmod>2020-05-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/api_reference/beancount.ingest.html</loc>
+     <lastmod>2020-05-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://xuhcc.github.io/beancount-docs/api_reference/beancount.ops.html</loc>
+     <lastmod>2020-05-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/api_reference/beancount.parser.html</loc>
+     <lastmod>2020-05-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/api_reference/beancount.plugins.html</loc>
+     <lastmod>2020-05-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/api_reference/beancount.query.html</loc>
+     <lastmod>2020-05-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/api_reference/beancount.reports.html</loc>
+     <lastmod>2020-05-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://xuhcc.github.io/beancount-docs/api_reference/beancount.scripts.html</loc>
      <lastmod>2020-05-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
