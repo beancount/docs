@@ -1,0 +1,3 @@
+# beancount.scripts
+
+::: beancount.scripts

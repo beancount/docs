@@ -1,0 +1,3 @@
+# beancount.ingest
+
+::: beancount.ingest

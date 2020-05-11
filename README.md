@@ -37,11 +37,11 @@ python crawl.py
 Generate static website using MkDocs:
 
 ```
-mkdocs serve
+python build.py serve
 ```
 
 Deploy to GitHub pages:
 
 ```
-mkdocs gh-deploy
+python build.py gh-deploy
 ```

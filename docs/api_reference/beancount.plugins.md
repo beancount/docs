@@ -1,0 +1,3 @@
+# beancount.plugins
+
+::: beancount.plugins

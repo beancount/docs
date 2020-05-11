@@ -1,0 +1,3 @@
+# beancount.core
+
+::: beancount.core

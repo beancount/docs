@@ -1,0 +1,3 @@
+# beancount.reports
+
+::: beancount.reports
