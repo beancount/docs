@@ -1,0 +1,14 @@
+/* API reference */
+
+.doc-heading code {
+    white-space: normal;
+}
+
+.doc-contents details {
+    margin-bottom: 24px;
+}
+
+.doc-contents code:empty {
+    display: none;
+}
+
