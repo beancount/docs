@@ -4,7 +4,7 @@ https://xuhcc.github.io/beancount-docs/
 
 Source files are in [docs](docs/) directory.
 
-These documents in markdown format are automatically generated from [official Beancount Documentation](http://furius.ca/beancount/doc/index).
+These documents in markdown format are automatically generated from [official Beancount documentation](http://furius.ca/beancount/doc/index).
 
 ## Beancount Google Doc converter
 
@@ -32,9 +32,9 @@ Export and convert all documents:
 python crawl.py
 ```
 
-## Website
+## Documentation website
 
-Generate static website using MkDocs:
+Generate static website using [MkDocs](https://www.mkdocs.org/):
 
 ```
 python build.py serve
