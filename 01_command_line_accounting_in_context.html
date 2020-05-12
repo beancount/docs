@@ -377,7 +377,11 @@ command-line accounting systems to manage personal finances.</em></p>
 </li>
 <li>
 <p><strong>By writing scripts.</strong> You can parse and obtain the contents of a ledger with very little code. In Python, this looks no more complicated than this:  </p>
-<p><code>import beancount.loader … entries, errors, options = beancount.loader.load_file(‘myfile.ledger’) for entry in entries: …</code></p>
+<p>import beancount.loader<br/>
+…<br/>
+entries, errors, options = beancount.loader.load_file(‘myfile.ledger’)<br/>
+for entry in entries:<br/>
+…</p>
 </li>
 </ol>
 <p>Voila. You’re on your way to spitting out whatever output you want. You have access to all the libraries in the Python world, and my code is mostly functional, heavily documented and thoroughly unit-tested. You should be able to find your way easily. Moreover, if you’re uncertain about using this system, you could just use it to begin entering your data and later write a script that converts it into something else.</p>

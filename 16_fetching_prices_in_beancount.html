@@ -202,7 +202,10 @@
 <h2 id="introduction">Introduction<a id="introduction"></a><a class="headerlink" href="#introduction" title="Permanent link"></a></h2>
 <p>Processing a Beancount file is, by definition, constrained to the contents of the file itself. In particular, the latest prices of commodities are <em>never</em> fetched automatically from the internet. This is by design, so that any run of a report is deterministic and can also be run offline. No surprises.</p>
 <p>However, we do need access to price information in order to compute market values of assets. To this end, Beancount provides a Price directive which can be used to fill its in-memory price database by inserting these price points inline in the input file:</p>
-<p><code>2015-11-20 price ITOT 95.46 USD 2015-11-20 price LQD 115.63 USD 2015-11-21 price USD 1.33495 CAD …</code></p>
+<p>2015-11-20 price ITOT 95.46 USD<br/>
+2015-11-20 price LQD 115.63 USD<br/>
+2015-11-21 price USD 1.33495 CAD<br/>
+…</p>
 <p>Of course, you could do this manually, looking up the prices online and writing the directives yourself. But for assets which are traded publicly you can automate it, by invoking some code that will download prices and write out the directives for you.</p>
 <p>Beancount comes with some tools to help you do this. This document describes these tools.</p>
 <h2 id="the-problem">The Problem<a id="the-problem"></a><a class="headerlink" href="#the-problem" title="Permanent link"></a></h2>
