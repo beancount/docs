@@ -80,8 +80,6 @@
 <ul>
 <li class="toctree-l4"><a class="reference internal" href="#generate-an-example-file">Generate an Example File</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#it-should-return-quietly-without-outputting-anything-bean-check-only-writes-errors-when-there-are-some-otherwise-on-success-it-writes-nothing">It should return quietly, without outputting anything (bean-check only writes errors when there are some, otherwise on success it writes nothing).</a>
-</li>
 <li class="toctree-l4"><a class="reference internal" href="#generating-reports">Generating Reports</a>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#generating-balances">Generating Balances</a>
@@ -271,7 +269,7 @@
 <p>His salary is paid as a direct deposit to his checking account.</p>
 </li>
 <li>
-<p>He benefits and pays premiums for a health insurance plan provided by his employer.</p>
+<p>He benefits from and pays premiums for a health insurance plan provided by his employer.</p>
 </li>
 <li>
 <p>He tracks his vacation hours explicitly.</p>
@@ -366,7 +364,7 @@
 <p>Next, before we begin generating reports, verify that the file loads without any errors:</p>
 <pre><code>bean-check example.beancount
 </code></pre>
-<h3 id="it-should-return-quietly-without-outputting-anything-bean-check-only-writes-errors-when-there-are-some-otherwise-on-success-it-writes-nothing">It should return quietly, without outputting anything (bean-check only writes errors when there are some, otherwise on success it writes nothing).<a id="it-should-return-quietly-without-outputting-anything-bean-check-only-writes-errors-when-there-are-some-otherwise-on-success-it-writes-nothing."></a><a class="headerlink" href="#it-should-return-quietly-without-outputting-anything-bean-check-only-writes-errors-when-there-are-some-otherwise-on-success-it-writes-nothing" title="Permanent link"></a></h3>
+<p>It should return quietly, without outputting anything (bean-check only writes errors when there are some, otherwise on success it writes nothing).</p>
 <h3 id="generating-reports">Generating Reports<a id="generating-reports"></a><a class="headerlink" href="#generating-reports" title="Permanent link"></a></h3>
 <p>Let’s generate a report of the final balances of all accounts <a href="http://furius.ca/beancount/examples/tutorial/balances.output"><span class="underline">[output]</span></a>:</p>
 <pre><code>bean-report example.beancount balances
@@ -400,7 +398,7 @@
 <p>Let us generate a balance sheet:</p>
 <pre><code>bean-report example.beancount balsheet
 </code></pre>
-<p>Unfortunately, the only output format supported for it at this point is HTML. Also, filtering for balance sheet from the command-line is not supported. Generate this to a file and open a browser to it <a href="http://furius.ca/beancount/examples/tutorial/balsheet.output"><span class="underline">[output]</span></a>:</p>
+<p>Unfortunately, the only output format supported for it at this point is HTML. Also, filtering balance sheet entries from the command-line is not supported. Generate this to a file and open a browser to it <a href="http://furius.ca/beancount/examples/tutorial/balsheet.output"><span class="underline">[output]</span></a>:</p>
 <pre><code>bean-report example.beancount balsheet &gt; /tmp/balsheet.html
 </code></pre>
 <p>You can to the same for income statements:</p>
@@ -462,7 +460,7 @@
 </code></pre>
 <p>Note that “beancount” and “ledger” are valid output formats: they refer to the Beancount and Ledger input syntaxes.</p>
 <h3 id="viewing-reports-through-the-web-interface">Viewing Reports through the Web Interface<a id="viewing-reports-through-the-web-interface"></a><a class="headerlink" href="#viewing-reports-through-the-web-interface" title="Permanent link"></a></h3>
-<p>The original way to access reports in Beancount is via its web interface, that serves to a local web server on your machine. Serve the example file like this:</p>
+<p>The original way to access reports in Beancount is via its web interface that serves to a local web server on your machine. Serve the example file like this:</p>
 <pre><code>bean-web example.beancount
 </code></pre>
 <p>Then navigate with a web browser to <a href="http://localhost:8080"><span class="underline">http://localhost:8080</span></a>. From there, you can click on any number of filtered views and access some of the reports previously demonstrated. For example, click on a year view; that will provide balance sheets and income statements and various other reports for this subset of transactions.</p>

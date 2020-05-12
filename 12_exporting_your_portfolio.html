@@ -72,8 +72,6 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#importing-the-ofx-file-in-google-finance">Importing the OFX File in Google Finance</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#visit-httpfinancegooglecom-and-click-on-portfolios-on-the-left-or-simply-visit-httpswwwgooglecomfinanceportfolio-this-works-as-of-jan-2015">Visit http://finance.google.com and click on “Portfolios” on the left (or simply visit https://www.google.com/finance/portfolio, this works as of Jan 2015)</a>
-</li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#controlling-exported-commodities">Controlling Exported Commodities</a>
@@ -84,17 +82,9 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#explicitly-specifying-exported-symbols">Explicitly Specifying Exported Symbols</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#the-export-field-is-used-to-map-your-commodity-name-to-the-corresponding-instrument-in-the-google-finance-system-if-a-holding-in-that-commodity-needs-to-be-exported-this-code-is-used-instead-of-the-beancount-currency-name">The “export” field is used to map your commodity name to the corresponding instrument in the Google Finance system. If a holding in that commodity needs to be exported, this code is used instead of the Beancount currency name.</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#the-symbology-used-by-google-finance-appears-to-follow-the-following-syntax">The symbology used by Google Finance appears to follow the following syntax:</a>
-</li>
 <li class="toctree-l4"><a class="reference internal" href="#exchangesymbol">Exchange:Symbol</a>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#exporting-to-a-cash-equivalent">Exporting to a Cash Equivalent</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#for-example-i-hold-units-of-an-insurance-policy-investment-vehicle-this-is-common-in-canada-for-example-with-london-life-this-is-a-financial-instrument-but-each-particular-policy-issuance-has-its-own-associated-valuethere-is-no-public-source-of-data-for-each-of-those-products-its-rather-opaque-i-can-obtain-its-value-with-my-annual-statement-but-definitely-not-in-google-finance-but-id-still-like-for-the-assets-value-to-be-reflected-in-my-portfolio">For example, I hold units of an insurance policy investment vehicle (this is common in Canada, for example, with London Life). This is a financial instrument, but each particular policy issuance has its own associated value—there is no public source of data for each of those products, it’s rather opaque, I can obtain its value with my annual statement, but definitely not in Google Finance. But I’d still like for the asset’s value to be reflected in my portfolio.</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#the-way-you-tell-the-export-code-to-make-this-conversion-is-to-specify-a-special-value-of-cash-for-the-export-field-like-this">The way you tell the export code to make this conversion is to specify a special value of “CASH” for the “export” field, like this:</a>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#declaring-money-instruments">Declaring Money Instruments</a>
 </li>
@@ -246,7 +236,7 @@
 <p>Then we have to import that OFX file in a web-based portfolio.</p>
 <ol>
 <li>
-<h3 id="visit-httpfinancegooglecom-and-click-on-portfolios-on-the-left-or-simply-visit-httpswwwgooglecomfinanceportfolio-this-works-as-of-jan-2015">Visit <a href="http://finance.google.com"><span class="underline">http://finance.google.com</span></a> and click on “Portfolios” on the left (or simply visit <a href="https://www.google.com/finance/portfolio"><span class="underline">https://www.google.com/finance/portfolio</span></a>, this works as of Jan 2015)<a id="visit-httpfinance.google.com-and-click-on-portfolios-on-the-left-or-simply-visit-httpswww.google.comfinanceportfolio-this-works-as-of-jan-2015"></a><a class="headerlink" href="#visit-httpfinancegooglecom-and-click-on-portfolios-on-the-left-or-simply-visit-httpswwwgooglecomfinanceportfolio-this-works-as-of-jan-2015" title="Permanent link"></a></h3>
+<p>Visit <a href="http://finance.google.com"><span class="underline">http://finance.google.com</span></a> and click on “Portfolios” on the left (or simply visit <a href="https://www.google.com/finance/portfolio"><span class="underline">https://www.google.com/finance/portfolio</span></a>, this works as of Jan 2015)</p>
 </li>
 <li>
 <p>If you have an existing, previously imported portfolio, click on “Delete Portfolio” to get rid of it.</p>
@@ -285,14 +275,14 @@
   ...
   export: "TSE:XIN"
 </code></pre>
-<h3 id="the-export-field-is-used-to-map-your-commodity-name-to-the-corresponding-instrument-in-the-google-finance-system-if-a-holding-in-that-commodity-needs-to-be-exported-this-code-is-used-instead-of-the-beancount-currency-name">The “export” field is used to map your commodity name to the corresponding instrument in the Google Finance system. If a holding in that commodity needs to be exported, this code is used instead of the Beancount currency name.<a id="the-export-field-is-used-to-map-your-commodity-name-to-the-corresponding-instrument-in-the-google-finance-system.-if-a-holding-in-that-commodity-needs-to-be-exported-this-code-is-used-instead-of-the-beancount-currency-name."></a><a class="headerlink" href="#the-export-field-is-used-to-map-your-commodity-name-to-the-corresponding-instrument-in-the-google-finance-system-if-a-holding-in-that-commodity-needs-to-be-exported-this-code-is-used-instead-of-the-beancount-currency-name" title="Permanent link"></a></h3>
-<h3 id="the-symbology-used-by-google-finance-appears-to-follow-the-following-syntax">The symbology used by Google Finance appears to follow the following syntax:<a id="the-symbology-used-by-google-finance-appears-to-follow-the-following-syntax"></a><a class="headerlink" href="#the-symbology-used-by-google-finance-appears-to-follow-the-following-syntax" title="Permanent link"></a></h3>
+<p>The “export” field is used to map your commodity name to the corresponding instrument in the Google Finance system. If a holding in that commodity needs to be exported, this code is used instead of the Beancount currency name.</p>
+<p>The symbology used by Google Finance appears to follow the following syntax:</p>
 <h3 id="exchangesymbol"><em>Exchange:Symbol</em><a id="exchangesymbol"></a><a class="headerlink" href="#exchangesymbol" title="Permanent link"></a></h3>
 <p>where <em>Exchange</em> is a code either for the exchange where the stock trades, or for another source of financial data, e.g. “MUTF” for “mutual funds in the US”, <a href="http://www.google.com/googlefinance/disclaimer/"><span class="underline">and more</span></a>. <em>Symbol</em> is a name that is unique within that exchange. I recommend searching for each of your financial instruments in Google Finance, confirming that the instrument corresponds to your instrument (by inspecting the full name, description and price), and inserting the corresponding code like this.</p>
 <h3 id="exporting-to-a-cash-equivalent">Exporting to a Cash Equivalent<a id="exporting-to-a-cash-equivalent"></a><a class="headerlink" href="#exporting-to-a-cash-equivalent" title="Permanent link"></a></h3>
 <p>To account for positions that aren’t supported in Google Finance, the export report can convert a holding to its cash-equivalent value. This is also useful for cash positions (e.g., cash sitting idle in a savings or checking account).</p>
-<h3 id="for-example-i-hold-units-of-an-insurance-policy-investment-vehicle-this-is-common-in-canada-for-example-with-london-life-this-is-a-financial-instrument-but-each-particular-policy-issuance-has-its-own-associated-valuethere-is-no-public-source-of-data-for-each-of-those-products-its-rather-opaque-i-can-obtain-its-value-with-my-annual-statement-but-definitely-not-in-google-finance-but-id-still-like-for-the-assets-value-to-be-reflected-in-my-portfolio">For example, I hold units of an insurance policy investment vehicle (this is common in Canada, for example, with London Life). This is a financial instrument, but each particular policy issuance has its own associated value—there is no public source of data for each of those products, it’s rather opaque, I can obtain its value with my annual statement, but definitely not in Google Finance. But I’d still like for the asset’s value to be reflected in my portfolio.<a id="for-example-i-hold-units-of-an-insurance-policy-investment-vehicle-this-is-common-in-canada-for-example-with-london-life.-this-is-a-financial-instrument-but-each-particular-policy-issuance-has-its-own-associated-valuethere-is-no-public-source-of-data-for-each-of-those-products-its-rather-opaque-i-can-obtain-its-value-with-my-annual-statement-but-definitely-not-in-google-finance.-but-id-still-like-for-the-assets-value-to-be-reflected-in-my-portfolio."></a><a class="headerlink" href="#for-example-i-hold-units-of-an-insurance-policy-investment-vehicle-this-is-common-in-canada-for-example-with-london-life-this-is-a-financial-instrument-but-each-particular-policy-issuance-has-its-own-associated-valuethere-is-no-public-source-of-data-for-each-of-those-products-its-rather-opaque-i-can-obtain-its-value-with-my-annual-statement-but-definitely-not-in-google-finance-but-id-still-like-for-the-assets-value-to-be-reflected-in-my-portfolio" title="Permanent link"></a></h3>
-<h3 id="the-way-you-tell-the-export-code-to-make-this-conversion-is-to-specify-a-special-value-of-cash-for-the-export-field-like-this">The way you tell the export code to make this conversion is to specify a special value of “CASH” for the “export” field, like this:<a id="the-way-you-tell-the-export-code-to-make-this-conversion-is-to-specify-a-special-value-of-cash-for-the-export-field-like-this"></a><a class="headerlink" href="#the-way-you-tell-the-export-code-to-make-this-conversion-is-to-specify-a-special-value-of-cash-for-the-export-field-like-this" title="Permanent link"></a></h3>
+<p>For example, I hold units of an insurance policy investment vehicle (this is common in Canada, for example, with London Life). This is a financial instrument, but each particular policy issuance has its own associated value—there is no public source of data for each of those products, it’s rather opaque, I can obtain its value with my annual statement, but definitely not in Google Finance. But I’d still like for the asset’s value to be reflected in my portfolio.</p>
+<p>The way you tell the export code to make this conversion is to specify a special value of “CASH” for the “export” field, like this:</p>
 <pre><code>1878-01-01 commodity LDNLIFE
   export: "CASH"
 </code></pre>
