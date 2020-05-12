@@ -48,7 +48,7 @@ Making Queries<a id="making-queries"></a>
 The custom query client that we provide is called bean-query. Run it on your ledger file, like this:
 
     $ bean-query myfile.beancount
-    Input file: “My Ledger’s Title”
+    Input file: "My Ledger’s Title"
     Ready with 13996 directives (21112 postings in 8833 transactions).
     beancount> _
 
@@ -62,7 +62,7 @@ If any errors in your ledger are incurred, they are printed before the prompt. T
 
 If you’d like to run queries directly from the command-line, without an interactive prompt, you can provide the query directly following your filename:
 
-    $ bean-query myfile.beancount ‘balances from year = 2014’
+    $ bean-query myfile.beancount 'balances from year = 2014'
                          account                       balance
     ----------------------------------------------------------------------
     … <balances follow> … 
@@ -93,7 +93,7 @@ The structure of transactions and entries can be explained by the following simp
 <img src="09_beancount_query_language/media/99e941362869147aff7bb5b64676940fdeebe7f1.png" style="width:5.19444in;height:1.81944in" /><a id="section"></a>
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 
-The contents of a ledger is parsed into a list of directives, most of which are “Transaction” objects which contain two or more “Posting” objects. Postings are always linked only to a single transaction (they are never shared between transactions). Each posting refers to its parent transaction but has a unique account name, amount and associates lot (possibly with a cost), a price and some other attributes. The parent transaction itself contains a few useful attributes as well, such as a date, the name of a payee, a narration string, a flag, links, tags, etc.
+The contents of a ledger is parsed into a list of directives, most of which are “Transaction” objects which contain two or more “Posting” objects. Postings are always linked only to a single transaction (they are never shared between transactions). Each posting refers to its parent transaction but has a unique account name, amount and associated lot (possibly with a cost), a price and some other attributes. The parent transaction itself contains a few useful attributes as well, such as a date, the name of a payee, a narration string, a flag, links, tags, etc.
 
 If we ignore the list of directives other than transactions, you can view the dataset as a single table of all postings joined with their parent transaction. It is mainly on this joined table of postings that we want to perform filtering and aggregation operations.
 
@@ -140,7 +140,7 @@ This hash is derived from the contents of the transaction object itself (if you 
 
 You can print and select using this column. It can be used for debugging, e.g.
 
-    PRINT FROM id = ‘8e7c47250d040ae2b85de580dd4f5c2a’;
+    PRINT FROM id = '8e7c47250d040ae2b85de580dd4f5c2a';
 
 **The “balance” Column**
 
@@ -183,7 +183,7 @@ The data attributes extracted from the postings or transactions have particular 
 
 -   String (Python str)
 
--   Date (a datetime.date instance). You can parse a date with the \#”...” syntax; this uses Python’s dateutil module and is pretty liberal in the formats it accepts.
+-   Date (a datetime.date instance). You can parse a date with the \#"..." syntax; this uses Python’s dateutil module and is pretty liberal in the formats it accepts.
 
 -   Integer (Python int)
 
@@ -223,7 +223,7 @@ Functions with the same names are available to operate on position or inventory 
 
 Refer to the table below for explicit examples of each type of posting and how it would get converted and rendered.
 
-<table><thead><tr class="header"><th><strong>posting</strong></th><th><strong>raw (full detail)</strong></th><th><strong>units</strong></th><th><strong>cost</strong></th><th><strong>weight</strong></th><th><strong>market</strong></th></tr></thead><tbody><tr class="odd"><td><strong>Simple</strong></td><td>50.00 USD</td><td>50.00 USD</td><td>50.00 USD</td><td>50.00 USD</td><td>50.00 USD</td></tr><tr class="even"><td><strong>With Price Conversion</strong></td><td>50.00 USD @ 1.35 CAD</td><td>50.00 USD</td><td><strong>50.00 USD</strong></td><td><strong>67.50 CAD</strong></td><td>50.00 USD</td></tr><tr class="odd"><td><strong>Held at Cost</strong></td><td>50 VEA {1.35 CAD}</td><td>50 VEA</td><td>67.50 CAD</td><td>67.50 CAD</td><td><strong>67.50 CAD</strong></td></tr><tr class="even"><td><strong>Held at Cost with Price</strong></td><td>50 VEA {1.35 CAD} @ 1.45 CAD</td><td>50 VEA</td><td><strong>67.50 CAD</strong></td><td>67.50 CAD</td><td><strong>72.50 CAD</strong></td></tr></tbody></table>
+<table><thead><tr class="header"><th><strong>posting</strong></th><th><strong>raw (full detail)</strong></th><th><strong>units</strong></th><th><strong>cost</strong></th><th><strong>weight</strong></th><th><strong>market</strong></th></tr></thead><tbody><tr class="odd"><td><strong>Simple</strong></td><td>50.00 USD</td><td>50.00 USD</td><td>50.00 USD</td><td>50.00 USD</td><td>50.00 USD</td></tr><tr class="even"><td><strong>With Price Conversion</strong></td><td>50.00 USD @ 1.35 CAD</td><td>50.00 USD</td><td>50.00 USD</td><td>67.50 CAD</td><td>50.00 USD</td></tr><tr class="odd"><td><strong>Held at Cost</strong></td><td>50 VEA {1.35 CAD}</td><td>50 VEA</td><td>67.50 CAD</td><td>67.50 CAD</td><td>67.50 CAD</td></tr><tr class="even"><td><strong>Held at Cost with Price</strong></td><td>50 VEA {1.35 CAD} @ 1.45 CAD</td><td>50 VEA</td><td>67.50 CAD</td><td>67.50 CAD</td><td>72.50 CAD</td></tr></tbody></table>
 
 Operators<a id="operators"></a>
 -------------------------------
@@ -232,9 +232,9 @@ Common comparison and logical operators are provided to operate on the available
 
 -   = (equality), != (inequality)
 
--   &lt; (less than), &lt;= (less than or equal)
+-   < (less than), <= (less than or equal)
 
--   &gt; (greater than), &gt;= (greater than or equal)
+-   > (greater than), >= (greater than or equal)
 
 -   AND (logical conjunction)
 
@@ -256,7 +256,7 @@ Here is an example query that uses a few of these:
 
     SELECT date, payee 
     WHERE account ~ 'Expenses:Food:Restaurant' 
-      AND ‘trip-new-york’ IN tags
+      AND 'trip-new-york' IN tags
       AND NOT payee = 'Uncle Boons'
 
 Unlike SQL, bean-query does not implement [<span class="underline">three-valued logic</span>](https://www.postgresql.org/docs/9.6/static/functions-logical.html) for NULL. This means that e.g. the expression NULL = NULL yields TRUE instead of NULL, which simplifies things, but may come as a surprise to veteran SQL users.
@@ -289,7 +289,7 @@ Aggregate Functions<a id="aggregate-functions"></a>
 
 Some functions operate on more than a single row. These functions aggregate and summarize the multiple values for the data column that they operate on. A prototypical usage of such a function is to sum the positions in an inventory:
 
-    SELECT account, sum(position) WHERE account ~ ‘Income’ GROUP BY account;
+    SELECT account, sum(position) WHERE account ~ 'Income' GROUP BY account;
 
 If a query target has at least one aggregating function, the query becomes an aggregated query (see relevant section for details). Note that you cannot use aggregation functions in the FROM or WHERE clauses.
 
@@ -305,7 +305,7 @@ Examples of aggregate functions include:
 
 As for simple functions, this is just a starting list. We will be adding more as needed. Use “help targets” to access the full list of available aggregate functions.
 
-Note: You cannot filter (using a WHERE clause) the results of aggregation functions; this requires the implementation an HAVING clause, and at the moment, [<span class="underline">HAVING filtering is not yet implemented</span>](https://bitbucket.org/blais/beancount/src/de8cf9a6a8).
+Note: You cannot filter (using a WHERE clause) the results of aggregation functions; this requires the implementation offering a HAVING clause, and at the moment, [<span class="underline">HAVING filtering is not yet implemented</span>](https://bitbucket.org/blais/beancount/src/de8cf9a6a8).
 
 Simple vs. Aggregated Queries<a id="simple-vs.-aggregated-queries"></a>
 -----------------------------------------------------------------------
@@ -419,7 +419,7 @@ Closing a period leaves the Income and Expenses accounts as they are, that is, t
 
 ### Clearing Income & Expenses<a id="clearing-income-expenses"></a>
 
-In order to produce a balance sheet, we need to transfer final balances of the Income and Expenses to an Equity “current earnings” account (sometimes called “retained earnings” or “net income”; you can select the specific account name to use using options in the input file). The resulting balances of income statement accounts should be zero. (see beancount.ops.summarize.clear() for implementation details.)
+In order to produce a balance sheet, we need to transfer final balances of the Income and Expenses to an Equity “current earnings” account (sometimes called “retained earnings” or “net income”; you can select the specific account name to use using options in the input file). The resulting balances of income statement accounts should be zero (see beancount.ops.summarize.clear() for implementation details).
 
 You can clear like this:
 
@@ -455,7 +455,7 @@ Note that if you added the CLEAR operator to the statement of income statement a
 
 It is relevant to notice that the examples above do not filter the transactions any further. If you are selecting a subset of transactions you may want to leave the accounts unopened, unclosed and uncleared because applying only some of the transactions on top of the opening balances of Assets and Liabilities accounts will not produce correct balances for those accounts. It would be more useful to leave them all opened, and to interpret the balances of the balance sheet accounts as the *changes* in those accounts for the subset of transactions selected. For example, if you selected all transactions from a trip (using a tag), you would obtain a list of changes in Expenses (and possibly Income) tagged as being included in this trip, and the Assets and Liabilities accounts would show where the funds for those Expenses came from.
 
-Consult the “introduction to double-entry method” document for a pictorial representation of this. (Granted, this is probably worth of a dedicated document and I might produce one at some point.)
+Consult the “introduction to double-entry method” document for a pictorial representation of this. (Granted, this is probably worth a dedicated document and I might produce one at some point.)
 
 ### Example Fetching Cost Basis<a id="example-fetching-cost-basis"></a>
 

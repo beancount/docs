@@ -81,7 +81,7 @@ Here’s a high-level profile of this user. In the text that follows, I’ll use
 
     -   His salary is paid as a direct deposit to his checking account.
 
-    -   He benefits and pays premiums for a health insurance plan provided by his employer.
+    -   He benefits from and pays premiums for a health insurance plan provided by his employer.
 
     -   He tracks his vacation hours explicitly.
 
@@ -152,7 +152,7 @@ Next, before we begin generating reports, verify that the file loads without any
 
     bean-check example.beancount
 
-### It should return quietly, without outputting anything (bean-check only writes errors when there are some, otherwise on success it writes nothing).<a id="it-should-return-quietly-without-outputting-anything-bean-check-only-writes-errors-when-there-are-some-otherwise-on-success-it-writes-nothing."></a>
+It should return quietly, without outputting anything (bean-check only writes errors when there are some, otherwise on success it writes nothing).
 
 ### Generating Reports<a id="generating-reports"></a>
 
@@ -202,7 +202,7 @@ Let us generate a balance sheet:
 
     bean-report example.beancount balsheet
 
-Unfortunately, the only output format supported for it at this point is HTML. Also, filtering for balance sheet from the command-line is not supported. Generate this to a file and open a browser to it [<span class="underline">\[output\]</span>](http://furius.ca/beancount/examples/tutorial/balsheet.output):
+Unfortunately, the only output format supported for it at this point is HTML. Also, filtering balance sheet entries from the command-line is not supported. Generate this to a file and open a browser to it [<span class="underline">\[output\]</span>](http://furius.ca/beancount/examples/tutorial/balsheet.output):
 
     bean-report example.beancount balsheet > /tmp/balsheet.html
 
@@ -290,7 +290,7 @@ Note that “beancount” and “ledger” are valid output formats: they refer 
 
 ### Viewing Reports through the Web Interface<a id="viewing-reports-through-the-web-interface"></a>
 
-The original way to access reports in Beancount is via its web interface, that serves to a local web server on your machine. Serve the example file like this:
+The original way to access reports in Beancount is via its web interface that serves to a local web server on your machine. Serve the example file like this:
 
     bean-web example.beancount
 

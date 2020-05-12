@@ -38,7 +38,7 @@ See the report’s own help for options:
 
 Then we have to import that OFX file in a web-based portfolio.
 
-1.  ### Visit [<span class="underline">http://finance.google.com</span>](http://finance.google.com) and click on “Portfolios” on the left (or simply visit [<span class="underline">https://www.google.com/finance/portfolio</span>](https://www.google.com/finance/portfolio), this works as of Jan 2015)<a id="visit-httpfinance.google.com-and-click-on-portfolios-on-the-left-or-simply-visit-httpswww.google.comfinanceportfolio-this-works-as-of-jan-2015"></a>
+1.  Visit [<span class="underline">http://finance.google.com</span>](http://finance.google.com) and click on “Portfolios” on the left (or simply visit [<span class="underline">https://www.google.com/finance/portfolio</span>](https://www.google.com/finance/portfolio), this works as of Jan 2015)
 
 2.  If you have an existing, previously imported portfolio, click on “Delete Portfolio” to get rid of it.
 
@@ -85,9 +85,9 @@ You can specify which exchange-specific symbol is used to export a commodity by 
       ...
       export: "TSE:XIN"
 
-### The “export” field is used to map your commodity name to the corresponding instrument in the Google Finance system. If a holding in that commodity needs to be exported, this code is used instead of the Beancount currency name.<a id="the-export-field-is-used-to-map-your-commodity-name-to-the-corresponding-instrument-in-the-google-finance-system.-if-a-holding-in-that-commodity-needs-to-be-exported-this-code-is-used-instead-of-the-beancount-currency-name."></a>
+The “export” field is used to map your commodity name to the corresponding instrument in the Google Finance system. If a holding in that commodity needs to be exported, this code is used instead of the Beancount currency name.
 
-### The symbology used by Google Finance appears to follow the following syntax:<a id="the-symbology-used-by-google-finance-appears-to-follow-the-following-syntax"></a>
+The symbology used by Google Finance appears to follow the following syntax:
 
 ### *Exchange:Symbol*<a id="exchangesymbol"></a>
 
@@ -97,9 +97,9 @@ where *Exchange* is a code either for the exchange where the stock trades, or fo
 
 To account for positions that aren’t supported in Google Finance, the export report can convert a holding to its cash-equivalent value. This is also useful for cash positions (e.g., cash sitting idle in a savings or checking account).
 
-### For example, I hold units of an insurance policy investment vehicle (this is common in Canada, for example, with London Life). This is a financial instrument, but each particular policy issuance has its own associated value—there is no public source of data for each of those products, it’s rather opaque, I can obtain its value with my annual statement, but definitely not in Google Finance. But I’d still like for the asset’s value to be reflected in my portfolio.<a id="for-example-i-hold-units-of-an-insurance-policy-investment-vehicle-this-is-common-in-canada-for-example-with-london-life.-this-is-a-financial-instrument-but-each-particular-policy-issuance-has-its-own-associated-valuethere-is-no-public-source-of-data-for-each-of-those-products-its-rather-opaque-i-can-obtain-its-value-with-my-annual-statement-but-definitely-not-in-google-finance.-but-id-still-like-for-the-assets-value-to-be-reflected-in-my-portfolio."></a>
+For example, I hold units of an insurance policy investment vehicle (this is common in Canada, for example, with London Life). This is a financial instrument, but each particular policy issuance has its own associated value—there is no public source of data for each of those products, it’s rather opaque, I can obtain its value with my annual statement, but definitely not in Google Finance. But I’d still like for the asset’s value to be reflected in my portfolio.
 
-### The way you tell the export code to make this conversion is to specify a special value of “CASH” for the “export” field, like this:<a id="the-way-you-tell-the-export-code-to-make-this-conversion-is-to-specify-a-special-value-of-cash-for-the-export-field-like-this"></a>
+The way you tell the export code to make this conversion is to specify a special value of “CASH” for the “export” field, like this:
 
     1878-01-01 commodity LDNLIFE
       export: "CASH"

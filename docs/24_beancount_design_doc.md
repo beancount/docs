@@ -195,7 +195,7 @@ That being said, there are a few special metadata fields *produced* by the Beanc
 
 -   __residual__ (on Postings): A boolean, true if the posting has been added to automatically absorb rounding error.
 
-There may be a few more produced in the future but in any case, the core should not read any metadata and affect its behavior as a consequence. (I should probably created a central registry or location where all the special values can be found in one place.)
+There may be a few more produced in the future but in any case, the core should not read any metadata and affect its behavior as a consequence. (I should probably create a central registry or location where all the special values can be found in one place.)
 
 Overview of the Codebase<a id="overview-of-the-codebase"></a>
 -------------------------------------------------------------
@@ -296,7 +296,7 @@ implicitly defines a tree of nodes with parent nodes "Assets", "US", "TDBank" wi
 
 ### Flag<a id="flag"></a>
 
-### A “flag” is a single-character string that may be associated with Transactions and Postings to indicate whether they are assumed to be correct ("reconciled") or flagged as suspicious. The typical value used on transaction instances is the character “\*”. On Postings, it is usually left absent (and set to a None).<a id="a-flag-is-a-single-character-string-that-may-be-associated-with-transactions-and-postings-to-indicate-whether-they-are-assumed-to-be-correct-reconciled-or-flagged-as-suspicious.-the-typical-value-used-on-transaction-instances-is-the-character-.-on-postings-it-is-usually-left-absent-and-set-to-a-none."></a>
+A “flag” is a single-character string that may be associated with Transactions and Postings to indicate whether they are assumed to be correct ("reconciled") or flagged as suspicious. The typical value used on transaction instances is the character “\*”. On Postings, it is usually left absent (and set to a None).
 
 ### Amount<a id="amount"></a>
 
@@ -358,7 +358,7 @@ The *Price* is an instance of *Amount* or a null value. It is used to declare a 
 
 Flags on postings are relatively rare; users will normally find it sufficient to flag an entire transaction instead of a specific posting. The flag is usually left to None; if set, it is a single-character string.
 
-### The Posting type is defined in [<span class="underline">beancount.core.data</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/data.py), along with all the directive types.<a id="the-posting-type-is-defined-in-beancount.core.data-along-with-all-the-directive-types."></a>
+The Posting type is defined in [<span class="underline">beancount.core.data</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/data.py), along with all the directive types.
 
 ### Inventory<a id="inventory"></a>
 
@@ -461,9 +461,12 @@ The single-character flag is usually there to replace the “txn” keyword (Tra
 
 #### Payee & Narration<a id="payee-narration"></a>
 
-The narration field is a user-provided description of the transaction, such as "Dinner with Mary-Ann." You can put any information in this string. It shows up in the journal report. Oftentimes it is used to enrich the transaction with context that cannot be imported automatically, such as "transfer from savings account to pay for car repairs."  
-The payee name is optional, and exists to describe the entity with which the transaction is conducted, such as "Whole Foods Market" or "Shell."  
-Note that I want to be able to produce reports for all transactions associated with a particular payee, so it would be nice to enter consistent payee names. The problem with this is that the effort to do this right is sometimes too great. Either better tools or looser matching over names is required in order to make this work.  
+The narration field is a user-provided description of the transaction, such as "Dinner with Mary-Ann." You can put any information in this string. It shows up in the journal report. Oftentimes it is used to enrich the transaction with context that cannot be imported automatically, such as "transfer from savings account to pay for car repairs."
+
+The payee name is optional, and exists to describe the entity with which the transaction is conducted, such as "Whole Foods Market" or "Shell."
+
+Note that I want to be able to produce reports for all transactions associated with a particular payee, so it would be nice to enter consistent payee names. The problem with this is that the effort to do this right is sometimes too great. Either better tools or looser matching over names is required in order to make this work.
+
 The input syntax also allows only a single string to be provided. By default this becomes the narration, but I’ve found that in practice it can be useful to have just the payee. It’s just a matter of convenience. At the moment, if you want to enter just the payee string you need to append an empty narration string. This should be revisited at some point.
 
 #### Tags<a id="tags"></a>
@@ -472,15 +475,13 @@ Tags are sets of strings that can be used to group sets of transactions (or set 
 
 -   All transactions during a particular travel might be tagged to later summarize your trip expenses. Those transactions will usually occur around the same date and therefore there is convenient syntax used to automatically tag many transactions that are declared together in a file.
 
-<!-- -->
-
 -   Transactions related to a particular project to be accomplished. I took some classes in an online program once, and tagged all related expenses to it. I use this to track all my immigration-related expenses for a particular stage (e.g. green card).
 
 -   Declaring a group of expenses to be paid back by an employer (or your own company) later on.
 
 -   Expenses related to moving between locations.
 
-Typical tag names that I use for tags look like "\#trip-israel-2012", "\#conference-siggraph", and "\#course-cfa".
+Typical tag names that I use for tags look like \#trip-israel-2012, \#conference-siggraph, and \#course-cfa.
 
 In general, tags are useful where adding a sub-accounts won't do. This is often the case where a group of related expenses are of differing types, and so they would not belong to a single account.
 
@@ -488,7 +489,7 @@ Given the right support from the query tools, they could eventually be subsumed 
 
 #### Links<a id="links"></a>
 
-Links are a unique sets of strings or None, and in practice will be usually empty for most transactions. They differ from tags only in purpose.
+Links are a unique set of strings or None, and in practice will be usually empty for most transactions. They differ from tags only in purpose.
 
 Links are there to chain together a list of related transactions and there are tools used to list, navigate and balance a subset of transactions linked together. They are a way for a transaction to refer to other transactions. They are not meant to be used for summarizing.
 
@@ -518,7 +519,7 @@ Some terminology is in order: for this example posting:
 
     Assets:Investment:HOOL    -50 HOOL {700 USD} @ 920 USD 
 
-**Units.** The number of units is the number of position, or “50”.
+**Units.** The number of units is the number of the position, or “50”.
 
 **Currency.** The commodity of the lot, that is, “HOOL”.
 
@@ -534,7 +535,7 @@ Some terminology is in order: for this example posting:
 
 3.  Finally, if the posting has no associated cost nor conversion price, the number of units of the lot are used directly.
 
-Balancing is really simple: each of the Posting's positions are first converted into their weight. These amounts are then grouped together by currency, and the final sums for each currency is asserted to be close to zero, that is, within a small amount of tolerance (as [<span class="underline">inferred by a combination of by the numbers in the input and the options</span>](08_precision_tolerances.md)).
+Balancing is really simple: each of the Posting's positions are first converted into their weight. These amounts are then grouped together by currency, and the final sum for each currency is asserted to be close to zero, that is, within a small amount of tolerance (as [<span class="underline">inferred by a combination of by the numbers in the input and the options</span>](08_precision_tolerances.md)).
 
 The following example is one of case (2), with a price conversion and a regular leg with neither a cost nor a price (case 3):
 

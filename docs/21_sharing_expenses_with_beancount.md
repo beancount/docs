@@ -107,7 +107,7 @@ We also carried cash in each of our pockets while traveling, so I created two se
     2015-02-01 open Assets:Cash:Caroline
       description: "Cash for the trip held by Caroline"
 
-#### Note however that despite their individual names, those accounts are considered as part of the project. It was just convenient to separately track balances for the cash we each held during the trip.<a id="note-however-that-despite-their-individual-names-those-accounts-are-considered-as-part-of-the-project.-it-was-just-convenient-to-separately-track-balances-for-the-cash-we-each-held-during-the-trip."></a>
+Note however that despite their individual names, those accounts are considered as part of the project. It was just convenient to separately track balances for the cash we each held during the trip.
 
 #### Expenses Accounts<a id="expenses-accounts"></a>
 
@@ -195,7 +195,7 @@ Sometimes we even had to pay with a mix of US dollars and pesos. In this example
       Assets:Cash:Pesos                   -1400 MXN
       Assets:Cash:Martin                 -40.00 USD @ 12.00 MXN
 
-#### I used the unfavorable rate the restaurant was offering to accept dollars at (the market rate was 14.5 at the time).<a id="i-used-the-unfavorable-rate-the-restaurant-was-offering-to-accept-dollars-at-the-market-rate-was-14.5-at-the-time."></a>
+I used the unfavorable rate the restaurant was offering to accept dollars at (the market rate was 14.5 at the time).
 
 #### Individual Expenses<a id="individual-expenses"></a>
 
