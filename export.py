@@ -60,14 +60,18 @@ def prepare_docx(file_name: str, drawing_dir: str = None) -> bytes:
         if len(para.runs) == 0:
             continue
 
-        # Find snippets in monospace font and add SourceCode style to them
-        # https://groups.google.com/d/msg/pandoc-discuss/SIwE9dhGF4U/Wjy8zmQ1CQAJ
-        for run in para.runs:
-            if run.text == '\t':
+        for run_idx, run in enumerate(para.runs):
+            if run_idx == 0 and run.text == '\t':
                 continue  # Ignore leading tabs
-            if run.font.name in ['Consolas', 'Courier New']:
+            if run_idx == 0 and run.font.name in ['Consolas', 'Courier New']:
+                # If paragraph starts with a snippet in monospace font,
+                # consider it a code block and mark it with SourceCode style
+                # https://groups.google.com/d/msg/pandoc-discuss/SIwE9dhGF4U/Wjy8zmQ1CQAJ
                 para.style = doc.styles['SourceCode']
-            break
+                continue
+            if run.font.name in ['Consolas', 'Courier New']:
+                # Mark with striketrough style to convert to inline code later
+                run.font.strike = True
 
         if para.runs[0].element.xpath(
             './/*[@uri="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup"]'

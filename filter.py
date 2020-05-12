@@ -6,6 +6,7 @@ from panflute import (
     run_filter,
     stringify,
     BlockQuote,
+    Code,
     CodeBlock,
     Header,
     LineBreak,
@@ -15,6 +16,7 @@ from panflute import (
     RawInline,
     Space,
     Str,
+    Strikeout,
 )
 import requests
 
@@ -92,6 +94,18 @@ def action(elem, doc):
                     code += stringify(item)
             else:
                 return CodeBlock(code)
+
+    elif isinstance(elem, Strikeout):
+        if (
+            doc.get_metadata('title') == 'A Comparison of Beancount and Ledger'
+            and len(elem.parent.content) == 1
+        ):
+            # Preserve strikethrough paragraphs
+            # in 'A Comparison of Beancount and Ledger' document
+            pass
+        else:
+            text = stringify(elem)
+            return Code(text)
 
     elif isinstance(elem, Header):
         # There must be only one level 1 header
