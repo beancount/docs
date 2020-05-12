@@ -102,7 +102,7 @@ Previous Work<a id="previous-work"></a>
 
 ### Ledger Effective and Auxiliary Dates<a id="ledger-effective-and-auxiliary-dates"></a>
 
-Ledger has the concept of “[<span class="underline">auxiliary dates</span>](http://ledger-cli.org/3.0/doc/ledger3.html#Auxiliary-dates)”. The way these work is straightforward: any transaction may have a second date, and the user can select at runtime (with --aux-date) whether the main date or the auxiliary dates are meant to be used.
+Ledger has the concept of “[<span class="underline">auxiliary dates</span>](http://ledger-cli.org/3.0/doc/ledger3.html#Auxiliary-dates)”. The way these work is straightforward: any transaction may have a second date, and the user can select at runtime (with `--aux-date`) whether the main date or the auxiliary dates are meant to be used.
 
 It is unclear to me how this is meant to be used in practice, in the presence of balance assertions. Without balance assertions, I can see how it would just work: you’d render everything with settlement dates only. This would probably only make sense for specific reports.
 
@@ -121,7 +121,7 @@ Auxiliary dates are also known as “[<span class="underline">effective dates</s
 
 The original motivation for this was for budgeting, allow one to move accounting of expenses to neighboring budget periods in order to carry over actual paid amounts to those periods. Bank amounts in one month could be set against a budget from the immediately preceding or following month, as needed. (Note: John Wiegley)
 
-This is similar to one of the syntaxes I’m suggesting above—letting the user specify a date for each posting—but the other postings are not split as independent transactions. The usage of those dates is similarly triggered by a command-line option (--effective). I’m assuming that the posting on the checking account above occurs at once at 2008/10/16, regardless of reporting date. Let’s verify this:
+This is similar to one of the syntaxes I’m suggesting above—letting the user specify a date for each posting—but the other postings are not split as independent transactions. The usage of those dates is similarly triggered by a command-line option (`--effective`). I’m assuming that the posting on the checking account above occurs at once at 2008/10/16, regardless of reporting date. Let’s verify this:
 
     $ ledger -f settlement1.lgr reg checking --effective
     08-Oct-16 Bountiful Blessings.. Assets:Checking           $ -225.00    $ -225.00

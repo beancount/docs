@@ -75,23 +75,23 @@ By default, all holdings are exported as positions with a ticker symbol named th
 
 However, in any but the simplest unambiguous cases, this is probably not good enough to produce a working Google Finance portfolio. The name for each commodity that you use in your Beancount input file may or may not correspond to a financial instrument in the Google Finance database; due to the very large number of symbols supported in its database, just specifying the ticker symbol is often ambiguous. Google Finance attempts to resolve an ambiguous symbol string to the most likely instrument in its database. It is possible that it resolves it to a different financial instrument from the one you intended. So even if you use the same basic symbol that is used by the exchange, you often still need to disambiguate the symbol by specifying which exchange or symbology it lives in. Google provides a [<span class="underline">list of these symbol spaces</span>](http://www.google.com/googlefinance/disclaimer/).
 
-Here is a real-life example. The symbol for the “[<span class="underline">CAD-Hedged MSCI EAFE Index</span>](http://www.blackrock.com/ca/individual/en/products/239624/ishares-msci-eafe-index-etf-cadhedged-fund)” ETF product issued by iShares/Blackrock is “XIN” on the Toronto Stock Exchange (TSE). If you just [<span class="underline">looked up “XIN” on Google Finance</span>](https://www.google.com/finance?q=xin), it would choose to resolve it by default to the more likely “NYSE:XIN” symbol ([<span class="underline">Xinyuan Real Estate Co. on the New York Stock Exchange</span>](https://www.google.com/finance?q=NYSE%3AXIN)). So you need to disambiguate it by specifying that the desired ETF ticker for this instrument is “TSE:XIN”.
+Here is a real-life example. The symbol for the “[<span class="underline">CAD-Hedged MSCI EAFE Index</span>](http://www.blackrock.com/ca/individual/en/products/239624/ishares-msci-eafe-index-etf-cadhedged-fund)” ETF product issued by iShares/Blackrock is “`XIN`” on the Toronto Stock Exchange (`TSE`). If you just [<span class="underline">looked up “XIN” on Google Finance</span>](https://www.google.com/finance?q=xin), it would choose to resolve it by default to the more likely “`NYSE:XIN`” symbol ([<span class="underline">Xinyuan Real Estate Co. on the New York Stock Exchange</span>](https://www.google.com/finance?q=NYSE%3AXIN)). So you need to disambiguate it by specifying that the desired ETF ticker for this instrument is “`TSE:XIN`”.
 
 ### Explicitly Specifying Exported Symbols<a id="explicitly-specifying-exported-symbols"></a>
 
-You can specify which exchange-specific symbol is used to export a commodity by attaching an “export” metadata field to each of your Commodity directives, like this:
+You can specify which exchange-specific symbol is used to export a commodity by attaching an “`export`” metadata field to each of your Commodity directives, like this:
 
     2001-09-06 commodity XIN
       ...
       export: "TSE:XIN"
 
-The “export” field is used to map your commodity name to the corresponding instrument in the Google Finance system. If a holding in that commodity needs to be exported, this code is used instead of the Beancount currency name.
+The “`export`” field is used to map your commodity name to the corresponding instrument in the Google Finance system. If a holding in that commodity needs to be exported, this code is used instead of the Beancount currency name.
 
 The symbology used by Google Finance appears to follow the following syntax:
 
 ### *Exchange:Symbol*<a id="exchangesymbol"></a>
 
-where *Exchange* is a code either for the exchange where the stock trades, or for another source of financial data, e.g. “MUTF” for “mutual funds in the US”, [<span class="underline">and more</span>](http://www.google.com/googlefinance/disclaimer/). *Symbol* is a name that is unique within that exchange. I recommend searching for each of your financial instruments in Google Finance, confirming that the instrument corresponds to your instrument (by inspecting the full name, description and price), and inserting the corresponding code like this.
+where *Exchange* is a code either for the exchange where the stock trades, or for another source of financial data, e.g. “`MUTF`” for “mutual funds in the US”, [<span class="underline">and more</span>](http://www.google.com/googlefinance/disclaimer/). *Symbol* is a name that is unique within that exchange. I recommend searching for each of your financial instruments in Google Finance, confirming that the instrument corresponds to your instrument (by inspecting the full name, description and price), and inserting the corresponding code like this.
 
 ### Exporting to a Cash Equivalent<a id="exporting-to-a-cash-equivalent"></a>
 
@@ -104,7 +104,7 @@ The way you tell the export code to make this conversion is to specify a special
     1878-01-01 commodity LDNLIFE
       export: "CASH"
 
-This would convert holdings in LDNLIFE commodities to their corresponding quoted value before exporting, using the price nearest to the date of exporting. Note that attempting to convert to cash a commodity that does not have a corresponding cost or price available for us to determine its value will generate an error. A price must be present to make the conversion.
+This would convert holdings in `LDNLIFE` commodities to their corresponding quoted value before exporting, using the price nearest to the date of exporting. Note that attempting to convert to cash a commodity that does not have a corresponding cost or price available for us to determine its value will generate an error. A price must be present to make the conversion.
 
 Simple currencies should also be marked as cash in order to be exported:
 
@@ -122,7 +122,7 @@ Instead, in order to insert a cash position the exporter uses a cash-equivalent 
 
 If you want to include cash commodities, you need to find such a commodity for each of the cash currencies you have on your books and tell Beancount about them. Typically that will be only one or two currencies.
 
-You declare them by append the special value “MONEY” for the “export” field, specifying which currency this commodity represents, like this:
+You declare them by append the special value “`MONEY`” for the “`export`” field, specifying which currency this commodity represents, like this:
 
     1900-01-01 commodity VMMXX
       export: "MUTF:VMMXX (MONEY:USD)"
@@ -137,15 +137,15 @@ Finally, some commodities held in a ledger should be ignored. This is the case f
     1996-01-01 commodity RSPCAD
       name: "Canada Registered Savings Plan Contributions"
 
-You tell the export code to ignore a commodity specifying the special value “IGNORE” for the “export” field, like this:
+You tell the export code to ignore a commodity specifying the special value “`IGNORE`” for the “`export`” field, like this:
 
     1996-01-01 commodity RSPCAD
       name: "Canada Registered Savings Plan Contributions"
       export: "IGNORE"
 
-All holdings in units of RSPCAD will thus not be exported.
+All holdings in units of `RSPCAD` will thus not be exported.
 
-The question of whether some commodities should be exported or not sometimes presents interesting choices. Here is an example: I track my accumulated vacation hours in an asset account. The units are “VACHR”. I associate with this commodity a price that is roughly equivalent to my net hourly salary. This gives me a rough idea how much vacation time money is accumulated on the books, e.g. if I quit my job, how much I’d get paid. Do I want to them included in my total net worth? Should the value from those hours be reflected in the value of my exported portfolio? I think that largely depends on whether I plan to use up those vacations before I leave this job or not, whether I want to have this accumulated value show up on my balance sheet.
+The question of whether some commodities should be exported or not sometimes presents interesting choices. Here is an example: I track my accumulated vacation hours in an asset account. The units are “`VACHR`”. I associate with this commodity a price that is roughly equivalent to my net hourly salary. This gives me a rough idea how much vacation time money is accumulated on the books, e.g. if I quit my job, how much I’d get paid. Do I want to them included in my total net worth? Should the value from those hours be reflected in the value of my exported portfolio? I think that largely depends on whether I plan to use up those vacations before I leave this job or not, whether I want to have this accumulated value show up on my balance sheet.
 
 Comparing with Net Worth<a id="comparing-with-net-worth"></a>
 -------------------------------------------------------------
@@ -163,17 +163,17 @@ Details of the OFX Export<a id="details-of-the-ofx-export"></a>
 
 Exporting a portfolio with symbols that Google Finance does not recognize **fatally** trips up Google’s import feature. Google Finance then proceeds to fail to recognize your **entire** file. I recommend that you use explicit exchange:symbol names on all commodities that get exported in order to avoid this problem, as is described further in this document.
 
-Google Finance can also be a little bit finicky about the format of the particular OFX file you give it to import. The export\_portfolio command attempts to avoid OFX features that would break it but it’s fragile, and it’s possible that the particulars of your portfolio’s contents triggers output that fails to import. If this is the case, at step (4) above, instead of a list of stock symbols you would see a long list of positions that look like XML tags (this is how failure manifests itself). If that is the case, send email to the mailing-list (best if you can isolate the positions that trigger breakage and have the capability to diff files and do some troubleshooting).
+Google Finance can also be a little bit finicky about the format of the particular OFX file you give it to import. The `export_portfolio` command attempts to avoid OFX features that would break it but it’s fragile, and it’s possible that the particulars of your portfolio’s contents triggers output that fails to import. If this is the case, at step (4) above, instead of a list of stock symbols you would see a long list of positions that look like XML tags (this is how failure manifests itself). If that is the case, send email to the mailing-list (best if you can isolate the positions that trigger breakage and have the capability to diff files and do some troubleshooting).
 
 ### Mutual Funds vs. Stocks<a id="mutual-funds-vs.-stocks"></a>
 
 The OFX format distinguishes between stocks and mutual funds. In practice, the Google Finance importer does not appear to distinguish between these two (at least it appears to behave the same way), so this is likely an irrelevant implementation detail. Nevertheless, the export code is able to honor the OFX convention of distinguishing between “BUYMF” vs. “BUYSTOCK” XML elements.
 
-To this effect, the export code attempts to classify which commodities represent mutual funds by inspecting whether the ticker associated with the commodity begins with the letters “MUTF” and is followed by a colon. For example, “MUTF:RGAGX” and “MUTF\_CA:RBF1005" will both be detected as mutual funds, for example.
+To this effect, the export code attempts to classify which commodities represent mutual funds by inspecting whether the ticker associated with the commodity begins with the letters “MUTF” and is followed by a colon. For example, “`MUTF:RGAGX`” and “`MUTF_CA:RBF1005`" will both be detected as mutual funds, for example.
 
 ### Debugging the Export<a id="debugging-the-export"></a>
 
-In order to debug how each of your holdings gets exported, use the --debug flag, which will print a detailed account of how each holding is handled by the export script to **stderr**:
+In order to debug how each of your holdings gets exported, use the `--debug` flag, which will print a detailed account of how each holding is handled by the export script to **stderr**:
 
     bean-report file.beancount export_portfolio --debug 2>&1 >/dev/null | more
 
@@ -198,10 +198,10 @@ Summary<a id="summary"></a>
 
 Each holding’s export can be controlled by how its commodity is treated, in one of the following ways:
 
-1.  **Exported** to a portfolio position. This is the default, but you should specify the ticker symbol using the “ticker” or “export” metadata fields, in “*ExchangeCode:Symbol*” format.
+1.  **Exported** to a portfolio position. This is the default, but you should specify the ticker symbol using the “`ticker`” or “`export`” metadata fields, in “*ExchangeCode:Symbol*” format.
 
-2.  **Converted** to cash and exported to a money market cash-equivalent position, by setting the value of the “export” metadata field to the special value “CASH”.
+2.  **Converted** to cash and exported to a money market cash-equivalent position, by setting the value of the “`export`” metadata field to the special value “`CASH`”.
 
-3.  **Ignored** by specifying the “export” metadata field to the special value “IGNORE”.
+3.  **Ignored** by specifying the “`export`” metadata field to the special value “`IGNORE`”.
 
-4.  Provided as **Money Instrument**, to be used for cash-equivalent value of each holding intended to be converted to cash and included in the portfolio. These are identified by a special value “(MONEY:&lt;currency&gt;)” in the “export” metadata field.
+4.  Provided as **Money Instrument**, to be used for cash-equivalent value of each holding intended to be converted to cash and included in the portfolio. These are identified by a special value “(`MONEY:<currency>)`” in the “`export`” metadata field.

@@ -100,7 +100,7 @@ Do you notice something funny going on here? -3 x 160 = -480, -480 + 500.05 + 9.
       Expenses:Financial:Commissions     9.95 USD
       Income:US:ETrade:PnL
 
-The last leg will be automatically filled in by Beancount to -30 USD, as we’re allowed one posting without an amount (and remember that in the double-entry system without credits and debits, a profit is a negative number for “Income” accounts). This is the number the government is interested in for your taxes.
+The last leg will be automatically filled in by Beancount to `-30 USD`, as we’re allowed one posting without an amount (and remember that in the double-entry system without credits and debits, a profit is a negative number for “Income” accounts). This is the number the government is interested in for your taxes.
 
 In summary, you now have:
 
@@ -124,11 +124,11 @@ but really, this is understood by Beancount closer to the following syntax:
 
 But … it would be annoying to write this, so we use a syntax more intuitive to humans.
 
-So the thing is, you can’t subtract units of {IBM at 170.00 USD}... because there just aren’t any in that bag. What you have in the bag are units of {IBM at 160.00 USD}. You can only take out these ones.
+So the thing is, you can’t subtract units of `{IBM at 170.00 USD}`... because there just aren’t any in that bag. What you have in the bag are units of `{IBM at 160.00 USD}`. You can only take out these ones.
 
 Now that being said, do you see how it’s the amount that was exchanged to us for the shares that really helps us track the P/L? Nowhere did we actually need to indicate the price at which we sold the shares. It’s the fact that we received a certain amount of cash that is different than the cost of the position we’re selling that triggers the imbalance, which we book to a capital gain.
 
-Hmmm… Beancount maintains a price database, wouldn’t it be nice to at least record and attach that price to the transaction for documentation purposes? Indeed. Beancount allows you to also attach a price to that posting, but for the purpose of balancing the transaction, it ignores it completely. It is mainly there for documentation, and you can use it if you write scripts. And if you use the beancount.plugins.implicit\_prices plugin, it will be used to automatically synthesize a price entry that will enrich our historical price database, which may be used in reporting the market value of the account contents (more details on this follow).
+Hmmm… Beancount maintains a price database, wouldn’t it be nice to at least record and attach that price to the transaction for documentation purposes? Indeed. Beancount allows you to also attach a price to that posting, but for the purpose of balancing the transaction, it ignores it completely. It is mainly there for documentation, and you can use it if you write scripts. And if you use the `beancount.plugins.implicit_prices` plugin, it will be used to automatically synthesize a `price` entry that will enrich our historical price database, which may be used in reporting the market value of the account contents (more details on this follow).
 
 So the complete and final transaction for selling those shares should be:
 
@@ -148,7 +148,7 @@ In practice, the reality of trading gets a tiny bit more complicated than this. 
       Assets:US:ETrade:Cash           -909.95 USD
       Expenses:Financial:Commissions     9.95 USD
 
-Now, what do we have in the bag for Assets:US:ETrade:IBM? We have two kinds of things:
+Now, what do we have in the bag for `Assets:US:ETrade:IBM`? We have two kinds of things:
 
 -   7 shares of “IBM held at 160 USD/share”, from the first trade
 
@@ -248,7 +248,7 @@ Okay, so our account balances are holding the cost of each unit, and that provid
 
 The market value of the positions is simply the number of units of these instruments x the market price at the time we’re interested in. This price fluctuates. So we need the price.
 
-Beancount supports a type of entry called a price entry that allows you to tell it what the price of an instrument was at a particular point in time, e.g.
+Beancount supports a type of entry called a `price` entry that allows you to tell it what the price of an instrument was at a particular point in time, e.g.
 
     2014-05-25 price IBM   182.27 USD
 
@@ -399,7 +399,7 @@ I’ll be handling the following topics later on:
 
 -   **Mark-to-Market**: Handling end-of-year mark-to-market for Section 1256 instruments (i.e., futures and options), by re-evaluating the cost basis. This is similar to a cost basis readjustment applied at the end of each year for all of these types instruments.
 
--   **Short Sales**: these require little changes. We just have to allow negative numbers of units held at cost. At the moment we spit a warning when units held at cost go negative in order to detect data entry errors, but it would be easy to extend the Open directive syntax to allow this to occur on specific accounts which can hold short sales, which should just show as negative shares. All the arithmetic should otherwise just work naturally. Interest payments on margins would show up as distinct transactions. Also, when you short the stock, you don’t receive dividends for those positions, but rather you have to pay them out. You would an expense account for this, e.g., Expenses:StockLoans:Dividends.
+-   **Short Sales**: these require little changes. We just have to allow negative numbers of units held at cost. At the moment we spit a warning when units held at cost go negative in order to detect data entry errors, but it would be easy to extend the Open directive syntax to allow this to occur on specific accounts which can hold short sales, which should just show as negative shares. All the arithmetic should otherwise just work naturally. Interest payments on margins would show up as distinct transactions. Also, when you short the stock, you don’t receive dividends for those positions, but rather you have to pay them out. You would an expense account for this, e.g., `Expenses:StockLoans:Dividends`.
 
 <!-- -->
 

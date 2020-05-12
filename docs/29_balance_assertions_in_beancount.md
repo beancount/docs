@@ -168,7 +168,7 @@ But this breaks the regularity of the syntax for all other directives. It also c
 
 I also don’t like the idea of attaching assertions to transactions; transaction syntax is already busy enough, it is calling to remain simple. This should be a standalone directive that few people use.
 
-In order to implement this, the plugin would simply resort all the directives according to their file location only (using the fileloc attribute of entries), disregarding the date, and recompute the running balances top to bottom while applying the checks. This can entirely be done via post-processing, like date-based assertions, without disturbing any of the other processing.
+In order to implement this, the plugin would simply resort all the directives according to their file location only (using the `fileloc` attribute of entries), disregarding the date, and recompute the running balances top to bottom while applying the checks. This can entirely be done via post-processing, like date-based assertions, without disturbing any of the other processing.
 
 Moreover, another advantage of doing this in a plugin is that people who don’t use this directive won’t have to pay the cost of calculating these inventories.
 

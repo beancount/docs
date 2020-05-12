@@ -143,7 +143,7 @@ Beancount offers a guarantee that the ordering of its *directives* in an input f
 
 Not even directives that declare accounts or commodities are required to appear before these accounts get used in the file. All directives are parsed and then basically *sorted* before any calculation or validation occurs (a minor detail is that the line number is used as a secondary key in the sorting, so that the re-ordering is stable).
 
-Correspondingly, all the non-directive grammar that is in the language is limited to either setting values with global impact (“option”, “plugin”) or syntax-related conveniences (“pushtag”, “poptag”).
+Correspondingly, all the non-directive grammar that is in the language is limited to either setting values with global impact (“`option`”, “`plugin`”) or syntax-related conveniences (“`pushtag`”, “`poptag`”).
 
 There is an exception:
 
@@ -224,7 +224,7 @@ On top of this, reporting code calls modules from those packages. There are four
 
 -   [<span class="underline">beancount.web</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/): This package contains all the source code for the default web interface (invoked by bean-web). This is a simple [<span class="underline">Bottle</span>](http://bottlepy.org/) application that serves many of the reports from beancount.report to HTML format, running on your machine locally. The web interface provides simple views and access to your data. (It stands to be improved greatly, it’s in no way perfect.)
 
--   [<span class="underline">beancount.projects</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/projects/): This package contains various custom scripts for particular applications that I’ve wanted to share and distribute. Wherever possible, I aim to fold these into reports. There are no scripts to invoke these; you should use “python3 -m beancount.projects.&lt;name&gt;” to run them.
+-   [<span class="underline">beancount.projects</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/projects/): This package contains various custom scripts for particular applications that I’ve wanted to share and distribute. Wherever possible, I aim to fold these into reports. There are no scripts to invoke these; you should use “`python3 -m beancount.projects.<name>`” to run them.
 
 There is a [<span class="underline">beancount.scripts</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/scripts/) package that contains the “main” programs for all the scripts under the [<span class="underline">bin directory</span>](https://bitbucket.org/blais/beancount/src/tip/bin). Those scripts are simple launchers that import the corresponding file under beancount.scripts. This allows us to keep all the source code under a single directory and that makes it easier to run linters and other code health checkers on the code—it’s all in one place.
 
@@ -243,21 +243,21 @@ This section describes the basic data structures that are used as building block
 
 **Numbers** are represented using [<span class="underline">decimal</span>](https://en.wikipedia.org/wiki/Decimal_data_type) objects, which are perfectly suited for this. The great majority of numbers entered in accounting systems are naturally decimal numbers and binary representations involve representational errors which cause many problems for display and in precision. Rational numbers avoid this problem, but they do not carry the limited amount of precision that the user intended in the input. We must deal with [<span class="underline">tolerances</span>](08_precision_tolerances.md) explicitly.
 
-Therefore, all numbers should use Python’s “decimal.Decimal” objects. Conveniently, Python v3.x supports a C implementation of decimal types natively (in its standard library; this used to be an external “cdecimal” package to install but it has been integrated in the C/Python interpreter).
+Therefore, all numbers should use Python’s “`decimal.Decimal`” objects. Conveniently, Python v3.x supports a C implementation of decimal types natively (in its standard library; this used to be an external “cdecimal” package to install but it has been integrated in the C/Python interpreter).
 
-The default constructor for decimal objects does not support some of the input syntax we want to allow, such as commas in the integer part of numbers (e.g., “278**,**401.35 USD”) or initialization from an empty string. These are important cases to handle. So I provide a special constructor to accommodate these inputs: beancount.core.number.D(). This is the only method that should be used to create decimal objects:
+The default constructor for decimal objects does not support some of the input syntax we want to allow, such as commas in the integer part of numbers (e.g., “278**,**401.35 USD”) or initialization from an empty string. These are important cases to handle. So I provide a special constructor to accommodate these inputs: `beancount.core.number.D()`. This is the only method that should be used to create decimal objects:
 
     from beancount.core.number import D
     …
     number = D("2,402.21")
 
-I like to import the “D” symbol by itself (and not use number.D). All the number-related code is located under [<span class="underline">beancount.core.number</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/number.py).
+I like to import the “`D`” symbol by itself (and not use `number.D`). All the number-related code is located under [<span class="underline">beancount.core.number</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/number.py).
 
-Some number constants have been defined as well: ZERO, ONE, and HALF. Use those instead of explicitly constructed numbers (such as D("1")) as it makes it easier to grep for such initializations.
+Some number constants have been defined as well: `ZERO`, `ONE`, and `HALF`. Use those instead of explicitly constructed numbers (such as `D("1")`) as it makes it easier to grep for such initializations.
 
 ### Commodity<a id="commodity"></a>
 
-A **commodity**, or **currency** (I use both names interchangeably in the code and documentation) is a string that represents a kind of “thing” that can be stored in accounts. In the implementation, it is represented as a Python str object (there is no module with currency manipulation code). These strings may only contain capital letters and numbers and some special characters (see the lexer code).
+A **commodity**, or **currency** (I use both names interchangeably in the code and documentation) is a string that represents a kind of “thing” that can be stored in accounts. In the implementation, it is represented as a Python `str` object (there is no module with currency manipulation code). These strings may only contain capital letters and numbers and some special characters (see the lexer code).
 
 Beancount does not predefine any currency names or categories—all currencies are created equal. Really. It genuinely does not know anything special about dollars or euros or yen or anything else. The only place in the source code where there is a reference to those is in the tests. There is no support for syntax using “$” or other currency symbols; I understand that some users may want this syntax, but in the name of keeping the parser very simple and consistent I choose not to provide that option.
 
@@ -267,7 +267,7 @@ Currencies need *not* be defined explicitly in the input file format; you can ju
 
 ### Account<a id="account"></a>
 
-An account is basically just the name of a bucket associated with a posting and is represented as a simple string (a Python str object). Accounts are detected and tokenized by the lexer and have names with at least two words separated by a colon (":").
+An account is basically just the name of a bucket associated with a posting and is represented as a simple string (a Python `str` object). Accounts are detected and tokenized by the lexer and have names with at least two words separated by a colon (":").
 
 Accounts don’t have a corresponding object type; we just refer to them by their unique name string (like filenames in Python). When per-account attributes are needed, we can extract the Open directives from the stream of entries and find the one corresponding to the particular account we’re looking for.
 
@@ -306,7 +306,7 @@ An **Amount** is the combination of a number and an associated currency, concept
 
 Amount instances are used to represent a quantity of a particular currency (the “units”) and the price on a posting.
 
-A class is defined in [<span class="underline">beancount.core.amount</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/amount.py) as a simple tuple-like object. Functions exist to perform simple math operations directly on instances of Amount. You can also create Amount instance using amount.from\_string(), for example:
+A class is defined in [<span class="underline">beancount.core.amount</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/amount.py) as a simple tuple-like object. Functions exist to perform simple math operations directly on instances of Amount. You can also create Amount instance using `amount.from_string()`, for example:
 
     value = amount.from_string("201.32 USD")
 
@@ -320,7 +320,7 @@ The number and currency is that of the cost itself, not of the commodity. For ex
 
     Cost(Decimal("56.78"), "USD", date(2012, 3, 5), "lot15")
 
-The *Date* is the acquisition date of the corresponding lot (a datetime.date object). This is automatically attached to the Cost object when a posting augments an inventory—the Transaction’s date is automatically attached to the Cost object—or if the input syntax provides an explicit date overriden.
+The *Date* is the acquisition date of the corresponding lot (a `datetime.date` object). This is automatically attached to the Cost object when a posting augments an inventory—the Transaction’s date is automatically attached to the Cost object—or if the input syntax provides an explicit date overriden.
 
 The *Label* can be any string. It is provided as a convenience for a user to refer to a particular lot or disambiguate similar lots.
 
@@ -344,7 +344,7 @@ A position represents some units of a particular commodity held at cost. It cons
 
     Position = (Units, Cost)
 
-*Units* is an instance of *Amount*, and *Cost* is an instance of *Cost*, or a null value if the commodity is not held at cost. Inventories contain lists of *Position* instances. See its definition in [<span class="underline">beancount.core.position</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/position.py)<s>.</s>
+*Units* is an instance of *Amount*, and *Cost* is an instance of *Cost*, or a null value if the commodity is not held at cost. Inventories contain lists of *Position* instances. See its definition in [<span class="underline">beancount.core.position</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/position.py)`.`
 
 ### Posting<a id="posting"></a>
 
@@ -370,11 +370,11 @@ Generally, the combination of a position’s (*Units.Currency, Cost)* is kept un
 
 The *Inventory* is one of the most important and oft-used object in Beancount’s implementation, because it is used to sum the balance of one or more accounts over time. It is also the place where the inventory reduction algorithms get applied to, and traces of that mechanism can be found there. The “[<span class="underline">How Inventories Work</span>](11_how_inventories_work.md)” document provides the full detail of that process.
 
-For testing, you can create initialized instances of Inventory using inventory.from\_string(). All the inventory code is written in [<span class="underline">beancount.core.inventory</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/inventory.py).
+For testing, you can create initialized instances of Inventory using `inventory.from_string()`. All the inventory code is written in [<span class="underline">beancount.core.inventory</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/inventory.py).
 
 ### About Tuples & Mutability<a id="about-tuples-mutability"></a>
 
-Despite the program being written in a language which does not make mutability “difficult by default”, I designed the software to avoid mutability in most places. Python provides a “collections.namedtuple” factory that makes up new record types whose attributes cannot be overridden. Well… this is only partially true: mutable attributes of immutable tuples can be modified. Python does not provide very strong mechanisms to enforce this property.
+Despite the program being written in a language which does not make mutability “difficult by default”, I designed the software to avoid mutability in most places. Python provides a “`collections.namedtuple`” factory that makes up new record types whose attributes cannot be overridden. Well… this is only partially true: mutable attributes of immutable tuples can be modified. Python does not provide very strong mechanisms to enforce this property.
 
 Regardless, functional programming is not so much an attribute of the language used to implement our programs than of the guarantees we build into its structure. A language that supports strong guarantees helps to enforce this. But if, even by just using a set of conventions, we manage to *mostly* avoid mutability, we have a *mostly* functional program that avoids *most* of the pitfalls that occur from unpredictable mutations and our code is that much easier to maintain. Programs with no particular regard for where mutation occurs are most difficult to maintain. By avoiding most of the mutation in a functional approach, we avoid most of those problems.
 
@@ -388,7 +388,7 @@ These properties are especially true for all the small objects: Amount, Lot, Pos
 
 On the other hand, the Inventory object is nearly always used as an accumulator and *does* allow the modification of its internal state (it would require a special, persistent data structure to avoid this). You have to be careful how you share access to Inventory objects… and modify them, if you ever do.
 
-Finally, the loader produces lists of directives which are all simple namedtuple objects. These lists form the main application state. I’ve avoided placing these inside some special container and instead pass them around explicitly, on purpose. Instead of having some sort of big “application” object, I’ve trimmed down all the fat and all your state is represented in two things: A dated and sorted list of directives which can be the subject of stream processing and a list of constant read-only option values. I think this is simpler.
+Finally, the loader produces lists of directives which are all simple `namedtuple` objects. These lists form the main application state. I’ve avoided placing these inside some special container and instead pass them around explicitly, on purpose. Instead of having some sort of big “application” object, I’ve trimmed down all the fat and all your state is represented in two things: A dated and sorted list of directives which can be the subject of stream processing and a list of constant read-only option values. I think this is simpler.
 
 *I credit my ability to make wide-ranging changes to a mid-size Python codebase to the adoption of these principles. I would love to have **types** in order to safeguard against another class of potential errors, and I plan to experiment with [<span class="underline">Python 3.5’s upcoming typing module</span>](https://www.python.org/dev/peps/pep-0484/).*
 
@@ -481,7 +481,7 @@ Tags are sets of strings that can be used to group sets of transactions (or set 
 
 -   Expenses related to moving between locations.
 
-Typical tag names that I use for tags look like \#trip-israel-2012, \#conference-siggraph, and \#course-cfa.
+Typical tag names that I use for tags look like `#trip-israel-2012`, `#conference-siggraph`, and `#course-cfa`.
 
 In general, tags are useful where adding a sub-accounts won't do. This is often the case where a group of related expenses are of differing types, and so they would not belong to a single account.
 
@@ -489,7 +489,7 @@ Given the right support from the query tools, they could eventually be subsumed 
 
 #### Links<a id="links"></a>
 
-Links are a unique set of strings or None, and in practice will be usually empty for most transactions. They differ from tags only in purpose.
+Links are a unique set of strings or `None`, and in practice will be usually empty for most transactions. They differ from tags only in purpose.
 
 Links are there to chain together a list of related transactions and there are tools used to list, navigate and balance a subset of transactions linked together. They are a way for a transaction to refer to other transactions. They are not meant to be used for summarizing.
 
@@ -712,7 +712,7 @@ See the diagram above for reference. Once implemented, everything else should be
 
 ### The Printer<a id="the-printer"></a>
 
-In the same package as the parser lives a printer. This isolates all the functionality that deals with the Beancount “language” in the beancount.parser package: the parser converts from input syntax to data structure and the printer does the reverse. No code outside this package should concern itself with the Beancount syntax.
+In the same package as the parser lives a printer. This isolates all the functionality that deals with the Beancount “language” in the `beancount.parser` package: the parser converts from input syntax to data structure and the printer does the reverse. No code outside this package should concern itself with the Beancount syntax.
 
 At some point I decided to make sure that the printer was able to round-trip through the parser, that is, given a stream of entries produced by the loader, you should be able to convert those to text input and parse them back in and the resulting set of entries should be the same (outputting the re-read input back to text should produce the same text), e.g.,
 
@@ -732,7 +732,7 @@ This probably needs to get refined a bit at some point with a more complete test
 
 In order to make it possible to compare directives quickly, we support unique hashing of all directives, that is, from each directive we should be able to produce a short and unique id. We can then use these ids to [<span class="underline">perform set inclusion/exclusion/comparison tests</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/compare.py) for our unit tests. We provide a [<span class="underline">base test case class with assertion methods that use this capability</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/parser/cmptest.py). This feature is used liberally throughout our test suites.
 
-This is also used to detect and remove duplicates. This feature is optional and enabled by the beancount.plugins.noduplicates plugin.
+This is also used to detect and remove duplicates. This feature is optional and enabled by the `beancount.plugins.noduplicates` plugin.
 
 Note that the hashing of directives currently [<span class="underline">does not include user meta-data</span>](https://bitbucket.org/blais/beancount/src/24acbceb37aef8ab6bc6f324599fe434b7bad31c/src/python/beancount/core/compare.py?at=default#cl-14).
 
@@ -761,7 +761,7 @@ Consider that:
 
 In order to deal with this thorny problem, I built a kind of accumulator which is used to record all numbers seen from some input and tally statistics about the precisions witnessed for each currency. I call this a [<span class="underline">DisplayContext</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/display_context.py). From this object one can request to build a DisplayFormatter object which can be used to render numbers in a particular way.
 
-I refer to those objects using the variable names dcontext and dformat throughout the code. The parser automatically creates a DisplayContext object and feeds it all the numbers it sees during parsing. The object is available in the options\_map produced by the loader.
+I refer to those objects using the variable names `dcontext` and `dformat` throughout the code. The parser automatically creates a DisplayContext object and feeds it all the numbers it sees during parsing. The object is available in the options\_map produced by the loader.
 
 Realization<a id="realization"></a>
 -----------------------------------

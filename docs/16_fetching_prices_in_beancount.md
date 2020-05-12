@@ -12,10 +12,7 @@ Processing a Beancount file is, by definition, constrained to the contents of th
 
 However, we do need access to price information in order to compute market values of assets. To this end, Beancount provides a Price directive which can be used to fill its in-memory price database by inserting these price points inline in the input file:
 
-    2015-11-20 price ITOT    95.46 USD
-    2015-11-20 price LQD    115.63 USD
-    2015-11-21 price USD   1.33495 CAD
-    …
+`2015-11-20 price ITOT 95.46 USD 2015-11-20 price LQD 115.63 USD 2015-11-21 price USD 1.33495 CAD …`
 
 Of course, you could do this manually, looking up the prices online and writing the directives yourself. But for assets which are traded publicly you can automate it, by invoking some code that will download prices and write out the directives for you.
 
@@ -39,7 +36,7 @@ The “bean-price” Tool<a id="the-bean-price-tool"></a>
 
 Beancount comes with a “bean-price” command-line tool that integrates the ideas above. By default, this script accepts a list of Beancount input filenames, and fetches prices required to compute latest market values for current positions held in accounts:
 
-    bean-price /home/joe/finances/joe.beancount                                                                                                               
+`bean-price /home/joe/finances/joe.beancount`
 
 It is also possible to provide a list of specific price fetching jobs to run, e.g.,
 
@@ -51,7 +48,7 @@ These jobs are run concurrently so it should be fairly fast.
 
 The general format of each of these "job source strings" is
 
-&lt;quote-currency&gt;:&lt;module&gt;/\[^\]&lt;symbol&gt;
+&lt;quote-currency&gt;:`<module>/[^]<symbol>`
 
 For example:
 
@@ -63,7 +60,7 @@ The "module" is the name of a Python module that contains a Source class which c
 
 The “symbol” is a string that is fed to the price fetcher to lookup the currency. For example, Apple shares trade on the Nasdaq, and the corresponding symbol in the Google Finance source is “NASDAQ:AAPL”. Other price sources may have a different symbology, e.g., some may require the asset's CUSIP.
 
-Default implementations of price sources are provided; we provide fetchers for Yahoo! Finance or Google Finance, which cover a large universe of common public investment types (e.g. stock and some mutual funds). As a convenience, the module name is always first searched under the "beancount.prices.sources" package, where those implementations live. This is how, for example, in order to use the provided Yahoo! Finance data fetcher you don't have to write all of "beancount.prices.sources.yahoo/AAPL" but you can simply use "yahoo/AAPL".
+Default implementations of price sources are provided; we provide fetchers for Yahoo! Finance or Google Finance, which cover a large universe of common public investment types (e.g. stock and some mutual funds). As a convenience, the module name is always first searched under the "`beancount.prices.sources`" package, where those implementations live. This is how, for example, in order to use the provided Yahoo! Finance data fetcher you don't have to write all of "`beancount.prices.sources.yahoo/AAPL`" but you can simply use "`yahoo/AAPL`".
 
 ### Fallback Sources<a id="fallback-sources"></a>
 
@@ -71,7 +68,7 @@ In practice, fetching prices online often fails. Data sources typically only sup
 
 To this extent, a source string may provide multiple sources for the data, separated with commas. For example:
 
-    USD:google/CURRENCY:GBPUSD,yahoo/GBPUSD
+`USD:google/CURRENCY:GBPUSD,yahoo/GBPUSD`
 
 Each source is tried in turn, and if one fails to return a valid price, the next source is tried as a fallback. The hope is that at least one of the specified sources will work out.
 
@@ -79,7 +76,7 @@ Each source is tried in turn, and if one fails to return a valid price, the next
 
 Sometimes, prices are only available for the inverse of an instrument. This is often the case for currencies. For example, the price of Canadian dollars quoted in US dollars is provided by the USD/CAD market, which gives the price of a US dollar in Canadian dollars (the inverse). In order use this, you can prepend "^" to the instrument name to instruct the tool to compute the inverse of the fetched price:
 
-    USD:google/^CURRENCY:USDCAD
+`USD:google/^CURRENCY:USDCAD`
 
 If a source price is to be inverted, like this, the precision could be different than what is fetched. For instance, if the price of USD/CAD is 1.32759, for the above directive to price the “CAD” instrument it would output this:
 
@@ -95,7 +92,7 @@ As you may now, Beancount's in-memory price database works in both directions (t
 
 By default, the latest prices for the assets are pulled in. You can use an option to fetch prices for a desired date in the past instead:
 
-    bean-price –date=2015-02-03 …
+`bean-price –date=2015-02-03 …`
 
 If you are using an input file to specify the list of prices to be fetched, the tool will figure out the list of assets held on the books *at that time* and fetch historical prices for those assets only.
 
@@ -109,7 +106,7 @@ You can disable the cache with an option:
 
 You can also instruct the script to clear the cache before fetching its prices:
 
-    bean-price --clear-cache
+`bean-price --clear-cache`
 
 Prices from a Beancount Input File<a id="prices-from-a-beancount-input-file"></a>
 ---------------------------------------------------------------------------------
@@ -118,7 +115,7 @@ Generally, one uses a Beancount input file to specify the list of currencies to 
 
     2007-07-20 commodity VEA
 
-**price: "USD:google/NYSEARCA:VEA"**
+**`price: "USD:google/NYSEARCA:VEA"`**
 
 The "price" metadata should contain a list of price source strings. For example, a stock product might look like this:
 
@@ -136,7 +133,7 @@ While a currency may have multiple target currencies it needs to get converted t
 
 There are many ways to compute a list of commodities with needed prices from a Beancount input file:
 
-1.  **Commodity directives.** The list of all Commodity directives with “price” metadata present in the file. For each of those holdings, the directive is consulted and its "price" metadata field is used to specify where to fetch prices from.
+1.  **Commodity directives.** The list of all Commodity directives with “price” metadata present in the file. For each of those holdings, the directive is consulted and its "`price`" metadata field is used to specify where to fetch prices from.
 
 2.  **Commodities of assets held at cost.** Prices for all the holdings that were seen held at cost at a particular date. Because these holdings are held at cost, we can assume there is a corresponding time-varying price for their commodity.
 
@@ -144,15 +141,15 @@ There are many ways to compute a list of commodities with needed prices from a B
 
 By default, the list of tickers to be fetched includes only the intersection of these three lists. This is because the most common usage of this script is to fetch missing prices for a particular date, and only the needed ones.
 
-**Inactive commodities.** You can use the “--inactive” option to fetch the entire set of prices from (1), regardless of asset holdings determined in (2) and (3).
+**Inactive commodities.** You can use the “`--inactive`” option to fetch the entire set of prices from (1), regardless of asset holdings determined in (2) and (3).
 
-**Undeclared commodities.** Commodities without a corresponding “Commodity” directive will be ignored by default. To include the full list of commodities seen in an input file, use the “--undeclared” option.
+**Undeclared commodities.** Commodities without a corresponding “Commodity” directive will be ignored by default. To include the full list of commodities seen in an input file, use the “`--undeclared`” option.
 
-**Clobber.** Existing price directives for the same data are excluded by default, since the price is already in the file. You can use “--clobber” to ignore existing price directives and avoid filtering out what is fetched.
+**Clobber.** Existing price directives for the same data are excluded by default, since the price is already in the file. You can use “`--clobber`” to ignore existing price directives and avoid filtering out what is fetched.
 
 Finally, you can use “--all” to include inactive and undeclared commodities and allow clobbering existing ones. You probably don't want to use that other than for testing.
 
-If you'd like to do some troubleshooting and print out the list of seen commodities, use the “--verbose” option twice, i.e., “-vv”. You can also just print the list of prices to be fetched with the “--dry-run” option, which stops short of actually fetching the missing prices.
+If you'd like to do some troubleshooting and print out the list of seen commodities, use the “`--verbose`” option twice, i.e., “`-vv`”. You can also just print the list of prices to be fetched with the “`--dry-run`” option, which stops short of actually fetching the missing prices.
 
 Conclusion<a id="conclusion"></a>
 ---------------------------------

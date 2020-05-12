@@ -19,7 +19,7 @@ Shared Expenses<a id="shared-expenses"></a>
 
 For our shared expenses, I maintain an account for her on my personal ledger file. This is simple and I’m not too interested in maintaining a separate ledger for the totality of our common shared expenses. It’s sufficient for me to just keep track of her balance on that one account. You can imagine that account like a credit card (I’m the credit provider) that she pays off with transfers and also by making her own shared expenses.
 
-I just declare a Assets:US:Share:Carolyn account on my personal ledger (blais.beancount).
+I just declare a `Assets:US:Share:Carolyn` account on my personal ledger (`blais.beancount`).
 
 ### My Shared Expenses<a id="my-shared-expenses"></a>
 
@@ -37,13 +37,13 @@ This gets automatically converted to:
       Assets:US:Share:Carolyn       13.06 USD
         share: TRUE
 
-This is done by the beancount.plugins.divert\_expenses plugin. In this example, 40% of 32.66 (13.06) gets rerouted to her account. Note that this is an asset account for me, because she owes this.
+This is done by the `beancount.plugins.divert_expenses` plugin. In this example, 40% of 32.66 (13.06) gets rerouted to her account. Note that this is an asset account for me, because she owes this.
 
 ### Her Shared Expenses<a id="her-shared-expenses"></a>
 
 We also have to keep track of the money she spends on her own for shared expenses. Since she’s not a Beancount user, I’ve set up a Google Sheets doc in which she can add rows to a particular sheet. This sheet has fields: Date, Description, Account, Amount. I try to keep it simple.
 
-Then, I built an [<span class="underline">extract\_sheets.py</span>](https://bitbucket.org/blais/beancount/src/tip/experiments/sharing/extract_sheets.py) script that can pull down this data automatically and it writes it to a dedicated file for this, overwriting the entire contents each time. The contents of this ledger (carolyn.beancount) look like this:
+Then, I built an [<span class="underline">extract\_sheets.py</span>](https://bitbucket.org/blais/beancount/src/tip/experiments/sharing/extract_sheets.py) script that can pull down this data automatically and it writes it to a dedicated file for this, overwriting the entire contents each time. The contents of this ledger (`carolyn.beancount`) look like this:
 
     pushtag #carolyn
     ...
@@ -66,7 +66,7 @@ I generate the file with a single command like this:
 
     extract_sheets.py --tag='carolyn' --sheet='Shared Expenses' '<id>' 'Assets:US:Share:Carolyn' > carolyn.beancount
 
-In my personal ledger, I include this file to merge those expenses with my own directives flow. I also define a query to generate a statement for her account. In blais.beancount:
+In my personal ledger, I include this file to merge those expenses with my own directives flow. I also define a query to generate a statement for her account. In `blais.beancount`:
 
     include "carolyn.beancount"
 
@@ -102,11 +102,11 @@ Child Expenses<a id="child-expenses"></a>
 
 I designed a very different system to track our child’s expenses. For Kyle, I’m definitely interested in tracking the total cash flows and expenses related to him, regardless of who paid for them. It’s interesting to be able to ask (our ledger) a question like: “How much did his schooling cost?”, for example, or “How much did we pay in diapers, in total?”. Furthermore, we tend to pay for different things for Kyle, e.g. I deal with the daycare expenses (I’m the accounting nerd after all, so this shouldn’t be surprising), and his mother tends to buy all the clothing and prepare his food. To have a global picture of all costs related to him, we need to account for these things correctly.
 
-One interesting detail is that it would be difficult to do this with the previously described method, because I’d have to have a mirror of all expense accounts I’d use for him. This would make my personal ledger really ugly. For example, I want to book diapers to Expenses:Pharmacy, but I also have my own personal pharmacy expenses. So in theory, to do that I’d like to have separate accounts for him and me, e.g., Expenses:Kyle:Pharmacy and Expenses:Pharmacy. This would have to be done for all the accounts we use for him. I don't do that.
+One interesting detail is that it would be difficult to do this with the previously described method, because I’d have to have a mirror of all expense accounts I’d use for him. This would make my personal ledger really ugly. For example, I want to book diapers to `Expenses:Pharmacy`, but I also have my own personal pharmacy expenses. So in theory, to do that I’d like to have separate accounts for him and me, e.g., `Expenses:Kyle:Pharmacy` and `Expenses:Pharmacy`. This would have to be done for all the accounts we use for him. I don't do that.
 
 ### My Child Expenses on my Personal Ledger<a id="my-child-expenses-on-my-personal-ledger"></a>
 
-Instead of doing that, what I want is for my personal ledger to book all the expenses I make for him to a single category: Expenses:Kyle, and to track all the detail in a shared ledger. But I still have to book all the expenses to some category, and these appear on my personal ledger, there’s no option (I won’t maintain a separate credit card to pay for his expenses, that would be overkill, so I have to find a way).
+Instead of doing that, what I want is for my personal ledger to book all the expenses I make for him to a single category: `Expenses:Kyle`, and to track all the detail in a shared ledger. But I still have to book all the expenses to some category, and these appear on my personal ledger, there’s no option (I won’t maintain a separate credit card to pay for his expenses, that would be overkill, so I have to find a way).
 
 I accomplish this by booking the expenses to my own expenses account, as usual, but tagging the transaction with \#kyle:
 
@@ -142,7 +142,7 @@ The matching transaction from the previous section would look like this in it:
       Income:Dad      -49.99 USD
       Expenses:Pharmacy   49.99 USD
 
-As you can see, the script was able to reconstruct the original account name in Kyle’s ledger by using the metadata saved by the divert\_expenses plugin in the previous section. It also books the source of the payment to a single account showing it came from his father (Income:Dad). There’s no need for me to keep track of which payment method I used on Kyle’s side (e.g. by credit card), that’s not important to him.
+As you can see, the script was able to reconstruct the original account name in Kyle’s ledger by using the metadata saved by the divert\_expenses plugin in the previous section. It also books the source of the payment to a single account showing it came from his father (`Income:Dad`). There’s no need for me to keep track of which payment method I used on Kyle’s side (e.g. by credit card), that’s not important to him.
 
 This ledger contains the sum total of all expenses I’ve made for him to date. The file gets entirely overwritten each time I run this (this is a purely generated output, no hand editing is ever done here, if I change anything I change it in my personal ledger file).
 
@@ -174,7 +174,7 @@ I can then run bean-web or bean-query on kyle.beancount. There are two things wh
 
 2.  The difference between our contributions.
 
-In order to reconcile (2), we basically compare the balances of the Income:Mom and Income:Dad accounts. This can be done “by hand”, visually (using a calculator), but since Beancount’s API make it so easy to pull any number from a ledger, I wrote a simple script which does that, computes the total amount of Income contributions, breaks it down to the expected numbers based on our chosen breakdown, compares it to each parent’s actual contribution, and simply prints out the difference:
+In order to reconcile (2), we basically compare the balances of the `Income:Mom` and `Income:Dad` accounts. This can be done “by hand”, visually (using a calculator), but since Beancount’s API make it so easy to pull any number from a ledger, I wrote a simple script which does that, computes the total amount of Income contributions, breaks it down to the expected numbers based on our chosen breakdown, compares it to each parent’s actual contribution, and simply prints out the difference:
 
     $ reconcile_shared.py kyle.beancount
 
@@ -192,13 +192,13 @@ After reconciling, the final number should be zero.
 
 ### Reconciling the Child Ledger<a id="reconciling-the-child-ledger"></a>
 
-In order to account for the difference and make the contributions to Kyle’s upbringing in line with our mutual arrangement of 60%/40%, in the previous section, my wife would need to transfer $301 to me. Of course, we don’t *actually* transfer anything in practice, I just add a virtual transfer to book the difference to her shared account on my ledger. To do this, all I have to do is insert a transaction in blais.beancount that looks like this:
+In order to account for the difference and make the contributions to Kyle’s upbringing in line with our mutual arrangement of 60%/40%, in the previous section, my wife would need to transfer $301 to me. Of course, we don’t *actually* transfer anything in practice, I just add a virtual transfer to book the difference to her shared account on my ledger. To do this, all I have to do is insert a transaction in `blais.beancount` that looks like this:
 
     2019-02-09 * "Transfer to reconcile Kyle's expenses" #kyle
       Assets:US:Share:Carolyn         301.00 USD
       Expenses:Kyle:Mom
 
-When this gets pulled into dad.beancount (as explained previously), it looks like this:
+When this gets pulled into `dad.beancount` (as explained previously), it looks like this:
 
     2019-02-09 * "Transfer to reconcile Kyle's expenses" #kyle
       Income:Mom             -301.00 USD

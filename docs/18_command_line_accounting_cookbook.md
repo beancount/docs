@@ -161,7 +161,7 @@ Based on these two indicators, you should be able to figure out any case. Let’
 
 ### Choosing Opening Dates<a id="choosing-opening-dates"></a>
 
-Some of the accounts you need to define don’t correspond to real world accounts. The Expenses:Groceries account represents the sum total of grocery expenses since you started counting. Personally, I like to use my *birth date* on those. There’s a rationale to it: it sums all the groceries you’ve ever spent money on, and this started only when you came to this world.
+Some of the accounts you need to define don’t correspond to real world accounts. The `Expenses:Groceries` account represents the sum total of grocery expenses since you started counting. Personally, I like to use my *birth date* on those. There’s a rationale to it: it sums all the groceries you’ve ever spent money on, and this started only when you came to this world.
 
 You can use this rationale on other accounts. For example, all the income accounts associated with an employer should probably be opened at the date you began the job, and end on the date you left. Makes sense.
 
@@ -212,7 +212,7 @@ Every time I do this I’ll also add a cash distribution adjusted to balance the
 
     2014-06-20 balance Assets:Cash       194.34 USD
 
-If you wonder why the amounts in the cash account don’t add up (234.13 -502.30 ≠ 194.34), it is because between the two assertions I added to the cash account by doing some ATM withdrawals against the checking account, and those appear somewhere else (in the checking account section). The withdrawal increased the balance of the cash account. It would appear if I rendered a journal for Assets:Cash.
+If you wonder why the amounts in the cash account don’t add up (234.13 -502.30 ≠ 194.34), it is because between the two assertions I added to the cash account by doing some ATM withdrawals against the checking account, and those appear somewhere else (in the checking account section). The withdrawal increased the balance of the cash account. It would appear if I rendered a journal for `Assets:Cash`.
 
 I could have made my life simpler and used a Pad directive if I had booked everything to food—pad entries don’t work solely at the beginning of an account’s history, but also between any two balance assertions on the same account—but I want to book 80% of it to food and 20% alcohol, to more accurately represent my real usage of cash[^2].
 
@@ -459,7 +459,7 @@ Tracking trades and associated gains is a fairly involved topic. You will find a
 
 ### Accounts Setup<a id="accounts-setup"></a>
 
-You should create an account prefix to root various sub-accounts associated with your investment account. Say you have an account at ETrade, this could be “Assets:US:ETrade”. Choose an appropriate institution name.
+You should create an account prefix to root various sub-accounts associated with your investment account. Say you have an account at ETrade, this could be “`Assets:US:ETrade`”. Choose an appropriate institution name.
 
 Your investment account will have a cash component. You should create a dedicated sub-account will represent uninvested cash deposits:
 
@@ -512,7 +512,7 @@ Selling some of the same stock work similarly, except that an extra posting is a
       Expenses:Financial:Commissions     6.95 USD
       Income:US:Etrade:PnL
 
-Note that the postings of shares removed from the Assets:US:ETrade:LQD account is a lot *reduction* and you must provide information to identify which lot you’re reducing, in this case, by providing the per-share cost basis of 119.24 USD.
+Note that the postings of shares removed from the `Assets:US:ETrade:LQD` account is a lot *reduction* and you must provide information to identify which lot you’re reducing, in this case, by providing the per-share cost basis of 119.24 USD.
 
 I normally let Beancount calculate the capital gain or loss for me, which is why I don’t specify it in the last posting. Beancount will automatically balance the transaction by setting the amount of this posting to -20.80 USD, which is a *gain* of 20.80 USD (remember that the signs are inverted for income accounts). Specifying the sale price of 123.40 USD is optional, and it is *ignored* for the purpose of balancing the transaction, the cash deposit and commissions legs determine the profit.
 

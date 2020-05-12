@@ -42,9 +42,9 @@ How to Install<a id="how-to-install"></a>
 
 Beancount uses Python 3.5[^1] or above, which is a pretty recent version of Python (as of this writing), and a few common library dependencies. I try to minimize dependencies, but you do have to install a few. This is very easy.
 
-First, you should have a working Python install. Install the latest stable version &gt;=3.5 using the download from [<span class="underline">python.org</span>](http://python.org). Make sure you have the development headers and libraries installed as well (e.g., the “Python.h” header file). For example, on a Debian/Ubuntu system you would install the **python3-dev** package.
+First, you should have a working Python install. Install the latest stable version &gt;=3.5 using the download from [<span class="underline">python.org</span>](http://python.org). Make sure you have the development headers and libraries installed as well (e.g., the “Python.h” header file). For example, on a Debian/Ubuntu system you would install the **`python3-dev`** package.
 
-Beancount supports setuptools since Feb 2016, and you will need to install dependencies. You will want to have the “pip3” tool installed. It’s probably installed by default along with Python3—test this out by invoking “pip3” command. In any case, under a Debian/Ubuntu system you would simply install the **python3-pip** package.
+Beancount supports setuptools since Feb 2016, and you will need to install dependencies. You will want to have the “pip3” tool installed. It’s probably installed by default along with Python3—test this out by invoking “pip3” command. In any case, under a Debian/Ubuntu system you would simply install the **`python3-pip`** package.
 
     Note for Arch Linux: Arch’s Python package does not correctly install all of its runtime dependencies. With the Python installation that comes with it, you have to install the “mpdecimal” package in order for the C decimal implementation to work. See this issue for a discussion. Others say easiest might just be to use the AUR package, which installs all the required dependencies.
 
@@ -104,7 +104,7 @@ Or you can install the package in your user-local Python library using this:
 
     sudo python3 setup.py install --user
 
-Remember to add ~/.local/bin to your path to access the local install.
+Remember to add `~/.local/bin` to your path to access the local install.
 
 #### Installing for Development<a id="installing-for-development"></a>
 
@@ -190,8 +190,7 @@ Windows installation is, of course, a bit different. It’s a breeze if you use 
     -   ply
 
 -   Start a new Cygwin bash shell (there should be a new icon on your desktop) and install the pip3 installer tool by running this command:  
-    **easy\_install-3.4 pip  
-    **Make sure you invoke the version of easy\_install which matches your Python version, e.g. easy\_install-3.5 if you have Python 3.5 installed, or more.
+    **`easy_install-3.4 pip `**Make sure you invoke the version of easy\_install which matches your Python version, e.g. easy\_install-3.5 if you have Python 3.5 installed, or more.
 
 At this point, you should be able to follow the instructions from the previous sections as is, starting from “Install Beancount using pip”.
 
@@ -269,7 +268,7 @@ Appendix<a id="appendix"></a>
 
 Python 3.5 is widely available at this point, released more than a year ago. However, my experience with open source distribution tells me that a lot of users are running on old machines that won’t be upgraded for a while. So for those users, you might have to install your own Python… don’t worry, installing Python manually is pretty straightforward.
 
-On Mac, it can also be installed with one of the various package management suits, like Brew, e.g., with “brew install python3”.
+On Mac, it can also be installed with one of the various package management suits, like Brew, e.g., with “`brew install python3`”.
 
 On an old Linux, download the source from [<span class="underline">python.org</span>](https://www.python.org/downloads/), and then build it like this:
 
@@ -309,15 +308,15 @@ This library provides Beancount with the ability to parse dates in various forma
 
 ##### bottle<a id="bottle"></a>
 
-The Beancount web interface (invoked via bean-web) runs a little self-contained web server accessible locally on your machine. This is implemented using a tiny library that makes it easy to implement such web applications: [<span class="underline">bottle.py</span>](http://bottlepy.org/).
+The Beancount web interface (invoked via `bean-web`) runs a little self-contained web server accessible locally on your machine. This is implemented using a tiny library that makes it easy to implement such web applications: [<span class="underline">bottle.py</span>](http://bottlepy.org/).
 
 ##### ply<a id="ply"></a>
 
-The query client (bean-query) which is used to extract data tables from a ledger file depends on a parser generator: I use Dave Beazley’s popular [<span class="underline">PLY</span>](http://www.dabeaz.com/ply/) library (version 3.4 or above) because it makes it really easy to implement a custom SQL language parser.
+The query client (`bean-query`) which is used to extract data tables from a ledger file depends on a parser generator: I use Dave Beazley’s popular [<span class="underline">PLY</span>](http://www.dabeaz.com/ply/) library (version 3.4 or above) because it makes it really easy to implement a custom SQL language parser.
 
 ##### lxml<a id="lxml"></a>
 
-##### A tool is provided to bake a static HTML version of the web interface to a zip file (bean-bake). This is convenient to share files with an accountant who may not have your software installed. The web scraping code that is used to do that used the lxml HTML parsing library.<a id="a-tool-is-provided-to-bake-a-static-html-version-of-the-web-interface-to-a-zip-file-bean-bake.-this-is-convenient-to-share-files-with-an-accountant-who-may-not-have-your-software-installed.-the-web-scraping-code-that-is-used-to-do-that-used-the-lxml-html-parsing-library."></a>
+##### A tool is provided to bake a static HTML version of the web interface to a zip file (`bean-bake`). This is convenient to share files with an accountant who may not have your software installed. The web scraping code that is used to do that used the lxml HTML parsing library.<a id="a-tool-is-provided-to-bake-a-static-html-version-of-the-web-interface-to-a-zip-file-bean-bake.-this-is-convenient-to-share-files-with-an-accountant-who-may-not-have-your-software-installed.-the-web-scraping-code-that-is-used-to-do-that-used-the-lxml-html-parsing-library."></a>
 
 #### Python Libraries for Export (optional)<a id="python-libraries-for-export-optional"></a>
 
@@ -381,7 +380,7 @@ Then install and activate virtualenv:
 
 #### Installation for Development<a id="installation-for-development"></a>
 
-For development, you will want to avoid installing Beancount in your Python distribution and instead just modify your PYTHONPATH environment variable to run it from source:
+For development, you will want to avoid installing Beancount in your Python distribution and instead just modify your `PYTHONPATH` environment variable to run it from source:
 
     export PYTHONPATH=/path/to/install/of/beancount
 
@@ -393,7 +392,7 @@ Or equivalently, the root directory has a Makefile that does the same thing and 
 
     make build
 
-With this, you should be able to run the executables under the bin/ subdirectory. You may want to add this to your PATH as well.
+With this, you should be able to run the executables under the `bin/` subdirectory. You may want to add this to your `PATH` as well.
 
 #### Dependencies for Development<a id="dependencies-for-development"></a>
 

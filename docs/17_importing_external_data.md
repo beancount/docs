@@ -145,7 +145,7 @@ The tools introduced previously orchestrate the processes, but they don’t do a
 
 For each file found, each of the importers is called to assert whether it can or cannot handle that file. If it deems that it can, methods can be called to produce a list of transactions, extract a date, or produce a cleaned up filename for the downloaded file.
 
-The configuration should be a Python3 module in which you instantiate the importers and assign the list to the module-level “CONFIG” variable, like this:
+The configuration should be a Python3 module in which you instantiate the importers and assign the list to the module-level “`CONFIG`” variable, like this:
 
     #!/usr/bin/env python3
     from myimporters.bank import acmebank
@@ -158,7 +158,7 @@ The configuration should be a Python3 module in which you instantiate the import
       …
     ]
 
-Of course, since you’re crafting a Python script, you can insert whatever other code in there you like. All that matters is that this “CONFIG” variable refer to a list of objects which comply with the importer protocol (described in the next section). Their order does not matter.
+Of course, since you’re crafting a Python script, you can insert whatever other code in there you like. All that matters is that this “`CONFIG`” variable refer to a list of objects which comply with the importer protocol (described in the next section). Their order does not matter.
 
 In particular, it’s a good idea to write your importers as generically as possible and to parameterize them with the particular account names you use in your input file. This helps keep your code independent of the particular accounts and forces you to define logical accounts, and I’ve found that this helps with clarity.
 
@@ -166,7 +166,7 @@ Or not… at the end of the day, these importer codes live in some of your own p
 
 ### Configuring from an Input File<a id="configuring-from-an-input-file"></a>
 
-An interesting idea that I haven’t tested yet is to use one’s Beancount input file to infer the configuration of importers. If you want to try this out and hack something, you can load your input file from the import configuration Python config, by using the API’s beancount.loader.load\_file() function.
+An interesting idea that I haven’t tested yet is to use one’s Beancount input file to infer the configuration of importers. If you want to try this out and hack something, you can load your input file from the import configuration Python config, by using the API’s `beancount.loader.load_file()` function.
 
 Writing an Importer<a id="writing-an-importer"></a>
 ---------------------------------------------------
@@ -222,15 +222,15 @@ You can place this code in the Python module (the \_\_init\_\_.py file):
         importer = Importer(...)
         yield from regression.compare_sample_files(importer)
 
-If your importer overrides the extract() and file\_date() methods, this will generate four unit tests which get run automatically by [<span class="underline">nosetests</span>](https://nose.readthedocs.org/en/latest/):
+If your importer overrides the `extract()` and `file_date()` methods, this will generate four unit tests which get run automatically by [<span class="underline">nosetests</span>](https://nose.readthedocs.org/en/latest/):
 
-1.  A test which calls extract() on sample1.csv, prints the extracted entries to a string, and compares this string with the contents of sample1.csv.extract
+1.  A test which calls extract() on `sample1.csv`, prints the extracted entries to a string, and compares this string with the contents of sample1.csv.extract
 
-2.  A test which calls file\_date() on sample1.csv and compares the date with the one found in the sample1.csv.file\_date file.
+2.  A test which calls `file_date()` on `sample1.csv` and compares the date with the one found in the `sample1.csv.file_date` file.
 
-3.  A test like (1) but on sample2.csv
+3.  A test like (1) but on `sample2.csv`
 
-4.  A test like (2) but on sample2.csv
+4.  A test like (2) but on `sample2.csv`
 
 #### Generating Test Input<a id="generating-test-input"></a>
 
@@ -266,7 +266,7 @@ Beancount aims to provide two levels of caching for conversions on downloaded fi
 
 #### In-Memory Caching<a id="in-memory-caching"></a>
 
-In-memory caching works like this: Your methods receive a wrapper object for a given file and invoke the wrapper’s convert() method, providing a converter callable/function.
+In-memory caching works like this: Your methods receive a wrapper object for a given file and invoke the wrapper’s `convert()` method, providing a converter callable/function.
 
     class MyImporter(ImporterProtocol):
         ...
@@ -274,7 +274,7 @@ In-memory caching works like this: Your methods receive a wrapper object for a g
             text = file.convert(slow_convert_pdf_to_text)
             match = re.search(..., text)
 
-This conversion is automatically memoized: if two importers or two different methods use the same converter on the file, the conversion is only run once. This is a simple way of handling redundant conversions in-memory. Make sure to always call those through the .convert() method and share the converter functions to take advantage of this.
+This conversion is automatically memoized: if two importers or two different methods use the same converter on the file, the conversion is only run once. This is a simple way of handling redundant conversions in-memory. Make sure to always call those through the `.convert()` method and share the converter functions to take advantage of this.
 
 #### On-Disk Caching<a id="on-disk-caching"></a>
 
@@ -293,7 +293,7 @@ The tools described in this document are pretty flexible in terms of letting you
 
 -   **Filing directory**: Which directory the downloaded files are intended to be filed to.
 
-You can specify these from any location you want. Despite this, some people are often asking how to organize their files, so I provide a template example under beancount/examples/ingest/office, and I describe this here.
+You can specify these from any location you want. Despite this, some people are often asking how to organize their files, so I provide a template example under `beancount/examples/ingest/office`, and I describe this here.
 
 I recommend that you create a Git or Mercurial[^7] source-controlled repository following this structure:
 
@@ -314,9 +314,9 @@ I recommend that you create a Git or Mercurial[^7] source-controlled repository 
     ├── personal.beancount
     └── personal.import
 
-The root “office” directory is your repository. It contains your ledger file (“personal.beancount”), your importer configuration (“personal.import”), your custom importers source code (“importers/”) and your history of documents (“documents/”), which should be well-organized by bean-file. You always run the commands from this root directory.
+The root “office” directory is your repository. It contains your ledger file (“`personal.beancount`”), your importer configuration (“`personal.import`”), your custom importers source code (“`importers/`”) and your history of documents (“`documents/`”), which should be well-organized by bean-file. You always run the commands from this root directory.
 
-An advantage of storing your documents in the same repository as your importers source code is that you can just symlink your regression tests to some files under the documents/ directory.
+An advantage of storing your documents in the same repository as your importers source code is that you can just symlink your regression tests to some files under the `documents/` directory.
 
 You can check your configuration by running identify:
 
@@ -332,13 +332,13 @@ Once you’re finished, you can stash away the downloaded files for posterity li
 
     bean-file example.import ~/Downloads -o documents
 
-If my importers work, I usually don’t even bother opening those files. You can use the --dry-run option to test moving destinations before doing so.
+If my importers work, I usually don’t even bother opening those files. You can use the `--dry-run` option to test moving destinations before doing so.
 
 To run the regression tests of the custom importers, use the following command:
 
     pytest -v importers
 
-Personally, I have a Makefile in my root directory with these targets to make my life easier. Note that you will have to install “pytest”, which is a test runner; it is often packaged as “python3-pytest” or “pytest”.
+Personally, I have a `Makefile` in my root directory with these targets to make my life easier. Note that you will have to install “pytest”, which is a test runner; it is often packaged as “python3-pytest” or “pytest”.
 
 Example Importers<a id="example-importers"></a>
 -----------------------------------------------

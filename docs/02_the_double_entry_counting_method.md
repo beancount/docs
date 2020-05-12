@@ -390,9 +390,9 @@ One convention I’ve come up with that works well for my assets, liabilities an
 
     <type> : <country> : <institution> : <account>
 
-For example, a checking account could be chosen to be “Assets:US:BofA:Checking”, where “BofA” stands for “Bank of America.” A credit card account could include the name of the particular type of card as the account name, like “Liabilities:US:Amex:Platinum”, which can be useful if you have multiple cards.
+For example, a checking account could be chosen to be “`Assets:US:BofA:Checking`”, where “BofA” stands for “Bank of America.” A credit card account could include the name of the particular type of card as the account name, like “`Liabilities:US:Amex:Platinum`”, which can be useful if you have multiple cards.
 
-I’ve found it doesn’t make sense for me to use this scheme for expense accounts, since those tend to represent generic categories. For those, it seems to make more sense to group them by category, as in using “Expenses:Food:Restaurant” instead of just “Expenses:Restaurant”.
+I’ve found it doesn’t make sense for me to use this scheme for expense accounts, since those tend to represent generic categories. For those, it seems to make more sense to group them by category, as in using “`Expenses:Food:Restaurant`” instead of just “`Expenses:Restaurant`”.
 
 In any case, Beancount doesn’t enforce anything other than the root accounts; this is just a suggestion and this convention is not coded anywhere in the software. You have great freedom to experiment, and you can easily change all the names later by processing the text file. See the [<span class="underline">Cookbook</span>](18_command_line_accounting_cookbook.md) for more practical guidance.
 

@@ -116,11 +116,11 @@ Some observations are in order:
 
 -   Receiving vested stock is a taxable income event, and Hooli automatically withholds taxes and pays them to the government on its employees’ behalf. These are the Expenses:Taxes accounts corresponding to your W-2.
 
--   Finally, I don’t directly deposit the converted shares to the brokerage account; this is because the remainder of cash after paying tax expenses is not necessarily a round number of shares. Therefore, I used a limbo account (Assets:US:Hooli:RSURefund) and decouple the receipt from the conversion.
+-   Finally, I don’t directly deposit the converted shares to the brokerage account; this is because the remainder of cash after paying tax expenses is not necessarily a round number of shares. Therefore, I used a limbo account (`Assets:US:Hooli:RSURefund`) and decouple the receipt from the conversion.
 
 This way, each transaction corresponds exactly to one pay stub. It makes it easier to enter the data.
 
-Also note that I used a unique link (^392f97dd62d0) to group all the transactions for a particular vesting event. You could also use tags if you prefer.
+Also note that I used a unique link (`^392f97dd62d0`) to group all the transactions for a particular vesting event. You could also use tags if you prefer.
 
 ### Conversion to Actual Stock<a id="conversion-to-actual-stock"></a>
 
@@ -238,7 +238,7 @@ After each vesting event, the stock is left in your brokerage account. Selling t
       Assets:US:Schwab:Cash    3593.98 USD
       Income:US:Schwab:Gains
 
-Here you can see why it matters that the cost basis you used on the conversion event is the correct one: You will have to pay taxes on the difference (in Income:US:Schwab:Gains). In this example the taxable difference is (138.23 - 131.37) dollars per share.
+Here you can see why it matters that the cost basis you used on the conversion event is the correct one: You will have to pay taxes on the difference (in `Income:US:Schwab:Gains`). In this example the taxable difference is (138.23 - 131.37) dollars per share.
 
 I like to keep all the brokerage transactions in a separate section of my document, where other transactions related to the brokerage occur, such as fees, dividends and transfers.
 

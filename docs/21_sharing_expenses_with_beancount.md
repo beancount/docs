@@ -68,9 +68,9 @@ In order to write down all expenses for this trip we will open a brand new Beanc
 
 ### Accounts<a id="accounts"></a>
 
-The set of accounts in the input file should not have to match your personal Beancount file’s account names. The accounts we will use include accounts that correspond to Martin and Caroline’s personal accounts but with generic names (e.g., Income:Martin:CreditCard instead of Liabilities:US:Chase), and expense accounts may not match any regular expenses in my personal Beancount file—it’s not important.
+The set of accounts in the input file should not have to match your personal Beancount file’s account names. The accounts we will use include accounts that correspond to Martin and Caroline’s personal accounts but with generic names (e.g., `Income:Martin:CreditCard` instead of `Liabilities:US:Chase`), and expense accounts may not match any regular expenses in my personal Beancount file—it’s not important.
 
-As a convention, any account that pertains specifically to one of the travelers will **include that person’s name** in the account name. For example, Caroline’s credit card will be named “Income:**Caroline**:CreditCard”. This is important, as we will use this later on to split contributions and expenses.
+As a convention, any account that pertains specifically to one of the travelers will **include that person’s name** in the account name. For example, Caroline’s credit card will be named “`Income:Caroline:CreditCard`”. This is important, as we will use this later on to split contributions and expenses.
 
 Let’s examine the different types of accounts we will need to carry this out.
 
@@ -111,13 +111,13 @@ Note however that despite their individual names, those accounts are considered 
 
 #### Expenses Accounts<a id="expenses-accounts"></a>
 
-We will define various accounts to book our Expenses to. For example, “Expenses:Flights” will contains our costs associated with flight travel. For convenience, and because there are many types of expenses in this file, we chose to leverage the “auto-accounts” plugin and let Beancount automatically open these accounts:
+We will define various accounts to book our Expenses to. For example, “`Expenses:Flights`” will contains our costs associated with flight travel. For convenience, and because there are many types of expenses in this file, we chose to leverage the “auto-accounts” plugin and let Beancount automatically open these accounts:
 
     plugin "beancount.ops.auto_accounts"
 
-The great majority of these accounts are for shared expenses to be split between us. For example, shared SCUBA diving expenses will be booked to “Expenses:Scuba”.
+The great majority of these accounts are for shared expenses to be split between us. For example, shared SCUBA diving expenses will be booked to “`Expenses:Scuba`”.
 
-However, for expenses that are intended to be covered by one of us only, we simply include the name of the traveler in the account name. For example, Martin’s extra costs for boat diving will be booked to the “Expenses:Scuba:Martin” account.
+However, for expenses that are intended to be covered by one of us only, we simply include the name of the traveler in the account name. For example, Martin’s extra costs for boat diving will be booked to the “`Expenses:Scuba:Martin`” account.
 
 ### Example Transactions<a id="example-transactions"></a>
 
@@ -139,7 +139,7 @@ Martin paying for the taxi to the airport looks like this:
 
 #### Bringing Cash<a id="bringing-cash"></a>
 
-We both brought some cash on us, as we were warned it might be difficult to use credit cards in Mexico. In my personal Beancount file, the cash account is “Assets:Cash” but here it must get booked as an external contribution with my name on it:
+We both brought some cash on us, as we were warned it might be difficult to use credit cards in Mexico. In my personal Beancount file, the cash account is “`Assets:Cash`” but here it must get booked as an external contribution with my name on it:
 
     ;; Initial cash on us.
     2015-02-24 * "Getting cash for travel"
@@ -152,7 +152,7 @@ Caroline’s cash is similar:
       Income:Caroline:Cash                       -300 USD
       Assets:Cash:Caroline                        300 USD
 
-Once again, note that the Assets:Cash:Martin and Assets:Cash:Caroline accounts are considered a part of the project, in this case it just refers to who is carrying it. (These accounts are cleared at the end, so it does not matter that our names are in them.)
+Once again, note that the `Assets:Cash:Martin` and `Assets:Cash:Caroline` accounts are considered a part of the project, in this case it just refers to who is carrying it. (These accounts are cleared at the end, so it does not matter that our names are in them.)
 
 #### Transfers<a id="transfers"></a>
 
@@ -170,7 +170,7 @@ Obtaining local currency was done by changing a small amount of cash at the airp
       Assets:Cash:Caroline                    -100.00 USD @ 12.00 MXN
       Assets:Cash:Pesos                          1200 MXN
 
-The “Assets:Cash:Pesos” account tracks our common pool of local currency that we use for various small expenses.
+The “`Assets:Cash:Pesos`” account tracks our common pool of local currency that we use for various small expenses.
 
 #### Cash Expenses in US Dollars<a id="cash-expenses-in-us-dollars"></a>
 
@@ -328,7 +328,7 @@ You can also get the same amounts by using bean-query to achieve the same thing:
 
 ### Splitting Expenses<a id="splitting-expenses"></a>
 
-The expenses side of the Income Statement shows the breakdown of expenses. Note how some of the expense accounts are explicitly booked to each member separately by their account name, e.g., “Expenses:Scuba:Martin”. The other accounts, e.g. “Expenses:Groceries” are intended to be split.
+The expenses side of the Income Statement shows the breakdown of expenses. Note how some of the expense accounts are explicitly booked to each member separately by their account name, e.g., “`Expenses:Scuba:Martin`”. The other accounts, e.g. “`Expenses:Groceries`” are intended to be split.
 
 How we’re going to carry this out is by adding a plugin that will transform all the transactions to *actually* split the postings which are intended to be shared, that is, postings without any member’s name as a component. For example, the following input transaction:
 
@@ -357,7 +357,7 @@ The plugin is enabled like this:
 
     plugin "beancount.plugins.split_expenses" "Martin Caroline"
 
-Reloading the web page after uncommenting this line from the input file and visiting the Income Statement page should show a long list of Expenses accounts split by person. Now, in order to generate the total amount of expenses incurred for each person, we have to produce the balance of all Expenses accounts with a member’s name in it, accounts like “Expenses:.\*Martin”.
+Reloading the web page after uncommenting this line from the input file and visiting the Income Statement page should show a long list of Expenses accounts split by person. Now, in order to generate the total amount of expenses incurred for each person, we have to produce the balance of all Expenses accounts with a member’s name in it, accounts like “`Expenses:.*Martin`”.
 
 The web tool does not provide such a filtering capability at the moment[^1], but we can use the bean-query tool to produce the total of expenses for each person:
 
@@ -382,7 +382,7 @@ You can manually convert this to a dollar amount:
     yuzu:~$ dc -e '2007.43 3837.0 13.465 / +p'
     2291.43 
 
-Or you can use the recently introduced “CONVERT” function of bean-query to do this:
+Or you can use the recently introduced “`CONVERT`” function of bean-query to do this:
 
     beancount> SELECT convert(sum(position), 'USD') WHERE account ~ '^Expenses:.*Martin'
 
@@ -452,11 +452,11 @@ First, let us take note that the accounts in your personal ledger do not have to
 
 ### Using a Tag<a id="using-a-tag"></a>
 
-I like to use a tag to report on the entire set of transactions related to the trip. In this example, I used the tag \#trip-cozumel2015.
+I like to use a tag to report on the entire set of transactions related to the trip. In this example, I used the tag `#trip-cozumel2015`.
 
 ### Booking Contributions<a id="booking-contributions"></a>
 
-Your contributions into the project should be booked to a temporary holding account. I call mine “Assets:Travel:Pending”. For example, this transaction from the trip’s file:
+Your contributions into the project should be booked to a temporary holding account. I call mine “`Assets:Travel:Pending`”. For example, this transaction from the trip’s file:
 
     2015-02-25 * "Yellow Transfers" | "SuperShuttle to Playa del Carmen"
       Expenses:Transport:Bus                 656 MXN
@@ -554,7 +554,7 @@ Observations:
 
 1.  I used “event” directives in order to track my location. I’m doing this because I will eventually need it for immigration purposes (and just for fun, to track the days I spend in places).
 
-2.  I moved the extra cash I kept to my “foreign cash pocket” account: Assets:Cash:Foreign
+2.  I moved the extra cash I kept to my “foreign cash pocket” account: `Assets:Cash:Foreign`
 
 3.  I “moved” back the cash I had with me after I returned from the trip.
 
@@ -566,14 +566,14 @@ Observations:
 
 7.  Finally, I assert that the Pending account is empty of USD and of MXN.
 
-I found the missing amounts by running bean-check or using bean-doctor context on an incomplete transaction from Emacs.
+I found the missing amounts by running `bean-check` or using `bean-doctor context` on an incomplete transaction from Emacs.
 
 Generating Reports<a id="generating-reports"></a>
 -------------------------------------------------
 
 If you want to automate the generation of reports for each of the participants in a trip, there is a script that generates text (and eventually CSV) reports for the queries mentioned in the previous sections. You can use this script to provide expenses status after or even during the trip or project, for each of the participants.
 
-The script lives in the split\_expenses plugin itself, and you invoke it like this:
+The script lives in the `split_expenses` plugin itself, and you invoke it like this:
 
     python3 -m beancount.plugins.split_expenses <beancount-filename> --text=<dir>
 

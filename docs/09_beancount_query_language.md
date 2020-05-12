@@ -8,7 +8,7 @@ Martin Blais, January 2015
 Introduction<a id="introduction"></a>
 -------------------------------------
 
-The purpose of Beancount is to allow the user to create an accurate and error-free representation of financial transactions, typically those occurring in a user or in an institution’s associated set of accounts, to then extract various reports from this list of transactions. Beancount provides a few tools to extract reports from the corpus of transactions: custom reports (using the Beancount bean-report tool), a web interface (using the bean-web tool) and the ability for the user to write their own scripts to output anything they want.
+The purpose of Beancount is to allow the user to create an accurate and error-free representation of financial transactions, typically those occurring in a user or in an institution’s associated set of accounts, to then extract various reports from this list of transactions. Beancount provides a few tools to extract reports from the corpus of transactions: custom reports (using the Beancount `bean-report` tool), a web interface (using the `bean-web` tool) and the ability for the user to write their own scripts to output anything they want.
 
 The repository of financial transactions is always read from the text file input, but once parsed and loaded in memory, extracting information from Beancount could be carried out much like you would another database, that is, instead of using custom code to generate output from the data structures, a query language could be compiled and run over the relatively regular list of transactions.
 
@@ -45,14 +45,14 @@ Therefore, a first release of the query language has been merged in the default 
 Making Queries<a id="making-queries"></a>
 -----------------------------------------
 
-The custom query client that we provide is called bean-query. Run it on your ledger file, like this:
+The custom query client that we provide is called `bean-query`. Run it on your ledger file, like this:
 
     $ bean-query myfile.beancount
     Input file: "My Ledger’s Title"
     Ready with 13996 directives (21112 postings in 8833 transactions).
     beancount> _
 
-This launches the query tool in interactive mode, where you can enter multiple commands on the dataset loaded in memory. bean-query parses the input file, spits out a few basic statistics about your ledger, and provides a command prompt for you to enter query commands. You can type “help” here to view the list of available commands.
+This launches the query tool in interactive mode, where you can enter multiple commands on the dataset loaded in memory. `bean-query` parses the input file, spits out a few basic statistics about your ledger, and provides a command prompt for you to enter query commands. You can type “`help`” here to view the list of available commands.
 
 If any errors in your ledger are incurred, they are printed before the prompt. To suppress error printing, run the tool with the “no-errors” option:
 
@@ -71,7 +71,7 @@ If you’d like to run queries directly from the command-line, without an intera
 
 ### Shell Variables<a id="shell-variables"></a>
 
-The interactive shell has a few “set” variables that you can customize to change some of the behavior of the shell. These are like environment variables. Type the “set” command to see the list of available variables and their current value.
+The interactive shell has a few “`set`” variables that you can customize to change some of the behavior of the shell. These are like environment variables. Type the “`set`” command to see the list of available variables and their current value.
 
 The variables are:
 
@@ -120,19 +120,19 @@ You may name targets explicitly with the familiar AS operator:
 
     SELECT last(date) as last_date, cost(sum(position)) as cost;
 
-The full list of posting columns and functions available on them is best viewed by querying your actual client using “help targets“ or “help where”, which prints out the list and data type of each available data column. You may also refer to the following diagram of the structure of a Posting object for the correspondence between the columns and the data structure attributes.
+The full list of posting columns and functions available on them is best viewed by querying your actual client using “`help targets`“ or “`help where`”, which prints out the list and data type of each available data column. You may also refer to the following diagram of the structure of a Posting object for the correspondence between the columns and the data structure attributes.
 
 <img src="09_beancount_query_language/media/9fb4295fd32eccb04043dcd76b4a2b2b6374fe1c.png" style="width:8.66667in;height:4.47222in" />
 
 ### Entry Data Columns<a id="entry-data-columns"></a>
 
-A different list of column names is available on the *&lt;entry-filter-expression&gt;* of the FROM clause. These columns refer to attributes of the Transaction objects. This clause is intended to filter whole transactions (i.e., all their postings or none at all). Available attributes include the date, transaction flag, the optional payee, narration, set of tags and links. Use the “help from” command to find the complete list of columns and functions available in this clause.
+A different list of column names is available on the *&lt;entry-filter-expression&gt;* of the `FROM` clause. These columns refer to attributes of the Transaction objects. This clause is intended to filter whole transactions (i.e., all their postings or none at all). Available attributes include the date, transaction flag, the optional payee, narration, set of tags and links. Use the “`help from`” command to find the complete list of columns and functions available in this clause.
 
-A Beancount input file consists of many different types of entries, not just transactions. Some of these other types of entries (such as Open, Close, Balance, etc.) may also provide attributes that can be access from the FROM clause. This is embryonic at this point. (It’s unclear yet how these will be used in the future, but I suspect we will find some interesting applications for them eventually. The FROM clause provides access to the type of the data entry via column “type”. It’s still an exploration how much we can make pragmatic use of the SQL language for other types of directives.)
+A Beancount input file consists of many different types of entries, not just transactions. Some of these other types of entries (such as Open, Close, Balance, etc.) may also provide attributes that can be access from the `FROM` clause. This is embryonic at this point. (It’s unclear yet how these will be used in the future, but I suspect we will find some interesting applications for them eventually. The `FROM` clause provides access to the type of the data entry via column “`type`”. It’s still an exploration how much we can make pragmatic use of the SQL language for other types of directives.)
 
 **The “id” Column**
 
-A special column exists that identifies each transaction uniquely: “id”. It is a unique hash automatically computed from the transaction and should be stable between runs.
+A special column exists that identifies each transaction uniquely: “`id`”. It is a unique hash automatically computed from the transaction and should be stable between runs.
 
     SELECT DISTINCT id;
 
@@ -148,7 +148,7 @@ One common desired output is a journal of entries over time (also called a “re
 
     SELECT date, account, position WHERE account ~ "Chase:Slate";
 
-For this type of report, it is convenient to also render a column of the cumulative balance of the selected postings rows. Access to the previous row is not a standard SQL feature, so we get a little creative and provide a special column called “balance” which is automatically calculated based on the previous selected rows:
+For this type of report, it is convenient to also render a column of the cumulative balance of the selected postings rows. Access to the previous row is not a standard SQL feature, so we get a little creative and provide a special column called “`balance`” which is automatically calculated based on the previous selected rows:
 
     SELECT date, account, position, balance WHERE account ~ "Chase:Slate";
 
@@ -183,17 +183,17 @@ The data attributes extracted from the postings or transactions have particular 
 
 -   String (Python str)
 
--   Date (a datetime.date instance). You can parse a date with the \#"..." syntax; this uses Python’s dateutil module and is pretty liberal in the formats it accepts.
+-   Date (a datetime.date instance). You can parse a date with the `#"..."` syntax; this uses Python’s dateutil module and is pretty liberal in the formats it accepts.
 
 -   Integer (Python int)
 
--   Boolean (Python bool object), as TRUE, FALSE
+-   Boolean (Python bool object), as `TRUE`, `FALSE`
 
 -   Number (a decimal.Decimal object)
 
 -   Set of Strings (a Python set of str objects)
 
--   Null objects (NULL)
+-   Null objects (`NULL`)
 
 ### Positions and Inventories<a id="positions-and-inventories"></a>
 
@@ -207,15 +207,15 @@ Objects of type Position are rendered in their full detail by default, including
 
 The shell provides functions that allow the user to summarize the positions into one of the various derived quantities. The types of derived quantities are:
 
--   “raw”: render the position in its full detail, including cost and lot date
+-   “`raw`”: render the position in its full detail, including cost and lot date
 
--   “units”: render just the number and currency of the position
+-   “`units`”: render just the number and currency of the position
 
--   “cost”: render the total cost of the position, that is the number of units x the per-unit cost
+-   “`cost`”: render the total cost of the position, that is the number of units x the per-unit cost
 
--   “weight”: render the amount that is used to balance the postings of a transaction. The main distinction between cost and weight is for postings with a price conversion.
+-   “`weight`”: render the amount that is used to balance the postings of a transaction. The main distinction between cost and weight is for postings with a price conversion.
 
--   “value”: render the amount at the market value of the last entry rendered.
+-   “`value`”: render the amount at the market value of the last entry rendered.
 
 Functions with the same names are available to operate on position or inventory objects. For example, one could generate a table of final balances for each account like this:
 
@@ -250,7 +250,7 @@ We also provide a regular expression search operator into a string object:
 
 At the moment, matching groups are ignored.
 
-You can use string, number and integer constants with those operators, and parentheses to explicitly state precedence. You can use the \#”...” literal syntax to input dates (valid contents for the string are pretty liberal, it supports anything Python’s dateutil.parser supports).
+You can use string, number and integer constants with those operators, and parentheses to explicitly state precedence. You can use the `#”...”` literal syntax to input dates (valid contents for the string are pretty liberal, it supports anything Python’s dateutil.parser supports).
 
 Here is an example query that uses a few of these:
 
@@ -259,7 +259,7 @@ Here is an example query that uses a few of these:
       AND 'trip-new-york' IN tags
       AND NOT payee = 'Uncle Boons'
 
-Unlike SQL, bean-query does not implement [<span class="underline">three-valued logic</span>](https://www.postgresql.org/docs/9.6/static/functions-logical.html) for NULL. This means that e.g. the expression NULL = NULL yields TRUE instead of NULL, which simplifies things, but may come as a surprise to veteran SQL users.
+Unlike SQL, bean-query does not implement [<span class="underline">three-valued logic</span>](https://www.postgresql.org/docs/9.6/static/functions-logical.html) for `NULL`. This means that e.g. the expression `NULL = NULL` yields `TRUE` instead of `NULL`, which simplifies things, but may come as a surprise to veteran SQL users.
 
 Simple Functions<a id="simple-functions"></a>
 ---------------------------------------------
@@ -280,7 +280,7 @@ Some example functions follow:
 
 -   PARENT(account-string): Returns the name of the parent account.
 
-These are just examples; for the complete list, see “help targets”, “help where”, “help from”.
+These are just examples; for the complete list, see “`help targets`”, “`help where`”, “`help from`”.
 
 Note that it is [<span class="underline">exceedingly easy</span>](https://bitbucket.org/blais/beancount/src/5ac80aea64bfd9ee1d7a23b9bf0d875559d91b62/src/python/beancount/query/query_env.py?at=shell) to add new functions to this list. As of December 2014, we are just beginning using the shell widely and we expect to be adding new functions as needed. If you need a function, please add a comment here or log a ticket and we will consider adding it to the list (we understand that the current list is limited). I intend to be liberal about adding new functions; as long as they have generic application, I don’t think it should be a problem. Otherwise, I may be able to provide a mechanism for user to register new functions as part of Python plugins that could live outside the Beancount codebase.
 
@@ -291,7 +291,7 @@ Some functions operate on more than a single row. These functions aggregate and 
 
     SELECT account, sum(position) WHERE account ~ 'Income' GROUP BY account;
 
-If a query target has at least one aggregating function, the query becomes an aggregated query (see relevant section for details). Note that you cannot use aggregation functions in the FROM or WHERE clauses.
+If a query target has at least one aggregating function, the query becomes an aggregated query (see relevant section for details). Note that you cannot use aggregation functions in the `FROM` or `WHERE` clauses.
 
 Examples of aggregate functions include:
 
@@ -303,9 +303,9 @@ Examples of aggregate functions include:
 
 -   SUM(...): Sums up the values of each set. This works on amounts, positions, inventories, numbers, etc.
 
-As for simple functions, this is just a starting list. We will be adding more as needed. Use “help targets” to access the full list of available aggregate functions.
+As for simple functions, this is just a starting list. We will be adding more as needed. Use “`help targets`” to access the full list of available aggregate functions.
 
-Note: You cannot filter (using a WHERE clause) the results of aggregation functions; this requires the implementation offering a HAVING clause, and at the moment, [<span class="underline">HAVING filtering is not yet implemented</span>](https://bitbucket.org/blais/beancount/src/de8cf9a6a8).
+Note: You cannot filter (using a `WHERE` clause) the results of aggregation functions; this requires the implementation offering a `HAVING` clause, and at the moment, [<span class="underline">HAVING filtering is not yet implemented</span>](https://bitbucket.org/blais/beancount/src/de8cf9a6a8).
 
 Simple vs. Aggregated Queries<a id="simple-vs.-aggregated-queries"></a>
 -----------------------------------------------------------------------
@@ -337,7 +337,7 @@ Finally, because we implement a limited version of SQL, and that the simple colu
 
 ### Distinct<a id="distinct"></a>
 
-There is a post-filtering phase that supports uniquifying result rows. You can trigger this unique filter with the DISTINCT flag after SELECT, as is common in SQL, e.g.
+There is a post-filtering phase that supports uniquifying result rows. You can trigger this unique filter with the `DISTINCT` flag after `SELECT`, as is common in SQL, e.g.
 
     SELECT DISTINCT account;
 
@@ -354,7 +354,7 @@ Analogous to the GROUP BY clause is an ORDER BY clause that controls the final o
 
 The clause is optional. If you do not specify it, the default order of iteration of selected postings is used to output the results (that is, the order of transactions-sorted by date- and then their postings).
 
-As in SQL, you may reverse the order of sorting by a DESC suffix (the default is the same as specifying ASC):
+As in SQL, you may reverse the order of sorting by a `DESC` suffix (the default is the same as specifying `ASC`):
 
     SELECT …
     GROUP BY account, payee
@@ -370,16 +370,16 @@ This would output the first 100 result rows and then stop. While this is a commo
 
 ### Format<a id="format"></a>
 
-For SELECT, JOURNAL and BALANCES queries, the output format is a table of text by default. We support CSV output. (*We could easily add support for XLS or Google Sheets output.)*
+For `SELECT`, `JOURNAL` and `BALANCES` queries, the output format is a table of text by default. We support CSV output. (*We could easily add support for XLS or Google Sheets output.)*
 
-However, for PRINT queries, the output format is Beancount input text format.
+However, for `PRINT` queries, the output format is Beancount input text format.
 
 Statement Operators<a id="statement-operators"></a>
 ---------------------------------------------------
 
 The shell provides a few operators designed to facilitate the generation of balance sheets and income statements. The particular methodology used to define these operations should be described in detail in the “[<span class="underline">introduction to double-entry bookkeeping</span>](02_the_double_entry_counting_method.md)” document that accompanies Beancount and is mostly located in the source code in the [<span class="underline">summarize</span>](http://bitbucket.org/blais/beancount/src/tip/src/python/beancount/ops/summarize.py) module.
 
-These special operators are provided on the FROM clause that is made available on the various forms of query commands in the shell. These further transform the set of entries selected by the FROM expression at the transaction levels (not postings).
+These special operators are provided on the `FROM` clause that is made available on the various forms of query commands in the shell. These further transform the set of entries selected by the `FROM` expression at the transaction levels (not postings).
 
 Please note that these are not from standard SQL; these are extensions provided by this shell language only.
 
@@ -419,7 +419,7 @@ Closing a period leaves the Income and Expenses accounts as they are, that is, t
 
 ### Clearing Income & Expenses<a id="clearing-income-expenses"></a>
 
-In order to produce a balance sheet, we need to transfer final balances of the Income and Expenses to an Equity “current earnings” account (sometimes called “retained earnings” or “net income”; you can select the specific account name to use using options in the input file). The resulting balances of income statement accounts should be zero (see beancount.ops.summarize.clear() for implementation details).
+In order to produce a balance sheet, we need to transfer final balances of the Income and Expenses to an Equity “current earnings” account (sometimes called “retained earnings” or “net income”; you can select the specific account name to use using options in the input file). The resulting balances of income statement accounts should be zero (see `beancount.ops.summarize.clear()` for implementation details).
 
 You can clear like this:
 
@@ -429,7 +429,7 @@ For example:
 
     SELECT * FROM has_account("Invest") CLOSE ON 2015-04-01 CLEAR;
 
-This is a statement suitable to produce a list of accounts to build a balance sheet. The “Equity:Earnings:Current” (by default) will contain the net income accumulated during the preceding period. No balances for the Income nor Expenses accounts should appear in the output.
+This is a statement suitable to produce a list of accounts to build a balance sheet. The “`Equity:Earnings:Current`” (by default) will contain the net income accumulated during the preceding period. No balances for the Income nor Expenses accounts should appear in the output.
 
 ### Example Statements<a id="example-statements"></a>
 
@@ -478,7 +478,7 @@ Or this for the sum total of the cost bases:
 High-Level Shortcuts<a id="high-level-shortcuts"></a>
 -----------------------------------------------------
 
-There are two types of queries that are very common for accounting applications: journals and balances reports. While we have explicit implementations of such reports that can be produced using the bean-report tool, we are also able to synthesize good approximations of such reports using SELECT statements. This section describes a few additional selection commands that translate directly into SELECT statements and which are then run with the same query code. These are intended as convenient shortcuts.
+There are two types of queries that are very common for accounting applications: journals and balances reports. While we have explicit implementations of such reports that can be produced using the `bean-report` tool, we are also able to synthesize good approximations of such reports using `SELECT` statements. This section describes a few additional selection commands that translate directly into `SELECT` statements and which are then run with the same query code. These are intended as convenient shortcuts.
 
 ### Selecting Journals<a id="selecting-journals"></a>
 
@@ -488,7 +488,7 @@ You can generate a journal with the following syntax:
 
     JOURNAL <account-regexp> [AT <function>] [FROM …]
 
-The regular expression *account-regexp* is used to select which subset of accounts to generate a journal for. The optional “AT *&lt;function&gt;*” clause is used to specify an aggregation function for the amounts rendered (typically UNITS or COST). The FROM clause follows the same rules as for the SELECT statement and is optional.
+The regular expression *account-regexp* is used to select which subset of accounts to generate a journal for. The optional “AT *&lt;function&gt;*” clause is used to specify an aggregation function for the amounts rendered (typically `UNITS` or `COST`). The `FROM` clause follows the same rules as for the `SELECT` statement and is optional.
 
 Here is an example journal-generating query:
 
@@ -496,15 +496,15 @@ Here is an example journal-generating query:
 
 ### Selecting Balances<a id="selecting-balances"></a>
 
-The other most common type of report is a table of the balances of various accounts at a particular date. This can be viewed as a SELECT query aggregating positions grouping by account.
+The other most common type of report is a table of the balances of various accounts at a particular date. This can be viewed as a `SELECT` query aggregating positions grouping by account.
 
 You can generate a balances report with the following syntax:
 
     BALANCES [AT <function>] [FROM …]
 
-The optional “AT *&lt;function&gt;*” clause is used to specify an aggregation function for the balances rendered (usually UNITS or COST). The FROM clause follows the same rules as for the SELECT statement and is optional.
+The optional “AT *&lt;function&gt;*” clause is used to specify an aggregation function for the balances rendered (usually `UNITS` or `COST`). The `FROM` clause follows the same rules as for the `SELECT` statement and is optional.
 
-To generate your balances at a particular date, close your set of entries using the “FROM… CLOSE ON” form described above.
+To generate your balances at a particular date, close your set of entries using the “`FROM… CLOSE ON`” form described above.
 
 Observe that typical balance sheets and income statements seen in an accounting context are subsets of tables of balances such as reported by this query. An income statement reports on just the transactions that appears during a period of time, and a balance sheet summarizes transactions before its reporting before and clears the income & expenses accumulated during the period to an equity account. Then some minor reformatting is carried out. Please consult the introduction document on double-entry bookkeeping for more details, and the section above that discusses the “open”, “close” and “clear” operations.
 
@@ -512,24 +512,24 @@ We will also be providing a separate text processing tool that can accept balanc
 
 ### Print<a id="print"></a>
 
-It can be useful to generate output in Beancount format, so that subsets of transactions can be saved to files, for example. The shell provides that ability via the PRINT command:
+It can be useful to generate output in Beancount format, so that subsets of transactions can be saved to files, for example. The shell provides that ability via the `PRINT` command:
 
     PRINT [FROM …]
 
 The FROM clause obeys the usual semantics as described elsewhere in this document. The resulting filtered stream of Beancount entries is then printed out on the output in Beancount syntax.
 
-In particular, just running the “PRINT” command will spit out the parsed and loaded contents of a Beancount file. You can use this for troubleshooting if needed, or to expand transactions generated from a plugin you may be in the process of developing.
+In particular, just running the “`PRINT`” command will spit out the parsed and loaded contents of a Beancount file. You can use this for troubleshooting if needed, or to expand transactions generated from a plugin you may be in the process of developing.
 
 Debugging / Explain<a id="debugging-explain"></a>
 -------------------------------------------------
 
-If you’re having trouble getting a particular statement to compile and run,. you can prefix any query statement with the EXPLAIN modifier, e.g.:
+If you’re having trouble getting a particular statement to compile and run,. you can prefix any query statement with the `EXPLAIN` modifier, e.g.:
 
     EXPLAIN SELECT …
 
 This will not run the statement, but rather print out the intermediate AST and compiled representation as well as the list of computed statements. This can be useful to report bugs on the mailing-list.
 
-Also, this shows you the translated form of the JOURNAL and BALANCES statements.
+Also, this shows you the translated form of the `JOURNAL` and `BALANCES` statements.
 
 Future Features<a id="future-features"></a>
 -------------------------------------------
@@ -538,7 +538,7 @@ The following list of features were planned for the first release but I’ve dec
 
 ### Flattening Inventories<a id="flattening-inventories"></a>
 
-If you provide the FLATTEN option after a query, it tells the query engine to flatten inventories with multiple lots into separate rows for each lot. For example, if you have an inventory balance with the following contents:
+If you provide the `FLATTEN` option after a query, it tells the query engine to flatten inventories with multiple lots into separate rows for each lot. For example, if you have an inventory balance with the following contents:
 
     3 AAPL {102.34 USD}
     4 AAPL {104.53 USD}
@@ -556,11 +556,11 @@ This should return three separate rows, with all the selected attributes, as if 
 
 ### Sub-Selects<a id="sub-selects"></a>
 
-The ability to select from the result of another SELECT is not currently supported, but the internals of the query code are prepared to do so.
+The ability to select from the result of another `SELECT` is not currently supported, but the internals of the query code are prepared to do so.
 
 ### Pivot By<a id="pivot-by"></a>
 
-A special PIVOT BY clause can be used to convert the output from a one-dimensional list of results to a two-dimensional table. For example, the following query:
+A special `PIVOT BY` clause can be used to convert the output from a one-dimensional list of results to a two-dimensional table. For example, the following query:
 
     SELECT
       account,

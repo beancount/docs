@@ -146,7 +146,7 @@ Begin by generating the example file:
 
     bean-example > example.beancount
 
-Open example.beancount and examine it.
+Open `example.beancount` and examine it.
 
 Next, before we begin generating reports, verify that the file loads without any errors:
 
@@ -296,7 +296,7 @@ The original way to access reports in Beancount is via its web interface that se
 
 Then navigate with a web browser to [<span class="underline">http://localhost:8080</span>](http://localhost:8080). From there, you can click on any number of filtered views and access some of the reports previously demonstrated. For example, click on a year view; that will provide balance sheets and income statements and various other reports for this subset of transactions.
 
-The bean-web tool has many options for restricting what is being served. (Note that by default the server listens only for connections from your computer; if you want to host this on a web server and accept connections from anywhere, use --public).
+The bean-web tool has many options for restricting what is being served. (Note that by default the server listens only for connections from your computer; if you want to host this on a web server and accept connections from anywhere, use `--public`).
 
 *Note: There exists a separate project which provides a better web interface than the one which comes with Beancount: [<span class="underline">Fava</span>](https://github.com/aumayr/fava). You might want to check it out.*
 

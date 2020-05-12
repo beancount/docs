@@ -94,21 +94,21 @@ It is required that any transaction be balanced in every fund that it uses. For 
        Endowment:Expenses:BuildingImprovement:Sound -800.00 USD
        Operations:Expenses:BuildingImprovement:Sound -200.00 USD
 
-This represents a single check to Bill’s Audio paid from assets of both the Endowment and Operations funds that are kept in the single external assets account Assets:Bank1:Checking.
+This represents a single check to Bill’s Audio paid from assets of both the Endowment and Operations funds that are kept in the single external assets account `Assets:Bank1:Checking.`
 
 **Note 1:** An empty fund name could be allowed and the following “:” omitted, and in fact could be the default for people who don’t want to use these features. (i.e., nothing changes if you don’t use these features.) The Fund with the empty string for its name is, of course, distinct from all other Funds.
 
-**Note 2:** balance and pad directives are not very useful with accounts that participate in more than one Fund. Their use would require knowing the allocation of the account between the different funds and account statements from external holders (banks, e.g.) will not have this information. It might be useful to allow something like
+**Note 2:** `balance` and `pad` directives are not very useful with accounts that participate in more than one Fund. Their use would require knowing the allocation of the account between the different funds and account statements from external holders (banks, e.g.) will not have this information. It might be useful to allow something like
 
     2014-07-31 balance *:Assets:Bank1:Checking     579.39 USD
 
-as a check that things were right, but automatically correcting it with pad entries seems impossible.
+as a check that things were right, but automatically correcting it with `pad` entries seems impossible.
 
-A balance sheet report can be run on any Fund *or any combination of Funds* and it will balance. You can keep track of what is owned for each different purpose easily. Transfers between funds are booked as expenses and decreases in the assets of one fund and income and increases in assets of the other. The income and expense accounts used for transfers may be generic (Operations:Income:Transfer) or you can use accounts set up for a particular kind of income or expense (Endowment:Expense:BuildingImprovement:Sound) would be fine as one leg of a transfer transaction.
+A balance sheet report can be run on any Fund *or any combination of Funds* and it will balance. You can keep track of what is owned for each different purpose easily. Transfers between funds are booked as expenses and decreases in the assets of one fund and income and increases in assets of the other. The income and expense accounts used for transfers may be generic (`Operations:Income:Transfer`) or you can use accounts set up for a particular kind of income or expense (`Endowment:Expense:BuildingImprovement:Sound`) would be fine as one leg of a transfer transaction.
 
 The account name syntax here is just one way it might work and relies on Beancount’s use of five specifically-named top-level accounts. Anything to the left of the first of those could be treated as a fund name, or a different separator could be used between the fund part and the account name part. Similarly, I’ve only shown single-level fund names but they might be hierarchical as well. I’m not sure of the value of that, but observe that if transactions balance at the leaf-level funds they will also balance for funds higher in the hierarchy and there might be some mileage there.
 
-For John W.’s *Huqúqu'lláh* example one might set up a Fund whose liabilities were “moral obligations” rather than legal ones (that seems to be the objection to simply tracking the tithes in an ordinary liability account). As income comes in (say, direct deposited in a real bank checking account), book 19% of it to the “moral obligation” fund’s checking account with a matching liability. When needful expenses are made, take back 19% from the “moral obligation” fund’s checking account and reduce the liability. No virtual postings or transactions -- everything must balance. This would work well if for example we were to have a HisRetirement fund and a HerRetirement fund -- useful to have separate for estate planning purposes -- but more commonly we want to know about our combined retirement which could be defined to be a *virtual* fund OurRetirement equal to the sum of HisRetirement and HerRetirement. Note that this only matters when creating reports: there is no need to do anything except normal, double-entry booking with balanced transactions in each *real* fund. When I say the “sum” of two funds I mean a combination of taking the union of the contained account names, after stripping off the fund names, then summing the balances of the common accounts and keeping the balances of the others.
+For John W.’s *Huqúqu'lláh* example one might set up a Fund whose liabilities were “moral obligations” rather than legal ones (that seems to be the objection to simply tracking the tithes in an ordinary liability account). As income comes in (say, direct deposited in a real bank checking account), book 19% of it to the “moral obligation” fund’s checking account with a matching liability. When needful expenses are made, take back 19% from the “moral obligation” fund’s checking account and reduce the liability. No virtual postings or transactions -- everything must balance. This would work well if for example we were to have a `HisRetirement` fund and a `HerRetirement` fund -- useful to have separate for estate planning purposes -- but more commonly we want to know about our combined retirement which could be defined to be a *virtual* fund `OurRetirement` equal to the sum of `HisRetirement` and `HerRetirement`. Note that this only matters when creating reports: there is no need to do anything except normal, double-entry booking with balanced transactions in each *real* fund. When I say the “sum” of two funds I mean a combination of taking the union of the contained account names, after stripping off the fund names, then summing the balances of the common accounts and keeping the balances of the others.
 
 *(Balance Sheet)* For reporting, one wants the capability for balance by fund and balance summed over a set of funds. I also use a report that shows a subset of funds, one per column, with corresponding account names lined up horizontally and a column at the right that is the “sum”. When all funds are included in this latter report you get a complete picture of what you own and owe and what is set aside for different purposes, or restricted in different ways. Here’s a small sample of a balance sheet for a subset of the church Funds. The terminology is a little different: what Beancount calls Equity is here Net Assets. And because using large numbers of Funds in PowerChurchPlus is not so easy, the NetAssets are actually categorized for different purposes -- this is where I think the ideas we’re exploring here can really shine: if Funds are really easy to create and combine for reporting then some of the mechanisms that PCP has for divvying up assets within a fund become unnecessary. <img src="30_fund_accounting_with_beancount/media/8c56573ed54aa0aff877dee48727a6f485015884.jpg" alt="samplebalsheet.jpg" style="width:6.5in;height:3.76389in" />
 
@@ -127,7 +127,7 @@ Ideas for Implementation<a id="ideas-for-implementation"></a>
 
 -   We can rely on the fact that the transactions of **subaccounts may be joined and summed in a parent account** (despite the fact that reporting is lagging behind in that matter at the moment. It will be implemented eventually).
 
--   Building off the earlier remark about doing something similar to the tag stack for Funds. What if the current tag architecture were extended to allow tags to have a value, \#fund=Operations, or \#fund=Endowment. Call them value-tags. You would also need to allow postings to have tags. Semantics of value-tags would be that they could only occur once for any posting, that a tag explicitly on a posting overrides the value-tag inherited from the transaction, and that an explicit tag on a transaction overrides a value from the tag-stack, and that only the last value-tag (with a particular key) in the tag-stack is applied to a transaction. This makes Funds a little less first-class than the earlier proposal to stick them in front of account names, but gets around the minor parsing difficulty previously mentioned. It suggests that opening of accounts within funds is not necessary where the previous syntax suggests that it is. The strict balancing rule for each fund in a transaction can still be implemented as a plugin. And reporting for a fund (or sum of funds) looks like:
+-   Building off the earlier remark about doing something similar to the tag stack for Funds. What if the current tag architecture were extended to allow tags to have a value, `#fund=Operations,` or `#fund=Endowment`. Call them value-tags. You would also need to allow postings to have tags. Semantics of value-tags would be that they could only occur once for any posting, that a tag explicitly on a posting overrides the value-tag inherited from the transaction, and that an explicit tag on a transaction overrides a value from the tag-stack, and that only the last value-tag (with a particular key) in the tag-stack is applied to a transaction. This makes Funds a little less first-class than the earlier proposal to stick them in front of account names, but gets around the minor parsing difficulty previously mentioned. It suggests that opening of accounts within funds is not necessary where the previous syntax suggests that it is. The strict balancing rule for each fund in a transaction can still be implemented as a plugin. And reporting for a fund (or sum of funds) looks like:
 
     -   select transactions with any posting matching the desired fund (or funds)
 
@@ -304,7 +304,7 @@ This balances but isn’t what we intended. Suppose we add the idea of Transfer 
     2014-07-15 open Transfer:Outgoing:FSAContribution
     2014-07-15 open Transfer:Incoming:ReimburseMedical
 
-The incorrect transaction is now flagged because sum of the transfers is -50 USD, not zero.
+The incorrect transaction is now flagged because sum of the transfers is `-50 USD`, not zero.
 
     2014-07-20 ! "Medical expense reimbursed from FSA - with mistake"
       Assets:Bank:Checking                                    25 USD
@@ -312,7 +312,7 @@ The incorrect transaction is now flagged because sum of the transfers is -50 USD
       FSA:Assets                                              25 USD
       FSA:Transfer:Outgoing:ReimburseMedical
 
-The paycheck transaction using transfer accounts for the FSA and the retirement account amounts might look like this (after appropriate opens of course):
+The paycheck transaction using transfer accounts for the FSA and the retirement account amounts might look like this (after appropriate `open`s of course):
 
     2014-07-15 ! "Emp1 Paystub - using transfer accounts"
       Income:Gross:Emp1                                      -6000 USD
@@ -332,7 +332,7 @@ The paycheck transaction using transfer accounts for the FSA and the retirement 
       Retirement403b:Income:EmployerContrib                   -600 USD
       Retirement403b:Assets:CREF
 
-Some might think that this is too complicated. Without changing the Transfer accounts idea or rule, you can simplify booking to just a single account per fund, Fund:Transfer, losing some ability for precision in reporting but without losing the ability to check correctness of transfer transactions.
+Some might think that this is too complicated. Without changing the Transfer accounts idea or rule, you can simplify booking to just a single account per fund, `Fund:Transfer`, losing some ability for precision in reporting but without losing the ability to check correctness of transfer transactions.
 
 Account Aliases<a id="account-aliases"></a>
 -------------------------------------------

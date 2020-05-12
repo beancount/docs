@@ -183,7 +183,7 @@ implicitly declare a tree of accounts that looks like this:
                 |-- Cash
                 `-- RGAGX
 
-We would say that “Assets:US:BofA” is the parent account of “Assets:US:BofA:Checking”, and that the latter is a child account of the former.
+We would say that “`Assets:US:BofA`” is the parent account of “`Assets:US:BofA:Checking`”, and that the latter is a child account of the former.
 
 ### Commodities / Currencies<a id="commodities-currencies"></a>
 
@@ -196,11 +196,11 @@ Accounts contain **currencies**, which we sometimes also call **commodities** (w
     IBM
     AIRMILE
 
-(Technically: up to 24 characters long, beginning with a capital letter and ending with a capital letter or a number. The middle characters may include “\_-’.”.) The first three might evoke real world currencies to you (US dollars, Canadian dollars, Euros); the next two, stock ticker names (Microsoft and IBM). And the last: rewards points (airmiles). Beancount knows of no such thing; from its perspective all of these instruments are treated similarly. There is no built-in notion of any previously existing currency. These currency names are just names of “things” that can be put in accounts and accumulated in inventories associated with these accounts.
+(Technically: up to 24 characters long, beginning with a capital letter and ending with a capital letter or a number. The middle characters may include “`_-’.`”.) The first three might evoke real world currencies to you (US dollars, Canadian dollars, Euros); the next two, stock ticker names (Microsoft and IBM). And the last: rewards points (airmiles). Beancount knows of no such thing; from its perspective all of these instruments are treated similarly. There is no built-in notion of any previously existing currency. These currency names are just names of “things” that can be put in accounts and accumulated in inventories associated with these accounts.
 
 There is something elegant about the fact that there is no “special” currency unit, that all commodities are treated equally the same: Beancount is inherently a multi-currency system. You will appreciate this if, like many of us, you are an expat and your life is divided between two or three continents. You can handle an international ledger of accounts without any problems.
 
-And your use of currencies can get quite creative: you can create a currency for your home, for example (e.g. MYLOFT), a currency to count accumulated vacation hours (VACHR), or a currency to count potential contributions to your retirement accounts allowed annually (IRAUSD). You can actually solve many problems this way. The [<span class="underline">cookbook</span>](18_command_line_accounting_cookbook.md) describes many such concrete examples.
+And your use of currencies can get quite creative: you can create a currency for your home, for example (e.g. `MYLOFT`), a currency to count accumulated vacation hours (`VACHR`), or a currency to count potential contributions to your retirement accounts allowed annually (`IRAUSD`). You can actually solve many problems this way. The [<span class="underline">cookbook</span>](18_command_line_accounting_cookbook.md) describes many such concrete examples.
 
 Beancount does not support the dollar sign syntax, e.g., “$120.00”. You should always use symbols for currencies in your input file. This makes the input more regular and is a design choice. For monetary units, I suggest that you use the standard [<span class="underline">ISO 4217 currency code</span>](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) as a guideline; these quickly become familiar. However, you may include some other characters in currency names, like underscores (\_) or dashes (-), but no spaces.
 
@@ -330,7 +330,7 @@ Transactions are the most common type of directives that occur in a ledger. They
       Liabilities:CreditCard:CapitalOne         -37.45 USD
       Expenses:Restaurant
 
-As for all the other directives, a transaction directive begins with a date in the *YYYY-MM-DD* format and is followed by the directive name, in this case, “txn”. However, because transactions are the *raison d’être* for our double-entry system and as such are by far the most common type of directive that should appear in a Beancount input file, we make a special case and allow the user to elide the “txn” keyword and just use a flag instead of it:
+As for all the other directives, a transaction directive begins with a date in the *YYYY-MM-DD* format and is followed by the directive name, in this case, “`txn`”. However, because transactions are the *raison d’être* for our double-entry system and as such are by far the most common type of directive that should appear in a Beancount input file, we make a special case and allow the user to elide the “txn” keyword and just use a flag instead of it:
 
     2014-05-05 * "Cafe Mogador" "Lamb tagine with wine"
       Liabilities:CreditCard:CapitalOne         -37.45 USD
@@ -381,7 +381,7 @@ See the dedicated section on metadata below.
 
 A transaction may have an optional “payee” and/or a “narration.” In the first example above, the payee is “Cafe Mogador” and the narration is “Lamb tagine with wine”.
 
-The payee is a string that represents an external entity that is involved in the transaction. Payees are sometimes useful on transactions that post amounts to Expense accounts, whereby the account accumulates a category of expenses from multiple businesses. A good example is “Expenses:Restaurant”, which will include all postings for the various restaurants one might visit.
+The payee is a string that represents an external entity that is involved in the transaction. Payees are sometimes useful on transactions that post amounts to Expense accounts, whereby the account accumulates a category of expenses from multiple businesses. A good example is “`Expenses:Restaurant`”, which will include all postings for the various restaurants one might visit.
 
 A narration is a description of the transaction that you write. It can be a comment about the context, the person who accompanied you, some note about the product you bought... whatever you want it to be. It’s for you to insert whatever you like. I like to insert notes when I reconcile, it’s quick and I can refer to my notes later on, for example, to answer the question “What was the name of that great little sushi place I visited with Andreas on the West side last winter?”
 
@@ -565,7 +565,7 @@ In the example above, the amount of the credit card posting has been elided. It 
       Assets:ETrade:Cash            1979.90 USD
       Income:ETrade:CapitalGains
 
-In this case, the units of IVV are sold at a higher price ($197.90) than they were bought for ($183.07). The cash first posting has a weight of -10 x 183.07 = -1830.70 and the second posting a straightforward $1979.90. The last posting will be ascribed the difference, that is, a balance of -149.20 USD, which is to say, a *gain* of $149.20.
+In this case, the units of IVV are sold at a higher price ($197.90) than they were bought for ($183.07). The cash first posting has a weight of -10 x 183.07 = -1830.70 and the second posting a straightforward $1979.90. The last posting will be ascribed the difference, that is, a balance of `-149.20 USD`, which is to say, a *gain* of $149.20.
 
 When calculating the amount to be balanced, the same balance amounts that are used to check that the transaction balances to zero are used to fill in the missing amounts. For example, the following would not trigger an error:
 
@@ -657,7 +657,7 @@ A balance assertion is a way for you to input your statement balance into the fl
 
     2014-12-26 balance Liabilities:US:CreditCard   -3492.02 USD
 
-says “Check that the number of USD units in account “Liabilities:US:CreditCard” on the *morning* of December 26th, 2014 is -3492.02 USD.” When processing the list of entries, if Beancount encounters a different balance than this for USD it will report an error.
+says “Check that the number of USD units in account “`Liabilities:US:CreditCard`” on the *morning* of December 26th, 2014 is -3492.02 USD.” When processing the list of entries, if Beancount encounters a different balance than this for USD it will report an error.
 
 If no error is reported, you should have some confidence that the list of transactions that precedes it in this account is highly likely to be correct. This is useful in practice, because in many cases some transactions can get imported separately from the accounts of each of their postings (see [<span class="underline">the de-duping problem</span>](05_getting_started_with_beancount.md)). This can result in you booking the same transaction twice without noticing, and regularly inserting a balance assertion will catch that problem every time.
 
@@ -682,7 +682,7 @@ A Beancount account may contain more than one commodity (although in practice, y
 
 There is currently no way to exhaustively check the full list of commodities in an account ([<span class="underline">a proposal is underway</span>](29_balance_assertions_in_beancount.md)).
 
-Note that in this example if an exhaustive check really matters to you, you could circumvent by defining a subaccount of the cash account to segregate each commodity separately, like this Assets:Cash:USD, Assets:Cash:CAD.
+Note that in this example if an exhaustive check really matters to you, you could circumvent by defining a subaccount of the cash account to segregate each commodity separately, like this `Assets:Cash:USD`, `Assets:Cash:CAD`.
 
 #### Lots Are Aggregated<a id="lots-are-aggregated"></a>
 
@@ -879,7 +879,7 @@ Remember that Beancount knows nothing about what HOOL, USD or CAD are. They are 
 
 #### Prices from Postings<a id="prices-from-postings"></a>
 
-If you use the beancount.plugins.implicit\_prices plugin, every time a Posting appears that has a cost or an optional price declared, it will use that cost or price to automatically synthesize a Price directive. For example, this transaction:
+If you use the `beancount.plugins.implicit_prices` plugin, every time a Posting appears that has a cost or an optional price declared, it will use that cost or price to automatically synthesize a Price directive. For example, this transaction:
 
     2014-05-23 *
       Assets:Investments:MSFT        -10 MSFT {43.40 USD}
@@ -998,9 +998,9 @@ There are two ways in which this data can be used:
 
 1.  Query tools that come with Beancount (such as bean-query) will allow you to make use of the metadata values for filtering and aggregation.
 
-2.  You can access and use the metadata in custom scripts. The metadata values are accessible as a “.meta” attribute on all directives and is a Python dict.
+2.  You can access and use the metadata in custom scripts. The metadata values are accessible as a “`.meta`” attribute on all directives and is a Python dict.
 
-There are no special meanings attached to particular attributes, these are intended for users to define. However, all directives are guaranteed to contain a ‘filename’ (string) and a ‘lineno’ (integer) attribute which reflect the location they were created from.
+There are no special meanings attached to particular attributes, these are intended for users to define. However, all directives are guaranteed to contain a ‘`filename`’ (string) and a ‘`lineno`’ (integer) attribute which reflect the location they were created from.
 
 Finally, attributes without a value will be parsed and have a value of 'None'. If an attribute is repeated multiple times, only the first value for this attribute will be parsed and retained and the following values ignored.
 
@@ -1023,13 +1023,13 @@ There are three ways to view the list of options:
 
 -   In [<span class="underline">this document</span>](07_beancount_options_reference.md), which I update regularly.
 
--   To view the definitive list of options supported by your installed version, use the following command: bean-doctor list-options
+-   To view the definitive list of options supported by your installed version, use the following command: `bean-doctor list-options`
 
 -   Finally, you can [<span class="underline">peek at the source code</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/parser/options.py?at=default) as well.
 
 ### Operating Currencies<a id="operating-currencies"></a>
 
-One notable option is “operating\_currency”. By default Beancount does not treat any of the commodities any different from each other. In particular, it doesn’t know that there’s anything special about the most common of commodities one uses: their currencies. For example, if you live in New Zealand, you’re going to have an overwhelming number of NZD commodities in your transactions.
+One notable option is “`operating_currency`”. By default Beancount does not treat any of the commodities any different from each other. In particular, it doesn’t know that there’s anything special about the most common of commodities one uses: their currencies. For example, if you live in New Zealand, you’re going to have an overwhelming number of NZD commodities in your transactions.
 
 But useful reports try to reduce all non-currency commodities into one of the main currencies used. Also, it’s useful to break out the currency units into their own dedicated columns. This may also be useful for exporting in order to avoid having to specify the units for that column and import to a spreadsheet with numbers you can process.
 

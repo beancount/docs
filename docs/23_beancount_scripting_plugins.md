@@ -31,7 +31,7 @@ This document provides examples and guidelines on how to write scripts that use 
 Load Pipeline<a id="load-pipeline"></a>
 ---------------------------------------
 
-You need to know a little bit about how Beancount processes its input files. Internally, the single point of entry to load an input file is the beancount.loader.load\_file() function, which accepts an input file and carries out a list of transformation steps, as in this diagram:
+You need to know a little bit about how Beancount processes its input files. Internally, the single point of entry to load an input file is the `beancount.loader.load_file()` function, which accepts an input file and carries out a list of transformation steps, as in this diagram:
 
 <img src="23_beancount_scripting_plugins/media/d9525818c27bd84d2bd50e0e03d42a27eb597e2d.png" style="width:8.66667in;height:3.23611in" />
 
@@ -75,11 +75,11 @@ A plugin is added to the input file via the [<span class="underline">option synt
 
     plugin "accounting.wash_sales"
 
-With this directive, the loader will attempt to import the accounting.wash\_sales Python module (the code must be Python-3.3 or above), look for a special \_\_plugins\_\_ attribute which should be a sequence of functions to run, and then run those functions.
+With this directive, the loader will attempt to import the `accounting.wash_sales` Python module (the code must be Python-3.3 or above), look for a special `__plugins__` attribute which should be a sequence of functions to run, and then run those functions.
 
 For running the plugins, see the Executing Plugins section below.
 
-As an example, you would place code like this in a “accounting/wash\_sales.py” file:
+As an example, you would place code like this in a “`accounting/wash_sales.py`” file:
 
     __plugins__ = ['wash_sales']
 
@@ -108,7 +108,7 @@ If you need to produce some custom analysis or visualization that cannot be achi
 
 ### Loading from File<a id="loading-from-file"></a>
 
-You can simply call the beancount.loader.load\_file() loader function yourself. Here is an example minimal script:
+You can simply call the `beancount.loader.load_file()` loader function yourself. Here is an example minimal script:
 
     #!/usr/bin/env python3
     from beancount import loader
@@ -121,7 +121,7 @@ At this point you can process the entries as you like, print them out, generate 
 
 ### Loading from String<a id="loading-from-string"></a>
 
-You can also parse a string directly. Use beancount.loader.load\_string():
+You can also parse a string directly. Use `beancount.loader.load_string()`:
 
     #!/usr/bin/env python3
     from beancount import loader
@@ -148,7 +148,7 @@ By default, the loader will not print any errors upon loading; we prefer loading
                                                 log_errors=sys.stderr)
     … 
 
-Or if you prefer to do it yourself explicitly, you can call the beancount.parser.printer.print\_errors() helper function:
+Or if you prefer to do it yourself explicitly, you can call the `beancount.parser.printer.print_errors()` helper function:
 
     #!/usr/bin/env python3
     from beancount import loader
@@ -161,7 +161,7 @@ Or if you prefer to do it yourself explicitly, you can call the beancount.parser
 
 ### Printing Entries & Round-Tripping<a id="printing-entries-round-tripping"></a>
 
-Printing [<span class="underline">namedtuple</span>](https://docs.python.org/3/library/collections.html#collections.namedtuple) entries directly will output some readable though relatively poorly formatted output. It’s best to use the beancount.parser.printer.print\_entry() utility function to print out an entry in a readable way:
+Printing [<span class="underline">namedtuple</span>](https://docs.python.org/3/library/collections.html#collections.namedtuple) entries directly will output some readable though relatively poorly formatted output. It’s best to use the `beancount.parser.printer.print_entry()` utility function to print out an entry in a readable way:
 
     #!/usr/bin/env python3
     from beancount import loader
@@ -174,18 +174,18 @@ Printing [<span class="underline">namedtuple</span>](https://docs.python.org/3/l
 
 In particular, Beancount offers the guarantee that the output of the printer should always be parseable and should result in the same data structure when read back in. (It should be considered a bug if that is not the case.)
 
-See the beancount.parser.printer module source code for more utility functions.
+See the `beancount.parser.printer` module source code for more utility functions.
 
 Executing Plugins<a id="executing-plugins"></a>
 -----------------------------------------------
 
-All that is required for the plug-in module to be found, is that it must be present in your PYTHONPATH environment variable (you need to make sure that the relevant \_\_init\_\_.py files exist for import). It can live in your own code: you don’t have to modify Beancount itself.
+All that is required for the plug-in module to be found, is that it must be present in your `PYTHONPATH` environment variable (you need to make sure that the relevant `__init__.py` files exist for import). It can live in your own code: you don’t have to modify Beancount itself.
 
 There is also an option, which can be added to your beancount file:
 
     option "insert_pythonpath" "True"
 
-This will add the folder which contains the beancount file to the PYTHONPATH. The result is that you can place the plugins along the beancount file and have them execute when you use this file.
+This will add the folder which contains the beancount file to the `PYTHONPATH`. The result is that you can place the plugins along the beancount file and have them execute when you use this file.
 
 Here is a brief example, using the wash\_sales.py plugin we wrote above. Your beancount file would include the following lines:
 

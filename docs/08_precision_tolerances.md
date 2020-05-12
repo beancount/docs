@@ -118,7 +118,7 @@ The general form for this option is:
 
     option "inferred_tolerance_default" "<currency>:<tolerance>"
 
-Just to be clear: this option is *only* used when the tolerance cannot be inferred. If you have overly large rounding errors and the numbers in your transactions do infer some tolerance value, this value will be ignored (e.g., setting it to a larger number to try to address that fix will not work). If you need to loosen up the tolerance, see the “inferred\_tolerance\_multiplier” in the next section.
+Just to be clear: this option is *only* used when the tolerance cannot be inferred. If you have overly large rounding errors and the numbers in your transactions do infer some tolerance value, this value will be ignored (e.g., setting it to a larger number to try to address that fix will not work). If you need to loosen up the tolerance, see the “`inferred_tolerance_multiplier`” in the next section.
 
 *(Note: I’ve been considering dedicating a special meta-data field to the Commodity directive for this, but this would break from the invariant that meta-data is only there to be used by users and plugins, so I’ve refrained so far.)*
 
@@ -182,7 +182,7 @@ You enable the feature like this:
 
     option "account_rounding" "Equity:RoundingError"
 
-This tells Beancount to insert postings to compensate for the rounding error to an “Equity:RoundingError” account. For example, with the feature enabled, the following transaction:
+This tells Beancount to insert postings to compensate for the rounding error to an “`Equity:RoundingError`” account. For example, with the feature enabled, the following transaction:
 
     2013-02-23 * "Buying something"
       Assets:Invest     1.245 RGAGX {43.23 USD}

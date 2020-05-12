@@ -353,7 +353,7 @@ The structure of a *Position* object.
 
 There are two different types of positions, discussed in detail in the sections that follow:
 
--   **Simple positions.** These are positions with no cost basis. The “cost” attribute is set to a null value. (“None” in Python.)
+-   **Simple positions.** These are positions with no cost basis. The “cost” attribute is set to a null value. (“`None`” in Python.)
 
 -   **Positions held at cost.** These are positions with an associated cost basis and acquisition details.
 
@@ -444,7 +444,7 @@ Note that you could have provide other subsets of lot information to match again
       Assets:Invest:Cash        780.00 USD
       Income:Invest:HOOL:Gains
 
-This is also a valid way to identify the particular lot you wish to reduce. If you had provided a date here, it would also only be used to match against the inventory contents, to disambiguate between lots acquired at different dates, not to attach the date anywhere. And furthermore, if there was a single lot in the inventory you could have also just provided just an empty cost basis spec like this: “{}”. The Booking Methods section below will delve into the detail of what happens when the matches are ambiguous.
+This is also a valid way to identify the particular lot you wish to reduce. If you had provided a date here, it would also only be used to match against the inventory contents, to disambiguate between lots acquired at different dates, not to attach the date anywhere. And furthermore, if there was a single lot in the inventory you could have also just provided just an empty cost basis spec like this: “`{}`”. The Booking Methods section below will delve into the detail of what happens when the matches are ambiguous.
 
 In summary:
 

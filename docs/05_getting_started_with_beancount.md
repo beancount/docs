@@ -21,7 +21,7 @@ First, you will want a bit of support for your text editor. I’m using Emacs, s
 
 Beancount’s Emacs support provides a [*<span class="underline">Minor Mode</span>*](https://www.gnu.org/software/emacs/manual/html_node/emacs/Minor-Modes.html) (as opposed to a [*<span class="underline">Major Mode</span>*](https://www.gnu.org/software/emacs/manual/html_node/emacs/Major-Modes.html)) on purpose, so that you can combine it with your favorite text editing mode. I like to use [*<span class="underline">Org-Mode</span>*](http://orgmode.org/), which is an outline mode for Emacs which allows you to fold and unfold its sections to view the outline of your document. This makes it much easier to edit a very long text file. (I don’t use Org-Mode’s literal programming blocks, I only use it to fold and unfold sections of text.)
 
-You can configure Emacs to automatically open files with a “.beancount” extension to enable beancount-mode by adding this code to your ~/.emacs file:
+You can configure Emacs to automatically open files with a “`.beancount`” extension to enable beancount-mode by adding this code to your `~/.emacs` file:
 
     (add-to-list 'load-path "/path/to/beancount/src/elisp")
     (require 'beancount)
@@ -29,9 +29,9 @@ You can configure Emacs to automatically open files with a “.beancount” exte
 
 [<span class="underline">Beancount-mode</span>](https://bitbucket.org/blais/beancount/src/tip/editors/emacs/beancount.el) provides some nice editing features:
 
--   In order to quickly and painlessly insert account names, you need completion on the account names. You will probably get frustrated with all the typing if you don’t have completion. Beancount-mode automatically recognizes account names already present in the input file (refresh the list with “C-c r”) and you can insert a new account name with ”C-c ‘”.
+-   In order to quickly and painlessly insert account names, you need completion on the account names. You will probably get frustrated with all the typing if you don’t have completion. Beancount-mode automatically recognizes account names already present in the input file (refresh the list with “`C-c r`”) and you can insert a new account name with ”`C-c ‘`”.
 
--   It’s also nice to align the amounts in a transaction nicely; this formatting can be done automatically with “C-c ;” with the cursor on the transaction you want to align.
+-   It’s also nice to align the amounts in a transaction nicely; this formatting can be done automatically with “`C-c ;`” with the cursor on the transaction you want to align.
 
 ### Vim<a id="vim"></a>
 
@@ -68,7 +68,7 @@ A few notes and an ultra brief overview of the Beancount syntax:
 
 -   Account names do not admit spaces (though you can use dashes), and must have at least two components, separated by colons.
 
--   Description strings must be quoted, like this: "AMEX PMNT".
+-   Description strings must be quoted, like this: `"AMEX PMNT"`.
 
 -   Dates are only parsed in ISO8601 format, that is, YYYY-MM-DD.
 
@@ -83,7 +83,7 @@ The purpose of Beancount is to produce reports from your input file (either on t
 
     bean-check /path/to/your/file.beancount
 
-Try it now on the file you just created from the previous section. It should exit with no output. If there are errors, they will be printed on the console. The errors are printed out in a format that Emacs recognizes by default, so you can use Emacs’ next-error and previous-error built-in functions to move the cursor to the location of the problem.
+Try it now on the file you just created from the previous section. It should exit with no output. If there are errors, they will be printed on the console. The errors are printed out in a format that Emacs recognizes by default, so you can use Emacs’ `next-error` and `previous-error` built-in functions to move the cursor to the location of the problem.
 
 Viewing the Web Interface<a id="viewing-the-web-interface"></a>
 ---------------------------------------------------------------
@@ -210,7 +210,7 @@ The next thing you do is look up your current balance and put a balance assertio
 
     2014-07-01 balance Assets:CA:BofA:Checking    1256.35 USD
 
-Running Beancount on just this will correctly produce an error because Beancount assumes an implicit balance assertion of “empty” at the time you open an account. You will have to “pad” your account to today’s balance by inserting a *balance adjustment* at some point in time between the opening and the balance, against some equity account, which is an arbitrary place to book “where you received the initial balance from.” For this purpose, this is usually the “Equity:Opening-Balances” account. So let’s include this padding transaction and recap what we have so far:
+Running Beancount on just this will correctly produce an error because Beancount assumes an implicit balance assertion of “empty” at the time you open an account. You will have to “pad” your account to today’s balance by inserting a *balance adjustment* at some point in time between the opening and the balance, against some equity account, which is an arbitrary place to book “where you received the initial balance from.” For this purpose, this is usually the “`Equity:Opening-Balances`” account. So let’s include this padding transaction and recap what we have so far:
 
     2000-05-28 open Assets:CA:BofA:Checking  USD
 
