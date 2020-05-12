@@ -12,7 +12,10 @@ Processing a Beancount file is, by definition, constrained to the contents of th
 
 However, we do need access to price information in order to compute market values of assets. To this end, Beancount provides a Price directive which can be used to fill its in-memory price database by inserting these price points inline in the input file:
 
-`2015-11-20 price ITOT 95.46 USD 2015-11-20 price LQD 115.63 USD 2015-11-21 price USD 1.33495 CAD …`
+2015-11-20 price ITOT 95.46 USD  
+2015-11-20 price LQD 115.63 USD  
+2015-11-21 price USD 1.33495 CAD  
+…
 
 Of course, you could do this manually, looking up the prices online and writing the directives yourself. But for assets which are traded publicly you can automate it, by invoking some code that will download prices and write out the directives for you.
 

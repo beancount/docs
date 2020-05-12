@@ -190,7 +190,8 @@ Windows installation is, of course, a bit different. It’s a breeze if you use 
     -   ply
 
 -   Start a new Cygwin bash shell (there should be a new icon on your desktop) and install the pip3 installer tool by running this command:  
-    **`easy_install-3.4 pip `**Make sure you invoke the version of easy\_install which matches your Python version, e.g. easy\_install-3.5 if you have Python 3.5 installed, or more.
+    **easy\_install-3.4 pip  
+    **Make sure you invoke the version of easy\_install which matches your Python version, e.g. easy\_install-3.5 if you have Python 3.5 installed, or more.
 
 At this point, you should be able to follow the instructions from the previous sections as is, starting from “Install Beancount using pip”.
 

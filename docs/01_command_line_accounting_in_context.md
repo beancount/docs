@@ -180,7 +180,11 @@ The beauty of it is that once you have the corpus of data, which is relatively e
 
 2.  **By writing scripts.** You can parse and obtain the contents of a ledger with very little code. In Python, this looks no more complicated than this:  
       
-    `import beancount.loader … entries, errors, options = beancount.loader.load_file(‘myfile.ledger’) for entry in entries: …`
+    import beancount.loader  
+    …  
+    entries, errors, options = beancount.loader.load\_file(‘myfile.ledger’)  
+    for entry in entries:  
+    …
 
 Voila. You’re on your way to spitting out whatever output you want. You have access to all the libraries in the Python world, and my code is mostly functional, heavily documented and thoroughly unit-tested. You should be able to find your way easily. Moreover, if you’re uncertain about using this system, you could just use it to begin entering your data and later write a script that converts it into something else.
 
