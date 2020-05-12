@@ -68,7 +68,7 @@ def prepare_docx(file_name: str, drawing_dir: str = None) -> bytes:
                 # consider it a code block and mark it with SourceCode style
                 # https://groups.google.com/d/msg/pandoc-discuss/SIwE9dhGF4U/Wjy8zmQ1CQAJ
                 para.style = doc.styles['SourceCode']
-                continue
+                break
             if run.font.name in ['Consolas', 'Courier New']:
                 # Mark with striketrough style to convert to inline code later
                 run.font.strike = True

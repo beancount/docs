@@ -6,6 +6,7 @@ from panflute import (
     run_filter,
     stringify,
     BlockQuote,
+    Cite,
     Code,
     CodeBlock,
     Header,
@@ -104,8 +105,11 @@ def action(elem, doc):
             # in 'A Comparison of Beancount and Ledger' document
             pass
         else:
-            text = stringify(elem)
-            return Code(text)
+            if any(isinstance(item, LineBreak) for item in elem.content):
+                return [*elem.content]
+            else:
+                text = stringify(elem)
+                return Code(text)
 
     elif isinstance(elem, Header):
         # There must be only one level 1 header
