@@ -252,8 +252,8 @@
 <h2 id="how-to-track-expenses">How to Track Expenses<a id="how-to-track-expenses"></a><a class="headerlink" href="#how-to-track-expenses" title="Permanent link"></a></h2>
 <p>In order to write down all expenses for this trip we will open a brand new Beancount input file. Despite the fact that the expenses will come from each person’s personal accounts, it is useful to think of the trip as a special project, as if it were a separate entity, e.g., a company that exists only for the duration of the trip. The example file we wrote for our trip <a href="http://bitbucket.org/blais/beancount/src/tip/examples/sharing/cozumel2015.beancount"><span class="underline">can be found here</span></a> and should help you follow along this text.</p>
 <h3 id="accounts">Accounts<a id="accounts"></a><a class="headerlink" href="#accounts" title="Permanent link"></a></h3>
-<p>The set of accounts in the input file should not have to match your personal Beancount file’s account names. The accounts we will use include accounts that correspond to Martin and Caroline’s personal accounts but with generic names (e.g., Income:Martin:CreditCard instead of Liabilities:US:Chase), and expense accounts may not match any regular expenses in my personal Beancount file—it’s not important.</p>
-<p>As a convention, any account that pertains specifically to one of the travelers will <strong>include that person’s name</strong> in the account name. For example, Caroline’s credit card will be named “Income:<strong>Caroline</strong>:CreditCard”. This is important, as we will use this later on to split contributions and expenses.</p>
+<p>The set of accounts in the input file should not have to match your personal Beancount file’s account names. The accounts we will use include accounts that correspond to Martin and Caroline’s personal accounts but with generic names (e.g., <code>Income:Martin:CreditCard</code> instead of <code>Liabilities:US:Chase</code>), and expense accounts may not match any regular expenses in my personal Beancount file—it’s not important.</p>
+<p>As a convention, any account that pertains specifically to one of the travelers will <strong>include that person’s name</strong> in the account name. For example, Caroline’s credit card will be named “<code>Income:Caroline:CreditCard</code>”. This is important, as we will use this later on to split contributions and expenses.</p>
 <p>Let’s examine the different types of accounts we will need to carry this out.</p>
 <h4 id="external-income-accounts">External Income Accounts<a id="external-income-accounts"></a><a class="headerlink" href="#external-income-accounts" title="Permanent link"></a></h4>
 <p>The “project” will receive income in the form of transfers from personal accounts of either traveler. These are accounts we will consider external to the project and so will define them as Income accounts:</p>
@@ -284,11 +284,11 @@
 </code></pre>
 <p>Note however that despite their individual names, those accounts are considered as part of the project. It was just convenient to separately track balances for the cash we each held during the trip.</p>
 <h4 id="expenses-accounts">Expenses Accounts<a id="expenses-accounts"></a><a class="headerlink" href="#expenses-accounts" title="Permanent link"></a></h4>
-<p>We will define various accounts to book our Expenses to. For example, “Expenses:Flights” will contains our costs associated with flight travel. For convenience, and because there are many types of expenses in this file, we chose to leverage the “auto-accounts” plugin and let Beancount automatically open these accounts:</p>
+<p>We will define various accounts to book our Expenses to. For example, “<code>Expenses:Flights</code>” will contains our costs associated with flight travel. For convenience, and because there are many types of expenses in this file, we chose to leverage the “auto-accounts” plugin and let Beancount automatically open these accounts:</p>
 <pre><code>plugin "beancount.ops.auto_accounts"
 </code></pre>
-<p>The great majority of these accounts are for shared expenses to be split between us. For example, shared SCUBA diving expenses will be booked to “Expenses:Scuba”.</p>
-<p>However, for expenses that are intended to be covered by one of us only, we simply include the name of the traveler in the account name. For example, Martin’s extra costs for boat diving will be booked to the “Expenses:Scuba:Martin” account.</p>
+<p>The great majority of these accounts are for shared expenses to be split between us. For example, shared SCUBA diving expenses will be booked to “<code>Expenses:Scuba</code>”.</p>
+<p>However, for expenses that are intended to be covered by one of us only, we simply include the name of the traveler in the account name. For example, Martin’s extra costs for boat diving will be booked to the “<code>Expenses:Scuba:Martin</code>” account.</p>
 <h3 id="example-transactions">Example Transactions<a id="example-transactions"></a><a class="headerlink" href="#example-transactions" title="Permanent link"></a></h3>
 <p>Let’s turn our attention to the different types of transactions present in the file. In this section I will walk you through some representative transactions (the names I give to these is arbitrary).</p>
 <h4 id="contributing-transactions">Contributing Transactions<a id="contributing-transactions"></a><a class="headerlink" href="#contributing-transactions" title="Permanent link"></a></h4>
@@ -303,7 +303,7 @@
   Income:Martin:CreditCard
 </code></pre>
 <h4 id="bringing-cash">Bringing Cash<a id="bringing-cash"></a><a class="headerlink" href="#bringing-cash" title="Permanent link"></a></h4>
-<p>We both brought some cash on us, as we were warned it might be difficult to use credit cards in Mexico. In my personal Beancount file, the cash account is “Assets:Cash” but here it must get booked as an external contribution with my name on it:</p>
+<p>We both brought some cash on us, as we were warned it might be difficult to use credit cards in Mexico. In my personal Beancount file, the cash account is “<code>Assets:Cash</code>” but here it must get booked as an external contribution with my name on it:</p>
 <pre><code>;; Initial cash on us.
 2015-02-24 * "Getting cash for travel"
   Income:Martin:Cash                        -1200 USD
@@ -314,7 +314,7 @@
   Income:Caroline:Cash                       -300 USD
   Assets:Cash:Caroline                        300 USD
 </code></pre>
-<p>Once again, note that the Assets:Cash:Martin and Assets:Cash:Caroline accounts are considered a part of the project, in this case it just refers to who is carrying it. (These accounts are cleared at the end, so it does not matter that our names are in them.)</p>
+<p>Once again, note that the <code>Assets:Cash:Martin</code> and <code>Assets:Cash:Caroline</code> accounts are considered a part of the project, in this case it just refers to who is carrying it. (These accounts are cleared at the end, so it does not matter that our names are in them.)</p>
 <h4 id="transfers">Transfers<a id="transfers"></a><a class="headerlink" href="#transfers" title="Permanent link"></a></h4>
 <p>Before the trip, I was really busy. It looked like Caroline was going to make most of arrangements and upfront payments, so I made a transfer to her Google Wallet to help her cover for some expenses ahead of time:</p>
 <pre><code>2015-02-01 * "Transfer Martin -&gt; Caroline on Google Wallet"
@@ -327,7 +327,7 @@
   Assets:Cash:Caroline                    -100.00 USD @ 12.00 MXN
   Assets:Cash:Pesos                          1200 MXN
 </code></pre>
-<p>The “Assets:Cash:Pesos” account tracks our common pool of local currency that we use for various small expenses.</p>
+<p>The “<code>Assets:Cash:Pesos</code>” account tracks our common pool of local currency that we use for various small expenses.</p>
 <h4 id="cash-expenses-in-us-dollars">Cash Expenses in US Dollars<a id="cash-expenses-in-us-dollars"></a><a class="headerlink" href="#cash-expenses-in-us-dollars" title="Permanent link"></a></h4>
 <p>Some local expenses will call for US money, which in this example I paid from my cash pocket:</p>
 <pre><code>2015-03-01 * "Motmot Diving" | "Deposit for cenote diving"
@@ -446,7 +446,7 @@ sum_positio
    5    MXN
 </code></pre>
 <h3 id="splitting-expenses">Splitting Expenses<a id="splitting-expenses"></a><a class="headerlink" href="#splitting-expenses" title="Permanent link"></a></h3>
-<p>The expenses side of the Income Statement shows the breakdown of expenses. Note how some of the expense accounts are explicitly booked to each member separately by their account name, e.g., “Expenses:Scuba:Martin”. The other accounts, e.g. “Expenses:Groceries” are intended to be split.</p>
+<p>The expenses side of the Income Statement shows the breakdown of expenses. Note how some of the expense accounts are explicitly booked to each member separately by their account name, e.g., “<code>Expenses:Scuba:Martin</code>”. The other accounts, e.g. “<code>Expenses:Groceries</code>” are intended to be split.</p>
 <p>How we’re going to carry this out is by adding a plugin that will transform all the transactions to <em>actually</em> split the postings which are intended to be shared, that is, postings without any member’s name as a component. For example, the following input transaction:</p>
 <pre><code>2015-02-28 * "Scuba Club Cozumel" | "Room bill"
   Income:Martin:CreditCard         -1380.40 USD
@@ -475,7 +475,7 @@ sum_positio
 <p>The plugin is enabled like this:</p>
 <pre><code>plugin "beancount.plugins.split_expenses" "Martin Caroline"
 </code></pre>
-<p>Reloading the web page after uncommenting this line from the input file and visiting the Income Statement page should show a long list of Expenses accounts split by person. Now, in order to generate the total amount of expenses incurred for each person, we have to produce the balance of all Expenses accounts with a member’s name in it, accounts like “Expenses:.*Martin”.</p>
+<p>Reloading the web page after uncommenting this line from the input file and visiting the Income Statement page should show a long list of Expenses accounts split by person. Now, in order to generate the total amount of expenses incurred for each person, we have to produce the balance of all Expenses accounts with a member’s name in it, accounts like “<code>Expenses:.*Martin</code>”.</p>
 <p>The web tool does not provide such a filtering capability at the moment<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, but we can use the bean-query tool to produce the total of expenses for each person:</p>
 <pre><code>beancount&gt; SELECT sum(position) WHERE account ~ '^Expenses:.*Martin'
 
@@ -496,7 +496,7 @@ sum_positio
 <pre><code>yuzu:~$ dc -e '2007.43 3837.0 13.465 / +p'
 2291.43
 </code></pre>
-<p>Or you can use the recently introduced “CONVERT” function of bean-query to do this:</p>
+<p>Or you can use the recently introduced “<code>CONVERT</code>” function of bean-query to do this:</p>
 <pre><code>beancount&gt; SELECT convert(sum(position), 'USD') WHERE account ~ '^Expenses:.*Martin'
 
      convert_sum_position_c_     
@@ -551,9 +551,9 @@ beancount&gt; SELECT convert(sum(position), 'USD') WHERE account ~ 'Caroline'
 <h3 id="account-names">Account Names<a id="account-names"></a><a class="headerlink" href="#account-names" title="Permanent link"></a></h3>
 <p>First, let us take note that the accounts in your personal ledger do not have to match the account names used in the trip’s ledger file. I never process those files together. (A good argument for not attempting this is that each trip will include account names from other people and I prefer not to have those leak into my main ledger file.)</p>
 <h3 id="using-a-tag">Using a Tag<a id="using-a-tag"></a><a class="headerlink" href="#using-a-tag" title="Permanent link"></a></h3>
-<p>I like to use a tag to report on the entire set of transactions related to the trip. In this example, I used the tag #trip-cozumel2015.</p>
+<p>I like to use a tag to report on the entire set of transactions related to the trip. In this example, I used the tag <code>#trip-cozumel2015</code>.</p>
 <h3 id="booking-contributions">Booking Contributions<a id="booking-contributions"></a><a class="headerlink" href="#booking-contributions" title="Permanent link"></a></h3>
-<p>Your contributions into the project should be booked to a temporary holding account. I call mine “Assets:Travel:Pending”. For example, this transaction from the trip’s file:</p>
+<p>Your contributions into the project should be booked to a temporary holding account. I call mine “<code>Assets:Travel:Pending</code>”. For example, this transaction from the trip’s file:</p>
 <pre><code>2015-02-25 * "Yellow Transfers" | "SuperShuttle to Playa del Carmen"
   Expenses:Transport:Bus                 656 MXN
   Income:Martin:CreditCard            -44.12 USD @ 14.86854 MXN
@@ -644,7 +644,7 @@ poptag #trip-mexico-cozumel-2015
 <p>I used “event” directives in order to track my location. I’m doing this because I will eventually need it for immigration purposes (and just for fun, to track the days I spend in places).</p>
 </li>
 <li>
-<p>I moved the extra cash I kept to my “foreign cash pocket” account: Assets:Cash:Foreign</p>
+<p>I moved the extra cash I kept to my “foreign cash pocket” account: <code>Assets:Cash:Foreign</code></p>
 </li>
 <li>
 <p>I “moved” back the cash I had with me after I returned from the trip.</p>
@@ -662,10 +662,10 @@ poptag #trip-mexico-cozumel-2015
 <p>Finally, I assert that the Pending account is empty of USD and of MXN.</p>
 </li>
 </ol>
-<p>I found the missing amounts by running bean-check or using bean-doctor context on an incomplete transaction from Emacs.</p>
+<p>I found the missing amounts by running <code>bean-check</code> or using <code>bean-doctor context</code> on an incomplete transaction from Emacs.</p>
 <h2 id="generating-reports">Generating Reports<a id="generating-reports"></a><a class="headerlink" href="#generating-reports" title="Permanent link"></a></h2>
 <p>If you want to automate the generation of reports for each of the participants in a trip, there is a script that generates text (and eventually CSV) reports for the queries mentioned in the previous sections. You can use this script to provide expenses status after or even during the trip or project, for each of the participants.</p>
-<p>The script lives in the split_expenses plugin itself, and you invoke it like this:</p>
+<p>The script lives in the <code>split_expenses</code> plugin itself, and you invoke it like this:</p>
 <pre><code>python3 -m beancount.plugins.split_expenses &lt;beancount-filename&gt; --text=&lt;dir&gt;
 </code></pre>
 <p>For each person, it will generate the following reports:</p>

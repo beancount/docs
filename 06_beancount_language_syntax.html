@@ -339,7 +339,7 @@ Assets:Receivables
             |-- Cash
             `-- RGAGX
 </code></pre>
-<p>We would say that “Assets:US:BofA” is the parent account of “Assets:US:BofA:Checking”, and that the latter is a child account of the former.</p>
+<p>We would say that “<code>Assets:US:BofA</code>” is the parent account of “<code>Assets:US:BofA:Checking</code>”, and that the latter is a child account of the former.</p>
 <h3 id="commodities-currencies">Commodities / Currencies<a id="commodities-currencies"></a><a class="headerlink" href="#commodities-currencies" title="Permanent link"></a></h3>
 <p>Accounts contain <strong>currencies</strong>, which we sometimes also call <strong>commodities</strong> (we use both terms interchangeably). Like account names, currency names are recognized by their syntax, though, unlike account names, they need not be declared before being used). The syntax for a currency is a word all in capital letters, like these:</p>
 <pre><code>USD
@@ -349,9 +349,9 @@ MSFT
 IBM
 AIRMILE
 </code></pre>
-<p>(Technically: up to 24 characters long, beginning with a capital letter and ending with a capital letter or a number. The middle characters may include “_-’.”.) The first three might evoke real world currencies to you (US dollars, Canadian dollars, Euros); the next two, stock ticker names (Microsoft and IBM). And the last: rewards points (airmiles). Beancount knows of no such thing; from its perspective all of these instruments are treated similarly. There is no built-in notion of any previously existing currency. These currency names are just names of “things” that can be put in accounts and accumulated in inventories associated with these accounts.</p>
+<p>(Technically: up to 24 characters long, beginning with a capital letter and ending with a capital letter or a number. The middle characters may include “<code>_-’.</code>”.) The first three might evoke real world currencies to you (US dollars, Canadian dollars, Euros); the next two, stock ticker names (Microsoft and IBM). And the last: rewards points (airmiles). Beancount knows of no such thing; from its perspective all of these instruments are treated similarly. There is no built-in notion of any previously existing currency. These currency names are just names of “things” that can be put in accounts and accumulated in inventories associated with these accounts.</p>
 <p>There is something elegant about the fact that there is no “special” currency unit, that all commodities are treated equally the same: Beancount is inherently a multi-currency system. You will appreciate this if, like many of us, you are an expat and your life is divided between two or three continents. You can handle an international ledger of accounts without any problems.</p>
-<p>And your use of currencies can get quite creative: you can create a currency for your home, for example (e.g. MYLOFT), a currency to count accumulated vacation hours (VACHR), or a currency to count potential contributions to your retirement accounts allowed annually (IRAUSD). You can actually solve many problems this way. The <a href="18_command_line_accounting_cookbook.html"><span class="underline">cookbook</span></a> describes many such concrete examples.</p>
+<p>And your use of currencies can get quite creative: you can create a currency for your home, for example (e.g. <code>MYLOFT</code>), a currency to count accumulated vacation hours (<code>VACHR</code>), or a currency to count potential contributions to your retirement accounts allowed annually (<code>IRAUSD</code>). You can actually solve many problems this way. The <a href="18_command_line_accounting_cookbook.html"><span class="underline">cookbook</span></a> describes many such concrete examples.</p>
 <p>Beancount does not support the dollar sign syntax, e.g., “$120.00”. You should always use symbols for currencies in your input file. This makes the input more regular and is a design choice. For monetary units, I suggest that you use the standard <a href="http://en.wikipedia.org/wiki/ISO_4217#Active_codes"><span class="underline">ISO 4217 currency code</span></a> as a guideline; these quickly become familiar. However, you may include some other characters in currency names, like underscores (_) or dashes (-), but no spaces.</p>
 <p>Finally, you will notice that there exists a “Commodity” directive that can be used to declare currencies. It is entirely optional: currencies come into being as you use them. The purpose of the directive is simply to attach metadata to it.</p>
 <h3 id="strings">Strings<a id="strings"></a><a class="headerlink" href="#strings" title="Permanent link"></a></h3>
@@ -453,7 +453,7 @@ AIRMILE
   Liabilities:CreditCard:CapitalOne         -37.45 USD
   Expenses:Restaurant
 </code></pre>
-<p>As for all the other directives, a transaction directive begins with a date in the <em>YYYY-MM-DD</em> format and is followed by the directive name, in this case, “txn”. However, because transactions are the <em>raison d’être</em> for our double-entry system and as such are by far the most common type of directive that should appear in a Beancount input file, we make a special case and allow the user to elide the “txn” keyword and just use a flag instead of it:</p>
+<p>As for all the other directives, a transaction directive begins with a date in the <em>YYYY-MM-DD</em> format and is followed by the directive name, in this case, “<code>txn</code>”. However, because transactions are the <em>raison d’être</em> for our double-entry system and as such are by far the most common type of directive that should appear in a Beancount input file, we make a special case and allow the user to elide the “txn” keyword and just use a flag instead of it:</p>
 <pre><code>2014-05-05 * "Cafe Mogador" "Lamb tagine with wine"
   Liabilities:CreditCard:CapitalOne         -37.45 USD
   Expenses:Restaurant
@@ -495,7 +495,7 @@ AIRMILE
 <p>See the dedicated section on metadata below.</p>
 <h4 id="payee-narration">Payee &amp; Narration<a id="payee-narration"></a><a class="headerlink" href="#payee-narration" title="Permanent link"></a></h4>
 <p>A transaction may have an optional “payee” and/or a “narration.” In the first example above, the payee is “Cafe Mogador” and the narration is “Lamb tagine with wine”.</p>
-<p>The payee is a string that represents an external entity that is involved in the transaction. Payees are sometimes useful on transactions that post amounts to Expense accounts, whereby the account accumulates a category of expenses from multiple businesses. A good example is “Expenses:Restaurant”, which will include all postings for the various restaurants one might visit.</p>
+<p>The payee is a string that represents an external entity that is involved in the transaction. Payees are sometimes useful on transactions that post amounts to Expense accounts, whereby the account accumulates a category of expenses from multiple businesses. A good example is “<code>Expenses:Restaurant</code>”, which will include all postings for the various restaurants one might visit.</p>
 <p>A narration is a description of the transaction that you write. It can be a comment about the context, the person who accompanied you, some note about the product you bought... whatever you want it to be. It’s for you to insert whatever you like. I like to insert notes when I reconcile, it’s quick and I can refer to my notes later on, for example, to answer the question “What was the name of that great little sushi place I visited with Andreas on the West side last winter?”</p>
 <p>If you place a single string on a transaction line, it becomes its narration:</p>
 <pre><code>2014-05-05 * "Lamb tagine with wine"
@@ -643,7 +643,7 @@ AIRMILE
   Assets:ETrade:Cash            1979.90 USD
   Income:ETrade:CapitalGains
 </code></pre>
-<p>In this case, the units of IVV are sold at a higher price ($197.90) than they were bought for ($183.07). The cash first posting has a weight of -10 x 183.07 = -1830.70 and the second posting a straightforward $1979.90. The last posting will be ascribed the difference, that is, a balance of -149.20 USD, which is to say, a <em>gain</em> of $149.20.</p>
+<p>In this case, the units of IVV are sold at a higher price ($197.90) than they were bought for ($183.07). The cash first posting has a weight of -10 x 183.07 = -1830.70 and the second posting a straightforward $1979.90. The last posting will be ascribed the difference, that is, a balance of <code>-149.20 USD</code>, which is to say, a <em>gain</em> of $149.20.</p>
 <p>When calculating the amount to be balanced, the same balance amounts that are used to check that the transaction balances to zero are used to fill in the missing amounts. For example, the following would not trigger an error:</p>
 <pre><code>2014-07-11 * "Sold shares of S&amp;P 500"
   Assets:ETrade:IVV                 -10 IVV {183.07 USD} @ 197.90 USD
@@ -716,7 +716,7 @@ poptag #berlin-trip-2014
 <p>A balance assertion is a way for you to input your statement balance into the flow of transactions. It tells Beancount to verify that the number of units of a particular commodity in some account should equal some expected value at some point in time. For instance, this</p>
 <pre><code>2014-12-26 balance Liabilities:US:CreditCard   -3492.02 USD
 </code></pre>
-<p>says “Check that the number of USD units in account “Liabilities:US:CreditCard” on the <em>morning</em> of December 26th, 2014 is -3492.02 USD.” When processing the list of entries, if Beancount encounters a different balance than this for USD it will report an error.</p>
+<p>says “Check that the number of USD units in account “<code>Liabilities:US:CreditCard</code>” on the <em>morning</em> of December 26th, 2014 is -3492.02 USD.” When processing the list of entries, if Beancount encounters a different balance than this for USD it will report an error.</p>
 <p>If no error is reported, you should have some confidence that the list of transactions that precedes it in this account is highly likely to be correct. This is useful in practice, because in many cases some transactions can get imported separately from the accounts of each of their postings (see <a href="05_getting_started_with_beancount.html"><span class="underline">the de-duping problem</span></a>). This can result in you booking the same transaction twice without noticing, and regularly inserting a balance assertion will catch that problem every time.</p>
 <p>The general format of the Balance directive is:</p>
 <pre><code>YYYY-MM-DD balance Account Amount
@@ -732,7 +732,7 @@ poptag #berlin-trip-2014
 2014-08-09 balance Assets:Cash      60.00 EUR
 </code></pre>
 <p>There is currently no way to exhaustively check the full list of commodities in an account (<a href="29_balance_assertions_in_beancount.html"><span class="underline">a proposal is underway</span></a>).</p>
-<p>Note that in this example if an exhaustive check really matters to you, you could circumvent by defining a subaccount of the cash account to segregate each commodity separately, like this Assets:Cash:USD, Assets:Cash:CAD.</p>
+<p>Note that in this example if an exhaustive check really matters to you, you could circumvent by defining a subaccount of the cash account to segregate each commodity separately, like this <code>Assets:Cash:USD</code>, <code>Assets:Cash:CAD</code>.</p>
 <h4 id="lots-are-aggregated">Lots Are Aggregated<a id="lots-are-aggregated"></a><a class="headerlink" href="#lots-are-aggregated" title="Permanent link"></a></h4>
 <p>The balance assertion applies to the sum of units of a particular commodities, irrespective of their cost. For example, if you hold three lots of the same commodity in an account, for example, 5 HOOL {500 USD} and 6 HOOL {510 USD}, the following balance check should succeed:</p>
 <pre><code>2014-08-09 balance Assets:Investing:HOOL     11 HOOL
@@ -876,7 +876,7 @@ poptag #berlin-trip-2014
 <pre><code>2014-07-09 price VACHR  38.46 USD  ; Equiv. $80,000 year
 </code></pre>
 <h4 id="prices-from-postings">Prices from Postings<a id="prices-from-postings"></a><a class="headerlink" href="#prices-from-postings" title="Permanent link"></a></h4>
-<p>If you use the beancount.plugins.implicit_prices plugin, every time a Posting appears that has a cost or an optional price declared, it will use that cost or price to automatically synthesize a Price directive. For example, this transaction:</p>
+<p>If you use the <code>beancount.plugins.implicit_prices</code> plugin, every time a Posting appears that has a cost or an optional price declared, it will use that cost or price to automatically synthesize a Price directive. For example, this transaction:</p>
 <pre><code>2014-05-23 *
   Assets:Investments:MSFT        -10 MSFT {43.40 USD}
   Assets:Investments:Cash     434.00 USD
@@ -981,10 +981,10 @@ poptag #berlin-trip-2014
 <p>Query tools that come with Beancount (such as bean-query) will allow you to make use of the metadata values for filtering and aggregation.</p>
 </li>
 <li>
-<p>You can access and use the metadata in custom scripts. The metadata values are accessible as a “.meta” attribute on all directives and is a Python dict.</p>
+<p>You can access and use the metadata in custom scripts. The metadata values are accessible as a “<code>.meta</code>” attribute on all directives and is a Python dict.</p>
 </li>
 </ol>
-<p>There are no special meanings attached to particular attributes, these are intended for users to define. However, all directives are guaranteed to contain a ‘filename’ (string) and a ‘lineno’ (integer) attribute which reflect the location they were created from.</p>
+<p>There are no special meanings attached to particular attributes, these are intended for users to define. However, all directives are guaranteed to contain a ‘<code>filename</code>’ (string) and a ‘<code>lineno</code>’ (integer) attribute which reflect the location they were created from.</p>
 <p>Finally, attributes without a value will be parsed and have a value of 'None'. If an attribute is repeated multiple times, only the first value for this attribute will be parsed and retained and the following values ignored.</p>
 <h2 id="options">Options<a id="options"></a><a class="headerlink" href="#options" title="Permanent link"></a></h2>
 <p>The great majority of a Beancount input file consists in directives, as seen in the previous section. However, there are a few global options that can be set in the input file as well, by using a special undated “option” directive:</p>
@@ -1001,14 +1001,14 @@ poptag #berlin-trip-2014
 <p>In <a href="07_beancount_options_reference.html"><span class="underline">this document</span></a>, which I update regularly.</p>
 </li>
 <li>
-<p>To view the definitive list of options supported by your installed version, use the following command: bean-doctor list-options</p>
+<p>To view the definitive list of options supported by your installed version, use the following command: <code>bean-doctor list-options</code></p>
 </li>
 <li>
 <p>Finally, you can <a href="https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/parser/options.py?at=default"><span class="underline">peek at the source code</span></a> as well.</p>
 </li>
 </ul>
 <h3 id="operating-currencies">Operating Currencies<a id="operating-currencies"></a><a class="headerlink" href="#operating-currencies" title="Permanent link"></a></h3>
-<p>One notable option is “operating_currency”. By default Beancount does not treat any of the commodities any different from each other. In particular, it doesn’t know that there’s anything special about the most common of commodities one uses: their currencies. For example, if you live in New Zealand, you’re going to have an overwhelming number of NZD commodities in your transactions.</p>
+<p>One notable option is “<code>operating_currency</code>”. By default Beancount does not treat any of the commodities any different from each other. In particular, it doesn’t know that there’s anything special about the most common of commodities one uses: their currencies. For example, if you live in New Zealand, you’re going to have an overwhelming number of NZD commodities in your transactions.</p>
 <p>But useful reports try to reduce all non-currency commodities into one of the main currencies used. Also, it’s useful to break out the currency units into their own dedicated columns. This may also be useful for exporting in order to avoid having to specify the units for that column and import to a spreadsheet with numbers you can process.</p>
 <p>For this reason, you are able to declare the most common currencies you use in an option:</p>
 <pre><code>option "operating_currency" "USD"

@@ -288,11 +288,11 @@
 <p>Receiving vested stock is a taxable income event, and Hooli automatically withholds taxes and pays them to the government on its employees’ behalf. These are the Expenses:Taxes accounts corresponding to your W-2.</p>
 </li>
 <li>
-<p>Finally, I don’t directly deposit the converted shares to the brokerage account; this is because the remainder of cash after paying tax expenses is not necessarily a round number of shares. Therefore, I used a limbo account (Assets:US:Hooli:RSURefund) and decouple the receipt from the conversion.</p>
+<p>Finally, I don’t directly deposit the converted shares to the brokerage account; this is because the remainder of cash after paying tax expenses is not necessarily a round number of shares. Therefore, I used a limbo account (<code>Assets:US:Hooli:RSURefund</code>) and decouple the receipt from the conversion.</p>
 </li>
 </ul>
 <p>This way, each transaction corresponds exactly to one pay stub. It makes it easier to enter the data.</p>
-<p>Also note that I used a unique link (^392f97dd62d0) to group all the transactions for a particular vesting event. You could also use tags if you prefer.</p>
+<p>Also note that I used a unique link (<code>^392f97dd62d0</code>) to group all the transactions for a particular vesting event. You could also use tags if you prefer.</p>
 <h3 id="conversion-to-actual-stock">Conversion to Actual Stock<a id="conversion-to-actual-stock"></a><a class="headerlink" href="#conversion-to-actual-stock" title="Permanent link"></a></h3>
 <p>Now we’re ready to convert the remaining cash to stock units. This happens in the brokerage firm and you should see the new shares in your brokerage account. The brokerage will typically issue a “stock release report” statement for each vesting event for each award, with the details necessary to make the conversion, namely, the actual number of shares converted from cash and the cost basis (the FMV on the vesting day):</p>
 <pre><code>2015-05-25 * "Conversion into shares" ^392f97dd62d0
@@ -388,7 +388,7 @@ Assets:US:Hooli:Unvested:C123456   93363.1500 USD.UNVEST
   Assets:US:Schwab:Cash    3593.98 USD
   Income:US:Schwab:Gains
 </code></pre>
-<p>Here you can see why it matters that the cost basis you used on the conversion event is the correct one: You will have to pay taxes on the difference (in Income:US:Schwab:Gains). In this example the taxable difference is (138.23 - 131.37) dollars per share.</p>
+<p>Here you can see why it matters that the cost basis you used on the conversion event is the correct one: You will have to pay taxes on the difference (in <code>Income:US:Schwab:Gains</code>). In this example the taxable difference is (138.23 - 131.37) dollars per share.</p>
 <p>I like to keep all the brokerage transactions in a separate section of my document, where other transactions related to the brokerage occur, such as fees, dividends and transfers.</p>
 <h2 id="conclusion">Conclusion<img src="20_stock_vesting_in_beancount/media/04de27aeb8e7b7cbc9201ce82ae780d21cec36fb.jpg" style="width:2.04688in;height:1.39525in"/><a id="conclusion"></a><a class="headerlink" href="#conclusion" title="Permanent link"></a></h2>
 <p>This is a simple example that is modeled after how technology companies deal with this type of compensation. It is by no means comprehensive, and some of the details will necessarily vary in your situation. In particular, it does not explain how to deal with options (ISOs). My hope is that there is enough meat in this document to allow you to extrapolate and adapt to your particular situation. If you get stuck, please reach out on the <a href="http://furius.ca/beancount/doc/mailing-list"><span class="underline">mailing-list</span></a>.</p>

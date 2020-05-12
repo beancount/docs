@@ -253,7 +253,7 @@
 <p><strong>bean-check</strong> is the program you use to verify that your input syntax and transactions work correctly. All it does is load your input file and run the various plugins you configured in it, plus some extra validation checks. It report errors (if any), and then exits. You run it on your input file, like this:</p>
 <pre><code>bean-check /path/to/my/file.beancount
 </code></pre>
-<p>If there are no errors, there should be no output, it should exit quietly. If there were errors, they will be printed to stderr with the filename, line number and error description (in a format that is understood by Emacs, so you can just use next-error and previous-error to navigate to the file if you want):</p>
+<p>If there are no errors, there should be no output, it should exit quietly. If there were errors, they will be printed to stderr with the filename, line number and error description (in a format that is understood by Emacs, so you can just use <code>next-error</code> and <code>previous-error</code> to navigate to the file if you want):</p>
 <pre><code>/home/user/myledger.beancount:44381:   Transaction does not balance: 34.46 USD
 
    2014-07-12 * "Black Iron Burger" ""
@@ -395,7 +395,7 @@ beancount&gt; _
 </code></pre>
 <p>There is a corresponding Emacs binding (C-c x) to invoke this around the cursor.</p>
 <h3 id="bean-format">bean-format<a id="bean-format"></a><a class="headerlink" href="#bean-format" title="Permanent link"></a></h3>
-<p>This pure text processing tool will reformat Beancount input to right-align all the numbers at the same, minimal column. It left-aligns all the currencies. It only modifies whitespace. This tool accepts a filename as arguments and outputs the aligned file on stdout (similar to UNIX cat).</p>
+<p>This pure text processing tool will reformat Beancount input to right-align all the numbers at the same, minimal column. It left-aligns all the currencies. It only modifies whitespace. This tool accepts a filename as arguments and outputs the aligned file on stdout (similar to UNIX <code>cat</code>).</p>
 <h3 id="bean-example">bean-example<a id="bean-example"></a><a class="headerlink" href="#bean-example" title="Permanent link"></a></h3>
 <p>This program generates an example Beancount input file. See the <a href="13_tutorial_example.html"><span class="underline">Tutorial</span></a> for more details about the contents of this example file.</p>
 <h2 id="filtering-transactions">Filtering Transactions<a id="filtering-transactions"></a><a class="headerlink" href="#filtering-transactions" title="Permanent link"></a></h2>
@@ -446,28 +446,28 @@ beancount&gt; _
 ...
 </code></pre>
 <p>Balances for commodities held “at cost” are rendered at their book value. (Unrealized gains, if any, are inserted as separate transactions by an optional plugin and the result amounts get mixed in with the cost basis if rendered in the same account.)</p>
-<p>If an account’s balance contains many different types of currencies (commodities not held “at cost”, such as dollars, euros, yen), each gets printed on its own line. This can render the balance column a bit too busy and messes with the vertical regularity of account names. This is to some extent an unavoidable compromise, but in practice, there are only a small number of commodities that form the large majority of a user’s ledger: the home country’s currency units. To this extent, amounts in common currencies can be broken out into their own column using the “operating_currency” option:</p>
+<p>If an account’s balance contains many different types of currencies (commodities not held “at cost”, such as dollars, euros, yen), each gets printed on its own line. This can render the balance column a bit too busy and messes with the vertical regularity of account names. This is to some extent an unavoidable compromise, but in practice, there are only a small number of commodities that form the large majority of a user’s ledger: the home country’s currency units. To this extent, amounts in common currencies can be broken out into their own column using the “<code>operating_currency</code>” option:</p>
 <pre><code>option "operating_currency" "USD"
 option "operating_currency" "CAD"
 </code></pre>
 <p>You may use this option multiple times if you have many of them (this is my case, for instance, because I am an expat and hold assets in both my host and home countries). Declaring operating currencies also hold the advantage that the name of the currency need not be rendered, and it can thus more easily be imported into a spreadsheet.</p>
 <p>Finally, some accounts are deemed “active” if they have not been closed. A closed account with no transactions in the filtered set of transactions will not be rendered.</p>
-<h4 id="trial-balance-balances">Trial Balance (balances)<a id="trial-balance-balances"></a><a class="headerlink" href="#trial-balance-balances" title="Permanent link"></a></h4>
+<h4 id="trial-balance-balances">Trial Balance (<code>balances</code>)<a id="trial-balance-balances"></a><a class="headerlink" href="#trial-balance-balances" title="Permanent link"></a></h4>
 <p>A <a href="http://en.wikipedia.org/wiki/Trial_balance"><span class="underline">trial balance</span></a> report simply produces a table of final balances of all the active accounts, with all the accounts rendered vertically.</p>
-<p>The sum total of all balances is reported at the bottom. Unlike a balance sheet, it may not always balance to zero because of currency conversions. (This is the equivalent of Ledger’s bal report.)</p>
+<p>The sum total of all balances is reported at the bottom. Unlike a balance sheet, it may not always balance to zero because of currency conversions. (This is the equivalent of Ledger’s <code>bal</code> report.)</p>
 <p>The equivalent bean-query command is:</p>
 <pre><code>SELECT account, sum(position) 
 GROUP BY account 
 ORDER BY account;
 </code></pre>
-<h4 id="balance-sheet-balsheet">Balance Sheet (balsheet)<a id="balance-sheet-balsheet"></a><a class="headerlink" href="#balance-sheet-balsheet" title="Permanent link"></a></h4>
+<h4 id="balance-sheet-balsheet">Balance Sheet (<code>balsheet</code>)<a id="balance-sheet-balsheet"></a><a class="headerlink" href="#balance-sheet-balsheet" title="Permanent link"></a></h4>
 <p>A <a href="http://en.wikipedia.org/wiki/Balance_sheet"><span class="underline">balance sheet</span></a> is a snapshot of the balances of the Assets, Liabilities and Equity accounts at a particular point in time. In order to build such a report, we have to move balances from the other accounts to it:</p>
 <ol>
 <li>
 <p>compute the balances of the Income and Expenses account at that point in time,</p>
 </li>
 <li>
-<p>insert transactions that will zero out balances from these accounts by transferring them to an equity account (Equity:Earnings:Current),</p>
+<p>insert transactions that will zero out balances from these accounts by transferring them to an equity account (<code>Equity:Earnings:Current</code>),</p>
 </li>
 <li>
 <p>render a tree of the balances of the Assets accounts on the left side,</p>
@@ -481,46 +481,46 @@ ORDER BY account;
 </ol>
 <p>See the <a href="02_the_double_entry_counting_method.html"><span class="underline">introduction document</span></a> for an example.</p>
 <p>Note that the Equity accounts include the amounts reported from the Income and Expenses accounts, also often called “Net Income.”</p>
-<p>Also, in practice, we make <em>two</em> transfers because we’re typically looking at a reporting period, and we want to differentiate between Net Income amounts transferred before the beginning of the period (Equity:Earnings:Previous) and during the period itself (Equity:Earnings:Current). And similar pair of transfers is carried out in order to handle currency conversions (this is a bit of a hairy topic, but one with a great solution; refer to the <a href="http://furius.ca/beancount/doc/conversions"><span class="underline">dedicated document</span></a> if you want all the details).</p>
+<p>Also, in practice, we make <em>two</em> transfers because we’re typically looking at a reporting period, and we want to differentiate between Net Income amounts transferred before the beginning of the period (<code>Equity:Earnings:Previous</code>) and during the period itself (<code>Equity:Earnings:Current</code>). And similar pair of transfers is carried out in order to handle currency conversions (this is a bit of a hairy topic, but one with a great solution; refer to the <a href="http://furius.ca/beancount/doc/conversions"><span class="underline">dedicated document</span></a> if you want all the details).</p>
 <p>The equivalent bean-query command is:</p>
 <pre><code>SELECT account, sum(position) 
 FROM CLOSE ON 2016-01-01 
 GROUP BY account ORDER BY account;
 </code></pre>
-<h4 id="opening-balances-openbal">Opening Balances (openbal)<a id="opening-balances-openbal"></a><a class="headerlink" href="#opening-balances-openbal" title="Permanent link"></a></h4>
+<h4 id="opening-balances-openbal">Opening Balances (<code>openbal</code>)<a id="opening-balances-openbal"></a><a class="headerlink" href="#opening-balances-openbal" title="Permanent link"></a></h4>
 <p>The opening balances report is simply a balance sheet drawn at the beginning of the reporting period. This report only makes sense for a list of filtered entries that represents a period of time, such as “year 2014.” The balance sheet is generated using only the summarization entries that were synthesized when the transactions were filtered (see the <a href="02_the_double_entry_counting_method.html"><span class="underline">double-entry method document</span></a>).</p>
-<h4 id="income-statement-income">Income Statement (income)<a id="income-statement-income"></a><a class="headerlink" href="#income-statement-income" title="Permanent link"></a></h4>
+<h4 id="income-statement-income">Income Statement (<code>income</code>)<a id="income-statement-income"></a><a class="headerlink" href="#income-statement-income" title="Permanent link"></a></h4>
 <p>An <a href="http://en.wikipedia.org/wiki/Income_statement"><span class="underline">income statement</span></a> lists the final balances of the Income and Expenses accounts. It represents a summary of the transient activity within these accounts. If the balance sheet is the snapshot at a particular point in time, this is the difference between the beginning and the end of a period (in our case: of a filtered set of transactions). The balances of the active Income accounts are rendered on the left, and those of the active Expenses accounts on the right. See the <a href="02_the_double_entry_counting_method.html"><span class="underline">introduction document</span></a> for an example.</p>
 <p>The difference between the total of Income and Expenses balances is the Net Income.</p>
 <p>Note that the initial balances of the Income and Expenses accounts should have been zero’ed out by summarization transactions that occur at the beginning of the period, because we’re only interested in the changes in these accounts.</p>
 <h3 id="journal-reports">Journal Reports<a id="journal-reports"></a><a class="headerlink" href="#journal-reports" title="Permanent link"></a></h3>
 <p>The reports in this section render lists of transactions and other directives in a linear fashion.</p>
-<h4 id="journal-journal">Journal (journal)<a id="journal-journal"></a><a class="headerlink" href="#journal-journal" title="Permanent link"></a></h4>
-<p>This report is the equivalent of an “account statement” from an institution, a list of transactions with at least one posting in that account. This is the equivalent of Ledger’s register report (reg).</p>
+<h4 id="journal-journal">Journal (<code>journal</code>)<a id="journal-journal"></a><a class="headerlink" href="#journal-journal" title="Permanent link"></a></h4>
+<p>This report is the equivalent of an “account statement” from an institution, a list of transactions with at least one posting in that account. This is the equivalent of Ledger’s register report (<code>reg</code>).</p>
 <p>You generate a journal report like this:</p>
 <pre><code>bean-report myfile.beancount journal …
 </code></pre>
 <p>By default, this renders a journal of <em>all</em> the transactions, which is unlikely to be what you want. Select a particular account to render like this:</p>
 <pre><code>bean-report myfile.beancount journal -a Expenses:Restaurant
 </code></pre>
-<p>At the moment, the “-a” option accepts only a complete account name, or the name of one of the parent accounts. Eventually we will extend it to handle expressions.</p>
+<p>At the moment, the “<code>-a</code>” option accepts only a complete account name, or the name of one of the parent accounts. Eventually we will extend it to handle expressions.</p>
 <h5 id="rendering-at-cost">Rendering at Cost<a id="rendering-at-cost"></a><a class="headerlink" href="#rendering-at-cost" title="Permanent link"></a></h5>
 <p>The numbers column on the right displays the changes from the postings of the selected account. Notice that only the balances for the postings affecting the given account are rendered.</p>
 <p>The change column renders the changes in the units affected. For example, if this posting is selected:</p>
 <pre><code>  Assets:Investments:Apple      2 AAPL {402.00 USD}
 </code></pre>
-<p>The value reported for the change will be “2 AAPL”. If you would like to render the values at cost, use the “--at-cost” or “-c” option, which will in this case render “804.00 USD” instead.</p>
-<p>There is no “market value” option. Unrealized gains are automatically inserted at the end of the history by the “beancount.plugins.unrealized” plugin. See options for that plugin to insert its unrealized gains.</p>
+<p>The value reported for the change will be “<code>2 AAPL</code>”. If you would like to render the values at cost, use the “<code>--at-cost</code>” or “<code>-c</code>” option, which will in this case render “<code>804.00 USD</code>” instead.</p>
+<p>There is no “market value” option. Unrealized gains are automatically inserted at the end of the history by the “<code>beancount.plugins.unrealized</code>” plugin. See options for that plugin to insert its unrealized gains.</p>
 <p>Note that if the sum of the selected postings is zero, no amount is rendered in the change column.</p>
 <h5 id="adding-a-balance-column">Adding a Balance Column<a id="adding-a-balance-column"></a><a class="headerlink" href="#adding-a-balance-column" title="Permanent link"></a></h5>
-<p>If you want to add a column that sums up the running balance for the reported changes, use the “--render-balance” or “-b” option. This does not always make sense to report, so it is up to you to decide whether you want a running balance.</p>
+<p>If you want to add a column that sums up the running balance for the reported changes, use the “<code>--render-balance</code>” or “<code>-b</code>” option. This does not always make sense to report, so it is up to you to decide whether you want a running balance.</p>
 <h5 id="character-width">Character Width<a id="character-width"></a><a class="headerlink" href="#character-width" title="Permanent link"></a></h5>
 <p>By default, the report will be as wide as your terminal allows. Restrict the width to a set number of characters with the “-w” option.</p>
 <h5 id="precision">Precision<a id="precision"></a><a class="headerlink" href="#precision" title="Permanent link"></a></h5>
-<p>The number of fractional digits for the number rendering can be specified via “--precision” or “-k”.</p>
+<p>The number of fractional digits for the number rendering can be specified via “<code>--precision</code>” or “<code>-k</code>”.</p>
 <h5 id="compact-normal-or-verbose">Compact, Normal or Verbose<a id="compact-normal-or-verbose"></a><a class="headerlink" href="#compact-normal-or-verbose" title="Permanent link"></a></h5>
-<p>In its normal operation, Beancount renders an empty line between transactions. This helps delineate transactions where there are multiple currencies affected, as they render on separate lines. If you want a more compact rendering, use the “--compact” or “-x” option.</p>
-<p>On the other hand, if you want to render the affected postings under the transaction line, use the “--verbose” or “-X” option.</p>
+<p>In its normal operation, Beancount renders an empty line between transactions. This helps delineate transactions where there are multiple currencies affected, as they render on separate lines. If you want a more compact rendering, use the “<code>--compact</code>” or “<code>-x</code>” option.</p>
+<p>On the other hand, if you want to render the affected postings under the transaction line, use the “<code>--verbose</code>” or “<code>-X</code>” option.</p>
 <h5 id="summary">Summary<a id="summary"></a><a class="headerlink" href="#summary" title="Permanent link"></a></h5>
 <p>Here is a summary of its arguments:</p>
 <pre><code>optional arguments:
@@ -542,15 +542,15 @@ GROUP BY account ORDER BY account;
 <p>The equivalent bean-query command is:</p>
 <pre><code>SELECT date, flag, description, account, cost(position), cost(balance);
 </code></pre>
-<h4 id="conversions-conversions">Conversions (conversions)<a id="conversions-conversions"></a><a class="headerlink" href="#conversions-conversions" title="Permanent link"></a></h4>
+<h4 id="conversions-conversions">Conversions (<code>conversions</code>)<a id="conversions-conversions"></a><a class="headerlink" href="#conversions-conversions" title="Permanent link"></a></h4>
 <p>This report lists the total of currency conversions that result from the selected transactions. (Most people won’t need this.)</p>
-<h4 id="documents-documents">Documents (documents)<a id="documents-documents"></a><a class="headerlink" href="#documents-documents" title="Permanent link"></a></h4>
+<h4 id="documents-documents">Documents (<code>documents</code>)<a id="documents-documents"></a><a class="headerlink" href="#documents-documents" title="Permanent link"></a></h4>
 <p>This report produces an HTML list of all the external documents found in the ledger, either from explicit directives or from plugins that automatically find the documents and add them to the stream of transactions.</p>
 <h3 id="holdings-reports">Holdings Reports<a id="holdings-reports"></a><a class="headerlink" href="#holdings-reports" title="Permanent link"></a></h3>
 <p>These reports produces aggregations for assets held at cost.</p>
-<h4 id="holdings-aggregations-holdings">Holdings &amp; Aggregations (holdings*)<a id="holdings-aggregations-holdings"></a><a class="headerlink" href="#holdings-aggregations-holdings" title="Permanent link"></a></h4>
+<h4 id="holdings-aggregations-holdings">Holdings &amp; Aggregations (<code>holdings*</code>)<a id="holdings-aggregations-holdings"></a><a class="headerlink" href="#holdings-aggregations-holdings" title="Permanent link"></a></h4>
 <p>This report produces a detailed list of all holdings found in the ledger. You can produce aggregates by commodity and accounts using the “-g” option.</p>
-<h4 id="net-worth-networth">Net Worth (networth)<a id="net-worth-networth"></a><a class="headerlink" href="#net-worth-networth" title="Permanent link"></a></h4>
+<h4 id="net-worth-networth">Net Worth (<code>networth</code>)<a id="net-worth-networth"></a><a class="headerlink" href="#net-worth-networth" title="Permanent link"></a></h4>
 <p>This report produces a short summary of the net worth (equity) of the ledger, in each of the operating currencies.</p>
 <h3 id="other-report-types">Other Report Types<a id="other-report-types"></a><a class="headerlink" href="#other-report-types" title="Permanent link"></a></h3>
 <h4 id="cash">Cash<a id="cash"></a><a class="headerlink" href="#cash" title="Permanent link"></a></h4>
@@ -574,11 +574,11 @@ Liabilities:US:Chase:Slate  -2,891.85       USD            USD                  
 --------------------------  ---------  --------  -------------  ------------  -----  ----------  ------------
 </code></pre>
 <p>The report allows you to convert all currencies to a common currency (in the example above, "convert everything to USD"). There's also an option to report only on the operating currencies. I use this to get an overview of all uninvested cash.</p>
-<h4 id="prices-prices">Prices (prices)<a id="prices-prices"></a><a class="headerlink" href="#prices-prices" title="Permanent link"></a></h4>
+<h4 id="prices-prices">Prices (<code>prices</code>)<a id="prices-prices"></a><a class="headerlink" href="#prices-prices" title="Permanent link"></a></h4>
 <p>This report renders a list of price points for a base currency in terms of a quote currency. The list is sorted by date. You can output this table in beancount format as well. This is convenient to save a price database to a file, that can then be combined and loaded into another input file.</p>
-<h4 id="statistics-stats">Statistics (stats)<a id="statistics-stats"></a><a class="headerlink" href="#statistics-stats" title="Permanent link"></a></h4>
+<h4 id="statistics-stats">Statistics (<code>stats</code>)<a id="statistics-stats"></a><a class="headerlink" href="#statistics-stats" title="Permanent link"></a></h4>
 <p>This report simply provides various statistics on the parsed entries.</p>
-<h4 id="update-activity-activity">Update Activity (activity)<a id="update-activity-activity"></a><a class="headerlink" href="#update-activity-activity" title="Permanent link"></a></h4>
+<h4 id="update-activity-activity">Update Activity (<code>activity</code>)<a id="update-activity-activity"></a><a class="headerlink" href="#update-activity-activity" title="Permanent link"></a></h4>
 <p>This table renders for each account the date of the last entry.</p>
 </div>
 </div>

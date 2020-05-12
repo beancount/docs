@@ -373,7 +373,7 @@
   Expenses:Commissions                 9.95 USD
   Income:Investments:CapitalGains
 </code></pre>
-<p>When the “*” is encountered in lieu of the cost, like this, it would:</p>
+<p>When the “<code>*</code>” is encountered in lieu of the cost, like this, it would:</p>
 <ol>
 <li>
 <p>Merge all the lots together and recalculate the average price per share (504.44 USD)</p>
@@ -428,7 +428,7 @@
 </code></pre>
 <p>The “X” flag would just mark the postings that have been transformed, so maybe they can be rendered with a special color or attribute later on. The rebates account is included as a separate counter just to make the transaction balance.</p>
 <p>The reason I need to relax the disambiguation of trading lots is that the user needs to be able to specify the matching leg without having to specify the cost of the position, because at the point where the position is reduced (2014-04-10), there is no way to figure out what the cost of the original lot was. Just to be clear, in the example above, this means that if all the information have is 4 HOOL and 500 USD, there is no way to back out a cost of 500.995 USD that could specify a match with the opening trade lot, because that happened with 10 HOOLs.</p>
-<p>So we need to be more explicit about booking. In the example above, I’m selecting the matching lot “by label,” that is, the user has the option to provide a unique lot identifier in the cost specification, and that can later on be used to disambiguate which lot we want to book a reduction/sale against. The example above uses the string “aa2ba9695cc7” in this way.</p>
+<p>So we need to be more explicit about booking. In the example above, I’m selecting the matching lot “by label,” that is, the user has the option to provide a unique lot identifier in the cost specification, and that can later on be used to disambiguate which lot we want to book a reduction/sale against. The example above uses the string “<code>aa2ba9695cc7</code>” in this way.</p>
 <p>(An alternative solution to this problem would involve keep track of <em>both</em> the original cost (without commissions), and the actual cost (with commissions), and then finding the lot against the former, but using the latter to balance the transaction. This idea is to allow the user to keep using the cost of a position to select the lot, but I’m not even sure if that is possible, in the presence of various changes to the inventory. More thought is required on this matter.)</p>
 <h3 id="cost-basis-adjustments">Cost Basis Adjustments<a id="cost-basis-adjustments"></a><a class="headerlink" href="#cost-basis-adjustments" title="Permanent link"></a></h3>
 <p>In order to adjust the cost basis, one can replace the contents of an account explicitly like this:</p>
@@ -466,8 +466,8 @@
 <p>This section reviews existing implementations of booking methods in command-line bookkeeping systems and highlights specific shortcomings that motivate why we need to define a new method.</p>
 <h3 id="shortcomings-in-ledger">Shortcomings in Ledger<a id="shortcomings-in-ledger"></a><a class="headerlink" href="#shortcomings-in-ledger" title="Permanent link"></a></h3>
 <p><em>(Please note: I’m not deeply familiar with the finer details of the inner workings of Ledger; I inferred its behavior from building test examples and reading the docs. If I got any of this wrong, please do let me know by leaving a comment.)</em></p>
-<p>Ledger’s approach to booking is quite liberal. Internally, <a href="http://www.google.com/url?q=http%3A%2F%2Fledger-cli.org%2F3.0%2Fdoc%2Fledger3.html%23Prices-versus-costs&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGAZPEtX3TjQysbqsDnF48d5a29Hw"><span class="underline">Ledger does not distinguish between conversions held at cost and regular price conversions</span></a>: all conversions are assumed held at cost, and the only place trading lots appear is at reporting time (using its --lots option).</p>
-<p>Its “{}” cost syntax is <a href="http://ledger-cli.org/3.0/doc/ledger3.html#Explicit-posting-costs"><span class="underline">meant to be used to disambiguate lots on a position reduction</span></a>, not to be used when acquiring a position. The cost of acquiring a position is specified using the “@” price notation:</p>
+<p>Ledger’s approach to booking is quite liberal. Internally, <a href="http://www.google.com/url?q=http%3A%2F%2Fledger-cli.org%2F3.0%2Fdoc%2Fledger3.html%23Prices-versus-costs&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGAZPEtX3TjQysbqsDnF48d5a29Hw"><span class="underline">Ledger does not distinguish between conversions held at cost and regular price conversions</span></a>: all conversions are assumed held at cost, and the only place trading lots appear is at reporting time (using its <code>--lots</code> option).</p>
+<p>Its “<code>{}</code>” cost syntax is <a href="http://ledger-cli.org/3.0/doc/ledger3.html#Explicit-posting-costs"><span class="underline">meant to be used to disambiguate lots on a position reduction</span></a>, not to be used when acquiring a position. The cost of acquiring a position is specified using the “<code>@</code>” price notation:</p>
 <pre><code>2014/05/01 * Buy some stock (Ledger syntax)
   Assets:Investments:Stock        10 HOOL @ 500 USD
   Assets:Investments:Cash
@@ -482,7 +482,7 @@
 10 HOOL {USD500} [2014/05/01]
             USD-5000
 </code></pre>
-<p>There is no distinction between conversions at cost and without cost—all conversions are tracked as if “at cost.” As we will see in the next section, this behaviour is distinct from Beancount’s semantics, which requires a conversion held at cost to be specified using the “{}” notation for both its augmenting and reducing postings, and distinguishes between positions held at cost and price conversions.</p>
+<p>There is no distinction between conversions at cost and without cost—all conversions are tracked as if “at cost.” As we will see in the next section, this behaviour is distinct from Beancount’s semantics, which requires a conversion held at cost to be specified using the “<code>{}</code>” notation for both its augmenting and reducing postings, and distinguishes between positions held at cost and price conversions.</p>
 <p>The advantage of the Ledger method is a simpler input mechanism, but it leads to confusing outcomes if you accumulate many conversions of many types of currencies in the same account. An inventory can easily become fragmented in its lot composition. Consider what happens, for instance, if you convert in various directions between 5 different currencies… you may easily end up with USD held in CAD, JPY, EUR and GBP and vice-versa… any possible combinations of those are possible. For instance, the following currency conversions will maintain their original cost against their converted currencies:</p>
 <pre><code>2014/05/01 Transfer from Canada
   Assets:CA:Checking             -500 CAD
@@ -496,7 +496,7 @@
   Assets:DE:Checking             -100 EUR
   Assets:US:Checking              133.33 USD @ 0.75 EUR
 </code></pre>
-<p>This results in the following inventory in the Assets:US:Checking account:</p>
+<p>This results in the following inventory in the <code>Assets:US:Checking</code> account:</p>
 <pre><code>$ ledger -f l2.lgr bal --lots US:Checking
 500.00 USD {0.4 GBP} [2014/05/15]
 133.33 USD {0.75 EUR} [2014/05/21]
@@ -567,7 +567,7 @@
               USD100
 </code></pre>
 <p>This is a bit surprising, I expected the lots to book against each other. I suspect this may be an unreported bug, and not intended behaviour.</p>
-<p>Finally, the “{}” cost syntax is allowed be used on augmenting legs as well. The documentation <a href="http://ledger-cli.org/3.0/doc/ledger3.html#Prices-versus-costs"><span class="underline">points to these methods being equivalent</span></a>. It results in an inventory lot that does not have a date associated with it, but the other leg is not converted to cost:</p>
+<p>Finally, the “<code>{}</code>” cost syntax is allowed be used on augmenting legs as well. The documentation <a href="http://ledger-cli.org/3.0/doc/ledger3.html#Prices-versus-costs"><span class="underline">points to these methods being equivalent</span></a>. It results in an inventory lot that does not have a date associated with it, but the other leg is not converted to cost:</p>
 <pre><code>2014/05/01 Enter a position
   Assets:Investments:Stock      10 HOOL {500 USD}
   Assets:Investments:Cash
@@ -606,7 +606,7 @@
   Assets:Investments:Stock        10 HOOL {500 USD} ; Held at cost
   Assets:Investments:Cash
 </code></pre>
-<p>In the first transaction, the Assets:Investment:Cash account results in an inventory of 5000 USD, with no cost associated to it. However, after the second transaction the Assets:Investment:Stock account has an inventory of 10 HOOL with a cost of 500 USD associated to it. This is perhaps a little bit more complex, and requires more knowledge from the user: there are two kinds of conversions and he has to understand and distinguish between these two cases, and this is not obvious for newcomers to the system. Some user education is required (I’ll admit it <em>would</em> help if I wrote more documentation).</p>
+<p>In the first transaction, the <code>Assets:Investment:Cash</code> account results in an inventory of 5000 USD, with no cost associated to it. However, after the second transaction the <code>Assets:Investment:Stock</code> account has an inventory of 10 HOOL with a cost of 500 USD associated to it. This is perhaps a little bit more complex, and requires more knowledge from the user: there are two kinds of conversions and he has to understand and distinguish between these two cases, and this is not obvious for newcomers to the system. Some user education is required (I’ll admit it <em>would</em> help if I wrote more documentation).</p>
 <p>Beancount’s method is also less liberal, it requires a strict application of lot reduction. That is, if you enter a transaction that reduces a lot that does not exist, it will output an error. The motivation for this is to make it difficult for the user to make a mistake in data entry. Any reduction of a position in an inventory has to match against exactly one lot.</p>
 <p>There are a few downsides that result from this choice:</p>
 <ul>
@@ -717,7 +717,7 @@
 <p><strong>Explicit inventory lot selection</strong> needs to be supported. The user should be able to indicate precisely which of the lots to reduce a position against, per-transaction. An account or commodity should not have to have a consistent method applied across all its trades.</p>
 </li>
 <li>
-<p>Explicit inventory lot selection should <strong>support partial matching</strong>, that is, in cases where the lots to match against are ambiguous, the user should be able to supply only minimal information to disambiguate the lots, e.g., the date, or a label, or the cost, or combinations of these. For instance, if only a single lot is available to match against, the user should be able to specify the cost as “{}”, telling the system to book at cost, but essentially saying: “book against any lot.” This should trigger an error only if there are multiple lots.</p>
+<p>Explicit inventory lot selection should <strong>support partial matching</strong>, that is, in cases where the lots to match against are ambiguous, the user should be able to supply only minimal information to disambiguate the lots, e.g., the date, or a label, or the cost, or combinations of these. For instance, if only a single lot is available to match against, the user should be able to specify the cost as “<code>{}</code>”, telling the system to book at cost, but essentially saying: “book against any lot.” This should trigger an error only if there are multiple lots.</p>
 </li>
 <li>
 <p>A variety of informations should be supported to specify an existing lot, and they should be combinable:</p>
@@ -773,7 +773,7 @@
 </li>
 </ul>
 <h3 id="explicit-vs-implicit-booking-reduction">Explicit vs. Implicit Booking Reduction<a id="explicit-vs.-implicit-booking-reduction"></a><a class="headerlink" href="#explicit-vs-implicit-booking-reduction" title="Permanent link"></a></h3>
-<p>Another question that may come up in the design of a new booking method is whether we require the user to be <em>explicit</em> about whether he thinks this is an addition to a position, or a reduction. This could be done, for instance, by requiring a slightly different syntax for the cost, for example “{}” would indicate an addition and “[]” a reduction. I’m not convinced that it is necessary to make that distinction, maybe the extra burden on the user is not worth it, but it might be a way to cross-check an expectation against the actual calculations that occur. I’ll drop the idea for now.</p>
+<p>Another question that may come up in the design of a new booking method is whether we require the user to be <em>explicit</em> about whether he thinks this is an addition to a position, or a reduction. This could be done, for instance, by requiring a slightly different syntax for the cost, for example “<code>{}</code>” would indicate an addition and “<code>[]</code>” a reduction. I’m not convinced that it is necessary to make that distinction, maybe the extra burden on the user is not worth it, but it might be a way to cross-check an expectation against the actual calculations that occur. I’ll drop the idea for now.</p>
 <h2 id="design-proposal">Design Proposal<a id="design-proposal"></a><a class="headerlink" href="#design-proposal" title="Permanent link"></a></h2>
 <p>This section presents a concrete description of a design that fulfills the previously introduced requirements. We hope to keep this as simple as possible.</p>
 <h3 id="inventory">Inventory<a id="inventory"></a><a class="headerlink" href="#inventory" title="Permanent link"></a></h3>
@@ -806,19 +806,19 @@
 <p>The input syntax should allow the specification of cost as any combination of the following informations:</p>
 <ul>
 <li>
-<p>The <strong>cost per unit</strong>, as an amount, such as “500 USD”</p>
+<p>The <strong>cost per unit</strong>, as an amount, such as “<code>500 USD</code>”</p>
 </li>
 <li>
-<p>A <strong>total cost</strong>, to be automatically divided by the number of units, like this: {... +9.95 USD}. You should be able to use either cost per unit, total cost, or even combine the two, like this: {500 + 9.95 USD}. This is useful to enter commissions. This syntax also replaces the previous {{...}} syntax.</p>
+<p>A <strong>total cost</strong>, to be automatically divided by the number of units, like this: <code>{... +9.95 USD}</code>. You should be able to use either cost per unit, total cost, or even combine the two, like this: <code>{500 + 9.95 USD}</code>. This is useful to enter commissions. This syntax also replaces the previous <code>{{</code>...<code>}}</code> syntax.</p>
 </li>
 <li>
-<p>The <strong>lot-date</strong>, as a YYYY-MM-DD date, such as “2014-06-20”</p>
+<p>The <strong>lot-date</strong>, as a YYYY-MM-DD date, such as “<code>2014-06-20</code>”</p>
 </li>
 <li>
-<p>A <strong>label</strong>, which is any non-numerical identifier, such as first-apple or some random uuid like “aa2ba9695cc7”</p>
+<p>A <strong>label</strong>, which is any non-numerical identifier, such as first-apple or some random uuid like “<code>aa2ba9695cc7</code>”</p>
 </li>
 <li>
-<p>A <strong>special marker</strong> “*” that indicates to book at the average cost of the inventory balance</p>
+<p>A <strong>special marker</strong> “<code>*</code>” that indicates to book at the average cost of the inventory balance</p>
 </li>
 </ul>
 <p>These following postings should all be valid syntax:</p>
@@ -868,7 +868,7 @@
 <p>NONE: Don’t perform any inventory booking on this account. Allow a mix of lots for the same commodity or positive and negative numbers in the inventory. (This essentially devolves to the Ledger method of booking.)</p>
 </li>
 </ul>
-<p>This method would <em>only</em> get invoked if disambiguation between multiple lots is required, after filtering the lots against the expression provided by the user. The STRICT method is basically the degenerate disambiguation which issues an error if there is any ambiguity and should be the default.</p>
+<p>This method would <em>only</em> get invoked if disambiguation between multiple lots is required, after filtering the lots against the expression provided by the user. The <code>STRICT</code> method is basically the degenerate disambiguation which issues an error if there is any ambiguity and should be the default.</p>
 <p>There should be a default method that applies to all accounts. The default value should be overridable. In Beancount, we would add a new “option” to allow the user to change this:</p>
 <pre><code>option “booking_method”  “FIFO”
 </code></pre>
@@ -909,7 +909,7 @@
   Expenses:Commissions              9.95 USD
 </code></pre>
 <p>In the case of <em>reducing</em> a position—and we can figure that out whether that is the case by looking at the inventory at the point of applying the transaction to its account balance—an empty specification should trigger the default booking method. If the method is STRICT, for instance, this would select a lot <em>only</em> if there is a single lot available (the choice is unambiguous), which is probably a common case if one trades infrequently. Other methods will apply as they are defined.</p>
-<p>Note that the user still has to specify a cost of “{}” in order to inform us that this posting has to be considered “held at cost.” This is important to disambiguate from a price conversion with no associated cost.</p>
+<p>Note that the user still has to specify a cost of “<code>{}</code>” in order to inform us that this posting has to be considered “held at cost.” This is important to disambiguate from a price conversion with no associated cost.</p>
 <h3 id="reducing-multiple-lots">Reducing Multiple Lots<a id="reducing-multiple-lots"></a><a class="headerlink" href="#reducing-multiple-lots" title="Permanent link"></a></h3>
 <p>If a single trade needs to close multiple existing lots of an inventory, this can dealt with trivially by inserting one posting for each lot. I think this is a totally reasonable requirement. This could represent a single trade, for instance, if your brokerage allows it:</p>
 <pre><code>2012-05-01 * “Closing my position”
@@ -940,7 +940,7 @@
 <h3 id="tag-reuse">Tag Reuse<a id="tag-reuse"></a><a class="headerlink" href="#tag-reuse" title="Permanent link"></a></h3>
 <p>We will have to be careful in the inventory booking to warn on reuse of lot labels. Labels should be unique.</p>
 <h2 id="examples">Examples<a id="examples"></a><a class="headerlink" href="#examples" title="Permanent link"></a></h2>
-<p>Nothing speaks more clearly than concrete examples. If otherwise unspecified, we are assuming that the booking method on the Assets:Investments:Stock account is STRICT.</p>
+<p>Nothing speaks more clearly than concrete examples. If otherwise unspecified, we are assuming that the booking method on the <code>Assets:Investments:Stock</code> account is <code>STRICT</code>.</p>
 <h3 id="no-conflict">No Conflict<a id="no-conflict"></a><a class="headerlink" href="#no-conflict" title="Permanent link"></a></h3>
 <p>Given the following inventory lots:</p>
 <blockquote>

@@ -360,7 +360,7 @@
 <p>Begin by generating the example file:</p>
 <pre><code>bean-example &gt; example.beancount
 </code></pre>
-<p>Open example.beancount and examine it.</p>
+<p>Open <code>example.beancount</code> and examine it.</p>
 <p>Next, before we begin generating reports, verify that the file loads without any errors:</p>
 <pre><code>bean-check example.beancount
 </code></pre>
@@ -464,7 +464,7 @@
 <pre><code>bean-web example.beancount
 </code></pre>
 <p>Then navigate with a web browser to <a href="http://localhost:8080"><span class="underline">http://localhost:8080</span></a>. From there, you can click on any number of filtered views and access some of the reports previously demonstrated. For example, click on a year view; that will provide balance sheets and income statements and various other reports for this subset of transactions.</p>
-<p>The bean-web tool has many options for restricting what is being served. (Note that by default the server listens only for connections from your computer; if you want to host this on a web server and accept connections from anywhere, use --public).</p>
+<p>The bean-web tool has many options for restricting what is being served. (Note that by default the server listens only for connections from your computer; if you want to host this on a web server and accept connections from anywhere, use <code>--public</code>).</p>
 <p><em>Note: There exists a separate project which provides a better web interface than the one which comes with Beancount: <a href="https://github.com/aumayr/fava"><span class="underline">Fava</span></a>. You might want to check it out.</em></p>
 <h2 id="the-future-of-beancount-reports">The Future of Beancount Reports<a id="the-future-of-beancount-reports"></a><a class="headerlink" href="#the-future-of-beancount-reports" title="Permanent link"></a></h2>
 <p>I find my command-line reports above to be rather unsatisfying, from the point-of-view of customizability. They bother me a lot. This is largely because I’ve been happy and satisfied with the capabilities of the web interface to Beancount. As I’m beginning to use the command-line interface more and more, I’m finding myself desiring for more explicit and well-defined way to apply all the filters I have available from the web interface, and more. For this reason, I’m <a href="http://furius.ca/beancount/doc/proposal-filtering"><span class="underline">currently implementing a query language that looks similar to SQL</span></a>. This syntax will allow me to remove all the custom reports above and to replace them by a single consistent query syntax. This work is underway.</p>

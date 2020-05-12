@@ -291,7 +291,7 @@
 <p>The general form for this option is:</p>
 <pre><code>option "inferred_tolerance_default" "&lt;currency&gt;:&lt;tolerance&gt;"
 </code></pre>
-<p>Just to be clear: this option is <em>only</em> used when the tolerance cannot be inferred. If you have overly large rounding errors and the numbers in your transactions do infer some tolerance value, this value will be ignored (e.g., setting it to a larger number to try to address that fix will not work). If you need to loosen up the tolerance, see the “inferred_tolerance_multiplier” in the next section.</p>
+<p>Just to be clear: this option is <em>only</em> used when the tolerance cannot be inferred. If you have overly large rounding errors and the numbers in your transactions do infer some tolerance value, this value will be ignored (e.g., setting it to a larger number to try to address that fix will not work). If you need to loosen up the tolerance, see the “<code>inferred_tolerance_multiplier</code>” in the next section.</p>
 <p><em>(Note: I’ve been considering dedicating a special meta-data field to the Commodity directive for this, but this would break from the invariant that meta-data is only there to be used by users and plugins, so I’ve refrained so far.)</em></p>
 <h3 id="tolerance-multiplier">Tolerance Multiplier<a id="tolerance-multiplier"></a><a class="headerlink" href="#tolerance-multiplier" title="Permanent link"></a></h3>
 <p>We’re shown previously that when the tolerance value isn’t provided explicitly, that it is inferred from the numbers on the postings. By default, the smallest digit found on those numbers is divided by half to obtain the tolerance because we assume that the institutions which we’re reproducing the transactions apply rounding and so the error should never be more than half.</p>
@@ -328,7 +328,7 @@
 <p>You enable the feature like this:</p>
 <pre><code>option "account_rounding" "Equity:RoundingError"
 </code></pre>
-<p>This tells Beancount to insert postings to compensate for the rounding error to an “Equity:RoundingError” account. For example, with the feature enabled, the following transaction:</p>
+<p>This tells Beancount to insert postings to compensate for the rounding error to an “<code>Equity:RoundingError</code>” account. For example, with the feature enabled, the following transaction:</p>
 <pre><code>2013-02-23 * "Buying something"
   Assets:Invest     1.245 RGAGX {43.23 USD}
   Assets:Cash      -53.82 USD

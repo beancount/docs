@@ -202,11 +202,7 @@
 <h2 id="introduction">Introduction<a id="introduction"></a><a class="headerlink" href="#introduction" title="Permanent link"></a></h2>
 <p>Processing a Beancount file is, by definition, constrained to the contents of the file itself. In particular, the latest prices of commodities are <em>never</em> fetched automatically from the internet. This is by design, so that any run of a report is deterministic and can also be run offline. No surprises.</p>
 <p>However, we do need access to price information in order to compute market values of assets. To this end, Beancount provides a Price directive which can be used to fill its in-memory price database by inserting these price points inline in the input file:</p>
-<pre><code>2015-11-20 price ITOT    95.46 USD
-2015-11-20 price LQD    115.63 USD
-2015-11-21 price USD   1.33495 CAD
-…
-</code></pre>
+<p><code>2015-11-20 price ITOT 95.46 USD 2015-11-20 price LQD 115.63 USD 2015-11-21 price USD 1.33495 CAD …</code></p>
 <p>Of course, you could do this manually, looking up the prices online and writing the directives yourself. But for assets which are traded publicly you can automate it, by invoking some code that will download prices and write out the directives for you.</p>
 <p>Beancount comes with some tools to help you do this. This document describes these tools.</p>
 <h2 id="the-problem">The Problem<a id="the-problem"></a><a class="headerlink" href="#the-problem" title="Permanent link"></a></h2>
@@ -217,32 +213,29 @@
 <p>Finally, while we provide some basic implementations of price sources, we cannot provide such codes for all possible online sources and websites. The problem is analogous to that of importing and extracting data from various institutions. In order to address that, we provide a mechanism for <strong>extensibility</strong>, a way that you can implement your own price source fetcher in a Python module and point to it from your input file by specifying the module's name as the source for that commodity.</p>
 <h2 id="the-bean-price-tool">The “bean-price” Tool<a id="the-bean-price-tool"></a><a class="headerlink" href="#the-bean-price-tool" title="Permanent link"></a></h2>
 <p>Beancount comes with a “bean-price” command-line tool that integrates the ideas above. By default, this script accepts a list of Beancount input filenames, and fetches prices required to compute latest market values for current positions held in accounts:</p>
-<pre><code>bean-price /home/joe/finances/joe.beancount
-</code></pre>
+<p><code>bean-price /home/joe/finances/joe.beancount</code></p>
 <p>It is also possible to provide a list of specific price fetching jobs to run, e.g.,</p>
 <pre><code>bean-price -e USD:google/TSE:XUS CAD:mysources.morningstar/RBF1005
 </code></pre>
 <p>These jobs are run concurrently so it should be fairly fast.</p>
 <h3 id="source-strings">Source Strings<a id="source-strings"></a><a class="headerlink" href="#source-strings" title="Permanent link"></a></h3>
 <p>The general format of each of these "job source strings" is</p>
-<p>&lt;quote-currency&gt;:&lt;module&gt;/[^]&lt;symbol&gt;</p>
+<p>&lt;quote-currency&gt;:<code>&lt;module&gt;/[^]&lt;symbol&gt;</code></p>
 <p>For example:</p>
 <pre><code>USD:beancount.prices.sources.google/NASDAQ:AAPL
 </code></pre>
 <p>The “quote-currency” is the currency the Commodity is quoted in. For example, shares of Apple are quoted in US dollars.</p>
 <p>The "module" is the name of a Python module that contains a Source class which can be instantiated and which connect to a data source to extract price data. These modules are automatically imported and a Source class therein instantiated in order to pull the price from the particular online source they support. This allows you to write your own fetcher codes without having to modify this script. Your code can be placed anywhere on your Python PYTHONPATH and you should not have to modify Beancount itself for this to work.</p>
 <p>The “symbol” is a string that is fed to the price fetcher to lookup the currency. For example, Apple shares trade on the Nasdaq, and the corresponding symbol in the Google Finance source is “NASDAQ:AAPL”. Other price sources may have a different symbology, e.g., some may require the asset's CUSIP.</p>
-<p>Default implementations of price sources are provided; we provide fetchers for Yahoo! Finance or Google Finance, which cover a large universe of common public investment types (e.g. stock and some mutual funds). As a convenience, the module name is always first searched under the "beancount.prices.sources" package, where those implementations live. This is how, for example, in order to use the provided Yahoo! Finance data fetcher you don't have to write all of "beancount.prices.sources.yahoo/AAPL" but you can simply use "yahoo/AAPL".</p>
+<p>Default implementations of price sources are provided; we provide fetchers for Yahoo! Finance or Google Finance, which cover a large universe of common public investment types (e.g. stock and some mutual funds). As a convenience, the module name is always first searched under the "<code>beancount.prices.sources</code>" package, where those implementations live. This is how, for example, in order to use the provided Yahoo! Finance data fetcher you don't have to write all of "<code>beancount.prices.sources.yahoo/AAPL</code>" but you can simply use "<code>yahoo/AAPL</code>".</p>
 <h3 id="fallback-sources">Fallback Sources<a id="fallback-sources"></a><a class="headerlink" href="#fallback-sources" title="Permanent link"></a></h3>
 <p>In practice, fetching prices online often fails. Data sources typically only support some limited number of assets and even then, the support may vary between assets. As an example, Google Finance supports historical prices for stocks, but does not return historical prices for currency instruments (these restrictions may be more related to contractual arrangements between them and the data providers upstream than with technical limitations).</p>
 <p>To this extent, a source string may provide multiple sources for the data, separated with commas. For example:</p>
-<pre><code>USD:google/CURRENCY:GBPUSD,yahoo/GBPUSD
-</code></pre>
+<p><code>USD:google/CURRENCY:GBPUSD,yahoo/GBPUSD</code></p>
 <p>Each source is tried in turn, and if one fails to return a valid price, the next source is tried as a fallback. The hope is that at least one of the specified sources will work out.</p>
 <h3 id="inverted-prices">Inverted Prices<a id="inverted-prices"></a><a class="headerlink" href="#inverted-prices" title="Permanent link"></a></h3>
 <p>Sometimes, prices are only available for the inverse of an instrument. This is often the case for currencies. For example, the price of Canadian dollars quoted in US dollars is provided by the USD/CAD market, which gives the price of a US dollar in Canadian dollars (the inverse). In order use this, you can prepend "^" to the instrument name to instruct the tool to compute the inverse of the fetched price:</p>
-<pre><code>USD:google/^CURRENCY:USDCAD
-</code></pre>
+<p><code>USD:google/^CURRENCY:USDCAD</code></p>
 <p>If a source price is to be inverted, like this, the precision could be different than what is fetched. For instance, if the price of USD/CAD is 1.32759, for the above directive to price the “CAD” instrument it would output this:</p>
 <p>2015-10-28 price CAD 0.753244601119 USD</p>
 <p>By default, inverted rates will be rounded similarly to how other Price directives were rounding those numbers.</p>
@@ -250,8 +243,7 @@
 <p>2015-10-28 price USD 1.32759 CAD</p>
 <h3 id="date">Date <a id="date"></a><a class="headerlink" href="#date" title="Permanent link"></a></h3>
 <p>By default, the latest prices for the assets are pulled in. You can use an option to fetch prices for a desired date in the past instead:</p>
-<pre><code>bean-price –date=2015-02-03 …
-</code></pre>
+<p><code>bean-price –date=2015-02-03 …</code></p>
 <p>If you are using an input file to specify the list of prices to be fetched, the tool will figure out the list of assets held on the books <em>at that time</em> and fetch historical prices for those assets only.</p>
 <h3 id="caching">Caching<a id="caching"></a><a class="headerlink" href="#caching" title="Permanent link"></a></h3>
 <p>Prices are automatically cached (if current and latest, prices are cached for only a short period of time, about half an hour). This is convenient when you're having to run the script multiple times in a row for troubleshooting.</p>
@@ -259,13 +251,12 @@
 <pre><code>bean-price --no-cache
 </code></pre>
 <p>You can also instruct the script to clear the cache before fetching its prices:</p>
-<pre><code>bean-price --clear-cache
-</code></pre>
+<p><code>bean-price --clear-cache</code></p>
 <h2 id="prices-from-a-beancount-input-file">Prices from a Beancount Input File<a id="prices-from-a-beancount-input-file"></a><a class="headerlink" href="#prices-from-a-beancount-input-file" title="Permanent link"></a></h2>
 <p>Generally, one uses a Beancount input file to specify the list of currencies to fetch. In order to do that, you should have Commodity directives in your input file for each of the currencies you mean to fetch prices for, like this:</p>
 <pre><code>2007-07-20 commodity VEA
 </code></pre>
-<p><strong>price: "USD:google/NYSEARCA:VEA"</strong></p>
+<p><strong><code>price: "USD:google/NYSEARCA:VEA"</code></strong></p>
 <p>The "price" metadata should contain a list of price source strings. For example, a stock product might look like this:</p>
 <pre><code>2007-07-20 commodity CAD
 
@@ -280,7 +271,7 @@
 <p>There are many ways to compute a list of commodities with needed prices from a Beancount input file:</p>
 <ol>
 <li>
-<p><strong>Commodity directives.</strong> The list of all Commodity directives with “price” metadata present in the file. For each of those holdings, the directive is consulted and its "price" metadata field is used to specify where to fetch prices from.</p>
+<p><strong>Commodity directives.</strong> The list of all Commodity directives with “price” metadata present in the file. For each of those holdings, the directive is consulted and its "<code>price</code>" metadata field is used to specify where to fetch prices from.</p>
 </li>
 <li>
 <p><strong>Commodities of assets held at cost.</strong> Prices for all the holdings that were seen held at cost at a particular date. Because these holdings are held at cost, we can assume there is a corresponding time-varying price for their commodity.</p>
@@ -290,11 +281,11 @@
 </li>
 </ol>
 <p>By default, the list of tickers to be fetched includes only the intersection of these three lists. This is because the most common usage of this script is to fetch missing prices for a particular date, and only the needed ones.</p>
-<p><strong>Inactive commodities.</strong> You can use the “--inactive” option to fetch the entire set of prices from (1), regardless of asset holdings determined in (2) and (3).</p>
-<p><strong>Undeclared commodities.</strong> Commodities without a corresponding “Commodity” directive will be ignored by default. To include the full list of commodities seen in an input file, use the “--undeclared” option.</p>
-<p><strong>Clobber.</strong> Existing price directives for the same data are excluded by default, since the price is already in the file. You can use “--clobber” to ignore existing price directives and avoid filtering out what is fetched.</p>
+<p><strong>Inactive commodities.</strong> You can use the “<code>--inactive</code>” option to fetch the entire set of prices from (1), regardless of asset holdings determined in (2) and (3).</p>
+<p><strong>Undeclared commodities.</strong> Commodities without a corresponding “Commodity” directive will be ignored by default. To include the full list of commodities seen in an input file, use the “<code>--undeclared</code>” option.</p>
+<p><strong>Clobber.</strong> Existing price directives for the same data are excluded by default, since the price is already in the file. You can use “<code>--clobber</code>” to ignore existing price directives and avoid filtering out what is fetched.</p>
 <p>Finally, you can use “--all” to include inactive and undeclared commodities and allow clobbering existing ones. You probably don't want to use that other than for testing.</p>
-<p>If you'd like to do some troubleshooting and print out the list of seen commodities, use the “--verbose” option twice, i.e., “-vv”. You can also just print the list of prices to be fetched with the “--dry-run” option, which stops short of actually fetching the missing prices.</p>
+<p>If you'd like to do some troubleshooting and print out the list of seen commodities, use the “<code>--verbose</code>” option twice, i.e., “<code>-vv</code>”. You can also just print the list of prices to be fetched with the “<code>--dry-run</code>” option, which stops short of actually fetching the missing prices.</p>
 <h2 id="conclusion">Conclusion<a id="conclusion"></a><a class="headerlink" href="#conclusion" title="Permanent link"></a></h2>
 <h3 id="writing-your-own-script">Writing Your Own Script<a id="writing-your-own-script"></a><a class="headerlink" href="#writing-your-own-script" title="Permanent link"></a></h3>
 <p>If the workflow defined by this tool does not fit your needs and you would like to cook up your own script, you should not have to start from scratch; you should be able to reuse the existing price fetching code to do that. I'm hoping to provide a few examples of such scripts in the experiments directory. For example, given an existing file it would be convenient to fetch all prices of assets every Friday in order to fill up a history of missing prices. Another example would be to fetch all price directives required in order to correctly compute investment returns in the presence of contributions and distributions.</p>

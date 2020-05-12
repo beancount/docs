@@ -214,7 +214,7 @@
 <h3 id="emacs">Emacs<a id="emacs"></a><a class="headerlink" href="#emacs" title="Permanent link"></a></h3>
 <p>First, you will want a bit of support for your text editor. I’m using Emacs, so I’ll explain my setup for this, but certainly you can use any text editor to compose your input file.</p>
 <p>Beancount’s Emacs support provides a <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Minor-Modes.html"><em><span class="underline">Minor Mode</span></em></a> (as opposed to a <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Major-Modes.html"><em><span class="underline">Major Mode</span></em></a>) on purpose, so that you can combine it with your favorite text editing mode. I like to use <a href="http://orgmode.org/"><em><span class="underline">Org-Mode</span></em></a>, which is an outline mode for Emacs which allows you to fold and unfold its sections to view the outline of your document. This makes it much easier to edit a very long text file. (I don’t use Org-Mode’s literal programming blocks, I only use it to fold and unfold sections of text.)</p>
-<p>You can configure Emacs to automatically open files with a “.beancount” extension to enable beancount-mode by adding this code to your ~/.emacs file:</p>
+<p>You can configure Emacs to automatically open files with a “<code>.beancount</code>” extension to enable beancount-mode by adding this code to your <code>~/.emacs</code> file:</p>
 <pre><code>(add-to-list 'load-path "/path/to/beancount/src/elisp")
 (require 'beancount)
 (add-to-list 'auto-mode-alist '("\\.beancount\\'" . beancount-mode))
@@ -222,10 +222,10 @@
 <p><a href="https://bitbucket.org/blais/beancount/src/tip/editors/emacs/beancount.el"><span class="underline">Beancount-mode</span></a> provides some nice editing features:</p>
 <ul>
 <li>
-<p>In order to quickly and painlessly insert account names, you need completion on the account names. You will probably get frustrated with all the typing if you don’t have completion. Beancount-mode automatically recognizes account names already present in the input file (refresh the list with “C-c r”) and you can insert a new account name with ”C-c ‘”.</p>
+<p>In order to quickly and painlessly insert account names, you need completion on the account names. You will probably get frustrated with all the typing if you don’t have completion. Beancount-mode automatically recognizes account names already present in the input file (refresh the list with “<code>C-c r</code>”) and you can insert a new account name with ”<code>C-c ‘</code>”.</p>
 </li>
 <li>
-<p>It’s also nice to align the amounts in a transaction nicely; this formatting can be done automatically with “C-c ;” with the cursor on the transaction you want to align.</p>
+<p>It’s also nice to align the amounts in a transaction nicely; this formatting can be done automatically with “<code>C-c ;</code>” with the cursor on the transaction you want to align.</p>
 </li>
 </ul>
 <h3 id="vim">Vim<a id="vim"></a><a class="headerlink" href="#vim" title="Permanent link"></a></h3>
@@ -262,7 +262,7 @@
 <p>Account names do not admit spaces (though you can use dashes), and must have at least two components, separated by colons.</p>
 </li>
 <li>
-<p>Description strings must be quoted, like this: "AMEX PMNT".</p>
+<p>Description strings must be quoted, like this: <code>"AMEX PMNT"</code>.</p>
 </li>
 <li>
 <p>Dates are only parsed in ISO8601 format, that is, YYYY-MM-DD.</p>
@@ -276,7 +276,7 @@
 <p>The purpose of Beancount is to produce reports from your input file (either on the console or serve via its web interface). However, there is a tool that you can use to simply load its contents and make some validation checks on it, to ensure that your input does not contain errors. Beancount can be quite strict; this is a tool that you use while you’re entering your data to ensure that your input file is legal. The tool is called “bean-check” and you invoke it like this:</p>
 <pre><code>bean-check /path/to/your/file.beancount
 </code></pre>
-<p>Try it now on the file you just created from the previous section. It should exit with no output. If there are errors, they will be printed on the console. The errors are printed out in a format that Emacs recognizes by default, so you can use Emacs’ next-error and previous-error built-in functions to move the cursor to the location of the problem.</p>
+<p>Try it now on the file you just created from the previous section. It should exit with no output. If there are errors, they will be printed on the console. The errors are printed out in a format that Emacs recognizes by default, so you can use Emacs’ <code>next-error</code> and <code>previous-error</code> built-in functions to move the cursor to the location of the problem.</p>
 <h2 id="viewing-the-web-interface">Viewing the Web Interface<a id="viewing-the-web-interface"></a><a class="headerlink" href="#viewing-the-web-interface" title="Permanent link"></a></h2>
 <p>A convenient way to view reports is to bring up the “bean-web” tool on your input file. Try it:</p>
 <pre><code>bean-web /path/to/your/file.beancount
@@ -370,7 +370,7 @@ option "operating_currency" "CAD"
 <p>The next thing you do is look up your current balance and put a balance assertion for the corresponding amount:</p>
 <pre><code>2014-07-01 balance Assets:CA:BofA:Checking    1256.35 USD
 </code></pre>
-<p>Running Beancount on just this will correctly produce an error because Beancount assumes an implicit balance assertion of “empty” at the time you open an account. You will have to “pad” your account to today’s balance by inserting a <em>balance adjustment</em> at some point in time between the opening and the balance, against some equity account, which is an arbitrary place to book “where you received the initial balance from.” For this purpose, this is usually the “Equity:Opening-Balances” account. So let’s include this padding transaction and recap what we have so far:</p>
+<p>Running Beancount on just this will correctly produce an error because Beancount assumes an implicit balance assertion of “empty” at the time you open an account. You will have to “pad” your account to today’s balance by inserting a <em>balance adjustment</em> at some point in time between the opening and the balance, against some equity account, which is an arbitrary place to book “where you received the initial balance from.” For this purpose, this is usually the “<code>Equity:Opening-Balances</code>” account. So let’s include this padding transaction and recap what we have so far:</p>
 <pre><code>2000-05-28 open Assets:CA:BofA:Checking  USD
 
 2000-05-28 * "Initialize account"

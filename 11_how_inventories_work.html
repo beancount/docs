@@ -495,7 +495,7 @@ match sales (reductions) against accumulated inventory contents.</em></p>
 <p>There are two different types of positions, discussed in detail in the sections that follow:</p>
 <ul>
 <li>
-<p><strong>Simple positions.</strong> These are positions with no cost basis. The “cost” attribute is set to a null value. (“None” in Python.)</p>
+<p><strong>Simple positions.</strong> These are positions with no cost basis. The “cost” attribute is set to a null value. (“<code>None</code>” in Python.)</p>
 </li>
 <li>
 <p><strong>Positions held at cost.</strong> These are positions with an associated cost basis and acquisition details.</p>
@@ -578,7 +578,7 @@ match sales (reductions) against accumulated inventory contents.</em></p>
   Assets:Invest:Cash        780.00 USD
   Income:Invest:HOOL:Gains
 </code></pre>
-<p>This is also a valid way to identify the particular lot you wish to reduce. If you had provided a date here, it would also only be used to match against the inventory contents, to disambiguate between lots acquired at different dates, not to attach the date anywhere. And furthermore, if there was a single lot in the inventory you could have also just provided just an empty cost basis spec like this: “{}”. The Booking Methods section below will delve into the detail of what happens when the matches are ambiguous.</p>
+<p>This is also a valid way to identify the particular lot you wish to reduce. If you had provided a date here, it would also only be used to match against the inventory contents, to disambiguate between lots acquired at different dates, not to attach the date anywhere. And furthermore, if there was a single lot in the inventory you could have also just provided just an empty cost basis spec like this: “<code>{}</code>”. The Booking Methods section below will delve into the detail of what happens when the matches are ambiguous.</p>
 <p>In summary:</p>
 <ul>
 <li>

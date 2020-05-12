@@ -307,20 +307,20 @@ command-line accounting systems to manage personal finances.</em></p>
   Liabilities:US:BofA:CreditCard    -98.32 USD
   Expenses:Restaurant
 </code></pre>
-<p>This is an example transaction with two “postings,” or “legs.” The “Expenses:Restaurant” line is an account, not a category, though accounts often act like categories (there is no distinction between these two concepts). The amount on the expenses leg is left unspecified, and this is a convenience allowed by the input language. The software determines its amount automatically with the remainder of the balance which in this case will be 98.32 USD, so that -98.32 USD + 98.32 USD = 0 (remember that the sum of all postings must balance to zero—this is enforced by the language).</p>
+<p>This is an example transaction with two “postings,” or “legs.” The “<code>Expenses:Restaurant</code>” line is an account, not a category, though accounts often act like categories (there is no distinction between these two concepts). The amount on the expenses leg is left unspecified, and this is a convenience allowed by the input language. The software determines its amount automatically with the remainder of the balance which in this case will be 98.32 USD, so that -98.32 USD + 98.32 USD = 0 (remember that the sum of all postings must balance to zero—this is enforced by the language).</p>
 <p>Most financial institutions provide some way for you to download a summary of account activity in some format or other. Much of the details of your transactions are automatically pulled in from such a downloaded file, using some custom script you write that converts it into the above syntax:</p>
 <ul>
 <li>
 <p>A transaction date is always available from the downloadable files.</p>
 </li>
 <li>
-<p>The “CAFE MOGADOR NEW YO” bit is the “memo,” also provided by the downloaded file, and those names are often good enough for you to figure out what the business you spent at was. Those memos are the same ugly names you would see appear on your credit card statements. This is attached to a transaction as a “payee” attribute.</p>
+<p>The “<code>CAFE MOGADOR NEW YO</code>” bit is the “memo,” also provided by the downloaded file, and those names are often good enough for you to figure out what the business you spent at was. Those memos are the same ugly names you would see appear on your credit card statements. This is attached to a transaction as a “payee” attribute.</p>
 </li>
 <li>
-<p>I manually added “Dinner with Caroline” as a comment. I don’t have to do this (it’s optional), but I like to do it when I reconcile new transactions, it takes me only a minute and it helps me remember past events if I look for them.</p>
+<p>I manually added “<code>Dinner with Caroline</code>” as a comment. I don’t have to do this (it’s optional), but I like to do it when I reconcile new transactions, it takes me only a minute and it helps me remember past events if I look for them.</p>
 </li>
 <li>
-<p>The importer brought in the Liabilities:US:BofA:CreditCard posting with its amount automatically, but I’ve had to insert the Expenses:Restaurant account myself: I typed it in. I have shortcuts in my text editor that allow me to do that using account name completion, it takes a second and it’s incredibly easy. Furthermore, pre-selecting this account could be automated as well, by running a simple learning algorithm on the previous history contains in the same input file (we tend to go to the same places all the time).</p>
+<p>The importer brought in the <code>Liabilities:US:BofA:CreditCard</code> posting with its amount automatically, but I’ve had to insert the <code>Expenses:Restaurant</code> account myself: I typed it in. I have shortcuts in my text editor that allow me to do that using account name completion, it takes a second and it’s incredibly easy. Furthermore, pre-selecting this account could be automated as well, by running a simple learning algorithm on the previous history contains in the same input file (we tend to go to the same places all the time).</p>
 </li>
 </ul>
 <p>The syntax gets a little bit more complicated, for example it allows you to represent stock purchases and sales, tracking the cost basis of your assets, and there are many other types of conveniences, like being able to define and count any kind of “thing” in an account (e.g., “vacation hours accumulated”), but this example captures the <em>essence</em> of what I do. I replicate all the transactions from all of the accounts that I own in this way, for the most part in an automated fashion. I spend about 1-2 hours every couple of weeks to update this input file, and only for the most used accounts (credit card and checking accounts). Other accounts I’ll update every couple of months, or when I need to generate some reports. Because I have a solid understanding of my finances, this is not a burden anymore… it has become <em>fun</em>.</p>
@@ -361,7 +361,7 @@ command-line accounting systems to manage personal finances.</em></p>
 <p>The applications are endless. I have all sorts of wild ideas for generating reports for custom projects. These are useful and fun experiments, “challenges” as I call them. Some examples:</p>
 <ul>
 <li>
-<p>I once owned a condo unit and I’ve been doing double-entry bookkeeping throughout the period I owned it, through selling it. All of the corresponding accounts share the Loft4530 name in them. This means that I could potentially compute the precise <a href="http://en.wikipedia.org/wiki/Internal_rate_of_return"><span class="underline">internal rate of return</span></a> on all of the cash flows related to it, including such petty things as replacement light bulbs expenses. To consider it as a pure investment. Just for fun.</p>
+<p>I once owned a condo unit and I’ve been doing double-entry bookkeeping throughout the period I owned it, through selling it. All of the corresponding accounts share the <code>Loft4530</code> name in them. This means that I could potentially compute the precise <a href="http://en.wikipedia.org/wiki/Internal_rate_of_return"><span class="underline">internal rate of return</span></a> on all of the cash flows related to it, including such petty things as replacement light bulbs expenses. To consider it as a pure investment. Just for fun.</p>
 </li>
 <li>
 <p>I can render a <a href="http://en.wikipedia.org/wiki/Treemapping"><span class="underline">tree-map</span></a> of my annual expenses and assets. This is a good visualization of these categories, that preserve their relative importance.</p>
@@ -377,11 +377,7 @@ command-line accounting systems to manage personal finances.</em></p>
 </li>
 <li>
 <p><strong>By writing scripts.</strong> You can parse and obtain the contents of a ledger with very little code. In Python, this looks no more complicated than this:  </p>
-<p>import beancount.loader<br/>
-…<br/>
-entries, errors, options = beancount.loader.load_file(‘myfile.ledger’)<br/>
-for entry in entries:<br/>
-…</p>
+<p><code>import beancount.loader … entries, errors, options = beancount.loader.load_file(‘myfile.ledger’) for entry in entries: …</code></p>
 </li>
 </ol>
 <p>Voila. You’re on your way to spitting out whatever output you want. You have access to all the libraries in the Python world, and my code is mostly functional, heavily documented and thoroughly unit-tested. You should be able to find your way easily. Moreover, if you’re uncertain about using this system, you could just use it to begin entering your data and later write a script that converts it into something else.</p>
@@ -409,7 +405,7 @@ for entry in entries:<br/>
                                       2014-04-02.anthem.eob-physiotherapy.pdf
                                       …
 </code></pre>
-<p>These example files would correspond to accounts with names Assets:US:TDBank:Checking, Liabilities:US:Amex:Platinum, and Expenses:Health:Medical. I keep this directory under version control. As long as a file name begins with a date, such as “2014-04-02”, Beancount is able to find the files automatically and insert directives that are rendered in its web interface as part of an account’s journal, which you can click on to view the document itself. This allows me to find all my statements in one place, and if I’m searching for a document, it has a well-defined place where I know to find it.</p>
+<p>These example files would correspond to accounts with names <code>Assets:US:TDBank:Checking</code>, <code>Liabilities:US:Amex:Platinum</code>, and <code>Expenses:Health:Medical</code>. I keep this directory under version control. As long as a file name begins with a date, such as “<code>2014-04-02</code>”, Beancount is able to find the files automatically and insert directives that are rendered in its web interface as part of an account’s journal, which you can click on to view the document itself. This allows me to find all my statements in one place, and if I’m searching for a document, it has a well-defined place where I know to find it.</p>
 <p>Moreover, the importing software I wrote is able to identify downloaded files and automatically move them into the corresponding account’s directory.</p>
 <h2 id="how-the-pieces-fit-together">How the Pieces Fit Together<a id="how-the-pieces-fit-together"></a><a class="headerlink" href="#how-the-pieces-fit-together" title="Permanent link"></a></h2>
 <p>So I’ve described what I do to organize my finances. Here I’ll tell you about the various software pieces and how they fit together:</p>

@@ -257,7 +257,7 @@
   Expenses:Financial:Commissions     9.95 USD
   Income:US:ETrade:PnL
 </code></pre>
-<p>The last leg will be automatically filled in by Beancount to -30 USD, as we’re allowed one posting without an amount (and remember that in the double-entry system without credits and debits, a profit is a negative number for “Income” accounts). This is the number the government is interested in for your taxes.</p>
+<p>The last leg will be automatically filled in by Beancount to <code>-30 USD</code>, as we’re allowed one posting without an amount (and remember that in the double-entry system without credits and debits, a profit is a negative number for “Income” accounts). This is the number the government is interested in for your taxes.</p>
 <p>In summary, you now have:</p>
 <blockquote>
 <p>A position of 7 “shares at book value of 160$” = 1120$ (its book value)</p>
@@ -273,9 +273,9 @@
 <pre><code>  Assets:US:ETrade:IBM                 10 {IBM 160.00 USD}
 </code></pre>
 <p>But … it would be annoying to write this, so we use a syntax more intuitive to humans.</p>
-<p>So the thing is, you can’t subtract units of {IBM at 170.00 USD}... because there just aren’t any in that bag. What you have in the bag are units of {IBM at 160.00 USD}. You can only take out these ones.</p>
+<p>So the thing is, you can’t subtract units of <code>{IBM at 170.00 USD}</code>... because there just aren’t any in that bag. What you have in the bag are units of <code>{IBM at 160.00 USD}</code>. You can only take out these ones.</p>
 <p>Now that being said, do you see how it’s the amount that was exchanged to us for the shares that really helps us track the P/L? Nowhere did we actually need to indicate the price at which we sold the shares. It’s the fact that we received a certain amount of cash that is different than the cost of the position we’re selling that triggers the imbalance, which we book to a capital gain.</p>
-<p>Hmmm… Beancount maintains a price database, wouldn’t it be nice to at least record and attach that price to the transaction for documentation purposes? Indeed. Beancount allows you to also attach a price to that posting, but for the purpose of balancing the transaction, it ignores it completely. It is mainly there for documentation, and you can use it if you write scripts. And if you use the beancount.plugins.implicit_prices plugin, it will be used to automatically synthesize a price entry that will enrich our historical price database, which may be used in reporting the market value of the account contents (more details on this follow).</p>
+<p>Hmmm… Beancount maintains a price database, wouldn’t it be nice to at least record and attach that price to the transaction for documentation purposes? Indeed. Beancount allows you to also attach a price to that posting, but for the purpose of balancing the transaction, it ignores it completely. It is mainly there for documentation, and you can use it if you write scripts. And if you use the <code>beancount.plugins.implicit_prices</code> plugin, it will be used to automatically synthesize a <code>price</code> entry that will enrich our historical price database, which may be used in reporting the market value of the account contents (more details on this follow).</p>
 <p>So the complete and final transaction for selling those shares should be:</p>
 <pre><code>2014-02-17 * "Selling some IBM"
   Assets:US:ETrade:IBM          -3 IBM {160.00 USD} @ 170.00 USD
@@ -290,7 +290,7 @@
   Assets:US:ETrade:Cash           -909.95 USD
   Expenses:Financial:Commissions     9.95 USD
 </code></pre>
-<p>Now, what do we have in the bag for Assets:US:ETrade:IBM? We have two kinds of things:</p>
+<p>Now, what do we have in the bag for <code>Assets:US:ETrade:IBM</code>? We have two kinds of things:</p>
 <ul>
 <li>
 <p>7 shares of “IBM held at 160 USD/share”, from the first trade</p>
@@ -373,7 +373,7 @@
 <h2 id="reporting-unrealized-pl">Reporting Unrealized P/L<a id="reporting-unrealized-pl"></a><a class="headerlink" href="#reporting-unrealized-pl" title="Permanent link"></a></h2>
 <p>Okay, so our account balances are holding the cost of each unit, and that provides us with the book value of these positions. Nice. But what about viewing the market value?</p>
 <p>The market value of the positions is simply the number of units of these instruments x the market price at the time we’re interested in. This price fluctuates. So we need the price.</p>
-<p>Beancount supports a type of entry called a price entry that allows you to tell it what the price of an instrument was at a particular point in time, e.g.</p>
+<p>Beancount supports a type of entry called a <code>price</code> entry that allows you to tell it what the price of an instrument was at a particular point in time, e.g.</p>
 <pre><code>2014-05-25 price IBM   182.27 USD
 </code></pre>
 <p>In order to keep Beancount simple and with few dependencies, the software does not automatically fetch these prices (you can check out LedgerHub for this purpose, or write your own script that will insert the latest prices in your input file if so desired… there are many libraries to fetch prices from the internet online). It only knows about market prices from all these price entries. Using these, it builds an in-memory historical database of prices over time and can query it to obtain the most current values.</p>
@@ -480,7 +480,7 @@ Expenses:Financial:Commissions        39.80 USD
 <p><strong>Mark-to-Market</strong>: Handling end-of-year mark-to-market for Section 1256 instruments (i.e., futures and options), by re-evaluating the cost basis. This is similar to a cost basis readjustment applied at the end of each year for all of these types instruments.</p>
 </li>
 <li>
-<p><strong>Short Sales</strong>: these require little changes. We just have to allow negative numbers of units held at cost. At the moment we spit a warning when units held at cost go negative in order to detect data entry errors, but it would be easy to extend the Open directive syntax to allow this to occur on specific accounts which can hold short sales, which should just show as negative shares. All the arithmetic should otherwise just work naturally. Interest payments on margins would show up as distinct transactions. Also, when you short the stock, you don’t receive dividends for those positions, but rather you have to pay them out. You would an expense account for this, e.g., Expenses:StockLoans:Dividends.</p>
+<p><strong>Short Sales</strong>: these require little changes. We just have to allow negative numbers of units held at cost. At the moment we spit a warning when units held at cost go negative in order to detect data entry errors, but it would be easy to extend the Open directive syntax to allow this to occur on specific accounts which can hold short sales, which should just show as negative shares. All the arithmetic should otherwise just work naturally. Interest payments on margins would show up as distinct transactions. Also, when you short the stock, you don’t receive dividends for those positions, but rather you have to pay them out. You would an expense account for this, e.g., <code>Expenses:StockLoans:Dividends</code>.</p>
 </li>
 </ul>
 <!-- -->
