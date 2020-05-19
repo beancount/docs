@@ -299,9 +299,9 @@ Installing libraries from their source code is also pretty easy: download and un
 
     sudo python3 setup.py install
 
-#### Just make sure the “python3” executable you run when you do that is the same one you will use to run Beancount. <a id="just-make-sure-the-python3-executable-you-run-when-you-do-that-is-the-same-one-you-will-use-to-run-beancount."></a>
+Just make sure the “python3” executable you run when you do that is the same one you will use to run Beancount.
 
-#### Here are the libraries Beancount depends on and a short discussion of why.<a id="here-are-the-libraries-beancount-depends-on-and-a-short-discussion-of-why."></a>
+Here are the libraries Beancount depends on and a short discussion of why.
 
 ##### python-dateutil<a id="python-dateutil"></a>
 
@@ -317,7 +317,7 @@ The query client (`bean-query`) which is used to extract data tables from a ledg
 
 ##### lxml<a id="lxml"></a>
 
-##### A tool is provided to bake a static HTML version of the web interface to a zip file (`bean-bake`). This is convenient to share files with an accountant who may not have your software installed. The web scraping code that is used to do that used the lxml HTML parsing library.<a id="a-tool-is-provided-to-bake-a-static-html-version-of-the-web-interface-to-a-zip-file-bean-bake.-this-is-convenient-to-share-files-with-an-accountant-who-may-not-have-your-software-installed.-the-web-scraping-code-that-is-used-to-do-that-used-the-lxml-html-parsing-library."></a>
+A tool is provided to bake a static HTML version of the web interface to a zip file (`bean-bake`). This is convenient to share files with an accountant who may not have your software installed. The web scraping code that is used to do that used the lxml HTML parsing library.
 
 #### Python Libraries for Export (optional)<a id="python-libraries-for-export-optional"></a>
 

@@ -122,13 +122,13 @@ It would be nice to find a solution to intra-day assertions for date-based asser
 
     2013-05-05 balance Assets:Checking    100 USD
 
-    2013-05-20 * Interest payment
+    2013-05-20 * "Interest payment"
       Assets:Checking           12.01 USD
       Income:Interest
 
     2013-05-20 balance Assets:Checking    121.01 USD
 
-    2013-05-20 * Check deposit
+    2013-05-20 * "Check deposit"
       Assets:Checking           731.73 USD
       Assets:Receivable
 

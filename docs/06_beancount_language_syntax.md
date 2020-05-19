@@ -204,7 +204,7 @@ And your use of currencies can get quite creative: you can create a currency for
 
 Beancount does not support the dollar sign syntax, e.g., “$120.00”. You should always use symbols for currencies in your input file. This makes the input more regular and is a design choice. For monetary units, I suggest that you use the standard [<span class="underline">ISO 4217 currency code</span>](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) as a guideline; these quickly become familiar. However, you may include some other characters in currency names, like underscores (\_) or dashes (-), but no spaces.
 
-Finally, you will notice that there exists a “Commodity” directive that can be used to declare currencies. It is entirely optional: currencies come into being as you use them. The purpose of the directive is simply to attach metadata to it.
+Finally, you will notice that there exists a “`commodity`” directive that can be used to declare currencies. It is entirely optional: currencies come into being as you use them. The purpose of the directive is simply to attach metadata to it.
 
 ### Strings<a id="strings"></a>
 
@@ -256,7 +256,7 @@ All accounts need to be declared “open” in order to accept amounts posted to
 
 The general format of the Open directive is:
 
-    YYYY-MM-DD open Account [ConstraintCurrency,...] [“BookingMethod”]
+    YYYY-MM-DD open Account [ConstraintCurrency,...] ["BookingMethod"]
 
 The comma-separated optional list of constraint currencies enforces that all changes posted to this account are in units of one of the declared currencies. Specifying a currency constraint is recommended: the more constraints you provide Beancount with, the less likely you will be to make data entry mistakes because if you do, it will warn you about it.
 

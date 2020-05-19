@@ -6,7 +6,7 @@ How We Share Expenses<a id="title"></a>
 Context<a id="context"></a>
 ---------------------------
 
-We’re both working professionals and have decided to share all expenses 2:1, where I pay 2 parts. Roughly this is what we shoot for, this is not a hard rule, but we track it as if it were rigid, and accept it as a good base approximation. We have two types of shared expenses:
+We’re both working professionals and have decided to share all expenses roughly 60%/40%. This is what we shoot for, this is not a hard rule, but we track it as if it were rigid, and accept it as a good approximation. We have two types of shared expenses:
 
 -   **Shared.** Common expenses between us, e.g., rent, a dinner out with friends, etc.
 
@@ -19,7 +19,7 @@ Shared Expenses<a id="shared-expenses"></a>
 
 For our shared expenses, I maintain an account for her on my personal ledger file. This is simple and I’m not too interested in maintaining a separate ledger for the totality of our common shared expenses. It’s sufficient for me to just keep track of her balance on that one account. You can imagine that account like a credit card (I’m the credit provider) that she pays off with transfers and also by making her own shared expenses.
 
-I just declare a `Assets:US:Share:Carolyn` account on my personal ledger (`blais.beancount`).
+I just declare an `Assets:US:Share:Carolyn` account on my personal ledger (`blais.beancount`).
 
 ### My Shared Expenses<a id="my-shared-expenses"></a>
 
@@ -95,7 +95,7 @@ Finally, in order to reconcile this account, my wife (or I, but usually she’s 
       Assets:US:MyBank:Checking  3000 USD
       Assets:US:Share:Carolyn
 
-Typically she's do this every month or two. She'll be fiddling on her laptop and ask casually "Hey, what's my balance I can do a transfer now?" It’s all fine to relax about the particulars since the system is keeping track of everything precisely, so she can send some approximate amount, it doesn't matter, it'll post to her account.
+Typically she'll do this every month or two. She'll be fiddling on her laptop and ask casually "Hey, what's my balance I can do a transfer now?" It’s all fine to relax about the particulars since the system is keeping track of everything precisely, so she can send some approximate amount, it doesn't matter, it'll post to her account.
 
 Child Expenses<a id="child-expenses"></a>
 -----------------------------------------
@@ -216,14 +216,14 @@ After that, going back to the Kyle ledger, pulling in all the transactions again
     Mom expected contribution:              28403.72
     Mom actual contribution:                28403.72
 
-    Mom OWES Dad:       301.00
+    Mom OWES Dad:       0.00
 
 Summary of the System<a id="summary-of-the-system"></a>
 -------------------------------------------------------
 
 Here’s a diagram that puts in perspective the entire system together:
 
-<img src="22_how_we_share_expenses/media/4c38b552619d4f280449758db07c5c01dade8f77.png" style="width:8.79167in;height:6.94444in" />
+<img src="22_how_we_share_expenses/media/4e324b50e18ee13849b1b1220eead8168afda551.png" style="width:8.79167in;height:6.94444in" />
 
 I (“Dad”) use Beancount via Emacs, exclusively. Carolyn (“Mom”) only interacts with a single Google Sheets doc with three sheets in it. I pull in Carolyn’s shared expenses from a sheet that she fills in to a ledger which gets included in my personal ledger. I also pull in her expenses for Kyle in a similar document, and from my personal ledger I generate my own expenses for Kyle. Both of these documents are merged in a top-level ledger dedicated to Kyle’s expenses.
 

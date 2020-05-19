@@ -51,7 +51,7 @@ These jobs are run concurrently so it should be fairly fast.
 
 The general format of each of these "job source strings" is
 
-&lt;quote-currency&gt;:`<module>/[^]<symbol>`
+    <quote-currency>:<module>/[^]<symbol>
 
 For example:
 
@@ -71,7 +71,7 @@ In practice, fetching prices online often fails. Data sources typically only sup
 
 To this extent, a source string may provide multiple sources for the data, separated with commas. For example:
 
-`USD:google/CURRENCY:GBPUSD,yahoo/GBPUSD`
+    USD:google/CURRENCY:GBPUSD,yahoo/GBPUSD
 
 Each source is tried in turn, and if one fails to return a valid price, the next source is tried as a fallback. The hope is that at least one of the specified sources will work out.
 
@@ -79,17 +79,17 @@ Each source is tried in turn, and if one fails to return a valid price, the next
 
 Sometimes, prices are only available for the inverse of an instrument. This is often the case for currencies. For example, the price of Canadian dollars quoted in US dollars is provided by the USD/CAD market, which gives the price of a US dollar in Canadian dollars (the inverse). In order use this, you can prepend "^" to the instrument name to instruct the tool to compute the inverse of the fetched price:
 
-`USD:google/^CURRENCY:USDCAD`
+    USD:google/^CURRENCY:USDCAD
 
 If a source price is to be inverted, like this, the precision could be different than what is fetched. For instance, if the price of USD/CAD is 1.32759, for the above directive to price the “CAD” instrument it would output this:
 
-2015-10-28 price CAD 0.753244601119 USD
+    2015-10-28 price CAD  0.753244601119 USD
 
 By default, inverted rates will be rounded similarly to how other Price directives were rounding those numbers.
 
 As you may now, Beancount's in-memory price database works in both directions (the reciprocals of all rates are stored automatically). So if you prefer to have the output Price entries with swapped currencies instead of inverting the rate number itself, you can use the --swap-inverted option. In the previous example for the price of CAD, it would output this:
 
-2015-10-28 price USD 1.32759 CAD
+    2015-10-28 price USD   1.32759 CAD
 
 ### Date <a id="date"></a>
 
@@ -109,7 +109,7 @@ You can disable the cache with an option:
 
 You can also instruct the script to clear the cache before fetching its prices:
 
-`bean-price --clear-cache`
+    bean-price --clear-cache
 
 Prices from a Beancount Input File<a id="prices-from-a-beancount-input-file"></a>
 ---------------------------------------------------------------------------------
@@ -118,7 +118,7 @@ Generally, one uses a Beancount input file to specify the list of currencies to 
 
     2007-07-20 commodity VEA
 
-**`price: "USD:google/NYSEARCA:VEA"`**
+      price: "USD:google/NYSEARCA:VEA"
 
 The "price" metadata should contain a list of price source strings. For example, a stock product might look like this:
 

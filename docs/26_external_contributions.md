@@ -5,8 +5,7 @@ External Contributions to Beancount<a id="title"></a>
 
 [<span class="underline">http://furius.ca/beancount/doc/contrib</span>](http://furius.ca/beancount/doc/contrib)
 
-*Links to codes written by other people that build on top of  
-or that are related to Beancount and/or Ledgerhub.*
+    Links to codes written by other people that build on top of or that are related to Beancount and/or Ledgerhub.
 
 Plugins<a id="plugins"></a>
 ---------------------------
@@ -70,7 +69,7 @@ Importers<a id="importers"></a>
 Converters<a id="converters"></a>
 ---------------------------------
 
-<span class="underline">p[laid2text](https://github.com/madhat2r/plaid2text)</span>: Python Scripts to export Plaid transactions and transform them into Ledger or Beancount syntax formatted files.
+[<span class="underline">plaid2text</span>](https://github.com/madhat2r/plaid2text): Python Scripts to export Plaid transactions and transform them into Ledger or Beancount syntax formatted files.
 
 [<span class="underline">gnucash-to-beancount</span>](https://github.com/henriquebastos/gnucash-to-beancount/): A script from Henrique Bastos to convert a GNUcash SQLite database into an equivalent Beancount input file.
 
@@ -126,11 +125,15 @@ Documentation<a id="documentation"></a>
 Interfaces / Web<a id="interfaces-web"></a>
 -------------------------------------------
 
-[<span class="underline">fava: A web interface for Beancount</span>](https://github.com/aumayr/fava) (Dominik Aumayr): Beancount comes with its own simple web front-end (“bean-web”) intended merely as a thin shell to invoke and display HTML versions of its reports. “Fava” is an alternative web application front-end with more & different features, intended initially as a playground and proof-of-concept to explore a newer, better design for presenting the contents of a Beancount file.
+[<span class="underline">fava: A web interface for Beancount</span>](https://github.com/aumayr/fava) (Dominik Aumayr, Jakob Schnitzer): Beancount comes with its own simple web front-end (“bean-web”) intended merely as a thin shell to invoke and display HTML versions of its reports. “Fava” is an alternative web application front-end with more & different features, intended initially as a playground and proof-of-concept to explore a newer, better design for presenting the contents of a Beancount file.
 
 [<span class="underline">Fava Classy Portfolio</span>](https://github.com/seltzered/fava-classy-portfolio) (Vivek Gani): Classy Portfolio is an Extension for Fava, a web interface for the Beancount plaintext accounting software. The extension displays a list of different portfolios (e.g. 'taxable' vs. 'retirement'), with breakdowns using 'asset-class' and 'asset-subclass' metadata labels on commodities.
 
 [<span class="underline">Fava Investor</span>](https://github.com/redstreet/fava_investor) project: Asset allocation plugin for fava/beancount (personal finance software).
+
+[<span class="underline">Fava Miler</span>](https://github.com/redstreet/fava_miler) (RedStreet): Airline miles and rewards points: expiration and value reporting.
+
+[<span class="underline">Fava Envelope</span>](https://github.com/bryall/fava-envelope) (Brian Ryall): A beancount fava extension to add an envelope budgeting capability to fava and beancount. It is developed as a Fava plugin and CLI.
 
 Mobile/Phone Data Entry<a id="mobilephone-data-entry"></a>
 ----------------------------------------------------------

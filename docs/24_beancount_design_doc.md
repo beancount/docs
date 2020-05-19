@@ -115,7 +115,7 @@ Martin Blais ([<span class="underline">blais@furius.ca</span>](mailto:blais@furi
 >
 > [<span class="underline">Errors Cleanup</span>](#errors-cleanup)
 >
-> [<span class="underline">Types</span>](#types)
+> [<span class="underline">Types</span>](#_tzhbghu736gs)
 >
 > [<span class="underline">Conclusion</span>](#conclusion)
 
@@ -155,7 +155,7 @@ There is an exception:
 
 All transactions must balance by “weight.” There is no exception. Beancount transactions are required to have balanced, period.
 
-In particular, there is no allowance for exceptions such as the “virtual postings” that can be seen in Ledger. The first implementation of Beancount allowed such postings. As a result, I often used them to “resolve” issues that I did not know how to model well otherwise. When I rewrote Beancount, I set out to convert my entire input file to avoid using these, and over time I succeeded in doing this and learned a lot of new things in the process. I have since become convinced that virtual postings are wholly unnecessary, and that make them available only provides a *crutch* upon which a lot of users will latch instead of learning to model transfers using balanced transactions. I have yet to come across a sufficiently convincing case for them[^1].
+In particular, there is no allowance for exceptions such as the “virtual postings” that can be seen in Ledger. The first implementation of Beancount allowed such postings. As a result, I often used them to “resolve” issues that I did not know how to model well otherwise. When I rewrote Beancount, I set out to convert my entire input file to avoid using these, and over time I succeeded in doing this and learned a lot of new things in the process. I have since become convinced that virtual postings are wholly unnecessary, and that making them available only provides a *crutch* upon which a lot of users will latch instead of learning to model transfers using balanced transactions. I have yet to come across a sufficiently convincing case for them[^1].
 
 This provides the property that any subsets of transactions will sum up to zero. This is a nice property to have, it means we can generate balance sheets at any point in time. Even when we eventually [<span class="underline">support settlement dates or per-posting dates</span>](28_settlement_dates_in_beancount.md), we will split up transactions in a way that does not break this invariant.
 
@@ -163,7 +163,7 @@ This provides the property that any subsets of transactions will sum up to zero.
 
 Beancount accounts should be constrained to be of one of five types: Assets, Liabilities, Income, Expenses and Equity. The rationale behind this is to realize that all matters of counting can be characterized by being either permanent (Assets, Liabilities) or transitory (Income, Expenses), and that the great majority of accounts have a usual balance sign: positive (Assets, Expenses) or negative (Liabilities, Income). Given a quantity to accumulate, we can always select one of these four types of labels for it.
 
-Enforcing this makes it possible to implement reports of accumulates values for permanent accounts (balance sheet) and reports of changes of periods of time (income statement). Although it is technically possible to explicitly book postings against Equity accounts the usual purpose of items in that category is to account for past changes on the balance sheet (net/retained income or opening balances).
+Enforcing this makes it possible to implement reports of accumulated values for permanent accounts (balance sheet) and reports of changes of periods of time (income statement). Although it is technically possible to explicitly book postings against Equity accounts the usual purpose of items in that category is to account for past changes on the balance sheet (net/retained income or opening balances).
 
 These concepts of time and sign generalize beyond that of traditional accounting. Not having them raises difficult and unnecessary questions about how to handle calculating these types of reports. We simply require that you label your accounts into this model. I’ll admit that this requires a bit of practice and forethought, but the end result is a structure that easily allows us to build commonly expected outputs.
 
@@ -173,7 +173,7 @@ Accounts have lifetimes; an account opens at a particular date and optionally cl
 
 All accounts are required to have a corresponding Open directive in the stream. By default, this is enforced by spitting out an error when posting to an account whose Open directive hasn’t been seen in the stream. You can automate the generation of these directives by using the “auto\_accounts” plugin, but in any case, the stream of entries will always contain the Open directives. This is an assumption that one should be able to rely upon when writing scripts.
 
-(Eventually a similar constraint will be applied for Commodity directives so that the stream always include one before it is used; and they should be auto-generated as well. This is not the case right now \[June 2015\].)
+(Eventually a similar constraint will be applied for Commodity directives so that the stream always includes one before it is used; and they should be auto-generated as well. This is not the case right now \[June 2015\].)
 
 ### Supports Dates Only (and No Time)<a id="supports-dates-only-and-no-time"></a>
 
@@ -193,7 +193,7 @@ That being said, there are a few special metadata fields *produced* by the Beanc
 
 -   __tolerances__: A dict of currency to Decimal, the tolerance values used in balancing the transaction.
 
--   __residual__ (on Postings): A boolean, true if the posting has been added to automatically absorb rounding error.
+-   __residual__ (on postings): A boolean, true if the posting has been added to automatically absorb rounding error.
 
 There may be a few more produced in the future but in any case, the core should not read any metadata and affect its behavior as a consequence. (I should probably create a central registry or location where all the special values can be found in one place.)
 
@@ -263,7 +263,7 @@ Beancount does not predefine any currency names or categories—all currencies a
 
 Moreover, Beancount does not make a distinction between commodities which represent "money" and others that do not (such as shares, hours, etc.). These are treated the same throughout the system. It also does not have the concept of a "home" currency[^2]; it's a genuinely multi-currency system.
 
-Currencies need *not* be defined explicitly in the input file format; you can just start using them in the file and they will be recognized as such by their unique syntax (the lexer recognizes and emits currency tokens). However, you *may* declare some using a Commodity directive. This is only provided so that a per-commodity entity exists upon which the user can attach some metadata, and some report and plugins are able to find and use that metadata.
+Currencies need *not* be defined explicitly in the input file format; you can just start using them in the file and they will be recognized as such by their unique syntax (the lexer recognizes and emits currency tokens). However, you *may* declare some using a Commodity directive. This is only provided so that a per-commodity entity exists upon which the user can attach some metadata, and some reports and plugins are able to find and use that metadata.
 
 ### Account<a id="account"></a>
 
@@ -846,7 +846,7 @@ One may wonder whether Beancount’s input syntax should be a computer language 
 
 What is the difference between a data file format and a simple declarative computer language?
 
-One distinction is the intended writer of the file. Is it a human? Or is it a computer? The input files are meant to be manicured by a human, at the very least briefly eyeballed. While we are trying to automate as much of this process as possible via importing code—well, the unpleasant bits, anyway—we do want to insure that we review all the new transactions that we're adding to the ledger in order to ensure correctness. If the intended writer is a human one could file the input under the computer language rubric (most data formats are designed to be written by computers).
+One distinction is the intended writer of the file. Is it a human? Or is it a computer? The input files are meant to be manicured by a human, at the very least briefly eyeballed. While we are trying to automate as much of this process as possible via importing code—well, the unpleasant bits, anyway—we do want to ensure that we review all the new transactions that we're adding to the ledger in order to ensure correctness. If the intended writer is a human one could file the input under the computer language rubric (most data formats are designed to be written by computers).
 
 We can also judge it by the power of its semantics. Beancount’s language is not one designed to be used to perform computation, that is, you cannot define new “Beancount functions” in it. But it has data types. In this regard, it is more like a file format.
 
@@ -879,10 +879,6 @@ At the moment, account names, tags, links and commodities are represented as sim
 
 I’ve been thinking about removing the separate “errors” list and integrating it into the stream of entries as automatically produced “Error” entries. This has the advantage that the errors could be rendered as part of the rest of the stream, but it means we have to process the whole list of entries any time we need to print and find errors (probably not a big deal, given how rarely we output errors).
 
-### Types<a id="types"></a>
-
-Python 3.5 introduces types. I plan to use that throughout Beancount sometime after 3.5 is released, and I hope for it to catch a different class of errors than I’m already handling by unit tests.
-
 Conclusion<a id="conclusion"></a>
 ---------------------------------
 
@@ -897,6 +893,6 @@ Nothing in Beancount is inspired from the following docs, but you may find them 
 
 [^1]: I have been considering the addition of a very constrained form of non-balancing postings that would preserve the property of transactions otherwise being balanced, whereby the extra postings would not be able to interact (or sum with) regular balancing postings.
 
-[^2]: There is an option called “operating\_currency” but it is only used to provide good defaults for building reports, never in the processing of transactions. It is used to tell the reporting code which commodities should be broken out to have their own columns of balances, for example.
+[^2]: There is an option called operating\_currency but it is only used to provide good defaults for building reports, never in the processing of transactions. It is used to tell the reporting code which commodities should be broken out to have their own columns of balances, for example.
 
 [^3]: In previous version of Beancount this was not true, the Posting used to have a ‘position’ attribute and composed it. I prefer the flattened design, as many of the functions apply to either a Position or a Posting. Think of a Posting as *deriving* from a Position, though, technically it does not.
