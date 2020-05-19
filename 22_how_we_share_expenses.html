@@ -199,7 +199,7 @@
 <h1 id="how-we-share-expenses">How We Share Expenses<a id="title"></a><a class="headerlink" href="#how-we-share-expenses" title="Permanent link"></a></h1>
 <p><em>This document explains how I share expenses with my wife. This is a bit involved and I’ve developed a good working system, but it’s not so simple for most people to do that, so I figured I would take the time to describe it to help others with designing similar processes for themselves.</em></p>
 <h2 id="context">Context<a id="context"></a><a class="headerlink" href="#context" title="Permanent link"></a></h2>
-<p>We’re both working professionals and have decided to share all expenses 2:1, where I pay 2 parts. Roughly this is what we shoot for, this is not a hard rule, but we track it as if it were rigid, and accept it as a good base approximation. We have two types of shared expenses:</p>
+<p>We’re both working professionals and have decided to share all expenses roughly 60%/40%. This is what we shoot for, this is not a hard rule, but we track it as if it were rigid, and accept it as a good approximation. We have two types of shared expenses:</p>
 <ul>
 <li>
 <p><strong>Shared.</strong> Common expenses between us, e.g., rent, a dinner out with friends, etc.</p>
@@ -211,7 +211,7 @@
 <p>These get handled very differently, because we book our child's expenses as if it were a separate project on its own. (If you prefer pictures, there’s a diagram at the end of this document that provides an overview of the system.)</p>
 <h2 id="shared-expenses">Shared Expenses<a id="shared-expenses"></a><a class="headerlink" href="#shared-expenses" title="Permanent link"></a></h2>
 <p>For our shared expenses, I maintain an account for her on my personal ledger file. This is simple and I’m not too interested in maintaining a separate ledger for the totality of our common shared expenses. It’s sufficient for me to just keep track of her balance on that one account. You can imagine that account like a credit card (I’m the credit provider) that she pays off with transfers and also by making her own shared expenses.</p>
-<p>I just declare a <code>Assets:US:Share:Carolyn</code> account on my personal ledger (<code>blais.beancount</code>).</p>
+<p>I just declare an <code>Assets:US:Share:Carolyn</code> account on my personal ledger (<code>blais.beancount</code>).</p>
 <h3 id="my-shared-expenses">My Shared Expenses<a id="my-shared-expenses"></a><a class="headerlink" href="#my-shared-expenses" title="Permanent link"></a></h3>
 <p>Whenever I incur an expense that is for both of us, I book it normally but I will tag it with #carolyn:</p>
 <pre><code>2018-12-23 * "WHISK" "Water refill" #carolyn
@@ -269,7 +269,7 @@ upload-to-sheets -v --docid="&lt;id&gt;" carolyn.csv:"Shared Account (Read-Only)
   Assets:US:MyBank:Checking  3000 USD
   Assets:US:Share:Carolyn
 </code></pre>
-<p>Typically she's do this every month or two. She'll be fiddling on her laptop and ask casually "Hey, what's my balance I can do a transfer now?" It’s all fine to relax about the particulars since the system is keeping track of everything precisely, so she can send some approximate amount, it doesn't matter, it'll post to her account.</p>
+<p>Typically she'll do this every month or two. She'll be fiddling on her laptop and ask casually "Hey, what's my balance I can do a transfer now?" It’s all fine to relax about the particulars since the system is keeping track of everything precisely, so she can send some approximate amount, it doesn't matter, it'll post to her account.</p>
 <h2 id="child-expenses">Child Expenses<a id="child-expenses"></a><a class="headerlink" href="#child-expenses" title="Permanent link"></a></h2>
 <p>I designed a very different system to track our child’s expenses. For Kyle, I’m definitely interested in tracking the total cash flows and expenses related to him, regardless of who paid for them. It’s interesting to be able to ask (our ledger) a question like: “How much did his schooling cost?”, for example, or “How much did we pay in diapers, in total?”. Furthermore, we tend to pay for different things for Kyle, e.g. I deal with the daycare expenses (I’m the accounting nerd after all, so this shouldn’t be surprising), and his mother tends to buy all the clothing and prepare his food. To have a global picture of all costs related to him, we need to account for these things correctly.</p>
 <p>One interesting detail is that it would be difficult to do this with the previously described method, because I’d have to have a mirror of all expense accounts I’d use for him. This would make my personal ledger really ugly. For example, I want to book diapers to <code>Expenses:Pharmacy</code>, but I also have my own personal pharmacy expenses. So in theory, to do that I’d like to have separate accounts for him and me, e.g., <code>Expenses:Kyle:Pharmacy</code> and <code>Expenses:Pharmacy</code>. This would have to be done for all the accounts we use for him. I don't do that.</p>
@@ -365,11 +365,11 @@ Dad actual contribution:                42605.58
 Mom expected contribution:              28403.72
 Mom actual contribution:                28403.72
 
-Mom OWES Dad:       301.00
+Mom OWES Dad:       0.00
 </code></pre>
 <h2 id="summary-of-the-system">Summary of the System<a id="summary-of-the-system"></a><a class="headerlink" href="#summary-of-the-system" title="Permanent link"></a></h2>
 <p>Here’s a diagram that puts in perspective the entire system together:</p>
-<p><img src="22_how_we_share_expenses/media/4c38b552619d4f280449758db07c5c01dade8f77.png" style="width:8.79167in;height:6.94444in"/></p>
+<p><img src="22_how_we_share_expenses/media/4e324b50e18ee13849b1b1220eead8168afda551.png" style="width:8.79167in;height:6.94444in"/></p>
 <p>I (“Dad”) use Beancount via Emacs, exclusively. Carolyn (“Mom”) only interacts with a single Google Sheets doc with three sheets in it. I pull in Carolyn’s shared expenses from a sheet that she fills in to a ledger which gets included in my personal ledger. I also pull in her expenses for Kyle in a similar document, and from my personal ledger I generate my own expenses for Kyle. Both of these documents are merged in a top-level ledger dedicated to Kyle’s expenses.</p>
 <p>I’m not going to claim it’s simple and that it’s always up-to-date. I tend to update all of these things once/quarter and fix a few input errors each time we review it. I automate much of it via Makefiles, but frankly I don’t update it frequently enough to just remember where all the moving pieces are, so every time, there’s a bit of scrambling and reading my makefiles and figuring out what’s what (in fact, I was motivated to write this to cement my understanding solidly for the future). Amazingly enough, it hasn’t broken at all and I find all the pieces every time and make it work.</p>
 <p>And we have enough loose change between the two of us that it’s never that urgent to reconcile every week. My wife tends to pay more shared expenses and I tend to pay more Kyle’s expenses, so I often end up doing a transfer from one to the other to even things out and it’s relatively close—the shortfall in Kyle expenses makes up for my shortfall on the shared expenses.</p>
