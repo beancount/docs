@@ -51,13 +51,16 @@ nav:
     - beancount: api_reference/index.md
     - api_reference/beancount.core.md
     - api_reference/beancount.ingest.md
+    - api_reference/beancount.loader.md
     - api_reference/beancount.ops.md
     - api_reference/beancount.parser.md
     - api_reference/beancount.plugins.md
+    - api_reference/beancount.prices.md
     - api_reference/beancount.query.md
     - api_reference/beancount.reports.md
     - api_reference/beancount.scripts.md
     - api_reference/beancount.utils.md
+    - api_reference/beancount.web.md
 
 markdown_extensions:
   - toc:
