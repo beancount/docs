@@ -123,11 +123,15 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="beancount.ingest.html">beancount.ingest</a>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="beancount.loader.html">beancount.loader</a>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="beancount.ops.html">beancount.ops</a>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="beancount.parser.html">beancount.parser</a>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="beancount.plugins.html">beancount.plugins</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="beancount.prices.html">beancount.prices</a>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="beancount.query.html">beancount.query</a>
 </li>
@@ -492,6 +496,8 @@
 </ul>
 </li>
 </ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="beancount.web.html">beancount.web</a>
 </li>
 </ul>
 </div>
@@ -5659,7 +5665,7 @@ import_curses<span class="p">()</span> </code>
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.utils.misc_utils.is_sorted">
 <code class="highlight language-python">
-is_sorted<span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="n">key</span><span class="o">=&lt;</span><span class="n">function</span> <span class="o">&lt;</span><span class="k">lambda</span><span class="o">&gt;</span> <span class="n">at</span> <span class="mh">0x7f42507048b0</span><span class="o">&gt;</span><span class="p">,</span> <span class="nb">cmp</span><span class="o">=&lt;</span><span class="n">function</span> <span class="o">&lt;</span><span class="k">lambda</span><span class="o">&gt;</span> <span class="n">at</span> <span class="mh">0x7f4250704940</span><span class="o">&gt;</span><span class="p">)</span> </code>
+is_sorted<span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="n">key</span><span class="o">=&lt;</span><span class="n">function</span> <span class="o">&lt;</span><span class="k">lambda</span><span class="o">&gt;</span> <span class="n">at</span> <span class="mh">0x7f03151e38b0</span><span class="o">&gt;</span><span class="p">,</span> <span class="nb">cmp</span><span class="o">=&lt;</span><span class="n">function</span> <span class="o">&lt;</span><span class="k">lambda</span><span class="o">&gt;</span> <span class="n">at</span> <span class="mh">0x7f03151e3940</span><span class="o">&gt;</span><span class="p">)</span> </code>
 <a class="headerlink" href="#beancount.utils.misc_utils.is_sorted" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Return true if the sequence is sorted.</p>
@@ -5688,7 +5694,7 @@ is_sorted<span class="p">(</span><span class="n">iterable</span><span class="p">
 <td>
 <p>A function to extract the quantity by which to sort.</p>
 </td>
-<td><code>&lt;function &lt;lambda&gt; at 0x7f42507048b0&gt;</code></td>
+<td><code>&lt;function &lt;lambda&gt; at 0x7f03151e38b0&gt;</code></td>
 </tr>
 <tr>
 <td><code>cmp</code></td>
@@ -5696,7 +5702,7 @@ is_sorted<span class="p">(</span><span class="n">iterable</span><span class="p">
 <td>
 <p>A function that compares two elements of a sequence.</p>
 </td>
-<td><code>&lt;function &lt;lambda&gt; at 0x7f4250704940&gt;</code></td>
+<td><code>&lt;function &lt;lambda&gt; at 0x7f03151e3940&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -10495,6 +10501,7 @@ compute_version_string<span class="p">(</span><span class="n">version</span><spa
 </div>
 <footer>
 <div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-right" href="beancount.web.html" title="beancount.web">Next <span class="icon icon-circle-arrow-right"></span></a>
 <a class="btn btn-neutral" href="beancount.scripts.html" title="beancount.scripts"><span class="icon icon-circle-arrow-left"></span> Previous</a>
 </div>
 <hr/>
@@ -10512,6 +10519,7 @@ compute_version_string<span class="p">(</span><span class="n">version</span><spa
 <span class="rst-current-version" data-toggle="rst-current-version">
 <a class="fa fa-github" href="https://github.com/xuhcc/beancount-docs/" style="float: left; color: #fcfcfc"> GitHub</a>
 <span><a href="beancount.scripts.html" style="color: #fcfcfc;">« Previous</a></span>
+<span style="margin-left: 15px"><a href="beancount.web.html" style="color: #fcfcfc">Next »</a></span>
 </span>
 </div>
 <script>var base_url = '..';</script>

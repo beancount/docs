@@ -1,0 +1,1866 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://xuhcc.github.io/beancount-docs/api_reference/beancount.loader.html" rel="canonical"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>beancount.loader - Beancount Documentation</title>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme_extra.css" rel="stylesheet"/>
+<link href="../css/custom.css" rel="stylesheet"/>
+<script>
+    // Current page data
+    var mkdocs_page_name = "beancount.loader";
+    var mkdocs_page_input_path = "api_reference/beancount.loader.md";
+    var mkdocs_page_url = "/beancount-docs/api_reference/beancount.loader.html";
+  </script>
+<script defer="" src="../js/jquery-2.1.1.min.js"></script>
+<script defer="" src="../js/modernizr-2.8.3.min.js"></script>
+</link></link></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href=".."> Beancount Documentation</a>
+</div>
+<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Index</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Outline</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="#">Documentation for Users</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../01_command_line_accounting_in_context.html">Command Line Accounting in Context</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../02_the_double_entry_counting_method.html">The Double Entry Counting Method</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03_installing_beancount.html">Installing Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04_running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../05_getting_started_with_beancount.html">Getting Started with Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../06_beancount_language_syntax.html">Beancount Language Syntax</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../07_beancount_options_reference.html">Beancount Options Reference</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../08_precision_tolerances.html">Precision Tolerances</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../09_beancount_query_language.html">Beancount Query Language</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../10_beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../11_how_inventories_work.html">How Inventories Work</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../12_exporting_your_portfolio.html">Exporting Your Portfolio</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../13_tutorial_example.html">Tutorial &amp; Example</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../14_beancount_history_and_credits.html">Beancount History and Credits</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../15_a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../16_fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../17_importing_external_data.html">Importing External Data</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#">Cookbooks &amp; Examples</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../18_command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../19_trading_with_beancount.html">Trading with Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../20_stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../21_sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../22_how_we_share_expenses.html">How We Share Expenses</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#">Documentation for Developers</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../23_beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../24_beancount_design_doc.html">Beancount Design Doc</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../25_ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../26_external_contributions.html">External Contributions</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#">Enhancement Proposals &amp; Discussions</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../27_a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../28_settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../29_balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../30_fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../31_rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">beancount</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="beancount.core.html">beancount.core</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="beancount.ingest.html">beancount.ingest</a>
+</li>
+<li class="toctree-l1 current"><a class="reference internal current" href="beancount.loader.html">beancount.loader</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#beancount.loader">beancount.loader</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.loader.LoadError">LoadError</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.loader.LoadError.__getnewargs__">__getnewargs__()</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.loader.LoadError.__new__">__new__()</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.loader.LoadError.__repr__">__repr__()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.loader.aggregate_options_map">aggregate_options_map()</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.loader.combine_plugins">combine_plugins()</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.loader.compute_input_hash">compute_input_hash()</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.loader.initialize">initialize()</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.loader.load_doc">load_doc()</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.loader.load_encrypted_file">load_encrypted_file()</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.loader.load_file">load_file()</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.loader.load_string">load_string()</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.loader.needs_refresh">needs_refresh()</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.loader.pickle_cache_function">pickle_cache_function()</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.loader.run_transformations">run_transformations()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="beancount.ops.html">beancount.ops</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="beancount.parser.html">beancount.parser</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="beancount.plugins.html">beancount.plugins</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="beancount.prices.html">beancount.prices</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="beancount.query.html">beancount.query</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="beancount.reports.html">beancount.reports</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="beancount.scripts.html">beancount.scripts</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="beancount.utils.html">beancount.utils</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="beancount.web.html">beancount.web</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="..">Beancount Documentation</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a href="..">Docs</a> »</li>
+<li>API reference »</li>
+<li>beancount.loader</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/xuhcc/beancount-docs/edit/master/docs/api_reference/beancount.loader.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div role="main">
+<div class="section">
+<h1 id="beancountloader">beancount.loader<a class="headerlink" href="#beancountloader" title="Permanent link"></a></h1>
+<div class="doc doc-object doc-module">
+<h2 class="hidden-toc" href="#beancount.loader" id="beancount.loader" style="visibility: hidden; width: 0; height: 0;">
+<a class="headerlink" href="#beancount.loader" title="Permanent link"></a></h2>
+<div class="doc doc-contents first">
+<p>Loader code. This is the main entry point to load up a file.</p>
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h2 class="doc doc-heading" id="beancount.loader.LoadError">
+<code>LoadError</code>
+<a class="headerlink" href="#beancount.loader.LoadError" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<p>LoadError(source, message, entry)</p>
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h3 class="doc doc-heading" id="beancount.loader.LoadError.__getnewargs__">
+<code class="highlight language-python">
+__getnewargs__<span class="p">(</span><span class="bp">self</span><span class="p">)</span> </code>
+<span class="doc doc-properties">
+<small class="doc doc-property doc-property-special"><code>special</code></small>
+</span>
+<a class="headerlink" href="#beancount.loader.LoadError.__getnewargs__" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<p>Return self as a plain tuple.  Used by copy and pickle.</p>
+<details class="quote">
+<summary>Source code in <code>beancount/loader.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>427
+428
+429</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">__getnewargs__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="s1">'Return self as a plain tuple.  Used by copy and pickle.'</span>
+    <span class="k">return</span> <span class="n">_tuple</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h3 class="doc doc-heading" id="beancount.loader.LoadError.__new__">
+<code class="highlight language-python">
+__new__<span class="p">(</span><span class="n">_cls</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">entry</span><span class="p">)</span> </code>
+<span class="doc doc-properties">
+<small class="doc doc-property doc-property-special"><code>special</code></small>
+<small class="doc doc-property doc-property-staticmethod"><code>staticmethod</code></small>
+</span>
+<a class="headerlink" href="#beancount.loader.LoadError.__new__" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<p>Create new instance of LoadError(source, message, entry)</p>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h3 class="doc doc-heading" id="beancount.loader.LoadError.__repr__">
+<code class="highlight language-python">
+__repr__<span class="p">(</span><span class="bp">self</span><span class="p">)</span> </code>
+<span class="doc doc-properties">
+<small class="doc doc-property doc-property-special"><code>special</code></small>
+</span>
+<a class="headerlink" href="#beancount.loader.LoadError.__repr__" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<p>Return a nicely formatted representation string</p>
+<details class="quote">
+<summary>Source code in <code>beancount/loader.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>419
+420
+421</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="s1">'Return a nicely formatted representation string'</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="n">repr_fmt</span> <span class="o">%</span> <span class="bp">self</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="beancount.loader.aggregate_options_map">
+<code class="highlight language-python">
+aggregate_options_map<span class="p">(</span><span class="n">options_map</span><span class="p">,</span> <span class="n">src_options_map</span><span class="p">)</span> </code>
+<a class="headerlink" href="#beancount.loader.aggregate_options_map" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<p>Aggregate some of the attributes of options map.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>options_map</code></td>
+<td><code></code></td>
+<td>
+<p>The target map in which we want to aggregate attributes.
+Note: This value is mutated in-place.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>src_options_map</code></td>
+<td><code></code></td>
+<td>
+<p>A source map whose values we'd like to see aggregated.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>beancount/loader.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">aggregate_options_map</span><span class="p">(</span><span class="n">options_map</span><span class="p">,</span> <span class="n">src_options_map</span><span class="p">):</span>
+    <span class="sd">"""Aggregate some of the attributes of options map.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      options_map: The target map in which we want to aggregate attributes.</span>
+<span class="sd">        Note: This value is mutated in-place.</span>
+<span class="sd">      src_options_map: A source map whose values we'd like to see aggregated.</span>
+<span class="sd">    """</span>
+    <span class="n">op_currencies</span> <span class="o">=</span> <span class="n">options_map</span><span class="p">[</span><span class="s2">"operating_currency"</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">currency</span> <span class="ow">in</span> <span class="n">src_options_map</span><span class="p">[</span><span class="s2">"operating_currency"</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">currency</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">op_currencies</span><span class="p">:</span>
+            <span class="n">op_currencies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">currency</span><span class="p">)</span>
+
+    <span class="n">commodities</span> <span class="o">=</span> <span class="n">options_map</span><span class="p">[</span><span class="s2">"commodities"</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">currency</span> <span class="ow">in</span> <span class="n">src_options_map</span><span class="p">[</span><span class="s2">"commodities"</span><span class="p">]:</span>
+        <span class="n">commodities</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">currency</span><span class="p">)</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="beancount.loader.combine_plugins">
+<code class="highlight language-python">
+combine_plugins<span class="p">(</span><span class="o">*</span><span class="n">plugin_modules</span><span class="p">)</span> </code>
+<a class="headerlink" href="#beancount.loader.combine_plugins" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<p>Combine the plugins from the given plugin modules.</p>
+<p>This is used to create plugins of plugins.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*plugins_modules</code></td>
+<td><code></code></td>
+<td>
+<p>A sequence of module objects.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code></code></td>
+<td>
+<p>A list that can be assigned to the new module's <strong>plugins</strong> attribute.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>beancount/loader.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">combine_plugins</span><span class="p">(</span><span class="o">*</span><span class="n">plugin_modules</span><span class="p">):</span>
+    <span class="sd">"""Combine the plugins from the given plugin modules.</span>
+
+<span class="sd">    This is used to create plugins of plugins.</span>
+<span class="sd">    Args:</span>
+<span class="sd">      *plugins_modules: A sequence of module objects.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">      A list that can be assigned to the new module's __plugins__ attribute.</span>
+<span class="sd">    """</span>
+    <span class="n">modules</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">module</span> <span class="ow">in</span> <span class="n">plugin_modules</span><span class="p">:</span>
+        <span class="n">modules</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="nb">getattr</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+                        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">module</span><span class="o">.</span><span class="n">__plugins__</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">modules</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="beancount.loader.compute_input_hash">
+<code class="highlight language-python">
+compute_input_hash<span class="p">(</span><span class="n">filenames</span><span class="p">)</span> </code>
+<a class="headerlink" href="#beancount.loader.compute_input_hash" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<p>Compute a hash of the input data.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>filenames</code></td>
+<td><code></code></td>
+<td>
+<p>A list of input files. Order is not relevant.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>beancount/loader.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">compute_input_hash</span><span class="p">(</span><span class="n">filenames</span><span class="p">):</span>
+    <span class="sd">"""Compute a hash of the input data.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      filenames: A list of input files. Order is not relevant.</span>
+<span class="sd">    """</span>
+    <span class="n">md5</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">filenames</span><span class="p">):</span>
+        <span class="n">md5</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">filename</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">'utf8'</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+            <span class="k">continue</span>
+        <span class="n">stat</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="n">md5</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s1">'dd'</span><span class="p">,</span> <span class="n">stat</span><span class="o">.</span><span class="n">st_mtime_ns</span><span class="p">,</span> <span class="n">stat</span><span class="o">.</span><span class="n">st_size</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">md5</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="beancount.loader.initialize">
+<code class="highlight language-python">
+initialize<span class="p">()</span> </code>
+<a class="headerlink" href="#beancount.loader.initialize" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<p>Initialize the loader.</p>
+<details class="quote">
+<summary>Source code in <code>beancount/loader.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">initialize</span><span class="p">():</span>
+    <span class="sd">"""Initialize the loader."""</span>
+
+    <span class="c1"># Unless an environment variable disables it, use the pickle load cache</span>
+    <span class="c1"># automatically.</span>
+    <span class="c1"># pylint: disable=invalid-name</span>
+    <span class="k">global</span> <span class="n">_load_file</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">'BEANCOUNT_DISABLE_LOAD_CACHE'</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">_load_file</span> <span class="o">=</span> <span class="n">pickle_cache_function</span><span class="p">(</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">'BEANCOUNT_LOAD_CACHE_FILENAME'</span><span class="p">)</span> <span class="ow">or</span> <span class="n">PICKLE_CACHE_FILENAME</span><span class="p">,</span>
+            <span class="n">PICKLE_CACHE_THRESHOLD</span><span class="p">,</span>
+            <span class="n">_uncached_load_file</span><span class="p">)</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="beancount.loader.load_doc">
+<code class="highlight language-python">
+load_doc<span class="p">(</span><span class="n">expect_errors</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> </code>
+<a class="headerlink" href="#beancount.loader.load_doc" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<p>A factory of decorators that loads the docstring and calls the function with entries.</p>
+<p>This is an incredibly convenient tool to write lots of tests. Write a
+unittest using the standard TestCase class and put the input entries in the
+function's docstring.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>expect_errors</code></td>
+<td><code></code></td>
+<td>
+<p>A boolean or None, with the following semantics,
+True: Expect errors and fail if there are none.
+False: Expect no errors and fail if there are some.
+None: Do nothing, no check.</p>
+</td>
+<td><code>False</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code></code></td>
+<td>
+<p>A wrapped method that accepts a single 'self' argument.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>beancount/loader.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">load_doc</span><span class="p">(</span><span class="n">expect_errors</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">"""A factory of decorators that loads the docstring and calls the function with entries.</span>
+
+<span class="sd">    This is an incredibly convenient tool to write lots of tests. Write a</span>
+<span class="sd">    unittest using the standard TestCase class and put the input entries in the</span>
+<span class="sd">    function's docstring.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      expect_errors: A boolean or None, with the following semantics,</span>
+<span class="sd">        True: Expect errors and fail if there are none.</span>
+<span class="sd">        False: Expect no errors and fail if there are some.</span>
+<span class="sd">        None: Do nothing, no check.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">      A wrapped method that accepts a single 'self' argument.</span>
+<span class="sd">    """</span>
+    <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">fun</span><span class="p">):</span>
+        <span class="sd">"""A decorator that parses the function's docstring as an argument.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">          fun: A callable method, that accepts the three return arguments that</span>
+<span class="sd">              load() returns.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">          A decorated test function.</span>
+<span class="sd">        """</span>
+        <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">fun</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="n">entries</span><span class="p">,</span> <span class="n">errors</span><span class="p">,</span> <span class="n">options_map</span> <span class="o">=</span> <span class="n">load_string</span><span class="p">(</span><span class="n">fun</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="n">dedent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">expect_errors</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">expect_errors</span> <span class="ow">is</span> <span class="kc">False</span> <span class="ow">and</span> <span class="n">errors</span><span class="p">:</span>
+                    <span class="n">oss</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
+                    <span class="n">printer</span><span class="o">.</span><span class="n">print_errors</span><span class="p">(</span><span class="n">errors</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">oss</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">fail</span><span class="p">(</span><span class="s2">"Unexpected errors found:</span><span class="se">\n</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">oss</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()))</span>
+                <span class="k">elif</span> <span class="n">expect_errors</span> <span class="ow">is</span> <span class="kc">True</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">errors</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">fail</span><span class="p">(</span><span class="s2">"Expected errors, none found:"</span><span class="p">)</span>
+
+            <span class="c1"># Note: Even if we expected no errors, we call this function with an</span>
+            <span class="c1"># empty 'errors' list. This is so that the interface does not change</span>
+            <span class="c1"># based on the arguments to the decorator, which would be somewhat</span>
+            <span class="c1"># ugly and which would require explanation.</span>
+            <span class="k">return</span> <span class="n">fun</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entries</span><span class="p">,</span> <span class="n">errors</span><span class="p">,</span> <span class="n">options_map</span><span class="p">)</span>
+
+        <span class="n">wrapper</span><span class="o">.</span><span class="n">__input__</span> <span class="o">=</span> <span class="n">wrapper</span><span class="o">.</span><span class="vm">__doc__</span>
+        <span class="n">wrapper</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">wrapper</span>
+
+    <span class="k">return</span> <span class="n">decorator</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="beancount.loader.load_encrypted_file">
+<code class="highlight language-python">
+load_encrypted_file<span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">log_timings</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">log_errors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extra_validations</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dedent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
+<a class="headerlink" href="#beancount.loader.load_encrypted_file" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<p>Load an encrypted Beancount input file.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>filename</code></td>
+<td><code></code></td>
+<td>
+<p>The name of an encrypted file to be parsed.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>log_timings</code></td>
+<td><code></code></td>
+<td>
+<p>See load_string().</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>log_errors</code></td>
+<td><code></code></td>
+<td>
+<p>See load_string().</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>extra_validations</code></td>
+<td><code></code></td>
+<td>
+<p>See load_string().</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>dedent</code></td>
+<td><code></code></td>
+<td>
+<p>See load_string().</p>
+</td>
+<td><code>False</code></td>
+</tr>
+<tr>
+<td><code>encoding</code></td>
+<td><code></code></td>
+<td>
+<p>See load_string().</p>
+</td>
+<td><code>None</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code></code></td>
+<td>
+<p>A triple of (entries, errors, option_map) where "entries" is a date-sorted
+list of entries from the file, "errors" a list of error objects generated
+while parsing and validating the file, and "options_map", a dict of the
+options parsed from the file.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>beancount/loader.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span> 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">load_encrypted_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">log_timings</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">log_errors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extra_validations</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                        <span class="n">dedent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">"""Load an encrypted Beancount input file.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      filename: The name of an encrypted file to be parsed.</span>
+<span class="sd">      log_timings: See load_string().</span>
+<span class="sd">      log_errors: See load_string().</span>
+<span class="sd">      extra_validations: See load_string().</span>
+<span class="sd">      dedent: See load_string().</span>
+<span class="sd">      encoding: See load_string().</span>
+<span class="sd">    Returns:</span>
+<span class="sd">      A triple of (entries, errors, option_map) where "entries" is a date-sorted</span>
+<span class="sd">      list of entries from the file, "errors" a list of error objects generated</span>
+<span class="sd">      while parsing and validating the file, and "options_map", a dict of the</span>
+<span class="sd">      options parsed from the file.</span>
+<span class="sd">    """</span>
+    <span class="n">contents</span> <span class="o">=</span> <span class="n">encryption</span><span class="o">.</span><span class="n">read_encrypted_file</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">load_string</span><span class="p">(</span><span class="n">contents</span><span class="p">,</span>
+                       <span class="n">log_timings</span><span class="o">=</span><span class="n">log_timings</span><span class="p">,</span>
+                       <span class="n">log_errors</span><span class="o">=</span><span class="n">log_errors</span><span class="p">,</span>
+                       <span class="n">extra_validations</span><span class="o">=</span><span class="n">extra_validations</span><span class="p">,</span>
+                       <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">)</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="beancount.loader.load_file">
+<code class="highlight language-python">
+load_file<span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">log_timings</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">log_errors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extra_validations</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
+<a class="headerlink" href="#beancount.loader.load_file" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<p>Open a Beancount input file, parse it, run transformations and validate.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>filename</code></td>
+<td><code></code></td>
+<td>
+<p>The name of the file to be parsed.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>log_timings</code></td>
+<td><code></code></td>
+<td>
+<p>A file object or function to write timings to,
+or None, if it should remain quiet.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>log_errors</code></td>
+<td><code></code></td>
+<td>
+<p>A file object or function to write errors to,
+or None, if it should remain quiet.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>extra_validations</code></td>
+<td><code></code></td>
+<td>
+<p>A list of extra validation functions to run after loading
+this list of entries.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>encoding</code></td>
+<td><code></code></td>
+<td>
+<p>A string or None, the encoding to decode the input filename with.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code></code></td>
+<td>
+<p>A triple of (entries, errors, option_map) where "entries" is a date-sorted
+list of entries from the file, "errors" a list of error objects generated
+while parsing and validating the file, and "options_map", a dict of the
+options parsed from the file.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>beancount/loader.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">load_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">log_timings</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">log_errors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extra_validations</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+              <span class="n">encoding</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">"""Open a Beancount input file, parse it, run transformations and validate.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      filename: The name of the file to be parsed.</span>
+<span class="sd">      log_timings: A file object or function to write timings to,</span>
+<span class="sd">        or None, if it should remain quiet.</span>
+<span class="sd">      log_errors: A file object or function to write errors to,</span>
+<span class="sd">        or None, if it should remain quiet.</span>
+<span class="sd">      extra_validations: A list of extra validation functions to run after loading</span>
+<span class="sd">        this list of entries.</span>
+<span class="sd">      encoding: A string or None, the encoding to decode the input filename with.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">      A triple of (entries, errors, option_map) where "entries" is a date-sorted</span>
+<span class="sd">      list of entries from the file, "errors" a list of error objects generated</span>
+<span class="sd">      while parsing and validating the file, and "options_map", a dict of the</span>
+<span class="sd">      options parsed from the file.</span>
+<span class="sd">    """</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">expandvars</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">isabs</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">normpath</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="n">filename</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">encryption</span><span class="o">.</span><span class="n">is_encrypted_file</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+        <span class="c1"># Note: Caching is not supported for encrypted files.</span>
+        <span class="n">entries</span><span class="p">,</span> <span class="n">errors</span><span class="p">,</span> <span class="n">options_map</span> <span class="o">=</span> <span class="n">load_encrypted_file</span><span class="p">(</span>
+            <span class="n">filename</span><span class="p">,</span>
+            <span class="n">log_timings</span><span class="p">,</span> <span class="n">log_errors</span><span class="p">,</span>
+            <span class="n">extra_validations</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">entries</span><span class="p">,</span> <span class="n">errors</span><span class="p">,</span> <span class="n">options_map</span> <span class="o">=</span> <span class="n">_load_file</span><span class="p">(</span>
+            <span class="n">filename</span><span class="p">,</span> <span class="n">log_timings</span><span class="p">,</span>
+            <span class="n">extra_validations</span><span class="p">,</span> <span class="n">encoding</span><span class="p">)</span>
+        <span class="n">_log_errors</span><span class="p">(</span><span class="n">errors</span><span class="p">,</span> <span class="n">log_errors</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">entries</span><span class="p">,</span> <span class="n">errors</span><span class="p">,</span> <span class="n">options_map</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="beancount.loader.load_string">
+<code class="highlight language-python">
+load_string<span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">log_timings</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">log_errors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extra_validations</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dedent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
+<a class="headerlink" href="#beancount.loader.load_string" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<p>Open a Beancount input string, parse it, run transformations and validate.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>string</code></td>
+<td><code></code></td>
+<td>
+<p>A Beancount input string.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>log_timings</code></td>
+<td><code></code></td>
+<td>
+<p>A file object or function to write timings to,
+or None, if it should remain quiet.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>log_errors</code></td>
+<td><code></code></td>
+<td>
+<p>A file object or function to write errors to,
+or None, if it should remain quiet.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>extra_validations</code></td>
+<td><code></code></td>
+<td>
+<p>A list of extra validation functions to run after loading
+this list of entries.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>dedent</code></td>
+<td><code></code></td>
+<td>
+<p>A boolean, if set, remove the whitespace in front of the lines.</p>
+</td>
+<td><code>False</code></td>
+</tr>
+<tr>
+<td><code>encoding</code></td>
+<td><code></code></td>
+<td>
+<p>A string or None, the encoding to decode the input string with.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code></code></td>
+<td>
+<p>A triple of (entries, errors, option_map) where "entries" is a date-sorted
+list of entries from the string, "errors" a list of error objects
+generated while parsing and validating the string, and "options_map", a
+dict of the options parsed from the string.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>beancount/loader.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">load_string</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">log_timings</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">log_errors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extra_validations</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">dedent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+    <span class="sd">"""Open a Beancount input string, parse it, run transformations and validate.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      string: A Beancount input string.</span>
+<span class="sd">      log_timings: A file object or function to write timings to,</span>
+<span class="sd">        or None, if it should remain quiet.</span>
+<span class="sd">      log_errors: A file object or function to write errors to,</span>
+<span class="sd">        or None, if it should remain quiet.</span>
+<span class="sd">      extra_validations: A list of extra validation functions to run after loading</span>
+<span class="sd">        this list of entries.</span>
+<span class="sd">      dedent: A boolean, if set, remove the whitespace in front of the lines.</span>
+<span class="sd">      encoding: A string or None, the encoding to decode the input string with.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">      A triple of (entries, errors, option_map) where "entries" is a date-sorted</span>
+<span class="sd">      list of entries from the string, "errors" a list of error objects</span>
+<span class="sd">      generated while parsing and validating the string, and "options_map", a</span>
+<span class="sd">      dict of the options parsed from the string.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">dedent</span><span class="p">:</span>
+        <span class="n">string</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+    <span class="n">entries</span><span class="p">,</span> <span class="n">errors</span><span class="p">,</span> <span class="n">options_map</span> <span class="o">=</span> <span class="n">_load</span><span class="p">([(</span><span class="n">string</span><span class="p">,</span> <span class="kc">False</span><span class="p">)],</span> <span class="n">log_timings</span><span class="p">,</span>
+                                         <span class="n">extra_validations</span><span class="p">,</span> <span class="n">encoding</span><span class="p">)</span>
+    <span class="n">_log_errors</span><span class="p">(</span><span class="n">errors</span><span class="p">,</span> <span class="n">log_errors</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">entries</span><span class="p">,</span> <span class="n">errors</span><span class="p">,</span> <span class="n">options_map</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="beancount.loader.needs_refresh">
+<code class="highlight language-python">
+needs_refresh<span class="p">(</span><span class="n">options_map</span><span class="p">)</span> </code>
+<a class="headerlink" href="#beancount.loader.needs_refresh" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<p>Predicate that returns true if at least one of the input files may have changed.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>options_map</code></td>
+<td><code></code></td>
+<td>
+<p>An options dict as per the parser.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>mtime</code></td>
+<td><code></code></td>
+<td>
+<p>A modified time, to check if it covers the include files in the options_map.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code></code></td>
+<td>
+<p>A boolean, true if the input is obsoleted by changes in the input files.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>beancount/loader.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">needs_refresh</span><span class="p">(</span><span class="n">options_map</span><span class="p">):</span>
+    <span class="sd">"""Predicate that returns true if at least one of the input files may have changed.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      options_map: An options dict as per the parser.</span>
+<span class="sd">      mtime: A modified time, to check if it covers the include files in the options_map.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">      A boolean, true if the input is obsoleted by changes in the input files.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">options_map</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="n">input_hash</span> <span class="o">=</span> <span class="n">compute_input_hash</span><span class="p">(</span><span class="n">options_map</span><span class="p">[</span><span class="s1">'include'</span><span class="p">])</span>
+    <span class="k">return</span> <span class="s1">'input_hash'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">options_map</span> <span class="ow">or</span> <span class="n">input_hash</span> <span class="o">!=</span> <span class="n">options_map</span><span class="p">[</span><span class="s1">'input_hash'</span><span class="p">]</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="beancount.loader.pickle_cache_function">
+<code class="highlight language-python">
+pickle_cache_function<span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">time_threshold</span><span class="p">,</span> <span class="n">function</span><span class="p">)</span> </code>
+<a class="headerlink" href="#beancount.loader.pickle_cache_function" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<p>Decorate a loader function to make it loads its result from a pickle cache.</p>
+<p>This considers the first argument as a top-level filename and assumes the
+function to be cached returns an (entries, errors, options_map) triple. We
+use the 'include' option value in order to check whether any of the included
+files has changed. It's essentially a special case for an on-disk memoizer.
+If any of the included files are more recent than the cache, the function is
+recomputed and the cache refreshed.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pattern</code></td>
+<td><code></code></td>
+<td>
+<p>A string, the filename pattern for the pickled cache file.
+A {filename} in it gets replaced by the basename of the input filename.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>time_threshold</code></td>
+<td><code></code></td>
+<td>
+<p>A float, the number of seconds below which we don't bother
+caching.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>function</code></td>
+<td><code></code></td>
+<td>
+<p>A function object to decorate for caching.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code></code></td>
+<td>
+<p>A decorated function which will pull its result from a cache file if
+it is available.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>beancount/loader.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">pickle_cache_function</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">time_threshold</span><span class="p">,</span> <span class="n">function</span><span class="p">):</span>
+    <span class="sd">"""Decorate a loader function to make it loads its result from a pickle cache.</span>
+
+<span class="sd">    This considers the first argument as a top-level filename and assumes the</span>
+<span class="sd">    function to be cached returns an (entries, errors, options_map) triple. We</span>
+<span class="sd">    use the 'include' option value in order to check whether any of the included</span>
+<span class="sd">    files has changed. It's essentially a special case for an on-disk memoizer.</span>
+<span class="sd">    If any of the included files are more recent than the cache, the function is</span>
+<span class="sd">    recomputed and the cache refreshed.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      pattern: A string, the filename pattern for the pickled cache file.</span>
+<span class="sd">        A {filename} in it gets replaced by the basename of the input filename.</span>
+<span class="sd">      time_threshold: A float, the number of seconds below which we don't bother</span>
+<span class="sd">        caching.</span>
+<span class="sd">      function: A function object to decorate for caching.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">      A decorated function which will pull its result from a cache file if</span>
+<span class="sd">      it is available.</span>
+<span class="sd">    """</span>
+    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wrapped</span><span class="p">(</span><span class="n">toplevel_filename</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+        <span class="n">abs_filename</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">toplevel_filename</span><span class="p">)</span>
+        <span class="n">cache_filename</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">abs_filename</span><span class="p">),</span>
+            <span class="n">pattern</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">toplevel_filename</span><span class="p">)))</span>
+
+        <span class="c1"># Read the cache if it exists in order to get the list of files whose</span>
+        <span class="c1"># timestamps to check.</span>
+        <span class="n">exists</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">cache_filename</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">exists</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">cache_filename</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">result</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+                    <span class="c1"># Note: Not a big fan of doing this, but here we handle all</span>
+                    <span class="c1"># possible exceptions because unpickling of an old or</span>
+                    <span class="c1"># corrupted pickle file manifests as a variety of different</span>
+                    <span class="c1"># exception types.</span>
+
+                    <span class="c1"># The cache file is corrupted; ignore it and recompute.</span>
+                    <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">"Cache file is corrupted: </span><span class="si">%s</span><span class="s2">; recomputing."</span><span class="p">,</span> <span class="n">exc</span><span class="p">)</span>
+                    <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># Check that the latest timestamp has not been written after the</span>
+                    <span class="c1"># cache file.</span>
+                    <span class="n">entries</span><span class="p">,</span> <span class="n">errors</span><span class="p">,</span> <span class="n">options_map</span> <span class="o">=</span> <span class="n">result</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">needs_refresh</span><span class="p">(</span><span class="n">options_map</span><span class="p">):</span>
+                        <span class="c1"># All timestamps are legit; cache hit.</span>
+                        <span class="k">return</span> <span class="n">result</span>
+
+        <span class="c1"># We failed; recompute the value.</span>
+        <span class="k">if</span> <span class="n">exists</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">cache_filename</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+                <span class="c1"># Warn for errors on read-only filesystems.</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"Could not remove picklecache file </span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span>
+                                <span class="n">cache_filename</span><span class="p">,</span> <span class="n">exc</span><span class="p">)</span>
+
+        <span class="n">time_before</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">toplevel_filename</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+        <span class="n">time_after</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+        <span class="c1"># Overwrite the cache file if the time it takes to compute it</span>
+        <span class="c1"># justifies it.</span>
+        <span class="k">if</span> <span class="n">time_after</span> <span class="o">-</span> <span class="n">time_before</span> <span class="o">&gt;</span> <span class="n">time_threshold</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">cache_filename</span><span class="p">,</span> <span class="s1">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+                    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"Could not write to picklecache file </span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span>
+                                <span class="n">cache_filename</span><span class="p">,</span> <span class="n">exc</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="k">return</span> <span class="n">wrapped</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="beancount.loader.run_transformations">
+<code class="highlight language-python">
+run_transformations<span class="p">(</span><span class="n">entries</span><span class="p">,</span> <span class="n">parse_errors</span><span class="p">,</span> <span class="n">options_map</span><span class="p">,</span> <span class="n">log_timings</span><span class="p">)</span> </code>
+<a class="headerlink" href="#beancount.loader.run_transformations" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<p>Run the various transformations on the entries.</p>
+<p>This is where entries are being synthesized, checked, plugins are run, etc.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>entries</code></td>
+<td><code></code></td>
+<td>
+<p>A list of directives as read from the parser.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>parse_errors</code></td>
+<td><code></code></td>
+<td>
+<p>A list of errors so far.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>options_map</code></td>
+<td><code></code></td>
+<td>
+<p>An options dict as read from the parser.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>log_timings</code></td>
+<td><code></code></td>
+<td>
+<p>A function to write timing log entries to, or None, if it
+should be quiet.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code></code></td>
+<td>
+<p>A list of modified entries, and a list of errors, also possibly modified.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>beancount/loader.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">run_transformations</span><span class="p">(</span><span class="n">entries</span><span class="p">,</span> <span class="n">parse_errors</span><span class="p">,</span> <span class="n">options_map</span><span class="p">,</span> <span class="n">log_timings</span><span class="p">):</span>
+    <span class="sd">"""Run the various transformations on the entries.</span>
+
+<span class="sd">    This is where entries are being synthesized, checked, plugins are run, etc.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      entries: A list of directives as read from the parser.</span>
+<span class="sd">      parse_errors: A list of errors so far.</span>
+<span class="sd">      options_map: An options dict as read from the parser.</span>
+<span class="sd">      log_timings: A function to write timing log entries to, or None, if it</span>
+<span class="sd">        should be quiet.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">      A list of modified entries, and a list of errors, also possibly modified.</span>
+<span class="sd">    """</span>
+    <span class="c1"># A list of errors to extend (make a copy to avoid modifying the input).</span>
+    <span class="n">errors</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">parse_errors</span><span class="p">)</span>
+
+    <span class="c1"># Process the plugins.</span>
+    <span class="k">if</span> <span class="n">options_map</span><span class="p">[</span><span class="s1">'plugin_processing_mode'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'raw'</span><span class="p">:</span>
+        <span class="n">plugins_iter</span> <span class="o">=</span> <span class="n">options_map</span><span class="p">[</span><span class="s2">"plugin"</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">options_map</span><span class="p">[</span><span class="s1">'plugin_processing_mode'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'default'</span><span class="p">:</span>
+        <span class="n">plugins_iter</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="n">DEFAULT_PLUGINS_PRE</span><span class="p">,</span>
+                                       <span class="n">options_map</span><span class="p">[</span><span class="s2">"plugin"</span><span class="p">],</span>
+                                       <span class="n">DEFAULT_PLUGINS_POST</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="s2">"Invalid value for plugin_processing_mode: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">options_map</span><span class="p">[</span><span class="s1">'plugin_processing_mode'</span><span class="p">])</span>
+
+    <span class="k">for</span> <span class="n">plugin_name</span><span class="p">,</span> <span class="n">plugin_config</span> <span class="ow">in</span> <span class="n">plugins_iter</span><span class="p">:</span>
+
+        <span class="c1"># Issue a warning on a renamed module.</span>
+        <span class="n">renamed_name</span> <span class="o">=</span> <span class="n">RENAMED_MODULES</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">plugin_name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">renamed_name</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">"Deprecation notice: Module '</span><span class="si">{}</span><span class="s2">' has been renamed to '</span><span class="si">{}</span><span class="s2">'; "</span>
+                          <span class="s2">"please adjust your plugin directive."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                              <span class="n">plugin_name</span><span class="p">,</span> <span class="n">renamed_name</span><span class="p">))</span>
+            <span class="n">plugin_name</span> <span class="o">=</span> <span class="n">renamed_name</span>
+
+        <span class="c1"># Try to import the module.</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">module</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">plugin_name</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="s1">'__plugins__'</span><span class="p">):</span>
+                <span class="k">continue</span>
+
+            <span class="k">with</span> <span class="n">misc_utils</span><span class="o">.</span><span class="n">log_time</span><span class="p">(</span><span class="n">plugin_name</span><span class="p">,</span> <span class="n">log_timings</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+
+                <span class="c1"># Run each transformer function in the plugin.</span>
+                <span class="k">for</span> <span class="n">function_name</span> <span class="ow">in</span> <span class="n">module</span><span class="o">.</span><span class="n">__plugins__</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">function_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                        <span class="c1"># Support plugin functions provided by name.</span>
+                        <span class="n">callback</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">function_name</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="c1"># Support function types directly, not just names.</span>
+                        <span class="n">callback</span> <span class="o">=</span> <span class="n">function_name</span>
+
+                    <span class="k">if</span> <span class="n">plugin_config</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">entries</span><span class="p">,</span> <span class="n">plugin_errors</span> <span class="o">=</span> <span class="n">callback</span><span class="p">(</span><span class="n">entries</span><span class="p">,</span> <span class="n">options_map</span><span class="p">,</span>
+                                                          <span class="n">plugin_config</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">entries</span><span class="p">,</span> <span class="n">plugin_errors</span> <span class="o">=</span> <span class="n">callback</span><span class="p">(</span><span class="n">entries</span><span class="p">,</span> <span class="n">options_map</span><span class="p">)</span>
+                    <span class="n">errors</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">plugin_errors</span><span class="p">)</span>
+
+            <span class="c1"># Ensure that the entries are sorted. Don't trust the plugins</span>
+            <span class="c1"># themselves.</span>
+            <span class="n">entries</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">entry_sortkey</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="p">(</span><span class="ne">ImportError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="c1"># Upon failure, just issue an error.</span>
+            <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">LoadError</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">new_metadata</span><span class="p">(</span><span class="s2">"&lt;load&gt;"</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                                    <span class="s1">'Error importing "</span><span class="si">{}</span><span class="s1">": </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                                        <span class="n">plugin_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">)),</span> <span class="kc">None</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">entries</span><span class="p">,</span> <span class="n">errors</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer>
+<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-right" href="beancount.ops.html" title="beancount.ops">Next <span class="icon icon-circle-arrow-right"></span></a>
+<a class="btn btn-neutral" href="beancount.ingest.html" title="beancount.ingest"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<a class="fa fa-github" href="https://github.com/xuhcc/beancount-docs/" style="float: left; color: #fcfcfc"> GitHub</a>
+<span><a href="beancount.ingest.html" style="color: #fcfcfc;">« Previous</a></span>
+<span style="margin-left: 15px"><a href="beancount.ops.html" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script>var base_url = '..';</script>
+<script defer="" src="../js/theme.js"></script>
+<script defer="" src="../js/extra.js"></script>
+<script defer="">
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+</body>
+</html>
