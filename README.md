@@ -10,7 +10,16 @@ These documents in markdown format are automatically generated from [official Be
 
 ### Installation
 
-Install dependencies (python 3 is required, virtualenv is recommended):
+The converter requires python 3.6 or newer.
+
+Create virtualenv (recommended):
+
+```
+python3 -m venv venv
+. venv/bin/activate
+```
+
+Install dependencies:
 
 ```
 pip install -r requirements.txt
@@ -20,9 +29,12 @@ pip install -r requirements.txt
 
 Export and convert single document:
 
-```
+```shell
+# Export google document as docx file
 python export.py document "100tGcA4blh6KSXPRGCZpUlyxaRUwFHEvnz_k9DyZFn4" doubleentry.docx
+# Export drawings
 python export.py drawings "100tGcA4blh6KSXPRGCZpUlyxaRUwFHEvnz_k9DyZFn4" drawings
+# Convert docx file to markdown
 python export.py convert doubleentry.docx doubleentry.md --drawing-dir=drawings
 ```
 
