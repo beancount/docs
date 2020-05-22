@@ -68,6 +68,7 @@ markdown_extensions:
   - footnotes
 
 plugins:
+  - search
   - mkdocstrings:
       default_handler: python
       handlers:
