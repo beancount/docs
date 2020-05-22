@@ -1,6 +1,6 @@
 # Beancount Documentation
 
-https://xuhcc.github.io/beancount-docs/
+https://beancount.github.io/docs/
 
 Source files are in [docs](docs/) directory.
 
