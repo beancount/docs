@@ -59,6 +59,8 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#installing-beancount-using-pip">Installing Beancount using pip</a>
 </li>
+<li class="toctree-l4"><a class="reference internal" href="#installing-beancount-using-pip-from-repository">Installing Beancount using pip from Repository</a>
+</li>
 <li class="toctree-l4"><a class="reference internal" href="#installing-beancount-from-source">Installing Beancount from Source</a>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#installing-from-packages">Installing from Packages</a>
@@ -218,19 +220,15 @@
 <h2 id="releases">Releases<a id="releases"></a><a class="headerlink" href="#releases" title="Permanent link"></a></h2>
 <p>Beancount is a mature project: the first version was written in 2008. The current rewrite of Beancount is stable. (Technically, this is what I call version 2.x beta).</p>
 <p>I’m still working on this Beancount code every weekend these days, so it is very much in active development and evolving, though the great majority of the basic features are basically unchanging. I’ve built an extensive suite of tests so you can consider the “default” branch of the repository as stable. New features are developed in branches and only merged in the “default” branch when fully stable (the entire battery of tests passes without failures). Changes to “default” are posted to the <a href="https://bitbucket.org/blais/beancount/src/tip/CHANGES"><span class="underline">CHANGES</span></a> file and a corresponding email is sent to the <a href="https://groups.google.com/forum/#!forum/beancount"><span class="underline">mailing-list</span></a>.</p>
-<p><strong><em>So I’m not cutting releases yet.</em></strong> You have to install or run from source. I don’t update the <a href="https://pypi.python.org/pypi/beancount"><span class="underline">PyPI page</span></a> actively either.</p>
-<p>Until development slows down and I decide to bake numbered releases, I recommend cloning and updating regularly from the bitbucket repository and building and running in place the “default” branch (if you’re not familiar with Mercurial, “default” is the default, same as master under Git).</p>
+<p><strong><em>So I’m not cutting releases yet.</em></strong> You have to install or run from source. I don't actively update the <a href="https://pypi.python.org/pypi/beancount"><span class="underline">PyPI page</span></a> actively either.</p>
 <h2 id="where-to-get-it">Where to Get It<a id="where-to-get-it"></a><a class="headerlink" href="#where-to-get-it" title="Permanent link"></a></h2>
 <p>This is the official location for the source code:</p>
-<pre><code>https://bitbucket.org/blais/beancount/
-</code></pre>
-<p>Download it like this, by using Mercurial to make a clone on your machine:</p>
-<pre><code>hg clone https://bitbucket.org/blais/beancount
-</code></pre>
-<p>The author tries to maintain a <a href="http://github.com"><span class="underline">GitHub</span></a> clone for this project, but it’s often a bit out-of-date:</p>
+<blockquote>
+<p><a href="https://github.com/beancount/beancount"><span class="underline">https://github.com/beancount/beancount</span></a></p>
+</blockquote>
+<p>Download it like this, by using Git to make a clone on your machine:</p>
 <pre><code>git clone https://github.com/beancount/beancount
 </code></pre>
-<p>Other GitHub clones that can be found in the wild are undoubtedly out of date. Don’t use them.</p>
 <h2 id="how-to-install">How to Install<a id="how-to-install"></a><a class="headerlink" href="#how-to-install" title="Permanent link"></a></h2>
 <h3 id="installing-python">Installing Python<a id="installing-python"></a><a class="headerlink" href="#installing-python" title="Permanent link"></a></h3>
 <p>Beancount uses Python 3.5<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> or above, which is a pretty recent version of Python (as of this writing), and a few common library dependencies. I try to minimize dependencies, but you do have to install a few. This is very easy.</p>
@@ -246,11 +244,15 @@
 </code></pre>
 <p>This should automatically download and install all the dependencies.</p>
 <p>Note, however, that this will install the latest version that was pushed to the <a href="https://pypi.python.org/pypi/beancount/"><span class="underline">PyPI repository</span></a> and not the very latest version available from source. Releases to PyPI are made sporadically but frequently enough not to be too far behind. Consult the <a href="https://bitbucket.org/blais/beancount/src/tip/CHANGES"><span class="underline">CHANGES file</span></a> if you’d like to find out what is not included since the release date.</p>
+<h3 id="installing-beancount-using-pip-from-repository">Installing Beancount using pip from Repository<a id="installing-beancount-using-pip-from-repository"></a><a class="headerlink" href="#installing-beancount-using-pip-from-repository" title="Permanent link"></a></h3>
+<p>You can also use pip to install Beancount from its source code repository directly:</p>
+<pre><code>pip install git+https://github.com/beancount/beancount#egg=beancount
+</code></pre>
 <h3 id="installing-beancount-from-source">Installing Beancount from Source<a id="installing-beancount-from-source"></a><a class="headerlink" href="#installing-beancount-from-source" title="Permanent link"></a></h3>
 <p>Installing from source offers the advantage of providing you with the very latest version of the stable branch (“default”). The default branch is as stable as the released version.</p>
 <h4 id="obtain-the-source-code">Obtain the Source Code<a id="obtain-the-source-code"></a><a class="headerlink" href="#obtain-the-source-code" title="Permanent link"></a></h4>
 <p>Get the source code from the official repository:</p>
-<pre><code>hg clone https://bitbucket.org/blais/beancount
+<pre><code>git clone https://github.com/beancount/beancount
 </code></pre>
 <h4 id="install-third-party-dependencies">Install third-party dependencies<a id="install-third-party-dependencies"></a><a class="headerlink" href="#install-third-party-dependencies" title="Permanent link"></a></h4>
 <p>You might need to install some non-Python library dependencies, such as libxml2-dev, libxslt1-dev, and perhaps a few more. Try to build, it should be obvious what’s missing. If on Ubuntu, use apt-get.</p>
@@ -348,7 +350,7 @@ export PYTHONPATH=$PYTHONPATH:/path/to/beancount
 <p>python3-setuptools</p>
 </li>
 <li>
-<p>mercurial</p>
+<p>git</p>
 </li>
 <li>
 <p>make</p>
@@ -399,7 +401,7 @@ bean-check: error: the following arguments are required: filename
 </code></pre>
 <p>If this works, you can now go to the <a href="13_tutorial_example.html"><span class="underline">tutorial</span></a> and begin learning how Beancount works.</p>
 <h3 id="reporting-problems">Reporting Problems<a id="reporting-problems"></a><a class="headerlink" href="#reporting-problems" title="Permanent link"></a></h3>
-<p>If you need to report a problem, either send email on the mailing-list or <a href="https://bitbucket.org/blais/beancount/issues"><span class="underline">file a ticket</span></a> on Bitbucket. Running the following command lists the presence and versions of dependencies installed on your computer and it might be useful to include the output of this command in your bug report:</p>
+<p>If you need to report a problem, either send email on the mailing-list or <a href="https://github.com/beancount/beancount/issues"><span class="underline">file a ticket</span></a> on Github. Running the following command lists the presence and versions of dependencies installed on your computer and it might be useful to include the output of this command in your bug report:</p>
 <pre><code>bean-doctor checkdeps
 </code></pre>
 <h2 id="editor-support">Editor Support<a id="editor-support"></a><a class="headerlink" href="#editor-support" title="Permanent link"></a></h2>
