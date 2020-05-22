@@ -14,26 +14,18 @@ Beancount is a mature project: the first version was written in 2008. The curren
 
 I’m still working on this Beancount code every weekend these days, so it is very much in active development and evolving, though the great majority of the basic features are basically unchanging. I’ve built an extensive suite of tests so you can consider the “default” branch of the repository as stable. New features are developed in branches and only merged in the “default” branch when fully stable (the entire battery of tests passes without failures). Changes to “default” are posted to the [<span class="underline">CHANGES</span>](https://bitbucket.org/blais/beancount/src/tip/CHANGES) file and a corresponding email is sent to the [<span class="underline">mailing-list</span>](https://groups.google.com/forum/#!forum/beancount).
 
-***So I’m not cutting releases yet.*** You have to install or run from source. I don’t update the [<span class="underline">PyPI page</span>](https://pypi.python.org/pypi/beancount) actively either.
-
-Until development slows down and I decide to bake numbered releases, I recommend cloning and updating regularly from the bitbucket repository and building and running in place the “default” branch (if you’re not familiar with Mercurial, “default” is the default, same as master under Git).
+***So I’m not cutting releases yet.*** You have to install or run from source. I don't actively update the [<span class="underline">PyPI page</span>](https://pypi.python.org/pypi/beancount) actively either.
 
 Where to Get It<a id="where-to-get-it"></a>
 -------------------------------------------
 
 This is the official location for the source code:
 
-    https://bitbucket.org/blais/beancount/
+> [<span class="underline">https://github.com/beancount/beancount</span>](https://github.com/beancount/beancount)
 
-Download it like this, by using Mercurial to make a clone on your machine:
-
-    hg clone https://bitbucket.org/blais/beancount
-
-The author tries to maintain a [<span class="underline">GitHub</span>](http://github.com) clone for this project, but it’s often a bit out-of-date:
+Download it like this, by using Git to make a clone on your machine:
 
     git clone https://github.com/beancount/beancount
-
-Other GitHub clones that can be found in the wild are undoubtedly out of date. Don’t use them.
 
 How to Install<a id="how-to-install"></a>
 -----------------------------------------
@@ -62,6 +54,12 @@ This should automatically download and install all the dependencies.
 
 Note, however, that this will install the latest version that was pushed to the [<span class="underline">PyPI repository</span>](https://pypi.python.org/pypi/beancount/) and not the very latest version available from source. Releases to PyPI are made sporadically but frequently enough not to be too far behind. Consult the [<span class="underline">CHANGES file</span>](https://bitbucket.org/blais/beancount/src/tip/CHANGES) if you’d like to find out what is not included since the release date.
 
+### Installing Beancount using pip from Repository<a id="installing-beancount-using-pip-from-repository"></a>
+
+You can also use pip to install Beancount from its source code repository directly:
+
+    pip install git+https://github.com/beancount/beancount#egg=beancount
+
 ### Installing Beancount from Source<a id="installing-beancount-from-source"></a>
 
 Installing from source offers the advantage of providing you with the very latest version of the stable branch (“default”). The default branch is as stable as the released version.
@@ -70,7 +68,7 @@ Installing from source offers the advantage of providing you with the very lates
 
 Get the source code from the official repository:
 
-    hg clone https://bitbucket.org/blais/beancount
+    git clone https://github.com/beancount/beancount
 
 #### Install third-party dependencies<a id="install-third-party-dependencies"></a>
 
@@ -175,7 +173,7 @@ Windows installation is, of course, a bit different. It’s a breeze if you use 
 
     -   python3-setuptools
 
-    -   mercurial
+    -   git
 
     -   make
 
@@ -227,7 +225,7 @@ If this works, you can now go to the [<span class="underline">tutorial</span>](1
 
 ### Reporting Problems<a id="reporting-problems"></a>
 
-If you need to report a problem, either send email on the mailing-list or [<span class="underline">file a ticket</span>](https://bitbucket.org/blais/beancount/issues) on Bitbucket. Running the following command lists the presence and versions of dependencies installed on your computer and it might be useful to include the output of this command in your bug report:
+If you need to report a problem, either send email on the mailing-list or [<span class="underline">file a ticket</span>](https://github.com/beancount/beancount/issues) on Github. Running the following command lists the presence and versions of dependencies installed on your computer and it might be useful to include the output of this command in your bug report:
 
     bean-doctor checkdeps
 

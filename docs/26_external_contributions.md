@@ -110,9 +110,9 @@ Development<a id="development"></a>
 Documentation<a id="documentation"></a>
 ---------------------------------------
 
-[<span class="underline">Beancount Source Code Documentation</span>](http://aumayr.github.io/beancount-docs-static/) (Dominik Aumayr): Sphinx-generated source code documentation of the Beancount codebase. The code to produce this is [<span class="underline">located here</span>](https://github.com/aumayr/beancount-docs).
+[<span class="underline">Beancount Documentation</span>](https://beancount.github.io/docs/) ([<span class="underline">Kirill Goncharov</span>](http://github.com/xuhcc)): Official conversion of the Beancount documentation from Google Docs source to Markdown and HTML. This includes most of the Google Docs documents and is maintained in a Beancount org repo [<span class="underline">here</span>](http://github.com/beancount/docs) by Kirill Goncharov.
 
-[<span class="underline">Beancount-docs to Markdown</span>](https://github.com/xuhcc/beancount-docs) (xuhcc@ / Kirill Goncharov): Another conversion of the Google Docs using pandoc. Has less conversion artifacts.
+[<span class="underline">Beancount Source Code Documentation</span>](http://aumayr.github.io/beancount-docs-static/) ([<span class="underline">Dominik Aumayr</span>](http://github.com/aumayr)): A Sphinx-generated source code documentation of the Beancount codebase. The code to produce this is [<span class="underline">located here</span>](https://github.com/aumayr/beancount-docs).
 
 [<span class="underline">SQL queries for Beancount</span>](http://aumayr.github.io/beancount-sql-queries/) (Dominik Aumayr): Example SQL queries.
 
