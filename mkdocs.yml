@@ -75,6 +75,9 @@ plugins:
         python:
           rendering:
             show_source: true
+  - redirects:
+      redirect_maps:
+        'g/export/index.md': 'https://docs.google.com/document/d/1mNyE_ONuyEkF_I2l6V_AoAU5HJgI654AOBhHsnNPPqw/'
 
 # Waiting for mkdocstrings to support readthedocs theme
 # https://github.com/pawamoy/mkdocstrings/issues/107

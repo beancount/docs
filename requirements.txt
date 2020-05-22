@@ -1,6 +1,7 @@
 beancount==2.2.3
 beautifulsoup4==4.9.0
 mkdocs==1.1
+mkdocs-redirects==1.0.0
 mkdocstrings==0.11.0
 panflute==1.11.2
 py-pandoc==2.7.2
