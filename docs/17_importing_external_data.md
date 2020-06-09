@@ -222,7 +222,7 @@ You can place this code in the Python module (the \_\_init\_\_.py file):
         importer = Importer(...)
         yield from regression.compare_sample_files(importer)
 
-If your importer overrides the `extract()` and `file_date()` methods, this will generate four unit tests which get run automatically by [<span class="underline">nosetests</span>](https://nose.readthedocs.org/en/latest/):
+If your importer overrides the `extract()` and `file_date()` methods, this will generate four unit tests which get run automatically by [<span class="underline">pytest</span>](https://docs.pytest.org/en/latest/):
 
 1.  A test which calls extract() on `sample1.csv`, prints the extracted entries to a string, and compares this string with the contents of sample1.csv.extract
 

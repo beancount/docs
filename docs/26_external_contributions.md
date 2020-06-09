@@ -35,7 +35,7 @@ Tools<a id="tools"></a>
 
 [<span class="underline">bean-add</span>](https://github.com/simon-v/bean-add) (Simon Volpert): A Beancount transaction entry assistant.
 
-[<span class="underline">hoostus/fincen\_114</span>](https://github.com/hoostus/fincen_114) (Justus Pendleton): A FBAR / FinCEN 114 report generator.
+[<span class="underline">hoostus/fincen\_114</span>](https://github.com/hoostus/fincen_114) (Justus Pendleton): An FBAR / FinCEN 114 report generator.
 
 [<span class="underline">ghislainbourgeois/beancount\_portfolio\_allocation</span>](https://github.com/ghislainbourgeois/beancount_portfolio_allocation) ([<span class="underline">Ghislain Bourgeois</span>](https://groups.google.com/d/msgid/beancount/b36d9b67-8496-4021-98ea-0470e5f09e4b%40googlegroups.com?utm_medium=email&utm_source=footer)): A quick way to figure out the asset allocations in different portfolios.
 

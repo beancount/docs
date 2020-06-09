@@ -509,7 +509,7 @@ could be rendered as a table like this:
 
 Notice how the values of Transaction fields are replicated for each posting. This is exactly like a regular database join operation. The posting fields begin at column “Account.” (Also note that this example table is simplified; in practice there are many more fields.)
 
-If you had a joined table just like this you could filter it and sum up amounts for arbitrary groups of postings. This is exactly what the bean-query tool allows you to do: You can run a SQL query on the data equivalent to this in-memory table and list values like this:
+If you had a joined table just like this you could filter it and sum up amounts for arbitrary groups of postings. This is exactly what the bean-query tool allows you to do: You can run an SQL query on the data equivalent to this in-memory table and list values like this:
 
     SELECT date, payee, number WHERE account = "Liabilities:CreditCard";
 
@@ -527,7 +527,7 @@ If you’re familiar with SQL databases, you might ask why Beancount doesn’t s
 
 -   **Aggregating Positions.** Though we haven’t discussed it in this document so far, the contents of accounts may contain different types of commodities, as well as positions with an attached cost basis. The way that these positions are aggregated together requires the implementation of a custom data type because it obeys some rules about how positions are able to cancel each other out (see [<span class="underline">How Inventories Work</span>](11_how_inventories_work.md) for details). It would be very difficult to build these operations with an SQL database beyond the context of using just a single currency and ignoring cost basis.
 
-This is why Beancount provides a custom tool to directly process and query its data: It provides its own implementation of a SQL client that lets you specify open and close dates and leverages a custom “Inventory” data structure to create sums of the positions of postings. This tools supports columns of Beancount’s core types: Amount, Position and Inventory objects.
+This is why Beancount provides a custom tool to directly process and query its data: It provides its own implementation of an SQL client that lets you specify open and close dates and leverages a custom “Inventory” data structure to create sums of the positions of postings. This tools supports columns of Beancount’s core types: Amount, Position and Inventory objects.
 
 (In any case, if you’re not convinced, Beancount provides a [<span class="underline">tool</span>](https://bitbucket.org/blais/beancount/src/tip/bin/bean-sql) to export its contents to a regular SQL database system. Feel free to experiment with it if you like, knock yourself out.)
 

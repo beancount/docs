@@ -326,7 +326,7 @@ If you’re experiencing difficulties in recording your sales due to the matchin
 
     bean-doctor context <filename> <line-no>
 
-The resulting output will show the list of inventory contents of all affected accounts prior to the transaction being applied, including cost basis, acquisition date, and optional label fully rendered. Note that some failures are typically handled by throwing away a invalid Transaction’s effects (but never quietly).
+The resulting output will show the list of inventory contents of all affected accounts prior to the transaction being applied, including cost basis, acquisition date, and optional label fully rendered. Note that some failures are typically handled by throwing away an invalid Transaction’s effects (but never quietly).
 
 From Emacs or VI, placing the cursor near a transaction and invoking the corresponding command is the easiest way to invoke the command, as it inserts the line number automatically.
 

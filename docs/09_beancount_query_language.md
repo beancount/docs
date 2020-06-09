@@ -19,9 +19,9 @@ This document describes our specialized SQL-like query client. It assumes you ha
 Motivation<a id="motivation"></a>
 ---------------------------------
 
-So one might ask: Why create another SQL client? Why not output the data to a SQLite database and allow the user to use that SQL client?
+So one might ask: Why create another SQL client? Why not output the data to an SQLite database and allow the user to use that SQL client?
 
-Well, we have done that (see the [<span class="underline">bean-sql</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/scripts/sql.py) script which converts your Beancount ledger into a SQLite database) and the results are not great. Writing queries is painful and carrying out operations on lots that are held at cost is difficult. By taking advantage of a few aspects of our in-memory data structures, we can do better. So Beancount comes with its own SQL-like query client called “[<span class="underline">bean-query</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/scripts/query.py)”.
+Well, we have done that (see the [<span class="underline">bean-sql</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/scripts/sql.py) script which converts your Beancount ledger into an SQLite database) and the results are not great. Writing queries is painful and carrying out operations on lots that are held at cost is difficult. By taking advantage of a few aspects of our in-memory data structures, we can do better. So Beancount comes with its own SQL-like query client called “[<span class="underline">bean-query</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/scripts/query.py)”.
 
 The clients implements the following “extras” that are essential to Beancount:
 

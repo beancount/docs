@@ -77,7 +77,7 @@ Each source is tried in turn, and if one fails to return a valid price, the next
 
 ### Inverted Prices<a id="inverted-prices"></a>
 
-Sometimes, prices are only available for the inverse of an instrument. This is often the case for currencies. For example, the price of Canadian dollars quoted in US dollars is provided by the USD/CAD market, which gives the price of a US dollar in Canadian dollars (the inverse). In order use this, you can prepend "^" to the instrument name to instruct the tool to compute the inverse of the fetched price:
+Sometimes, prices are only available for the inverse of an instrument. This is often the case for currencies. For example, the price of Canadian dollars quoted in US dollars is provided by the USD/CAD market, which gives the price of a US dollar in Canadian dollars (the inverse). In order use this, you can prepend "`^`" to the instrument name to instruct the tool to compute the inverse of the fetched price:
 
     USD:google/^CURRENCY:USDCAD
 

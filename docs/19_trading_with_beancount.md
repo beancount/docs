@@ -323,13 +323,13 @@ Stock Splits<a id="stock-splits"></a>
 
 Stock splits are currently dealt with by emptying an account’s positions and recreating the positions at a different price:
 
-    2004-12-21 * “Autodesk stock splits”
+    2004-12-21 * "Autodesk stock splits"
       Assets:US:MSSB:ADSK          -100 ADSK {66.30 USD}
       Assets:US:MSSB:ADSK           200 ADSK {33.15 USD}
 
 The postings balance each other, so the rule is respected. As you can see, this requires no special syntax feature. It also handles more general scenarios, such as the odd split of the Google company that occurred on the NASDAQ exchange in April 2014, into two different classes of stock (voting and non-voting shares, at 50.08% and 49.92%, respectively):
 
-    2014-04-07 * “Stock splits into voting and non-voting shares”
+    2014-04-07 * "Stock splits into voting and non-voting shares"
       Assets:US:MSSB:GOOG        -25 GOOG {1212.51   USD} ; Old GOOG
       Assets:US:MSSB:GOOG         25 GOOG { 605.2850 USD} ; New GOOG
       Assets:US:MSSB:GOOGL        25 GOOG { 607.2250 USD}
@@ -351,7 +351,7 @@ Readjustment in cost basis may occur in managed funds, due to the fund’s inter
 
 If we have the specific lot prices being adjusted, it is doable to book these in the same manner as we dealt with stock splits:
 
-    2014-04-07 * “Cost basis adjustment for XSP”
+    2014-04-07 * "Cost basis adjustment for XSP"
       Assets:CA:RRSP:XSP           -100 ADSK {21.10 CAD}
       Assets:CA:RRSP:XSP            100 ADSK {23.40 CAD}
       Income:CA:RRSP:Gains      -230.00 CAD
@@ -365,13 +365,13 @@ Dividends<a id="dividends"></a>
 
 Dividends don’t pose a particular problem. They are just income. They can be received as cash:
 
-    2014-02-01 * “Cash dividends received from mutual fund RBF1005”
+    2014-02-01 * "Cash dividends received from mutual fund RBF1005"
       Assets:Investments:Cash            171.02 CAD
       Income:Investments:Dividends
 
 Or they can be received as stock itself:
 
-    2014-02-01 * “Stock dividends received in shares”
+    2014-02-01 * "Stock dividends received in shares"
       Assets:Investments:RBF1005          7.234 RBF1005 {23.64 CAD}
       Income:Investments:Dividends
 
@@ -384,7 +384,7 @@ At the moment, the only way to perform booking at average cost is painful: you w
 
 Once the proposal is implemented, it will look like this:
 
-    2014-02-01 * “Selling 5 shares at market price 550 USD”
+    2014-02-01 * "Selling 5 shares at market price 550 USD"
       Assets:Investments:Stock               -5 GOOG {*}
       Assets:Investments:Cash           2740.05 USD
       Expenses:Commissions                 9.95 USD
@@ -397,9 +397,9 @@ Future Topics<a id="future-topics"></a>
 
 I’ll be handling the following topics later on:
 
--   **Mark-to-Market**: Handling end-of-year mark-to-market for Section 1256 instruments (i.e., futures and options), by re-evaluating the cost basis. This is similar to a cost basis readjustment applied at the end of each year for all of these types instruments.
+-   **Mark-to-Market**: Handling end-of-year mark-to-market for Section 1256 instruments (i.e., futures and options), by re-evaluating the cost basis. This is similar to a cost basis readjustment applied at the end of each year for all of these types of instruments.
 
--   **Short Sales**: these require little changes. We just have to allow negative numbers of units held at cost. At the moment we spit a warning when units held at cost go negative in order to detect data entry errors, but it would be easy to extend the Open directive syntax to allow this to occur on specific accounts which can hold short sales, which should just show as negative shares. All the arithmetic should otherwise just work naturally. Interest payments on margins would show up as distinct transactions. Also, when you short the stock, you don’t receive dividends for those positions, but rather you have to pay them out. You would an expense account for this, e.g., `Expenses:StockLoans:Dividends`.
+-   **Short Sales**: these require little changes. We just have to allow negative numbers of units held at cost. At the moment we spit a warning when units held at cost go negative in order to detect data entry errors, but it would be easy to extend the Open directive syntax to allow this to occur on specific accounts which can hold short sales, which should just show as negative shares. All the arithmetic should otherwise just work naturally. Interest payments on margins would show up as distinct transactions. Also, when you short the stock, you don’t receive dividends for those positions, but rather you have to pay them out. You would have expense account for this, e.g., `Expenses:StockLoans:Dividends`.
 
 <!-- -->
 

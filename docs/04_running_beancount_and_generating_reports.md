@@ -273,7 +273,7 @@ At the moment, in order to access reports from these subsets of transactions, yo
 Reports<a id="reports"></a>
 ---------------------------
 
-The whole point of entering your transactions in a single input file in the first place is that it allows you to sum, filter, aggregate and arrange various subsets of your data into well-known reports. There are three distinct ways to produce reports from Beancount: by using **bean-web** and browsing to a view and then to a specific report (this is the easy way), by using **bean-report** and providing the name of a desired report (and possibly some report-specific arguments), and by using **bean-query** and requesting data by specifying a SQL statement.
+The whole point of entering your transactions in a single input file in the first place is that it allows you to sum, filter, aggregate and arrange various subsets of your data into well-known reports. There are three distinct ways to produce reports from Beancount: by using **bean-web** and browsing to a view and then to a specific report (this is the easy way), by using **bean-report** and providing the name of a desired report (and possibly some report-specific arguments), and by using **bean-query** and requesting data by specifying an SQL statement.
 
 Reports can sometimes be rendered in different file formats. Each report type will support being rendered in a list of common ones, such as console text, HTML and CSV. Some reports render in Beancount syntax itself, and we simply call this format name “beancount.”
 
