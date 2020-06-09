@@ -398,7 +398,7 @@ def test():
     importer = Importer(...)
     yield from regression.compare_sample_files(importer)
 </code></pre>
-<p>If your importer overrides the <code>extract()</code> and <code>file_date()</code> methods, this will generate four unit tests which get run automatically by <a href="https://nose.readthedocs.org/en/latest/"><span class="underline">nosetests</span></a>:</p>
+<p>If your importer overrides the <code>extract()</code> and <code>file_date()</code> methods, this will generate four unit tests which get run automatically by <a href="https://docs.pytest.org/en/latest/"><span class="underline">pytest</span></a>:</p>
 <ol>
 <li>
 <p>A test which calls extract() on <code>sample1.csv</code>, prints the extracted entries to a string, and compares this string with the contents of sample1.csv.extract</p>

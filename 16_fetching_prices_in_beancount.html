@@ -250,7 +250,7 @@
 </code></pre>
 <p>Each source is tried in turn, and if one fails to return a valid price, the next source is tried as a fallback. The hope is that at least one of the specified sources will work out.</p>
 <h3 id="inverted-prices">Inverted Prices<a id="inverted-prices"></a><a class="headerlink" href="#inverted-prices" title="Permanent link"></a></h3>
-<p>Sometimes, prices are only available for the inverse of an instrument. This is often the case for currencies. For example, the price of Canadian dollars quoted in US dollars is provided by the USD/CAD market, which gives the price of a US dollar in Canadian dollars (the inverse). In order use this, you can prepend "^" to the instrument name to instruct the tool to compute the inverse of the fetched price:</p>
+<p>Sometimes, prices are only available for the inverse of an instrument. This is often the case for currencies. For example, the price of Canadian dollars quoted in US dollars is provided by the USD/CAD market, which gives the price of a US dollar in Canadian dollars (the inverse). In order use this, you can prepend "<code>^</code>" to the instrument name to instruct the tool to compute the inverse of the fetched price:</p>
 <pre><code>USD:google/^CURRENCY:USDCAD
 </code></pre>
 <p>If a source price is to be inverted, like this, the precision could be different than what is fetched. For instance, if the price of USD/CAD is 1.32759, for the above directive to price the “CAD” instrument it would output this:</p>

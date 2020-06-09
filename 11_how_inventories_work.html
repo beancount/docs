@@ -483,7 +483,7 @@ match sales (reductions) against accumulated inventory contents.</em></p>
 <p>If you’re experiencing difficulties in recording your sales due to the matching process, there are tools you can use to view an account’s detailed inventory contents before and after applying a Transaction to it. To do this, you can use the bean-doctor command. You invoke the program providing it with the file and line number close to the Transaction you want to select, like this:</p>
 <pre><code>bean-doctor context &lt;filename&gt; &lt;line-no&gt;
 </code></pre>
-<p>The resulting output will show the list of inventory contents of all affected accounts prior to the transaction being applied, including cost basis, acquisition date, and optional label fully rendered. Note that some failures are typically handled by throwing away a invalid Transaction’s effects (but never quietly).</p>
+<p>The resulting output will show the list of inventory contents of all affected accounts prior to the transaction being applied, including cost basis, acquisition date, and optional label fully rendered. Note that some failures are typically handled by throwing away an invalid Transaction’s effects (but never quietly).</p>
 <p>From Emacs or VI, placing the cursor near a transaction and invoking the corresponding command is the easiest way to invoke the command, as it inserts the line number automatically.</p>
 <h2 id="appendix">Appendix<a id="appendix"></a><a class="headerlink" href="#appendix" title="Permanent link"></a></h2>
 <p>The rest of this document delves into more technical details. You should feel free to ignore this entirely, it’s not necessary reading to understand how Beancount works. Only bother if you’re interested in the details.</p>

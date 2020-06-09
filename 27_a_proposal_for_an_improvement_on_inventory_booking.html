@@ -317,12 +317,12 @@
 <h2 id="problem-description">Problem Description<a id="problem-description"></a><a class="headerlink" href="#problem-description" title="Permanent link"></a></h2>
 <p>The problem under consideration is the problem of deciding, for a double-entry transaction that intends to reduce the size of a position at a particular point in time in a particular account, which of the account inventory lots contained at that point should be reduced. This should be specified using a simple data entry syntax that minimizes the burden on the user.</p>
 <p>For example, one could enter a position in HOOL stock by buying two lots of it at different points in time:</p>
-<pre><code>2014-02-01 * “First trade”
+<pre><code>2014-02-01 * "First trade"
   Assets:Investments:Stock        10 HOOL {500 USD}
   Assets:Investments:Cash
   Expenses:Commissions          9.95 USD
 
-2014-02-15 * “Second trade”
+2014-02-15 * "Second trade"
   Assets:Investments:Stock         8 HOOL {510 USD}
   Assets:Investments:Cash
   Expenses:Commissions          9.95 USD
@@ -341,12 +341,12 @@
 <p>Most of this document is dedicated to the second direction.</p>
 <h3 id="lot-date">Lot Date<a id="lot-date"></a><a class="headerlink" href="#lot-date" title="Permanent link"></a></h3>
 <p>Even if the cost of each lot is identical, the acquisition date of the position you’re intending to close matters, because different taxation rules may apply, for example, in the US, positions held for more than 12 months are subject to a significantly lower tax rate (“the long-term capital gains rate”). For example, if you entered your position like this:</p>
-<pre><code>2012-05-01 * “First trade”
+<pre><code>2012-05-01 * "First trade"
   Assets:Investments:Stock        10 HOOL {300 USD}
   Assets:Investments:Cash
   Expenses:Commissions          9.95 USD
 
-2014-02-15 * “Second trade at same price”
+2014-02-15 * "Second trade at same price"
   Assets:Investments:Stock         8 HOOL {300 USD}
   Assets:Investments:Cash
   Expenses:Commissions          9.95 USD
@@ -378,7 +378,7 @@
 <p>Note that the average cost of your positions changes on every trade and needs to get recalculated every time that you add to an existing position. A problem with this is that if you track the cost per share, these multiple recalculations may result in some errors if you store the amounts using a fixed numerical representation (typically decimal numbers). An alternative method to track the cost in our data structures, one that is more stable numerically, is to simply keep track of the total cost instead of the cost-per-share. Also note that using fractional numbers does not provide a sufficient answer to this problem: in practice, the broker may report a specific cost, one that is rounded to specific number of decimals, and we may want to be able to book our reducing trade using that reported number rather than maintain the idealized amount that a fractional representation would. Both using a fixed decimal or a fractional representation pose problems. We will largely ignore those problems here.</p>
 <p>In summary: we need to be able to support book against lots at their average cost, and we need to be able to adjust the cost basis of an existing position. I’ve been thinking about a solution to implement this that would not force an account to be marked with a special state. I think we can do this using only inventory manipulations. All we need is a small change to the syntax that allows the user to indicate to the system that it should book against the average cost of all positions.</p>
 <p>Using the first example above, acquiring the shares would take the same form as previously, that is after buying two lots of 10 and 8 HOOL units, we end up with an inventory that holds two lots, one of 10 HOOL {500 USD} and one of 8 HOOL {510 USD}. However, when it’s time to sell, the following syntax would be used (this is an old idea I’ve been meaning to implement for a while):</p>
-<pre><code>2014-02-01 * “Selling 5 shares at market price 550 USD”
+<pre><code>2014-02-01 * "Selling 5 shares at market price 550 USD"
   Assets:Investments:Stock               -5 HOOL {*}
   Assets:Investments:Cash           2759.95 USD
   Expenses:Commissions                 9.95 USD
@@ -395,7 +395,7 @@
 </ol>
 <p>After the transaction, we would end up with a single position of 13 HOOL {504.44 USD). Adding to this position at a different price would create a new lot, and those would get merged again the next time a reduction occurs at average cost. We do not need to merge lots until there is a reduction. Apart from concerns of accumulating rounding error, this solution is correct mathematically, and maintains the property that accounts aren’t coerced into any specific booking method—a mix of methods could be used on every reduction. This is a nice property, even if not strictly necessary, and even if we want to be able to just specify a “default” booking method to use per account and just stick with it throughout. It’s always nice to have the flexibility to support exceptions, because in real life, they sometimes occur.</p>
 <h3 id="capital-gains-sans-commissions">Capital Gains Sans Commissions<a id="capital-gains-sans-commissions"></a><a class="headerlink" href="#capital-gains-sans-commissions" title="Permanent link"></a></h3>
-<p>We would like to be able to support the automatic calculation of capital gains without the commissions. This problem is described in much detail in the <a href="19_trading_with_beancount.html"><span class="underline">Commissions section of the trading documentation</span></a> and in a <a href="https://groups.google.com/d/msg/ledger-cli/zRSMle5AV3Q/ySUgsMVNg-kJ"><span class="underline">thread on the mailing-list</span></a>. The essence of the complication that occurs is that one cannot simply subtract the commissions incurred during the reporting period from the gains that include commissions, because the commissions that was incurred to acquire the position must be pro-rated to the shares of the position that are sold. The simplest and most common way to implement this is to include the costs of acquiring the position into the cost basis of the position itself, and deduct the selling costs from the market value when a position is reduced.</p>
+<p>We would like to be able to support the automatic calculation of capital gains without the commissions. This problem is described in much detail in the <a href="19_trading_with_beancount.html"><span class="underline">Commissions section of the trading documentation</span></a> and in a <a href="https://groups.google.com/d/msg/ledger-cli/zRSMle5AV3Q/ySUgsMVNg-kJ"><span class="underline">thread on the mailing-list</span></a>. The essence of the complication that occurs is that one cannot simply subtract the commissions incurred during the reporting period from the gains that include commissions, because the commissions that were incurred to acquire the position must be pro-rated to the shares of the position that are sold. The simplest and most common way to implement this is to include the costs of acquiring the position into the cost basis of the position itself, and deduct the selling costs from the market value when a position is reduced.</p>
 <p>Whatever new design we come up with must allow us to count these adjusted gains as this is essential to various individuals' situations. In Beancount, I have figured out a solution for this problem, which luckily enough involves only an automated transformation of a transaction flagged by the presence of a special flag on its postings... if and only if I can find a way to specify which lot to book against without having to specify its cost, because once the cost of commissions gets folded into the cost of the position, the adjusted cost does not show up anywhere in the input file, the user would have to calculate it manually, which is unreasonable. In the solution I’m proposing, the following transactions would be transformed automatically, triggered by the presence of the “C” flag:</p>
 <pre><code>2014-02-10 * "Buy"
   Assets:US:Invest:Cash    -5009.95 USD
@@ -457,11 +457,11 @@
 <p>If all the legs are fully specified - they have a calculatable balance - we allow a single price to be elided. This solves this problem well.</p>
 <h3 id="dealing-with-stock-splits">Dealing with Stock Splits<a id="dealing-with-stock-splits"></a><a class="headerlink" href="#dealing-with-stock-splits" title="Permanent link"></a></h3>
 <p>Accounting for stock splits creates some complications in terms of booking. In general, the problem is that we need to deal with changes in the meaning of a commodity over time. For example, you could do this in Beancount right now and it works:</p>
-<pre><code>2014-01-04 * “Buy some HOOL”
+<pre><code>2014-01-04 * "Buy some HOOL"
   Assets:Investments:Stock        10 HOOL {1000.00 USD}
   Assets:Investments:Cash
 
-2014-04-17 * “2:1 split into Class A and Class B shares”
+2014-04-17 * "2:1 split into Class A and Class B shares"
   Assets:Investments:Stock       -10 HOOL {1000.00 USD}
   Assets:Investments:Stock        10 HOOL  {500.00 USD}
   Assets:Investments:Stock        10 HOOLL {500.00 USD}
@@ -609,11 +609,11 @@
 <h3 id="shortcomings-in-beancount">Shortcomings in Beancount<a id="shortcomings-in-beancount"></a><a class="headerlink" href="#shortcomings-in-beancount" title="Permanent link"></a></h3>
 <p>Beancount also has various shortcomings, though different ones.</p>
 <p>In contrast to Ledger, Beancount <a href="https://groups.google.com/d/msg/ledger-cli/zRSMle5AV3Q/kBCYjVEB-gsJ"><span class="underline">disambiguates</span></a> between currency conversions and conversions “held at cost”:</p>
-<pre><code>2014-05-01 * “Convert some Loonies to Franklins”
+<pre><code>2014-05-01 * "Convert some Loonies to Franklins"
   Assets:CA:Checking          -6000 CAD
   Assets:Investments:Cash      5000 USD @ 1.2 CAD   ; Currency conversion
 
-2014-05-01 * “Buy some stock”
+2014-05-01 * "Buy some stock"
   Assets:Investments:Stock        10 HOOL {500 USD} ; Held at cost
   Assets:Investments:Cash
 </code></pre>
@@ -629,28 +629,28 @@
 </li>
 </ul>
 <p>Another problem with the Beancount booking method is in how it matches against lots with dates. For example, if you were to try to disambiguate between two lots at the same price, the most obvious input would not work:</p>
-<pre><code>2012-05-01 * “First trade”
+<pre><code>2012-05-01 * "First trade"
   Assets:Investments:Stock        10 HOOL {500 USD}
   Assets:Investments:Cash
 
-2014-02-15 * “Second trade at very same price”
+2014-02-15 * "Second trade at very same price"
   Assets:Investments:Stock         8 HOOL {500 USD}
   Assets:Investments:Cash
 
-2014-06-30 * “Trying to sell”
+2014-06-30 * "Trying to sell"
   Assets:Investments:Stock        -5 HOOL {500 USD / 2012-05-01}
   Assets:Investments:Cash
 </code></pre>
 <p>This would report a booking error. This is confusing. In this case Beancount, in its desire to be strict, applies strict matching against the inventory lots, and attempting to match units of a lot of (HOOL, 500 USD, 2012-05-01) with units of (HOOL, 500 USD, <em>None</em>) simply fails. Note that the lot-date syntax is accepted by Beancount on both augmenting and reducing legs, so the “solution” is that the user is forced to specifically provide the lot-date on acquiring the position. This would work, for instance:</p>
-<pre><code>2012-05-01 * “First trade”
+<pre><code>2012-05-01 * "First trade"
   Assets:Investments:Stock        10 HOOL {500 USD / 2012-05-01}
   Assets:Investments:Cash
 
-2014-02-15 * “Second trade at very same price”
+2014-02-15 * "Second trade at very same price"
   Assets:Investments:Stock         8 HOOL {500 USD}
   Assets:Investments:Cash
 
-2014-06-30 * “Trying to sell”
+2014-06-30 * "Trying to sell"
   Assets:Investments:Stock        -5 HOOL {500 USD / 2012-05-01}
   Assets:Investments:Cash
 </code></pre>
@@ -668,11 +668,11 @@
 </li>
 </ol>
 <p>Let’s take an example to justify why we need the non-booking summarization. Let’s say we have a stock purchase and sale:</p>
-<pre><code>2013-11-03 * “Buy”
+<pre><code>2013-11-03 * "Buy"
   Assets:Investments:VEA      10 AAPL {37.45 USD} ;; (A)
   Assets:Investments:Cash     -370.45 USD
 
-2014-08-09 * “Sell”
+2014-08-09 * "Sell"
   Assets:Investments:VEA     -5 AAPL {37.45 USD}
   Assets:Investments:Cash     194.40 USD
   Income:Investments:PnL
@@ -881,7 +881,7 @@
 </ul>
 <p>This method would <em>only</em> get invoked if disambiguation between multiple lots is required, after filtering the lots against the expression provided by the user. The <code>STRICT</code> method is basically the degenerate disambiguation which issues an error if there is any ambiguity and should be the default.</p>
 <p>There should be a default method that applies to all accounts. The default value should be overridable. In Beancount, we would add a new “option” to allow the user to change this:</p>
-<pre><code>option “booking_method”  “FIFO”
+<pre><code>option "booking_method" "FIFO"
 </code></pre>
 <p>The default value used in a particular account should be specifiable as well, because it is a common case that the method varies by account, and is fixed within the account. In Beancount, this would probably become part of the open directive, something like this:</p>
 <pre><code>2003-02-17 open Assets:Ameritrade:HOOL  HOOL  booking:FIFO
@@ -903,18 +903,18 @@
 </code></pre>
 <h3 id="dates-inserted-by-default">Dates Inserted by Default<a id="dates-inserted-by-default"></a><a class="headerlink" href="#dates-inserted-by-default" title="Permanent link"></a></h3>
 <p>By default, if an explicit date is not specified in a cost, the date of the transaction that holds the posting should be attached to the trading lot automatically. This date is overridable so that stock splits may be implemented by a transformation to a transaction like this:</p>
-<pre><code>2014-01-04 * “Buy some HOOL”
+<pre><code>2014-01-04 * "Buy some HOOL"
   Assets:Investments:Stock   10 HOOL {1000.00 USD}
   Assets:Investments:Cash
 
-2014-04-17 * “2:1 split into Class A and Class B shares”
+2014-04-17 * "2:1 split into Class A and Class B shares"
   Assets:Investments:Stock  -10 HOOL {1000.00 USD, 2014-01-04} ; reducing
   Assets:Investments:Stock   10 HOOL  {500.00 USD, 2014-01-04} ; augment
   Assets:Investments:Stock   10 HOOLL {500.00 USD, 2014-01-04} ; augment
 </code></pre>
 <h3 id="matching-with-no-information">Matching with No Information<a id="matching-with-no-information"></a><a class="headerlink" href="#matching-with-no-information" title="Permanent link"></a></h3>
 <p>Supplying no information for the cost should be supported and is sometimes useful: in the case of <em>augmenting</em> a position, if all the other legs have values specified, we should be able to automatically infer the cost of the units being traded:</p>
-<pre><code>2012-05-01 * “First trade”
+<pre><code>2012-05-01 * "First trade"
   Assets:Investments:Stock            10 HOOL {}
   Assets:Investments:Cash       -5009.95 USD
   Expenses:Commissions              9.95 USD
@@ -923,28 +923,28 @@
 <p>Note that the user still has to specify a cost of “<code>{}</code>” in order to inform us that this posting has to be considered “held at cost.” This is important to disambiguate from a price conversion with no associated cost.</p>
 <h3 id="reducing-multiple-lots">Reducing Multiple Lots<a id="reducing-multiple-lots"></a><a class="headerlink" href="#reducing-multiple-lots" title="Permanent link"></a></h3>
 <p>If a single trade needs to close multiple existing lots of an inventory, this can dealt with trivially by inserting one posting for each lot. I think this is a totally reasonable requirement. This could represent a single trade, for instance, if your brokerage allows it:</p>
-<pre><code>2012-05-01 * “Closing my position”
+<pre><code>2012-05-01 * "Closing my position"
   Assets:Investments:Stock           -10 HOOL {500 USD}
   Assets:Investments:Stock           -12 HOOL {510 USD}
   Assets:Investments:Cash       12000.00 USD
   Income:Investments:Gains
 </code></pre>
-<p>Note: If the cost basis specification for the lot matches multiple lots of the inventory and the result is unambiguous, the lots will be correctly, selected. For example, if the ante-inventory contains just those two lots (22 HOOL in total), you should be able to have a single reducing posting like this:</p>
-<pre><code>2012-05-01 * “Closing my position”
+<p>Note: If the cost basis specification for the lot matches multiple lots of the inventory and the result is unambiguous, the lots will be correctly selected. For example, if the ante-inventory contains just those two lots (22 HOOL in total), you should be able to have a single reducing posting like this:</p>
+<pre><code>2012-05-01 * "Closing my position"
   Assets:Investments:Stock           -22 HOOL {}
   Assets:Investments:Cash       12000.00 USD
   Income:Investments:Gains
 </code></pre>
-<p>and they will be both be included.</p>
+<p>and they will both be included.</p>
 <p>On the other hand, if the result is ambiguous (for example, if you have more than these two lots) the booking strategy for that account would be invoked. By default, this strategy will be "STRICT" which will generate an error, but if this account's strategy is set to "FIFO" (or is not set and the default global strategy is "FIFO"), the FIFO lots would be automatically selected for you, as per your wish.</p>
 <h3 id="lot-basis-modification">Lot Basis Modification<a id="lot-basis-modification"></a><a class="headerlink" href="#lot-basis-modification" title="Permanent link"></a></h3>
 <p>Another idea is to support the modification of a specific lot’s cost basis in a single leg. The way this could work, is by specifying the number of units to modify, and the “+ number currency” syntax would be used to adjust the cost basis by a specific number, like this:</p>
-<pre><code>2012-05-01 * “Adjust cost basis by 250 USD for 5 of the 500 USD units”
+<pre><code>2012-05-01 * "Adjust cost basis by 250 USD for 5 of the 500 USD units"
   Assets:Investments:Stock            ~5 HOOL {500 + 250 USD}
 </code></pre>
-<p>If the number of unit is smaller than the total number of units in the lot, split out the lot before applying the cost basis adjustment. <em>I’m not certain I like this.</em></p>
+<p>If the number of units is smaller than the total number of units in the lot, split out the lot before applying the cost basis adjustment. <em>I’m not certain I like this.</em></p>
 <p>Not specifying the size could also adjust the entire position (I’m not sure if this makes sense as it departs from the current syntax significantly):</p>
-<pre><code>2012-05-01 * “Adjust cost basis by 250 USD for the 500 USD units”
+<pre><code>2012-05-01 * "Adjust cost basis by 250 USD for the 500 USD units"
   Assets:Investments:Stock            HOOL {500 + 250 USD}
 </code></pre>
 <p>In any case, all the fields other than the total cost adjustment would be used to select which lot to adjust.</p>
@@ -1150,7 +1150,7 @@
   Assets:US:Invest:Stock       10.00 HOOL {* + 230.00 USD}
   Income:US:Invest:Gains     -230.00 USD
 </code></pre>
-<p>Notice how we stll have to specify an amount of HOOL shares to be repriced. I like this, but I’m wondering if we should allow specifying “all the units” like this (this would be a more radical change to the syntax):</p>
+<p>Notice how we still have to specify an amount of HOOL shares to be repriced. I like this, but I’m wondering if we should allow specifying “all the units” like this (this would be a more radical change to the syntax):</p>
 <pre><code>2014-05-20 * "Adjust cost basis of the Hooli units"
   Assets:US:Invest:Stock           * HOOL {* + 230.00 USD}
   Income:US:Invest:Gains     -230.00 USD
@@ -1167,7 +1167,7 @@
 <p><strong><em>TODO - complete this with more tests for average cost booking!</em></strong></p>
 <h2 id="implementation-notes">Implementation Notes<a id="implementation-notes"></a><a class="headerlink" href="#implementation-notes" title="Permanent link"></a></h2>
 <h3 id="separate-parsing-interpolation">Separate Parsing &amp; Interpolation<a id="separate-parsing-interpolation"></a><a class="headerlink" href="#separate-parsing-interpolation" title="Permanent link"></a></h3>
-<p>In order to implement a syntax for reduction that does not specify the cost, we need to make changes to the parser. Because there may be no costs on the posting, it becomes impossible to perform balance checks at parsing time. Therefore, we will need to postpone balance checks to a stage <em>after</em> parsing. This is reasonable and in a way nice: it is best if the Beancount parser not output many complex errors at that stage. A new “post-parse” stage will be added, right before running the plugins.</p>
+<p>In order to implement a syntax for reduction that does not specify the cost, we need to make changes to the parser. Because there may be no costs on the posting, it becomes impossible to perform balance checks at parsing time. Therefore, we will need to postpone balance checks to a stage <em>after</em> parsing. This is reasonable and in a way nice: it is best if the Beancount parser does not output many complex errors at that stage. A new “post-parse” stage will be added, right before running the plugins.</p>
 <h2 id="conclusion">Conclusion<a id="conclusion"></a><a class="headerlink" href="#conclusion" title="Permanent link"></a></h2>
 <p>This document is work-in-progress. I’d really love to get some feedback in order to improve the suggested method, which is why I put this down in words instead of just writing the code. I think a better semantic can be reached by iterating on this design to produce something that works better in all systems, and this can be used as documentation later on for developers to understand why it is designed this way.</p>
 <p>Your feedback is much appreciated.</p>
