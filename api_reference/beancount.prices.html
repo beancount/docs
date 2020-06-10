@@ -266,6 +266,22 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#beancount.prices.sources">sources</a>
 <ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.prices.sources.coinbase">coinbase</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.prices.sources.coinbase.CoinbaseError">CoinbaseError</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.prices.sources.coinbase.Source">Source</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.prices.sources.coinbase.fetch_quote">fetch_quote()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.prices.sources.coinbase_test">coinbase_test</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.prices.sources.coinbase_test.response">response()</a>
+</li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.prices.sources.iex">iex</a>
 <ul>
 <li class="toctree-l4"><a class="reference internal" href="#beancount.prices.sources.iex.IEXError">IEXError</a>
@@ -426,7 +442,7 @@ reciprocals automatically for all pairs of commodities in its database.</p>
 Beancount input file, e.g.:</p>
 <p>bean-price /home/joe/finances/joe.beancount</p>
 <p>There are many ways to extract a list of commodities with needed prices from a
-Baancount input file:</p>
+Beancount input file:</p>
 <ul>
 <li>
 <p>Prices for all the holdings that were seen held-at-cost at a particular date.</p>
@@ -718,7 +734,7 @@ at a particular date, based on previous history.</p>
                 currencies_on_books.add(pos.units.currency)
 
     # Create currency pairs from the currencies which are on account balances.
-    # In order to figure out the the quote currencies, we use the list of price
+    # In order to figure out the quote currencies, we use the list of price
     # conversions until this date.
     converted = (find_currencies_converted(entries, date) |
                  find_currencies_priced(entries, date))
@@ -1575,14 +1591,14 @@ parse_source_map
 <a class="headerlink" href="#beancount.prices.find_prices.parse_source_map" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Parse a source map specification string.</p>
-<p>Source map specifications allow the speification of multiple sources for
+<p>Source map specifications allow the specification of multiple sources for
 multiple quote currencies and follow the following syntax:</p>
 <p>&lt;currency1&gt;:&lt;source1&gt;,&lt;source2&gt;,... &lt;currency2&gt;:&lt;source1&gt;,...</p>
 <p>Where a &lt;source&gt; itself follows:</p>
 <p>&lt;module&gt;/[^]&lt;ticker&gt;</p>
 <p>The &lt;module&gt; is resolved against the Python path, but first looked up under
 the package where the default price extractors lie. The presence of a '^'
-character indicates that twe should use the inverse of the rate pull from
+character indicates that we should use the inverse of the rate pull from
 this source.</p>
 <p>For example, for prices of AAPL in USD:</p>
 <p>USD:google/NASDAQ:AAPL,yahoo/AAPL</p>
@@ -1648,7 +1664,7 @@ this source.</p>
 <pre class="highlight"><code class="language-python linenums">def parse_source_map(source_map_spec):
     """Parse a source map specification string.
 
-    Source map specifications allow the speification of multiple sources for
+    Source map specifications allow the specification of multiple sources for
     multiple quote currencies and follow the following syntax:
 
        &lt;currency1&gt;:&lt;source1&gt;,&lt;source2&gt;,... &lt;currency2&gt;:&lt;source1&gt;,...
@@ -1659,7 +1675,7 @@ this source.</p>
 
     The &lt;module&gt; is resolved against the Python path, but first looked up under
     the package where the default price extractors lie. The presence of a '^'
-    character indicates that twe should use the inverse of the rate pull from
+    character indicates that we should use the inverse of the rate pull from
     this source.
 
     For example, for prices of AAPL in USD:
@@ -1954,7 +1970,7 @@ fetch_price
         </code>
 <a class="headerlink" href="#beancount.prices.price.fetch_price" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
-<p>Fetch a price for the DatePrice job.</p>
+<p>Fetch a price for the DatedPrice job.</p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -2005,7 +2021,7 @@ rate for an inverted price source.</p>
 <details class="quote">
 <summary>Source code in <code>beancount/prices/price.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">def fetch_price(dprice, swap_inverted=False):
-    """Fetch a price for the DatePrice job.
+    """Fetch a price for the DatedPrice job.
 
     Args:
       dprice: A DatedPrice instances.
@@ -2809,6 +2825,144 @@ __repr__
 use.</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-module">
+<h3 class="doc doc-heading" id="beancount.prices.sources.coinbase">
+<code>coinbase</code>
+<a class="headerlink" href="#beancount.prices.sources.coinbase" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<p>A source fetching cryptocurrency prices from Coinbase.</p>
+<p>Valid tickers are in the form "XXX-YYY", such as "BTC-USD".</p>
+<p>Here is the API documentation:
+https://developers.coinbase.com/api/v2</p>
+<p>For example:
+https://api.coinbase.com/v2/prices/BTC-GBP/spot</p>
+<p>Timezone information: Input and output datetimes are specified via UTC
+timestamps.</p>
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h4 class="doc doc-heading" id="beancount.prices.sources.coinbase.CoinbaseError">
+<code>CoinbaseError</code>
+<a class="headerlink" href="#beancount.prices.sources.coinbase.CoinbaseError" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>An error from the Coinbase API.</p>
+</div>
+</div>
+<div class="doc doc-object doc-class">
+<h4 class="doc doc-heading" id="beancount.prices.sources.coinbase.Source">
+<code>Source</code>
+<a class="headerlink" href="#beancount.prices.sources.coinbase.Source" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>Coinbase API price extractor.</p>
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h5 class="doc doc-heading" id="beancount.prices.sources.coinbase.Source.get_historical_price">
+<code class="highlight language-python">
+get_historical_price
+(self, ticker, time)
+
+        </code>
+<a class="headerlink" href="#beancount.prices.sources.coinbase.Source.get_historical_price" title="Permanent link"></a></h5>
+<div class="doc doc-contents">
+<p>See contract in beancount.prices.source.Source.</p>
+<details class="quote">
+<summary>Source code in <code>beancount/prices/sources/coinbase.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">def get_historical_price(self, ticker, time):
+    """See contract in beancount.prices.source.Source."""
+    raise NotImplementedError(
+        "As of Feb 2019, historical prices are not supported on Coinbase. "
+        "Please check the API to see if this has changed: "
+        "https://developers.coinbase.com/apo/v2")
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h5 class="doc doc-heading" id="beancount.prices.sources.coinbase.Source.get_latest_price">
+<code class="highlight language-python">
+get_latest_price
+(self, ticker)
+
+        </code>
+<a class="headerlink" href="#beancount.prices.sources.coinbase.Source.get_latest_price" title="Permanent link"></a></h5>
+<div class="doc doc-contents">
+<p>See contract in beancount.prices.source.Source.</p>
+<details class="quote">
+<summary>Source code in <code>beancount/prices/sources/coinbase.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">def get_latest_price(self, ticker):
+    """See contract in beancount.prices.source.Source."""
+    return fetch_quote(ticker)
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h4 class="doc doc-heading" id="beancount.prices.sources.coinbase.fetch_quote">
+<code class="highlight language-python">
+fetch_quote
+(ticker)
+
+        </code>
+<a class="headerlink" href="#beancount.prices.sources.coinbase.fetch_quote" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>Fetch a quote from Coinbase.</p>
+<details class="quote">
+<summary>Source code in <code>beancount/prices/sources/coinbase.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">def fetch_quote(ticker):
+    """Fetch a quote from Coinbase."""
+    url = "https://api.coinbase.com/v2/prices/{}/spot".format(ticker.lower())
+    response = requests.get(url)
+    if response.status_code != requests.codes.ok:
+        raise CoinbaseError("Invalid response ({}): {}".format(response.status_code,
+                                                               response.text))
+    result = response.json()
+
+    price = D(result['data']['amount']).quantize(D('0.01'))
+    time = datetime.datetime.now(tz.tzutc())
+    currency = result['data']['currency']
+
+    return source.SourcePrice(price, time, currency)
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
+<h3 class="doc doc-heading" id="beancount.prices.sources.coinbase_test">
+<code>coinbase_test</code>
+<a class="headerlink" href="#beancount.prices.sources.coinbase_test" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-function">
+<h4 class="doc doc-heading" id="beancount.prices.sources.coinbase_test.response">
+<code class="highlight language-python">
+response
+(contents, status_code=200)
+
+        </code>
+<a class="headerlink" href="#beancount.prices.sources.coinbase_test.response" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>Return a context manager to patch a JSON response.</p>
+<details class="quote">
+<summary>Source code in <code>beancount/prices/sources/coinbase_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">def response(contents, status_code=requests.codes.ok):
+    """Return a context manager to patch a JSON response."""
+    response = mock.Mock()
+    response.status_code = status_code
+    response.text = ""
+    response.json.return_value = contents
+    return mock.patch('requests.get', return_value=response)
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
 <h3 class="doc doc-heading" id="beancount.prices.sources.iex">
 <code>iex</code>
 <a class="headerlink" href="#beancount.prices.sources.iex" title="Permanent link"></a></h3>
@@ -2848,9 +3002,8 @@ get_historical_price
 <pre class="highlight"><code class="language-python linenums">def get_historical_price(self, ticker, time):
     """See contract in beancount.prices.source.Source."""
     raise NotImplementedError(
-        "As of April 2018, historical prices are not supported on IEX. "
-        "Please check the API to see if this has changed: "
-        "https://iextrading.com/developer/docs")
+        "This is now implemented at https://iextrading.com/developers/docs/#hist and "
+        "needs to be added here.")
 </code></pre>
 </details>
 </div>
@@ -2886,23 +3039,29 @@ fetch_quote
         </code>
 <a class="headerlink" href="#beancount.prices.sources.iex.fetch_quote" title="Permanent link"></a></h4>
 <div class="doc doc-contents">
-<p>Fetch</p>
+<p>Fetch the latest price for the given ticker.</p>
 <details class="quote">
 <summary>Source code in <code>beancount/prices/sources/iex.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">def fetch_quote(ticker):
-    """Fetch"""
-    url = "https://api.iextrading.com/1.0/stock/{}/quote".format(ticker.lower())
+    """Fetch the latest price for the given ticker."""
+
+    url = "https://api.iextrading.com/1.0/tops/last?symbols={}".format(ticker.upper())
     response = requests.get(url)
     if response.status_code != requests.codes.ok:
-        raise IEXError("Invalid response ({}): {}".format(response.status_code,
-                                                          response.text))
-    result = response.json()
+        raise IEXError("Invalid response ({}): {}".format(
+            response.status_code, response.text))
 
-    price = D(result['latestPrice']).quantize(D('0.01'))
+    results = response.json()
+    if len(results) != 1:
+        raise IEXError("Invalid number of responses from IEX: {}".format(
+            response.text))
+    result = results[0]
+
+    price = D(result['price']).quantize(D('0.01'))
 
     # IEX is American markets.
     us_timezone = tz.gettz("America/New_York")
-    time = datetime.datetime.fromtimestamp(result['latestUpdate'] / 1000)
+    time = datetime.datetime.fromtimestamp(result['time'] / 1000)
     time = time.astimezone(us_timezone)
 
     # As far as can tell, all the instruments on IEX are priced in USD.
@@ -3300,7 +3459,7 @@ response
 <a class="headerlink" href="#beancount.prices.sources.yahoo" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Fetch prices from Yahoo Finance's CSV API.</p>
-<p>As of lated 2017, the older Yahoo finance API deprecated. In particular, the
+<p>As of late 2017, the older Yahoo finance API deprecated. In particular, the
 ichart endpoint is gone, and the download endpoint requires a cookie (which
 could be gotten - here's some documentation for that
 http://blog.bradlucas.com/posts/2017-06-02-new-yahoo-finance-quote-download-url/).</p>

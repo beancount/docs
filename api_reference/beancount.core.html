@@ -1082,7 +1082,7 @@ has_component
 <td><code></code></td>
 <td>
 <p>A string, a component of an account name. For instance,
-'Food' in 'Expenses:Food:Restaurant'. All components are considered.</p>
+<code>Food</code> in <code>Expenses:Food:Restaurant</code>. All components are considered.</p>
 </td>
 <td><em>required</em></td>
 </tr>
@@ -1098,10 +1098,10 @@ has_component
 </thead>
 <tbody>
 <tr>
-<td><code>A boolean, true if the component is in the account. Note that a component
-name must be whole, that is 'NY' is not in Expenses</code></td>
+<td><code>Boolean</code></td>
 <td>
-<p>Taxes:StateNY'.</p>
+<p>true if the component is in the account. Note that a component
+name must be whole, that is <code>NY</code> is not in <code>Expenses:Taxes:StateNY</code>.</p>
 </td>
 </tr>
 </tbody>
@@ -1114,10 +1114,10 @@ name must be whole, that is 'NY' is not in Expenses</code></td>
     Args:
       account_name: A string, an account name.
       component: A string, a component of an account name. For instance,
-        'Food' in 'Expenses:Food:Restaurant'. All components are considered.
+        ``Food`` in ``Expenses:Food:Restaurant``. All components are considered.
     Returns:
-      A boolean, true if the component is in the account. Note that a component
-      name must be whole, that is 'NY' is not in Expenses:Taxes:StateNY'.
+      Boolean: true if the component is in the account. Note that a component
+      name must be whole, that is ``NY`` is not in ``Expenses:Taxes:StateNY``.
     """
     return bool(re.search('(^|:){}(:|$)'.format(component), account_name))
 </code></pre>
@@ -1430,7 +1430,7 @@ parent_matcher
 <td><code></code></td>
 <td>
 <p>A callable, which, when called, will return true if the given account is a
-child of 'account_name'.</p>
+child of <code>account_name</code>.</p>
 </td>
 </tr>
 </tbody>
@@ -1444,7 +1444,7 @@ child of 'account_name'.</p>
       account_name: The name of the parent account we want to check for.
     Returns:
       A callable, which, when called, will return true if the given account is a
-      child of 'account_name'.
+      child of ``account_name``.
     """
     return re.compile(r'{}($|{})'.format(re.escape(account_name), sep)).match
 </code></pre>
@@ -3114,7 +3114,7 @@ def from_string(string):
 <h4 class="doc doc-heading" id="beancount.core.amount.Amount.to_string">
 <code class="highlight language-python">
 to_string
-(self, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7fd91254deb0&gt;)
+(self, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7f95244baeb0&gt;)
 
         </code>
 <a class="headerlink" href="#beancount.core.amount.Amount.to_string" title="Permanent link"></a></h4>
@@ -3137,7 +3137,7 @@ to_string
 <td>
 <p>An instance of DisplayFormatter.</p>
 </td>
-<td><code>&lt;beancount.core.display_context.DisplayFormatter object at 0x7fd91254deb0&gt;</code></td>
+<td><code>&lt;beancount.core.display_context.DisplayFormatter object at 0x7f95244baeb0&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -3945,8 +3945,8 @@ compare_entries
     Raises:
       ValueError: If a duplicate entry is found.
     """
-    hashes1, errors1 = hash_entries(entries1)
-    hashes2, errors2 = hash_entries(entries2)
+    hashes1, errors1 = hash_entries(entries1, exclude_meta=True)
+    hashes2, errors2 = hash_entries(entries2, exclude_meta=True)
     keys1 = set(hashes1.keys())
     keys2 = set(hashes2.keys())
 
@@ -4048,9 +4048,9 @@ excludes_entries
     Raises:
       ValueError: If a duplicate entry is found.
     """
-    subset_hashes, subset_errors = hash_entries(subset_entries)
+    subset_hashes, subset_errors = hash_entries(subset_entries, exclude_meta=True)
     subset_keys = set(subset_hashes.keys())
-    hashes, errors = hash_entries(entries)
+    hashes, errors = hash_entries(entries, exclude_meta=True)
     keys = set(hashes.keys())
 
     if subset_errors or errors:
@@ -4069,7 +4069,7 @@ excludes_entries
 <h3 class="doc doc-heading" id="beancount.core.compare.hash_entries">
 <code class="highlight language-python">
 hash_entries
-(entries)
+(entries, exclude_meta=False)
 
         </code>
 <a class="headerlink" href="#beancount.core.compare.hash_entries" title="Permanent link"></a></h3>
@@ -4095,6 +4095,18 @@ hash_entries
 </td>
 <td><em>required</em></td>
 </tr>
+<tr>
+<td><code>exclude_meta</code></td>
+<td><code></code></td>
+<td>
+<p>If set, exclude the metadata from the hash. Use this for
+unit tests comparing entries coming from different sources as the
+filename and lineno will be distinct. However, when you're using the
+hashes to uniquely identify transactions, you want to include the
+filenames and line numbers (the default).</p>
+</td>
+<td><code>False</code></td>
+</tr>
 </tbody>
 </table>
 <p><strong>Returns:</strong></p>
@@ -4117,13 +4129,18 @@ Errors are created when duplicate entries are found.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>beancount/core/compare.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def hash_entries(entries):
+<pre class="highlight"><code class="language-python linenums">def hash_entries(entries, exclude_meta=False):
     """Compute unique hashes of each of the entries and return a map of them.
 
     This is used for comparisons between sets of entries.
 
     Args:
       entries: A list of directives.
+      exclude_meta: If set, exclude the metadata from the hash. Use this for
+        unit tests comparing entries coming from different sources as the
+        filename and lineno will be distinct. However, when you're using the
+        hashes to uniquely identify transactions, you want to include the
+        filenames and line numbers (the default).
     Returns:
       A dict of hash-value to entry (for all entries) and a list of errors.
       Errors are created when duplicate entries are found.
@@ -4132,7 +4149,7 @@ Errors are created when duplicate entries are found.</p>
     errors = []
     num_legal_duplicates = 0
     for entry in entries:
-        hash_ = hash_entry(entry)
+        hash_ = hash_entry(entry, exclude_meta)
 
         if hash_ in entry_hash_dict:
             if isinstance(entry, Price):
@@ -4161,7 +4178,7 @@ Errors are created when duplicate entries are found.</p>
 <h3 class="doc doc-heading" id="beancount.core.compare.hash_entry">
 <code class="highlight language-python">
 hash_entry
-(entry)
+(entry, exclude_meta=False)
 
         </code>
 <a class="headerlink" href="#beancount.core.compare.hash_entry" title="Permanent link"></a></h3>
@@ -4186,6 +4203,18 @@ hash_entry
 </td>
 <td><em>required</em></td>
 </tr>
+<tr>
+<td><code>exclude_meta</code></td>
+<td><code></code></td>
+<td>
+<p>If set, exclude the metadata from the hash. Use this for
+unit tests comparing entries coming from different sources as the
+filename and lineno will be distinct. However, when you're using the
+hashes to uniquely identify transactions, you want to include the
+filenames and line numbers (the default).</p>
+</td>
+<td><code>False</code></td>
+</tr>
 </tbody>
 </table>
 <p><strong>Returns:</strong></p>
@@ -4207,15 +4236,22 @@ hash_entry
 </table>
 <details class="quote">
 <summary>Source code in <code>beancount/core/compare.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def hash_entry(entry):
+<pre class="highlight"><code class="language-python linenums">def hash_entry(entry, exclude_meta=False):
     """Compute the stable hash of a single entry.
 
     Args:
       entry: A directive instance.
+      exclude_meta: If set, exclude the metadata from the hash. Use this for
+        unit tests comparing entries coming from different sources as the
+        filename and lineno will be distinct. However, when you're using the
+        hashes to uniquely identify transactions, you want to include the
+        filenames and line numbers (the default).
     Returns:
       A stable hexadecimal hash of this entry.
+
     """
-    return stable_hash_namedtuple(entry, IGNORED_FIELD_NAMES)
+    return stable_hash_namedtuple(entry,
+                                  IGNORED_FIELD_NAMES if exclude_meta else frozenset())
 </code></pre>
 </details>
 </div>
@@ -4306,9 +4342,9 @@ includes_entries
     Raises:
       ValueError: If a duplicate entry is found.
     """
-    subset_hashes, subset_errors = hash_entries(subset_entries)
+    subset_hashes, subset_errors = hash_entries(subset_entries, exclude_meta=True)
     subset_keys = set(subset_hashes.keys())
-    hashes, errors = hash_entries(entries)
+    hashes, errors = hash_entries(entries, exclude_meta=True)
     keys = set(hashes.keys())
 
     if subset_errors or errors:
@@ -4414,19 +4450,22 @@ or irrelevant data.</p>
 <a class="headerlink" href="#beancount.core.convert" title="Permanent link"></a></h2>
 <div class="doc doc-contents">
 <p>Conversions from Position (or Posting) to units, cost, weight, market value.</p>
-<p>Units: Just the primary amount of the position.
-  Cost: The cost basis of the position, if available.
-  Weight: The cost basis or price of the position.
-  Market Value: The units converted to a value via a price map.</p>
+<ul>
+<li>Units: Just the primary amount of the position.</li>
+<li>Cost: The cost basis of the position, if available.</li>
+<li>Weight: The cost basis or price of the position.</li>
+<li>Market Value: The units converted to a value via a price map.</li>
+</ul>
 <p>To convert an inventory's contents, simply use these functions in conjunction
-with Inventory.reduce(), like</p>
-<p>cost_inv = inv.reduce(convert.get_cost)</p>
+with <code>Inventory.reduce()</code>, like</p>
+<pre><code>cost_inv = inv.reduce(convert.get_cost)
+</code></pre>
 <p>This module equivalently converts Position and Posting instances. Note that
 we're specifically avoiding to create an import dependency on
 beancount.core.data in order to keep this module isolatable, but it works on
 postings due to duck-typing.</p>
-<p>Function named get_<em>() are used to compute values from postings to their price currency.
-Functions named convert_</em>() are used to convert postings and amounts to any currency.</p>
+<p>Function named <code>get_*()</code> are used to compute values from postings to their price currency.
+Functions named <code>convert_*()</code> are used to convert postings and amounts to any currency.</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.core.convert.convert_amount">
@@ -4812,7 +4851,7 @@ get_value
 <p>Note that if the position is not held at cost, this does not convert
 anything, even if a price is available in the 'price_map'. We don't specify
 a target currency here. If you're attempting to make such a conversion, see
-convert_*() functions below.</p>
+<code>convert_*()</code> functions below.</p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -4880,7 +4919,7 @@ position if you need to check for success.</p>
     Note that if the position is not held at cost, this does not convert
     anything, even if a price is available in the 'price_map'. We don't specify
     a target currency here. If you're attempting to make such a conversion, see
-    convert_*() functions below.
+    ``convert_*()`` functions below.
 
     Args:
       pos: An instance of Position or Posting, equivalently.
@@ -4933,10 +4972,11 @@ transaction.</p>
 balance amount is the amount used to check the balance of a transaction.
 Here are all relevant examples, with the amounts used to balance the
 postings:</p>
-<p>Assets:Account  5234.50 USD                             -&gt;  5234.50 USD
-  Assets:Account  3877.41 EUR @ 1.35 USD                  -&gt;  5234.50 USD
-  Assets:Account       10 HOOL {523.45 USD}               -&gt;  5234.50 USD
-  Assets:Account       10 HOOL {523.45 USD} @ 545.60 CAD  -&gt;  5234.50 USD</p>
+<pre><code>Assets:Account  5234.50 USD                             -&gt;  5234.50 USD
+Assets:Account  3877.41 EUR @ 1.35 USD                  -&gt;  5234.50 USD
+Assets:Account       10 HOOL {523.45 USD}               -&gt;  5234.50 USD
+Assets:Account       10 HOOL {523.45 USD} @ 545.60 CAD  -&gt;  5234.50 USD
+</code></pre>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -4988,10 +5028,10 @@ postings:</p>
     Here are all relevant examples, with the amounts used to balance the
     postings:
 
-      Assets:Account  5234.50 USD                             -&gt;  5234.50 USD
-      Assets:Account  3877.41 EUR @ 1.35 USD                  -&gt;  5234.50 USD
-      Assets:Account       10 HOOL {523.45 USD}               -&gt;  5234.50 USD
-      Assets:Account       10 HOOL {523.45 USD} @ 545.60 CAD  -&gt;  5234.50 USD
+        Assets:Account  5234.50 USD                             -&gt;  5234.50 USD
+        Assets:Account  3877.41 EUR @ 1.35 USD                  -&gt;  5234.50 USD
+        Assets:Account       10 HOOL {523.45 USD}               -&gt;  5234.50 USD
+        Assets:Account       10 HOOL {523.45 USD} @ 545.60 CAD  -&gt;  5234.50 USD
 
     Args:
       pos: An instance of Position or Posting, equivalently.
@@ -6716,7 +6756,7 @@ has_entry_account_component
 <td><code></code></td>
 <td>
 <p>A string, a component of an account name. For instance,
-'Food' in 'Expenses:Food:Restaurant'. All components are considered.</p>
+<code>Food</code> in <code>Expenses:Food:Restaurant</code>. All components are considered.</p>
 </td>
 <td><em>required</em></td>
 </tr>
@@ -6732,10 +6772,10 @@ has_entry_account_component
 </thead>
 <tbody>
 <tr>
-<td><code>A boolean, true if the component is in the account. Note that a component
-name must be whole, that is 'NY' is not in Expenses</code></td>
+<td><code>Boolean</code></td>
 <td>
-<p>Taxes:StateNY'.</p>
+<p>true if the component is in the account. Note that a component
+name must be whole, that is <code>NY</code> is not in <code>Expenses:Taxes:StateNY</code>.</p>
 </td>
 </tr>
 </tbody>
@@ -6748,10 +6788,10 @@ name must be whole, that is 'NY' is not in Expenses</code></td>
     Args:
       entry: A Transaction entry.
       component: A string, a component of an account name. For instance,
-        'Food' in 'Expenses:Food:Restaurant'. All components are considered.
+        ``Food`` in ``Expenses:Food:Restaurant``. All components are considered.
     Returns:
-      A boolean, true if the component is in the account. Note that a component
-      name must be whole, that is 'NY' is not in Expenses:Taxes:StateNY'.
+      Boolean: true if the component is in the account. Note that a component
+      name must be whole, that is ``NY`` is not in ``Expenses:Taxes:StateNY``.
     """
     return (isinstance(entry, Transaction) and
             any(has_component(posting.account, component)
@@ -7463,34 +7503,37 @@ such an accumulator.</p>
 <p>Here are all the aspects supported by this module:</p>
 <p>PRECISION: Numbers for a particular currency are always rendered to the same
   precision, and they can be rendered to one of two precisions; either</p>
-<pre><code>1. the most common number of fractional digits, or
-2. the maximum number of digits seen (this is useful for rendering prices).
-</code></pre>
+<ol>
+<li>the most common number of fractional digits, or</li>
+<li>the maximum number of digits seen (this is useful for rendering prices).</li>
+</ol>
 <p>ALIGNMENT: Several alignment methods are supported.</p>
-<pre><code>"natural": Render the strings as small as possible with no padding, but to
-their currency's precision. Like this:
-
-  '1.2345'
+<ul>
+<li>
+<p>"natural": Render the strings as small as possible with no padding, but to
+    their currency's precision. Like this:</p>
+<p>'1.2345'
   '764'
   '-7,409.01'
-  '0.00000125'
-
-"dot-aligned": The periods will align vertically, the left and right sides
-  are padded so that the column of numbers has the same width:
-
-  '     1.2345    '
+  '0.00000125'</p>
+</li>
+<li>
+<p>"dot-aligned": The periods will align vertically, the left and right sides
+    are padded so that the column of numbers has the same width:</p>
+<p>'     1.2345    '
   '   764         '
   '-7,409.01      '
-  '     0.00000125'
-
-"right": The strings are all flushed right, the left side is padded so that
-  the column of numbers has the same width:
-
-  '     1.2345'
+  '     0.00000125'</p>
+</li>
+<li>
+<p>"right": The strings are all flushed right, the left side is padded so that
+    the column of numbers has the same width:</p>
+<p>'     1.2345'
   '        764'
   '  -7,409.01'
-  ' 0.00000125'
-</code></pre>
+  ' 0.00000125'</p>
+</li>
+</ul>
 <p>SIGN: If a negative sign is present in the input numbers, the rendered numbers
   reserve a space for it. If not, then we save the space.</p>
 <p>COMMAS: If the user requests to render commas, commas are rendered in the
@@ -11175,7 +11218,7 @@ __add__
       A new instance of Inventory.
     """
     new_inventory = self.__copy__()
-    new_inventory += other
+    new_inventory.add_inventory(other)
     return new_inventory
 </code></pre>
 </details>
@@ -11285,8 +11328,15 @@ __iadd__
     Returns:
       This inventory, modified.
     """
-    for position in other.get_positions():
-        self.add_position(position)
+    if self.is_empty():
+        # Optimization for empty inventories; if the current one is empty,
+        # adopt all of the other inventory's positions without running
+        # through the full aggregation checks. This should be very cheap. We
+        # can do this because the positions are immutable.
+        self.update(other)
+    else:
+        for position in other.get_positions():
+            self.add_position(position)
     return self
 </code></pre>
 </details>
@@ -11666,10 +11716,11 @@ e.g. the position was deleted.</p>
       Position may be None if there is no corresponding Position object,
       e.g. the position was deleted.
     """
-    assert isinstance(units, Amount), (
-        "Internal error: {!r} (type: {})".format(units, type(units).__name__))
-    assert cost is None or isinstance(cost, Cost), (
-        "Internal error: {!r} (type: {})".format(cost, type(cost).__name__))
+    if ASSERTS_TYPES:
+        assert isinstance(units, Amount), (
+            "Internal error: {!r} (type: {})".format(units, type(units).__name__))
+        assert cost is None or isinstance(cost, Cost), (
+            "Internal error: {!r} (type: {})".format(cost, type(cost).__name__))
 
     # Find the position.
     key = (units.currency, cost)
@@ -11762,8 +11813,15 @@ add_inventory
     Returns:
       This inventory, modified.
     """
-    for position in other.get_positions():
-        self.add_position(position)
+    if self.is_empty():
+        # Optimization for empty inventories; if the current one is empty,
+        # adopt all of the other inventory's positions without running
+        # through the full aggregation checks. This should be very cheap. We
+        # can do this because the positions are immutable.
+        self.update(other)
+    else:
+        for position in other.get_positions():
+            self.add_position(position)
     return self
 </code></pre>
 </details>
@@ -11833,10 +11891,11 @@ how the lot was booked to this inventory.</p>
       that was modified, and where 'booking' is a Booking enum that hints at
       how the lot was booked to this inventory.
     """
-    assert hasattr(position, 'units') and hasattr(position, 'cost'), (
-        "Invalid type for position: {}".format(position))
-    assert isinstance(position.cost, (type(None), Cost)), (
-        "Invalid type for cost: {}".format(position.cost))
+    if ASSERTS_TYPES:
+        assert hasattr(position, 'units') and hasattr(position, 'cost'), (
+            "Invalid type for position: {}".format(position))
+        assert isinstance(position.cost, (type(None), Cost)), (
+            "Invalid type for cost: {}".format(position.cost))
     return self.add_amount(position.units, position.cost)
 </code></pre>
 </details>
@@ -11890,6 +11949,9 @@ average
     for (currency, cost_currency), positions in groups.items():
         total_units = sum(position.units.number
                           for position in positions)
+        # Explicitly skip aggregates when resulting in zero units.
+        if total_units == ZERO:
+            continue
         units_amount = Amount(total_units, currency)
 
         if cost_currency:
@@ -12492,7 +12554,7 @@ args)
 <a class="headerlink" href="#beancount.core.inventory.Inventory.reduce" title="Permanent link"></a></h4>
 <div class="doc doc-contents">
 <p>Reduce an inventory using one of the conversion functions.</p>
-<p>See functions in beancount.core.conversions.</p>
+<p>See functions in beancount.core.convert.</p>
 <p><strong>Returns:</strong></p>
 <table>
 <thead>
@@ -12515,7 +12577,7 @@ args)
 <pre class="highlight"><code class="language-python linenums">def reduce(self, reducer, *args):
     """Reduce an inventory using one of the conversion functions.
 
-    See functions in beancount.core.conversions.
+    See functions in beancount.core.convert.
 
     Returns:
       An instance of Inventory.
@@ -12602,7 +12664,7 @@ segregate_units
 <h4 class="doc doc-heading" id="beancount.core.inventory.Inventory.to_string">
 <code class="highlight language-python">
 to_string
-(self, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7fd91254deb0&gt;, parens=True)
+(self, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7f95244baeb0&gt;, parens=True)
 
         </code>
 <a class="headerlink" href="#beancount.core.inventory.Inventory.to_string" title="Permanent link"></a></h4>
@@ -12625,7 +12687,7 @@ to_string
 <td>
 <p>An instance of DisplayFormatter.</p>
 </td>
-<td><code>&lt;beancount.core.display_context.DisplayFormatter object at 0x7fd91254deb0&gt;</code></td>
+<td><code>&lt;beancount.core.display_context.DisplayFormatter object at 0x7f95244baeb0&gt;</code></td>
 </tr>
 <tr>
 <td><code>parents</code></td>
@@ -14146,7 +14208,7 @@ number of units.</p>
 <h4 class="doc doc-heading" id="beancount.core.position.Position.to_string">
 <code class="highlight language-python">
 to_string
-(self, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7fd91254deb0&gt;, detail=True)
+(self, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7f95244baeb0&gt;, detail=True)
 
         </code>
 <a class="headerlink" href="#beancount.core.position.Position.to_string" title="Permanent link"></a></h4>
@@ -14550,7 +14612,7 @@ get_position
 <h3 class="doc doc-heading" id="beancount.core.position.to_string">
 <code class="highlight language-python">
 to_string
-(pos, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7fd91254deb0&gt;, detail=True)
+(pos, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7f95244baeb0&gt;, detail=True)
 
         </code>
 <a class="headerlink" href="#beancount.core.position.to_string" title="Permanent link"></a></h3>
@@ -14581,7 +14643,7 @@ to_string
 <td>
 <p>An instance of DisplayFormatter.</p>
 </td>
-<td><code>&lt;beancount.core.display_context.DisplayFormatter object at 0x7fd91254deb0&gt;</code></td>
+<td><code>&lt;beancount.core.display_context.DisplayFormatter object at 0x7f95244baeb0&gt;</code></td>
 </tr>
 <tr>
 <td><code>detail</code></td>
@@ -15637,7 +15699,7 @@ class' method, which return just a dict.</p>
 <h3 class="doc doc-heading" id="beancount.core.realization.compute_balance">
 <code class="highlight language-python">
 compute_balance
-(real_account)
+(real_account, leaf_only=False)
 
         </code>
 <a class="headerlink" href="#beancount.core.realization.compute_balance" title="Permanent link"></a></h3>
@@ -15662,6 +15724,14 @@ compute_balance
 </td>
 <td><em>required</em></td>
 </tr>
+<tr>
+<td><code>leaf_only</code></td>
+<td><code></code></td>
+<td>
+<p>A boolean flag, true if we should yield only leaves.</p>
+</td>
+<td><code>False</code></td>
+</tr>
 </tbody>
 </table>
 <p><strong>Returns:</strong></p>
@@ -15683,18 +15753,17 @@ compute_balance
 </table>
 <details class="quote">
 <summary>Source code in <code>beancount/core/realization.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def compute_balance(real_account):
+<pre class="highlight"><code class="language-python linenums">def compute_balance(real_account, leaf_only=False):
     """Compute the total balance of this account and all its subaccounts.
 
     Args:
       real_account: A RealAccount instance.
+      leaf_only: A boolean flag, true if we should yield only leaves.
     Returns:
       An Inventory.
     """
-    total_balance = inventory.Inventory()
-    for real_acc in iter_children(real_account):
-        total_balance += real_acc.balance
-    return total_balance
+    return functools.reduce(operator.add, [
+        ra.balance for ra in iter_children(real_account, leaf_only)])
 </code></pre>
 </details>
 </div>

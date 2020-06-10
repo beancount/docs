@@ -1171,18 +1171,18 @@ into a spreadsheet and able to be processed.</p>
               1 {21.23 USD}
 </code></pre>
 <p>(Eventually we might support the conversion of cost amounts as well, but they
-  may contain other informations, such as a label or a date, so for now we don't
+  may contain other information, such as a label or a date, so for now we don't
   convert them. I'm not sure there's a good practical use case in doing that
   yet.)</p>
 <ul>
 <li>
 <p>We may provide some options to break out only some of the currencies into
   columns, in order to handle the case where an inventory contains a large
-  number of currencies and we want to only operate on a restricte set of
+  number of currencies and we want to only operate on a restricted set of
   operating currencies.</p>
 </li>
 <li>
-<p>If you provide a DisplayForamtter object to the numberification routine, they
+<p>If you provide a DisplayFormatter object to the numberification routine, they
   quantize each column according to their currency's precision. It is
   recommended that you do that.</p>
 </li>
@@ -3844,7 +3844,7 @@ basic optimizations.</p>
 <td><code>postings_environ</code></td>
 <td><code></code></td>
 <td>
-<p>: A compilation environment for evaluating postings filters.</p>
+<p>A compilation environment for evaluating postings filters.</p>
 </td>
 <td><em>required</em></td>
 </tr>
@@ -3852,7 +3852,7 @@ basic optimizations.</p>
 <td><code>entries_environ</code></td>
 <td><code></code></td>
 <td>
-<p>: A compilation environment for evaluating entry filters.</p>
+<p>A compilation environment for evaluating entry filters.</p>
 </td>
 <td><em>required</em></td>
 </tr>
@@ -3886,8 +3886,8 @@ basic optimizations.</p>
     Args:
       select: An instance of query_parser.Select.
       targets_environ: A compilation environment for evaluating targets.
-      postings_environ: : A compilation environment for evaluating postings filters.
-      entries_environ: : A compilation environment for evaluating entry filters.
+      postings_environ: A compilation environment for evaluating postings filters.
+      entries_environ: A compilation environment for evaluating entry filters.
     Returns:
       An instance of EvalQuery, ready to be executed.
     """
@@ -4210,7 +4210,7 @@ get_columns_and_aggregates
   columns</code></td>
 <td>
 <p>The list of all columns accessed not under an aggregate node.
-  aggregates: The lis tof all aggregate nodes.</p>
+  aggregates: The list of all aggregate nodes.</p>
 </td>
 </tr>
 </tbody>
@@ -4227,7 +4227,7 @@ get_columns_and_aggregates
     Returns:
       A pair of (columns, aggregates), both of which are lists of EvalNode instances.
         columns: The list of all columns accessed not under an aggregate node.
-        aggregates: The lis tof all aggregate nodes.
+        aggregates: The list of all aggregate nodes.
     """
     columns = []
     aggregates = []
@@ -6368,7 +6368,7 @@ update
 <code>OtherAccountsColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.OtherAccountsColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
-<p>The list of other accounts in the transcation, excluding that of this posting.</p>
+<p>The list of other accounts in the transaction, excluding that of this posting.</p>
 <div class="doc doc-children">
 </div>
 </div>
@@ -7222,7 +7222,7 @@ create_store
 <tr>
 <td><code></code></td>
 <td>
-<p>A store that can accomodate and be indexed by all the allocated slot handles.</p>
+<p>A store that can accommodate and be indexed by all the allocated slot handles.</p>
 </td>
 </tr>
 </tbody>
@@ -7233,7 +7233,7 @@ create_store
     """Create a new row-aggregation store suitable to contain all the node allocations.
 
     Returns:
-      A store that can accomodate and be indexed by all the allocated slot handles.
+      A store that can accommodate and be indexed by all the allocated slot handles.
     """
     return [None] * self.size
 </code></pre>
@@ -7305,7 +7305,7 @@ execute_print
 <td><code>c_print</code></td>
 <td><code></code></td>
 <td>
-<p>An instance of a compiled EvalPrint statemnet.</p>
+<p>An instance of a compiled EvalPrint statement.</p>
 </td>
 <td><em>required</em></td>
 </tr>
@@ -7341,7 +7341,7 @@ execute_print
     """Print entries from a print statement specification.
 
     Args:
-      c_print: An instance of a compiled EvalPrint statemnet.
+      c_print: An instance of a compiled EvalPrint statement.
       entries: A list of directives.
       options_map: A parser's option_map.
       file: The output file to print to.
@@ -9739,7 +9739,7 @@ handle_comma_separated_list
 <td><code>p</code></td>
 <td><code></code></td>
 <td>
-<p>A gramar object.</p>
+<p>A grammar object.</p>
 </td>
 <td><em>required</em></td>
 </tr>
@@ -9750,7 +9750,7 @@ handle_comma_separated_list
 <pre class="highlight"><code class="language-python linenums">def handle_comma_separated_list(self, p):
     """Handle a list of 0, 1 or more comma-separated values.
     Args:
-      p: A gramar object.
+      p: A grammar object.
     """
     if len(p) == 2:
         return [] if p[1] is None else [p[1]]
@@ -11400,13 +11400,19 @@ on_RunCustom
             print()
             print()
     else:
-        try:
+        query = None
+        if name in custom_query_map:
             query = custom_query_map[name]
-        except KeyError:
-            print("ERROR: Query '{}' not found".format(name))
-        else:
+        else:  # lookup best query match using name as prefix
+            queries = [q for q in custom_query_map if q.startswith(name)]
+            if len(queries) == 1:
+                name = queries[0]
+                query = custom_query_map[name]
+        if query:
             statement = self.parser.parse(query.query_string)
             self.dispatch(statement)
+        else:
+            print("ERROR: Query '{}' not found".format(name))
 </code></pre>
 </details>
 </div>

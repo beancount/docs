@@ -559,7 +559,7 @@ depth is 2.</p>
 <tr>
 <td><code></code></td>
 <td>
-<p>A Bottle HTTPResponse objet.</p>
+<p>A Bottle HTTPResponse object.</p>
 </td>
 </tr>
 </tbody>
@@ -601,7 +601,7 @@ depth is 2.</p>
         For example, if our subapplication is mount on /view/all, then the path
         depth is 2.
     Returns:
-      A Bottle HTTPResponse objet.
+      A Bottle HTTPResponse object.
     Raises:
       Exception: Any exception, depending on the callback.
     """
@@ -1286,7 +1286,7 @@ clamped.</p>
 <td><em>required</em></td>
 </tr>
 <tr>
-<td><code>compnent</code></td>
+<td><code>component</code></td>
 <td><code></code></td>
 <td>
 <p>A string, the name of an account component to include.</p>
@@ -1307,7 +1307,7 @@ clamped.</p>
       entries: A list of directives.
       options_map: A dict of options, as produced by the parser.
       title: A string, the title of this view.
-      compnent: A string, the name of an account component to include.
+      component: A string, the name of an account component to include.
     """
     assert isinstance(component, str)
     self.component = component
@@ -4178,7 +4178,7 @@ def root():
 <h3 class="doc doc-heading" id="beancount.web.web.scrape_webapp">
 <code class="highlight language-python">
 scrape_webapp
-(filename, callback, port, ignore_regexp, quiet=True, no_colons=False, extra_args=None)
+(webargs, callback, ignore_regexp)
 
         </code>
 <a class="headerlink" href="#beancount.web.web.scrape_webapp" title="Permanent link"></a></h3>
@@ -4197,10 +4197,11 @@ scrape_webapp
 </thead>
 <tbody>
 <tr>
-<td><code>filename</code></td>
+<td><code>webargs</code></td>
 <td><code></code></td>
 <td>
-<p>A string, the name of the file to parse.</p>
+<p>An argparse.Namespace container of the arguments provided in
+web.add_web_arguments().</p>
 </td>
 <td><em>required</em></td>
 </tr>
@@ -4215,45 +4216,12 @@ This function should trigger an error on failure (via an exception).</p>
 <td><em>required</em></td>
 </tr>
 <tr>
-<td><code>port</code></td>
-<td><code></code></td>
-<td>
-<p>An integer, a free port to use for serving the pages.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
 <td><code>ignore_regexp</code></td>
 <td><code></code></td>
 <td>
 <p>A regular expression string, the urls to ignore.</p>
 </td>
 <td><em>required</em></td>
-</tr>
-<tr>
-<td><code>quiet</code></td>
-<td><code></code></td>
-<td>
-<p>True if we shouldn't log the web server pages.</p>
-</td>
-<td><code>True</code></td>
-</tr>
-<tr>
-<td><code>no_colons</code></td>
-<td><code></code></td>
-<td>
-<p>True if we should avoid rendering colons in URLs (for Windows).</p>
-</td>
-<td><code>False</code></td>
-</tr>
-<tr>
-<td><code>extra_args</code></td>
-<td><code></code></td>
-<td>
-<p>Extra arguments to bean-web that we want to start the
-server with.</p>
-</td>
-<td><code>None</code></td>
 </tr>
 </tbody>
 </table>
@@ -4276,42 +4244,24 @@ server with.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>beancount/web/web.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def scrape_webapp(filename, callback, port, ignore_regexp,
-                  quiet=True, no_colons=False, extra_args=None):
+<pre class="highlight"><code class="language-python linenums">def scrape_webapp(webargs, callback, ignore_regexp):
     """Run a web server on a Beancount file and scrape it.
 
     This is the main entry point of this module.
 
     Args:
-      filename: A string, the name of the file to parse.
+      webargs: An argparse.Namespace container of the arguments provided in
+        web.add_web_arguments().
       callback: A callback function to invoke on each page to validate it.
         The function is called with the response and the url as arguments.
         This function should trigger an error on failure (via an exception).
-      port: An integer, a free port to use for serving the pages.
       ignore_regexp: A regular expression string, the urls to ignore.
-      quiet: True if we shouldn't log the web server pages.
-      no_colons: True if we should avoid rendering colons in URLs (for Windows).
-      extra_args: Extra arguments to bean-web that we want to start the
-        server with.
     Returns:
       A set of all the processed URLs and a set of all the skipped URLs.
     """
-    url_format = 'http://localhost:{}{{}}'.format(port)
+    url_format = 'http://localhost:{}{{}}'.format(webargs.port)
 
-    # Create a set of valid arguments to run the app.
-    argparser = version.ArgumentParser()
-    group = add_web_arguments(argparser)
-    group.set_defaults(filename=filename,
-                       port=port,
-                       no_colons=no_colons,
-                       quiet=quiet)
-
-    all_args = [filename]
-    if extra_args:
-        all_args.extend(extra_args)
-    args = argparser.parse_args(args=all_args)
-
-    thread = thread_server_start(args)
+    thread = thread_server_start(webargs)
 
     # Skips:
     # - Docs cannot be read for external files.
@@ -4347,6 +4297,7 @@ This is required to initiate shutdown, unfortunately.
     (Bottle could easily remedy that.)"""
 
     # Save the original function.
+    # pylint: disable=import-outside-toplevel
     from wsgiref.simple_server import make_server
 
     # Create a decorator that will save the server upon start.
@@ -4497,7 +4448,7 @@ thread_server_shutdown
 <a class="headerlink" href="#beancount.web.web.thread_server_shutdown" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Shutdown the server running in the given thread.</p>
-<p>Unfortauntely, in the meantime this has a side-effect on all servers.
+<p>Unfortunately, in the meantime this has a side-effect on all servers.
 This returns after waiting that the thread has stopped.</p>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -4525,7 +4476,7 @@ This returns after waiting that the thread has stopped.</p>
 <pre class="highlight"><code class="language-python linenums">def thread_server_shutdown(thread):
     """Shutdown the server running in the given thread.
 
-    Unfortauntely, in the meantime this has a side-effect on all servers.
+    Unfortunately, in the meantime this has a side-effect on all servers.
     This returns after waiting that the thread has stopped.
 
     Args:
@@ -4712,12 +4663,11 @@ url_restrict_generator
     """
     # A list of URLs that should always be accepted, even when restricted.
     allowed_regexps = [re.compile(regexp).match
-                       for regexp in ['/web.css',
+                       for regexp in ['/resources',
                                       '/favicon.ico',
-                                      '/toc',
+                                      '/index',
                                       '/errors',
                                       '/source',
-                                      '/link',
                                       '/context',
                                       '/third_party']]
 

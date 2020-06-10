@@ -690,7 +690,7 @@ archive_zip
 <h3 class="doc doc-heading" id="beancount.scripts.bake.bake_to_directory">
 <code class="highlight language-python">
 bake_to_directory
-(webargs, output_dir, quiet=False, full_mode=True)
+(webargs, output_dir, render_all_pages=True)
 
         </code>
 <a class="headerlink" href="#beancount.scripts.bake.bake_to_directory" title="Permanent link"></a></h3>
@@ -729,10 +729,10 @@ bake_to_directory
 <td>
 <p>A boolean, True to suppress web server fetch log.</p>
 </td>
-<td><code>False</code></td>
+<td><em>required</em></td>
 </tr>
 <tr>
-<td><code>full_mode</code></td>
+<td><code>render_all_pages</code></td>
 <td><code></code></td>
 <td>
 <p>If true, fetch the full set of pages, not just the subset that
@@ -761,26 +761,28 @@ is palatable.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>beancount/scripts/bake.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def bake_to_directory(webargs, output_dir, quiet=False, full_mode=True):
+<pre class="highlight"><code class="language-python linenums">def bake_to_directory(webargs, output_dir, render_all_pages=True):
     """Serve and bake a Beancount's web to a directory.
 
     Args:
       webargs: An argparse parsed options object with the web app arguments.
       output_dir: A directory name. We don't check here whether it exists or not.
       quiet: A boolean, True to suppress web server fetch log.
-      full_mode: If true, fetch the full set of pages, not just the subset that
+      render_all_pages: If true, fetch the full set of pages, not just the subset that
         is palatable.
     Returns:
       True on success, False otherwise.
     """
     callback = functools.partial(save_scraped_document, output_dir)
 
-    if full_mode:
+    if render_all_pages:
         ignore_regexps = None
     else:
         regexps = [
             # Skip the context pages, too slow.
             r'/context/',
+            # Skip the link pages, too slow.
+            r'/link/',
             # Skip the component pages... too many.
             r'/view/component/',
             # Skip served documents.
@@ -790,12 +792,7 @@ is palatable.</p>
         ]
         ignore_regexps = '({})'.format('|'.join(regexps))
 
-    processed_urls, skipped_urls = web.scrape_webapp(webargs.filename,
-                                                     callback,
-                                                     webargs.port,
-                                                     ignore_regexps,
-                                                     quiet,
-                                                     webargs.no_colons)
+    processed_urls, skipped_urls = web.scrape_webapp(webargs, callback, ignore_regexps)
 </code></pre>
 </details>
 </div>
@@ -1279,7 +1276,7 @@ Beancount.</p>
         check_import('lxml', module_name='lxml.etree', min_version='3'),
 
         # Optionally required to upload data to Google Drive.
-        check_import('apiclient'),
+        check_import('googleapiclient'),
         check_import('oauth2client'),
         check_import('httplib2'),
 
@@ -1385,10 +1382,13 @@ check_dependencies().</p>
     try:
         __import__(module_name)
         module = sys.modules[module_name]
-        version = module.__version__
-        assert isinstance(version, str)
-        is_sufficient = (parse_version(version) &gt;= parse_version(min_version)
-                         if min_version else True)
+        if min_version is not None:
+            version = module.__version__
+            assert isinstance(version, str)
+            is_sufficient = (parse_version(version) &gt;= parse_version(min_version)
+                             if min_version else True)
+        else:
+            version, is_sufficient = None, True
     except ImportError:
         version, is_sufficient = None, False
     return (package_name, version, is_sufficient)
@@ -1508,11 +1508,11 @@ is_fast_decimal
         </code>
 <a class="headerlink" href="#beancount.scripts.deps.is_fast_decimal" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
-<p>Return true if a fast C decimal implementattion is installed.</p>
+<p>Return true if a fast C decimal implementation is installed.</p>
 <details class="quote">
 <summary>Source code in <code>beancount/scripts/deps.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">def is_fast_decimal(decimal_module):
-    "Return true if a fast C decimal implementattion is installed."
+    "Return true if a fast C decimal implementation is installed."
     return isinstance(decimal_module.Decimal().sqrt, types.BuiltinFunctionType)
 </code></pre>
 </details>
@@ -2771,7 +2771,7 @@ do_validate_html
         </code>
 <a class="headerlink" href="#beancount.scripts.doctor.do_validate_html" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
-<p>Validate all the HTML files under a directory hierachy.</p>
+<p>Validate all the HTML files under a directory hierarchy.</p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -2787,7 +2787,7 @@ do_validate_html
 <td><code>directory</code></td>
 <td><code></code></td>
 <td>
-<p>A string, the root directory whose contents to validte.</p>
+<p>A string, the root directory whose contents to validate.</p>
 </td>
 <td><em>required</em></td>
 </tr>
@@ -2804,10 +2804,10 @@ do_validate_html
 <details class="quote">
 <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">def do_validate_html(directory, args):
-    """Validate all the HTML files under a directory hierachy.
+    """Validate all the HTML files under a directory hierarchy.
 
     Args:
-      directory: A string, the root directory whose contents to validte.
+      directory: A string, the root directory whose contents to validate.
       args: A tuple of the rest of arguments.
     """
     from beancount.web import scrape
@@ -3291,7 +3291,7 @@ delay_dates
         </code>
 <a class="headerlink" href="#beancount.scripts.example.delay_dates" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
-<p>Delay the dates from the given iterator by some uniformly dranw number of days.</p>
+<p>Delay the dates from the given iterator by some uniformly drawn number of days.</p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -3334,7 +3334,7 @@ delay_dates
 <details class="quote">
 <summary>Source code in <code>beancount/scripts/example.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">def delay_dates(date_iter, delay_days_min, delay_days_max):
-    """Delay the dates from the given iterator by some uniformly dranw number of days.
+    """Delay the dates from the given iterator by some uniformly drawn number of days.
 
     Args:
       date_iter: An iterator of datetime.date instances.
@@ -4642,7 +4642,7 @@ generate_prices
         </code>
 <a class="headerlink" href="#beancount.scripts.example.generate_prices" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
-<p>Generate weekly or monthyl price entries for the given currencies.</p>
+<p>Generate weekly or monthly price entries for the given currencies.</p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -4708,7 +4708,7 @@ generate_prices
 <details class="quote">
 <summary>Source code in <code>beancount/scripts/example.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">def generate_prices(date_begin, date_end, currencies, cost_currency):
-    """Generate weekly or monthyl price entries for the given currencies.
+    """Generate weekly or monthly price entries for the given currencies.
 
     Args:
       date_begin: The start date.
@@ -5121,7 +5121,7 @@ generate_tax_accounts
         </code>
 <a class="headerlink" href="#beancount.scripts.example.generate_tax_accounts" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
-<p>Generate accounts and contributino directives for a particular tax year.</p>
+<p>Generate accounts and contribution directives for a particular tax year.</p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -5171,7 +5171,7 @@ generate_tax_accounts
 <details class="quote">
 <summary>Source code in <code>beancount/scripts/example.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">def generate_tax_accounts(year, date_max):
-    """Generate accounts and contributino directives for a particular tax year.
+    """Generate accounts and contribution directives for a particular tax year.
 
     Args:
       year: An integer, the year we're to generate this for.
@@ -6087,7 +6087,6 @@ interpolation to fill in the missing amounts.</p>
       A list of directive objects.
     """
     if replacements:
-        import string
         class IgnoreFormatter(string.Formatter):
             def check_unused_args(self, used_args, args, kwargs):
                 pass
@@ -7051,7 +7050,7 @@ normalize_indent_whitespace
 <td><code></code></td>
 <td>
 <p>Another list of (prefix, number, rest) tuples, where prefix may have been
-adjusted with a different whitespace prefi.</p>
+adjusted with a different whitespace prefix.</p>
 </td>
 </tr>
 </tbody>
@@ -7065,7 +7064,7 @@ adjusted with a different whitespace prefi.</p>
       match_pairs: A list of (prefix, number, rest) tuples.
     Returns:
       Another list of (prefix, number, rest) tuples, where prefix may have been
-      adjusted with a different whitespace prefi.
+      adjusted with a different whitespace prefix.
     """
     # Compute most frequent account name prefix.
     match_posting = re.compile(r'([ \t]+)({}.*)'.format(account.ACCOUNT_RE)).match

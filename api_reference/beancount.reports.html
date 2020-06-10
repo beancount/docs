@@ -1265,7 +1265,7 @@ __call__
 <td><code>output_format</code></td>
 <td><code></code></td>
 <td>
-<p>A string, the name of the format. I fnot specified, use
+<p>A string, the name of the format. If not specified, use
 the default format.</p>
 </td>
 <td><code>None</code></td>
@@ -1326,7 +1326,7 @@ string.</p>
       entries: A list of directives to render.
       errors: A list of errors that occurred during processing.
       options_map: A dict of options, as produced by the parser.
-      output_format: A string, the name of the format. I fnot specified, use
+      output_format: A string, the name of the format. If not specified, use
         the default format.
       file: The file to write the output to.
     Returns:
@@ -1429,7 +1429,7 @@ and invokes add_args() and creates an appropriate instance directly.</p>
 <td><code>argv</code></td>
 <td><code></code></td>
 <td>
-<p>A list of strings, command-line arguments to use to construct tbe report.</p>
+<p>A list of strings, command-line arguments to use to construct the report.</p>
 </td>
 <td><code>None</code></td>
 </tr>
@@ -1455,7 +1455,7 @@ and invokes add_args() and creates an appropriate instance directly.</p>
 <tr>
 <td><code></code></td>
 <td>
-<p>A new instace of the report.</p>
+<p>A new instance of the report.</p>
 </td>
 </tr>
 </tbody>
@@ -1471,10 +1471,10 @@ def from_args(cls, argv=None, **kwds):
     and invokes add_args() and creates an appropriate instance directly.
 
     Args:
-      argv: A list of strings, command-line arguments to use to construct tbe report.
+      argv: A list of strings, command-line arguments to use to construct the report.
       kwds: A dict of other keyword arguments to pass to the report's constructor.
     Returns:
-      A new instace of the report.
+      A new instance of the report.
     """
     parser = version.ArgumentParser()
     cls.add_args(parser)
@@ -1582,7 +1582,7 @@ render
 <td><code>output_format</code></td>
 <td><code></code></td>
 <td>
-<p>A string, the name of the format. I fnot specified, use
+<p>A string, the name of the format. If not specified, use
 the default format.</p>
 </td>
 <td><code>None</code></td>
@@ -1643,7 +1643,7 @@ string.</p>
       entries: A list of directives to render.
       errors: A list of errors that occurred during processing.
       options_map: A dict of options, as produced by the parser.
-      output_format: A string, the name of the format. I fnot specified, use
+      output_format: A string, the name of the format. If not specified, use
         the default format.
       file: The file to write the output to.
     Returns:
@@ -1807,7 +1807,8 @@ get_html_template
         {title}: for the title of the page.
         {body}: for the body, where the div goes.
     """
-    return open(path.join(path.dirname(__file__), 'template.html')).read()
+    with open(path.join(path.dirname(__file__), 'template.html')) as infile:
+        return infile.read()
 </code></pre>
 </details>
 </div>
@@ -2735,8 +2736,8 @@ split_currency_conversions
         </code>
 <a class="headerlink" href="#beancount.reports.convert_reports.split_currency_conversions" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
-<p>If the transcation has a mix of conversion at cost and a
-currency conversion, split the transction into two transactions: one
+<p>If the transaction has a mix of conversion at cost and a
+currency conversion, split the transaction into two transactions: one
 that applies the currency conversion in the same account, and one
 that uses the other currency without conversion.</p>
 <p>This is required because Ledger does not appear to be able to grok a
@@ -2796,8 +2797,8 @@ details of the discussion.</p>
 <details class="quote">
 <summary>Source code in <code>beancount/reports/convert_reports.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">def split_currency_conversions(entry):
-    """If the transcation has a mix of conversion at cost and a
-    currency conversion, split the transction into two transactions: one
+    """If the transaction has a mix of conversion at cost and a
+    currency conversion, split the transaction into two transactions: one
     that applies the currency conversion in the same account, and one
     that uses the other currency without conversion.
 
@@ -3315,7 +3316,7 @@ export_holdings
 <td><code>promiscuous</code></td>
 <td><code></code></td>
 <td>
-<p>A boolean, true if we should output a promiscuious memo.</p>
+<p>A boolean, true if we should output a promiscuous memo.</p>
 </td>
 <td><em>required</em></td>
 </tr>
@@ -3363,7 +3364,7 @@ export_holdings
     Args:
       entries: A list of directives.
       options_map: A dict of options as provided by the parser.
-      promiscuous: A boolean, true if we should output a promiscuious memo.
+      promiscuous: A boolean, true if we should output a promiscuous memo.
       aggregate_by_commodity: A boolean, true if we should group the holdings by account.
     Returns:
       A pair of
@@ -3683,7 +3684,7 @@ is_mutual_fund
         </code>
 <a class="headerlink" href="#beancount.reports.export_reports.is_mutual_fund" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
-<p>Return true if the GFinanc ticker is for a mutual fund.</p>
+<p>Return true if the GFinance ticker is for a mutual fund.</p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -3725,7 +3726,7 @@ is_mutual_fund
 <details class="quote">
 <summary>Source code in <code>beancount/reports/export_reports.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">def is_mutual_fund(ticker):
-    """Return true if the GFinanc ticker is for a mutual fund.
+    """Return true if the GFinance ticker is for a mutual fund.
 
     Args:
       ticker: A string, the symbol for GFinance.
@@ -7636,8 +7637,7 @@ generate_table
     for entry in entries:
         if isinstance(entry, data.Event):
             events[entry.type] = entry.description
-    return table.create_table([(type_, description)
-                               for type_, description in sorted(events.items())],
+    return table.create_table(list(sorted(events.items())),
                               [(0, "Type", self.formatter.render_event_type),
                                (1, "Description")])
 </code></pre>
@@ -8912,7 +8912,7 @@ call str() on the field.</p>
             if isinstance(field, tuple):
                 assert len(field) &lt;= 3, field
                 if len(field) == 1:
-                    field, = field
+                    field = field[0]
                     new_field_spec.append((field, None, None))
                 elif len(field) == 2:
                     field, header = field
@@ -9548,8 +9548,8 @@ to their own dedicated columns.</p>
 <td><code>classes</code></td>
 <td><code></code></td>
 <td>
-<p>A list of strings, the CSS classes to attach to the renderd
-top-level table objet.</p>
+<p>A list of strings, the CSS classes to attach to the rendered
+top-level table object.</p>
 </td>
 <td><code>None</code></td>
 </tr>
@@ -9586,8 +9586,8 @@ top-level table objet.</p>
       operating_currencies: A list of strings, the operating currencies to render
         to their own dedicated columns.
       formatter: A object used to render account names and other links.
-      classes: A list of strings, the CSS classes to attach to the renderd
-        top-level table objet.
+      classes: A list of strings, the CSS classes to attach to the rendered
+        top-level table object.
     Returns:
       A string with HTML contents, the rendered table.
     """
@@ -9625,7 +9625,7 @@ top-level table objet.</p>
             line_balance = real_account.balance.reduce(convert.get_value, price_map)
 
             # Update the total balance for the totals line.
-            balance_totals += line_balance
+            balance_totals.add_inventory(line_balance)
 
         # Extract all the positions that the user has identified as operating
         # currencies to their own subinventories.

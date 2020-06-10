@@ -638,16 +638,19 @@ ones with a flag that indicates failure.</p>
                                      expected_amount.currency),
                                  entry))
 
-            # Check the balance against the check entry.
-            real_account = realization.get(real_root, entry.account)
-            assert real_account is not None, "Missing {}".format(entry.account)
-
             # Sum up the current balances for this account and its
             # sub-accounts. We want to support checks for parent accounts
             # for the total sum of their subaccounts.
-            subtree_balance = inventory.Inventory()
-            for real_child in realization.iter_children(real_account, False):
-                subtree_balance += real_child.balance
+            #
+            # FIXME: Improve the performance further by computing the balance
+            # for the desired currency only. This won't allow us to cache in
+            # this way but may be faster, if we're not asserting all the
+            # currencies. Furthermore, we could probably avoid recomputing the
+            # balance if a subtree of positions hasn't been invalidated by a new
+            # position added to the realization. Do this.
+            real_account = realization.get(real_root, entry.account)
+            assert real_account is not None, "Missing {}".format(entry.account)
+            subtree_balance = realization.compute_balance(real_account, leaf_only=False)
 
             # Get only the amount in the desired currency.
             balance_amount = subtree_balance.get_currency_units(expected_amount.currency)
@@ -782,7 +785,7 @@ get_balance_tolerance
 <code>basicops</code>
 <a class="headerlink" href="#beancount.ops.basicops" title="Permanent link"></a></h2>
 <div class="doc doc-contents">
-<p>Basic filteirng and aggregration operations on lists of entries.</p>
+<p>Basic filtering and aggregation operations on lists of entries.</p>
 <p>This module contains some common basic operations on entries that are complex
 enough not to belong in core/data.py.</p>
 <div class="doc doc-children">
@@ -1101,7 +1104,7 @@ transactions.</p>
 <td><code>predicate</code></td>
 <td><code></code></td>
 <td>
-<p>A callbable which accepts an entry and return true if the entry
+<p>A callable which accepts an entry and return true if the entry
   is intended to be compressed.</p>
 </td>
 <td><em>required</em></td>
@@ -1145,7 +1148,7 @@ equivalent.</p>
 
     Args:
       entries: A list of directives.
-      predicate: A callbable which accepts an entry and return true if the entry
+      predicate: A callable which accepts an entry and return true if the entry
           is intended to be compressed.
     Returns:
       A list of directives, with compressible transactions replaced by a summary
@@ -2211,7 +2214,7 @@ of price date points required to assess the market value of this portfolio.</p>
 </li>
 </ul>
 <p>This is used in a routine that fetches prices from a data source on the
-internet (either from Ledgerhub, but you can reuse this in your own script
+internet (either from LedgerHub, but you can reuse this in your own script
 if you build one).</p>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -2289,7 +2292,7 @@ relevant holdings.</p>
       Commodity directive from its 'quote' metadata field.
 
     This is used in a routine that fetches prices from a data source on the
-    internet (either from Ledgerhub, but you can reuse this in your own script
+    internet (either from LedgerHub, but you can reuse this in your own script
     if you build one).
 
     Args:
@@ -2914,9 +2917,8 @@ to be distinct, to allow a gap.</p>
             # Compress.
             last_end = date_end
             continue
-        else:
-            new_intervals.append((last_begin, last_end))
-            last_begin, last_end = date_begin, date_end
+        new_intervals.append((last_begin, last_end))
+        last_begin, last_end = date_begin, date_end
     new_intervals.append((last_begin, last_end))
     return new_intervals
 </code></pre>
@@ -3117,7 +3119,7 @@ required_weekly_prices
         </code>
 <a class="headerlink" href="#beancount.ops.lifetimes.required_weekly_prices" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
-<p>Enumerate all the commodities and fridays where the price is required.</p>
+<p>Enumerate all the commodities and Fridays where the price is required.</p>
 <p>Given a map of lifetimes for a set of commodities, enumerate all the Fridays
 for each commodity where it is active. This can be used to connect to a
 historical price fetcher routine to fill in missing price entries from an
@@ -3172,7 +3174,7 @@ get_commodity_lifetimes().</p>
 <details class="quote">
 <summary>Source code in <code>beancount/ops/lifetimes.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">def required_weekly_prices(lifetimes_map, date_last):
-    """Enumerate all the commodities and fridays where the price is required.
+    """Enumerate all the commodities and Fridays where the price is required.
 
     Given a map of lifetimes for a set of commodities, enumerate all the Fridays
     for each commodity where it is active. This can be used to connect to a
@@ -3347,7 +3349,7 @@ inserted for those currencies.</p>
 <tr>
 <td><code></code></td>
 <td>
-<p>A new list of directives, with Pad entries inserte, and a list of new
+<p>A new list of directives, with Pad entries inserted, and a list of new
 errors produced.</p>
 </td>
 </tr>
@@ -3372,7 +3374,7 @@ errors produced.</p>
       entries: A list of directives.
       options_map: A parser options dict.
     Returns:
-      A new list of directives, with Pad entries inserte, and a list of new
+      A new list of directives, with Pad entries inserted, and a list of new
       errors produced.
     """
     pad_errors = []
@@ -3934,7 +3936,7 @@ opening balances account.</p>
 <td><code>account_conversions</code></td>
 <td><code></code></td>
 <td>
-<p>A string, tne name of the equity account to
+<p>A string, the name of the equity account to
 book currency conversions against.</p>
 </td>
 <td><em>required</em></td>
@@ -4000,7 +4002,7 @@ sheet fed with only the summarized entries.</p>
         to transfer previous balances from, in order to initialize account
         balances at the beginning of the period. This is typically called an
         opening balances account.
-      account_conversions: A string, tne name of the equity account to
+      account_conversions: A string, the name of the equity account to
         book currency conversions against.
     Returns:
       A new list of entries is returned, and the index that points to the first
@@ -4140,7 +4142,7 @@ clear
 <div class="doc doc-contents">
 <p>Transfer income and expenses balances at the given date to the equity accounts.</p>
 <p>This method insert entries to zero out balances on income and expenses
-accounts by transfering them to an equity account.</p>
+accounts by transferring them to an equity account.</p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -4217,7 +4219,7 @@ the last original transaction before the transfers.</p>
     """Transfer income and expenses balances at the given date to the equity accounts.
 
     This method insert entries to zero out balances on income and expenses
-    accounts by transfering them to an equity account.
+    accounts by transferring them to an equity account.
 
     Args:
       entries: A list of directive tuples.
@@ -4333,7 +4335,7 @@ on the conversion entry.</p>
 <td><code>account_conversions</code></td>
 <td><code></code></td>
 <td>
-<p>A string, tne name of the equity account to
+<p>A string, the name of the equity account to
 book currency conversions against.</p>
 </td>
 <td><em>required</em></td>
@@ -4387,7 +4389,7 @@ to zero.</p>
         list of entries.
       conversion_currency: A string, the transfer currency to use for zero prices
         on the conversion entry.
-      account_conversions: A string, tne name of the equity account to
+      account_conversions: A string, the name of the equity account to
         book currency conversions against.
     Returns:
       A new list of entries is returned, and the index that points to one beyond
@@ -4640,7 +4642,7 @@ transfer FROM the balances into the source account.</p>
 <td><code>flag</code></td>
 <td><code></code></td>
 <td>
-<p>A string, the flag to use for the transactinos.</p>
+<p>A string, the flag to use for the transactions.</p>
 </td>
 <td><em>required</em></td>
 </tr>
@@ -4695,7 +4697,7 @@ formatted with 'account' and 'date' replacement variables.</p>
         balances account from the source account; otherwise the new entries
         transfer FROM the balances into the source account.
       meta: A dict to use as metadata for the transactions.
-      flag: A string, the flag to use for the transactinos.
+      flag: A string, the flag to use for the transactions.
       narration_template: A format string for creating the narration. It is
         formatted with 'account' and 'date' replacement variables.
     Returns:
@@ -4930,7 +4932,7 @@ opening balances account.</p>
 <td><code>account_conversions</code></td>
 <td><code></code></td>
 <td>
-<p>A string, tne name of the equity account to
+<p>A string, the name of the equity account to
 book currency conversions against.</p>
 </td>
 <td><em>required</em></td>
@@ -5003,7 +5005,7 @@ sheet fed with only the summarized entries.</p>
         to transfer previous balances from, in order to initialize account
         balances at the beginning of the period. This is typically called an
         opening balances account.
-      account_conversions: A string, tne name of the equity account to
+      account_conversions: A string, the name of the equity account to
         book currency conversions against.
     Returns:
       A new list of entries is returned, and the index that points to the first
@@ -5092,7 +5094,7 @@ replaced by a few summarization entries, one for each account.</p>
 <td><code>date</code></td>
 <td><code></code></td>
 <td>
-<p>A datetime.date instance, the cutoff date before which to summararize.</p>
+<p>A datetime.date instance, the cutoff date before which to summarize.</p>
 </td>
 <td><em>required</em></td>
 </tr>
@@ -5142,7 +5144,7 @@ the entries on or after the cutoff date begin.</p>
 
     Args:
       entries: A list of directives.
-      date: A datetime.date instance, the cutoff date before which to summararize.
+      date: A datetime.date instance, the cutoff date before which to summarize.
       account_opening: A string, the name of the source account to book summarization
         entries against.
     Returns:
@@ -6566,7 +6568,7 @@ validate_duplicate_commodities
         </code>
 <a class="headerlink" href="#beancount.ops.validation.validate_duplicate_commodities" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
-<p>Check that commodty entries are unique for each commodity.</p>
+<p>Check that commodity entries are unique for each commodity.</p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -6616,7 +6618,7 @@ validate_duplicate_commodities
 <details class="quote">
 <summary>Source code in <code>beancount/ops/validation.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">def validate_duplicate_commodities(entries, unused_options_map):
-    """Check that commodty entries are unique for each commodity.
+    """Check that commodity entries are unique for each commodity.
 
     Args:
       entries: A list of directives.

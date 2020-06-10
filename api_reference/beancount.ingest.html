@@ -456,7 +456,7 @@
 <a class="headerlink" href="#beancount.ingest" title="Permanent link"></a></h2>
 <div class="doc doc-contents first">
 <p>Code to help identify, extract, and file external downloads.</p>
-<p>This packages contains code to help you build importers and drive the process of
+<p>This package contains code to help you build importers and drive the process of
 identifying which importer to run on an externally downloaded file, extract
 transactions from them and file away these files under a clean and rigidly named
 hierarchy for preservation.</p>
@@ -771,7 +771,7 @@ add_arguments
 <h3 class="doc doc-heading" id="beancount.ingest.extract.extract">
 <code class="highlight language-python">
 extract
-(importer_config, files_or_directories, output, entries=None, options_map=None, mindate=None, ascending=True, detect_duplicates_func=None)
+(importer_config, files_or_directories, output, entries=None, options_map=None, mindate=None, ascending=True, hooks=None)
 
         </code>
 <a class="headerlink" href="#beancount.ingest.extract.extract" title="Permanent link"></a></h3>
@@ -851,13 +851,12 @@ descending is desired.</p>
 <td><code>True</code></td>
 </tr>
 <tr>
-<td><code>detect_duplicates_func</code></td>
+<td><code>hooks</code></td>
 <td><code></code></td>
 <td>
-<p>An optional function which accepts a list of
-lists of imported entries and a list of entries already existing in
-the user's ledger. See function find_duplicate_entries(), which is the
-default implementation for this.</p>
+<p>An optional list of hook functions to apply to the list of extract
+(filename, entries) pairs, in order. If not specified, find_duplicate_entries()
+is used, automatically.</p>
 </td>
 <td><code>None</code></td>
 </tr>
@@ -872,7 +871,7 @@ default implementation for this.</p>
             options_map=None,
             mindate=None,
             ascending=True,
-            detect_duplicates_func=None):
+            hooks=None):
     """Given an importer configuration, search for files that can be imported in the
     list of files or directories, run the signature checks on them, and if it
     succeeds, run the importer on the file.
@@ -890,10 +889,9 @@ default implementation for this.</p>
       mindate: Optional minimum date to output transactions for.
       ascending: A boolean, true to print entries in ascending order, false if
         descending is desired.
-      detect_duplicates_func: An optional function which accepts a list of
-        lists of imported entries and a list of entries already existing in
-        the user's ledger. See function find_duplicate_entries(), which is the
-        default implementation for this.
+      hooks: An optional list of hook functions to apply to the list of extract
+        (filename, entries) pairs, in order. If not specified, find_duplicate_entries()
+        is used, automatically.
     """
     allow_none_for_tags_and_links = (
         options_map and options_map["allow_deprecated_none_for_tags_and_links"])
@@ -913,18 +911,18 @@ default implementation for this.</p>
                     allow_none_for_tags_and_links=allow_none_for_tags_and_links)
                 new_entries_list.append((filename, new_entries))
             except Exception as exc:
-                logging.error("Importer %s.extract() raised an unexpected error: %s",
-                              importer.name(), exc)
-                logging.error("Traceback: %s", traceback.format_exc())
+                logging.exception("Importer %s.extract() raised an unexpected error: %s",
+                                  importer.name(), exc)
                 continue
 
     # Find potential duplicate entries in the result sets, either against the
     # list of existing ones, or against each other. A single call to this
     # function is made on purpose, so that the function be able to merge
     # entries.
-    if detect_duplicates_func is None:
-        detect_duplicates_func = find_duplicate_entries
-    new_entries_list = detect_duplicates_func(new_entries_list, entries)
+    if hooks is None:
+        hooks = [find_duplicate_entries]
+    for hook_fn in hooks:
+        new_entries_list = hook_fn(new_entries_list, entries)
     assert isinstance(new_entries_list, list)
     assert all(isinstance(new_entries, tuple) for new_entries in new_entries_list)
     assert all(isinstance(new_entries[0], str) for new_entries in new_entries_list)
@@ -1273,7 +1271,7 @@ print_extracted_entries
 <h3 class="doc doc-heading" id="beancount.ingest.extract.run">
 <code class="highlight language-python">
 run
-(args, _, importers_list, files_or_directories, detect_duplicates_func=None)
+(args, _, importers_list, files_or_directories, hooks=None)
 
         </code>
 <a class="headerlink" href="#beancount.ingest.extract.run" title="Permanent link"></a></h3>
@@ -1281,7 +1279,7 @@ run
 <p>Run the subcommand.</p>
 <details class="quote">
 <summary>Source code in <code>beancount/ingest/extract.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def run(args, _, importers_list, files_or_directories, detect_duplicates_func=None):
+<pre class="highlight"><code class="language-python linenums">def run(args, _, importers_list, files_or_directories, hooks=None):
     """Run the subcommand."""
 
     # Load the ledger, if one is specified.
@@ -1295,7 +1293,7 @@ run
             options_map=options_map,
             mindate=None,
             ascending=args.ascending,
-            detect_duplicates_func=detect_duplicates_func)
+            hooks=hooks)
     return 0
 </code></pre>
 </details>
@@ -1563,7 +1561,7 @@ hunt for files to import.</p>
 <td><code></code></td>
 <td>
 <p>A string, the root destination directory where the files are
-to be filed. The files are organized there under a hierarchy mirrorring
+to be filed. The files are organized there under a hierarchy mirroring
 that of the chart of accounts.</p>
 </td>
 <td><em>required</em></td>
@@ -1639,7 +1637,7 @@ written out.</p>
       files_or_directories: a list of files of directories to walk recursively and
         hunt for files to import.
       destination: A string, the root destination directory where the files are
-        to be filed. The files are organized there under a hierarchy mirrorring
+        to be filed. The files are organized there under a hierarchy mirroring
         that of the chart of accounts.
       dry_run: A flag, if true, don't actually move the files.
       mkdirs: A flag, if true, make all the intervening directories; otherwise,
@@ -1749,7 +1747,7 @@ file_one_file
 <td><code></code></td>
 <td>
 <p>A string, the root destination directory where the files are
-to be filed. The files are organized there under a hierarchy mirrorring
+to be filed. The files are organized there under a hierarchy mirroring
 that of the chart of accounts.</p>
 </td>
 <td><em>required</em></td>
@@ -1800,7 +1798,7 @@ written out.</p>
       filename: A string, the name of the downloaded file to be processed.
       importers: A list of importer instances that handle this file.
       destination: A string, the root destination directory where the files are
-        to be filed. The files are organized there under a hierarchy mirrorring
+        to be filed. The files are organized there under a hierarchy mirroring
         that of the chart of accounts.
       idify: A flag, if true, remove whitespace and funky characters in the destination
         filename.
@@ -1820,8 +1818,8 @@ written out.</p>
             account_ = importer.file_account(file)
         except Exception as exc:
             account_ = None
-            logging.error("Importer %s.file_account() raised an unexpected error: %s",
-                          importer.name(), exc)
+            logging.exception("Importer %s.file_account() raised an unexpected error: %s",
+                              importer.name(), exc)
         if account_ is not None:
             file_accounts.append(account_)
 
@@ -1853,8 +1851,8 @@ written out.</p>
     try:
         date = importer.file_date(file)
     except Exception as exc:
-        logging.error("Importer %s.file_date() raised an unexpected error: %s",
-                      importer.name(), exc)
+        logging.exception("Importer %s.file_date() raised an unexpected error: %s",
+                          importer.name(), exc)
         date = None
     if date is None:
         # Fallback on the last modified time of the file.
@@ -1876,8 +1874,8 @@ written out.</p>
                            "separators"),
                           importer.name(), clean_filename)
     except Exception as exc:
-        logging.error("Importer %s.file_name() raised an unexpected error: %s",
-                      importer.name(), exc)
+        logging.exception("Importer %s.file_name() raised an unexpected error: %s",
+                          importer.name(), exc)
         clean_filename = None
     if clean_filename is None:
         # If no filename has been provided, use the basename.
@@ -1995,7 +1993,7 @@ move_xdev_file
 <h3 class="doc doc-heading" id="beancount.ingest.file.run">
 <code class="highlight language-python">
 run
-(args, parser, importers_list, files_or_directories, detect_duplicates_func=None)
+(args, parser, importers_list, files_or_directories, hooks=None)
 
         </code>
 <a class="headerlink" href="#beancount.ingest.file.run" title="Permanent link"></a></h3>
@@ -2003,14 +2001,18 @@ run
 <p>Run the subcommand.</p>
 <details class="quote">
 <summary>Source code in <code>beancount/ingest/file.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def run(args, parser, importers_list, files_or_directories, detect_duplicates_func=None):
+<pre class="highlight"><code class="language-python linenums">def run(args, parser, importers_list, files_or_directories, hooks=None):
     """Run the subcommand."""
 
-    # If the output directory is not specified, move the files at the root of
-    # the configuration file. (Providing this default seems better than using a
-    # required option.)
+    # If the output directory is not specified, move the files at the root where
+    # the import configuration file is located. (Providing this default seems
+    # better than using a required option.)
     if args.output_dir is None:
-        args.output_dir = path.dirname(path.abspath(args.config))
+        if hasattr(args, 'config'):
+            args.output_dir = path.dirname(path.abspath(args.config))
+        else:
+            import __main__ # pylint: disable=import-outside-toplevel
+            args.output_dir = path.dirname(path.abspath(__main__.__file__))
 
     # Make sure the output directory exists.
     if not path.exists(args.output_dir):
@@ -2210,8 +2212,8 @@ written out.</p>
                 if matched:
                     matching_importers.append(importer)
             except Exception as exc:
-                logging.error("Importer %s.identify() raised an unexpected error: %s",
-                              importer.name(), exc)
+                logging.exception("Importer %s.identify() raised an unexpected error: %s",
+                                  importer.name(), exc)
 
         yield (filename, matching_importers)
 </code></pre>
@@ -2282,7 +2284,7 @@ identify
 <h3 class="doc doc-heading" id="beancount.ingest.identify.run">
 <code class="highlight language-python">
 run
-(_, __, importers_list, files_or_directories, detect_duplicates_func=None)
+(_, __, importers_list, files_or_directories, hooks=None)
 
         </code>
 <a class="headerlink" href="#beancount.ingest.identify.run" title="Permanent link"></a></h3>
@@ -2290,7 +2292,7 @@ run
 <p>Run the subcommand.</p>
 <details class="quote">
 <summary>Source code in <code>beancount/ingest/identify.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def run(_, __, importers_list, files_or_directories, detect_duplicates_func=None):
+<pre class="highlight"><code class="language-python linenums">def run(_, __, importers_list, files_or_directories, hooks=None):
     """Run the subcommand."""
     return identify(importers_list, files_or_directories)
 </code></pre>
@@ -2950,7 +2952,7 @@ setUp
 <h5 class="doc doc-heading" id="beancount.ingest.importers.csv.Importer.__init__">
 <code class="highlight language-python">
 __init__
-    (self, config, account, currency, regexps=None, skip_lines=0, last4_map=None, categorizer=None, institution=None, debug=False, csv_dialect='excel', dateutil_kwds=None, narration_sep='; ', **
+    (self, config, account, currency, regexps=None, skip_lines=0, last4_map=None, categorizer=None, institution=None, debug=False, csv_dialect='excel', dateutil_kwds=None, narration_sep='; ', encoding=None, invert_sign=False, **
 kwds)
 
         </code>
@@ -3071,6 +3073,23 @@ narration fields of a source field.</p>
 <td><code>'; '</code></td>
 </tr>
 <tr>
+<td><code>encoding</code></td>
+<td><code>Optional[str]</code></td>
+<td>
+<p>An optional encoding for the file. Typically useful for files
+encoded in 'latin1' instead of 'utf-8' (the default).</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>invert_sign</code></td>
+<td><code>Optional[bool]</code></td>
+<td>
+<p>If true, invert the amount's sign unconditionally.</p>
+</td>
+<td><code>False</code></td>
+</tr>
+<tr>
 <td><code>**kwds</code></td>
 <td><code></code></td>
 <td>
@@ -3092,6 +3111,8 @@ narration fields of a source field.</p>
              csv_dialect: Union[str, csv.Dialect] = 'excel',
              dateutil_kwds: Optional[Dict] = None,
              narration_sep: str = '; ',
+             encoding: Optional[str] = None,
+             invert_sign: Optional[bool] = False,
              **kwds):
     """Constructor.
 
@@ -3111,6 +3132,9 @@ narration fields of a source field.</p>
       dateutil_kwds: An optional dict defining the dateutil parser kwargs.
       narration_sep: A string, a separator to use for splitting up the payee and
         narration fields of a source field.
+      encoding: An optional encoding for the file. Typically useful for files
+        encoded in 'latin1' instead of 'utf-8' (the default).
+      invert_sign: If true, invert the amount's sign unconditionally.
       **kwds: Extra keyword arguments to provide to the base mixins.
     """
     assert isinstance(config, dict), "Invalid type: {}".format(config)
@@ -3124,6 +3148,8 @@ narration fields of a source field.</p>
     self.dateutil_kwds = dateutil_kwds
     self.csv_dialect = csv_dialect
     self.narration_sep = narration_sep
+    self.encoding = encoding
+    self.invert_sign = invert_sign
 
     self.categorizer = categorizer
 
@@ -3226,7 +3252,8 @@ extracted from the file.</p>
     iconfig, has_header = normalize_config(
         self.config, file.head(), self.csv_dialect, self.skip_lines)
 
-    reader = iter(csv.reader(open(file.name), dialect=self.csv_dialect))
+    reader = iter(csv.reader(open(file.name, encoding=self.encoding),
+                             dialect=self.csv_dialect))
 
     # Skip garbage lines
     for _ in range(self.skip_lines):
@@ -3271,10 +3298,14 @@ extracted from the file.</p>
                                for field in (Col.NARRATION1,
                                              Col.NARRATION2,
                                              Col.NARRATION3)])
-        narration = self.narration_sep.join(field.strip() for field in fields)
+        narration = self.narration_sep.join(
+            field.strip() for field in fields).replace('\n', '; ')
 
         tag = get(row, Col.TAG)
         tags = {tag} if tag is not None else data.EMPTY_SET
+
+        link = get(row, Col.REFERENCE_ID)
+        links = {link} if link is not None else data.EMPTY_SET
 
         last4 = get(row, Col.LAST4)
 
@@ -3294,10 +3325,10 @@ extracted from the file.</p>
             meta['card'] = last4_friendly if last4_friendly else last4
         date = parse_date_liberally(date, self.dateutil_kwds)
         txn = data.Transaction(meta, date, self.FLAG, payee, narration,
-                               tags, data.EMPTY_SET, [])
+                               tags, links, [])
 
         # Attach one posting to the transaction
-        amount_debit, amount_credit = get_amounts(iconfig, row)
+        amount_debit, amount_credit = self.get_amounts(iconfig, row)
 
         # Skip empty transactions
         if amount_debit is None and amount_credit is None:
@@ -3306,6 +3337,8 @@ extracted from the file.</p>
         for amount in [amount_debit, amount_credit]:
             if amount is None:
                 continue
+            if self.invert_sign:
+                amount = -amount
             units = Amount(amount, self.currency)
             txn.postings.append(
                 data.Posting(account, units, None, None, None, None))
@@ -3382,6 +3415,31 @@ file_date
             if max_date is None or date &gt; max_date:
                 max_date = date
         return max_date
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h5 class="doc doc-heading" id="beancount.ingest.importers.csv.Importer.get_amounts">
+<code class="highlight language-python">
+get_amounts
+(self, iconfig, row, allow_zero_amounts=False)
+
+        </code>
+<a class="headerlink" href="#beancount.ingest.importers.csv.Importer.get_amounts" title="Permanent link"></a></h5>
+<div class="doc doc-contents">
+<p>See function get_amounts() for details.</p>
+<p>This method is present to allow clients to override it in order to deal
+with special cases, e.g., columns with currency symbols in them.</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ingest/importers/csv.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">def get_amounts(self, iconfig, row, allow_zero_amounts=False):
+    """See function get_amounts() for details.
+
+    This method is present to allow clients to override it in order to deal
+    with special cases, e.g., columns with currency symbols in them.
+    """
+    return get_amounts(iconfig, row, allow_zero_amounts)
 </code></pre>
 </details>
 </div>
@@ -3848,16 +3906,49 @@ kwds)
 <a class="headerlink" href="#beancount.ingest.importers.mixins.filing.FilingMixin.__init__" title="Permanent link"></a></h6>
 <div class="doc doc-contents">
 <p>Pull 'filing' and 'prefix' from kwds.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>filing</code></td>
+<td><code></code></td>
+<td>
+<p>The name of the account to file to.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>prefix</code></td>
+<td><code></code></td>
+<td>
+<p>The name of the institution prefix to insert.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
 <details class="quote">
 <summary>Source code in <code>beancount/ingest/importers/mixins/filing.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">def __init__(self, **kwds):
-    """Pull 'filing' and 'prefix' from kwds."""
+    """Pull 'filing' and 'prefix' from kwds.
+
+    Args:
+      filing: The name of the account to file to.
+      prefix: The name of the institution prefix to insert.
+    """
 
     self.filing_account = kwds.pop('filing', None)
     assert account.is_valid(self.filing_account)
 
     self.prefix = kwds.pop('prefix', None)
-    assert account.is_valid(self.filing_account)
 
     super().__init__(**kwds)
 </code></pre>
@@ -4016,6 +4107,7 @@ kwds)
         assert isinstance(regexp, str), repr(regexp)
         self.remap[part].append(re.compile(regexp))
 
+    # Converter is a fn(filename: Text) -&gt; contents: Text.
     self.converter = kwds.pop('converter',
                               getattr(self, 'converter', None))
 
@@ -4114,6 +4206,14 @@ a specification to match against its part. The 'part' can be one of 'mime',
 </td>
 <td><em>required</em></td>
 </tr>
+<tr>
+<td><code>converter</code></td>
+<td><code></code></td>
+<td>
+<p>A</p>
+</td>
+<td><em>required</em></td>
+</tr>
 </tbody>
 </table>
 <p><strong>Returns:</strong></p>
@@ -4142,6 +4242,7 @@ a specification to match against its part. The 'part' can be one of 'mime',
       remap: A dict of 'part' to list-of-compiled-regexp objects, where each item is
         a specification to match against its part. The 'part' can be one of 'mime',
         'filename' or 'content'.
+      converter: A
     Returns:
       A boolean, true if the file is not rejected by the constraints.
     """
@@ -4988,7 +5089,7 @@ find_statement_transactions
     An account id string,
     A currency string,
     A list of transaction nodes (&lt;STMTTRN&gt; BeautifulSoup tags), and
-    A (date, balanace amount) for the &lt;LEDGERBAL&gt;.</p>
+    A (date, balance amount) for the &lt;LEDGERBAL&gt;.</p>
 <details class="quote">
 <summary>Source code in <code>beancount/ingest/importers/ofx.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">def find_statement_transactions(soup):
@@ -5001,7 +5102,7 @@ find_statement_transactions
         An account id string,
         A currency string,
         A list of transaction nodes (&lt;STMTTRN&gt; BeautifulSoup tags), and
-        A (date, balanace amount) for the &lt;LEDGERBAL&gt;.
+        A (date, balance amount) for the &lt;LEDGERBAL&gt;.
     """
     # Process STMTTRNRS and CCSTMTTRNRS tags.
     for stmtrs in soup.find_all(re.compile('.*stmtrs$')):
@@ -6156,7 +6257,7 @@ create_legacy_arguments_parser
 <h3 class="doc doc-heading" id="beancount.ingest.scripts_utils.ingest">
 <code class="highlight language-python">
 ingest
-(importers_list, detect_duplicates_func=None)
+(importers_list, detect_duplicates_func=None, hooks=None)
 
         </code>
 <a class="headerlink" href="#beancount.ingest.scripts_utils.ingest" title="Permanent link"></a></h3>
@@ -6207,10 +6308,20 @@ chain-of-responsibility, called on each file.</p>
 <td><code>detect_duplicates_func</code></td>
 <td><code></code></td>
 <td>
-<p>An optional function which accepts a list of
-lists of imported entries and a list of entries already existing in
-the user's ledger. See function find_duplicate_entries(), which is the
-default implementation for this.</p>
+<p>(DEPRECATED) An optional function which accepts a
+list of lists of imported entries and a list of entries already existing
+in the user's ledger. See function find_duplicate_entries(), which is
+the default implementation for this. Use 'filter_funcs' instead.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>hooks</code></td>
+<td><code></code></td>
+<td>
+<p>An optional list of hook functions to apply to the list of extract
+(filename, entries) pairs, in order. This replaces
+'detect_duplicates_func'.</p>
 </td>
 <td><code>None</code></td>
 </tr>
@@ -6218,7 +6329,7 @@ default implementation for this.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>beancount/ingest/scripts_utils.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def ingest(importers_list, detect_duplicates_func=None):
+<pre class="highlight"><code class="language-python linenums">def ingest(importers_list, detect_duplicates_func=None, hooks=None):
     """Driver function that calls all the ingestion tools.
 
     Put a call to this function at the end of your importer configuration to
@@ -6250,11 +6361,22 @@ default implementation for this.</p>
     Args:
       importers_list: A list of importer instances. This is used as a
         chain-of-responsibility, called on each file.
-      detect_duplicates_func: An optional function which accepts a list of
-        lists of imported entries and a list of entries already existing in
-        the user's ledger. See function find_duplicate_entries(), which is the
-        default implementation for this.
+      detect_duplicates_func: (DEPRECATED) An optional function which accepts a
+        list of lists of imported entries and a list of entries already existing
+        in the user's ledger. See function find_duplicate_entries(), which is
+        the default implementation for this. Use 'filter_funcs' instead.
+      hooks: An optional list of hook functions to apply to the list of extract
+        (filename, entries) pairs, in order. This replaces
+        'detect_duplicates_func'.
     """
+    if detect_duplicates_func is not None:
+        warnings.warn("Argument 'detect_duplicates_func' is deprecated.")
+        # Fold it in hooks.
+        if hooks is None:
+            hooks = []
+        hooks.insert(0, detect_duplicates_func)
+        del detect_duplicates_func
+
     if ingest.args is not None:
         # The script has been called from one of the bean-* ingestion tools.
         # 'ingest.args' is only set when we're being invoked from one of the
@@ -6303,8 +6425,7 @@ default implementation for this.</p>
                 parser.error("Subcommand is required.")
 
     abs_downloads = list(map(path.abspath, args.downloads))
-    args.command(args, parser, importers_list, abs_downloads,
-                 detect_duplicates_func=detect_duplicates_func)
+    args.command(args, parser, importers_list, abs_downloads, hooks=hooks)
     return 0
 </code></pre>
 </details>

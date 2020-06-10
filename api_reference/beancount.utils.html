@@ -1808,7 +1808,7 @@ adding this in eventually.</p>
 <div class="doc doc-contents">
 <p>A version of defaultdict whose factory accepts the key as an argument.
     Note: collections.defaultdict would be improved by supporting this directly,
-    this is a common occurence.</p>
+    this is a common occurrence.</p>
 <div class="doc doc-children">
 </div>
 </div>
@@ -1819,8 +1819,8 @@ adding this in eventually.</p>
 <a class="headerlink" href="#beancount.utils.defdict.ImmutableDictWithDefault" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>An immutable dict which returns a default value for missing keys.</p>
-<pre><code>This differs from a defualtdict in that it does not insert a missing default
-value when one is materialized (from a missing fetch), and furtheremore, the
+<pre><code>This differs from a defaultdict in that it does not insert a missing default
+value when one is materialized (from a missing fetch), and furthermore, the
 set method is make unavailable to prevent mutation beyond construction.
 </code></pre>
 <div class="doc doc-children">
@@ -2138,7 +2138,7 @@ tearDown
 <a class="headerlink" href="#beancount.utils.file_type" title="Permanent link"></a></h2>
 <div class="doc doc-contents">
 <p>Code that can guess a MIME type for a filename.</p>
-<p>This attempts to identify the mim-type of a file suing</p>
+<p>This attempts to identify the mime-type of a file suing</p>
 <ol>
 <li>The built-in mimetypes library, then</li>
 <li>python-magic (if available), and finally</li>
@@ -2171,7 +2171,7 @@ guess_file_type
 <td><code>filename</code></td>
 <td><code></code></td>
 <td>
-<p>A string, the name of the file to ugess the type for.</p>
+<p>A string, the name of the file to guess the type for.</p>
 </td>
 <td><em>required</em></td>
 </tr>
@@ -2200,7 +2200,7 @@ guess_file_type
     """Attempt to guess the type of the input file.
 
     Args:
-      filename: A string, the name of the file to ugess the type for.
+      filename: A string, the name of the file to guess the type for.
     Returns:
       A suitable mimetype string, or None if we could not guess.
     """
@@ -3996,7 +3996,7 @@ get_tuple_values
 <div class="doc doc-contents">
 <p>Return all members referred to by this namedtuple instance that satisfy the
 given predicate. This function also works recursively on its members which
-are lists or typles, and so it can be used for Transaction instances.</p>
+are lists or tuples, and so it can be used for Transaction instances.</p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -4043,7 +4043,7 @@ recursion will be avoided.</p>
 <pre class="highlight"><code class="language-python linenums">def get_tuple_values(ntuple, predicate, memo=None):
     """Return all members referred to by this namedtuple instance that satisfy the
     given predicate. This function also works recursively on its members which
-    are lists or typles, and so it can be used for Transaction instances.
+    are lists or tuples, and so it can be used for Transaction instances.
 
     Args:
       ntuple: A tuple or namedtuple.
@@ -4281,6 +4281,7 @@ import_curses
     # https://stackoverflow.com/questions/263890/how-do-i-find-the-width-height-of-a-terminal-window
     # Also, consider just using 'blessings' instead, which provides this across
     # multiple platforms.
+    # pylint: disable=import-outside-toplevel
     import curses
     return curses
 </code></pre>
@@ -4291,7 +4292,7 @@ import_curses
 <h3 class="doc doc-heading" id="beancount.utils.misc_utils.is_sorted">
 <code class="highlight language-python">
 is_sorted
-(iterable, key=&lt;function &lt;lambda&gt; at 0x7fd9124155e0&gt;, cmp=&lt;function &lt;lambda&gt; at 0x7fd912415670&gt;)
+(iterable, key=&lt;function &lt;lambda&gt; at 0x7f9524383a60&gt;, cmp=&lt;function &lt;lambda&gt; at 0x7f9524383af0&gt;)
 
         </code>
 <a class="headerlink" href="#beancount.utils.misc_utils.is_sorted" title="Permanent link"></a></h3>
@@ -4322,7 +4323,7 @@ is_sorted
 <td>
 <p>A function to extract the quantity by which to sort.</p>
 </td>
-<td><code>&lt;function &lt;lambda&gt; at 0x7fd9124155e0&gt;</code></td>
+<td><code>&lt;function &lt;lambda&gt; at 0x7f9524383a60&gt;</code></td>
 </tr>
 <tr>
 <td><code>cmp</code></td>
@@ -4330,7 +4331,7 @@ is_sorted
 <td>
 <p>A function that compares two elements of a sequence.</p>
 </td>
-<td><code>&lt;function &lt;lambda&gt; at 0x7fd912415670&gt;</code></td>
+<td><code>&lt;function &lt;lambda&gt; at 0x7f9524383af0&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -4750,7 +4751,7 @@ skipiter
 </tbody>
 </table>
 <p>Yields:
-  Elemnets from the iterable, with num_skip elements skipped.
+  Elements from the iterable, with num_skip elements skipped.
   For example, skipiter(range(10), 3) yields [0, 3, 6, 9].</p>
 <details class="quote">
 <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
@@ -4761,7 +4762,7 @@ skipiter
       iterable: An iterator.
       num_skip: The number of elements in the period.
     Yields:
-      Elemnets from the iterable, with num_skip elements skipped.
+      Elements from the iterable, with num_skip elements skipped.
       For example, skipiter(range(10), 3) yields [0, 3, 6, 9].
     """
     assert num_skip &gt; 0
@@ -5665,7 +5666,6 @@ to wait on. The pipe instance may be set to None if we failed to create a subpro
                                 env=env)
     except OSError as exc:
         logging.error("Invalid pager: {}".format(exc))
-        file = file
     else:
         stdin_wrapper = io.TextIOWrapper(pipe.stdin, 'utf-8')
         file = stdin_wrapper
@@ -6089,7 +6089,7 @@ decorate it like this:</p>
 <code>test_utils</code>
 <a class="headerlink" href="#beancount.utils.test_utils" title="Permanent link"></a></h2>
 <div class="doc doc-contents">
-<p>Support utillities for testing scripts.</p>
+<p>Support utilities for testing scripts.</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.utils.test_utils.RCall">
@@ -6613,7 +6613,7 @@ kwargs)
 <a class="headerlink" href="#beancount.utils.test_utils.docfile_extra" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>A decorator identical to @docfile,
-but it also takes kwargs for the temporaryfile,
+but it also takes kwargs for the temporary file,
 Kwargs:
   e.g. buffering, encoding, newline, dir, prefix, and suffix.</p>
 <p><strong>Returns:</strong></p>
@@ -6638,7 +6638,7 @@ Kwargs:
 <pre class="highlight"><code class="language-python linenums">def docfile_extra(**kwargs):
     """
     A decorator identical to @docfile,
-    but it also takes kwargs for the temporaryfile,
+    but it also takes kwargs for the temporary file,
     Kwargs:
       e.g. buffering, encoding, newline, dir, prefix, and suffix.
     Returns:
@@ -6698,11 +6698,13 @@ def environ(varname, newvalue):
       varname: A string, the environ variable name.
       newvalue: A string, the desired value.
     """
-    oldvalue = os.environ.get(varname)
+    oldvalue = os.environ.get(varname, None)
     os.environ[varname] = newvalue
     yield
-    if oldvalue:
+    if oldvalue is not None:
         os.environ[varname] = oldvalue
+    else:
+        del os.environ[varname]
 </code></pre>
 </details>
 </div>
@@ -6807,8 +6809,14 @@ find_repository_root
     """
     if filename is None:
         filename = __file__
+
+    # Support root directory under Bazel.
+    match = re.match(r"(.*\.runfiles/beancount)/", filename)
+    if match:
+        return match.group(1)
+
     while not all(path.exists(path.join(filename, sigfile))
-                  for sigfile in ('PKG-INFO', 'COPYING', 'README')):
+                  for sigfile in ('PKG-INFO', 'COPYING', 'README.rst')):
         prev_filename = filename
         filename = path.dirname(filename)
         if prev_filename == filename:
@@ -6957,14 +6965,14 @@ of type 'replacement_type'.</p>
 <td><code>replacement_type</code></td>
 <td><code></code></td>
 <td>
-<p>A callable to build replacment objects.</p>
+<p>A callable to build replacement objects.</p>
 </td>
 <td><em>required</em></td>
 </tr>
 </tbody>
 </table>
 <p>Yields:
-  An instance of a list of sequencs of 'replacement_type'.</p>
+  An instance of a list of sequences of 'replacement_type'.</p>
 <details class="quote">
 <summary>Source code in <code>beancount/utils/test_utils.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">@contextlib.contextmanager
@@ -6977,9 +6985,9 @@ def patch(obj, attributes, replacement_type):
     Args:
       obj: The object to patch up.
       attributes: A string or a sequence of strings, the names of attributes to replace.
-      replacement_type: A callable to build replacment objects.
+      replacement_type: A callable to build replacement objects.
     Yields:
-      An instance of a list of sequencs of 'replacement_type'.
+      An instance of a list of sequences of 'replacement_type'.
     """
     single = isinstance(attributes, str)
     if single:
@@ -7472,7 +7480,8 @@ which you may read to obtain the fixed contents.</p>
       which you may read to obtain the fixed contents.
     """
     tidy_file = tempfile.NamedTemporaryFile(suffix='.xls', mode='w', delete=False)
-    contents = open(filename).read()
+    with open(filename) as infile:
+        contents = infile.read()
     new_contents = re.sub('&amp;([^;&amp;]{12})', '&amp;\\1', contents)
     tidy_file.write(new_contents)
     tidy_file.flush()

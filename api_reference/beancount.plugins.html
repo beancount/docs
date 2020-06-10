@@ -280,7 +280,7 @@
 <ul>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.plugins.divert_expenses.divert_expenses">divert_expenses()</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#beancount.plugins.divert_expenses.replace_expenses_accounts">replace_expenses_accounts()</a>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.plugins.divert_expenses.replace_diverted_accounts">replace_diverted_accounts()</a>
 </li>
 </ul>
 </li>
@@ -563,7 +563,7 @@
 <div class="doc doc-contents first">
 <p>Example plugins for filtering transactions.</p>
 <p>These are various examples of how to filter entries in various creative ways.</p>
-<p>IMPORTANT: These are not meant to tbe complete features, rather just experiments
+<p>IMPORTANT: These are not meant to be complete features, rather just experiments
 in problem-solving using Beancount, work-in-progress that can be selectively
 installed via a --plugin option, or one-offs to answer questions on the
 mailing-list.</p>
@@ -704,38 +704,45 @@ matching lots.</p>
 particular account, which you provide. For each of those accounts, it also
 requires a corresponding Income account to book the profit/loss of reducing
 lots (i.e., sales):</p>
-<p>plugin "beancount.plugins.book_conversions" "Assets:Bitcoin,Income:Bitcoin"</p>
+<pre><code>plugin "beancount.plugins.book_conversions" "Assets:Bitcoin,Income:Bitcoin"
+</code></pre>
 <p>Then, simply input the transactions with price conversion. We use "Bitcoins" in
 this example, converting Bitcoin purchases that were carried out as currency
 into maintaining these with cost basis, for tax reporting purposes:</p>
-<p>2015-09-04 * "Buy some bitcoins"
-    Assets:Bank          -1000.00 USD
-    Assets:Bitcoin       4.333507 BTC @ 230.76 USD</p>
-<p>2015-09-05 * "Buy some more bitcoins at a different price"
-    Assets:Bank          -1000.00 USD
-    Assets:Bitcoin       4.345747 BTC @ 230.11 USD</p>
-<p>2015-09-20 * "Use (sell) some bitcoins"
-    Assets:Bitcoin       -6.000000 BTC @ 230.50 USD
-    Expenses:Something</p>
+<pre><code>2015-09-04 * "Buy some bitcoins"
+  Assets:Bank          -1000.00 USD
+  Assets:Bitcoin       4.333507 BTC @ 230.76 USD
+
+2015-09-05 * "Buy some more bitcoins at a different price"
+  Assets:Bank          -1000.00 USD
+  Assets:Bitcoin       4.345747 BTC @ 230.11 USD
+
+2015-09-20 * "Use (sell) some bitcoins"
+  Assets:Bitcoin       -6.000000 BTC @ 230.50 USD
+  Expenses:Something
+</code></pre>
 <p>The result is that cost bases are inserted on augmenting lots:</p>
-<p>2015-09-04 * "Buy some bitcoins"
-    Assets:Bitcoin  4.333507 BTC {230.76 USD} @ 230.76 USD
-    Assets:Bank     -1000.00 USD</p>
-<p>2015-09-05 * "Buy some more bitcoins at a different price"
-    Assets:Bitcoin  4.345747 BTC {230.11 USD} @ 230.11 USD
-    Assets:Bank     -1000.00 USD</p>
+<pre><code>2015-09-04 * "Buy some bitcoins"
+  Assets:Bitcoin  4.333507 BTC {230.76 USD} @ 230.76 USD
+  Assets:Bank     -1000.00 USD
+
+2015-09-05 * "Buy some more bitcoins at a different price"
+  Assets:Bitcoin  4.345747 BTC {230.11 USD} @ 230.11 USD
+  Assets:Bank     -1000.00 USD
+</code></pre>
 <p>While on reducing lots, matching FIFO lots are automatically found and the
 corresponding cost basis added:</p>
-<p>2015-09-20 * "Use (sell) some bitcoins"
-    Assets:Bitcoin          -4.333507 BTC {230.76 USD} @ 230.50 USD
-    Assets:Bitcoin          -1.666493 BTC {230.11 USD} @ 230.50 USD
-    Income:Bitcoin         0.47677955 USD
-    Expenses:Something  1383.00000000 USD</p>
+<pre><code>2015-09-20 * "Use (sell) some bitcoins"
+  Assets:Bitcoin          -4.333507 BTC {230.76 USD} @ 230.50 USD
+  Assets:Bitcoin          -1.666493 BTC {230.11 USD} @ 230.50 USD
+  Income:Bitcoin         0.47677955 USD
+  Expenses:Something  1383.00000000 USD
+</code></pre>
 <p>Note that multiple lots were required to fulfill the sale quantity here. As in
 this example, this may result in multiple lots being created for a single one.</p>
 <p>Finally, Beancount will eventually support booking methods built-in, but this is
 a quick method that shows how to hack your own booking method via
-transformations of the postings that run in in a plugin.</p>
+transformations of the postings that run in a plugin.</p>
 <p>Implementation notes:</p>
 <ul>
 <li>
@@ -1969,21 +1976,24 @@ entirely. One would like to confirm that, and the way to do this in Beancount is
 to insert a balance check.</p>
 <p>This plugin allows you to do that more simply, by inserting metadata. For
 example, this transaction:</p>
-<p>2018-02-16 * "SOLD -14 QQQ 100 16 FEB 18 160 CALL @5.31"
-    Assets:US:Brokerage:Main:Options     -1400 QQQ180216C160 {2.70 USD} @ 5.31 USD
-      closing: TRUE
-    Expenses:Financial:Commissions       17.45 USD
-    Expenses:Financial:Fees               0.42 USD
-    Assets:US:Brokerage:Main:Cash      7416.13 USD
-    Income:US:Brokerage:Main:PnL</p>
+<pre><code>2018-02-16 * "SOLD -14 QQQ 100 16 FEB 18 160 CALL @5.31"
+  Assets:US:Brokerage:Main:Options     -1400 QQQ180216C160 {2.70 USD} @ 5.31 USD
+    closing: TRUE
+  Expenses:Financial:Commissions       17.45 USD
+  Expenses:Financial:Fees               0.42 USD
+  Assets:US:Brokerage:Main:Cash      7416.13 USD
+  Income:US:Brokerage:Main:PnL
+</code></pre>
 <p>Would expand into the following two directives:</p>
-<p>2018-02-16 * "SOLD -14 QQQ 100 16 FEB 18 160 CALL @5.31"
-    Assets:US:Brokerage:Main:Options     -1400 QQQ180216C160 {2.70 USD} @ 5.31 USD
-    Expenses:Financial:Commissions       17.45 USD
-    Expenses:Financial:Fees               0.42 USD
-    Assets:US:Brokerage:Main:Cash      7416.13 USD
-    Income:US:Brokerage:Main:PnL</p>
-<p>2018-02-17 balance Assets:US:Brokerage:Main:Options  0 QQQ180216C160</p>
+<pre><code>2018-02-16 * "SOLD -14 QQQ 100 16 FEB 18 160 CALL @5.31"
+  Assets:US:Brokerage:Main:Options     -1400 QQQ180216C160 {2.70 USD} @ 5.31 USD
+  Expenses:Financial:Commissions       17.45 USD
+  Expenses:Financial:Fees               0.42 USD
+  Assets:US:Brokerage:Main:Cash      7416.13 USD
+  Income:US:Brokerage:Main:PnL
+
+2018-02-17 balance Assets:US:Brokerage:Main:Options  0 QQQ180216C160
+</code></pre>
 <p>Insert the closing line when you know you're closing the position.</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-function">
@@ -2431,10 +2441,11 @@ validate_coherent_cost
 attribute and that it is part of a set of enum values.</p>
 <p>The configuration must be a mapping of attribute name to list of valid values,
 like this:</p>
-<p>plugin "beancount.plugins.commodity_attr" "{
-    'sector': ['Technology', 'Financials', 'Energy'],
-    'name': None,
-  }"</p>
+<pre><code>plugin "beancount.plugins.commodity_attr" "{
+  'sector': ['Technology', 'Financials', 'Energy'],
+  'name': None,
+}"
+</code></pre>
 <p>The plugin issues an error if a Commodity directive is missing the attribute, or
 if the attribute value is not in the valid set. If you'd like to just ensure the
 attribute is set, set the list of valid values to None, as in the 'name'
@@ -2703,18 +2714,22 @@ validate_commodity_attr
 <p>This is an automatic implementation of the method described here:
 https://www.mathstat.dal.ca/~selinger/accounting/tutorial.html</p>
 <p>You enable it just like this:</p>
-<p>plugin "beancount.plugins.currency_accounts" "Equity:CurrencyAcccounts"</p>
+<pre><code>plugin "beancount.plugins.currency_accounts" "Equity:CurrencyAccounts"
+</code></pre>
 <p>Accounts will be automatically created under the given base account, with the
 currency name appended to it, e.g.,</p>
-<p>Equity:CurrencyAcccounts:CAD
-  Equity:CurrencyAcccounts:USD</p>
+<pre><code>Equity:CurrencyAccounts:CAD
+Equity:CurrencyAccounts:USD
+</code></pre>
 <p>etc., where used. You can have a look at the account balances with a query like
 this:</p>
-<p>bean-query $L "select account, sum(position), convert(sum(position), 'USD')
-                 where date &gt;= 2018-01-01 and  account ~ 'CurrencyAccounts' "</p>
+<pre><code>bean-query $L "select account, sum(position), convert(sum(position), 'USD')
+               where date &gt;= 2018-01-01 and  account ~ 'CurrencyAccounts' "
+</code></pre>
 <p>The sum total of the converted amounts should be a number not too large:</p>
-<p>bean-query $L "select convert(sum(position), 'USD')
-                 where date &gt;= 2018-01-01 and  account ~ 'CurrencyAccounts'"</p>
+<pre><code>bean-query $L "select convert(sum(position), 'USD')
+               where date &gt;= 2018-01-01 and  account ~ 'CurrencyAccounts'"
+</code></pre>
 <p>WARNING: This is a prototype. Note the FIXMEs in the code below, which indicate
 some potential problems.</p>
 <div class="doc doc-children">
@@ -2987,20 +3002,23 @@ insert_currency_trading_postings
 <p>For tagged transactions, convert expenses to a single account.</p>
 <p>This plugin allows you to select a tag and it automatically converts all the
 Expenses postings to use a single account. For example, with this input:</p>
-<p>plugin "divert_expenses" "['kid', 'Expenses:Child']"</p>
-<p>2018-01-28 * "CVS" "Formula" #kid
-    Liabilities:CreditCard      -10.27 USD
-    Expenses:Food:Grocery        10.27 USD</p>
+<pre><code>plugin "divert_expenses" "['kid', 'Expenses:Child']"
+
+2018-01-28 * "CVS" "Formula" #kid
+  Liabilities:CreditCard      -10.27 USD
+  Expenses:Food:Grocery        10.27 USD
+</code></pre>
 <p>It will output:</p>
 <p>2018-01-28 * "CVS" "Formula" #kid
-    Liabilities:CreditCard      -10.27 USD
-    Expenses:Child               10.27 USD</p>
+      Liabilities:CreditCard      -10.27 USD
+      Expenses:Child               10.27 USD</p>
 <p>You can limit the diversion to one posting only, like this:</p>
-<p>2018-05-05 * "CVS/PHARMACY" "" #kai
-    Liabilities:CreditCard        -66.38 USD
-    Expenses:Pharmacy              21.00 USD  ;; Vitamins for Kai
-    Expenses:Pharmacy              45.38 USD
-      divert: FALSE</p>
+<pre><code>2018-05-05 * "CVS/PHARMACY" "" #kai
+  Liabilities:CreditCard        -66.38 USD
+  Expenses:Pharmacy              21.00 USD  ;; Vitamins for Kai
+  Expenses:Pharmacy              45.38 USD
+    divert: FALSE
+</code></pre>
 <p>See unit test for details.</p>
 <p>See this thread for context:
 https://docs.google.com/drawings/d/18fTrrGlmz0jFbfcGGHTffbdRwbmST8r9_3O26Dd1Xww/edit?usp=sharing</p>
@@ -3103,7 +3121,7 @@ a tag, and an account to replace expenses with.</p>
     errors = []
     for entry in entries:
         if isinstance(entry, Transaction) and tag in entry.tags:
-            entry = replace_expenses_accounts(entry, replacement_account, acctypes)
+            entry = replace_diverted_accounts(entry, replacement_account, acctypes)
         new_entries.append(entry)
 
     return new_entries, errors
@@ -3112,13 +3130,13 @@ a tag, and an account to replace expenses with.</p>
 </div>
 </div>
 <div class="doc doc-object doc-function">
-<h3 class="doc doc-heading" id="beancount.plugins.divert_expenses.replace_expenses_accounts">
+<h3 class="doc doc-heading" id="beancount.plugins.divert_expenses.replace_diverted_accounts">
 <code class="highlight language-python">
-replace_expenses_accounts
+replace_diverted_accounts
 (entry, replacement_account, acctypes)
 
         </code>
-<a class="headerlink" href="#beancount.plugins.divert_expenses.replace_expenses_accounts" title="Permanent link"></a></h3>
+<a class="headerlink" href="#beancount.plugins.divert_expenses.replace_diverted_accounts" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Replace the Expenses accounts from the entry.</p>
 <p><strong>Parameters:</strong></p>
@@ -3177,7 +3195,7 @@ replace_expenses_accounts
 </table>
 <details class="quote">
 <summary>Source code in <code>beancount/plugins/divert_expenses.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def replace_expenses_accounts(entry, replacement_account, acctypes):
+<pre class="highlight"><code class="language-python linenums">def replace_diverted_accounts(entry, replacement_account, acctypes):
     """Replace the Expenses accounts from the entry.
 
     Args:
@@ -3189,8 +3207,10 @@ replace_expenses_accounts
     """
     new_postings = []
     for posting in entry.postings:
-        if (account_types.is_account_type(acctypes.expenses, posting.account) and
-            posting.meta.get('divert', True)):
+        divert = posting.meta.get('divert', None) if posting.meta else None
+        if (divert is True or (
+                divert is None and
+                account_types.is_account_type(acctypes.expenses, posting.account))):
             posting = posting._replace(account=replacement_account,
                                        meta={'diverted_account': posting.account})
         new_postings.append(posting)
@@ -3491,30 +3511,34 @@ list of errors.</p>
 <p>Rename payees based on a set of rules.</p>
 <p>This can be used to clean up dirty imported payee names.</p>
 <p>This plugin accepts a list of rules in this format:</p>
-<p>plugin "beancount.plugins.fix_payees" "[
-      (PAYEE, MATCH1, MATCH2, ...),
-  ]"</p>
+<pre><code>plugin "beancount.plugins.fix_payees" "[
+    (PAYEE, MATCH1, MATCH2, ...),
+]"
+</code></pre>
 <p>Each of the "MATCH" clauses is a string, in the format:</p>
-<p>"A:&lt;regexp&gt;" : Match the account name.
-  "D:&lt;regexp&gt;" : Match the payee or the narration.</p>
+<pre><code>"A:&lt;regexp&gt;" : Match the account name.
+"D:&lt;regexp&gt;" : Match the payee or the narration.
+</code></pre>
 <p>The plugin matches the Transactions in the file and if there is a
 case-insensitive match against the regular expression (we use re.search()),
 replaces the payee name by "PAYEE". If multiple rules match, only the first rule
 is used.</p>
 <p>For example:</p>
-<p>plugin "beancount.plugins.fix_payees" "[</p>
-<pre><code>  ("T-Mobile USA",
-   "A:Expenses:Communications:Phone",
-   "D:t-mobile"),
+<pre><code>plugin "beancount.plugins.fix_payees" "[
 
-  ("Con Edison",
-   "A:Expenses:Home:Electricity",
-   "D:con ?ed"),
+    ("T-Mobile USA",
+     "A:Expenses:Communications:Phone",
+     "D:t-mobile"),
 
-  ("Birreria @ Eataly",
-   "D:EATALY BIRRERIA"),
+    ("Con Edison",
+     "A:Expenses:Home:Electricity",
+     "D:con ?ed"),
+
+    ("Birreria @ Eataly",
+     "D:EATALY BIRRERIA"),
+
+]"
 </code></pre>
-<p>]"</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.plugins.fix_payees.FixPayeesError">
@@ -3668,7 +3692,7 @@ fix_payees
     if config.strip():
         try:
             expr = ast.literal_eval(config)
-        except SyntaxError:
+        except (SyntaxError, ValueError):
             meta = data.new_metadata(options_map['filename'], 0)
             errors.append(FixPayeesError(meta,
                                          "Syntax error in config: {}".format(config),
@@ -3822,32 +3846,38 @@ good way to get something more general kickstarted eventually, I think the
 concept would generalize nicely and should eventually be added as a common
 feature of Beancount).</p>
 <p>A user can create a transaction like this:</p>
-<p>2014-03-08 # "Electricity bill [MONTHLY]"
-    Expenses:Electricity                        50.10 USD
-    Assets:Checking                            -50.10 USD</p>
+<pre><code>2014-03-08 # "Electricity bill [MONTHLY]"
+  Expenses:Electricity                      50.10 USD
+  Assets:Checking                          -50.10 USD
+</code></pre>
 <p>and new transactions will be created monthly for the following year.
 Note the use of the '#' flag and the word 'MONTHLY' which defines the
 periodicity.</p>
 <p>The number of recurrences can optionally be specified either by providing an
 end date or by specifying the number of times that the transaction will be
 repeated. For example:</p>
-<p>2014-03-08 # "Electricity bill [MONTHLY UNTIL 2019-12-31]"
-    Expenses:Electricity                        50.10 USD
-    Assets:Checking                            -50.10 USD</p>
-<p>2014-03-08 # "Electricity bill [MONTHLY REPEAT 10 TIMES]"
-    Expenses:Electricity                        50.10 USD
-    Assets:Checking                            -50.10 USD</p>
+<pre><code>2014-03-08 # "Electricity bill [MONTHLY UNTIL 2019-12-31]"
+  Expenses:Electricity                      50.10 USD
+  Assets:Checking                          -50.10 USD
+
+2014-03-08 # "Electricity bill [MONTHLY REPEAT 10 TIMES]"
+  Expenses:Electricity                      50.10 USD
+  Assets:Checking                          -50.10 USD
+</code></pre>
 <p>Transactions can also be repeated at yearly intervals, e.g.:</p>
-<p>2014-03-08 # "Electricity bill [YEARLY REPEAT 10 TIMES]"
-    Expenses:Electricity                        50.10 USD
-    Assets:Checking                            -50.10 USD</p>
+<pre><code>2014-03-08 # "Electricity bill [YEARLY REPEAT 10 TIMES]"
+  Expenses:Electricity                      50.10 USD
+  Assets:Checking                          -50.10 USD
+</code></pre>
 <p>Other examples:</p>
-<p>2014-03-08 # "Electricity bill [WEEKLY SKIP 1 TIME REPEAT 10 TIMES]"
-    Expenses:Electricity                        50.10 USD
-    Assets:Checking                            -50.10 USD</p>
-<p>2014-03-08 # "Electricity bill [DAILY SKIP 3 TIMES REPEAT 1 TIME]"
-    Expenses:Electricity                        50.10 USD
-    Assets:Checking                            -50.10 USD</p>
+<pre><code>2014-03-08 # "Electricity bill [WEEKLY SKIP 1 TIME REPEAT 10 TIMES]"
+  Expenses:Electricity                      50.10 USD
+  Assets:Checking                          -50.10 USD
+
+2014-03-08 # "Electricity bill [DAILY SKIP 3 TIMES REPEAT 1 TIME]"
+  Expenses:Electricity                      50.10 USD
+  Assets:Checking                          -50.10 USD
+</code></pre>
 <div class="doc doc-children">
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.plugins.forecast.forecast_plugin">
@@ -4238,20 +4268,21 @@ that transaction of the corresponding amounts in a different currency. The
 currency is intended to be an imaginary currency used to track the number of
 dollars contributed to a retirement account over time.</p>
 <p>For example, a possible configuration could be:</p>
-<p>plugin "beancount.plugins.ira_contribs" "{
-      'currency': 'IRAUSD',
-      'flag': 'M',
-      'accounts': {</p>
-<pre><code>      'Income:US:Acme:Match401k': (
-          'Assets:US:Federal:Match401k',
-          'Expenses:Taxes:TY{year}:US:Federal:Match401k'),
+<pre><code>plugin "beancount.plugins.ira_contribs" "{
+    'currency': 'IRAUSD',
+    'flag': 'M',
+    'accounts': {
 
-      ('C', 'Assets:US:Fidelity:PreTax401k:Cash'): (
-          'Assets:US:Federal:PreTax401k',
-          'Expenses:Taxes:TY{year}:US:Federal:PreTax401k'),
-   }
+        'Income:US:Acme:Match401k': (
+            'Assets:US:Federal:Match401k',
+            'Expenses:Taxes:TY{year}:US:Federal:Match401k'),
+
+        ('C', 'Assets:US:Fidelity:PreTax401k:Cash'): (
+            'Assets:US:Federal:PreTax401k',
+            'Expenses:Taxes:TY{year}:US:Federal:PreTax401k'),
+     }
+}"
 </code></pre>
-<p>}"</p>
 <p>Note: In this example, the configuration that triggers on the
 "Income:US:Acme:Match401k" account does not require a flag for those accounts;
 the configuration for the "Assets:US:Fidelity:PreTax401k:Cash" account requires
@@ -4259,41 +4290,45 @@ postings to have a "C" flag to trigger an insertion.</p>
 <p>Given a transaction like the following, which would be typical for a salary
 entry where the employer is automatically diverting some of the pre-tax money to
 a retirement account (in this example, at Fidelity):</p>
-<p>2013-02-15 * "ACME INC       PAYROLL"
-    Income:US:Acme:Salary                   ...
-    ...
-    Assets:US:BofA:Checking                 ...
-    Assets:US:Fidelity:PreTax401k:Cash      620.50 USD
-    ...</p>
+<pre><code>2013-02-15 * "ACME INC       PAYROLL"
+  Income:US:Acme:Salary                   ...
+  ...
+  Assets:US:BofA:Checking                 ...
+  Assets:US:Fidelity:PreTax401k:Cash      620.50 USD
+  ...
+</code></pre>
 <p>A posting with account 'Assets:US:Fidelity:PreTax401k:Cash', which is configured
 to match, would be found. The configuration above instructs the plugin to
 automatically insert new postings like this:</p>
-<p>2013-02-15 * "ACME INC       PAYROLL"
-    ...
-    Assets:US:Fidelity:PreTax401k:Cash              620.50 USD
-    M Assets:US:Federal:PreTax401k                 -620.50 IRAUSD
-    M Expenses:Taxes:TY2013:US:Federal:PreTax401k   620.50 IRAUSD
-    ...</p>
+<pre><code>2013-02-15 * "ACME INC       PAYROLL"
+  ...
+  Assets:US:Fidelity:PreTax401k:Cash              620.50 USD
+  M Assets:US:Federal:PreTax401k                 -620.50 IRAUSD
+  M Expenses:Taxes:TY2013:US:Federal:PreTax401k   620.50 IRAUSD
+  ...
+</code></pre>
 <p>Notice that the "{year}" string in the configuration's account names is
 automatically replaced by the current year in the account name. This is useful
-if you maintain separate tax accounts per yera.</p>
+if you maintain separate tax accounts per year.</p>
 <p>Furthermore, as in the configuration example above, you may have multiple
 matching entries to trigger multiple insertions. For example, the employer may
 also match the employee's retirement contribution by depositing some money in
 the retirement account:</p>
-<p>2013-02-15 * "BUYMF - MATCH" "Employer match, invested in SaveEasy 2030 fund"
-    Assets:US:Fidelity:Match401k:SE2030   34.793 SE2030 {17.834 USD}
-    Income:US:Acme:Match401k             -620.50 USD</p>
+<pre><code>2013-02-15 * "BUYMF - MATCH" "Employer match, invested in SaveEasy 2030 fund"
+  Assets:US:Fidelity:Match401k:SE2030   34.793 SE2030 {17.834 USD}
+  Income:US:Acme:Match401k             -620.50 USD
+</code></pre>
 <p>In this example the funds get reported as invested immediately (an intermediate
 deposit into a cash account does not take place). The plugin configuration would
 match against the 'Income:US:Acme:Match401k' account and since it increases its
 value (the normal balance of an Income account is negative), postings would be
 inserted like this:</p>
-<p>2013-02-15 * "BUYMF - MATCH" "Employer match, invested in SaveEasy 2030 fund"
-    Assets:US:Fidelity:Match401k:SE2030              34.793 SE2030 {17.834 USD}
-    Income:US:Acme:Match401k                        -620.50 USD
-    M Assets:US:Federal:Match401k                   -620.50 IRAUSD
-    M Expenses:Taxes:TY2013:US:Federal:Match401k     620.50 IRAUSD</p>
+<pre><code>2013-02-15 * "BUYMF - MATCH" "Employer match, invested in SaveEasy 2030 fund"
+  Assets:US:Fidelity:Match401k:SE2030              34.793 SE2030 {17.834 USD}
+  Income:US:Acme:Match401k                        -620.50 USD
+  M Assets:US:Federal:Match401k                   -620.50 IRAUSD
+  M Expenses:Taxes:TY2013:US:Federal:Match401k     620.50 IRAUSD
+</code></pre>
 <p>Note that the special dict keys 'currency' and 'flag' are used to
 specify which currency to use for the inserted postings, and if set, which flag
 to mark these postings with.</p>
@@ -4742,7 +4777,8 @@ them are verified. They want to compute balances in each account as of the date
 of that last Balance directives. One way to do that is to use this plugin to
 mark the postings which occur after and to then filter them out using a WHERE
 clause on that metadata:</p>
-<p>SELECT account, sum(position) WHERE NOT meta("unverified")</p>
+<pre><code>SELECT account, sum(position) WHERE NOT meta("unverified")
+</code></pre>
 <p>Note that doing such a filtering may result in a list of balances which may not
 add to zero.</p>
 <p>Also, postings for accounts without a single Balance directive on them will not
@@ -5059,7 +5095,7 @@ validate_no_duplicates
     Returns:
       A list of new errors, if any were found.
     """
-    unused_hashes, errors = compare.hash_entries(entries)
+    unused_hashes, errors = compare.hash_entries(entries, exclude_meta=True)
     return entries, errors
 </code></pre>
 </details>
@@ -5263,6 +5299,24 @@ plugin.)</p>
 <a class="headerlink" href="#beancount.plugins.onecommodity" title="Permanent link"></a></h2>
 <div class="doc doc-contents">
 <p>A plugin that issues errors when more than one commodity is used in an account.</p>
+<p>For investments or trading accounts, it can make it easier to filter the action
+around a single stock by using the name of the stock as the leaf of the account
+name.</p>
+<p>Notes:</p>
+<ul>
+<li>
+<p>The plugin will automatically skip accounts that have explicitly declared
+  commodities in their Open directive.</p>
+</li>
+<li>
+<p>You can also set the metadata "onecommodity: FALSE" on an account's Open
+  directive to skip the checks for that account.</p>
+</li>
+<li>
+<p>If provided, the configuration should be a regular expression restricting the
+  set of accounts to check.</p>
+</li>
+</ul>
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.plugins.onecommodity.OneCommodityError">
@@ -5338,7 +5392,7 @@ __repr__
 <h3 class="doc doc-heading" id="beancount.plugins.onecommodity.validate_one_commodity">
 <code class="highlight language-python">
 validate_one_commodity
-(entries, unused_options_map)
+(entries, unused_options_map, config=None)
 
         </code>
 <a class="headerlink" href="#beancount.plugins.onecommodity.validate_one_commodity" title="Permanent link"></a></h3>
@@ -5375,6 +5429,15 @@ account has a single commodity attached to it.</p>
 </td>
 <td><em>required</em></td>
 </tr>
+<tr>
+<td><code>config</code></td>
+<td><code></code></td>
+<td>
+<p>The plugin configuration string, a regular expression to match
+against the subset of accounts to check.</p>
+</td>
+<td><code>None</code></td>
+</tr>
 </tbody>
 </table>
 <p><strong>Returns:</strong></p>
@@ -5396,7 +5459,7 @@ account has a single commodity attached to it.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>beancount/plugins/onecommodity.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def validate_one_commodity(entries, unused_options_map):
+<pre class="highlight"><code class="language-python linenums">def validate_one_commodity(entries, unused_options_map, config=None):
     """Check that each account has units in only a single commodity.
 
     This is an extra constraint that you may want to apply optionally, despite
@@ -5407,9 +5470,13 @@ account has a single commodity attached to it.</p>
     Args:
       entries: A list of directives.
       unused_options_map: An options map.
+      config: The plugin configuration string, a regular expression to match
+        against the subset of accounts to check.
     Returns:
       A list of new errors, if any were found.
     """
+    accounts_re = re.compile(config) if config else None
+
     # Mappings of account name to lists of currencies for each units and cost.
     units_map = collections.defaultdict(set)
     cost_map = collections.defaultdict(set)
@@ -5418,10 +5485,23 @@ account has a single commodity attached to it.</p>
     units_source_map = {}
     cost_source_map = {}
 
+    # Gather the set of accounts to skip from the Open directives.
+    skip_accounts = set()
+    for entry in entries:
+        if not isinstance(entry, data.Open):
+            continue
+        if (not entry.meta.get("onecommodity", True) or
+            (accounts_re and not accounts_re.match(entry.account)) or
+            (entry.currencies and len(entry.currencies) &gt; 1)):
+            skip_accounts.add(entry.account)
+
     # Accumulate all the commodities used.
     for entry in entries:
         if isinstance(entry, data.Transaction):
             for posting in entry.postings:
+                if posting.account in skip_accounts:
+                    continue
+
                 units = posting.units
                 units_map[posting.account].add(units.currency)
                 if len(units_map[posting.account]) &gt; 1:
@@ -5434,13 +5514,22 @@ account has a single commodity attached to it.</p>
                         units_source_map[posting.account] = entry
 
         elif isinstance(entry, data.Balance):
+            if entry.account in skip_accounts:
+                continue
+
             units_map[entry.account].add(entry.amount.currency)
             if len(units_map[entry.account]) &gt; 1:
                 units_source_map[entry.account] = entry
 
+        elif isinstance(entry, data.Open):
+            if entry.currencies and len(entry.currencies) &gt; 1:
+                skip_accounts.add(entry.account)
+
     # Check units.
     errors = []
     for account, currencies in units_map.items():
+        if account in skip_accounts:
+            continue
         if len(currencies) &gt; 1:
             errors.append(OneCommodityError(
                 units_source_map[account].meta,
@@ -5450,6 +5539,8 @@ account has a single commodity attached to it.</p>
 
     # Check costs.
     for account, currencies in cost_map.items():
+        if account in skip_accounts:
+            continue
         if len(currencies) &gt; 1:
             errors.append(OneCommodityError(
                 cost_source_map[account].meta,
@@ -5484,32 +5575,35 @@ types of quick and dirty tests.</p>
 <p>When you sell stock, the gains can be automatically implied by the corresponding
 cash amounts. For example, in the following transaction the 2nd and 3rd postings
 should match the value of the stock sold:</p>
-<p>1999-07-31 * "Sell"
+<pre><code>1999-07-31 * "Sell"
   Assets:US:BRS:Company:ESPP          -81 ADSK {26.3125 USD}
   Assets:US:BRS:Company:Cash      2141.36 USD
   Expenses:Financial:Fees            0.08 USD
-  Income:US:Company:ESPP:PnL      -10.125 USD</p>
+  Income:US:Company:ESPP:PnL      -10.125 USD
+</code></pre>
 <p>The cost basis is checked against: 2141.36 + 008 + -10.125. That is, the balance
 checks computes</p>
 <p>-81 x 26.3125  = -2131.3125  +
                     2141.36    +
                        0.08    +
                      -10.125</p>
-<p>and checks that the residual is below a small tolernace.</p>
+<p>and checks that the residual is below a small tolerance.</p>
 <p>But... usually the income leg isn't given to you in statements. Beancount can
 automatically infer it using the balance, which is convenient, like this:</p>
-<p>1999-07-31 * "Sell"
+<pre><code>1999-07-31 * "Sell"
   Assets:US:BRS:Company:ESPP          -81 ADSK {26.3125 USD}
   Assets:US:BRS:Company:Cash      2141.36 USD
   Expenses:Financial:Fees            0.08 USD
-  Income:US:Company:ESPP:PnL</p>
+  Income:US:Company:ESPP:PnL
+</code></pre>
 <p>Additionally, most often you have the sales prices given to you on your
 transaction confirmation statement, so you can enter this:</p>
-<p>1999-07-31 * "Sell"
+<pre><code>1999-07-31 * "Sell"
   Assets:US:BRS:Company:ESPP          -81 ADSK {26.3125 USD} @ 26.4375 USD
   Assets:US:BRS:Company:Cash      2141.36 USD
   Expenses:Financial:Fees            0.08 USD
-  Income:US:Company:ESPP:PnL</p>
+  Income:US:Company:ESPP:PnL
+</code></pre>
 <p>So in theory, if the price is given (26.4375 USD), we could verify that the
 proceeds from the sale at the given price match non-Income postings. That is,
 verify that</p>
@@ -5743,14 +5837,16 @@ components do not include any of the given names are to be split between the
 members. It goes through all the transactions and converts all such postings
 into multiple postings, one for each member.</p>
 <p>For example, given the names 'Martin' and 'Caroline', the following transaction:</p>
-<p>2015-02-01 * "Aqua Viva Tulum - two nights"
-     Income:Caroline:CreditCard      -269.00 USD
-     Expenses:Accommodation</p>
+<pre><code>2015-02-01 * "Aqua Viva Tulum - two nights"
+   Income:Caroline:CreditCard      -269.00 USD
+   Expenses:Accommodation
+</code></pre>
 <p>Will be converted to this:</p>
-<p>2015-02-01 * "Aqua Viva Tulum - two nights"
-    Income:Caroline:CreditCard       -269.00 USD
-    Expenses:Accommodation:Martin     134.50 USD
-    Expenses:Accommodation:Caroline   134.50 USD</p>
+<pre><code>2015-02-01 * "Aqua Viva Tulum - two nights"
+  Income:Caroline:CreditCard       -269.00 USD
+  Expenses:Accommodation:Martin     134.50 USD
+  Expenses:Accommodation:Caroline   134.50 USD
+</code></pre>
 <p>After these transformations, all account names should include the name of a
 member. You can generate reports for a particular person by filtering postings
 to accounts with a component by their name.</p>
@@ -6362,12 +6458,14 @@ incomplete payables or receivables. Beancount does not by default offer such a
 dedicated feature, but it is easy to build one by using existing link attributes
 on transactions. This is an example on how to implement that with a plugin.</p>
 <p>For example, assuming the user enters linked transactions like this:</p>
-<p>2013-03-28 * "Bill for datacenter electricity"  ^invoice-27a30ab61191
-    Expenses:Electricity                          450.82 USD
-    Liabilities:AccountsPayable</p>
-<p>2013-04-15 * "Paying electricity company" ^invoice-27a30ab61191
-    Assets:Checking                             -450.82 USD
-    Liabilities:AccountsPayable</p>
+<pre><code>2013-03-28 * "Bill for datacenter electricity"  ^invoice-27a30ab61191
+  Expenses:Electricity                        450.82 USD
+  Liabilities:AccountsPayable
+
+2013-04-15 * "Paying electricity company" ^invoice-27a30ab61191
+  Assets:Checking                           -450.82 USD
+  Liabilities:AccountsPayable
+</code></pre>
 <p>Transactions are grouped by link ("invoice-27a30ab61191") and then the
 intersection of their common accounts is automatically calculated
 ("Liabilities:AccountsPayable"). We then add up the balance of all the postings

@@ -1830,7 +1830,7 @@ any ambiguities regarding which currency they need to balance against.</p>
 <li>
 <p>First we apply the constraint that cost-currency and price-currency must
   match, if there is both a cost and a price. This reduces the space of
-  possibilities somewahte.</p>
+  possibilities somewhat.</p>
 </li>
 <li>
 <p>If the currency is explicitly specified, we put the posting in that
@@ -1916,7 +1916,7 @@ Each tuple in the value-list contains</code></td>
 
     - First we apply the constraint that cost-currency and price-currency must
       match, if there is both a cost and a price. This reduces the space of
-      possibilities somewahte.
+      possibilities somewhat.
 
     - If the currency is explicitly specified, we put the posting in that
       currency's bucket.
@@ -2935,7 +2935,7 @@ def book_test(method):
 <h3 class="doc doc-heading" id="beancount.parser.booking_full_test.find_first_with_tag">
 <code class="highlight language-python">
 find_first_with_tag
-(tag, entries, default=&lt;object object at 0x7fd911ea9ef0&gt;)
+(tag, entries, default=&lt;object object at 0x7f95239ea9d0&gt;)
 
         </code>
 <a class="headerlink" href="#beancount.parser.booking_full_test.find_first_with_tag" title="Permanent link"></a></h3>
@@ -3907,7 +3907,7 @@ convert_spec_to_cost
 <code>cmptest</code>
 <a class="headerlink" href="#beancount.parser.cmptest" title="Permanent link"></a></h2>
 <div class="doc doc-contents">
-<p>Support utillities for testing scripts.</p>
+<p>Support utilities for testing scripts.</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.parser.cmptest.TestError">
@@ -3921,7 +3921,7 @@ convert_spec_to_cost
 <h3 class="doc doc-heading" id="beancount.parser.cmptest.assertEqualEntries">
 <code class="highlight language-python">
 assertEqualEntries
-(expected_entries, actual_entries, failfunc=&lt;function fail at 0x7fd911fd41f0&gt;, allow_incomplete=False)
+(expected_entries, actual_entries, failfunc=&lt;function fail at 0x7f9523f44af0&gt;, allow_incomplete=False)
 
         </code>
 <a class="headerlink" href="#beancount.parser.cmptest.assertEqualEntries" title="Permanent link"></a></h3>
@@ -3964,7 +3964,7 @@ directives to compare to.</p>
 <td>
 <p>A function to call on failure.</p>
 </td>
-<td><code>&lt;function fail at 0x7fd911fd41f0&gt;</code></td>
+<td><code>&lt;function fail at 0x7f9523f44af0&gt;</code></td>
 </tr>
 <tr>
 <td><code>allow_incomplete</code></td>
@@ -4041,7 +4041,7 @@ light-weight booking.</p>
 <h3 class="doc doc-heading" id="beancount.parser.cmptest.assertExcludesEntries">
 <code class="highlight language-python">
 assertExcludesEntries
-(subset_entries, entries, failfunc=&lt;function fail at 0x7fd911fd41f0&gt;, allow_incomplete=False)
+(subset_entries, entries, failfunc=&lt;function fail at 0x7f9523f44af0&gt;, allow_incomplete=False)
 
         </code>
 <a class="headerlink" href="#beancount.parser.cmptest.assertExcludesEntries" title="Permanent link"></a></h3>
@@ -4083,7 +4083,7 @@ directives to compare to.</p>
 <td>
 <p>A function to call on failure.</p>
 </td>
-<td><code>&lt;function fail at 0x7fd911fd41f0&gt;</code></td>
+<td><code>&lt;function fail at 0x7f9523f44af0&gt;</code></td>
 </tr>
 <tr>
 <td><code>allow_incomplete</code></td>
@@ -4152,7 +4152,7 @@ light-weight booking.</p>
 <h3 class="doc doc-heading" id="beancount.parser.cmptest.assertIncludesEntries">
 <code class="highlight language-python">
 assertIncludesEntries
-(subset_entries, entries, failfunc=&lt;function fail at 0x7fd911fd41f0&gt;, allow_incomplete=False)
+(subset_entries, entries, failfunc=&lt;function fail at 0x7f9523f44af0&gt;, allow_incomplete=False)
 
         </code>
 <a class="headerlink" href="#beancount.parser.cmptest.assertIncludesEntries" title="Permanent link"></a></h3>
@@ -4194,7 +4194,7 @@ directives to compare to.</p>
 <td>
 <p>A function to call on failure.</p>
 </td>
-<td><code>&lt;function fail at 0x7fd911fd41f0&gt;</code></td>
+<td><code>&lt;function fail at 0x7f9523f44af0&gt;</code></td>
 </tr>
 <tr>
 <td><code>allow_incomplete</code></td>
@@ -6977,7 +6977,9 @@ posting
         if units.number == ZERO:
             number = ZERO
         else:
-            number = price.number/abs(units.number)
+            number = price.number
+            if number is not MISSING:
+                number = number/abs(units.number)
         price = Amount(number, price.currency)
 
     # Note: Allow zero prices because we need them for round-trips for
@@ -8548,7 +8550,7 @@ The parser may itself also encounter two similar types of errors:
   builder method is invoked and raises a Python exception. A macro in the
   code that invokes this method is used to catch this error and calls
   build_grammar_error_from_exception() to register an error and makes the
-  parser issue an error wth YYERROR (see {05bb0fb60e86}).
+  parser issue an error with YYERROR (see {05bb0fb60e86}).
 
 We never call YYABORT anywhere so the yyparse() function should never return
 anything else than 0. If it does, we translate that into a Python
@@ -8833,10 +8835,12 @@ running directly from source).</p>
     parser_source_hash = hash_parser_source_files()
     if parser_source_hash is None:
         return
+    # pylint: disable=import-outside-toplevel
     from . import _parser
-    if _parser.SOURCE_HASH != parser_source_hash:
-        warnings.warn("The Beancount parser C extension module is out-of-date. "
-                      "You need to rebuild.")
+    if _parser.SOURCE_HASH and _parser.SOURCE_HASH != parser_source_hash:
+        warnings.warn(
+            ("The Beancount parser C extension module is out-of-date ('{}' != '{}'). "
+             "You need to rebuild.").format(_parser.SOURCE_HASH, parser_source_hash))
 </code></pre>
 </details>
 </div>
@@ -9886,7 +9890,7 @@ lex_tokens
         </code>
 <a class="headerlink" href="#beancount.parser.lexer_test.lex_tokens" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
-<p>Decorator for test functions that will invokve a lexer on them.</p>
+<p>Decorator for test functions that will invoke a lexer on them.</p>
 <p>The lexer passes the list of tokens and errors to the test function.</p>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -9929,7 +9933,7 @@ lex_tokens
 <details class="quote">
 <summary>Source code in <code>beancount/parser/lexer_test.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">def lex_tokens(fun):
-    """Decorator for test functions that will invokve a lexer on them.
+    """Decorator for test functions that will invoke a lexer on them.
 
     The lexer passes the list of tokens and errors to the test function.
 
@@ -10430,7 +10434,7 @@ list_options
 <h3 class="doc doc-heading" id="beancount.parser.options.Opt">
 <code class="highlight language-python">
 Opt
-(name, default_value, example_value=&lt;object object at 0x7fd912e72950&gt;, converter=None, deprecated=False, alias=None)
+(name, default_value, example_value=&lt;object object at 0x7f9524ddf960&gt;, converter=None, deprecated=False, alias=None)
 
         </code>
 <a class="headerlink" href="#beancount.parser.options.Opt" title="Permanent link"></a></h3>
@@ -10469,7 +10473,7 @@ Opt
 <td>
 <p>See OptDesc.</p>
 </td>
-<td><code>&lt;object object at 0x7fd912e72950&gt;</code></td>
+<td><code>&lt;object object at 0x7f9524ddf960&gt;</code></td>
 </tr>
 <tr>
 <td><code>converter</code></td>
@@ -11114,7 +11118,7 @@ automatically:</p>
 <p>If a cost specification is provided, a "cost" attribute it set but it does not
 refer to a Cost instance (as in complete entries) but rather to a CostSpec
 instance. Some of the fields of a CostSpec may be MISSING if they were not
-specified in the input. For exammple:</p>
+specified in the input. For example:</p>
 <p>INPUT: Assets:Account  1 HOOL {100 # 5 USD}
   posting.cost = CostSpec(Decimal("100"), Decimal("5"), "USD", None, None, False))</p>
 <p>Note how we never consider the label of date override to be MISSING; this is
@@ -11139,7 +11143,7 @@ number-per-unit portion of the CostSpec will appear as MISSING:</p>
   posting.cost = CostSpec(MISSING, None, MISSING, None, None, True))</p>
 <p>The numbers have to be computed by Beancount, so we output this with MISSING
 values.</p>
-<p>Of course, you can provide only the non-basis informations, like just the date
+<p>Of course, you can provide only the non-basis information, like just the date
 or label:</p>
 <p>INPUT: Assets:Account  1 HOOL {2015-09-21}
   posting.cost = CostSpec(MISSING, None, MISSING, date(2015, 9, 21), None, True)</p>
@@ -11832,7 +11836,7 @@ whitespace from the front of the text (default is False).</p>
 <a class="headerlink" href="#beancount.parser.printer.EntryPrinter" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>A multi-method interface for printing all directive types.</p>
-<pre><code>Atributes:
+<pre><code>Attributes:
   dcontext: An instance of DisplayContext with which to render all the numbers.
   render_weight: A boolean, true if we should render the weight of the postings
     as a comment, for debugging.
@@ -12004,7 +12008,7 @@ purpose is to align these in the caller.</p>
 <h4 class="doc doc-heading" id="beancount.parser.printer.EntryPrinter.write_metadata">
 <code class="highlight language-python">
 write_metadata
-(self, meta, oss, prefix='  ')
+(self, meta, oss, prefix=None)
 
         </code>
 <a class="headerlink" href="#beancount.parser.printer.EntryPrinter.write_metadata" title="Permanent link"></a></h4>
@@ -12041,7 +12045,7 @@ write_metadata
 </table>
 <details class="quote">
 <summary>Source code in <code>beancount/parser/printer.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def write_metadata(self, meta, oss, prefix='  '):
+<pre class="highlight"><code class="language-python linenums">def write_metadata(self, meta, oss, prefix=None):
     """Write metadata to the file object, excluding filename and line number.
 
     Args:
@@ -12050,6 +12054,8 @@ write_metadata
     """
     if meta is None:
         return
+    if prefix is None:
+        prefix = self.prefix
     for key, value in sorted(meta.items()):
         if key not in self.META_IGNORE:
             value_str = None
@@ -12206,7 +12212,7 @@ be aligned around the column marked with '^':</p>
 <h3 class="doc doc-heading" id="beancount.parser.printer.format_entry">
 <code class="highlight language-python">
 format_entry
-(entry, dcontext=None, render_weights=False)
+(entry, dcontext=None, render_weights=False, prefix=None)
 
         </code>
 <a class="headerlink" href="#beancount.parser.printer.format_entry" title="Permanent link"></a></h3>
@@ -12268,7 +12274,7 @@ format_entry
 </table>
 <details class="quote">
 <summary>Source code in <code>beancount/parser/printer.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def format_entry(entry, dcontext=None, render_weights=False):
+<pre class="highlight"><code class="language-python linenums">def format_entry(entry, dcontext=None, render_weights=False, prefix=None):
     """Format an entry into a string in the same input syntax the parser accepts.
 
     Args:
@@ -12278,7 +12284,7 @@ format_entry
     Returns:
       A string, the formatted entry.
     """
-    return EntryPrinter(dcontext, render_weights)(entry)
+    return EntryPrinter(dcontext, render_weights, prefix=prefix)(entry)
 </code></pre>
 </details>
 </div>
@@ -12514,7 +12520,9 @@ print_entry
       render_weights: A boolean, true to render the weights for debugging.
       file: An optional file object to write the entries to.
     """
-    output = file or codecs.getwriter("utf-8")(sys.stdout.buffer)
+    output = file or (codecs.getwriter("utf-8")(sys.stdout.buffer)
+                      if hasattr(sys.stdout, 'buffer') else
+                      sys.stdout)
     output.write(format_entry(entry, dcontext, render_weights))
     output.write('\n')
 </code></pre>
