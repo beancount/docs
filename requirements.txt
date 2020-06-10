@@ -1,4 +1,4 @@
-beancount==2.2.3
+beancount==2.3.0
 beautifulsoup4==4.9.0
 mkdocs==1.1
 mkdocs-redirects==1.0.0
