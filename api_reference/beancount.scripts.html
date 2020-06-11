@@ -164,11 +164,43 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.scripts.bake_test">bake_test</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.bake_test.TestScriptArchive">TestScriptArchive</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.bake_test.TestScriptArchive.test_bake_archive__known">test_bake_archive__known()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.bake_test.TestScriptArchive.test_bake_archive__unknown">test_bake_archive__unknown()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.bake_test.TestScriptBake">TestScriptBake</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.bake_test.TestScriptBake.test_bake_directory">test_bake_directory()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.bake_test.TestScriptBake.test_bake_output_collision">test_bake_output_collision()</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#beancount.scripts.check">check</a>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#beancount.scripts.check_examples_test">check_examples_test</a>
 <ul>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.check_examples_test.find_example_files">find_example_files()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.scripts.check_test">check_test</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.check_test.TestScriptCheck">TestScriptCheck</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.check_test.TestScriptCheck.test_fail">test_fail()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.check_test.TestScriptCheck.test_success">test_success()</a>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -258,6 +290,46 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.scripts.doctor_test">doctor_test</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.doctor_test.TestScriptCheckDirectories">TestScriptCheckDirectories</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.doctor_test.TestScriptCheckDirectories.test_invocation">test_invocation()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.doctor_test.TestScriptContextualCommands">TestScriptContextualCommands</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.doctor_test.TestScriptContextualCommands.test_context">test_context()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.doctor_test.TestScriptContextualCommands.test_context_multiple_files">test_context_multiple_files()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.doctor_test.TestScriptContextualCommands.test_linked">test_linked()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.doctor_test.TestScriptDisplayContext">TestScriptDisplayContext</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.doctor_test.TestScriptDisplayContext.test_display_context">test_display_context()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.doctor_test.TestScriptDoctor">TestScriptDoctor</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.doctor_test.TestScriptDoctor.test_dump_lexer">test_dump_lexer()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.doctor_test.TestScriptDoctor.test_dump_roundtrip">test_dump_roundtrip()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.doctor_test.TestScriptMissingOpen">TestScriptMissingOpen</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.doctor_test.TestScriptMissingOpen.test_missing_open">test_missing_open()</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#beancount.scripts.example">example</a>
 <ul>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.example.check_non_negative">check_non_negative()</a>
@@ -337,6 +409,30 @@
 <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.format.compute_most_frequent">compute_most_frequent()</a>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.format.normalize_indent_whitespace">normalize_indent_whitespace()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.scripts.format_test">format_test</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.format_test.TestScriptFormat">TestScriptFormat</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.format_test.TestScriptFormat.test_align_posting_starts">test_align_posting_starts()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.format_test.TestScriptFormat.test_arithmetic_expressions">test_arithmetic_expressions()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.format_test.TestScriptFormat.test_commas">test_commas()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.format_test.TestScriptFormat.test_currency_issue146">test_currency_issue146()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.format_test.TestScriptFormat.test_fixed_column">test_fixed_column()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.format_test.TestScriptFormat.test_fixed_width">test_fixed_width()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.format_test.TestScriptFormat.test_open_only_issue80">test_open_only_issue80()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.format_test.TestScriptFormat.test_success">test_success()</a>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -1105,6 +1201,198 @@ this avoid you having to reprocess it (for performance reasons).</p>
 </div>
 </div>
 <div class="doc doc-object doc-module">
+<h2 class="doc doc-heading" id="beancount.scripts.bake_test">
+<code>bake_test</code>
+<a class="headerlink" href="#beancount.scripts.bake_test" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.scripts.bake_test.TestScriptArchive">
+<code>TestScriptArchive</code>
+<a class="headerlink" href="#beancount.scripts.bake_test.TestScriptArchive" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.scripts.bake_test.TestScriptArchive.test_bake_archive__known">
+<code class="highlight language-python">
+test_bake_archive__known
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.scripts.bake_test.TestScriptArchive.test_bake_archive__known" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-01-01 open Expenses:Restaurant
+2013-01-01 open Assets:Cash</p>
+<p>2014-03-02 * "Some basic transaction"
+  Expenses:Restaurant   50.02 USD
+  Assets:Cash</p>
+<details class="quote">
+<summary>Source code in <code>beancount/scripts/bake_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_bake_archive__known(self, filename):
+    """
+    2013-01-01 open Expenses:Restaurant
+    2013-01-01 open Assets:Cash
+
+    2014-03-02 * "Some basic transaction"
+      Expenses:Restaurant   50.02 USD
+      Assets:Cash
+    """
+    with test_utils.tempdir() as tmpdir:
+        archives = ('archive.tar.gz',
+                    'archive.tgz',
+                    'archive.tar.bz2',
+                    'archive.zip')
+        archives = ('archive.zip',)
+        for archive_name in archives:
+            outfile = path.join(tmpdir, archive_name)
+            with test_utils.capture('stdout', 'stderr'):
+                test_utils.run_with_args(bake.main,
+                                         self.get_args() + [filename, outfile])
+            self.assertFalse(path.exists(file_utils.path_greedy_split(outfile)[0]))
+            self.assertTrue(path.exists(outfile) and path.getsize(outfile) &gt; 0)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.scripts.bake_test.TestScriptArchive.test_bake_archive__unknown">
+<code class="highlight language-python">
+test_bake_archive__unknown
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.scripts.bake_test.TestScriptArchive.test_bake_archive__unknown" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-01-01 open Expenses:Restaurant
+2013-01-01 open Assets:Cash</p>
+<p>2014-03-02 * "Some basic transaction"
+  Expenses:Restaurant   50.02 USD
+  Assets:Cash</p>
+<details class="quote">
+<summary>Source code in <code>beancount/scripts/bake_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_bake_archive__unknown(self, filename):
+    """
+    2013-01-01 open Expenses:Restaurant
+    2013-01-01 open Assets:Cash
+
+    2014-03-02 * "Some basic transaction"
+      Expenses:Restaurant   50.02 USD
+      Assets:Cash
+    """
+    with test_utils.tempdir() as tmpdir:
+        for archive_name in ('archive.tar.zip',
+                             'archive.tar.xz'):
+            with self.assertRaises(SystemExit):
+                outfile = path.join(tmpdir, archive_name)
+                test_utils.run_with_args(bake.main,
+                                         self.get_args() + [filename, outfile])
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.scripts.bake_test.TestScriptBake">
+<code>TestScriptBake</code>
+<a class="headerlink" href="#beancount.scripts.bake_test.TestScriptBake" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.scripts.bake_test.TestScriptBake.test_bake_directory">
+<code class="highlight language-python">
+test_bake_directory
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.scripts.bake_test.TestScriptBake.test_bake_directory" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-01-01 open Expenses:Restaurant
+2013-01-01 open Assets:Cash</p>
+<p>2014-03-02 * "Some basic transaction"
+  Expenses:Restaurant   50.02 USD
+  Assets:Cash</p>
+<details class="quote">
+<summary>Source code in <code>beancount/scripts/bake_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_bake_directory(self, filename):
+    """
+    2013-01-01 open Expenses:Restaurant
+    2013-01-01 open Assets:Cash
+
+    2014-03-02 * "Some basic transaction"
+      Expenses:Restaurant   50.02 USD
+      Assets:Cash
+    """
+    with test_utils.tempdir() as tmpdir:
+        outdir = path.join(tmpdir, 'output')
+        with test_utils.capture('stdout', 'stderr') as (output, _):
+            test_utils.run_with_args(bake.main, self.get_args() + [filename, outdir])
+        self.assertTrue(output.getvalue())
+        self.assertTrue(path.exists(outdir) and path.isdir(outdir))
+        directories = [root for root, _, _ in os.walk(outdir)]
+        self.assertGreater(len(directories), 10)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.scripts.bake_test.TestScriptBake.test_bake_output_collision">
+<code class="highlight language-python">
+test_bake_output_collision
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.scripts.bake_test.TestScriptBake.test_bake_output_collision" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-01-01 open Expenses:Restaurant
+2013-01-01 open Assets:Cash</p>
+<p>2014-03-02 * "Some basic transaction"
+  Expenses:Restaurant   50.02 USD
+  Assets:Cash</p>
+<details class="quote">
+<summary>Source code in <code>beancount/scripts/bake_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_bake_output_collision(self, filename):
+    """
+    2013-01-01 open Expenses:Restaurant
+    2013-01-01 open Assets:Cash
+
+    2014-03-02 * "Some basic transaction"
+      Expenses:Restaurant   50.02 USD
+      Assets:Cash
+    """
+    with test_utils.tempdir() as tmpdir:
+        with self.assertRaises(SystemExit):
+            output = path.join(tmpdir, 'output')
+            os.mkdir(output)
+            test_utils.run_with_args(bake.main, self.get_args() + [filename, output])
+
+    with test_utils.tempdir() as tmpdir:
+        with self.assertRaises(SystemExit):
+            output = path.join(tmpdir, 'output.tar.gz')
+            os.mkdir(output)
+            test_utils.run_with_args(bake.main, self.get_args() + [filename, output])
+
+    with test_utils.tempdir() as tmpdir:
+        with self.assertRaises(SystemExit):
+            output = path.join(tmpdir, 'output.tar.gz')
+            open(output, 'w')
+            test_utils.run_with_args(bake.main, self.get_args() + [filename, output])
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
 <h2 class="doc doc-heading" id="beancount.scripts.check">
 <code>check</code>
 <a class="headerlink" href="#beancount.scripts.check" title="Permanent link"></a></h2>
@@ -1149,6 +1437,96 @@ find_example_files
                 yield path.join(root, filename)
 </code></pre>
 </details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
+<h2 class="doc doc-heading" id="beancount.scripts.check_test">
+<code>check_test</code>
+<a class="headerlink" href="#beancount.scripts.check_test" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.scripts.check_test.TestScriptCheck">
+<code>TestScriptCheck</code>
+<a class="headerlink" href="#beancount.scripts.check_test.TestScriptCheck" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.scripts.check_test.TestScriptCheck.test_fail">
+<code class="highlight language-python">
+test_fail
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.scripts.check_test.TestScriptCheck.test_fail" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-01-01 open Expenses:Restaurant
+2013-01-01 open Assets:Cash</p>
+<p>2014-03-02 * "Something"
+  Expenses:Restaurant   50.02 USD
+  Assets:Cash</p>
+<p>2014-03-07 balance Assets:Cash  100 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/scripts/check_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_fail(self, filename):
+    """
+    2013-01-01 open Expenses:Restaurant
+    2013-01-01 open Assets:Cash
+
+    2014-03-02 * "Something"
+      Expenses:Restaurant   50.02 USD
+      Assets:Cash
+
+    2014-03-07 balance Assets:Cash  100 USD
+    """
+    with test_utils.capture('stderr') as stderr:
+        result = test_utils.run_with_args(check.main, [filename])
+    self.assertEqual(1, result)
+    self.assertRegex(stderr.getvalue(), "Balance failed")
+    self.assertRegex(stderr.getvalue(), "Assets:Cash")
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.scripts.check_test.TestScriptCheck.test_success">
+<code class="highlight language-python">
+test_success
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.scripts.check_test.TestScriptCheck.test_success" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-01-01 open Expenses:Restaurant
+2013-01-01 open Assets:Cash</p>
+<p>2014-03-02 * "Something"
+  Expenses:Restaurant   50.02 USD
+  Assets:Cash</p>
+<details class="quote">
+<summary>Source code in <code>beancount/scripts/check_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_success(self, filename):
+    """
+    2013-01-01 open Expenses:Restaurant
+    2013-01-01 open Assets:Cash
+
+    2014-03-02 * "Something"
+      Expenses:Restaurant   50.02 USD
+      Assets:Cash
+    """
+    with test_utils.capture('stdout', 'stderr') as (stdout, _):
+        result = test_utils.run_with_args(check.main, [filename])
+    self.assertEqual(0, result)
+    self.assertLines("", stdout.getvalue())
+</code></pre>
+</details>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -2865,6 +3243,452 @@ get_commands
     return commands
 </code></pre>
 </details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
+<h2 class="doc doc-heading" id="beancount.scripts.doctor_test">
+<code>doctor_test</code>
+<a class="headerlink" href="#beancount.scripts.doctor_test" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.scripts.doctor_test.TestScriptCheckDirectories">
+<code>TestScriptCheckDirectories</code>
+<a class="headerlink" href="#beancount.scripts.doctor_test.TestScriptCheckDirectories" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.scripts.doctor_test.TestScriptCheckDirectories.test_invocation">
+<code class="highlight language-python">
+test_invocation
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.scripts.doctor_test.TestScriptCheckDirectories.test_invocation" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-01-01 open Expenses:Restaurant
+2013-01-01 open Expenses:Movie
+2013-01-01 open Expenses:Alcohol
+2013-01-01 open Assets:Cash</p>
+<p>2014-03-02 * "Something"
+  Expenses:Restaurant   50.02 USD
+  Expenses:Alcohol      10.30 USD
+  Expenses:Movie        25.00 USD
+  Assets:Cash</p>
+<details class="quote">
+<summary>Source code in <code>beancount/scripts/doctor_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_invocation(self, filename):
+    """
+        2013-01-01 open Expenses:Restaurant
+        2013-01-01 open Expenses:Movie
+        2013-01-01 open Expenses:Alcohol
+        2013-01-01 open Assets:Cash
+
+        2014-03-02 * "Something"
+          Expenses:Restaurant   50.02 USD
+          Expenses:Alcohol      10.30 USD
+          Expenses:Movie        25.00 USD
+          Assets:Cash
+    """
+    for directory in self.TEST_DIRECTORIES:
+        os.makedirs(path.join(self.tmpdir, directory))
+
+    with test_utils.capture() as stdout:
+        test_utils.run_with_args(doctor.main, ['directories', filename, self.tmpdir])
+    self.assertEqual(2, len(stdout.getvalue().splitlines()))
+    matches = set(match.group(1) for match in re.finditer("'(.*?)'", stdout.getvalue()))
+    clean_matches = set(match[len(self.tmpdir)+1:]
+                        if match.startswith(self.tmpdir)
+                        else match
+                        for match in matches)
+    self.assertEqual({'Expenses/Restaurant/Sub',
+                      'Expenses:Restaurant:Sub',
+                      'Assets:Extra',
+                      'Assets/Extra'}, clean_matches)
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.scripts.doctor_test.TestScriptContextualCommands">
+<code>TestScriptContextualCommands</code>
+<a class="headerlink" href="#beancount.scripts.doctor_test.TestScriptContextualCommands" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.scripts.doctor_test.TestScriptContextualCommands.test_context">
+<code class="highlight language-python">
+test_context
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.scripts.doctor_test.TestScriptContextualCommands.test_context" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-01-01 open Expenses:Movie
+2013-01-01 open Assets:Cash</p>
+<p>2014-03-03 * "Something"
+  Expenses:Restaurant   50.02 USD
+  Expenses:Movie        25.00 USD
+  Assets:Cash</p>
+<p>2014-04-04 * "Something"
+  Expenses:Alcohol      10.30 USD
+  Expenses:Movie        25.00 USD
+  Assets:Cash</p>
+<details class="quote">
+<summary>Source code in <code>beancount/scripts/doctor_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_context(self, filename):
+    """
+        2013-01-01 open Expenses:Movie
+        2013-01-01 open Assets:Cash
+
+        2014-03-03 * "Something"
+          Expenses:Restaurant   50.02 USD
+          Expenses:Movie        25.00 USD
+          Assets:Cash
+
+        2014-04-04 * "Something"
+          Expenses:Alcohol      10.30 USD
+          Expenses:Movie        25.00 USD
+          Assets:Cash
+    """
+    with test_utils.capture() as stdout:
+        test_utils.run_with_args(doctor.main, ['context', filename, '6'])
+    self.assertRegex(stdout.getvalue(), 'Location:')
+    self.assertRegex(stdout.getvalue(), '50.02')
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.scripts.doctor_test.TestScriptContextualCommands.test_context_multiple_files">
+<code class="highlight language-python">
+test_context_multiple_files
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.scripts.doctor_test.TestScriptContextualCommands.test_context_multiple_files" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-01-01 open Expenses:Movie
+2013-01-01 open Assets:Cash</p>
+<p>2014-03-03 * "Something"
+  Expenses:Restaurant   50.02 USD
+  Expenses:Movie        25.00 USD
+  Assets:Cash</p>
+<p>2014-04-04 * "Something"
+  Expenses:Alcohol      10.30 USD
+  Expenses:Movie        25.00 USD
+  Assets:Cash</p>
+<details class="quote">
+<summary>Source code in <code>beancount/scripts/doctor_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_context_multiple_files(self, filename):
+    """
+        2013-01-01 open Expenses:Movie
+        2013-01-01 open Assets:Cash
+
+        2014-03-03 * "Something"
+          Expenses:Restaurant   50.02 USD
+          Expenses:Movie        25.00 USD
+          Assets:Cash
+
+        2014-04-04 * "Something"
+          Expenses:Alcohol      10.30 USD
+          Expenses:Movie        25.00 USD
+          Assets:Cash
+    """
+
+    with tempfile.NamedTemporaryFile('w') as topfile:
+        topfile.write(textwrap.dedent("""
+            include "{}"
+        """.format(filename)))
+        topfile.flush()
+        with test_utils.capture() as stdout:
+            test_utils.run_with_args(doctor.main, ['context', topfile.name,
+                                                   '{}:6'.format(filename)])
+        self.assertRegex(stdout.getvalue(), 'Location:')
+        self.assertRegex(stdout.getvalue(), '50.02')
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.scripts.doctor_test.TestScriptContextualCommands.test_linked">
+<code class="highlight language-python">
+test_linked
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.scripts.doctor_test.TestScriptContextualCommands.test_linked" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-01-01 open Expenses:Movie
+2013-01-01 open Assets:Cash</p>
+<p>2014-03-03 * "Apples" ^abc
+  Expenses:Restaurant   50.02 USD
+  Expenses:Movie        25.00 USD
+  Assets:Cash</p>
+<p>2014-04-04 * "Something"
+  Expenses:Alcohol      10.30 USD
+  Expenses:Movie        25.00 USD
+  Assets:Cash</p>
+<p>2014-05-05 * "Oranges" ^abc
+  Expenses:Alcohol      10.30 USD
+  Expenses:Movie        25.00 USD
+  Assets:Cash</p>
+<details class="quote">
+<summary>Source code in <code>beancount/scripts/doctor_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_linked(self, filename):
+    """
+        2013-01-01 open Expenses:Movie
+        2013-01-01 open Assets:Cash
+
+        2014-03-03 * "Apples" ^abc
+          Expenses:Restaurant   50.02 USD
+          Expenses:Movie        25.00 USD
+          Assets:Cash
+
+        2014-04-04 * "Something"
+          Expenses:Alcohol      10.30 USD
+          Expenses:Movie        25.00 USD
+          Assets:Cash
+
+        2014-05-05 * "Oranges" ^abc
+          Expenses:Alcohol      10.30 USD
+          Expenses:Movie        25.00 USD
+          Assets:Cash
+    """
+    with test_utils.capture() as stdout:
+        test_utils.run_with_args(doctor.main, ['linked', filename, '6'])
+    self.assertRegex(stdout.getvalue(), 'Apples')
+    self.assertRegex(stdout.getvalue(), 'Oranges')
+    self.assertEqual(2, len(list(re.finditer(r'/(tmp|var/folders)/.*:\d+:',
+                                             stdout.getvalue()))))
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.scripts.doctor_test.TestScriptDisplayContext">
+<code>TestScriptDisplayContext</code>
+<a class="headerlink" href="#beancount.scripts.doctor_test.TestScriptDisplayContext" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.scripts.doctor_test.TestScriptDisplayContext.test_display_context">
+<code class="highlight language-python">
+test_display_context
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.scripts.doctor_test.TestScriptDisplayContext.test_display_context" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-01-01 open Expenses:Movie
+2013-01-01 open Assets:Cash</p>
+<p>2014-03-03 * "Something"
+  Expenses:Restaurant   50.02 USD
+  Expenses:Movie        25.00 USD
+  Assets:Cash</p>
+<p>2014-04-04 * "Something"
+  Expenses:Alcohol      10.30 USD
+  Expenses:Movie        25.00 USD
+  Assets:Cash</p>
+<details class="quote">
+<summary>Source code in <code>beancount/scripts/doctor_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_display_context(self, filename):
+    """
+        2013-01-01 open Expenses:Movie
+        2013-01-01 open Assets:Cash
+
+        2014-03-03 * "Something"
+          Expenses:Restaurant   50.02 USD
+          Expenses:Movie        25.00 USD
+          Assets:Cash
+
+        2014-04-04 * "Something"
+          Expenses:Alcohol      10.30 USD
+          Expenses:Movie        25.00 USD
+          Assets:Cash
+    """
+    with test_utils.capture() as stdout:
+        test_utils.run_with_args(doctor.main, ['display-context', filename])
+    # Note: This probably deserves a little more love.
+    self.assertTrue(stdout.getvalue())
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.scripts.doctor_test.TestScriptDoctor">
+<code>TestScriptDoctor</code>
+<a class="headerlink" href="#beancount.scripts.doctor_test.TestScriptDoctor" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.scripts.doctor_test.TestScriptDoctor.test_dump_lexer">
+<code class="highlight language-python">
+test_dump_lexer
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.scripts.doctor_test.TestScriptDoctor.test_dump_lexer" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-01-01 open Expenses:Restaurant
+2013-01-01 open Assets:Cash</p>
+<p>2014-03-02 * "Something"
+  Expenses:Restaurant   50.02 USD
+  Assets:Cash</p>
+<details class="quote">
+<summary>Source code in <code>beancount/scripts/doctor_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_dump_lexer(self, filename):
+    """
+    2013-01-01 open Expenses:Restaurant
+    2013-01-01 open Assets:Cash
+
+    2014-03-02 * "Something"
+      Expenses:Restaurant   50.02 USD
+      Assets:Cash
+    """
+    with test_utils.capture() as stdout:
+        test_utils.run_with_args(doctor.main, ['dump-lexer', filename])
+
+    expected_output = """
+        EOL               2 '\\n'
+        DATE              2 '2013-01-01'
+        OPEN              2 'open'
+        ACCOUNT           2 'Expenses:Restaurant'
+        EOL               3 '\\n'
+        DATE              3 '2013-01-01'
+        OPEN              3 'open'
+        ACCOUNT           3 'Assets:Cash'
+        EOL               4 '\\n'
+        EOL               5 '\\n'
+        DATE              5 '2014-03-02'
+        ASTERISK          5 '*'
+        STRING            5 '"'
+        EOL               6 '\\n'
+        INDENT            6 '  '
+        ACCOUNT           6 'Expenses:Restaurant'
+        NUMBER            6 '50.02'
+        CURRENCY          6 'USD'
+        EOL               7 '\\n'
+        INDENT            7 '  '
+        ACCOUNT           7 'Assets:Cash'
+        EOL               8 '\\n'
+        EOL               8 '\\x00'
+    """
+    self.assertLines(expected_output, stdout.getvalue())
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.scripts.doctor_test.TestScriptDoctor.test_dump_roundtrip">
+<code class="highlight language-python">
+test_dump_roundtrip
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.scripts.doctor_test.TestScriptDoctor.test_dump_roundtrip" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-01-01 open Expenses:Restaurant
+2013-01-01 open Assets:Cash</p>
+<p>2014-03-02 * "Something"
+  Expenses:Restaurant   50.02 USD
+  Assets:Cash</p>
+<details class="quote">
+<summary>Source code in <code>beancount/scripts/doctor_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_dump_roundtrip(self, filename):
+    """
+    2013-01-01 open Expenses:Restaurant
+    2013-01-01 open Assets:Cash
+
+    2014-03-02 * "Something"
+      Expenses:Restaurant   50.02 USD
+      Assets:Cash
+    """
+    with test_utils.capture('stdout', 'stderr'):
+        test_utils.run_with_args(doctor.main, ['roundtrip', filename])
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.scripts.doctor_test.TestScriptMissingOpen">
+<code>TestScriptMissingOpen</code>
+<a class="headerlink" href="#beancount.scripts.doctor_test.TestScriptMissingOpen" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.scripts.doctor_test.TestScriptMissingOpen.test_missing_open">
+<code class="highlight language-python">
+test_missing_open
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.scripts.doctor_test.TestScriptMissingOpen.test_missing_open" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-01-01 open Expenses:Movie
+2013-01-01 open Assets:Cash</p>
+<p>2014-03-03 * "Something"
+  Expenses:Restaurant   50.02 USD
+  Expenses:Movie        25.00 USD
+  Assets:Cash</p>
+<p>2014-04-04 * "Something"
+  Expenses:Alcohol      10.30 USD
+  Expenses:Movie        25.00 USD
+  Assets:Cash</p>
+<details class="quote">
+<summary>Source code in <code>beancount/scripts/doctor_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_missing_open(self, filename):
+    """
+        2013-01-01 open Expenses:Movie
+        2013-01-01 open Assets:Cash
+
+        2014-03-03 * "Something"
+          Expenses:Restaurant   50.02 USD
+          Expenses:Movie        25.00 USD
+          Assets:Cash
+
+        2014-04-04 * "Something"
+          Expenses:Alcohol      10.30 USD
+          Expenses:Movie        25.00 USD
+          Assets:Cash
+    """
+    with test_utils.capture() as stdout:
+        test_utils.run_with_args(doctor.main, ['missing-open', filename])
+
+    self.assertEqualEntries("""
+
+        2014-03-03 open Expenses:Restaurant
+        2014-04-04 open Expenses:Alcohol
+
+    """, stdout.getvalue())
+</code></pre>
+</details>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -7086,6 +7910,424 @@ adjusted with a different whitespace prefix.</p>
     return adjusted_pairs
 </code></pre>
 </details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
+<h2 class="doc doc-heading" id="beancount.scripts.format_test">
+<code>format_test</code>
+<a class="headerlink" href="#beancount.scripts.format_test" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.scripts.format_test.TestScriptFormat">
+<code>TestScriptFormat</code>
+<a class="headerlink" href="#beancount.scripts.format_test.TestScriptFormat" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.scripts.format_test.TestScriptFormat.test_align_posting_starts">
+<code class="highlight language-python">
+test_align_posting_starts
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.scripts.format_test.TestScriptFormat.test_align_posting_starts" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-03-01 * "Something"
+  Expenses:Restaurant   50.01 USD
+  Assets:Cash</p>
+<p>2014-03-02 * "Something"
+ Expenses:Restaurant    50.02 USD
+    Assets:Cash</p>
+<p>2014-03-03 * "Something"
+  Expenses:Restaurant   50.03 USD
+  Assets:Cash</p>
+<details class="quote">
+<summary>Source code in <code>beancount/scripts/format_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_align_posting_starts(self, filename):
+    """
+      2014-03-01 * "Something"
+        Expenses:Restaurant   50.01 USD
+        Assets:Cash
+
+      2014-03-02 * "Something"
+       Expenses:Restaurant    50.02 USD
+          Assets:Cash
+
+      2014-03-03 * "Something"
+        Expenses:Restaurant   50.03 USD
+        Assets:Cash
+    """
+    with test_utils.capture() as stdout:
+        result = test_utils.run_with_args(format.main, [filename])
+    self.assertEqual(0, result)
+    self.assertEqual(textwrap.dedent("""
+      2014-03-01 * "Something"
+        Expenses:Restaurant  50.01 USD
+        Assets:Cash
+
+      2014-03-02 * "Something"
+        Expenses:Restaurant  50.02 USD
+        Assets:Cash
+
+      2014-03-03 * "Something"
+        Expenses:Restaurant  50.03 USD
+        Assets:Cash
+    """), stdout.getvalue())
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.scripts.format_test.TestScriptFormat.test_arithmetic_expressions">
+<code class="highlight language-python">
+test_arithmetic_expressions
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.scripts.format_test.TestScriptFormat.test_arithmetic_expressions" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2016-08-01 open Expenses:Test
+2016-08-01 open Assets:Test</p>
+<p>2016-08-02 * "" ""
+  Expenses:Test     10.0/2 USD
+  Assets:Test</p>
+<details class="quote">
+<summary>Source code in <code>beancount/scripts/format_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@unittest.skip("Eventually we will want to support arithmetic expressions. "
+               "It will require to invoke the expression parser because "
+               "expressions are not guaranteed to be surrounded by matching "
+               "parentheses.")
+@test_utils.docfile
+def test_arithmetic_expressions(self, filename):
+    """
+    2016-08-01 open Expenses:Test
+    2016-08-01 open Assets:Test
+
+    2016-08-02 * "" ""
+      Expenses:Test     10.0/2 USD
+      Assets:Test
+    """
+    with test_utils.capture() as stdout:
+        result = test_utils.run_with_args(format.main, [filename])
+    self.assertEqual(0, result)
+    self.assertEqual(textwrap.dedent("""
+
+    2016-08-01 open Expenses:Test
+    2016-08-01 open Assets:Test
+
+    2016-08-02 * "" ""
+      Expenses:Test     10.0/2 USD
+      Assets:Test
+
+    """), stdout.getvalue())
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.scripts.format_test.TestScriptFormat.test_commas">
+<code class="highlight language-python">
+test_commas
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.scripts.format_test.TestScriptFormat.test_commas" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<ul>
+<li>Section header</li>
+</ul>
+<p>;; Accounts (comments)
+2013-01-01 open Expenses:Restaurant
+2013-01-01 open Assets:Cash</p>
+<p>2014-03-02 * "Something"
+  Expenses:Restaurant   1,050.02 USD
+  Assets:Cash</p>
+<p>2014-03-05 balance   Assets:Cash  -1,050.02 USD</p>
+<p>2014-03-10 * "Something"
+  Assets:Other   10 HOOL {5,000.23} USD ; Bla
+  Assets:Cash</p>
+<details class="quote">
+<summary>Source code in <code>beancount/scripts/format_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_commas(self, filename):
+    """
+
+      * Section header
+
+      ;; Accounts (comments)
+      2013-01-01 open Expenses:Restaurant
+      2013-01-01 open Assets:Cash
+
+      2014-03-02 * "Something"
+        Expenses:Restaurant   1,050.02 USD
+        Assets:Cash
+
+      2014-03-05 balance   Assets:Cash  -1,050.02 USD
+
+      2014-03-10 * "Something"
+        Assets:Other   10 HOOL {5,000.23} USD ; Bla
+        Assets:Cash
+
+    """
+    with test_utils.capture() as stdout:
+        result = test_utils.run_with_args(format.main, [filename])
+    self.assertEqual(0, result)
+    self.assertEqual(textwrap.dedent("""
+
+      * Section header
+
+      ;; Accounts (comments)
+      2013-01-01 open Expenses:Restaurant
+      2013-01-01 open Assets:Cash
+
+      2014-03-02 * "Something"
+        Expenses:Restaurant              1,050.02 USD
+        Assets:Cash
+
+      2014-03-05 balance   Assets:Cash  -1,050.02 USD
+
+      2014-03-10 * "Something"
+        Assets:Other                           10 HOOL {5,000.23} USD ; Bla
+        Assets:Cash
+
+    """), stdout.getvalue())
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.scripts.format_test.TestScriptFormat.test_currency_issue146">
+<code class="highlight language-python">
+test_currency_issue146
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.scripts.format_test.TestScriptFormat.test_currency_issue146" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>1970-01-01 open Equity:Opening-balances
+1970-01-01 open Assets:Investments</p>
+<p>2014-03-31 * "opening"
+  Assets:Investments                 1.23 FOO_BAR
+  Equity:Opening-balances</p>
+<details class="quote">
+<summary>Source code in <code>beancount/scripts/format_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_currency_issue146(self, filename):
+    """
+      1970-01-01 open Equity:Opening-balances
+      1970-01-01 open Assets:Investments
+
+      2014-03-31 * "opening"
+        Assets:Investments                 1.23 FOO_BAR
+        Equity:Opening-balances
+    """
+    with test_utils.capture() as stdout:
+        result = test_utils.run_with_args(format.main, [filename])
+    self.assertEqual(0, result)
+    self.assertEqual(textwrap.dedent("""
+      1970-01-01 open Equity:Opening-balances
+      1970-01-01 open Assets:Investments
+
+      2014-03-31 * "opening"
+        Assets:Investments  1.23 FOO_BAR
+        Equity:Opening-balances
+    """), stdout.getvalue())
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.scripts.format_test.TestScriptFormat.test_fixed_column">
+<code class="highlight language-python">
+test_fixed_column
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.scripts.format_test.TestScriptFormat.test_fixed_column" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2016-08-01 open Expenses:Test
+2016-08-01 open Assets:Test
+2016-08-01 balance Assets:Test  0.00 USD</p>
+<p>2016-08-02 * "" ""
+  Expenses:Test     10.00 USD
+  Assets:Test</p>
+<details class="quote">
+<summary>Source code in <code>beancount/scripts/format_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_fixed_column(self, filename):
+    """
+    2016-08-01 open Expenses:Test
+    2016-08-01 open Assets:Test
+    2016-08-01 balance Assets:Test  0.00 USD
+
+    2016-08-02 * "" ""
+      Expenses:Test     10.00 USD
+      Assets:Test
+    """
+    with test_utils.capture() as stdout:
+        result = test_utils.run_with_args(
+            format.main, [filename, '--currency-column=50'])
+    self.assertEqual(0, result)
+    self.assertEqual(textwrap.dedent("""
+    2016-08-01 open Expenses:Test
+    2016-08-01 open Assets:Test
+    2016-08-01 balance Assets:Test              0.00 USD
+
+    2016-08-02 * "" ""
+      Expenses:Test                            10.00 USD
+      Assets:Test
+    """), stdout.getvalue())
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.scripts.format_test.TestScriptFormat.test_fixed_width">
+<code class="highlight language-python">
+test_fixed_width
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.scripts.format_test.TestScriptFormat.test_fixed_width" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2016-08-01 open Expenses:Test
+2016-08-01 open Assets:Test</p>
+<p>2016-08-02 * "" ""
+  Expenses:Test     10.00 USD
+  Assets:Test</p>
+<details class="quote">
+<summary>Source code in <code>beancount/scripts/format_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_fixed_width(self, filename):
+    """
+    2016-08-01 open Expenses:Test
+    2016-08-01 open Assets:Test
+
+    2016-08-02 * "" ""
+      Expenses:Test     10.00 USD
+      Assets:Test
+    """
+    with test_utils.capture() as stdout:
+        result = test_utils.run_with_args(format.main, [filename, '--prefix-width=40'])
+    self.assertEqual(0, result)
+    self.assertEqual(textwrap.dedent("""
+    2016-08-01 open Expenses:Test
+    2016-08-01 open Assets:Test
+
+    2016-08-02 * "" ""
+      Expenses:Test                           10.00 USD
+      Assets:Test
+    """), stdout.getvalue())
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.scripts.format_test.TestScriptFormat.test_open_only_issue80">
+<code class="highlight language-python">
+test_open_only_issue80
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.scripts.format_test.TestScriptFormat.test_open_only_issue80" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2015-07-16 open Assets:BoA:checking USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/scripts/format_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_open_only_issue80(self, filename):
+    """
+      2015-07-16 open Assets:BoA:checking USD
+    """
+    with test_utils.capture():
+        result = test_utils.run_with_args(format.main, [filename])
+    self.assertEqual(0, result)
+    with open(filename) as infile:
+        actual = infile.read()
+    self.assertEqual("""
+      2015-07-16 open Assets:BoA:checking USD
+    """.strip(), actual.strip())
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.scripts.format_test.TestScriptFormat.test_success">
+<code class="highlight language-python">
+test_success
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.scripts.format_test.TestScriptFormat.test_success" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<ul>
+<li>Section header</li>
+</ul>
+<p>;; Accounts (comments)
+2013-01-01 open Expenses:Restaurant
+2013-01-01 open Assets:Cash</p>
+<p>2014-03-02 * "Something"
+  Expenses:Restaurant   50.02 USD
+  Assets:Cash</p>
+<p>2014-03-05 balance   Assets:Cash  -50.02 USD</p>
+<p>2014-03-10 * "Something"
+  Assets:Other   10 HOOL {500.23} USD ; Bla
+  Assets:Cash</p>
+<details class="quote">
+<summary>Source code in <code>beancount/scripts/format_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_success(self, filename):
+    """
+
+      * Section header
+
+      ;; Accounts (comments)
+      2013-01-01 open Expenses:Restaurant
+      2013-01-01 open Assets:Cash
+
+      2014-03-02 * "Something"
+        Expenses:Restaurant   50.02 USD
+        Assets:Cash
+
+      2014-03-05 balance   Assets:Cash  -50.02 USD
+
+      2014-03-10 * "Something"
+        Assets:Other   10 HOOL {500.23} USD ; Bla
+        Assets:Cash
+
+    """
+    with test_utils.capture() as stdout:
+        result = test_utils.run_with_args(format.main, [filename])
+    self.assertEqual(0, result)
+    self.assertEqual(textwrap.dedent("""
+
+      * Section header
+
+      ;; Accounts (comments)
+      2013-01-01 open Expenses:Restaurant
+      2013-01-01 open Assets:Cash
+
+      2014-03-02 * "Something"
+        Expenses:Restaurant              50.02 USD
+        Assets:Cash
+
+      2014-03-05 balance   Assets:Cash  -50.02 USD
+
+      2014-03-10 * "Something"
+        Assets:Other                        10 HOOL {500.23} USD ; Bla
+        Assets:Cash
+
+    """), stdout.getvalue())
+</code></pre>
+</details>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>

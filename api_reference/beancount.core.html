@@ -303,6 +303,10 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.core.convert_test.TestPositionConversions">TestPositionConversions</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.convert_test.TestPositionConversions.test_convert_amount_with_date">test_convert_amount_with_date()</a>
+</li>
+</ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.core.convert_test.TestPostingConversions">TestPostingConversions</a>
 </li>
@@ -596,6 +600,16 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.core.getters_test">getters_test</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.core.getters_test.TestGetters">TestGetters</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.getters_test.TestGetters.test_get_account_open_close__duplicates">test_get_account_open_close__duplicates()</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#beancount.core.interpolate">interpolate</a>
 <ul>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.core.interpolate.BalanceError">BalanceError</a>
@@ -625,6 +639,68 @@
 <li class="toctree-l3"><a class="reference internal" href="#beancount.core.interpolate.is_tolerance_user_specified">is_tolerance_user_specified()</a>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.core.interpolate.quantize_with_tolerance">quantize_with_tolerance()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.core.interpolate_test">interpolate_test</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.core.interpolate_test.TestBalance">TestBalance</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.interpolate_test.TestBalance.test_fill_residual_posting">test_fill_residual_posting()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.core.interpolate_test.TestComputeBalance">TestComputeBalance</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.interpolate_test.TestComputeBalance.test_compute_entries_balance_at_cost">test_compute_entries_balance_at_cost()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.interpolate_test.TestComputeBalance.test_compute_entries_balance_conversions">test_compute_entries_balance_conversions()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.interpolate_test.TestComputeBalance.test_compute_entries_balance_currencies">test_compute_entries_balance_currencies()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.interpolate_test.TestComputeBalance.test_compute_entry_context">test_compute_entry_context()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.core.interpolate_test.TestInferTolerances">TestInferTolerances</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__bug">test_tolerances__bug()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__bug53_price">test_tolerances__bug53_price()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__bug53a">test_tolerances__bug53a()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__bug53b">test_tolerances__bug53b()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__capped_inference">test_tolerances__capped_inference()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__cost_and_number_ignored">test_tolerances__cost_and_number_ignored()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__dubious_precision">test_tolerances__dubious_precision()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__ignore_cost">test_tolerances__ignore_cost()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__ignore_cost_and_price">test_tolerances__ignore_cost_and_price()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__ignore_from_auto_postings">test_tolerances__ignore_from_auto_postings()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__ignore_price">test_tolerances__ignore_price()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__minimum_on_costs">test_tolerances__minimum_on_costs()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__missing_units_only">test_tolerances__missing_units_only()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__multiplier">test_tolerances__multiplier()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__no_precision">test_tolerances__no_precision()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__number_on_cost_used">test_tolerances__number_on_cost_used()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__number_on_cost_used_overrides">test_tolerances__number_on_cost_used_overrides()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__with_inference">test_tolerances__with_inference()</a>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -806,6 +882,34 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.core.prices_test">prices_test</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.core.prices_test.TestPriceEntries">TestPriceEntries</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.prices_test.TestPriceEntries.test_get_last_price_entries">test_get_last_price_entries()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.core.prices_test.TestPriceMap">TestPriceMap</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.prices_test.TestPriceMap.test_build_price_map">test_build_price_map()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.prices_test.TestPriceMap.test_build_price_map_zero_prices">test_build_price_map_zero_prices()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.prices_test.TestPriceMap.test_get_all_prices">test_get_all_prices()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.prices_test.TestPriceMap.test_get_latest_price">test_get_latest_price()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.prices_test.TestPriceMap.test_get_price">test_get_price()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.prices_test.TestPriceMap.test_lookup_price_and_inverse">test_lookup_price_and_inverse()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.prices_test.TestPriceMap.test_ordering_same_date">test_ordering_same_date()</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#beancount.core.realization">realization</a>
 <ul>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.core.realization.RealAccount">RealAccount</a>
@@ -855,6 +959,40 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#beancount.core.realization_test">realization_test</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.core.realization_test.TestComputeBalance">TestComputeBalance</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.realization_test.TestComputeBalance.test_compute_postings_balance">test_compute_postings_balance()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.core.realization_test.TestFindLastActive">TestFindLastActive</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.realization_test.TestFindLastActive.test_find_last_active_posting">test_find_last_active_posting()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.core.realization_test.TestRealization">TestRealization</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.realization_test.TestRealization.test_postings_by_account">test_postings_by_account()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.realization_test.TestRealization.test_simple_realize">test_simple_realize()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.core.realization_test.TestRealOther">TestRealOther</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.realization_test.TestRealOther.test_dump">test_dump()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.realization_test.TestRealOther.test_dump_balances">test_dump_balances()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.realization_test.TestRealOther.test_get_postings">test_get_postings()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.core.realization_test.TestRealOther.test_iterate_with_balance">test_iterate_with_balance()</a>
+</li>
+</ul>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -3114,7 +3252,7 @@ def from_string(string):
 <h4 class="doc doc-heading" id="beancount.core.amount.Amount.to_string">
 <code class="highlight language-python">
 to_string
-(self, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7f95244baeb0&gt;)
+(self, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7fb75e82cf40&gt;)
 
         </code>
 <a class="headerlink" href="#beancount.core.amount.Amount.to_string" title="Permanent link"></a></h4>
@@ -3137,7 +3275,7 @@ to_string
 <td>
 <p>An instance of DisplayFormatter.</p>
 </td>
-<td><code>&lt;beancount.core.display_context.DisplayFormatter object at 0x7f95244baeb0&gt;</code></td>
+<td><code>&lt;beancount.core.display_context.DisplayFormatter object at 0x7fb75e82cf40&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -5090,7 +5228,21 @@ setUp
         </code>
 <a class="headerlink" href="#beancount.core.convert_test.TestMarketValue.setUp" title="Permanent link"></a></h4>
 <div class="doc doc-contents">
-<p>Hook method for setting up the test fixture before exercising it.</p>
+<p>2013-06-01 price  USD  1.01 CAD
+2013-06-05 price  USD  1.05 CAD
+2013-06-06 price  USD  1.06 CAD
+2013-06-07 price  USD  1.07 CAD
+2013-06-10 price  USD  1.10 CAD</p>
+<p>2013-06-01 price  HOOL  101.00 USD
+2013-06-05 price  HOOL  105.00 USD
+2013-06-06 price  HOOL  106.00 USD
+2013-06-07 price  HOOL  107.00 USD
+2013-06-10 price  HOOL  110.00 USD</p>
+<p>2013-06-01 price  AAPL  91.00 USD
+2013-06-05 price  AAPL  95.00 USD
+2013-06-06 price  AAPL  96.00 USD
+2013-06-07 price  AAPL  97.00 USD
+2013-06-10 price  AAPL  90.00 USD</p>
 <details class="quote">
 <summary>Source code in <code>beancount/core/convert_test.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">@loader.load_doc()
@@ -5129,6 +5281,43 @@ def setUp(self, entries, _, __):
 <div class="doc doc-contents">
 <p>Test conversions to units, cost, weight and market-value for Position objects.</p>
 <div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.convert_test.TestPositionConversions.test_convert_amount_with_date">
+<code class="highlight language-python">
+test_convert_amount_with_date
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.core.convert_test.TestPositionConversions.test_convert_amount_with_date" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-01-01 price  USD  1.20 CAD
+2014-01-01 price  USD  1.25 CAD
+2015-01-01 price  USD  1.30 CAD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/convert_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_convert_amount_with_date(self, entries, _, __):
+    """
+    2013-01-01 price  USD  1.20 CAD
+    2014-01-01 price  USD  1.25 CAD
+    2015-01-01 price  USD  1.30 CAD
+    """
+    price_map = prices.build_price_map(entries)
+    for date, exp_amount in [
+            (None, A('130 CAD')),
+            (datetime.date(2015, 1, 1), A('130 CAD')),
+            (datetime.date(2014, 12, 31), A('125 CAD')),
+            (datetime.date(2014, 1, 1), A('125 CAD')),
+            (datetime.date(2013, 12, 31), A('120 CAD')),
+            (datetime.date(2013, 1, 1), A('120 CAD')),
+            (datetime.date(2012, 12, 31), A('100 USD')),
+            ]:
+        self.assertEqual(exp_amount,
+                         convert.convert_amount(A('100 USD'), 'CAD', price_map, date))
+</code></pre>
+</details>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -8106,6 +8295,8 @@ update
 <a class="headerlink" href="#beancount.core.flags" title="Permanent link"></a></h2>
 <div class="doc doc-contents">
 <p>Flag constants.</p>
+<div class="doc doc-children">
+</div>
 </div>
 </div>
 <div class="doc doc-object doc-module">
@@ -10099,6 +10290,57 @@ On the other hand, if there is only a single one, the value itself is returned.<
 </div>
 </div>
 <div class="doc doc-object doc-module">
+<h2 class="doc doc-heading" id="beancount.core.getters_test">
+<code>getters_test</code>
+<a class="headerlink" href="#beancount.core.getters_test" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.core.getters_test.TestGetters">
+<code>TestGetters</code>
+<a class="headerlink" href="#beancount.core.getters_test.TestGetters" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.getters_test.TestGetters.test_get_account_open_close__duplicates">
+<code class="highlight language-python">
+test_get_account_open_close__duplicates
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.core.getters_test.TestGetters.test_get_account_open_close__duplicates" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-01-01 open  Assets:Checking
+2014-01-02 open  Assets:Checking</p>
+<p>2014-01-28 close Assets:Checking
+2014-01-29 close Assets:Checking</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/getters_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_get_account_open_close__duplicates(self, entries, _, __):
+    """
+    2014-01-01 open  Assets:Checking
+    2014-01-02 open  Assets:Checking
+
+    2014-01-28 close Assets:Checking
+    2014-01-29 close Assets:Checking
+    """
+    open_close_map = getters.get_account_open_close(entries)
+    self.assertEqual(1, len(open_close_map))
+    open_entry, close_entry = open_close_map['Assets:Checking']
+    self.assertEqual(datetime.date(2014, 1, 1), open_entry.date)
+    self.assertEqual(datetime.date(2014, 1, 28), close_entry.date)
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
 <h2 class="doc doc-heading" id="beancount.core.interpolate">
 <code>interpolate</code>
 <a class="headerlink" href="#beancount.core.interpolate" title="Permanent link"></a></h2>
@@ -11067,6 +11309,1039 @@ quantize_with_tolerance
     return number
 </code></pre>
 </details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
+<h2 class="doc doc-heading" id="beancount.core.interpolate_test">
+<code>interpolate_test</code>
+<a class="headerlink" href="#beancount.core.interpolate_test" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.core.interpolate_test.TestBalance">
+<code>TestBalance</code>
+<a class="headerlink" href="#beancount.core.interpolate_test.TestBalance" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.interpolate_test.TestBalance.test_fill_residual_posting">
+<code class="highlight language-python">
+test_fill_residual_posting
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.core.interpolate_test.TestBalance.test_fill_residual_posting" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2001-01-01 open Assets:Account1
+2001-01-01 open Assets:Other</p>
+<p>2014-01-01 *
+  Assets:Account1      100.00 USD
+  Assets:Other        -100.00 USD</p>
+<p>2014-01-02 *
+  Assets:Account1      100.00 USD
+  Assets:Other        -100.00 USD</p>
+<p>2014-01-03 *
+  Assets:Account1      100.00 USD
+  Assets:Other        -100.0000001 USD</p>
+<p>2014-01-04 *
+  Assets:Account1      100.00 USD
+  Assets:Other        -112.69 CAD @ 0.8875 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/interpolate_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_fill_residual_posting(self, entries, _, __):
+    """
+    2001-01-01 open Assets:Account1
+    2001-01-01 open Assets:Other
+
+    2014-01-01 *
+      Assets:Account1      100.00 USD
+      Assets:Other        -100.00 USD
+
+    2014-01-02 *
+      Assets:Account1      100.00 USD
+      Assets:Other        -100.00 USD
+
+    2014-01-03 *
+      Assets:Account1      100.00 USD
+      Assets:Other        -100.0000001 USD
+
+    2014-01-04 *
+      Assets:Account1      100.00 USD
+      Assets:Other        -112.69 CAD @ 0.8875 USD
+    """
+    account = 'Equity:Rounding'
+    entries = [entry for entry in entries if isinstance(entry, data.Transaction)]
+    for index in 0, 1:
+        entry = interpolate.fill_residual_posting(entries[index], account)
+        self.assertEqualEntries([entries[index]], [entry])
+        residual = interpolate.compute_residual(entry.postings)
+        self.assertTrue(residual.is_empty())
+
+    entry = interpolate.fill_residual_posting(entries[2], account)
+    self.assertEqualEntries("""
+
+    2014-01-03 *
+      Assets:Account1      100.00 USD
+      Assets:Other        -100.0000001 USD
+      Equity:Rounding        0.0000001 USD
+
+    """, [entry])
+    residual = interpolate.compute_residual(entry.postings)
+    # Note: The residual calculation ignores postings inserted by the
+    # rounding account.
+    self.assertFalse(residual.is_empty())
+    self.assertEqual(inventory.from_string('-0.0000001 USD'), residual)
+
+    entry = interpolate.fill_residual_posting(entries[3], account)
+    self.assertEqualEntries("""
+
+    2014-01-04 *
+      Assets:Account1     100.00 USD
+      Assets:Other       -112.69 CAD @ 0.8875 USD
+      Equity:Rounding   0.012375 USD
+
+    """, [entry])
+    residual = interpolate.compute_residual(entry.postings)
+    # Same as above.
+    self.assertFalse(residual.is_empty())
+    self.assertEqual(inventory.from_string('-0.012375 USD'), residual)
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.core.interpolate_test.TestComputeBalance">
+<code>TestComputeBalance</code>
+<a class="headerlink" href="#beancount.core.interpolate_test.TestComputeBalance" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.interpolate_test.TestComputeBalance.test_compute_entries_balance_at_cost">
+<code class="highlight language-python">
+test_compute_entries_balance_at_cost
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.core.interpolate_test.TestComputeBalance.test_compute_entries_balance_at_cost" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-01-01 open Assets:Investing
+2014-01-01 open Assets:Other</p>
+<p>2014-06-05 *
+  Assets:Investing      30 HOOL {40 USD}
+  Assets:Other</p>
+<p>2014-06-05 *
+  Assets:Investing      -20 HOOL {40 USD}
+  Assets:Other</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/interpolate_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_compute_entries_balance_at_cost(self, entries, _, __):
+    """
+    2014-01-01 open Assets:Investing
+    2014-01-01 open Assets:Other
+
+    2014-06-05 *
+      Assets:Investing      30 HOOL {40 USD}
+      Assets:Other
+
+    2014-06-05 *
+      Assets:Investing      -20 HOOL {40 USD}
+      Assets:Other
+
+    """
+    computed_balance = interpolate.compute_entries_balance(entries)
+    expected_balance = inventory.Inventory()
+    expected_balance.add_amount(A('-400 USD'))
+    expected_balance.add_amount(A('10 HOOL'),
+                                position.Cost(D('40'), 'USD',
+                                              datetime.date(2014, 6, 5), None))
+    self.assertEqual(expected_balance, computed_balance)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.interpolate_test.TestComputeBalance.test_compute_entries_balance_conversions">
+<code class="highlight language-python">
+test_compute_entries_balance_conversions
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.core.interpolate_test.TestComputeBalance.test_compute_entries_balance_conversions" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-01-01 open Assets:Investing
+2014-01-01 open Assets:Other</p>
+<p>2014-06-06 *
+  Assets:Investing          1000 EUR @ 1.78 GBP
+  Assets:Other</p>
+<p>2014-06-07 *
+  Assets:Investing          1000 EUR @@ 1780 GBP
+  Assets:Other</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/interpolate_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_compute_entries_balance_conversions(self, entries, _, __):
+    """
+    2014-01-01 open Assets:Investing
+    2014-01-01 open Assets:Other
+
+    2014-06-06 *
+      Assets:Investing          1000 EUR @ 1.78 GBP
+      Assets:Other
+
+    2014-06-07 *
+      Assets:Investing          1000 EUR @@ 1780 GBP
+      Assets:Other
+    """
+    computed_balance = interpolate.compute_entries_balance(entries)
+    expected_balance = inventory.Inventory()
+    expected_balance.add_amount(A('2000.00 EUR'))
+    expected_balance.add_amount(A('-3560.00 GBP'))
+    self.assertEqual(expected_balance, computed_balance)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.interpolate_test.TestComputeBalance.test_compute_entries_balance_currencies">
+<code class="highlight language-python">
+test_compute_entries_balance_currencies
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.core.interpolate_test.TestComputeBalance.test_compute_entries_balance_currencies" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-01-01 open Assets:Bank:Checking
+2014-01-01 open Assets:Bank:Savings
+2014-01-01 open Assets:Investing
+2014-01-01 open Assets:Other</p>
+<p>2014-06-01 *
+  Assets:Bank:Checking  111.23 USD
+  Assets:Other</p>
+<p>2014-06-02 *
+  Assets:Bank:Savings   222.74 USD
+  Assets:Other</p>
+<p>2014-06-03 *
+  Assets:Bank:Savings   17.23 CAD
+  Assets:Other</p>
+<p>2014-06-04 *
+  Assets:Investing      10000 EUR
+  Assets:Other</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/interpolate_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_compute_entries_balance_currencies(self, entries, _, __):
+    """
+    2014-01-01 open Assets:Bank:Checking
+    2014-01-01 open Assets:Bank:Savings
+    2014-01-01 open Assets:Investing
+    2014-01-01 open Assets:Other
+
+    2014-06-01 *
+      Assets:Bank:Checking  111.23 USD
+      Assets:Other
+
+    2014-06-02 *
+      Assets:Bank:Savings   222.74 USD
+      Assets:Other
+
+    2014-06-03 *
+      Assets:Bank:Savings   17.23 CAD
+      Assets:Other
+
+    2014-06-04 *
+      Assets:Investing      10000 EUR
+      Assets:Other
+
+    """
+    computed_balance = interpolate.compute_entries_balance(entries)
+    expected_balance = inventory.Inventory()
+    self.assertEqual(expected_balance, computed_balance)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.interpolate_test.TestComputeBalance.test_compute_entry_context">
+<code class="highlight language-python">
+test_compute_entry_context
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.core.interpolate_test.TestComputeBalance.test_compute_entry_context" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-01-01 open Assets:Account1
+2014-01-01 open Assets:Account2
+2014-01-01 open Assets:Account3
+2014-01-01 open Assets:Account4
+2014-01-01 open Assets:Other</p>
+<p>2014-02-10 *
+  Assets:Account1      100.00 USD
+  Assets:Other</p>
+<p>2014-02-11 *
+  Assets:Account2       80.00 USD
+  Assets:Other</p>
+<p>2014-02-12 *
+  Assets:Account3       60.00 USD
+  Assets:Account3       40.00 USD
+  Assets:Other</p>
+<p>2014-02-20 * #context
+  Assets:Account1       5.00 USD
+  Assets:Account2      -5.00 USD</p>
+<p>2014-02-21 balance  Assets:Account1   105.00 USD</p>
+<p>2014-02-25 *
+  Assets:Account3       5.00 USD
+  Assets:Account4      -5.00 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/interpolate_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_compute_entry_context(self, entries, _, __):
+    """
+    2014-01-01 open Assets:Account1
+    2014-01-01 open Assets:Account2
+    2014-01-01 open Assets:Account3
+    2014-01-01 open Assets:Account4
+    2014-01-01 open Assets:Other
+
+    2014-02-10 *
+      Assets:Account1      100.00 USD
+      Assets:Other
+
+    2014-02-11 *
+      Assets:Account2       80.00 USD
+      Assets:Other
+
+    2014-02-12 *
+      Assets:Account3       60.00 USD
+      Assets:Account3       40.00 USD
+      Assets:Other
+
+    2014-02-20 * #context
+      Assets:Account1       5.00 USD
+      Assets:Account2      -5.00 USD
+
+    2014-02-21 balance  Assets:Account1   105.00 USD
+
+    2014-02-25 *
+      Assets:Account3       5.00 USD
+      Assets:Account4      -5.00 USD
+
+    """
+    for entry in entries:
+        if (isinstance(entry, data.Transaction) and
+            entry.tags and
+            'context' in entry.tags):
+            break
+    balance_before, balance_after = interpolate.compute_entry_context(entries, entry)
+
+    self.assertEqual(inventory.from_string('100.00 USD'),
+                     balance_before['Assets:Account1'])
+    self.assertEqual(inventory.from_string('80.00 USD'),
+                     balance_before['Assets:Account2'])
+
+    self.assertEqual(inventory.from_string('105.00 USD'),
+                     balance_after['Assets:Account1'])
+    self.assertEqual(inventory.from_string('75.00 USD'),
+                     balance_after['Assets:Account2'])
+
+    # Get the context for an entry that is not a Transaction and ensure that
+    # the before and after context is the same.
+    for entry in entries:
+        if isinstance(entry, data.Balance):
+            break
+    balance_before, balance_after = interpolate.compute_entry_context(entries, entry)
+    self.assertEqual(balance_before, balance_after)
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.core.interpolate_test.TestInferTolerances">
+<code>TestInferTolerances</code>
+<a class="headerlink" href="#beancount.core.interpolate_test.TestInferTolerances" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.interpolate_test.TestInferTolerances.test_tolerances__bug">
+<code class="highlight language-python">
+test_tolerances__bug
+(self, entries, errors, _)
+
+        </code>
+<a class="headerlink" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__bug" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>option "operating_currency" "USD"
+option "infer_tolerance_from_cost" "TRUE"</p>
+<p>2000-01-01 open Assets:CAAPX
+2000-01-01 open Income:Match</p>
+<p>2006-11-02 * "Misc"
+  Assets:CAAPX  -1.729 CAAPX {{521.67787 USD}} @ 49.65 USD
+  Income:Match</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/interpolate_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_tolerances__bug(self, entries, errors, _):
+    """
+    option "operating_currency" "USD"
+    option "infer_tolerance_from_cost" "TRUE"
+
+    2000-01-01 open Assets:CAAPX
+    2000-01-01 open Income:Match
+
+    2006-11-02 * "Misc"
+      Assets:CAAPX  -1.729 CAAPX {{521.67787 USD}} @ 49.65 USD
+      Income:Match
+    """
+    self.assertFalse(errors)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.interpolate_test.TestInferTolerances.test_tolerances__bug53_price">
+<code class="highlight language-python">
+test_tolerances__bug53_price
+(self, entries, errors, _)
+
+        </code>
+<a class="headerlink" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__bug53_price" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>option "operating_currency" "USD"
+option "infer_tolerance_from_cost" "TRUE"</p>
+<p>2000-01-01 open Assets:Investments:VWELX
+2000-01-01 open Assets:Investments:Cash</p>
+<p>2006-01-02 * "Plan Contribution"
+  Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+  Assets:Investments:VWELX 18.572 VWELX @ 20.40 USD
+  Assets:Investments:Cash</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/interpolate_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_tolerances__bug53_price(self, entries, errors, _):
+    """
+    option "operating_currency" "USD"
+    option "infer_tolerance_from_cost" "TRUE"
+
+    2000-01-01 open Assets:Investments:VWELX
+    2000-01-01 open Assets:Investments:Cash
+
+    2006-01-02 * "Plan Contribution"
+      Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+      Assets:Investments:VWELX 18.572 VWELX @ 20.40 USD
+      Assets:Investments:Cash
+    """
+    transactions = [entry
+                    for entry in entries
+                    if isinstance(entry, data.Transaction)]
+    self.assertEqual({'USD': D('0.02568'), 'VWELX': D('0.0005')},
+                     transactions[0].meta['__tolerances__'])
+    self.assertFalse(errors)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.interpolate_test.TestInferTolerances.test_tolerances__bug53a">
+<code class="highlight language-python">
+test_tolerances__bug53a
+(self, entries, errors, _)
+
+        </code>
+<a class="headerlink" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__bug53a" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>option "operating_currency" "USD"
+option "infer_tolerance_from_cost" "TRUE"</p>
+<p>2000-01-01 open Assets:Investments:VWELX
+2000-01-01 open Assets:Investments:Cash</p>
+<p>2006-01-17 * "Plan Contribution"
+  Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+  Assets:Investments:Cash -575.00 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/interpolate_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_tolerances__bug53a(self, entries, errors, _):
+    """
+    option "operating_currency" "USD"
+    option "infer_tolerance_from_cost" "TRUE"
+
+    2000-01-01 open Assets:Investments:VWELX
+    2000-01-01 open Assets:Investments:Cash
+
+    2006-01-17 * "Plan Contribution"
+      Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+      Assets:Investments:Cash -575.00 USD
+    """
+    self.assertFalse(errors)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.interpolate_test.TestInferTolerances.test_tolerances__bug53b">
+<code class="highlight language-python">
+test_tolerances__bug53b
+(self, entries, errors, _)
+
+        </code>
+<a class="headerlink" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__bug53b" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>option "operating_currency" "USD"
+option "infer_tolerance_from_cost" "TRUE"</p>
+<p>2000-01-01 open Assets:Investments:VWELX
+2000-01-01 open Assets:Investments:Cash</p>
+<p>2006-01-02 * "Plan Contribution"
+  Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+  Assets:Investments:Cash -575.00 USD
+  Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+  Assets:Investments:Cash -575.00 USD</p>
+<p>2006-01-03 * "Plan Contribution"
+  Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+  Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+  Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+  Assets:Investments:Cash -575.00 USD
+  Assets:Investments:Cash -575.00 USD
+  Assets:Investments:Cash -575.00 USD</p>
+<p>2006-01-03 * "Plan Contribution"
+  Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+  Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+  Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+  Assets:Investments:Cash -1725.00 USD</p>
+<p>2006-01-16 * "Plan Contribution"
+  Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+  Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+  Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+  Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+  Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+  Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+  Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+  Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+  Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+  Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+  Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+  Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+  Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+  Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+  Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+  Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+  Assets:Investments:Cash -9200.00 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/interpolate_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_tolerances__bug53b(self, entries, errors, _):
+    """
+    option "operating_currency" "USD"
+    option "infer_tolerance_from_cost" "TRUE"
+
+    2000-01-01 open Assets:Investments:VWELX
+    2000-01-01 open Assets:Investments:Cash
+
+    2006-01-02 * "Plan Contribution"
+      Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+      Assets:Investments:Cash -575.00 USD
+      Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+      Assets:Investments:Cash -575.00 USD
+
+    2006-01-03 * "Plan Contribution"
+      Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+      Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+      Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+      Assets:Investments:Cash -575.00 USD
+      Assets:Investments:Cash -575.00 USD
+      Assets:Investments:Cash -575.00 USD
+
+    2006-01-03 * "Plan Contribution"
+      Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+      Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+      Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+      Assets:Investments:Cash -1725.00 USD
+
+    2006-01-16 * "Plan Contribution"
+      Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+      Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+      Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+      Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+      Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+      Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+      Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+      Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+      Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+      Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+      Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+      Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+      Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+      Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+      Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+      Assets:Investments:VWELX 18.572 VWELX {30.96 USD}
+      Assets:Investments:Cash -9200.00 USD
+    """
+    transactions = [entry
+                    for entry in entries
+                    if isinstance(entry, data.Transaction)]
+    self.assertEqual({'USD': D('0.03096'), 'VWELX': D('0.0005')},
+                     transactions[0].meta['__tolerances__'])
+    self.assertEqual({'USD': D('0.04644'), 'VWELX': D('0.0005')},
+                     transactions[1].meta['__tolerances__'])
+    self.assertEqual({'USD': D('0.04644'), 'VWELX': D('0.0005')},
+                     transactions[2].meta['__tolerances__'])
+    self.assertEqual({'USD': D('0.247680'), 'VWELX': D('0.0005')},
+                     transactions[3].meta['__tolerances__'])
+    self.assertFalse(errors)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.interpolate_test.TestInferTolerances.test_tolerances__capped_inference">
+<code class="highlight language-python">
+test_tolerances__capped_inference
+(self, entries, _, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__capped_inference" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-02-25 *
+  Assets:Account3       5.1   VHT {102.2340 USD}
+  Assets:Account4</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/interpolate_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@parser.parse_doc(allow_incomplete=True)
+def test_tolerances__capped_inference(self, entries, _, options_map):
+    """
+    2014-02-25 *
+      Assets:Account3       5.1   VHT {102.2340 USD}
+      Assets:Account4
+    """
+    tolerances = interpolate.infer_tolerances(entries[-1].postings, options_map)
+    self.assertEqual({'VHT': D('0.05')},
+                     tolerances)
+    tolerances = interpolate.infer_tolerances(entries[-1].postings, options_map, True)
+    self.assertEqual({'VHT': D('0.05'), 'USD': D('0.5')},
+                     tolerances)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.interpolate_test.TestInferTolerances.test_tolerances__cost_and_number_ignored">
+<code class="highlight language-python">
+test_tolerances__cost_and_number_ignored
+(self, entries, errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__cost_and_number_ignored" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-02-25 *
+  Assets:Account3       5 VHT {102.2340 USD}
+  Assets:Account4      -511 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/interpolate_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_tolerances__cost_and_number_ignored(self, entries, errors, options_map):
+    """
+    2014-02-25 *
+      Assets:Account3       5 VHT {102.2340 USD}
+      Assets:Account4      -511 USD
+    """
+    tolerances = interpolate.infer_tolerances(entries[-1].postings, options_map)
+    self.assertEqual({}, tolerances)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.interpolate_test.TestInferTolerances.test_tolerances__dubious_precision">
+<code class="highlight language-python">
+test_tolerances__dubious_precision
+(self, entries, errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__dubious_precision" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-01-01 open Assets:Account1
+2014-01-01 open Assets:Account2
+2014-01-01 open Assets:Account3
+2014-01-01 open Assets:Account4</p>
+<p>2014-02-25 *
+  Assets:Account1       5.0000 USD
+  Assets:Account2       5.000 USD
+  Assets:Account3       5.00 USD
+  Assets:Account4      -5.0 USD
+  Assets:Account4      -5 USD
+  Assets:Account4      -5 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/interpolate_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_tolerances__dubious_precision(self, entries, errors, options_map):
+    """
+    2014-01-01 open Assets:Account1
+    2014-01-01 open Assets:Account2
+    2014-01-01 open Assets:Account3
+    2014-01-01 open Assets:Account4
+
+    2014-02-25 *
+      Assets:Account1       5.0000 USD
+      Assets:Account2       5.000 USD
+      Assets:Account3       5.00 USD
+      Assets:Account4      -5.0 USD
+      Assets:Account4      -5 USD
+      Assets:Account4      -5 USD
+    """
+    tolerances = interpolate.infer_tolerances(entries[-1].postings, options_map)
+    self.assertEqual({'USD': D('0.05')}, tolerances)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.interpolate_test.TestInferTolerances.test_tolerances__ignore_cost">
+<code class="highlight language-python">
+test_tolerances__ignore_cost
+(self, entries, errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__ignore_cost" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-02-25 *
+  Assets:Account3       5 VHT {102.2340 USD}
+  Assets:Account4      -511.11 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/interpolate_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_tolerances__ignore_cost(self, entries, errors, options_map):
+    """
+    2014-02-25 *
+      Assets:Account3       5 VHT {102.2340 USD}
+      Assets:Account4      -511.11 USD
+    """
+    tolerances = interpolate.infer_tolerances(entries[0].postings, options_map)
+    self.assertEqual({'USD': D('0.005')}, tolerances)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.interpolate_test.TestInferTolerances.test_tolerances__ignore_cost_and_price">
+<code class="highlight language-python">
+test_tolerances__ignore_cost_and_price
+(self, entries, errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__ignore_cost_and_price" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-02-25 *
+  Assets:Account3       5 VHT {102.2340 USD} @ 103.45237239 USD
+  Assets:Account4      -511.11 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/interpolate_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_tolerances__ignore_cost_and_price(self, entries, errors, options_map):
+    """
+    2014-02-25 *
+      Assets:Account3       5 VHT {102.2340 USD} @ 103.45237239 USD
+      Assets:Account4      -511.11 USD
+    """
+    tolerances = interpolate.infer_tolerances(entries[0].postings, options_map)
+    self.assertEqual({'USD': D('0.005')}, tolerances)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.interpolate_test.TestInferTolerances.test_tolerances__ignore_from_auto_postings">
+<code class="highlight language-python">
+test_tolerances__ignore_from_auto_postings
+(self, entries, errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__ignore_from_auto_postings" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>plugin "beancount.plugins.split_expenses" "Martin Caroline Sheila"</p>
+<p>option "inferred_tolerance_default" "USD:0.005"</p>
+<p>1970-01-01 open Expenses:Food
+1970-01-01 open Assets:Caroline</p>
+<p>2010-01-01 * "Balances"
+  Expenses:Food      -8.00 USD
+  Assets:Caroline</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/interpolate_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@unittest.skipIf(split_expenses is None, "split_expenses needs to be build with bazel")
+@loader.load_doc()
+def test_tolerances__ignore_from_auto_postings(self, entries, errors, options_map):
+    """
+    plugin "beancount.plugins.split_expenses" "Martin Caroline Sheila"
+
+    option "inferred_tolerance_default" "USD:0.005"
+
+    1970-01-01 open Expenses:Food
+    1970-01-01 open Assets:Caroline
+
+    2010-01-01 * "Balances"
+      Expenses:Food      -8.00 USD
+      Assets:Caroline
+    """
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.interpolate_test.TestInferTolerances.test_tolerances__ignore_price">
+<code class="highlight language-python">
+test_tolerances__ignore_price
+(self, entries, errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__ignore_price" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-02-25 *
+  Assets:Account3       5 VHT @ 102.2340 USD
+  Assets:Account4      -511.11 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/interpolate_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_tolerances__ignore_price(self, entries, errors, options_map):
+    """
+    2014-02-25 *
+      Assets:Account3       5 VHT @ 102.2340 USD
+      Assets:Account4      -511.11 USD
+    """
+    tolerances = interpolate.infer_tolerances(entries[0].postings, options_map)
+    self.assertEqual({'USD': D('0.005')}, tolerances)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.interpolate_test.TestInferTolerances.test_tolerances__minimum_on_costs">
+<code class="highlight language-python">
+test_tolerances__minimum_on_costs
+(self, entries, errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__minimum_on_costs" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-02-25 *
+  Assets:Account3       5.11111   VHT {102.2340 USD}
+  Assets:Account3       5.111111  VHT {102.2340 USD}
+  Assets:Account3       5.1111111 VHT {102.2340 USD}
+  Assets:Account4  -1564.18 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/interpolate_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_tolerances__minimum_on_costs(self, entries, errors, options_map):
+    """
+    2014-02-25 *
+      Assets:Account3       5.11111   VHT {102.2340 USD}
+      Assets:Account3       5.111111  VHT {102.2340 USD}
+      Assets:Account3       5.1111111 VHT {102.2340 USD}
+      Assets:Account4  -1564.18 USD
+    """
+    tolerances = interpolate.infer_tolerances(entries[0].postings, options_map)
+    self.assertEqual({'VHT': D('0.000005'), 'USD': D('0.005')}, tolerances)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.interpolate_test.TestInferTolerances.test_tolerances__missing_units_only">
+<code class="highlight language-python">
+test_tolerances__missing_units_only
+(self, entries, errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__missing_units_only" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2017-01-01 open Assets:Checking USD
+2017-01-01 open Assets:Cash     CAD</p>
+<p>2017-06-23 * "Taking out cash from RBC machine"
+  Assets:Checking     USD @ 1.32 CAD
+  Assets:Cash     400 CAD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/interpolate_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_tolerances__missing_units_only(self, entries, errors, options_map):
+    """
+    2017-01-01 open Assets:Checking USD
+    2017-01-01 open Assets:Cash     CAD
+
+    2017-06-23 * "Taking out cash from RBC machine"
+      Assets:Checking     USD @ 1.32 CAD
+      Assets:Cash     400 CAD
+    """
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.interpolate_test.TestInferTolerances.test_tolerances__multiplier">
+<code class="highlight language-python">
+test_tolerances__multiplier
+(self, entries, errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__multiplier" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>option "inferred_tolerance_multiplier" "1.1"</p>
+<p>1970-01-01 open Assets:B1
+1970-01-01 open Assets:B2</p>
+<p>2010-01-01 * "Balances"
+  Assets:B1      -200.00 EUR
+  Assets:B2       200.011 EUR</p>
+<p>2010-01-02 * "Does not balance"
+  Assets:B1      -200.00 EUR
+  Assets:B2       200.012 EUR</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/interpolate_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_tolerances__multiplier(self, entries, errors, options_map):
+    """
+    option "inferred_tolerance_multiplier" "1.1"
+
+    1970-01-01 open Assets:B1
+    1970-01-01 open Assets:B2
+
+    2010-01-01 * "Balances"
+      Assets:B1      -200.00 EUR
+      Assets:B2       200.011 EUR
+
+    2010-01-02 * "Does not balance"
+      Assets:B1      -200.00 EUR
+      Assets:B2       200.012 EUR
+    """
+    self.assertEqual(1, len(errors))
+    self.assertTrue(errors[0].entry is entries[-1])
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.interpolate_test.TestInferTolerances.test_tolerances__no_precision">
+<code class="highlight language-python">
+test_tolerances__no_precision
+(self, entries, _, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__no_precision" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-02-25 *
+  Assets:Account1       500 USD
+  Assets:Account2      -120 USD
+  Assets:Account3      -380 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/interpolate_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_tolerances__no_precision(self, entries, _, options_map):
+    """
+    2014-02-25 *
+      Assets:Account1       500 USD
+      Assets:Account2      -120 USD
+      Assets:Account3      -380 USD
+    """
+    tolerances = interpolate.infer_tolerances(entries[0].postings, options_map)
+    self.assertEqual({}, tolerances)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.interpolate_test.TestInferTolerances.test_tolerances__number_on_cost_used">
+<code class="highlight language-python">
+test_tolerances__number_on_cost_used
+(self, entries, _, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__number_on_cost_used" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-02-25 *
+  Assets:Account3       5.111 VHT {102.2340 USD}
+  Assets:Account4      -511 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/interpolate_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_tolerances__number_on_cost_used(self, entries, _, options_map):
+    """
+    2014-02-25 *
+      Assets:Account3       5.111 VHT {102.2340 USD}
+      Assets:Account4      -511 USD
+    """
+    tolerances = interpolate.infer_tolerances(entries[0].postings, options_map)
+    self.assertEqual({'VHT': D('0.0005')}, tolerances)
+    tolerances = interpolate.infer_tolerances(entries[0].postings, options_map, True)
+    self.assertEqual({'VHT': D('0.0005'), 'USD': D('0.051117')}, tolerances)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.interpolate_test.TestInferTolerances.test_tolerances__number_on_cost_used_overrides">
+<code class="highlight language-python">
+test_tolerances__number_on_cost_used_overrides
+(self, entries, _, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__number_on_cost_used_overrides" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-02-25 *
+  Assets:Account3       5.111 VHT {102.2340 USD}
+  Assets:Account4      -511.0 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/interpolate_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_tolerances__number_on_cost_used_overrides(self, entries, _, options_map):
+    """
+    2014-02-25 *
+      Assets:Account3       5.111 VHT {102.2340 USD}
+      Assets:Account4      -511.0 USD
+    """
+    tolerances = interpolate.infer_tolerances(entries[0].postings, options_map)
+    self.assertEqual({'VHT': D('0.0005'), 'USD': D('0.05')}, tolerances)
+    tolerances = interpolate.infer_tolerances(entries[0].postings, options_map, True)
+    self.assertEqual({'VHT': D('0.0005'), 'USD': D('0.051117')}, tolerances)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.interpolate_test.TestInferTolerances.test_tolerances__with_inference">
+<code class="highlight language-python">
+test_tolerances__with_inference
+(self, entries, _, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.core.interpolate_test.TestInferTolerances.test_tolerances__with_inference" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-02-25 *
+  Assets:Account3       5.1111   VHT {102.2340 USD}
+  Assets:Account4</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/interpolate_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@parser.parse_doc(allow_incomplete=True)
+def test_tolerances__with_inference(self, entries, _, options_map):
+    """
+    2014-02-25 *
+      Assets:Account3       5.1111   VHT {102.2340 USD}
+      Assets:Account4
+    """
+    tolerances = interpolate.infer_tolerances(entries[0].postings, options_map)
+    self.assertEqual({'VHT': D('0.00005')},
+                     tolerances)
+    tolerances = interpolate.infer_tolerances(entries[0].postings, options_map, True)
+    self.assertEqual({'VHT': D('0.00005'), 'USD': D('0.005111700')},
+                     tolerances)
+</code></pre>
+</details>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -12664,7 +13939,7 @@ segregate_units
 <h4 class="doc doc-heading" id="beancount.core.inventory.Inventory.to_string">
 <code class="highlight language-python">
 to_string
-(self, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7f95244baeb0&gt;, parens=True)
+(self, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7fb75e82cf40&gt;, parens=True)
 
         </code>
 <a class="headerlink" href="#beancount.core.inventory.Inventory.to_string" title="Permanent link"></a></h4>
@@ -12687,7 +13962,7 @@ to_string
 <td>
 <p>An instance of DisplayFormatter.</p>
 </td>
-<td><code>&lt;beancount.core.display_context.DisplayFormatter object at 0x7f95244baeb0&gt;</code></td>
+<td><code>&lt;beancount.core.display_context.DisplayFormatter object at 0x7fb75e82cf40&gt;</code></td>
 </tr>
 <tr>
 <td><code>parents</code></td>
@@ -14208,7 +15483,7 @@ number of units.</p>
 <h4 class="doc doc-heading" id="beancount.core.position.Position.to_string">
 <code class="highlight language-python">
 to_string
-(self, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7f95244baeb0&gt;, detail=True)
+(self, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7fb75e82cf40&gt;, detail=True)
 
         </code>
 <a class="headerlink" href="#beancount.core.position.Position.to_string" title="Permanent link"></a></h4>
@@ -14612,7 +15887,7 @@ get_position
 <h3 class="doc doc-heading" id="beancount.core.position.to_string">
 <code class="highlight language-python">
 to_string
-(pos, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7f95244baeb0&gt;, detail=True)
+(pos, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7fb75e82cf40&gt;, detail=True)
 
         </code>
 <a class="headerlink" href="#beancount.core.position.to_string" title="Permanent link"></a></h3>
@@ -14643,7 +15918,7 @@ to_string
 <td>
 <p>An instance of DisplayFormatter.</p>
 </td>
-<td><code>&lt;beancount.core.display_context.DisplayFormatter object at 0x7f95244baeb0&gt;</code></td>
+<td><code>&lt;beancount.core.display_context.DisplayFormatter object at 0x7fb75e82cf40&gt;</code></td>
 </tr>
 <tr>
 <td><code>detail</code></td>
@@ -14734,6 +16009,8 @@ inverse. In order to determine which are the forward pairs, access the
 Attributes:
   forward_pairs: A list of (base, quote) keys for the forward pairs.
 </code></pre>
+<div class="doc doc-children">
+</div>
 </div>
 </div>
 <div class="doc doc-object doc-function">
@@ -15331,6 +16608,380 @@ denominated in. This may also just be a string, with a '/' separator.</p>
     return base_quote
 </code></pre>
 </details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
+<h2 class="doc doc-heading" id="beancount.core.prices_test">
+<code>prices_test</code>
+<a class="headerlink" href="#beancount.core.prices_test" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.core.prices_test.TestPriceEntries">
+<code>TestPriceEntries</code>
+<a class="headerlink" href="#beancount.core.prices_test.TestPriceEntries" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.prices_test.TestPriceEntries.test_get_last_price_entries">
+<code class="highlight language-python">
+test_get_last_price_entries
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.core.prices_test.TestPriceEntries.test_get_last_price_entries" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-01-01 price  USD  1.01 CAD
+2013-02-01 price  USD  1.02 CAD
+2013-03-01 price  USD  1.03 CAD
+2013-04-01 price  USD  1.04 CAD
+2013-05-01 price  USD  1.05 CAD
+2013-06-01 price  USD  1.06 CAD
+2013-07-01 price  USD  1.07 CAD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/prices_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_get_last_price_entries(self, entries, _, __):
+    """
+    2013-01-01 price  USD  1.01 CAD
+    2013-02-01 price  USD  1.02 CAD
+    2013-03-01 price  USD  1.03 CAD
+    2013-04-01 price  USD  1.04 CAD
+    2013-05-01 price  USD  1.05 CAD
+    2013-06-01 price  USD  1.06 CAD
+    2013-07-01 price  USD  1.07 CAD
+    """
+    self.assertEqualEntries("""
+    2013-04-01 price  USD  1.04 CAD
+    """, prices.get_last_price_entries(entries, datetime.date(2013, 5, 1)))
+
+    self.assertEqualEntries("""
+    2013-05-01 price  USD  1.05 CAD
+    """, prices.get_last_price_entries(entries, datetime.date(2013, 5, 2)))
+
+    self.assertEqualEntries("""
+    2013-07-01 price  USD  1.07 CAD
+    """, prices.get_last_price_entries(entries, datetime.date(2014, 1, 1)))
+
+    self.assertEqualEntries("""
+    """, prices.get_last_price_entries(entries, datetime.date(2012, 1, 1)))
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.core.prices_test.TestPriceMap">
+<code>TestPriceMap</code>
+<a class="headerlink" href="#beancount.core.prices_test.TestPriceMap" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.prices_test.TestPriceMap.test_build_price_map">
+<code class="highlight language-python">
+test_build_price_map
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.core.prices_test.TestPriceMap.test_build_price_map" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-06-01 price  USD  1.10 CAD</p>
+<p>;; Try some prices at the same date.
+2013-06-02 price  USD  1.11 CAD
+2013-06-02 price  USD  1.12 CAD
+2013-06-02 price  USD  1.13 CAD</p>
+<p>;; One after too.
+2013-06-03 price  USD  1.14 CAD</p>
+<p>;; Try a few inverse prices.
+2013-06-05 price  CAD  0.86956 USD
+2013-06-06 price  CAD  0.86207 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/prices_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_build_price_map(self, entries, _, __):
+    """
+    2013-06-01 price  USD  1.10 CAD
+
+    ;; Try some prices at the same date.
+    2013-06-02 price  USD  1.11 CAD
+    2013-06-02 price  USD  1.12 CAD
+    2013-06-02 price  USD  1.13 CAD
+
+    ;; One after too.
+    2013-06-03 price  USD  1.14 CAD
+
+    ;; Try a few inverse prices.
+    2013-06-05 price  CAD  0.86956 USD
+    2013-06-06 price  CAD  0.86207 USD
+    """
+    price_map = prices.build_price_map(entries)
+
+    self.assertEqual(2, len(price_map))
+    self.assertEqual(set([('USD', 'CAD'), ('CAD', 'USD')]),
+                     set(price_map.keys()))
+
+    values = price_map[('USD', 'CAD')]
+    expected = [(datetime.date(2013, 6, 1), D('1.10')),
+                (datetime.date(2013, 6, 2), D('1.13')),
+                (datetime.date(2013, 6, 3), D('1.14')),
+                (datetime.date(2013, 6, 5), D('1.15')),
+                (datetime.date(2013, 6, 6), D('1.16'))]
+    for (exp_date, exp_value), (act_date, act_value) in zip(expected, values):
+        self.assertEqual(exp_date, act_date)
+        self.assertEqual(exp_value, act_value.quantize(D('0.01')))
+
+    self.assertEqual(5, len(price_map[('CAD', 'USD')]))
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.prices_test.TestPriceMap.test_build_price_map_zero_prices">
+<code class="highlight language-python">
+test_build_price_map_zero_prices
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.core.prices_test.TestPriceMap.test_build_price_map_zero_prices" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>1999-12-27 commodity EFA
+2010-10-01 price EFA                                 57.53 EFA
+2010-11-01 price EFA                                     0 EFA
+2011-03-01 price EFA                                 60.69 EFA</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/prices_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_build_price_map_zero_prices(self, entries, _, __):
+    """
+    1999-12-27 commodity EFA
+    2010-10-01 price EFA                                 57.53 EFA
+    2010-11-01 price EFA                                     0 EFA
+    2011-03-01 price EFA                                 60.69 EFA
+    """
+    price_map = prices.build_price_map(entries)
+    self.assertIsNotNone(price_map)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.prices_test.TestPriceMap.test_get_all_prices">
+<code class="highlight language-python">
+test_get_all_prices
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.core.prices_test.TestPriceMap.test_get_all_prices" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-06-01 price  USD  1.01 CAD
+2013-06-03 price  USD  1.03 CAD
+2013-06-05 price  USD  1.05 CAD
+2013-06-07 price  USD  1.07 CAD
+2013-06-09 price  USD  1.09 CAD
+2013-06-11 price  USD  1.11 CAD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/prices_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_get_all_prices(self, entries, _, __):
+    """
+    2013-06-01 price  USD  1.01 CAD
+    2013-06-03 price  USD  1.03 CAD
+    2013-06-05 price  USD  1.05 CAD
+    2013-06-07 price  USD  1.07 CAD
+    2013-06-09 price  USD  1.09 CAD
+    2013-06-11 price  USD  1.11 CAD
+    """
+    price_map = prices.build_price_map(entries)
+    price_list = prices.get_all_prices(price_map, ('USD', 'CAD'))
+    expected = [(datetime.date(2013, 6, 1), D('1.01')),
+                (datetime.date(2013, 6, 3), D('1.03')),
+                (datetime.date(2013, 6, 5), D('1.05')),
+                (datetime.date(2013, 6, 7), D('1.07')),
+                (datetime.date(2013, 6, 9), D('1.09')),
+                (datetime.date(2013, 6, 11), D('1.11'))]
+    self.assertEqual(expected, price_list)
+
+    inv_price_list = prices.get_all_prices(price_map, ('CAD', 'USD'))
+    self.assertEqual(len(price_list), len(inv_price_list))
+
+    # Test not found.
+    with self.assertRaises(KeyError):
+        prices.get_all_prices(price_map, ('EWJ', 'JPY'))
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.prices_test.TestPriceMap.test_get_latest_price">
+<code class="highlight language-python">
+test_get_latest_price
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.core.prices_test.TestPriceMap.test_get_latest_price" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-06-01 price  USD  1.01 CAD
+2013-06-09 price  USD  1.09 CAD
+2013-06-11 price  USD  1.11 CAD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/prices_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_get_latest_price(self, entries, _, __):
+    """
+    2013-06-01 price  USD  1.01 CAD
+    2013-06-09 price  USD  1.09 CAD
+    2013-06-11 price  USD  1.11 CAD
+    """
+    price_map = prices.build_price_map(entries)
+    price_list = prices.get_latest_price(price_map, ('USD', 'CAD'))
+    expected = (datetime.date(2013, 6, 11), D('1.11'))
+    self.assertEqual(expected, price_list)
+
+    # Test not found.
+    result = prices.get_latest_price(price_map, ('EWJ', 'JPY'))
+    self.assertEqual((None, None), result)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.prices_test.TestPriceMap.test_get_price">
+<code class="highlight language-python">
+test_get_price
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.core.prices_test.TestPriceMap.test_get_price" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-06-01 price  USD  1.00 CAD
+2013-06-10 price  USD  1.50 CAD
+2013-07-01 price  USD  2.00 CAD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/prices_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_get_price(self, entries, _, __):
+    """
+    2013-06-01 price  USD  1.00 CAD
+    2013-06-10 price  USD  1.50 CAD
+    2013-07-01 price  USD  2.00 CAD
+    """
+    price_map = prices.build_price_map(entries)
+
+    date, price = prices.get_price(price_map, 'USD/CAD', datetime.date(2013, 5, 15))
+    self.assertEqual(None, price)
+    self.assertEqual(None, date)
+
+    date, price = prices.get_price(price_map, 'USD/CAD', datetime.date(2013, 6, 1))
+    self.assertEqual(D('1.00'), price)
+    self.assertEqual(datetime.date(2013, 6, 1), date)
+
+    date, price = prices.get_price(price_map, 'USD/CAD', datetime.date(2013, 6, 5))
+    self.assertEqual(D('1.00'), price)
+    self.assertEqual(datetime.date(2013, 6, 1), date)
+
+    date, price = prices.get_price(price_map, 'USD/CAD', datetime.date(2013, 6, 10))
+    self.assertEqual(D('1.50'), price)
+    self.assertEqual(datetime.date(2013, 6, 10), date)
+
+    date, price = prices.get_price(price_map, 'USD/CAD', datetime.date(2013, 6, 20))
+    self.assertEqual(D('1.50'), price)
+    self.assertEqual(datetime.date(2013, 6, 10), date)
+
+    date, price = prices.get_price(price_map, 'USD/CAD', datetime.date(2013, 7, 1))
+    self.assertEqual(D('2.00'), price)
+    self.assertEqual(datetime.date(2013, 7, 1), date)
+
+    date, price = prices.get_price(price_map, 'USD/CAD', datetime.date(2013, 7, 15))
+    self.assertEqual(D('2.00'), price)
+    self.assertEqual(datetime.date(2013, 7, 1), date)
+
+    # With no date, should devolved to get_latest_price().
+    date, price = prices.get_price(price_map, 'USD/CAD', None)
+    self.assertEqual(D('2.00'), price)
+    self.assertEqual(datetime.date(2013, 7, 1), date)
+
+    # Test not found.
+    result = prices.get_price(price_map, ('EWJ', 'JPY'))
+    self.assertEqual((None, None), result)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.prices_test.TestPriceMap.test_lookup_price_and_inverse">
+<code class="highlight language-python">
+test_lookup_price_and_inverse
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.core.prices_test.TestPriceMap.test_lookup_price_and_inverse" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-06-01 price  USD  1.01 CAD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/prices_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_lookup_price_and_inverse(self, entries, _, __):
+    """
+    2013-06-01 price  USD  1.01 CAD
+    """
+    price_map = prices.build_price_map(entries)
+
+    # Ensure that the forward exception includes the forward detail.
+    try:
+        prices._lookup_price_and_inverse(price_map, ('EUR', 'USD'))
+        self.fail("Exception not raised")
+    except KeyError as exc:
+        self.assertRegex(str(exc), "('EUR', 'USD')")
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.prices_test.TestPriceMap.test_ordering_same_date">
+<code class="highlight language-python">
+test_ordering_same_date
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.core.prices_test.TestPriceMap.test_ordering_same_date" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>;; The last one to appear in the file should be selected.
+2013-06-02 price  USD  1.13 CAD
+2013-06-02 price  USD  1.12 CAD
+2013-06-02 price  USD  1.11 CAD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/prices_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_ordering_same_date(self, entries, _, __):
+    """
+    ;; The last one to appear in the file should be selected.
+    2013-06-02 price  USD  1.13 CAD
+    2013-06-02 price  USD  1.12 CAD
+    2013-06-02 price  USD  1.11 CAD
+    """
+    price_map = prices.build_price_map(entries)
+
+    self.assertEqual(2, len(price_map))
+    self.assertEqual(set([('USD', 'CAD'), ('CAD', 'USD')]),
+                     set(price_map.keys()))
+
+    values = price_map[('USD', 'CAD')]
+    expected = [(datetime.date(2013, 6, 2), D('1.11'))]
+    for (exp_date, exp_value), (act_date, act_value) in zip(expected, values):
+        self.assertEqual(exp_date, act_date)
+        self.assertEqual(exp_value, act_value.quantize(D('0.01')))
+
+    self.assertEqual(1, len(price_map[('CAD', 'USD')]))
+</code></pre>
+</details>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -17238,6 +18889,607 @@ balance on the realization.</p>
 <div class="doc doc-contents">
 <p>Unit tests for realizations.</p>
 <div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.core.realization_test.TestComputeBalance">
+<code>TestComputeBalance</code>
+<a class="headerlink" href="#beancount.core.realization_test.TestComputeBalance" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.realization_test.TestComputeBalance.test_compute_postings_balance">
+<code class="highlight language-python">
+test_compute_postings_balance
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.core.realization_test.TestComputeBalance.test_compute_postings_balance" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-01-01 open Assets:Bank:Checking
+2014-01-01 open Assets:Bank:Savings
+2014-01-01 open Assets:Investing
+2014-01-01 open Assets:Other</p>
+<p>2014-05-26 note Assets:Investing "Buying some shares"</p>
+<p>2014-05-30 *
+  Assets:Bank:Checking  111.23 USD
+  Assets:Bank:Savings   222.74 USD
+  Assets:Bank:Savings   17.23 CAD
+  Assets:Investing      10000 EUR
+  Assets:Investing      32 HOOL {45.203 USD}
+  Assets:Other          1000 EUR @ 1.78 GBP
+  Assets:Other          1000 EUR @@ 1780 GBP</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/realization_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_compute_postings_balance(self, entries, _, __):
+    """
+    2014-01-01 open Assets:Bank:Checking
+    2014-01-01 open Assets:Bank:Savings
+    2014-01-01 open Assets:Investing
+    2014-01-01 open Assets:Other
+
+    2014-05-26 note Assets:Investing "Buying some shares"
+
+    2014-05-30 *
+      Assets:Bank:Checking  111.23 USD
+      Assets:Bank:Savings   222.74 USD
+      Assets:Bank:Savings   17.23 CAD
+      Assets:Investing      10000 EUR
+      Assets:Investing      32 HOOL {45.203 USD}
+      Assets:Other          1000 EUR @ 1.78 GBP
+      Assets:Other          1000 EUR @@ 1780 GBP
+    """
+    postings = entries[:-1] + entries[-1].postings
+    computed_balance = realization.compute_postings_balance(postings)
+
+    expected_balance = inventory.Inventory()
+    expected_balance.add_amount(A('333.97 USD'))
+    expected_balance.add_amount(A('17.23 CAD'))
+    expected_balance.add_amount(A('32 HOOL'),
+                                position.Cost(D('45.203'), 'USD',
+                                              datetime.date(2014, 5, 30), None))
+    expected_balance.add_amount(A('12000 EUR'))
+    self.assertEqual(expected_balance, computed_balance)
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.core.realization_test.TestFindLastActive">
+<code>TestFindLastActive</code>
+<a class="headerlink" href="#beancount.core.realization_test.TestFindLastActive" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.realization_test.TestFindLastActive.test_find_last_active_posting">
+<code class="highlight language-python">
+test_find_last_active_posting
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.core.realization_test.TestFindLastActive.test_find_last_active_posting" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2012-01-01 open Assets:Target
+2012-01-01 open Equity:Other</p>
+<p>2014-02-01 *
+  Assets:Target            123.45 CAD
+  Equity:Other</p>
+<p>2014-03-01 U "This should get ignored because of the unrealized flag."
+  Assets:Target            -23.45 CAD
+  Equity:Other</p>
+<p>;; This should get ignored because it's not one of the directives checked for
+;; active.
+2014-03-02 event "location" "Somewhere, Somewhereland"</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/realization_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_find_last_active_posting(self, entries, _, __):
+    """
+    2012-01-01 open Assets:Target
+    2012-01-01 open Equity:Other
+
+    2014-02-01 *
+      Assets:Target            123.45 CAD
+      Equity:Other
+
+    2014-03-01 U "This should get ignored because of the unrealized flag."
+      Assets:Target            -23.45 CAD
+      Equity:Other
+
+    ;; This should get ignored because it's not one of the directives checked for
+    ;; active.
+    2014-03-02 event "location" "Somewhere, Somewhereland"
+    """
+    real_account = realization.realize(entries)
+    txn_postings = realization.get(real_account, 'Assets:Target').txn_postings
+    txn_posting = realization.find_last_active_posting(txn_postings)
+    self.assertEqual(datetime.date(2014, 2, 1), txn_posting.txn.date)
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.core.realization_test.TestRealization">
+<code>TestRealization</code>
+<a class="headerlink" href="#beancount.core.realization_test.TestRealization" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.realization_test.TestRealization.test_postings_by_account">
+<code class="highlight language-python">
+test_postings_by_account
+(self, entries, errors, _)
+
+        </code>
+<a class="headerlink" href="#beancount.core.realization_test.TestRealization.test_postings_by_account" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>option "plugin_processing_mode" "raw"</p>
+<p>2012-01-01 open Expenses:Restaurant
+2012-01-01 open Expenses:Movie
+2012-01-01 open Assets:Cash
+2012-01-01 open Liabilities:CreditCard
+2012-01-01 open Equity:Opening-Balances</p>
+<p>2012-01-15 pad Liabilities:CreditCard Equity:Opening-Balances</p>
+<p>2012-03-01 * "Food"
+  Expenses:Restaurant     100 CAD
+  Assets:Cash            -100 CAD</p>
+<p>2012-03-10 * "Food again"
+  Expenses:Restaurant      80 CAD
+  Liabilities:CreditCard  -80 CAD</p>
+<p>;; Two postings on the same account.
+2012-03-15 * "Two Movies"
+  Expenses:Movie           10 CAD
+  Expenses:Movie           10 CAD
+  Liabilities:CreditCard  -20 CAD</p>
+<p>2012-03-20 note Liabilities:CreditCard "Called Amex, asked about 100 CAD dinner"</p>
+<p>2012-03-28 document Liabilities:CreditCard "march-statement.pdf"</p>
+<p>2013-04-01 balance Liabilities:CreditCard   204 CAD</p>
+<p>2014-01-01 close Liabilities:CreditCard</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/realization_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_postings_by_account(self, entries, errors, _):
+    """
+    option "plugin_processing_mode" "raw"
+
+    2012-01-01 open Expenses:Restaurant
+    2012-01-01 open Expenses:Movie
+    2012-01-01 open Assets:Cash
+    2012-01-01 open Liabilities:CreditCard
+    2012-01-01 open Equity:Opening-Balances
+
+    2012-01-15 pad Liabilities:CreditCard Equity:Opening-Balances
+
+    2012-03-01 * "Food"
+      Expenses:Restaurant     100 CAD
+      Assets:Cash            -100 CAD
+
+    2012-03-10 * "Food again"
+      Expenses:Restaurant      80 CAD
+      Liabilities:CreditCard  -80 CAD
+
+    ;; Two postings on the same account.
+    2012-03-15 * "Two Movies"
+      Expenses:Movie           10 CAD
+      Expenses:Movie           10 CAD
+      Liabilities:CreditCard  -20 CAD
+
+    2012-03-20 note Liabilities:CreditCard "Called Amex, asked about 100 CAD dinner"
+
+    2012-03-28 document Liabilities:CreditCard "march-statement.pdf"
+
+    2013-04-01 balance Liabilities:CreditCard   204 CAD
+
+    2014-01-01 close Liabilities:CreditCard
+    """
+    self.assertEqual(0, len(errors))
+
+    txn_postings_map = realization.postings_by_account(entries)
+    self.assertTrue(isinstance(txn_postings_map, dict))
+
+    self.assertEqual([data.Open, data.TxnPosting],
+                     list(map(type, txn_postings_map['Assets:Cash'])))
+
+    self.assertEqual([data.Open, data.TxnPosting, data.TxnPosting],
+                     list(map(type, txn_postings_map['Expenses:Restaurant'])))
+
+    self.assertEqual([data.Open,
+                      data.TxnPosting,
+                      data.TxnPosting],
+                     list(map(type, txn_postings_map['Expenses:Movie'])))
+
+    self.assertEqual([data.Open,
+                      data.Pad,
+                      data.TxnPosting, data.TxnPosting, # data.TxnPosting,
+                      data.Note,
+                      data.Document,
+                      data.Balance,
+                      data.Close],
+                     list(map(type, txn_postings_map['Liabilities:CreditCard'])))
+
+    self.assertEqual([data.Open, data.Pad],
+                     list(map(type, txn_postings_map['Equity:Opening-Balances'])))
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.realization_test.TestRealization.test_simple_realize">
+<code class="highlight language-python">
+test_simple_realize
+(self, entries, errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.core.realization_test.TestRealization.test_simple_realize" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-05-01 open Assets:US:Checking:Sub   USD
+2013-05-01 open Expenses:Stuff
+2013-05-02 txn "Testing!"
+  Assets:US:Checking:Sub            100 USD
+  Expenses:Stuff           -100 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/realization_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_simple_realize(self, entries, errors, options_map):
+    """
+      2013-05-01 open Assets:US:Checking:Sub   USD
+      2013-05-01 open Expenses:Stuff
+      2013-05-02 txn "Testing!"
+        Assets:US:Checking:Sub            100 USD
+        Expenses:Stuff           -100 USD
+    """
+    real_root = realization.realize(entries)
+    for real_account in realization.iter_children(real_root):
+        assert isinstance(real_account, realization.RealAccount)
+
+    for account_name in ['Assets:US:Checking:Sub',
+                         'Expenses:Stuff']:
+        real_account = realization.get(real_root, account_name)
+        self.assertEqual(account_name, real_account.account)
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.core.realization_test.TestRealOther">
+<code>TestRealOther</code>
+<a class="headerlink" href="#beancount.core.realization_test.TestRealOther" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.realization_test.TestRealOther.test_dump">
+<code class="highlight language-python">
+test_dump
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.core.realization_test.TestRealOther.test_dump" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2012-01-01 open Assets:Bank1:Checking
+2012-01-01 open Assets:Bank1:Savings
+2012-01-01 open Assets:Bank2:Checking
+2012-01-01 open Expenses:Restaurant
+2012-01-01 open Expenses:Movie
+2012-01-01 open Liabilities:CreditCard
+2012-01-01 open Equity:Opening-Balances</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/realization_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_dump(self, entries, _, __):
+    """
+    2012-01-01 open Assets:Bank1:Checking
+    2012-01-01 open Assets:Bank1:Savings
+    2012-01-01 open Assets:Bank2:Checking
+    2012-01-01 open Expenses:Restaurant
+    2012-01-01 open Expenses:Movie
+    2012-01-01 open Liabilities:CreditCard
+    2012-01-01 open Equity:Opening-Balances
+    """
+    real_account = realization.realize(entries)
+    lines = realization.dump(real_account)
+    self.assertEqual([
+        ('|-- Assets              ',
+         '|   |                   '),
+        ('|   |-- Bank1           ',
+         '|   |   |               '),
+        ('|   |   |-- Checking    ',
+         '|   |   |               '),
+        ('|   |   `-- Savings     ',
+         '|   |                   '),
+        ('|   `-- Bank2           ',
+         '|       |               '),
+        ('|       `-- Checking    ',
+         '|                       '),
+        ('|-- Equity              ',
+         '|   |                   '),
+        ('|   `-- Opening-Balances',
+         '|                       '),
+        ('|-- Expenses            ',
+         '|   |                   '),
+        ('|   |-- Movie           ',
+         '|   |                   '),
+        ('|   `-- Restaurant      ',
+         '|                       '),
+        ('`-- Liabilities         ',
+         '    |                   '),
+        ('    `-- CreditCard      ',
+         '                        '),
+        ], [(first_line, cont_line)
+            for first_line, cont_line, _1 in lines])
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.realization_test.TestRealOther.test_dump_balances">
+<code class="highlight language-python">
+test_dump_balances
+(self, entries, _, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.core.realization_test.TestRealOther.test_dump_balances" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2012-01-01 open Expenses:Restaurant
+2012-01-01 open Liabilities:US:CreditCard
+2012-01-01 open Liabilities:CA:CreditCard</p>
+<p>2014-05-30 *
+  Liabilities:CA:CreditCard   123.45 CAD
+  Expenses:Restaurant</p>
+<p>2014-05-31 *
+  Liabilities:US:CreditCard   123.45 USD
+  Expenses:Restaurant</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/realization_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_dump_balances(self, entries, _, options_map):
+    """
+    2012-01-01 open Expenses:Restaurant
+    2012-01-01 open Liabilities:US:CreditCard
+    2012-01-01 open Liabilities:CA:CreditCard
+
+    2014-05-30 *
+      Liabilities:CA:CreditCard   123.45 CAD
+      Expenses:Restaurant
+
+    2014-05-31 *
+      Liabilities:US:CreditCard   123.45 USD
+      Expenses:Restaurant
+
+    """
+    real_account = realization.realize(entries)
+    dformat = options_map['dcontext'].build(alignment=display_context.Align.DOT,
+                                            reserved=2)
+    self.assertLines("""
+        |-- Expenses
+        |   `-- Restaurant          -123.45 CAD
+        |                           -123.45 USD
+        `-- Liabilities
+            |-- CA
+            |   `-- CreditCard       123.45 CAD
+            `-- US
+                `-- CreditCard       123.45 USD
+    """, realization.dump_balances(real_account, dformat))
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.realization_test.TestRealOther.test_get_postings">
+<code class="highlight language-python">
+test_get_postings
+(self, entries, errors, _)
+
+        </code>
+<a class="headerlink" href="#beancount.core.realization_test.TestRealOther.test_get_postings" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>option "plugin_processing_mode" "raw"</p>
+<p>2012-01-01 open Assets:Bank:Checking
+2012-01-01 open Expenses:Restaurant
+2012-01-01 open Expenses:Movie
+2012-01-01 open Liabilities:CreditCard
+2012-01-01 open Equity:Opening-Balances</p>
+<p>2012-01-15 pad Assets:Bank:Checking Equity:Opening-Balances</p>
+<p>2012-03-01 * "Food"
+  Expenses:Restaurant     11.11 CAD
+  Assets:Bank:Checking   -11.11 CAD</p>
+<p>2012-03-05 * "Food"
+  Expenses:Movie         22.22 CAD
+  Assets:Bank:Checking  -22.22 CAD</p>
+<p>2012-03-10 * "Paying off credit card"
+  Assets:Bank:Checking     -33.33 CAD
+  Liabilities:CreditCard    33.33 CAD</p>
+<p>2012-03-20 note Assets:Bank:Checking "Bla bla 444.44"</p>
+<p>2013-04-01 balance Assets:Bank:Checking   555.00 CAD</p>
+<p>2013-04-20 price CAD 0.91 USD</p>
+<p>2013-04-21 event "location" "Somewhere, USA"</p>
+<p>2013-04-22 custom "customentry" Assets:Bank:Checking
+2013-04-22 custom "customentry" "just a string, no account"</p>
+<p>2013-05-01 close Assets:Bank:Checking</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/realization_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_get_postings(self, entries, errors, _):
+    """
+    option "plugin_processing_mode" "raw"
+
+    2012-01-01 open Assets:Bank:Checking
+    2012-01-01 open Expenses:Restaurant
+    2012-01-01 open Expenses:Movie
+    2012-01-01 open Liabilities:CreditCard
+    2012-01-01 open Equity:Opening-Balances
+
+    2012-01-15 pad Assets:Bank:Checking Equity:Opening-Balances
+
+    2012-03-01 * "Food"
+      Expenses:Restaurant     11.11 CAD
+      Assets:Bank:Checking   -11.11 CAD
+
+    2012-03-05 * "Food"
+      Expenses:Movie         22.22 CAD
+      Assets:Bank:Checking  -22.22 CAD
+
+    2012-03-10 * "Paying off credit card"
+      Assets:Bank:Checking     -33.33 CAD
+      Liabilities:CreditCard    33.33 CAD
+
+    2012-03-20 note Assets:Bank:Checking "Bla bla 444.44"
+
+    2013-04-01 balance Assets:Bank:Checking   555.00 CAD
+
+    2013-04-20 price CAD 0.91 USD
+
+    2013-04-21 event "location" "Somewhere, USA"
+
+    2013-04-22 custom "customentry" Assets:Bank:Checking
+    2013-04-22 custom "customentry" "just a string, no account"
+
+    2013-05-01 close Assets:Bank:Checking
+    """
+    real_account = realization.realize(entries)
+    postings = list(realization.get_postings(real_account))
+
+    for (exp_type, exp_account, exp_number), entpost in zip([
+            (data.Open, 'Assets:Bank:Checking', None),
+            (data.Open, 'Expenses:Restaurant', None),
+            (data.Open, 'Expenses:Movie', None),
+            (data.Open, 'Liabilities:CreditCard', None),
+            (data.Open, 'Equity:Opening-Balances', None),
+            (data.Pad, 'Assets:Bank:Checking', None),
+            #(data.TxnPosting, 'Assets:Bank:Checking', '621.66'),
+            (data.Pad, 'Assets:Bank:Checking', None),
+            #(data.TxnPosting, 'Equity:Opening-Balances', '-621.66'),
+            (data.TxnPosting, 'Assets:Bank:Checking', '-11.11'),
+            (data.TxnPosting, 'Expenses:Restaurant', '11.11'),
+            (data.TxnPosting, 'Assets:Bank:Checking', '-22.22'),
+            (data.TxnPosting, 'Expenses:Movie', '22.22'),
+            (data.TxnPosting, 'Assets:Bank:Checking', '-33.33'),
+            (data.TxnPosting, 'Liabilities:CreditCard', '33.33'),
+            (data.Note, 'Assets:Bank:Checking', None),
+            (data.Balance, 'Assets:Bank:Checking', None),
+            (data.Custom, None, None),
+            (data.Close, 'Assets:Bank:Checking', None),
+    ], postings):
+        self.assertEqual(exp_type, type(entpost))
+        if isinstance(entpost, data.TxnPosting):
+            entpost = entpost.posting
+        if exp_account:
+            self.assertEqual(exp_account, entpost.account)
+        if exp_number:
+            self.assertEqual(D(exp_number), entpost.units.number)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.core.realization_test.TestRealOther.test_iterate_with_balance">
+<code class="highlight language-python">
+test_iterate_with_balance
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.core.realization_test.TestRealOther.test_iterate_with_balance" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2012-01-01 open Assets:Bank:Checking
+2012-01-01 open Expenses:Restaurant
+2012-01-01 open Equity:Opening-Balances</p>
+<p>2012-01-15 pad Assets:Bank:Checking Equity:Opening-Balances</p>
+<p>2012-01-20 balance Assets:Bank:Checking  20.00 USD</p>
+<p>2012-03-01 * "With a single entry"
+  Expenses:Restaurant     11.11 CAD
+  Assets:Bank:Checking</p>
+<p>2012-03-02 * "With two entries"
+  Expenses:Restaurant     20.01 CAD
+  Expenses:Restaurant     20.02 CAD
+  Assets:Bank:Checking</p>
+<p>2012-03-02 note Expenses:Restaurant  "This was good"</p>
+<p>2012-04-01 balance Expenses:Restaurant  51.14 CAD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/core/realization_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_iterate_with_balance(self, entries, _, __):
+    """
+    2012-01-01 open Assets:Bank:Checking
+    2012-01-01 open Expenses:Restaurant
+    2012-01-01 open Equity:Opening-Balances
+
+    2012-01-15 pad Assets:Bank:Checking Equity:Opening-Balances
+
+    2012-01-20 balance Assets:Bank:Checking  20.00 USD
+
+    2012-03-01 * "With a single entry"
+      Expenses:Restaurant     11.11 CAD
+      Assets:Bank:Checking
+
+    2012-03-02 * "With two entries"
+      Expenses:Restaurant     20.01 CAD
+      Expenses:Restaurant     20.02 CAD
+      Assets:Bank:Checking
+
+    2012-03-02 note Expenses:Restaurant  "This was good"
+
+    2012-04-01 balance Expenses:Restaurant  51.14 CAD
+    """
+    root_account = realization.realize(entries)
+    real_account = realization.get(root_account, 'Expenses:Restaurant')
+
+    def simplify_rtuple(rtuple):
+        return [(type(entry), len(postings), str(change), str(balance))
+                for entry, postings, change, balance in rtuple]
+
+    # Surprisingly enough, this covers all the legal cases that occur in
+    # practice (checked for full coverage manually if you like).
+    # pylint: disable=bad-whitespace
+    rtuple = realization.iterate_with_balance(real_account.txn_postings[:-2])
+    self.assertEqual([
+        (data.Open        , 0 , '()'          , '()')          ,
+        (data.Transaction , 1 , '(11.11 CAD)' , '(11.11 CAD)') ,
+        (data.Transaction , 2 , '(40.03 CAD)' , '(51.14 CAD)') ,
+        ], simplify_rtuple(rtuple))
+
+    # Test it again with the final balance entry.
+    rtuple = realization.iterate_with_balance(real_account.txn_postings)
+    self.assertEqual([
+        (data.Open        , 0 , '()'          , '()')          ,
+        (data.Transaction , 1 , '(11.11 CAD)' , '(11.11 CAD)') ,
+        (data.Transaction , 2 , '(40.03 CAD)' , '(51.14 CAD)') ,
+        (data.Note        , 0 , '()'          , '(51.14 CAD)') ,
+        (data.Balance     , 0 , '()'          , '(51.14 CAD)') ,
+        ], simplify_rtuple(rtuple))
+
+    # Test it out with valid input but with entries for the same transaction
+    # separated by another entry. Swap the balance entry with the last
+    # posting entry to test this.
+    postings = list(real_account.txn_postings)
+    postings[-3], postings[-2] = postings[-2], postings[-3]
+    rtuple = realization.iterate_with_balance(postings)
+    self.assertEqual([
+        (data.Open        , 0 , '()'          , '()')          ,
+        (data.Transaction , 1 , '(11.11 CAD)' , '(11.11 CAD)') ,
+        (data.Transaction , 2 , '(40.03 CAD)' , '(51.14 CAD)') ,
+        (data.Note        , 0 , '()'          , '(51.14 CAD)') ,
+        (data.Balance     , 0 , '()'          , '(51.14 CAD)') ,
+        ], simplify_rtuple(rtuple))
+
+    # Go one step further and test it out with invalid date ordering.
+    postings = list(real_account.txn_postings)
+    postings[-1], postings[-2] = postings[-2], postings[-1]
+    with self.assertRaises(AssertionError):
+        list(realization.iterate_with_balance(postings))
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>

@@ -200,6 +200,18 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#beancount.prices.find_prices_test">find_prices_test</a>
 <ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.prices.find_prices_test.TestFilters">TestFilters</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.prices.find_prices_test.TestFilters.test_get_price_jobs__date">test_get_price_jobs__date()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.prices.find_prices_test.TestFilters.test_get_price_jobs__default_source">test_get_price_jobs__default_source()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.prices.find_prices_test.TestFilters.test_get_price_jobs__inactive">test_get_price_jobs__inactive()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.prices.find_prices_test.TestFilters.test_get_price_jobs__undeclared">test_get_price_jobs__undeclared()</a>
+</li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.prices.find_prices_test.TestFromFile">TestFromFile</a>
 <ul>
 <li class="toctree-l4"><a class="reference internal" href="#beancount.prices.find_prices_test.TestFromFile.setUp">setUp()</a>
@@ -237,6 +249,12 @@
 <li class="toctree-l3"><a class="reference internal" href="#beancount.prices.price_test.TestInverted">TestInverted</a>
 <ul>
 <li class="toctree-l4"><a class="reference internal" href="#beancount.prices.price_test.TestInverted.setUp">setUp()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.prices.price_test.TestProcessArguments">TestProcessArguments</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.prices.price_test.TestProcessArguments.test_explicit_file__badcontents">test_explicit_file__badcontents()</a>
 </li>
 </ul>
 </li>
@@ -1720,6 +1738,231 @@ this source.</p>
 <p>Tests for price finding routines.</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.prices.find_prices_test.TestFilters">
+<code>TestFilters</code>
+<a class="headerlink" href="#beancount.prices.find_prices_test.TestFilters" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.prices.find_prices_test.TestFilters.test_get_price_jobs__date">
+<code class="highlight language-python">
+test_get_price_jobs__date
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.prices.find_prices_test.TestFilters.test_get_price_jobs__date" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2000-01-10 open Assets:US:Invest:QQQ
+2000-01-10 open Assets:US:Invest:VEA
+2000-01-10 open Assets:US:Invest:Margin</p>
+<p>2014-01-01 commodity QQQ
+  price: "USD:yahoo/NASDAQ:QQQ"</p>
+<p>2014-01-01 commodity VEA
+  price: "USD:yahoo/NASDAQ:VEA"</p>
+<p>2014-02-06 *
+  Assets:US:Invest:QQQ             100 QQQ {86.23 USD}
+  Assets:US:Invest:VEA             200 VEA {43.22 USD}
+  Assets:US:Invest:Margin</p>
+<p>2014-08-07 *
+  Assets:US:Invest:QQQ            -100 QQQ {86.23 USD} @ 91.23 USD
+  Assets:US:Invest:Margin</p>
+<p>2015-01-15 *
+  Assets:US:Invest:QQQ              10 QQQ {92.32 USD}
+  Assets:US:Invest:VEA            -200 VEA {43.22 USD} @ 41.01 USD
+  Assets:US:Invest:Margin</p>
+<details class="quote">
+<summary>Source code in <code>beancount/prices/find_prices_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_get_price_jobs__date(self, entries, _, __):
+    """
+    2000-01-10 open Assets:US:Invest:QQQ
+    2000-01-10 open Assets:US:Invest:VEA
+    2000-01-10 open Assets:US:Invest:Margin
+
+    2014-01-01 commodity QQQ
+      price: "USD:yahoo/NASDAQ:QQQ"
+
+    2014-01-01 commodity VEA
+      price: "USD:yahoo/NASDAQ:VEA"
+
+    2014-02-06 *
+      Assets:US:Invest:QQQ             100 QQQ {86.23 USD}
+      Assets:US:Invest:VEA             200 VEA {43.22 USD}
+      Assets:US:Invest:Margin
+
+    2014-08-07 *
+      Assets:US:Invest:QQQ            -100 QQQ {86.23 USD} @ 91.23 USD
+      Assets:US:Invest:Margin
+
+    2015-01-15 *
+      Assets:US:Invest:QQQ              10 QQQ {92.32 USD}
+      Assets:US:Invest:VEA            -200 VEA {43.22 USD} @ 41.01 USD
+      Assets:US:Invest:Margin
+    """
+    jobs = find_prices.get_price_jobs_at_date(entries, datetime.date(2014, 1, 1),
+                                              False, None)
+    self.assertEqual(set(), {(job.base, job.quote) for job in jobs})
+
+    jobs = find_prices.get_price_jobs_at_date(entries, datetime.date(2014, 6, 1),
+                                              False, None)
+    self.assertEqual({('QQQ', 'USD'), ('VEA', 'USD')},
+                     {(job.base, job.quote) for job in jobs})
+
+    jobs = find_prices.get_price_jobs_at_date(entries, datetime.date(2014, 10, 1),
+                                              False, None)
+    self.assertEqual({('VEA', 'USD')},
+                     {(job.base, job.quote) for job in jobs})
+
+    jobs = find_prices.get_price_jobs_at_date(entries, None, False, None)
+    self.assertEqual({('QQQ', 'USD')}, {(job.base, job.quote) for job in jobs})
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.prices.find_prices_test.TestFilters.test_get_price_jobs__default_source">
+<code class="highlight language-python">
+test_get_price_jobs__default_source
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.prices.find_prices_test.TestFilters.test_get_price_jobs__default_source" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2000-01-10 open Assets:US:Invest:QQQ
+2000-01-10 open Assets:US:Invest:Margin</p>
+<p>2014-01-01 commodity QQQ
+  price: "NASDAQ:QQQ"</p>
+<p>2014-02-06 *
+  Assets:US:Invest:QQQ             100 QQQ {86.23 USD}
+  Assets:US:Invest:Margin</p>
+<details class="quote">
+<summary>Source code in <code>beancount/prices/find_prices_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_get_price_jobs__default_source(self, entries, _, __):
+    """
+    2000-01-10 open Assets:US:Invest:QQQ
+    2000-01-10 open Assets:US:Invest:Margin
+
+    2014-01-01 commodity QQQ
+      price: "NASDAQ:QQQ"
+
+    2014-02-06 *
+      Assets:US:Invest:QQQ             100 QQQ {86.23 USD}
+      Assets:US:Invest:Margin
+    """
+    jobs = find_prices.get_price_jobs_at_date(entries, None, False, 'yahoo')
+    self.assertEqual(1, len(jobs[0].sources))
+    self.assertIsInstance(jobs[0].sources[0], find_prices.PriceSource)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.prices.find_prices_test.TestFilters.test_get_price_jobs__inactive">
+<code class="highlight language-python">
+test_get_price_jobs__inactive
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.prices.find_prices_test.TestFilters.test_get_price_jobs__inactive" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2000-01-10 open Assets:US:Invest:QQQ
+2000-01-10 open Assets:US:Invest:VEA
+2000-01-10 open Assets:US:Invest:Margin</p>
+<p>2014-01-01 commodity QQQ
+  price: "USD:yahoo/NASDAQ:QQQ"</p>
+<p>2014-01-01 commodity VEA
+  price: "USD:yahoo/NASDAQ:VEA"</p>
+<p>2014-02-06 *
+  Assets:US:Invest:QQQ             100 QQQ {86.23 USD}
+  Assets:US:Invest:VEA             200 VEA {43.22 USD}
+  Assets:US:Invest:Margin</p>
+<p>2014-08-07 *
+  Assets:US:Invest:QQQ            -100 QQQ {86.23 USD} @ 91.23 USD
+  Assets:US:Invest:Margin</p>
+<details class="quote">
+<summary>Source code in <code>beancount/prices/find_prices_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_get_price_jobs__inactive(self, entries, _, __):
+    """
+    2000-01-10 open Assets:US:Invest:QQQ
+    2000-01-10 open Assets:US:Invest:VEA
+    2000-01-10 open Assets:US:Invest:Margin
+
+    2014-01-01 commodity QQQ
+      price: "USD:yahoo/NASDAQ:QQQ"
+
+    2014-01-01 commodity VEA
+      price: "USD:yahoo/NASDAQ:VEA"
+
+    2014-02-06 *
+      Assets:US:Invest:QQQ             100 QQQ {86.23 USD}
+      Assets:US:Invest:VEA             200 VEA {43.22 USD}
+      Assets:US:Invest:Margin
+
+    2014-08-07 *
+      Assets:US:Invest:QQQ            -100 QQQ {86.23 USD} @ 91.23 USD
+      Assets:US:Invest:Margin
+    """
+    jobs = find_prices.get_price_jobs_at_date(entries, None, False, None)
+    self.assertEqual({('VEA', 'USD')}, {(job.base, job.quote) for job in jobs})
+
+    jobs = find_prices.get_price_jobs_at_date(entries, None, True, None)
+    self.assertEqual({('VEA', 'USD'), ('QQQ', 'USD')},
+                     {(job.base, job.quote) for job in jobs})
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.prices.find_prices_test.TestFilters.test_get_price_jobs__undeclared">
+<code class="highlight language-python">
+test_get_price_jobs__undeclared
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.prices.find_prices_test.TestFilters.test_get_price_jobs__undeclared" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2000-01-10 open Assets:US:Invest:QQQ
+2000-01-10 open Assets:US:Invest:VEA
+2000-01-10 open Assets:US:Invest:Margin</p>
+<p>2014-01-01 commodity QQQ
+  price: "USD:yahoo/NASDAQ:QQQ"</p>
+<p>2014-02-06 *
+  Assets:US:Invest:QQQ             100 QQQ {86.23 USD}
+  Assets:US:Invest:VEA             200 VEA {43.22 USD}
+  Assets:US:Invest:Margin</p>
+<details class="quote">
+<summary>Source code in <code>beancount/prices/find_prices_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_get_price_jobs__undeclared(self, entries, _, __):
+    """
+    2000-01-10 open Assets:US:Invest:QQQ
+    2000-01-10 open Assets:US:Invest:VEA
+    2000-01-10 open Assets:US:Invest:Margin
+
+    2014-01-01 commodity QQQ
+      price: "USD:yahoo/NASDAQ:QQQ"
+
+    2014-02-06 *
+      Assets:US:Invest:QQQ             100 QQQ {86.23 USD}
+      Assets:US:Invest:VEA             200 VEA {43.22 USD}
+      Assets:US:Invest:Margin
+    """
+    jobs = find_prices.get_price_jobs_at_date(entries, None, False, None)
+    self.assertEqual({('QQQ', 'USD')}, {(job.base, job.quote) for job in jobs})
+
+    jobs = find_prices.get_price_jobs_at_date(entries, None, False, 'yahoo')
+    self.assertEqual({('QQQ', 'USD'), ('VEA', 'USD')},
+                     {(job.base, job.quote) for job in jobs})
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.prices.find_prices_test.TestFromFile">
 <code>TestFromFile</code>
 <a class="headerlink" href="#beancount.prices.find_prices_test.TestFromFile" title="Permanent link"></a></h3>
@@ -1734,7 +1977,49 @@ setUp
         </code>
 <a class="headerlink" href="#beancount.prices.find_prices_test.TestFromFile.setUp" title="Permanent link"></a></h4>
 <div class="doc doc-contents">
-<p>Hook method for setting up the test fixture before exercising it.</p>
+<p>2000-01-10 open Assets:US:Investments:QQQ
+2000-01-10 open Assets:CA:Investments:XSP
+2000-01-10 open Assets:Cash
+2000-01-10 open Assets:External
+2000-01-10 open Expenses:Foreign</p>
+<p>2010-01-01 commodity USD</p>
+<p>2010-01-01 commodity QQQ
+  name: "PowerShares QQQ Trust, Series 1 (ETF)"
+  price: "USD:yahoo/NASDAQ:QQQ"</p>
+<p>2010-01-01 commodity XSP
+  name: "iShares S&amp;P 500 Index Fund (CAD Hedged)"
+  quote: CAD</p>
+<p>2010-01-01 commodity AMTKPTS
+  quote: USD
+  price: ""</p>
+<p>2015-02-06 *
+  Assets:Cash                     1505.00 USD
+  Assets:External                -1000.00 GBP @ 1.5050 USD</p>
+<p>2015-02-08 price GBP  1.5050 USD
+2015-02-08 price GBP  1.8301 CAD</p>
+<p>2015-04-13 *
+  Assets:US:Investments:QQQ             3 QQQ {107.48 USD}
+  Assets:Cash</p>
+<p>2015-05-22 *
+  Assets:Cash                     1000.00 USD @ 1.2283 CAD
+  Assets:External                -1228.30 CAD</p>
+<p>2015-09-04 *
+  Assets:US:Investments:QQQ             2 QQQ {101.16 USD}
+  Assets:Cash</p>
+<p>2015-11-07 *
+  Assets:CA:Investments:XSP             2 XSP {24.28 CAD}
+  Assets:Cash</p>
+<p>2015-12-02 *
+  Assets:CA:Investments:XSP            -2 XSP {24.28 CAD} @ 27.00 CAD
+  Assets:Cash</p>
+<p>2015-12-03 price XSP   27.32 USD</p>
+<p>;; Because neither of these currencies remain, they should not be there.
+2015-06-22 *
+  Assets:Cash                         1000.00 EUR @ 140.004 JPY
+  Expenses:Foreign                    -140004 JPY</p>
+<p>2015-10-13 *
+  Assets:Cash                        -1000.00 EUR @ 140.004 JPY
+  Expenses:Foreign                     140004 JPY</p>
 <details class="quote">
 <summary>Source code in <code>beancount/prices/find_prices_test.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">@loader.load_doc()
@@ -2467,7 +2752,17 @@ setUp
         </code>
 <a class="headerlink" href="#beancount.prices.price_test.TestClobber.setUp" title="Permanent link"></a></h4>
 <div class="doc doc-contents">
-<p>Hook method for setting up the test fixture before exercising it.</p>
+<p>;; Existing file.
+2015-01-05 price HDV                                 75.56 USD
+2015-01-23 price HDV                                 77.34 USD
+2015-02-06 price HDV                                 77.16 USD
+2015-02-12 price HDV                                 78.17 USD
+2015-05-01 price HDV                                 77.48 USD
+2015-06-02 price HDV                                 76.33 USD
+2015-06-29 price HDV                                 73.74 USD
+2015-07-06 price HDV                                 73.79 USD
+2015-08-11 price HDV                                 74.19 USD
+2015-09-04 price HDV                                 68.98 USD</p>
 <details class="quote">
 <summary>Source code in <code>beancount/prices/price_test.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">@loader.load_doc()
@@ -2531,6 +2826,42 @@ setUp
     self.dprice = find_prices.DatedPrice('JPY', 'USD', datetime.date(2015, 11, 22),
                                          None)
     self.addCleanup(mock.patch.stopall)
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.prices.price_test.TestProcessArguments">
+<code>TestProcessArguments</code>
+<a class="headerlink" href="#beancount.prices.price_test.TestProcessArguments" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.prices.price_test.TestProcessArguments.test_explicit_file__badcontents">
+<code class="highlight language-python">
+test_explicit_file__badcontents
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.prices.price_test.TestProcessArguments.test_explicit_file__badcontents" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2015-01-01 open Assets:Invest
+2015-01-01 open USD ;; Error</p>
+<details class="quote">
+<summary>Source code in <code>beancount/prices/price_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_explicit_file__badcontents(self, filename):
+    """
+    2015-01-01 open Assets:Invest
+    2015-01-01 open USD ;; Error
+    """
+    with test_utils.capture('stderr'):
+        args, jobs, _, __ = test_utils.run_with_args(
+            price.process_args, ['--no-cache', filename])
+        self.assertEqual([], jobs)
 </code></pre>
 </details>
 </div>

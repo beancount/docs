@@ -248,6 +248,16 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.reports.context_test">context_test</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.reports.context_test.TestContext">TestContext</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.reports.context_test.TestContext.test_context">test_context()</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#beancount.reports.convert_reports">convert_reports</a>
 <ul>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.reports.convert_reports.HLedgerPrinter">HLedgerPrinter</a>
@@ -270,9 +280,21 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#beancount.reports.convert_reports_test">convert_reports_test</a>
 <ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.reports.convert_reports_test.TestHLedgerConversion">TestHLedgerConversion</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.reports.convert_reports_test.TestHLedgerConversion.test_tags_links">test_tags_links()</a>
+</li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.reports.convert_reports_test.TestLedgerConversion">TestLedgerConversion</a>
 <ul>
 <li class="toctree-l4"><a class="reference internal" href="#beancount.reports.convert_reports_test.TestLedgerConversion.check_parses_ledger">check_parses_ledger()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.reports.convert_reports_test.TestLedgerConversion.test_cost_and_foreign_currency">test_cost_and_foreign_currency()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.reports.convert_reports_test.TestLedgerConversion.test_simple">test_simple()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.reports.convert_reports_test.TestLedgerConversion.test_tags_links">test_tags_links()</a>
 </li>
 </ul>
 </li>
@@ -320,6 +342,48 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#beancount.reports.export_reports_test">export_reports_test</a>
 <ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.reports.export_reports_test.TestCommodityClassifications">TestCommodityClassifications</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.reports.export_reports_test.TestCommodityClassifications.test_classify_explicit_cash">test_classify_explicit_cash()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.reports.export_reports_test.TestCommodityClassifications.test_classify_explicit_ignore">test_classify_explicit_ignore()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.reports.export_reports_test.TestCommodityClassifications.test_classify_explicit_symbol">test_classify_explicit_symbol()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.reports.export_reports_test.TestCommodityClassifications.test_classify_implicit">test_classify_implicit()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.reports.export_reports_test.TestCommodityClassifications.test_classify_money">test_classify_money()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.reports.export_reports_test.TestCommodityClassifications.test_classify_ticker">test_classify_ticker()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.reports.export_reports_test.TestCommodityClassifications.test_get_money_instruments">test_get_money_instruments()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.reports.export_reports_test.TestCommodityExport">TestCommodityExport</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.reports.export_reports_test.TestCommodityExport.test_export_aggregate">test_export_aggregate()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.reports.export_reports_test.TestCommodityExport.test_export_cash_at_cost">test_export_cash_at_cost()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.reports.export_reports_test.TestCommodityExport.test_export_cash_at_price">test_export_cash_at_price()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.reports.export_reports_test.TestCommodityExport.test_export_cash_ignored_no_money">test_export_cash_ignored_no_money()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.reports.export_reports_test.TestCommodityExport.test_export_explicit_stock">test_export_explicit_stock()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.reports.export_reports_test.TestCommodityExport.test_export_ignored">test_export_ignored()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.reports.export_reports_test.TestCommodityExport.test_export_implicit_absent">test_export_implicit_absent()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.reports.export_reports_test.TestCommodityExport.test_export_implicit_mutfund">test_export_implicit_mutfund()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.reports.export_reports_test.TestCommodityExport.test_export_implicit_stock">test_export_implicit_stock()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.reports.export_reports_test.TestCommodityExport.test_export_implicit_unspecified">test_export_implicit_unspecified()</a>
+</li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.reports.export_reports_test.TestHoldingsReports">TestHoldingsReports</a>
 <ul>
 <li class="toctree-l4"><a class="reference internal" href="#beancount.reports.export_reports_test.TestHoldingsReports.setUp">setUp()</a>
@@ -538,6 +602,16 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.reports.misc_reports_test">misc_reports_test</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.reports.misc_reports_test.TestMiscReports">TestMiscReports</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.reports.misc_reports_test.TestMiscReports.test_errors">test_errors()</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#beancount.reports.price_reports">price_reports</a>
 <ul>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.reports.price_reports.CommoditiesReport">CommoditiesReport</a>
@@ -584,6 +658,22 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.reports.report_test">report_test</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.reports.report_test.TestScriptPositions">TestScriptPositions</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.reports.report_test.TestScriptPositions.test_all_prices">test_all_prices()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.reports.report_test.TestScriptPositions.test_list_accounts">test_list_accounts()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.reports.report_test.TestScriptPositions.test_print_trial">test_print_trial()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.reports.report_test.TestScriptPositions.test_success">test_success()</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#beancount.reports.table">table</a>
 <ul>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.reports.table.Table">Table</a>
@@ -624,6 +714,12 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#beancount.reports.tree_table_test">tree_table_test</a>
 <ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.reports.tree_table_test.TestActiveAccounts">TestActiveAccounts</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.reports.tree_table_test.TestActiveAccounts.test_is_account_active">test_is_account_active()</a>
+</li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.reports.tree_table_test.TestTables">TestTables</a>
 <ul>
 <li class="toctree-l4"><a class="reference internal" href="#beancount.reports.tree_table_test.TestTables.setUp">setUp()</a>
@@ -2024,7 +2120,7 @@ setUp
         </code>
 <a class="headerlink" href="#beancount.reports.base_test.TestReport.setUp" title="Permanent link"></a></h4>
 <div class="doc doc-contents">
-<p>Hook method for setting up the test fixture before exercising it.</p>
+<p>2014-07-27 open Assets:Example</p>
 <details class="quote">
 <summary>Source code in <code>beancount/reports/base_test.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">@loader.load_doc()
@@ -2140,7 +2236,7 @@ setUp
         </code>
 <a class="headerlink" href="#beancount.reports.base_test.TestTableReport.setUp" title="Permanent link"></a></h4>
 <div class="doc doc-contents">
-<p>Hook method for setting up the test fixture before exercising it.</p>
+<p>2014-07-27 open Assets:Example</p>
 <details class="quote">
 <summary>Source code in <code>beancount/reports/base_test.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">@loader.load_doc()
@@ -2471,6 +2567,153 @@ consumed by the user.</p>
     return render_entry_context(entries, options_map, closest_entry)
 </code></pre>
 </details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
+<h2 class="doc doc-heading" id="beancount.reports.context_test">
+<code>context_test</code>
+<a class="headerlink" href="#beancount.reports.context_test" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.reports.context_test.TestContext">
+<code>TestContext</code>
+<a class="headerlink" href="#beancount.reports.context_test.TestContext" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.reports.context_test.TestContext.test_context">
+<code class="highlight language-python">
+test_context
+(self, entries, errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.reports.context_test.TestContext.test_context" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>plugin "beancount.plugins.implicit_prices"</p>
+<p>2012-01-01 open Assets:US:ETrade:Cash                       USD
+2012-01-01 open Assets:US:ETrade:ITOT                       ITOT
+2012-01-01 open Assets:US:ETrade:GLD                        GLD
+2012-01-01 open Income:US:ETrade:Gains                      USD
+2012-01-01 open Expenses:Financial:Commissions              USD</p>
+<p>2012-08-31 * "Buy shares of GLD"
+  Assets:US:ETrade:Cash              -784.06 USD
+  Assets:US:ETrade:GLD                  7.00 GLD       {110.73 USD}
+  Expenses:Financial:Commissions        8.95 USD</p>
+<p>2012-08-31 * "Buy shares of ITOT"
+  Assets:US:ETrade:Cash              -701.39 USD
+  Assets:US:ETrade:ITOT                 4.00 ITOT       {173.11 USD}
+  Expenses:Financial:Commissions        8.95 USD</p>
+<p>2012-10-13 * "Buy shares of ITOT"
+  Assets:US:ETrade:Cash                                 -2,337.77 USD
+  Assets:US:ETrade:ITOT                13.00 ITOT       {179.14 USD}
+  Expenses:Financial:Commissions        8.95 USD</p>
+<p>2013-02-01 * "Sell shares of ITOT"
+  Assets:US:ETrade:ITOT               -13.00 ITOT       {179.14 USD} @ 186.21 USD
+  Assets:US:ETrade:Cash                                  2,411.78 USD
+  Expenses:Financial:Commissions        8.95 USD
+  Income:US:ETrade:Gains              -91.91 USD</p>
+<p>2013-02-07 * "Buy shares of ITOT"
+  Assets:US:ETrade:Cash                                 -1,126.21 USD
+  Assets:US:ETrade:ITOT                 6.00 ITOT       {186.21 USD}  ;; *
+  Expenses:Financial:Commissions        8.95 USD</p>
+<p>2013-02-07 * "Buy shares of GLD"
+  Assets:US:ETrade:Cash                                 -1,287.70 USD
+  Assets:US:ETrade:GLD                 11.00 GLD       {116.25 USD}
+  Expenses:Financial:Commissions        8.95 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/reports/context_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_context(self, entries, errors, options_map):
+    """
+    plugin "beancount.plugins.implicit_prices"
+
+    2012-01-01 open Assets:US:ETrade:Cash                       USD
+    2012-01-01 open Assets:US:ETrade:ITOT                       ITOT
+    2012-01-01 open Assets:US:ETrade:GLD                        GLD
+    2012-01-01 open Income:US:ETrade:Gains                      USD
+    2012-01-01 open Expenses:Financial:Commissions              USD
+
+    2012-08-31 * "Buy shares of GLD"
+      Assets:US:ETrade:Cash              -784.06 USD
+      Assets:US:ETrade:GLD                  7.00 GLD       {110.73 USD}
+      Expenses:Financial:Commissions        8.95 USD
+
+    2012-08-31 * "Buy shares of ITOT"
+      Assets:US:ETrade:Cash              -701.39 USD
+      Assets:US:ETrade:ITOT                 4.00 ITOT       {173.11 USD}
+      Expenses:Financial:Commissions        8.95 USD
+
+    2012-10-13 * "Buy shares of ITOT"
+      Assets:US:ETrade:Cash                                 -2,337.77 USD
+      Assets:US:ETrade:ITOT                13.00 ITOT       {179.14 USD}
+      Expenses:Financial:Commissions        8.95 USD
+
+    2013-02-01 * "Sell shares of ITOT"
+      Assets:US:ETrade:ITOT               -13.00 ITOT       {179.14 USD} @ 186.21 USD
+      Assets:US:ETrade:Cash                                  2,411.78 USD
+      Expenses:Financial:Commissions        8.95 USD
+      Income:US:ETrade:Gains              -91.91 USD
+
+    2013-02-07 * "Buy shares of ITOT"
+      Assets:US:ETrade:Cash                                 -1,126.21 USD
+      Assets:US:ETrade:ITOT                 6.00 ITOT       {186.21 USD}  ;; *
+      Expenses:Financial:Commissions        8.95 USD
+
+    2013-02-07 * "Buy shares of GLD"
+      Assets:US:ETrade:Cash                                 -1,287.70 USD
+      Assets:US:ETrade:GLD                 11.00 GLD       {116.25 USD}
+      Expenses:Financial:Commissions        8.95 USD
+
+    """
+    self.assertFalse(errors)
+
+    search_filename = entries[0].meta["filename"]
+    search_lineno = entries[-3].meta["lineno"] + 2
+    str_context = context.render_file_context(entries, options_map,
+                                              search_filename, search_lineno)
+
+    self.assertLines(textwrap.dedent("""
+    Hash:a62bcf48b818459f06c6d7f9b78029b4
+    Location: &lt;string&gt;:31
+
+    ------------ Balances before transaction
+
+      Assets:US:ETrade:Cash                       -1411.44 USD
+
+      Assets:US:ETrade:ITOT             4.00 ITOT {173.11 USD, 2012-08-31}
+
+      Expenses:Financial:Commissions                 35.80 USD
+
+
+    ------------ Transaction
+
+    2013-02-07 * "Buy shares of ITOT"
+      Assets:US:ETrade:Cash           -1126.21 USD                            ;  -1126.21 USD
+      Assets:US:ETrade:ITOT               6.00 ITOT {186.21 USD, 2013-02-07}  ; 1117.2600 USD
+      Expenses:Financial:Commissions      8.95 USD                            ;      8.95 USD
+
+
+    Tolerances: ITOT=0.005, USD=0.005
+    Basis: (1117.2600 USD)
+
+    ------------ Balances after transaction
+
+    * Assets:US:ETrade:Cash                      -2537.65 USD
+
+      Assets:US:ETrade:ITOT             4.00 ITOT {173.11 USD, 2012-08-31}
+    * Assets:US:ETrade:ITOT             6.00 ITOT {186.21 USD, 2013-02-07}
+
+    * Expenses:Financial:Commissions                 44.75 USD
+    """), str_context)
+</code></pre>
+</details>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -2869,6 +3112,59 @@ details of the discussion.</p>
 <div class="doc doc-contents">
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.reports.convert_reports_test.TestHLedgerConversion">
+<code>TestHLedgerConversion</code>
+<a class="headerlink" href="#beancount.reports.convert_reports_test.TestHLedgerConversion" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.reports.convert_reports_test.TestHLedgerConversion.test_tags_links">
+<code class="highlight language-python">
+test_tags_links
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.reports.convert_reports_test.TestHLedgerConversion.test_tags_links" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2019-01-25 open Assets:A
+2019-01-25 open Assets:B</p>
+<p>2019-01-25 * "Test tags" #foo ^link2 #bar #baz ^link1
+  Assets:A                       10.00 EUR
+  Assets:B                      -10.00 EUR</p>
+<details class="quote">
+<summary>Source code in <code>beancount/reports/convert_reports_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_tags_links(self, filename):
+    """
+      2019-01-25 open Assets:A
+      2019-01-25 open Assets:B
+
+      2019-01-25 * "Test tags" #foo ^link2 #bar #baz ^link1
+        Assets:A                       10.00 EUR
+        Assets:B                      -10.00 EUR
+    """
+    with test_utils.capture() as stdout:
+        result = test_utils.run_with_args(report.main, [filename, 'hledger'])
+    self.assertEqual(0, result)
+    self.assertLines("""
+      ;; Open: 2019-01-25 close Assets:A
+
+      ;; Open: 2019-01-25 close Assets:B
+
+      2019-01-25 * Test tags
+        ; bar:, baz:, foo:
+        ; Link: link1 link2
+        Assets:A                       10.00 EUR
+        Assets:B                      -10.00 EUR
+    """, stdout.getvalue())
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.reports.convert_reports_test.TestLedgerConversion">
 <code>TestLedgerConversion</code>
 <a class="headerlink" href="#beancount.reports.convert_reports_test.TestLedgerConversion" title="Permanent link"></a></h3>
@@ -2928,6 +3224,165 @@ check_parses_ledger
 </details>
 </div>
 </div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.reports.convert_reports_test.TestLedgerConversion.test_cost_and_foreign_currency">
+<code class="highlight language-python">
+test_cost_and_foreign_currency
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.reports.convert_reports_test.TestLedgerConversion.test_cost_and_foreign_currency" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>plugin "beancount.plugins.implicit_prices"</p>
+<p>2014-01-01 open Assets:CA:Investment:HOOL
+2014-01-01 open Expenses:Commissions
+2014-01-01 open Assets:CA:Investment:Cash</p>
+<p>2014-11-02 * "Buy some stock with foreign currency funds"
+  Assets:CA:Investment:HOOL          5 HOOL {520.0 USD}
+  Expenses:Commissions            9.95 USD
+  Assets:CA:Investment:Cash   -2939.46 CAD @ 0.8879 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/reports/convert_reports_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_cost_and_foreign_currency(self, filename):
+    """
+      plugin "beancount.plugins.implicit_prices"
+
+      2014-01-01 open Assets:CA:Investment:HOOL
+      2014-01-01 open Expenses:Commissions
+      2014-01-01 open Assets:CA:Investment:Cash
+
+      2014-11-02 * "Buy some stock with foreign currency funds"
+        Assets:CA:Investment:HOOL          5 HOOL {520.0 USD}
+        Expenses:Commissions            9.95 USD
+        Assets:CA:Investment:Cash   -2939.46 CAD @ 0.8879 USD
+    """
+    with test_utils.capture() as stdout:
+        result = test_utils.run_with_args(report.main, [filename, 'ledger'])
+    self.assertEqual(0, result)
+    self.assertLines("""
+
+      account Assets:CA:Investment:HOOL
+
+      account Expenses:Commissions
+
+      account Assets:CA:Investment:Cash
+
+      2014-11-02 * Buy some stock with foreign currency funds
+        Assets:CA:Investment:HOOL           5 HOOL {520.0 USD} @ 520.0 USD
+        Expenses:Commissions             9.95 USD
+        Assets:CA:Investment:Cash    -2939.46 CAD @ 0.8879 USD
+        Equity:Rounding             -0.003466 USD
+
+      P 2014-11-02 00:00:00 HOOL    520.0 USD
+
+      P 2014-11-02 00:00:00 CAD    0.8879 USD
+
+    """, stdout.getvalue())
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.reports.convert_reports_test.TestLedgerConversion.test_simple">
+<code class="highlight language-python">
+test_simple
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.reports.convert_reports_test.TestLedgerConversion.test_simple" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>;; All supported features exhibited here.</p>
+<p>2013-01-01 open Expenses:Restaurant
+2013-01-01 open Assets:Cash         USD,CAD</p>
+<p>2014-02-15 price HOOL 500.00 USD</p>
+<p>2014-03-02 * "Something"
+  Expenses:Restaurant   50.02 USD
+  Assets:Cash</p>
+<p>2015-01-01 custom "budget" Expenses:Food  "yearly"  34.43 HRK</p>
+<details class="quote">
+<summary>Source code in <code>beancount/reports/convert_reports_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_simple(self, filename):
+    """
+      ;; All supported features exhibited here.
+
+      2013-01-01 open Expenses:Restaurant
+      2013-01-01 open Assets:Cash         USD,CAD
+
+      2014-02-15 price HOOL 500.00 USD
+
+      2014-03-02 * "Something"
+        Expenses:Restaurant   50.02 USD
+        Assets:Cash
+
+      2015-01-01 custom "budget" Expenses:Food  "yearly"  34.43 HRK
+    """
+    with test_utils.capture() as stdout:
+        result = test_utils.run_with_args(report.main, [filename, 'ledger'])
+    self.assertEqual(0, result)
+    self.assertLines("""
+
+      account Expenses:Restaurant
+
+      account Assets:Cash
+        assert commodity == "USD" | commodity == "CAD"
+
+      P 2014-02-15 00:00:00 HOOL                   500.00 USD
+
+      2014-03-02 * Something
+        Expenses:Restaurant                                                     50.02 USD
+        Assets:Cash                                                            -50.02 USD
+
+    """, stdout.getvalue())
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.reports.convert_reports_test.TestLedgerConversion.test_tags_links">
+<code class="highlight language-python">
+test_tags_links
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.reports.convert_reports_test.TestLedgerConversion.test_tags_links" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2019-01-25 open Assets:A
+2019-01-25 open Assets:B</p>
+<p>2019-01-25 * "Test tags" #foo ^link2 #bar #baz ^link1
+  Assets:A                       10.00 EUR
+  Assets:B                      -10.00 EUR</p>
+<details class="quote">
+<summary>Source code in <code>beancount/reports/convert_reports_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_tags_links(self, filename):
+    """
+      2019-01-25 open Assets:A
+      2019-01-25 open Assets:B
+
+      2019-01-25 * "Test tags" #foo ^link2 #bar #baz ^link1
+        Assets:A                       10.00 EUR
+        Assets:B                      -10.00 EUR
+    """
+    with test_utils.capture() as stdout:
+        result = test_utils.run_with_args(report.main, [filename, 'ledger'])
+    self.assertEqual(0, result)
+    self.assertLines("""
+      account Assets:A
+
+      account Assets:B
+
+      2019-01-25 * Test tags
+        ; :bar:baz:foo:
+        ; Link: link1, link2
+        Assets:A                       10.00 EUR
+        Assets:B                      -10.00 EUR
+    """, stdout.getvalue())
+</code></pre>
+</details>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -2946,7 +3401,21 @@ setUp
         </code>
 <a class="headerlink" href="#beancount.reports.convert_reports_test.TestLedgerUtilityFunctionsOnPostings.setUp" title="Permanent link"></a></h4>
 <div class="doc doc-contents">
-<p>Hook method for setting up the test fixture before exercising it.</p>
+<p>2000-01-01 open Assets:CA:Investment:HOOL
+2000-01-01 open Expenses:Commissions
+2000-01-01 open Assets:CA:Investment:Cash</p>
+<p>2014-10-01 * "Buy some stock with local funds"
+  Assets:CA:Investment:HOOL          5 HOOL {500.00 USD}
+  Expenses:Commissions            9.95 USD
+  Assets:CA:Investment:Cash   -2509.95 USD</p>
+<p>2014-10-02 * "Regular price conversion with fee"
+  Assets:CA:Investment:Cash    2500.00 USD
+  Expenses:Commissions            9.95 USD
+  Assets:CA:Investment:Cash   -2826.84 CAD @ 0.8879 USD</p>
+<p>2014-10-03 * "Buy some stock with foreign currency funds"
+  Assets:CA:Investment:HOOL          5 HOOL {520.0 USD}
+  Expenses:Commissions            9.95 USD
+  Assets:CA:Investment:Cash   -2939.46 CAD @ 0.8879 USD</p>
 <details class="quote">
 <summary>Source code in <code>beancount/reports/convert_reports_test.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">@loader.load_doc()
@@ -3812,6 +4281,704 @@ render_ofx_date
 <div class="doc doc-contents">
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.reports.export_reports_test.TestCommodityClassifications">
+<code>TestCommodityClassifications</code>
+<a class="headerlink" href="#beancount.reports.export_reports_test.TestCommodityClassifications" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.reports.export_reports_test.TestCommodityClassifications.test_classify_explicit_cash">
+<code class="highlight language-python">
+test_classify_explicit_cash
+(self, action_holdings)
+
+        </code>
+<a class="headerlink" href="#beancount.reports.export_reports_test.TestCommodityClassifications.test_classify_explicit_cash" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2000-01-01 open Assets:Investing
+2000-01-01 open Equity:Opening-Balances</p>
+<p>2000-01-01 commodity AAPL
+  export: "CASH"</p>
+<p>2015-02-08 *
+  Assets:Investing           2 AAPL {410.00 USD}
+  Equity:Opening-Balances</p>
+<details class="quote">
+<summary>Source code in <code>beancount/reports/export_reports_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@classify
+def test_classify_explicit_cash(self, action_holdings):
+    """
+    2000-01-01 open Assets:Investing
+    2000-01-01 open Equity:Opening-Balances
+
+    2000-01-01 commodity AAPL
+      export: "CASH"
+
+    2015-02-08 *
+      Assets:Investing           2 AAPL {410.00 USD}
+      Equity:Opening-Balances
+    """
+    self.assertEqual(1, len(action_holdings))
+    self.assertEqual("CASH", action_holdings[0][0])
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.reports.export_reports_test.TestCommodityClassifications.test_classify_explicit_ignore">
+<code class="highlight language-python">
+test_classify_explicit_ignore
+(self, action_holdings)
+
+        </code>
+<a class="headerlink" href="#beancount.reports.export_reports_test.TestCommodityClassifications.test_classify_explicit_ignore" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2000-01-01 open Assets:Investing
+2000-01-01 open Equity:Opening-Balances</p>
+<p>2000-01-01 commodity AAPL
+  export: "IGNORE"</p>
+<p>2015-02-08 *
+  Assets:Investing           2 AAPL {410.00 USD}
+  Equity:Opening-Balances</p>
+<details class="quote">
+<summary>Source code in <code>beancount/reports/export_reports_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@classify
+def test_classify_explicit_ignore(self, action_holdings):
+    """
+    2000-01-01 open Assets:Investing
+    2000-01-01 open Equity:Opening-Balances
+
+    2000-01-01 commodity AAPL
+      export: "IGNORE"
+
+    2015-02-08 *
+      Assets:Investing           2 AAPL {410.00 USD}
+      Equity:Opening-Balances
+    """
+    self.assertEqual(1, len(action_holdings))
+    self.assertEqual("IGNORE", action_holdings[0][0])
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.reports.export_reports_test.TestCommodityClassifications.test_classify_explicit_symbol">
+<code class="highlight language-python">
+test_classify_explicit_symbol
+(self, action_holdings)
+
+        </code>
+<a class="headerlink" href="#beancount.reports.export_reports_test.TestCommodityClassifications.test_classify_explicit_symbol" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2000-01-01 open Assets:Investing
+2000-01-01 open Equity:Opening-Balances</p>
+<p>2000-01-01 commodity AAPL
+  export: "NASDAQ:AAPL"</p>
+<p>2015-02-08 *
+  Assets:Investing           2 AAPL {410.00 USD}
+  Equity:Opening-Balances</p>
+<details class="quote">
+<summary>Source code in <code>beancount/reports/export_reports_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@classify
+def test_classify_explicit_symbol(self, action_holdings):
+    """
+    2000-01-01 open Assets:Investing
+    2000-01-01 open Equity:Opening-Balances
+
+    2000-01-01 commodity AAPL
+      export: "NASDAQ:AAPL"
+
+    2015-02-08 *
+      Assets:Investing           2 AAPL {410.00 USD}
+      Equity:Opening-Balances
+    """
+    self.assertEqual(1, len(action_holdings))
+    self.assertEqual("NASDAQ:AAPL", action_holdings[0][0])
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.reports.export_reports_test.TestCommodityClassifications.test_classify_implicit">
+<code class="highlight language-python">
+test_classify_implicit
+(self, action_holdings)
+
+        </code>
+<a class="headerlink" href="#beancount.reports.export_reports_test.TestCommodityClassifications.test_classify_implicit" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2000-01-01 open Assets:Investing
+2000-01-01 open Equity:Opening-Balances</p>
+<p>2000-01-01 commodity AAPL</p>
+<p>2015-02-08 *
+  Assets:Investing           2 AAPL {410.00 USD}
+  Equity:Opening-Balances</p>
+<details class="quote">
+<summary>Source code in <code>beancount/reports/export_reports_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@classify
+def test_classify_implicit(self, action_holdings):
+    """
+    2000-01-01 open Assets:Investing
+    2000-01-01 open Equity:Opening-Balances
+
+    2000-01-01 commodity AAPL
+
+    2015-02-08 *
+      Assets:Investing           2 AAPL {410.00 USD}
+      Equity:Opening-Balances
+    """
+    self.assertEqual(1, len(action_holdings))
+    self.assertEqual("AAPL", action_holdings[0][0])
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.reports.export_reports_test.TestCommodityClassifications.test_classify_money">
+<code class="highlight language-python">
+test_classify_money
+(self, action_holdings)
+
+        </code>
+<a class="headerlink" href="#beancount.reports.export_reports_test.TestCommodityClassifications.test_classify_money" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2000-01-01 open Assets:Investing
+2000-01-01 open Equity:Opening-Balances</p>
+<p>2000-01-01 commodity VMMXX
+  export: "MUTF:VMMXX (MONEY:USD)"</p>
+<p>2015-02-08 *
+  Assets:Investing           100 VMMXX {1.00 USD}
+  Equity:Opening-Balances</p>
+<details class="quote">
+<summary>Source code in <code>beancount/reports/export_reports_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@classify
+def test_classify_money(self, action_holdings):
+    """
+    2000-01-01 open Assets:Investing
+    2000-01-01 open Equity:Opening-Balances
+
+    2000-01-01 commodity VMMXX
+      export: "MUTF:VMMXX (MONEY:USD)"
+
+    2015-02-08 *
+      Assets:Investing           100 VMMXX {1.00 USD}
+      Equity:Opening-Balances
+    """
+    self.assertEqual(1, len(action_holdings))
+    self.assertEqual("MUTF:VMMXX", action_holdings[0][0])
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.reports.export_reports_test.TestCommodityClassifications.test_classify_ticker">
+<code class="highlight language-python">
+test_classify_ticker
+(self, action_holdings)
+
+        </code>
+<a class="headerlink" href="#beancount.reports.export_reports_test.TestCommodityClassifications.test_classify_ticker" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2000-01-01 open Assets:Investing
+2000-01-01 open Equity:Opening-Balances</p>
+<p>2000-01-01 commodity AAPL
+  export: "NASDAQ:AAPL"</p>
+<p>2015-02-08 *
+  Assets:Investing           2 AAPL {410.00 USD}
+  Equity:Opening-Balances</p>
+<details class="quote">
+<summary>Source code in <code>beancount/reports/export_reports_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@classify
+def test_classify_ticker(self, action_holdings):
+    """
+    2000-01-01 open Assets:Investing
+    2000-01-01 open Equity:Opening-Balances
+
+    2000-01-01 commodity AAPL
+      export: "NASDAQ:AAPL"
+
+    2015-02-08 *
+      Assets:Investing           2 AAPL {410.00 USD}
+      Equity:Opening-Balances
+    """
+    self.assertEqual(1, len(action_holdings))
+    self.assertEqual("NASDAQ:AAPL", action_holdings[0][0])
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.reports.export_reports_test.TestCommodityClassifications.test_get_money_instruments">
+<code class="highlight language-python">
+test_get_money_instruments
+(self, entries, errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.reports.export_reports_test.TestCommodityClassifications.test_get_money_instruments" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>1900-01-01 commodity VMMXX
+  export: "MUTF:VMMXX (MONEY:USD)"</p>
+<p>1900-01-01 commodity IGI806
+  export: "(MONEY:CAD)"</p>
+<details class="quote">
+<summary>Source code in <code>beancount/reports/export_reports_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_get_money_instruments(self, entries, errors, options_map):
+    """
+    1900-01-01 commodity VMMXX
+      export: "MUTF:VMMXX (MONEY:USD)"
+
+    1900-01-01 commodity IGI806
+      export: "(MONEY:CAD)"
+    """
+    commodities_map = getters.get_commodity_map(entries)
+    self.assertEqual({'USD': 'MUTF:VMMXX',
+                      'CAD': 'IGI806'},
+                     export_reports.get_money_instruments(commodities_map))
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.reports.export_reports_test.TestCommodityExport">
+<code>TestCommodityExport</code>
+<a class="headerlink" href="#beancount.reports.export_reports_test.TestCommodityExport" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.reports.export_reports_test.TestCommodityExport.test_export_aggregate">
+<code class="highlight language-python">
+test_export_aggregate
+(self, entries, unused_errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.reports.export_reports_test.TestCommodityExport.test_export_aggregate" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2000-01-01 open Assets:Investing
+2000-01-01 open Equity:Opening-Balances</p>
+<p>2000-01-01 commodity AAPL
+  export: "NASDAQ:AAPL"</p>
+<p>2015-02-08 *
+  Assets:Investing           2 AAPL {410.00 USD}
+  Equity:Opening-Balances</p>
+<p>2015-03-08 *
+  Assets:Investing           3 AAPL {400.00 USD}
+  Equity:Opening-Balances</p>
+<p>2015-04-08 *
+  Assets:Investing           1 HOOL {500.00 USD}
+  Equity:Opening-Balances</p>
+<details class="quote">
+<summary>Source code in <code>beancount/reports/export_reports_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_export_aggregate(self, entries, unused_errors, options_map):
+    """
+    2000-01-01 open Assets:Investing
+    2000-01-01 open Equity:Opening-Balances
+
+    2000-01-01 commodity AAPL
+      export: "NASDAQ:AAPL"
+
+    2015-02-08 *
+      Assets:Investing           2 AAPL {410.00 USD}
+      Equity:Opening-Balances
+
+    2015-03-08 *
+      Assets:Investing           3 AAPL {400.00 USD}
+      Equity:Opening-Balances
+
+    2015-04-08 *
+      Assets:Investing           1 HOOL {500.00 USD}
+      Equity:Opening-Balances
+
+    """
+    exported, converted, ignored = self.export(entries, options_map,
+                                               aggregate_by_commodity=True)
+    self.assertListEqual([
+        ('NASDAQ:AAPL', 'USD', D('5'), D('404.00'), False, '', None),
+        ('HOOL', 'USD', D('1'), D('500.00'), False, '', None),
+        ], exported)
+    self.assertFalse(converted)
+    self.assertFalse(ignored)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.reports.export_reports_test.TestCommodityExport.test_export_cash_at_cost">
+<code class="highlight language-python">
+test_export_cash_at_cost
+(self, entries, unused_errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.reports.export_reports_test.TestCommodityExport.test_export_cash_at_cost" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2000-01-01 open Assets:Investing
+2000-01-01 open Equity:Opening-Balances</p>
+<p>2000-01-01 commodity AAPL
+  export: "CASH"</p>
+<p>2000-01-01 commodity VMMXX
+  export: "MUTF:VMMXX (MONEY:USD)"</p>
+<p>2015-02-08 *
+  Assets:Investing           2 AAPL {410.00 USD}
+  Equity:Opening-Balances</p>
+<p>2015-02-09 price AAPL  410.00 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/reports/export_reports_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_export_cash_at_cost(self, entries, unused_errors, options_map):
+    """
+    2000-01-01 open Assets:Investing
+    2000-01-01 open Equity:Opening-Balances
+
+    2000-01-01 commodity AAPL
+      export: "CASH"
+
+    2000-01-01 commodity VMMXX
+      export: "MUTF:VMMXX (MONEY:USD)"
+
+    2015-02-08 *
+      Assets:Investing           2 AAPL {410.00 USD}
+      Equity:Opening-Balances
+
+    2015-02-09 price AAPL  410.00 USD
+    """
+    exported, converted, ignored = self.export(entries, options_map)
+    self.assertEqual([
+        EE('MUTF:VMMXX', 'USD', D('820.00'), D('1.00'), True, '', None),
+        ], converted)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.reports.export_reports_test.TestCommodityExport.test_export_cash_at_price">
+<code class="highlight language-python">
+test_export_cash_at_price
+(self, entries, unused_errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.reports.export_reports_test.TestCommodityExport.test_export_cash_at_price" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2000-01-01 open Assets:Investing
+2000-01-01 open Equity:Opening-Balances</p>
+<p>2000-01-01 commodity AAPL
+  export: "CASH"</p>
+<p>2000-01-01 commodity VMMXX
+  export: "MUTF:VMMXX (MONEY:USD)"</p>
+<p>2015-02-08 *
+  Assets:Investing           2 AAPL
+  Equity:Opening-Balances</p>
+<p>2015-02-09 price AAPL 410.00 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/reports/export_reports_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_export_cash_at_price(self, entries, unused_errors, options_map):
+    """
+    2000-01-01 open Assets:Investing
+    2000-01-01 open Equity:Opening-Balances
+
+    2000-01-01 commodity AAPL
+      export: "CASH"
+
+    2000-01-01 commodity VMMXX
+      export: "MUTF:VMMXX (MONEY:USD)"
+
+    2015-02-08 *
+      Assets:Investing           2 AAPL
+      Equity:Opening-Balances
+
+    2015-02-09 price AAPL 410.00 USD
+    """
+    exported, converted, ignored = self.export(entries, options_map)
+    self.assertEqual([
+        EE('MUTF:VMMXX', 'USD', D('820.00'), D('1.00'), True, '', None),
+        ], converted)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.reports.export_reports_test.TestCommodityExport.test_export_cash_ignored_no_money">
+<code class="highlight language-python">
+test_export_cash_ignored_no_money
+(self, entries, unused_errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.reports.export_reports_test.TestCommodityExport.test_export_cash_ignored_no_money" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2000-01-01 open Assets:Investing
+2000-01-01 open Equity:Opening-Balances</p>
+<p>2000-01-01 commodity JPY
+  export: "CASH"</p>
+<p>2000-01-01 commodity VMMXX
+  export: "MUTF:VMMXX (MONEY:USD)"</p>
+<p>2015-02-08 *
+  Assets:Investing           2000.00 JPY
+  Equity:Opening-Balances</p>
+<details class="quote">
+<summary>Source code in <code>beancount/reports/export_reports_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_export_cash_ignored_no_money(self, entries, unused_errors, options_map):
+    """
+    2000-01-01 open Assets:Investing
+    2000-01-01 open Equity:Opening-Balances
+
+    2000-01-01 commodity JPY
+      export: "CASH"
+
+    2000-01-01 commodity VMMXX
+      export: "MUTF:VMMXX (MONEY:USD)"
+
+    2015-02-08 *
+      Assets:Investing           2000.00 JPY
+      Equity:Opening-Balances
+    """
+    exported, converted, ignored = self.export(entries, options_map)
+    self.assertFalse(exported)
+    self.assertFalse(converted)
+    self.assertEqual(1, len(ignored))
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.reports.export_reports_test.TestCommodityExport.test_export_explicit_stock">
+<code class="highlight language-python">
+test_export_explicit_stock
+(self, entries, unused_errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.reports.export_reports_test.TestCommodityExport.test_export_explicit_stock" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2000-01-01 open Assets:Investing
+2000-01-01 open Equity:Opening-Balances</p>
+<p>2000-01-01 commodity AAPL
+  export: "NASDAQ:AAPL"</p>
+<p>2015-02-08 *
+  Assets:Investing           2 AAPL {410.00 USD}
+  Equity:Opening-Balances</p>
+<details class="quote">
+<summary>Source code in <code>beancount/reports/export_reports_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_export_explicit_stock(self, entries, unused_errors, options_map):
+    """
+    2000-01-01 open Assets:Investing
+    2000-01-01 open Equity:Opening-Balances
+
+    2000-01-01 commodity AAPL
+      export: "NASDAQ:AAPL"
+
+    2015-02-08 *
+      Assets:Investing           2 AAPL {410.00 USD}
+      Equity:Opening-Balances
+    """
+    exported, converted, ignored = self.export(entries, options_map)
+    self.assertEqual([
+        EE('NASDAQ:AAPL', 'USD', D('2'), D('410.00'), False, '', None),
+        ], exported)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.reports.export_reports_test.TestCommodityExport.test_export_ignored">
+<code class="highlight language-python">
+test_export_ignored
+(self, entries, unused_errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.reports.export_reports_test.TestCommodityExport.test_export_ignored" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2000-01-01 open Assets:Investing
+2000-01-01 open Equity:Opening-Balances</p>
+<p>2000-01-01 commodity AAPL
+  export: "IGNORE"</p>
+<p>2000-01-01 commodity VMMXX
+  export: "MUTF:VMMXX (MONEY:USD)"</p>
+<p>2015-02-08 *
+  Assets:Investing           2 AAPL {410.00 USD}
+  Equity:Opening-Balances</p>
+<details class="quote">
+<summary>Source code in <code>beancount/reports/export_reports_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_export_ignored(self, entries, unused_errors, options_map):
+    """
+    2000-01-01 open Assets:Investing
+    2000-01-01 open Equity:Opening-Balances
+
+    2000-01-01 commodity AAPL
+      export: "IGNORE"
+
+    2000-01-01 commodity VMMXX
+      export: "MUTF:VMMXX (MONEY:USD)"
+
+    2015-02-08 *
+      Assets:Investing           2 AAPL {410.00 USD}
+      Equity:Opening-Balances
+    """
+    exported, converted, ignored = self.export(entries, options_map)
+    self.assertFalse(exported)
+    self.assertFalse(converted)
+    self.assertEqual(1, len(ignored))
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.reports.export_reports_test.TestCommodityExport.test_export_implicit_absent">
+<code class="highlight language-python">
+test_export_implicit_absent
+(self, entries, unused_errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.reports.export_reports_test.TestCommodityExport.test_export_implicit_absent" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2000-01-01 open Assets:Investing
+2000-01-01 open Equity:Opening-Balances</p>
+<p>2015-02-08 *
+  Assets:Investing           2 AAPL {410.00 USD}
+  Equity:Opening-Balances</p>
+<details class="quote">
+<summary>Source code in <code>beancount/reports/export_reports_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_export_implicit_absent(self, entries, unused_errors, options_map):
+    """
+    2000-01-01 open Assets:Investing
+    2000-01-01 open Equity:Opening-Balances
+
+    2015-02-08 *
+      Assets:Investing           2 AAPL {410.00 USD}
+      Equity:Opening-Balances
+    """
+    exported, converted, ignored = self.export(entries, options_map)
+    self.assertEqual([
+        EE('AAPL', 'USD', D('2'), D('410.00'), False, '', None),
+        ], exported)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.reports.export_reports_test.TestCommodityExport.test_export_implicit_mutfund">
+<code class="highlight language-python">
+test_export_implicit_mutfund
+(self, entries, unused_errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.reports.export_reports_test.TestCommodityExport.test_export_implicit_mutfund" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2000-01-01 open Assets:Investing
+2000-01-01 open Equity:Opening-Balances</p>
+<p>2000-01-01 commodity RBF1005
+  export: "MUTF_CA:RBF1005"</p>
+<p>2015-02-08 *
+  Assets:Investing           10.2479 RBF1005 {10.00 CAD}
+  Equity:Opening-Balances</p>
+<details class="quote">
+<summary>Source code in <code>beancount/reports/export_reports_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_export_implicit_mutfund(self, entries, unused_errors, options_map):
+    """
+    2000-01-01 open Assets:Investing
+    2000-01-01 open Equity:Opening-Balances
+
+    2000-01-01 commodity RBF1005
+      export: "MUTF_CA:RBF1005"
+
+    2015-02-08 *
+      Assets:Investing           10.2479 RBF1005 {10.00 CAD}
+      Equity:Opening-Balances
+    """
+    exported, converted, ignored = self.export(entries, options_map)
+    self.assertEqual([
+        EE('MUTF_CA:RBF1005', 'CAD', D('10.2479'), D('10.00'), True, '', None),
+        ], exported)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.reports.export_reports_test.TestCommodityExport.test_export_implicit_stock">
+<code class="highlight language-python">
+test_export_implicit_stock
+(self, entries, unused_errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.reports.export_reports_test.TestCommodityExport.test_export_implicit_stock" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2000-01-01 open Assets:Investing
+2000-01-01 open Equity:Opening-Balances</p>
+<p>2000-01-01 commodity AAPL
+  export: "NASDAQ:AAPL"</p>
+<p>2015-02-08 *
+  Assets:Investing           2 AAPL {410.00 USD}
+  Equity:Opening-Balances</p>
+<details class="quote">
+<summary>Source code in <code>beancount/reports/export_reports_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_export_implicit_stock(self, entries, unused_errors, options_map):
+    """
+    2000-01-01 open Assets:Investing
+    2000-01-01 open Equity:Opening-Balances
+
+    2000-01-01 commodity AAPL
+      export: "NASDAQ:AAPL"
+
+    2015-02-08 *
+      Assets:Investing           2 AAPL {410.00 USD}
+      Equity:Opening-Balances
+    """
+    exported, converted, ignored = self.export(entries, options_map)
+    self.assertEqual([
+        EE('NASDAQ:AAPL', 'USD', D('2'), D('410.00'), False, '', None),
+        ], exported)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.reports.export_reports_test.TestCommodityExport.test_export_implicit_unspecified">
+<code class="highlight language-python">
+test_export_implicit_unspecified
+(self, entries, unused_errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.reports.export_reports_test.TestCommodityExport.test_export_implicit_unspecified" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2000-01-01 open Assets:Investing
+2000-01-01 open Equity:Opening-Balances</p>
+<p>2000-01-01 commodity AAPL</p>
+<p>2015-02-08 *
+  Assets:Investing           2 AAPL {410.00 USD}
+  Equity:Opening-Balances</p>
+<details class="quote">
+<summary>Source code in <code>beancount/reports/export_reports_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_export_implicit_unspecified(self, entries, unused_errors, options_map):
+    """
+    2000-01-01 open Assets:Investing
+    2000-01-01 open Equity:Opening-Balances
+
+    2000-01-01 commodity AAPL
+
+    2015-02-08 *
+      Assets:Investing           2 AAPL {410.00 USD}
+      Equity:Opening-Balances
+    """
+    exported, converted, ignored = self.export(entries, options_map)
+    self.assertEqual([
+        EE('AAPL', 'USD', D('2'), D('410.00'), False, '', None),
+        ], exported)
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.reports.export_reports_test.TestHoldingsReports">
 <code>TestHoldingsReports</code>
 <a class="headerlink" href="#beancount.reports.export_reports_test.TestHoldingsReports" title="Permanent link"></a></h3>
@@ -3826,7 +4993,16 @@ setUp
         </code>
 <a class="headerlink" href="#beancount.reports.export_reports_test.TestHoldingsReports.setUp" title="Permanent link"></a></h4>
 <div class="doc doc-contents">
-<p>Hook method for setting up the test fixture before exercising it.</p>
+<p>2014-01-01 open Assets:Bank1
+2014-01-01 open Assets:Bank2
+2014-01-01 open Assets:Bank3
+2014-01-01 open Income:Something</p>
+<p>2014-05-31 *
+  Assets:Bank1         100 MSFT {200.01 USD}
+  Income:Something</p>
+<p>2014-05-31 *
+  Assets:Bank2         1000 INR @ 200 USD
+  Income:Something</p>
 <details class="quote">
 <summary>Source code in <code>beancount/reports/export_reports_test.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">@loader.load_doc()
@@ -4881,7 +6057,16 @@ setUp
         </code>
 <a class="headerlink" href="#beancount.reports.holdings_reports_test.TestHoldingsReports.setUp" title="Permanent link"></a></h4>
 <div class="doc doc-contents">
-<p>Hook method for setting up the test fixture before exercising it.</p>
+<p>2014-01-01 open Assets:Bank1
+2014-01-01 open Assets:Bank2
+2014-01-01 open Assets:Bank3
+2014-01-01 open Income:Something</p>
+<p>2014-05-31 *
+  Assets:Bank1         100 MSFT {200.01 USD}
+  Income:Something</p>
+<p>2014-05-31 *
+  Assets:Bank2         1000 INR @ 200 USD
+  Income:Something</p>
 <details class="quote">
 <summary>Source code in <code>beancount/reports/holdings_reports_test.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">@loader.load_doc()
@@ -6221,7 +7406,32 @@ setUp
         </code>
 <a class="headerlink" href="#beancount.reports.journal_html_test.TestJournalRender.setUp" title="Permanent link"></a></h4>
 <div class="doc doc-contents">
-<p>Hook method for setting up the test fixture before exercising it.</p>
+<p>2014-01-01 open Assets:Checking
+2014-01-01 open Assets:Investing
+2014-01-01 open Assets:Savings
+2014-01-01 open Income:MountainOfMoney
+2014-01-01 open Equity:Opening-Balances
+2014-01-01 open Assets:Investing:Cash
+2014-01-01 open Assets:Investing:Stock</p>
+<p>2014-01-05 pad Assets:Checking Equity:Opening-Balances</p>
+<p>2014-02-10 balance Assets:Checking   100.00 USD</p>
+<p>2014-03-04 ! "Salary"
+  Income:MountainOfMoney    -4000.00 USD
+  Assets:Checking</p>
+<p>2014-03-05 balance Assets:Checking   4100.00 USD</p>
+<p>2014-03-10 note Assets:Checking "Something to say"
+2014-03-11 document Assets:Checking "/path/to/document.pdf"</p>
+<p>;; With link.
+2014-03-17 * "Transfer" ^784375fd5a68
+  Assets:Checking          -2000 USD
+  Assets:Checking          -1500 USD
+  Assets:Investing:Cash     3500 USD</p>
+<p>2014-03-25 * "Investment"
+  Assets:Investing:Cash      -3000 USD
+  Assets:Investing:Stock        30 STOCK {100 USD}</p>
+<p>;; Failing.
+2014-05-01 balance  Assets:Checking   0.00 USD</p>
+<p>2014-12-31 close Assets:Checking</p>
 <details class="quote">
 <summary>Source code in <code>beancount/reports/journal_html_test.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
@@ -7346,7 +8556,31 @@ setUp
         </code>
 <a class="headerlink" href="#beancount.reports.journal_text_test.TestJournalTextRender.setUp" title="Permanent link"></a></h4>
 <div class="doc doc-contents">
-<p>Hook method for setting up the test fixture before exercising it.</p>
+<p>plugin "beancount.plugins.implicit_prices"</p>
+<p>2014-01-01 open Assets:Checking
+2014-01-01 open Assets:Investing
+2014-01-01 open Assets:Savings
+2014-01-01 open Income:MountainOfMoney
+2014-01-01 open Equity:Opening-Balances</p>
+<p>2014-01-05 pad Assets:Checking Equity:Opening-Balances</p>
+<p>2014-02-10 balance Assets:Checking   100.00 USD</p>
+<p>2014-03-04 ! "Salary"
+  Income:MountainOfMoney    -4000.00 USD
+  Assets:Checking</p>
+<p>2014-03-05 balance Assets:Checking   4100.00 USD</p>
+<p>2014-03-10 note Assets:Checking "Something to say"
+2014-03-11 document Assets:Checking "/path/to/document.pdf"</p>
+<p>;; With link.
+2014-03-17 * "Transfer" ^784375fd5a68
+  Assets:Checking          -2000 USD
+  Assets:Checking          -1500 USD
+  Assets:Investing:Cash     3500 USD</p>
+<p>2014-03-25 * "Investment"
+  Assets:Investing:Cash      -3000 USD
+  Assets:Investing:Stock        30 STOCK {100 USD}</p>
+<p>;; Failing.
+2014-05-01 balance  Assets:Checking   0.00 USD</p>
+<p>2014-12-31 close Assets:Checking</p>
 <details class="quote">
 <summary>Source code in <code>beancount/reports/journal_text_test.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
@@ -8006,6 +9240,50 @@ generate_table
 </div>
 </div>
 <div class="doc doc-object doc-module">
+<h2 class="doc doc-heading" id="beancount.reports.misc_reports_test">
+<code>misc_reports_test</code>
+<a class="headerlink" href="#beancount.reports.misc_reports_test" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.reports.misc_reports_test.TestMiscReports">
+<code>TestMiscReports</code>
+<a class="headerlink" href="#beancount.reports.misc_reports_test.TestMiscReports" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.reports.misc_reports_test.TestMiscReports.test_errors">
+<code class="highlight language-python">
+test_errors
+(self, entries, errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.reports.misc_reports_test.TestMiscReports.test_errors" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>hello world</p>
+<details class="quote">
+<summary>Source code in <code>beancount/reports/misc_reports_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_errors(self, entries, errors, options_map):
+    """
+    hello world
+    """
+    report_ = misc_reports.ErrorReport.from_args([])
+    with io.StringIO() as oss:
+        report_.render_text(entries, errors, options_map, oss)
+    with io.StringIO() as oss:
+        report_.render_htmldiv(entries, errors, options_map, oss)
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
 <h2 class="doc doc-heading" id="beancount.reports.price_reports">
 <code>price_reports</code>
 <a class="headerlink" href="#beancount.reports.price_reports" title="Permanent link"></a></h2>
@@ -8581,6 +9859,201 @@ report name.</p>
     return oss.getvalue()
 </code></pre>
 </details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
+<h2 class="doc doc-heading" id="beancount.reports.report_test">
+<code>report_test</code>
+<a class="headerlink" href="#beancount.reports.report_test" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.reports.report_test.TestScriptPositions">
+<code>TestScriptPositions</code>
+<a class="headerlink" href="#beancount.reports.report_test.TestScriptPositions" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.reports.report_test.TestScriptPositions.test_all_prices">
+<code class="highlight language-python">
+test_all_prices
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.reports.report_test.TestScriptPositions.test_all_prices" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>plugin "beancount.plugins.implicit_prices"</p>
+<p>2014-01-01 open Assets:Account1
+2014-01-01 open Income:Misc</p>
+<p>2014-01-15 *
+  Assets:Account1       10 HOOL @ 512.01 USD
+  Income:Misc</p>
+<p>2014-02-01 price HOOL 524.02 USD
+2014-02-10 price HOOL 536.03 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/reports/report_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_all_prices(self, filename):
+    """
+    plugin "beancount.plugins.implicit_prices"
+
+    2014-01-01 open Assets:Account1
+    2014-01-01 open Income:Misc
+
+    2014-01-15 *
+      Assets:Account1       10 HOOL @ 512.01 USD
+      Income:Misc
+
+    2014-02-01 price HOOL 524.02 USD
+    2014-02-10 price HOOL 536.03 USD
+    """
+    with test_utils.capture() as stdout:
+        test_utils.run_with_args(report.main, [filename, 'all_prices'])
+    output = stdout.getvalue()
+    self.assertLines("""
+       2014-01-15 price HOOL             512.01 USD
+       2014-02-01 price HOOL             524.02 USD
+       2014-02-10 price HOOL             536.03 USD
+    """, output)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.reports.report_test.TestScriptPositions.test_list_accounts">
+<code class="highlight language-python">
+test_list_accounts
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.reports.report_test.TestScriptPositions.test_list_accounts" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-01-01 open Expenses:Restaurant
+2013-01-01 open Assets:Cash</p>
+<p>2014-03-02 * "Something"
+  Expenses:Restaurant   50.02 USD
+  Assets:Cash</p>
+<details class="quote">
+<summary>Source code in <code>beancount/reports/report_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_list_accounts(self, filename):
+    """
+    2013-01-01 open Expenses:Restaurant
+    2013-01-01 open Assets:Cash
+
+    2014-03-02 * "Something"
+      Expenses:Restaurant   50.02 USD
+      Assets:Cash
+    """
+    with test_utils.capture() as stdout:
+        test_utils.run_with_args(report.main, [filename, 'accounts'])
+
+    self.assertLines("""
+        Assets:Cash          2013-01-01
+        Expenses:Restaurant  2013-01-01
+    """, stdout.getvalue())
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.reports.report_test.TestScriptPositions.test_print_trial">
+<code class="highlight language-python">
+test_print_trial
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.reports.report_test.TestScriptPositions.test_print_trial" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-01-01 open Expenses:Restaurant
+2013-01-01 open Assets:Cash</p>
+<p>2014-03-02 * "Something"
+  Expenses:Restaurant   50.02 USD
+  Assets:Cash</p>
+<details class="quote">
+<summary>Source code in <code>beancount/reports/report_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_print_trial(self, filename):
+    """
+    2013-01-01 open Expenses:Restaurant
+    2013-01-01 open Assets:Cash
+
+    2014-03-02 * "Something"
+      Expenses:Restaurant   50.02 USD
+      Assets:Cash
+    """
+    with test_utils.capture() as stdout:
+        test_utils.run_with_args(report.main, [filename, 'trial'])
+    output = stdout.getvalue()
+    self.assertLines("""
+        Assets:Cash          -50.02 USD
+        Equity
+        Expenses:Restaurant   50.02 USD
+        Income
+        Liabilities
+    """, output)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.reports.report_test.TestScriptPositions.test_success">
+<code class="highlight language-python">
+test_success
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.reports.report_test.TestScriptPositions.test_success" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-01-01 open Assets:Account1
+2013-01-01 open Assets:Account2
+2013-01-01 open Assets:Account3
+2013-01-01 open Equity:Unknown</p>
+<p>2013-04-05 *
+  Equity:Unknown
+  Assets:Account1     5000 USD</p>
+<p>2013-04-05 *
+  Assets:Account1     -3000 USD
+  Assets:Account2     30 BOOG {100 USD}</p>
+<p>2013-04-05 *
+  Assets:Account1     -1000 USD
+  Assets:Account3     800 EUR @ 1.25 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/reports/report_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_success(self, filename):
+    """
+    2013-01-01 open Assets:Account1
+    2013-01-01 open Assets:Account2
+    2013-01-01 open Assets:Account3
+    2013-01-01 open Equity:Unknown
+
+    2013-04-05 *
+      Equity:Unknown
+      Assets:Account1     5000 USD
+
+    2013-04-05 *
+      Assets:Account1     -3000 USD
+      Assets:Account2     30 BOOG {100 USD}
+
+    2013-04-05 *
+      Assets:Account1     -1000 USD
+      Assets:Account3     800 EUR @ 1.25 USD
+    """
+    with test_utils.capture() as stdout:
+        test_utils.run_with_args(report.main, [filename, 'holdings'])
+    output = stdout.getvalue()
+    self.assertTrue(test_utils.search_words('Assets:Account1 1,000.00 USD', output))
+    self.assertTrue(test_utils.search_words('Assets:Account2    30.00 BOOG', output))
+    self.assertTrue(test_utils.search_words('Assets:Account3   800.00 EUR', output))
+</code></pre>
+</details>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -9841,6 +11314,53 @@ indicate that it is meant to render the totals line: TOTALS_LINE.</p>
 <div class="doc doc-contents">
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.reports.tree_table_test.TestActiveAccounts">
+<code>TestActiveAccounts</code>
+<a class="headerlink" href="#beancount.reports.tree_table_test.TestActiveAccounts" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.reports.tree_table_test.TestActiveAccounts.test_is_account_active">
+<code class="highlight language-python">
+test_is_account_active
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.reports.tree_table_test.TestActiveAccounts.test_is_account_active" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-01-01 open Assets:Inactive
+2014-01-01 open Assets:Active
+2014-01-01 open Equity:Other</p>
+<p>2014-07-04 *
+  Assets:Active   1 USD
+  Equity:Other</p>
+<details class="quote">
+<summary>Source code in <code>beancount/reports/tree_table_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_is_account_active(self, entries, _, __):
+    """
+    2014-01-01 open Assets:Inactive
+    2014-01-01 open Assets:Active
+    2014-01-01 open Equity:Other
+
+    2014-07-04 *
+      Assets:Active   1 USD
+      Equity:Other
+
+    """
+    real_root = realization.realize(entries)
+    self.assertFalse(tree_table.is_account_active(
+        realization.get(real_root, 'Assets:Inactive')))
+    self.assertTrue(tree_table.is_account_active(
+        realization.get(real_root, 'Assets:Active')))
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.reports.tree_table_test.TestTables">
 <code>TestTables</code>
 <a class="headerlink" href="#beancount.reports.tree_table_test.TestTables" title="Permanent link"></a></h3>
@@ -9855,7 +11375,16 @@ setUp
         </code>
 <a class="headerlink" href="#beancount.reports.tree_table_test.TestTables.setUp" title="Permanent link"></a></h4>
 <div class="doc doc-contents">
-<p>Hook method for setting up the test fixture before exercising it.</p>
+<p>2014-01-01 open Assets:US:Checking
+2014-01-01 open Assets:CA:Checking
+2014-01-01 open Assets:Inactive
+2014-01-01 open Equity:Opening-Balances</p>
+<p>2014-07-04 *
+  Assets:US:Checking      3000 USD
+  Equity:Opening-Balances</p>
+<p>2014-07-04 *
+  Assets:CA:Checking      3000 CAD
+  Equity:Opening-Balances</p>
 <details class="quote">
 <summary>Source code in <code>beancount/reports/tree_table_test.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">@loader.load_doc()

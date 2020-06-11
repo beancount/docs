@@ -260,9 +260,21 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.ingest.importers.csv_test">csv_test</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ingest.importers.csv_test.TestCSVImporter">TestCSVImporter</a>
+</li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.ingest.importers.fileonly">fileonly</a>
 <ul>
 <li class="toctree-l4"><a class="reference internal" href="#beancount.ingest.importers.fileonly.Importer">Importer</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.ingest.importers.fileonly_test">fileonly_test</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ingest.importers.fileonly_test.TestFileOnly">TestFileOnly</a>
 </li>
 </ul>
 </li>
@@ -396,9 +408,21 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#beancount.ingest.similar_test">similar_test</a>
 <ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.ingest.similar_test.TestDups">TestDups</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ingest.similar_test.TestDups.test_amounts_map">test_amounts_map()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ingest.similar_test.TestDups.test_find_similar_entries">test_find_similar_entries()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ingest.similar_test.TestDups.test_find_similar_entries__multiple_matches">test_find_similar_entries__multiple_matches()</a>
+</li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.ingest.similar_test.TestSimilarityComparator">TestSimilarityComparator</a>
 <ul>
 <li class="toctree-l4"><a class="reference internal" href="#beancount.ingest.similar_test.TestSimilarityComparator.setUp">setUp()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ingest.similar_test.TestSimilarityComparator.test_simple">test_simple()</a>
 </li>
 </ul>
 </li>
@@ -3687,6 +3711,187 @@ entirely of integer indexes.</p>
 </div>
 </div>
 <div class="doc doc-object doc-module">
+<h3 class="doc doc-heading" id="beancount.ingest.importers.csv_test">
+<code>csv_test</code>
+<a class="headerlink" href="#beancount.ingest.importers.csv_test" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h4 class="doc doc-heading" id="beancount.ingest.importers.csv_test.TestCSVImporter">
+<code>TestCSVImporter</code>
+<a class="headerlink" href="#beancount.ingest.importers.csv_test.TestCSVImporter" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h5 class="doc doc-heading" id="beancount.ingest.importers.csv_test.TestCSVImporter.test_column_types">
+<code class="highlight language-python">
+test_column_types
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.ingest.importers.csv_test.TestCSVImporter.test_column_types" title="Permanent link"></a></h5>
+<div class="doc doc-contents">
+<p>Details,Posting Date,"Description",Amount,Type,Balance,Check or Slip #,
+DEBIT,3/18/2016,"Payment to Chafe card ending in 1234 03/18",-2680.89,ACCT_XFER,3409.86,,
+CREDIT,3/15/2016,"EMPLOYER INC    DIRECT DEP                 PPD ID: 1111111111",2590.73,ACH_CREDIT,6090.75,,
+DEBIT,3/14/2016,"INVESTMENT SEC   TRANSFER   A5144608        WEB ID: 1234456789",-150.00,ACH_DEBIT,3500.02,,
+DEBIT,3/6/2016,"ATM WITHDRAWAL                       001234  03/8888 DELANC",-60.00,ATM,3650.02,,
+CREDIT,3/5/2016,"CA STATE         NYSTTAXRFD                 PPD ID: 1111111111",110.00,ACH_CREDIT,3710.02,,
+DEBIT,3/4/2016,"BOOGLE           WALLET     US000NEI9T      WEB ID: C234567890",-1300.00,ACH_DEBIT,3600.02,,</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ingest/importers/csv_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_column_types(self, filename):
+    # pylint: disable=line-too-long
+    """\
+      Details,Posting Date,"Description",Amount,Type,Balance,Check or Slip #,
+      DEBIT,3/18/2016,"Payment to Chafe card ending in 1234 03/18",-2680.89,ACCT_XFER,3409.86,,
+      CREDIT,3/15/2016,"EMPLOYER INC    DIRECT DEP                 PPD ID: 1111111111",2590.73,ACH_CREDIT,6090.75,,
+      DEBIT,3/14/2016,"INVESTMENT SEC   TRANSFER   A5144608        WEB ID: 1234456789",-150.00,ACH_DEBIT,3500.02,,
+      DEBIT,3/6/2016,"ATM WITHDRAWAL                       001234  03/8888 DELANC",-60.00,ATM,3650.02,,
+      CREDIT,3/5/2016,"CA STATE         NYSTTAXRFD                 PPD ID: 1111111111",110.00,ACH_CREDIT,3710.02,,
+      DEBIT,3/4/2016,"BOOGLE           WALLET     US000NEI9T      WEB ID: C234567890",-1300.00,ACH_DEBIT,3600.02,,
+    """
+    file = cache.get_file(filename)
+
+    importer = csv.Importer({Col.DATE: 'Posting Date',
+                             Col.NARRATION1: 'Description',
+                             Col.NARRATION2: 'Check or Slip #',
+                             Col.AMOUNT: 'Amount',
+                             Col.BALANCE: 'Balance',
+                             Col.DRCR: 'Details'},
+                            'Assets:Bank',
+                            'USD',
+                            ('Details,Posting Date,"Description",Amount,'
+                             'Type,Balance,Check or Slip #,'),
+                            institution='chafe')
+    entries = importer.extract(file)
+    self.assertEqualEntries(r"""
+
+      2016-03-18 * "Payment to Chafe card ending in 1234 03/18"
+        Assets:Bank  -2680.89 USD
+
+      2016-03-15 * "EMPLOYER INC    DIRECT DEP                 PPD ID: 1111111111"
+        Assets:Bank  2590.73 USD
+
+      2016-03-14 * "INVESTMENT SEC   TRANSFER   A5144608        WEB ID: 1234456789"
+        Assets:Bank  -150.00 USD
+
+      2016-03-06 * "ATM WITHDRAWAL                       001234  03/8888 DELANC"
+        Assets:Bank  -60.00 USD
+
+      2016-03-05 * "CA STATE         NYSTTAXRFD                 PPD ID: 1111111111"
+        Assets:Bank  110.00 USD
+
+      2016-03-04 * "BOOGLE           WALLET     US000NEI9T      WEB ID: C234567890"
+        Assets:Bank  -1300.00 USD
+
+      2016-03-19 balance Assets:Bank                                     3409.86 USD
+
+    """, entries)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h5 class="doc doc-heading" id="beancount.ingest.importers.csv_test.TestCSVImporter.test_date_formats">
+<code class="highlight language-python">
+test_date_formats
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.ingest.importers.csv_test.TestCSVImporter.test_date_formats" title="Permanent link"></a></h5>
+<div class="doc doc-contents">
+<p>Posting,Description,Amount
+11/7/2016,A,2
+12/7/2016,B,3
+13/7/2016,C,4</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ingest/importers/csv_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_date_formats(self, filename):
+    """\
+      Posting,Description,Amount
+      11/7/2016,A,2
+      12/7/2016,B,3
+      13/7/2016,C,4
+    """
+    file = cache.get_file(filename)
+    importer = csv.Importer({Col.DATE: 'Posting',
+                             Col.NARRATION: 'Description',
+                             Col.AMOUNT: 'Amount'},
+                            'Assets:Bank', 'EUR', [],
+                            dateutil_kwds={'dayfirst': True})
+    entries = importer.extract(file)
+    self.assertEqualEntries(r"""
+
+      2016-07-11 * "A"
+        Assets:Bank  2 EUR
+
+      2016-07-12 * "B"
+        Assets:Bank  3 EUR
+
+      2016-07-13 * "C"
+        Assets:Bank  4 EUR
+
+    """, entries)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h5 class="doc doc-heading" id="beancount.ingest.importers.csv_test.TestCSVImporter.test_zero_balance_produces_assertion">
+<code class="highlight language-python">
+test_zero_balance_produces_assertion
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.ingest.importers.csv_test.TestCSVImporter.test_zero_balance_produces_assertion" title="Permanent link"></a></h5>
+<div class="doc doc-contents">
+<p>Details,Posting Date,"Description",Amount,Type,Balance,Check or Slip #,
+DEBIT,3/18/2016,"Payment to Chafe card ending in 1234 03/18",-2680.89,ACCT_XFER,0,,</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ingest/importers/csv_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_zero_balance_produces_assertion(self, filename):
+    # pylint: disable=line-too-long
+    """\
+      Details,Posting Date,"Description",Amount,Type,Balance,Check or Slip #,
+      DEBIT,3/18/2016,"Payment to Chafe card ending in 1234 03/18",-2680.89,ACCT_XFER,0,,
+    """
+    file = cache.get_file(filename)
+
+    importer = csv.Importer({Col.DATE: 'Posting Date',
+                             Col.NARRATION1: 'Description',
+                             Col.NARRATION2: 'Check or Slip #',
+                             Col.AMOUNT: 'Amount',
+                             Col.BALANCE: 'Balance',
+                             Col.DRCR: 'Details'},
+                            'Assets:Bank',
+                            'USD',
+                            ('Details,Posting Date,"Description",Amount,'
+                             'Type,Balance,Check or Slip #,'),
+                            institution='chafe')
+    entries = importer.extract(file)
+    self.assertEqualEntries(r"""
+
+      2016-03-18 * "Payment to Chafe card ending in 1234 03/18"
+        Assets:Bank  -2680.89 USD
+
+      2016-03-19 balance Assets:Bank                                     0 USD
+
+    """, entries)
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
 <h3 class="doc doc-heading" id="beancount.ingest.importers.fileonly">
 <code>fileonly</code>
 <a class="headerlink" href="#beancount.ingest.importers.fileonly" title="Permanent link"></a></h3>
@@ -3700,6 +3905,60 @@ entirely of integer indexes.</p>
 <a class="headerlink" href="#beancount.ingest.importers.fileonly.Importer" title="Permanent link"></a></h4>
 <div class="doc doc-contents">
 <p>An importer that supports only matching (identification) and filing.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
+<h3 class="doc doc-heading" id="beancount.ingest.importers.fileonly_test">
+<code>fileonly_test</code>
+<a class="headerlink" href="#beancount.ingest.importers.fileonly_test" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h4 class="doc doc-heading" id="beancount.ingest.importers.fileonly_test.TestFileOnly">
+<code>TestFileOnly</code>
+<a class="headerlink" href="#beancount.ingest.importers.fileonly_test.TestFileOnly" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h5 class="doc doc-heading" id="beancount.ingest.importers.fileonly_test.TestFileOnly.test_match">
+<code class="highlight language-python">
+test_match
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.ingest.importers.fileonly_test.TestFileOnly.test_match" title="Permanent link"></a></h5>
+<div class="doc doc-contents">
+<p>DATE,TYPE,REF #,DESCRIPTION,FEES,AMOUNT,BALANCE
+2014-04-14,BUY,14167001,BOUGHT +CSKO 50 @98.35,7.95,-4925.45,25674.63
+2014-05-08,BUY,12040838,BOUGHT +HOOL 121 @79.11,7.95,-9580.26,16094.37</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ingest/importers/fileonly_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@unittest.skipIf(not file_type.magic, 'python-magic is not installed')
+@test_utils.docfile
+def test_match(self, filename):
+    """\
+    DATE,TYPE,REF #,DESCRIPTION,FEES,AMOUNT,BALANCE
+    2014-04-14,BUY,14167001,BOUGHT +CSKO 50 @98.35,7.95,-4925.45,25674.63
+    2014-05-08,BUY,12040838,BOUGHT +HOOL 121 @79.11,7.95,-9580.26,16094.37
+    """
+    importer = fileonly.Importer(
+        matchers=[('filename', 'te?mp'),
+                  ('mime', 'text/'),
+                  ('content', 'DATE,TYPE,REF #,DESCRIPTION,FEES,AMOUNT')],
+        filing='Assets:BofA:Checking',
+        prefix='bofa')
+    file = cache._FileMemo(filename)
+    self.assertTrue(importer.identify(file))
+
+    assert importer.file_name(file).startswith('bofa.')
+</code></pre>
+</details>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -7015,6 +7274,214 @@ entries to classify against.</p>
 <div class="doc doc-contents">
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.ingest.similar_test.TestDups">
+<code>TestDups</code>
+<a class="headerlink" href="#beancount.ingest.similar_test.TestDups" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ingest.similar_test.TestDups.test_amounts_map">
+<code class="highlight language-python">
+test_amounts_map
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ingest.similar_test.TestDups.test_amounts_map" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>plugin "beancount.plugins.auto_accounts"</p>
+<p>2016-01-03 *
+  Expenses:Alcohol     20.00 USD
+  Expenses:Tips         1.03 USD
+  Assets:Other</p>
+<p>2016-01-03 *
+  Expenses:Tips         1.01 USD
+  Expenses:Tips         1.02 USD
+  Assets:Other</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ingest/similar_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@parser.parse_doc(allow_incomplete=True)
+def test_amounts_map(self, entries, _, __):
+    """
+        plugin "beancount.plugins.auto_accounts"
+
+        2016-01-03 *
+          Expenses:Alcohol     20.00 USD
+          Expenses:Tips         1.03 USD
+          Assets:Other
+
+        2016-01-03 *
+          Expenses:Tips         1.01 USD
+          Expenses:Tips         1.02 USD
+          Assets:Other
+    """
+    txns = list(data.filter_txns(entries))
+    amap = similar.amounts_map(txns[0])
+    self.assertEqual({('Expenses:Tips', 'USD'): D('1.03'),
+                      ('Expenses:Alcohol', 'USD'): D('20.00')}, amap)
+
+    amap = similar.amounts_map(txns[1])
+    self.assertEqual({('Expenses:Tips', 'USD'): D('2.03')}, amap)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ingest.similar_test.TestDups.test_find_similar_entries">
+<code class="highlight language-python">
+test_find_similar_entries
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ingest.similar_test.TestDups.test_find_similar_entries" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>plugin "beancount.plugins.auto_accounts"</p>
+<p>2016-01-03 *
+  Expenses:Tips         1.03 USD
+  Assets:Other</p>
+<p>2016-01-04 *
+  Expenses:Coffee       1.04 USD
+  Assets:Other</p>
+<p>2016-01-05 *
+  Expenses:Restaurant   1.05 USD
+  Assets:Other</p>
+<p>2016-01-06 *
+  Expenses:Groceries    1.06 USD
+  Assets:Other</p>
+<p>2016-01-07 *
+  Expenses:Alcohol      1.07 USD
+  Assets:Other</p>
+<p>2016-01-08 *
+  Expenses:Smoking      1.08 USD
+  Assets:Other</p>
+<p>2016-01-09 *
+  Expenses:Taxi         1.09 USD
+  Assets:Other</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ingest/similar_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_find_similar_entries(self, entries, _, __):
+    """
+        plugin "beancount.plugins.auto_accounts"
+
+        2016-01-03 *
+          Expenses:Tips         1.03 USD
+          Assets:Other
+
+        2016-01-04 *
+          Expenses:Coffee       1.04 USD
+          Assets:Other
+
+        2016-01-05 *
+          Expenses:Restaurant   1.05 USD
+          Assets:Other
+
+        2016-01-06 *
+          Expenses:Groceries    1.06 USD
+          Assets:Other
+
+        2016-01-07 *
+          Expenses:Alcohol      1.07 USD
+          Assets:Other
+
+        2016-01-08 *
+          Expenses:Smoking      1.08 USD
+          Assets:Other
+
+        2016-01-09 *
+          Expenses:Taxi         1.09 USD
+          Assets:Other
+    """
+    new_entries, _, __ = loader.load_string("""
+        plugin "beancount.plugins.auto_accounts"
+
+        2016-01-06 *
+          Expenses:Groceries    1.06 USD
+          Assets:Other
+    """)
+    for days, num_comparisons in [(0, 1), (1, 1), (2, 1)]:
+        duplicates = similar.find_similar_entries(new_entries, entries,
+                                                  lambda e1, e2: True,
+                                                  window_days=days)
+        self.assertEqual(num_comparisons, len(duplicates))
+
+        duplicates = similar.find_similar_entries(new_entries, entries,
+                                                  lambda e1, e2: False,
+                                                  window_days=days)
+        self.assertEqual(0, len(duplicates))
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ingest.similar_test.TestDups.test_find_similar_entries__multiple_matches">
+<code class="highlight language-python">
+test_find_similar_entries__multiple_matches
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ingest.similar_test.TestDups.test_find_similar_entries__multiple_matches" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>plugin "beancount.plugins.auto_accounts"</p>
+<p>2016-02-01 * "A"
+  Assets:Account1    10.00 USD
+  Assets:Account2   -10.00 USD</p>
+<p>2016-02-02 * "B"
+  Assets:Account1    10.00 USD
+  Assets:Account2   -10.00 USD</p>
+<p>2016-02-03 * "C"
+  Assets:Account1    10.00 USD
+  Assets:Account2   -10.00 USD</p>
+<p>2016-02-04 * "D"
+  Assets:Account1    10.00 USD
+  Assets:Account2   -10.00 USD</p>
+<p>2016-02-05 * "D"
+  Assets:Account1    10.00 USD
+  Assets:Account2   -10.00 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ingest/similar_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_find_similar_entries__multiple_matches(self, entries, _, __):
+    """
+        plugin "beancount.plugins.auto_accounts"
+
+        2016-02-01 * "A"
+          Assets:Account1    10.00 USD
+          Assets:Account2   -10.00 USD
+
+        2016-02-02 * "B"
+          Assets:Account1    10.00 USD
+          Assets:Account2   -10.00 USD
+
+        2016-02-03 * "C"
+          Assets:Account1    10.00 USD
+          Assets:Account2   -10.00 USD
+
+        2016-02-04 * "D"
+          Assets:Account1    10.00 USD
+          Assets:Account2   -10.00 USD
+
+        2016-02-05 * "D"
+          Assets:Account1    10.00 USD
+          Assets:Account2   -10.00 USD
+    """
+    # Test it with a single entry.
+    new_entries = list(data.filter_txns(entries))[2:3]
+    duplicates = similar.find_similar_entries(new_entries, entries, window_days=1)
+    self.assertEqual(1, len(duplicates))
+    self.assertEqual(new_entries[0], duplicates[0][0])
+
+    # Test it with multiple duplicate entries.
+    new_entries = list(data.filter_txns(entries))[1:4]
+    duplicates = similar.find_similar_entries(new_entries, entries, window_days=1)
+    self.assertEqual(len(new_entries), len(duplicates))
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.ingest.similar_test.TestSimilarityComparator">
 <code>TestSimilarityComparator</code>
 <a class="headerlink" href="#beancount.ingest.similar_test.TestSimilarityComparator" title="Permanent link"></a></h3>
@@ -7034,6 +7501,79 @@ setUp
 <summary>Source code in <code>beancount/ingest/similar_test.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">def setUp(self):
     self.comparator = similar.SimilarityComparator(datetime.timedelta(days=2))
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ingest.similar_test.TestSimilarityComparator.test_simple">
+<code class="highlight language-python">
+test_simple
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ingest.similar_test.TestSimilarityComparator.test_simple" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>plugin "beancount.plugins.auto_accounts"</p>
+<p>2016-01-03 * "Base reservation" ^base
+  Expenses:Alcohol     20.00 USD
+  Expenses:Tips         1.03 USD
+  Assets:Other</p>
+<p>2016-01-03 * "Similar amount within bounds" ^in-bounds
+  Expenses:Alcohol     20.99 USD
+  Assets:Other
+2016-01-03 * "Similar amount out of bounds" ^out-bounds
+  Expenses:Alcohol     21.00 USD
+  Assets:Other</p>
+<p>2016-01-06 * "Date too far" ^too-late
+  Expenses:Alcohol     20.00 USD
+  Expenses:Tips         1.03 USD
+  Assets:Other</p>
+<p>2016-01-03 * "Non-overlapping accounts" ^non-accounts
+  Expenses:Alcohol     20.00 USD
+  Expenses:Tips         1.03 USD
+  Assets:SomethingElse</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ingest/similar_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_simple(self, entries, _, __):
+    """
+        plugin "beancount.plugins.auto_accounts"
+
+        2016-01-03 * "Base reservation" ^base
+          Expenses:Alcohol     20.00 USD
+          Expenses:Tips         1.03 USD
+          Assets:Other
+
+        2016-01-03 * "Similar amount within bounds" ^in-bounds
+          Expenses:Alcohol     20.99 USD
+          Assets:Other
+        2016-01-03 * "Similar amount out of bounds" ^out-bounds
+          Expenses:Alcohol     21.00 USD
+          Assets:Other
+
+        2016-01-06 * "Date too far" ^too-late
+          Expenses:Alcohol     20.00 USD
+          Expenses:Tips         1.03 USD
+          Assets:Other
+
+        2016-01-03 * "Non-overlapping accounts" ^non-accounts
+          Expenses:Alcohol     20.00 USD
+          Expenses:Tips         1.03 USD
+          Assets:SomethingElse
+    """
+    txns = list(data.filter_txns(entries))
+
+    def compare(expected, link1, link2):
+        self.assertEqual(expected, self.comparator(
+            next(txn for txn in txns if link1 in txn.links),
+            next(txn for txn in txns if link2 in txn.links)))
+
+    compare(True, 'base', 'base')
+    compare(True, 'base', 'in-bounds')
+    compare(False, 'base', 'out-bounds')
+    compare(False, 'base', 'too-late')
+    compare(False, 'base', 'non-accounts')
 </code></pre>
 </details>
 </div>

@@ -152,6 +152,56 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.ops.balance_test">balance_test</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.ops.balance_test.TestBalance">TestBalance</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.balance_test.TestBalance.test_balance_account_does_not_exist">test_balance_account_does_not_exist()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.balance_test.TestBalance.test_balance_before_create">test_balance_before_create()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.balance_test.TestBalance.test_balance_mixed_cost_and_no_cost">test_balance_mixed_cost_and_no_cost()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.balance_test.TestBalance.test_balance_with_prefix_account">test_balance_with_prefix_account()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.balance_test.TestBalance.test_check_samedate">test_check_samedate()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.balance_test.TestBalance.test_parents">test_parents()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.balance_test.TestBalance.test_parents_only">test_parents_only()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.balance_test.TestBalance.test_parents_with_postings">test_parents_with_postings()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.balance_test.TestBalance.test_precision">test_precision()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.balance_test.TestBalance.test_simple_cont">test_simple_cont()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.balance_test.TestBalance.test_simple_error">test_simple_error()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.balance_test.TestBalance.test_simple_first">test_simple_first()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.balance_test.TestBalance.test_simple_invalid_currency">test_simple_invalid_currency()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.balance_test.TestBalance.test_simple_partial_currency_cont">test_simple_partial_currency_cont()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.balance_test.TestBalance.test_simple_partial_currency_first">test_simple_partial_currency_first()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.balance_test.TestBalance.test_with_lots">test_with_lots()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.ops.balance_test.TestBalancePrecision">TestBalancePrecision</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.balance_test.TestBalancePrecision.test_balance_with_tolerance">test_balance_with_tolerance()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.balance_test.TestBalancePrecision.test_get_balance_tolerance__explicit">test_get_balance_tolerance__explicit()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.balance_test.TestBalancePrecision.test_get_balance_tolerance__regular">test_get_balance_tolerance__regular()</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#beancount.ops.basicops">basicops</a>
 <ul>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.basicops.filter_link">filter_link()</a>
@@ -164,11 +214,37 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.ops.basicops_test">basicops_test</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.ops.basicops_test.TestBasicOpsOther">TestBasicOpsOther</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.basicops_test.TestBasicOpsOther.test_get_common_accounts">test_get_common_accounts()</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#beancount.ops.compress">compress</a>
 <ul>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.compress.compress">compress()</a>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.compress.merge">merge()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.ops.compress_test">compress_test</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.ops.compress_test.TestMerge">TestMerge</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.compress_test.TestMerge.test_merge">test_merge()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.compress_test.TestMerge.test_merge_cost">test_merge_cost()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.compress_test.TestMerge.test_merge_price">test_merge_price()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.compress_test.TestMerge.test_unmergeable">test_unmergeable()</a>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -226,6 +302,26 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.ops.holdings_test">holdings_test</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.ops.holdings_test.TestHoldings">TestHoldings</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.holdings_test.TestHoldings.test_convert_to_currency">test_convert_to_currency()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.holdings_test.TestHoldings.test_get_commodities_at_date">test_get_commodities_at_date()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.holdings_test.TestHoldings.test_get_final_holdings">test_get_final_holdings()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.holdings_test.TestHoldings.test_get_final_holdings__check_no_aggregates">test_get_final_holdings__check_no_aggregates()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.holdings_test.TestHoldings.test_get_final_holdings__zero_position">test_get_final_holdings__zero_position()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.holdings_test.TestHoldings.test_get_final_holdings_with_prices">test_get_final_holdings_with_prices()</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#beancount.ops.lifetimes">lifetimes</a>
 <ul>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.lifetimes.compress_intervals_days">compress_intervals_days()</a>
@@ -235,6 +331,20 @@
 <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.lifetimes.get_commodity_lifetimes">get_commodity_lifetimes()</a>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.lifetimes.required_weekly_prices">required_weekly_prices()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.ops.lifetimes_test">lifetimes_test</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.ops.lifetimes_test.TestCommodityLifetimes">TestCommodityLifetimes</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.lifetimes_test.TestCommodityLifetimes.test_lifetimes_closed_open">test_lifetimes_closed_open()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.lifetimes_test.TestCommodityLifetimes.test_lifetimes_cross_accounts">test_lifetimes_cross_accounts()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.lifetimes_test.TestCommodityLifetimes.test_lifetimes_different_currencies">test_lifetimes_different_currencies()</a>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -251,6 +361,48 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.pad.pad">pad()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.ops.pad_test">pad_test</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.ops.pad_test.TestPadding">TestPadding</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.pad_test.TestPadding.test_pad_at_cost">test_pad_at_cost()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.pad_test.TestPadding.test_pad_check_balances">test_pad_check_balances()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.pad_test.TestPadding.test_pad_issue362">test_pad_issue362()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.pad_test.TestPadding.test_pad_multiple_currencies">test_pad_multiple_currencies()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.pad_test.TestPadding.test_pad_multiple_times">test_pad_multiple_times()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.pad_test.TestPadding.test_pad_no_overflow">test_pad_no_overflow()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.pad_test.TestPadding.test_pad_parent">test_pad_parent()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.pad_test.TestPadding.test_pad_parents">test_pad_parents()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.pad_test.TestPadding.test_pad_simple">test_pad_simple()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.pad_test.TestPadding.test_pad_to_zero">test_pad_to_zero()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.pad_test.TestPadding.test_pad_tolerance">test_pad_tolerance()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.pad_test.TestPadding.test_pad_unused">test_pad_unused()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.pad_test.TestPadding.test_pad_used_twice_illegally">test_pad_used_twice_illegally()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.pad_test.TestPadding.test_pad_used_twice_legally">test_pad_used_twice_legally()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.pad_test.TestPadding.test_pad_zero_padding_issue78a">test_pad_zero_padding_issue78a()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.pad_test.TestPadding.test_pad_zero_padding_issue78a_original">test_pad_zero_padding_issue78a_original()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.pad_test.TestPadding.test_pad_zero_padding_issue78b">test_pad_zero_padding_issue78b()</a>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -300,9 +452,23 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.ops.summarize_test.TestCap">TestCap</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.summarize_test.TestCap.test_cap">test_cap()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.ops.summarize_test.TestClamp">TestClamp</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.summarize_test.TestClamp.test_clamp">test_clamp()</a>
+</li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.summarize_test.TestConversions">TestConversions</a>
 <ul>
 <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.summarize_test.TestConversions.setUp">setUp()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.summarize_test.TestConversions.test_conversions__non_empty_but_empty_cost">test_conversions__non_empty_but_empty_cost()</a>
 </li>
 </ul>
 </li>
@@ -316,6 +482,12 @@
 <ul>
 <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.summarize_test.TestOpenAtDate.setUp">setUp()</a>
 </li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.summarize_test.TestOpenAtDate.test_get_open_entries__closed_twice">test_get_open_entries__closed_twice()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.summarize_test.TestOpenAtDate.test_get_open_entries__closed_without_open">test_get_open_entries__closed_without_open()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.summarize_test.TestOpenAtDate.test_get_open_entries__duplicate_open">test_get_open_entries__duplicate_open()</a>
+</li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.summarize_test.TestOpenClose">TestOpenClose</a>
@@ -325,6 +497,12 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.summarize_test.TestOpenCloseWithOptions">TestOpenCloseWithOptions</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.ops.summarize_test.TestSummarize">TestSummarize</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.summarize_test.TestSummarize.test_summarize__ordering_non_transactions">test_summarize__ordering_non_transactions()</a>
+</li>
+</ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.summarize_test.TestTransferBalances">TestTransferBalances</a>
 <ul>
@@ -369,6 +547,78 @@
 <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.validation.validate_duplicate_commodities">validate_duplicate_commodities()</a>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.validation.validate_open_close">validate_open_close()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.ops.validation_test">validation_test</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.ops.validation_test.TestValidate">TestValidate</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.validation_test.TestValidate.test_validate">test_validate()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.ops.validation_test.TestValidateActiveAccounts">TestValidateActiveAccounts</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.validation_test.TestValidateActiveAccounts.test_validate_active_accounts">test_validate_active_accounts()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.validation_test.TestValidateActiveAccounts.test_validate_active_accounts__unopened">test_validate_active_accounts__unopened()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.ops.validation_test.TestValidateCheckTransactionBalances">TestValidateCheckTransactionBalances</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.validation_test.TestValidateCheckTransactionBalances.test_validate_check_transaction_balances">test_validate_check_transaction_balances()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.ops.validation_test.TestValidateCurrencyConstraints">TestValidateCurrencyConstraints</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.validation_test.TestValidateCurrencyConstraints.test_validate_currency_constraints">test_validate_currency_constraints()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.ops.validation_test.TestValidateDataTypes">TestValidateDataTypes</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.validation_test.TestValidateDataTypes.test_validate_data_types">test_validate_data_types()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.ops.validation_test.TestValidateDuplicateBalances">TestValidateDuplicateBalances</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.validation_test.TestValidateDuplicateBalances.test_validate_duplicate_balances">test_validate_duplicate_balances()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.ops.validation_test.TestValidateDuplicateCommodities">TestValidateDuplicateCommodities</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.validation_test.TestValidateDuplicateCommodities.test_validate_duplicate_commodities">test_validate_duplicate_commodities()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.ops.validation_test.TestValidateOpenClose">TestValidateOpenClose</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.validation_test.TestValidateOpenClose.test_validate_open_close__close_unopened">test_validate_open_close__close_unopened()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.validation_test.TestValidateOpenClose.test_validate_open_close__duplicate_close">test_validate_open_close__duplicate_close()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.validation_test.TestValidateOpenClose.test_validate_open_close__duplicate_open">test_validate_open_close__duplicate_open()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.validation_test.TestValidateOpenClose.test_validate_open_close__ordering">test_validate_open_close__ordering()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.ops.validation_test.TestValidateTolerances">TestValidateTolerances</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.validation_test.TestValidateTolerances.test_tolerance_implicit_fractional_global">test_tolerance_implicit_fractional_global()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.validation_test.TestValidateTolerances.test_tolerance_implicit_fractional_specific">test_tolerance_implicit_fractional_specific()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.validation_test.TestValidateTolerances.test_tolerance_implicit_fractional_withprec">test_tolerance_implicit_fractional_withprec()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.ops.validation_test.TestValidateTolerances.test_tolerance_implicit_integral">test_tolerance_implicit_integral()</a>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -781,6 +1031,830 @@ get_balance_tolerance
 </div>
 </div>
 <div class="doc doc-object doc-module">
+<h2 class="doc doc-heading" id="beancount.ops.balance_test">
+<code>balance_test</code>
+<a class="headerlink" href="#beancount.ops.balance_test" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.ops.balance_test.TestBalance">
+<code>TestBalance</code>
+<a class="headerlink" href="#beancount.ops.balance_test.TestBalance" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.balance_test.TestBalance.test_balance_account_does_not_exist">
+<code class="highlight language-python">
+test_balance_account_does_not_exist
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.balance_test.TestBalance.test_balance_account_does_not_exist" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-05-01 open Assets:Invest
+2013-05-01 open Equity:Opening-Balances</p>
+<p>2013-05-10 balance Assets:Invest:Invalid   0 HOOL</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/balance_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_balance_account_does_not_exist(self, entries, errors, __):
+    """
+      2013-05-01 open Assets:Invest
+      2013-05-01 open Equity:Opening-Balances
+
+      2013-05-10 balance Assets:Invest:Invalid   0 HOOL
+    """
+    self.assertEqual([balance.BalanceError], list(map(type, errors)))
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.balance_test.TestBalance.test_balance_before_create">
+<code class="highlight language-python">
+test_balance_before_create
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.balance_test.TestBalance.test_balance_before_create" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-05-01 open Assets:US:Checking   USD
+2013-05-01 open Expenses:Something</p>
+<p>2013-05-01 balance Assets:US:Checking     0 USD</p>
+<p>2013-05-03 txn "Testing!"
+  Assets:US:Checking            100 USD
+  Expenses:Something           -100 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/balance_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_balance_before_create(self, entries, errors, __):
+    """
+      2013-05-01 open Assets:US:Checking   USD
+      2013-05-01 open Expenses:Something
+
+      2013-05-01 balance Assets:US:Checking     0 USD
+
+      2013-05-03 txn "Testing!"
+        Assets:US:Checking            100 USD
+        Expenses:Something           -100 USD
+    """
+    self.assertEqual([], list(map(type, errors)))
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.balance_test.TestBalance.test_balance_mixed_cost_and_no_cost">
+<code class="highlight language-python">
+test_balance_mixed_cost_and_no_cost
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.balance_test.TestBalance.test_balance_mixed_cost_and_no_cost" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-05-01 open Assets:Invest
+2013-05-01 open Equity:Opening-Balances</p>
+<p>2013-05-01 *
+  Assets:Invest                100 HOOL {14.33 USD}
+  Equity:Opening-Balances</p>
+<p>2013-05-02 *
+  Assets:Invest               -100 HOOL @ 15.66 USD
+  Equity:Opening-Balances</p>
+<p>2013-05-10 balance Assets:Invest   0 HOOL</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/balance_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_balance_mixed_cost_and_no_cost(self, entries, errors, __):
+    """
+      2013-05-01 open Assets:Invest
+      2013-05-01 open Equity:Opening-Balances
+
+      2013-05-01 *
+        Assets:Invest                100 HOOL {14.33 USD}
+        Equity:Opening-Balances
+
+      2013-05-02 *
+        Assets:Invest               -100 HOOL @ 15.66 USD
+        Equity:Opening-Balances
+
+      2013-05-10 balance Assets:Invest   0 HOOL
+    """
+    self.assertEqual([], list(map(type, errors)))
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.balance_test.TestBalance.test_balance_with_prefix_account">
+<code class="highlight language-python">
+test_balance_with_prefix_account
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.balance_test.TestBalance.test_balance_with_prefix_account" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-05-01 open Assets:Bank:Checking
+2013-05-01 open Assets:Bank:CheckingOld
+2013-05-01 open Equity:Opening-Balances</p>
+<p>2013-05-02 *
+  Assets:Bank:Checking                100 USD
+  Equity:Opening-Balances</p>
+<p>2013-05-03 *
+  Assets:Bank:CheckingOld              27 USD
+  Equity:Opening-Balances</p>
+<p>2013-05-10 balance Assets:Bank:Checking   100 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/balance_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_balance_with_prefix_account(self, entries, errors, __):
+    """
+      2013-05-01 open Assets:Bank:Checking
+      2013-05-01 open Assets:Bank:CheckingOld
+      2013-05-01 open Equity:Opening-Balances
+
+      2013-05-02 *
+        Assets:Bank:Checking                100 USD
+        Equity:Opening-Balances
+
+      2013-05-03 *
+        Assets:Bank:CheckingOld              27 USD
+        Equity:Opening-Balances
+
+      2013-05-10 balance Assets:Bank:Checking   100 USD
+    """
+    self.assertEqual([], list(map(type, errors)))
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.balance_test.TestBalance.test_check_samedate">
+<code class="highlight language-python">
+test_check_samedate
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.balance_test.TestBalance.test_check_samedate" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-05-01 open Assets:US:Checking   USD
+2013-05-01 open Expenses:Something</p>
+<p>2013-05-02 txn "Testing!"
+  Assets:US:Checking            100 USD
+  Expenses:Something           -100 USD</p>
+<p>2013-05-02 balance Assets:US:Checking     0 USD
+2013-05-03 balance Assets:US:Checking   100 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/balance_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_check_samedate(self, entries, errors, __):
+    """
+      2013-05-01 open Assets:US:Checking   USD
+      2013-05-01 open Expenses:Something
+
+      2013-05-02 txn "Testing!"
+        Assets:US:Checking            100 USD
+        Expenses:Something           -100 USD
+
+      2013-05-02 balance Assets:US:Checking     0 USD
+      2013-05-03 balance Assets:US:Checking   100 USD
+    """
+    self.assertEqual([], list(map(type, errors)))
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.balance_test.TestBalance.test_parents">
+<code class="highlight language-python">
+test_parents
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.balance_test.TestBalance.test_parents" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-05-01 open Assets:Bank
+2013-05-01 open Assets:Bank:Checking1
+2013-05-01 open Assets:Bank:Checking2
+2013-05-01 open Assets:Bank:Savings   ;; Will go negative
+2013-05-01 open Equity:Opening-Balances</p>
+<p>2013-05-02 *
+  Assets:Bank:Checking1                100 USD
+  Equity:Opening-Balances</p>
+<p>2013-05-03 *
+  Assets:Bank:Checking2                10 USD
+  Equity:Opening-Balances</p>
+<p>2013-05-04 *
+  Assets:Bank:Savings                 -50 USD
+  Equity:Opening-Balances</p>
+<p>2013-05-05 balance Assets:Bank:Checking1  100 USD
+2013-05-05 balance Assets:Bank:Checking2   10 USD
+2013-05-05 balance Assets:Bank:Savings    -50 USD
+2013-05-05 balance Assets:Bank             60 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/balance_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_parents(self, entries, errors, __):
+    """
+      2013-05-01 open Assets:Bank
+      2013-05-01 open Assets:Bank:Checking1
+      2013-05-01 open Assets:Bank:Checking2
+      2013-05-01 open Assets:Bank:Savings   ;; Will go negative
+      2013-05-01 open Equity:Opening-Balances
+
+      2013-05-02 *
+        Assets:Bank:Checking1                100 USD
+        Equity:Opening-Balances
+
+      2013-05-03 *
+        Assets:Bank:Checking2                10 USD
+        Equity:Opening-Balances
+
+      2013-05-04 *
+        Assets:Bank:Savings                 -50 USD
+        Equity:Opening-Balances
+
+      2013-05-05 balance Assets:Bank:Checking1  100 USD
+      2013-05-05 balance Assets:Bank:Checking2   10 USD
+      2013-05-05 balance Assets:Bank:Savings    -50 USD
+      2013-05-05 balance Assets:Bank             60 USD
+    """
+    self.assertEqual([], list(map(type, errors)))
+    diff_amounts = [entry.diff_amount
+                    for entry in entries
+                    if isinstance(entry, balance.Balance)]
+    self.assertEqual([None, None, None, None], diff_amounts)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.balance_test.TestBalance.test_parents_only">
+<code class="highlight language-python">
+test_parents_only
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.balance_test.TestBalance.test_parents_only" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-05-01 open Assets:Bank
+2013-05-01 open Assets:Bank:Checking1
+2013-05-01 open Assets:Bank:Checking2
+2013-05-01 open Equity:Opening-Balances</p>
+<p>2013-05-02 *
+  Assets:Bank:Checking1                100 USD
+  Equity:Opening-Balances</p>
+<p>2013-05-03 *
+  Assets:Bank:Checking2                10 USD
+  Equity:Opening-Balances</p>
+<p>2013-05-05 balance Assets:Bank             110 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/balance_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_parents_only(self, entries, errors, __):
+    """
+      2013-05-01 open Assets:Bank
+      2013-05-01 open Assets:Bank:Checking1
+      2013-05-01 open Assets:Bank:Checking2
+      2013-05-01 open Equity:Opening-Balances
+
+      2013-05-02 *
+        Assets:Bank:Checking1                100 USD
+        Equity:Opening-Balances
+
+      2013-05-03 *
+        Assets:Bank:Checking2                10 USD
+        Equity:Opening-Balances
+
+      2013-05-05 balance Assets:Bank             110 USD
+    """
+    self.assertEqual([], list(map(type, errors)))
+    diff_amounts = [entry.diff_amount
+                    for entry in entries
+                    if isinstance(entry, balance.Balance)]
+    self.assertEqual([None], diff_amounts)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.balance_test.TestBalance.test_parents_with_postings">
+<code class="highlight language-python">
+test_parents_with_postings
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.balance_test.TestBalance.test_parents_with_postings" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-05-01 open Assets:Bank
+2013-05-01 open Assets:Bank:Checking1
+2013-05-01 open Assets:Bank:Checking2
+2013-05-01 open Equity:Opening-Balances</p>
+<p>2013-05-02 *
+  Assets:Bank:Checking1                100 USD
+  Equity:Opening-Balances</p>
+<p>2013-05-03 *
+  Assets:Bank:Checking2                10 USD
+  Equity:Opening-Balances</p>
+<p>2013-05-04 * "Posting on a parent account"
+  Assets:Bank                          15 USD
+  Equity:Opening-Balances</p>
+<p>2013-05-05 balance Assets:Bank             125 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/balance_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_parents_with_postings(self, entries, errors, __):
+    """
+      2013-05-01 open Assets:Bank
+      2013-05-01 open Assets:Bank:Checking1
+      2013-05-01 open Assets:Bank:Checking2
+      2013-05-01 open Equity:Opening-Balances
+
+      2013-05-02 *
+        Assets:Bank:Checking1                100 USD
+        Equity:Opening-Balances
+
+      2013-05-03 *
+        Assets:Bank:Checking2                10 USD
+        Equity:Opening-Balances
+
+      2013-05-04 * "Posting on a parent account"
+        Assets:Bank                          15 USD
+        Equity:Opening-Balances
+
+      2013-05-05 balance Assets:Bank             125 USD
+    """
+    self.assertFalse(errors)
+    diff_amounts = [entry.diff_amount
+                    for entry in entries
+                    if isinstance(entry, balance.Balance)]
+    self.assertEqual([None], diff_amounts)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.balance_test.TestBalance.test_precision">
+<code class="highlight language-python">
+test_precision
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.balance_test.TestBalance.test_precision" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-05-01 open Assets:Bank:Checking
+2013-05-01 open Income:Interest</p>
+<p>2013-05-02 *
+  Assets:Bank:Checking        0.00001 USD
+  Income:Interest</p>
+<p>2013-05-03 balance Assets:Bank:Checking   0.00 USD</p>
+<p>2013-05-03 *
+  Assets:Bank:Checking        0.00001 USD
+  Income:Interest</p>
+<p>2013-05-04 balance Assets:Bank:Checking   0.00 USD</p>
+<p>2013-05-04 *
+  Assets:Bank:Checking        0.015 USD
+  Income:Interest</p>
+<p>2013-05-05 balance Assets:Bank:Checking   0.01502 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/balance_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_precision(self, entries, errors, __):
+    """
+      2013-05-01 open Assets:Bank:Checking
+      2013-05-01 open Income:Interest
+
+      2013-05-02 *
+        Assets:Bank:Checking        0.00001 USD
+        Income:Interest
+
+      2013-05-03 balance Assets:Bank:Checking   0.00 USD
+
+      2013-05-03 *
+        Assets:Bank:Checking        0.00001 USD
+        Income:Interest
+
+      2013-05-04 balance Assets:Bank:Checking   0.00 USD
+
+      2013-05-04 *
+        Assets:Bank:Checking        0.015 USD
+        Income:Interest
+
+      2013-05-05 balance Assets:Bank:Checking   0.01502 USD
+    """
+    self.assertEqual([], list(map(type, errors)))
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.balance_test.TestBalance.test_simple_cont">
+<code class="highlight language-python">
+test_simple_cont
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.balance_test.TestBalance.test_simple_cont" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-05-01 open Assets:Bank:Checking
+2013-05-01 open Equity:Opening-Balances</p>
+<p>2013-05-02 *
+  Assets:Bank:Checking                100 USD
+  Equity:Opening-Balances</p>
+<p>2013-05-03 balance Assets:Bank:Checking   100 USD</p>
+<p>2013-05-04 *
+  Assets:Bank:Checking                 10 USD
+  Equity:Opening-Balances</p>
+<p>2013-05-05 balance Assets:Bank:Checking   110 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/balance_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_simple_cont(self, entries, errors, __):
+    """
+      2013-05-01 open Assets:Bank:Checking
+      2013-05-01 open Equity:Opening-Balances
+
+      2013-05-02 *
+        Assets:Bank:Checking                100 USD
+        Equity:Opening-Balances
+
+      2013-05-03 balance Assets:Bank:Checking   100 USD
+
+      2013-05-04 *
+        Assets:Bank:Checking                 10 USD
+        Equity:Opening-Balances
+
+      2013-05-05 balance Assets:Bank:Checking   110 USD
+    """
+    self.assertEqual([], list(map(type, errors)))
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.balance_test.TestBalance.test_simple_error">
+<code class="highlight language-python">
+test_simple_error
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.balance_test.TestBalance.test_simple_error" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-05-01 open Assets:US:Checking</p>
+<p>2013-05-03 balance Assets:US:Checking   100 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/balance_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_simple_error(self, entries, errors, __):
+    """
+      2013-05-01 open Assets:US:Checking
+
+      2013-05-03 balance Assets:US:Checking   100 USD
+    """
+    self.assertEqual([balance.BalanceError], list(map(type, errors)))
+    entry = entries[1]
+    self.assertTrue(isinstance(entry, balance.Balance))
+    self.assertEqual(A('-100 USD'), entry.diff_amount)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.balance_test.TestBalance.test_simple_first">
+<code class="highlight language-python">
+test_simple_first
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.balance_test.TestBalance.test_simple_first" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-05-01 open Assets:Bank:Checking
+2013-05-01 open Equity:Opening-Balances</p>
+<p>2013-05-02 *
+  Assets:Bank:Checking                100 USD
+  Equity:Opening-Balances</p>
+<p>2013-05-03 balance Assets:Bank:Checking   100 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/balance_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_simple_first(self, entries, errors, __):
+    """
+      2013-05-01 open Assets:Bank:Checking
+      2013-05-01 open Equity:Opening-Balances
+
+      2013-05-02 *
+        Assets:Bank:Checking                100 USD
+        Equity:Opening-Balances
+
+      2013-05-03 balance Assets:Bank:Checking   100 USD
+    """
+    self.assertEqual([], list(map(type, errors)))
+    entry = entries[-1]
+    self.assertTrue(isinstance(entry, balance.Balance))
+    self.assertEqual(None, entry.diff_amount)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.balance_test.TestBalance.test_simple_invalid_currency">
+<code class="highlight language-python">
+test_simple_invalid_currency
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.balance_test.TestBalance.test_simple_invalid_currency" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-05-01 open Assets:Bank:Checking      CAD
+2013-05-01 open Equity:Opening-Balances</p>
+<p>;; This ought to fail because USD isn't a valid currency.
+2013-05-03 balance Assets:Bank:Checking   0.00 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/balance_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_simple_invalid_currency(self, entries, errors, __):
+    """
+      2013-05-01 open Assets:Bank:Checking      CAD
+      2013-05-01 open Equity:Opening-Balances
+
+      ;; This ought to fail because USD isn't a valid currency.
+      2013-05-03 balance Assets:Bank:Checking   0.00 USD
+    """
+    self.assertEqual([balance.BalanceError], list(map(type, errors)))
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.balance_test.TestBalance.test_simple_partial_currency_cont">
+<code class="highlight language-python">
+test_simple_partial_currency_cont
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.balance_test.TestBalance.test_simple_partial_currency_cont" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-05-01 open Assets:Bank:Checking
+2013-05-01 open Equity:Opening-Balances</p>
+<p>2013-05-02 *
+  Assets:Bank:Checking                100 USD
+  Assets:Bank:Checking                200 CAD
+  Equity:Opening-Balances</p>
+<p>2013-05-03 balance Assets:Bank:Checking   100 USD</p>
+<p>2013-05-04 *
+  Assets:Bank:Checking                 10 USD
+  Assets:Bank:Checking                 20 CAD
+  Equity:Opening-Balances</p>
+<p>2013-05-05 balance Assets:Bank:Checking   110 USD
+2013-05-05 balance Assets:Bank:Checking   220 CAD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/balance_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_simple_partial_currency_cont(self, entries, errors, __):
+    """
+      2013-05-01 open Assets:Bank:Checking
+      2013-05-01 open Equity:Opening-Balances
+
+      2013-05-02 *
+        Assets:Bank:Checking                100 USD
+        Assets:Bank:Checking                200 CAD
+        Equity:Opening-Balances
+
+      2013-05-03 balance Assets:Bank:Checking   100 USD
+
+      2013-05-04 *
+        Assets:Bank:Checking                 10 USD
+        Assets:Bank:Checking                 20 CAD
+        Equity:Opening-Balances
+
+      2013-05-05 balance Assets:Bank:Checking   110 USD
+      2013-05-05 balance Assets:Bank:Checking   220 CAD
+    """
+    self.assertEqual([], list(map(type, errors)))
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.balance_test.TestBalance.test_simple_partial_currency_first">
+<code class="highlight language-python">
+test_simple_partial_currency_first
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.balance_test.TestBalance.test_simple_partial_currency_first" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-05-01 open Assets:Bank:Checking
+2013-05-01 open Equity:Opening-Balances</p>
+<p>2013-05-02 *
+  Assets:Bank:Checking                100 USD
+  Assets:Bank:Checking                200 CAD
+  Equity:Opening-Balances</p>
+<p>2013-05-03 balance Assets:Bank:Checking   100 USD
+2013-05-03 balance Assets:Bank:Checking   200 CAD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/balance_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_simple_partial_currency_first(self, entries, errors, __):
+    """
+      2013-05-01 open Assets:Bank:Checking
+      2013-05-01 open Equity:Opening-Balances
+
+      2013-05-02 *
+        Assets:Bank:Checking                100 USD
+        Assets:Bank:Checking                200 CAD
+        Equity:Opening-Balances
+
+      2013-05-03 balance Assets:Bank:Checking   100 USD
+      2013-05-03 balance Assets:Bank:Checking   200 CAD
+    """
+    self.assertEqual([], list(map(type, errors)))
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.balance_test.TestBalance.test_with_lots">
+<code class="highlight language-python">
+test_with_lots
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.balance_test.TestBalance.test_with_lots" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-05-01 open Assets:Bank:Investing
+2013-05-01 open Equity:Opening-Balances</p>
+<p>2013-05-02 *
+  Assets:Bank:Investing                1 HOOL {501 USD}
+  Equity:Opening-Balances</p>
+<p>2013-05-03 balance Assets:Bank:Investing    1 HOOL</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/balance_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_with_lots(self, entries, errors, __):
+    """
+      2013-05-01 open Assets:Bank:Investing
+      2013-05-01 open Equity:Opening-Balances
+
+      2013-05-02 *
+        Assets:Bank:Investing                1 HOOL {501 USD}
+        Equity:Opening-Balances
+
+      2013-05-03 balance Assets:Bank:Investing    1 HOOL
+    """
+    self.assertFalse(errors)
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.ops.balance_test.TestBalancePrecision">
+<code>TestBalancePrecision</code>
+<a class="headerlink" href="#beancount.ops.balance_test.TestBalancePrecision" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.balance_test.TestBalancePrecision.test_balance_with_tolerance">
+<code class="highlight language-python">
+test_balance_with_tolerance
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.balance_test.TestBalancePrecision.test_balance_with_tolerance" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-05-01 open Assets:Bank:Checking
+2013-05-01 open Equity:Opening-Balances</p>
+<p>2013-05-03 *
+  Assets:Bank:Checking              23.024 USD
+  Equity:Opening-Balances</p>
+<p>2015-05-02 balance Assets:Bank:Checking   23.022 ~ 0.001 USD
+2015-05-03 balance Assets:Bank:Checking   23.023 ~ 0.001 USD
+2015-05-04 balance Assets:Bank:Checking   23.024 ~ 0.001 USD
+2015-05-05 balance Assets:Bank:Checking   23.025 ~ 0.001 USD
+2015-05-06 balance Assets:Bank:Checking   23.026 ~ 0.001 USD</p>
+<p>2015-05-10 balance Assets:Bank:Checking   23.03 ~ 0.01 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/balance_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_balance_with_tolerance(self, entries, errors, __):
+    """
+      2013-05-01 open Assets:Bank:Checking
+      2013-05-01 open Equity:Opening-Balances
+
+      2013-05-03 *
+        Assets:Bank:Checking              23.024 USD
+        Equity:Opening-Balances
+
+      2015-05-02 balance Assets:Bank:Checking   23.022 ~ 0.001 USD
+      2015-05-03 balance Assets:Bank:Checking   23.023 ~ 0.001 USD
+      2015-05-04 balance Assets:Bank:Checking   23.024 ~ 0.001 USD
+      2015-05-05 balance Assets:Bank:Checking   23.025 ~ 0.001 USD
+      2015-05-06 balance Assets:Bank:Checking   23.026 ~ 0.001 USD
+
+      2015-05-10 balance Assets:Bank:Checking   23.03 ~ 0.01 USD
+    """
+    self.assertEqual(2, len(errors))
+    self.assertRegex(errors[0].message, '23.022')
+    self.assertRegex(errors[1].message, '23.026')
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.balance_test.TestBalancePrecision.test_get_balance_tolerance__explicit">
+<code class="highlight language-python">
+test_get_balance_tolerance__explicit
+(self, entries, errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.balance_test.TestBalancePrecision.test_get_balance_tolerance__explicit" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2015-05-01 open Assets:Bank:Checking
+2015-05-02 balance Assets:Bank:Checking   0    ~ 0.002 USD
+2015-05-02 balance Assets:Bank:Checking   0.0  ~ 0.002 USD
+2015-05-02 balance Assets:Bank:Checking   0.00 ~ 0.002 USD
+2015-05-02 balance Assets:Bank:Checking   1    ~ 0.002 USD
+2015-05-02 balance Assets:Bank:Checking   1.0  ~ 0.002 USD
+2015-05-02 balance Assets:Bank:Checking   1.00 ~ 0.002 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/balance_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_get_balance_tolerance__explicit(self, entries, errors, options_map):
+    """
+      2015-05-01 open Assets:Bank:Checking
+      2015-05-02 balance Assets:Bank:Checking   0    ~ 0.002 USD
+      2015-05-02 balance Assets:Bank:Checking   0.0  ~ 0.002 USD
+      2015-05-02 balance Assets:Bank:Checking   0.00 ~ 0.002 USD
+      2015-05-02 balance Assets:Bank:Checking   1    ~ 0.002 USD
+      2015-05-02 balance Assets:Bank:Checking   1.0  ~ 0.002 USD
+      2015-05-02 balance Assets:Bank:Checking   1.00 ~ 0.002 USD
+    """
+    tolerances = [balance.get_balance_tolerance(entry, options_map)
+                  for entry in entries[1:]]
+    self.assertEqual([D('0.002')] * 6, tolerances)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.balance_test.TestBalancePrecision.test_get_balance_tolerance__regular">
+<code class="highlight language-python">
+test_get_balance_tolerance__regular
+(self, entries, errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.balance_test.TestBalancePrecision.test_get_balance_tolerance__regular" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2015-05-01 open Assets:Bank:Checking
+2015-05-02 balance Assets:Bank:Checking   0 USD
+2015-05-02 balance Assets:Bank:Checking   0.0 USD
+2015-05-02 balance Assets:Bank:Checking   0.00 USD
+2015-05-02 balance Assets:Bank:Checking   0.000 USD
+2015-05-02 balance Assets:Bank:Checking   1 USD
+2015-05-02 balance Assets:Bank:Checking   1.0 USD
+2015-05-02 balance Assets:Bank:Checking   1.00 USD
+2015-05-02 balance Assets:Bank:Checking   1.000 USD
+2015-05-02 balance Assets:Bank:Checking   1.01 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/balance_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_get_balance_tolerance__regular(self, entries, errors, options_map):
+    """
+      2015-05-01 open Assets:Bank:Checking
+      2015-05-02 balance Assets:Bank:Checking   0 USD
+      2015-05-02 balance Assets:Bank:Checking   0.0 USD
+      2015-05-02 balance Assets:Bank:Checking   0.00 USD
+      2015-05-02 balance Assets:Bank:Checking   0.000 USD
+      2015-05-02 balance Assets:Bank:Checking   1 USD
+      2015-05-02 balance Assets:Bank:Checking   1.0 USD
+      2015-05-02 balance Assets:Bank:Checking   1.00 USD
+      2015-05-02 balance Assets:Bank:Checking   1.000 USD
+      2015-05-02 balance Assets:Bank:Checking   1.01 USD
+    """
+    tolerances = [balance.get_balance_tolerance(entry, options_map)
+                  for entry in entries[1:]]
+    self.assertEqual([D('0'),
+                      D('0.1'),
+                      D('0.01'),
+                      D('0.001'),
+                      D('0'),
+                      D('0.1'),
+                      D('0.01'),
+                      D('0.001'),
+                      D('0.01')], tolerances)
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
 <h2 class="doc doc-heading" id="beancount.ops.basicops">
 <code>basicops</code>
 <a class="headerlink" href="#beancount.ops.basicops" title="Permanent link"></a></h2>
@@ -1049,6 +2123,91 @@ group_entries_by_link
 </div>
 </div>
 <div class="doc doc-object doc-module">
+<h2 class="doc doc-heading" id="beancount.ops.basicops_test">
+<code>basicops_test</code>
+<a class="headerlink" href="#beancount.ops.basicops_test" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.ops.basicops_test.TestBasicOpsOther">
+<code>TestBasicOpsOther</code>
+<a class="headerlink" href="#beancount.ops.basicops_test.TestBasicOpsOther" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.basicops_test.TestBasicOpsOther.test_get_common_accounts">
+<code class="highlight language-python">
+test_get_common_accounts
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.basicops_test.TestBasicOpsOther.test_get_common_accounts" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-01-01 open Assets:Account1
+2014-01-01 open Assets:Account2
+2014-01-01 open Assets:Account3
+2014-01-01 open Assets:Account4</p>
+<p>2014-05-10 * "A"
+  Assets:Account1    1 USD
+  Assets:Account2   -1 USD</p>
+<p>2014-05-10 * "B"
+  Assets:Account1    1 USD
+  Assets:Account3   -1 USD</p>
+<p>2014-05-10 * "C"
+  Assets:Account2    1 USD
+  Assets:Account3   -1 USD</p>
+<p>2014-05-10 * "D"
+  Assets:Account3    1 USD
+  Assets:Account4   -1 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/basicops_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_get_common_accounts(self, entries, _, __):
+    """
+    2014-01-01 open Assets:Account1
+    2014-01-01 open Assets:Account2
+    2014-01-01 open Assets:Account3
+    2014-01-01 open Assets:Account4
+
+    2014-05-10 * "A"
+      Assets:Account1    1 USD
+      Assets:Account2   -1 USD
+
+    2014-05-10 * "B"
+      Assets:Account1    1 USD
+      Assets:Account3   -1 USD
+
+    2014-05-10 * "C"
+      Assets:Account2    1 USD
+      Assets:Account3   -1 USD
+
+    2014-05-10 * "D"
+      Assets:Account3    1 USD
+      Assets:Account4   -1 USD
+
+    """
+    entries = [entry for entry in entries if isinstance(entry, data.Transaction)]
+    self.assertEqual(set(),
+                     basicops.get_common_accounts([]))
+    self.assertEqual({'Assets:Account2', 'Assets:Account1'},
+                     basicops.get_common_accounts([entries[0]]))
+    self.assertEqual({'Assets:Account1'},
+                     basicops.get_common_accounts([entries[0], entries[1]]))
+    self.assertEqual({'Assets:Account2'},
+                     basicops.get_common_accounts([entries[0], entries[2]]))
+    self.assertEqual(set(),
+                     basicops.get_common_accounts([entries[0], entries[3]]))
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
 <h2 class="doc doc-heading" id="beancount.ops.compress">
 <code>compress</code>
 <a class="headerlink" href="#beancount.ops.compress" title="Permanent link"></a></h2>
@@ -1296,6 +2455,237 @@ entries merged together.</p>
     return new_entry
 </code></pre>
 </details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
+<h2 class="doc doc-heading" id="beancount.ops.compress_test">
+<code>compress_test</code>
+<a class="headerlink" href="#beancount.ops.compress_test" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.ops.compress_test.TestMerge">
+<code>TestMerge</code>
+<a class="headerlink" href="#beancount.ops.compress_test.TestMerge" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.compress_test.TestMerge.test_merge">
+<code class="highlight language-python">
+test_merge
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.compress_test.TestMerge.test_merge" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>plugin "beancount.plugins.auto_accounts"</p>
+<p>2011-05-17 * "Something"
+  Expenses:Restaurant   1.11 USD
+  Assets:Other</p>
+<p>2011-05-18 * "Something Else"
+  Expenses:Restaurant   1.22 USD
+  Assets:Other</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/compress_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_merge(self, entries, errors, __):
+    """
+        plugin "beancount.plugins.auto_accounts"
+
+        2011-05-17 * "Something"
+          Expenses:Restaurant   1.11 USD
+          Assets:Other
+
+        2011-05-18 * "Something Else"
+          Expenses:Restaurant   1.22 USD
+          Assets:Other
+    """
+    txn = next(data.filter_txns(entries))
+    merged_entry = compress.merge(entries, txn)
+    self.assertEqualEntries("""
+
+        2011-05-17 * "Something"
+          Expenses:Restaurant   2.33 USD
+          Assets:Other         -2.33 USD
+
+    """, [merged_entry])
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.compress_test.TestMerge.test_merge_cost">
+<code class="highlight language-python">
+test_merge_cost
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.compress_test.TestMerge.test_merge_cost" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>plugin "beancount.plugins.auto_accounts"</p>
+<p>2011-05-17 * "Something"
+  Expenses:Restaurant   1.11 USD {100 ECUS, 2011-02-01}
+  Assets:Other</p>
+<p>2011-05-18 * "Something Else"
+  Expenses:Restaurant   1.22 USD {100 ECUS, 2011-02-01}
+  Assets:Other</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/compress_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_merge_cost(self, entries, errors, __):
+    """
+        plugin "beancount.plugins.auto_accounts"
+
+        2011-05-17 * "Something"
+          Expenses:Restaurant   1.11 USD {100 ECUS, 2011-02-01}
+          Assets:Other
+
+        2011-05-18 * "Something Else"
+          Expenses:Restaurant   1.22 USD {100 ECUS, 2011-02-01}
+          Assets:Other
+    """
+    txn = next(data.filter_txns(entries))
+    merged_entry = compress.merge(entries, txn)
+    self.assertEqualEntries("""
+
+        2011-05-17 * "Something"
+          Expenses:Restaurant   2.33 USD {100 ECUS, 2011-02-01}
+          Assets:Other       -233.00 ECUS
+
+    """, [merged_entry])
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.compress_test.TestMerge.test_merge_price">
+<code class="highlight language-python">
+test_merge_price
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.compress_test.TestMerge.test_merge_price" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>plugin "beancount.plugins.auto_accounts"</p>
+<p>2011-05-17 * "Something"
+  Expenses:Restaurant   1.11 USD @ 100 ECUS
+  Assets:Other</p>
+<p>2011-05-18 * "Something Else"
+  Expenses:Restaurant   1.22 USD @ 100 ECUS
+  Assets:Other</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/compress_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_merge_price(self, entries, errors, __):
+    """
+        plugin "beancount.plugins.auto_accounts"
+
+        2011-05-17 * "Something"
+          Expenses:Restaurant   1.11 USD @ 100 ECUS
+          Assets:Other
+
+        2011-05-18 * "Something Else"
+          Expenses:Restaurant   1.22 USD @ 100 ECUS
+          Assets:Other
+    """
+    txn = next(data.filter_txns(entries))
+    merged_entry = compress.merge(entries, txn)
+    self.assertEqualEntries("""
+
+        2011-05-17 * "Something"
+          Expenses:Restaurant   2.33 USD @ 100 ECUS
+          Assets:Other       -233.00 ECUS
+
+    """, [merged_entry])
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.compress_test.TestMerge.test_unmergeable">
+<code class="highlight language-python">
+test_unmergeable
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.compress_test.TestMerge.test_unmergeable" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>plugin "beancount.plugins.auto_accounts"</p>
+<p>2015-01-01 *
+  Expenses:Restaurant    1.11 USD
+  Equity:Other</p>
+<p>2015-01-02 * "Account"
+  Expenses:Grocery       1.11 USD
+  Equity:Other</p>
+<p>2015-01-03 * "Currency"
+  Expenses:Restaurant    1.11 CAD
+  Equity:Other</p>
+<p>2015-01-04 * "Cost"
+  Expenses:Restaurant    1.11 USD {5 ECUS}
+  Equity:Other</p>
+<p>2015-01-05 * "Price"
+  Expenses:Restaurant    1.11 USD @ 10 ECUS
+  Equity:Other</p>
+<p>2015-01-05 * "Flag"
+  ! Expenses:Restaurant  1.11 USD
+  Equity:Other</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/compress_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_unmergeable(self, entries, errors, __):
+    """
+        plugin "beancount.plugins.auto_accounts"
+
+        2015-01-01 *
+          Expenses:Restaurant    1.11 USD
+          Equity:Other
+
+        2015-01-02 * "Account"
+          Expenses:Grocery       1.11 USD
+          Equity:Other
+
+        2015-01-03 * "Currency"
+          Expenses:Restaurant    1.11 CAD
+          Equity:Other
+
+        2015-01-04 * "Cost"
+          Expenses:Restaurant    1.11 USD {5 ECUS}
+          Equity:Other
+
+        2015-01-05 * "Price"
+          Expenses:Restaurant    1.11 USD @ 10 ECUS
+          Equity:Other
+
+        2015-01-05 * "Flag"
+          ! Expenses:Restaurant  1.11 USD
+          Equity:Other
+
+    """
+    txn = next(data.filter_txns(entries))
+    merged_entry = compress.merge(entries, txn)
+
+    self.assertEqualEntries("""
+
+      2015-01-01 *
+        Equity:Other            -1.11 CAD
+        Equity:Other           -16.65 ECUS
+        Equity:Other            -3.33 USD
+        Expenses:Grocery         1.11 USD
+        Expenses:Restaurant      1.11 CAD
+        Expenses:Restaurant      1.11 USD @ 10 ECUS
+        Expenses:Restaurant      1.11 USD {5 ECUS, 2015-01-04}
+        Expenses:Restaurant      1.11 USD
+        ! Expenses:Restaurant    1.11 USD
+
+    """, [merged_entry])
+</code></pre>
+</details>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -2830,6 +4220,476 @@ scale_holding
 </div>
 </div>
 <div class="doc doc-object doc-module">
+<h2 class="doc doc-heading" id="beancount.ops.holdings_test">
+<code>holdings_test</code>
+<a class="headerlink" href="#beancount.ops.holdings_test" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.ops.holdings_test.TestHoldings">
+<code>TestHoldings</code>
+<a class="headerlink" href="#beancount.ops.holdings_test.TestHoldings" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.holdings_test.TestHoldings.test_convert_to_currency">
+<code class="highlight language-python">
+test_convert_to_currency
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.holdings_test.TestHoldings.test_convert_to_currency" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-01-01 price CAD 1.1 USD
+; We don't include a price point for NOK. It's unknown.
+; 2013-01-01 open Assets:Account2</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/holdings_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_convert_to_currency(self, entries, _, __):
+    """
+    2013-01-01 price CAD 1.1 USD
+    ; We don't include a price point for NOK. It's unknown.
+    ; 2013-01-01 open Assets:Account2
+    """
+    test_holdings = list(itertools.starmap(holdings.Holding, [
+
+        # ------------ cost currency == target currency
+        # currency != target currency
+        (None, D('100.00'), 'IVV', D('200'), 'USD', D('10'), D('11'), D('12'), None),
+        # currency == target currency
+        (None, D('100.00'), 'USD', D('200'), 'USD', D('10'), D('11'), D('12'), None),
+        # currency == None
+        (None, D('100.00'), None, D('200'), 'USD', D('10'), D('11'), D('12'), None),
+
+        # ------------ cost currency == other currency
+        # cost currency available in price map
+        (None, D('100.00'), 'XSP', D('200'), 'CAD', D('10'), D('11'), D('12'), None),
+        # cost currency not available in price map
+        (None, D('100.00'), 'AGF', D('200'), 'NOK', D('10'), D('11'), D('12'), None),
+        # currency == target currency, available in price map
+        (None, D('100.00'), 'USD', D('200'), 'CAD', D('10'), D('11'), D('12'), None),
+        # currency == target currency, not available in price map
+        (None, D('100.00'), 'USD', D('200'), 'NOK', D('10'), D('11'), D('12'), None),
+        # cost currency available in price map, and currency == None
+        (None, D('100.00'), None, D('200'), 'CAD', D('10'), D('11'), D('12'), None),
+
+        # ------------ cost currency == None
+        # currency available in price map
+        (None, D('100.00'), 'CAD', D('1.2'), None, D('10'), D('11'), D('12'), None),
+        # currency available in price map, with no values (should be filled in)
+        (None, D('100.00'), 'CAD', D('1.2'), None, None, None, None, None),
+        # currency not available in price map
+        (None, D('100.00'), 'EUR', D('1.2'), None, D('10'), D('11'), D('12'), None),
+        # currency = target currency
+        (None, D('100.00'), 'USD', D('1.2'), None, D('10'), D('11'), D('12'), None),
+
+        ]))
+
+    price_map = prices.build_price_map(entries)
+    converted_holdings = holdings.convert_to_currency(price_map, 'USD', test_holdings)
+    expected_holdings = list(itertools.starmap(holdings.Holding, [
+        (None, D('100.00'), 'IVV', D('200'), 'USD', D('10'), D('11'), D('12'), None),
+        (None, D('100.00'), 'USD', D('200'), 'USD', D('10'), D('11'), D('12'), None),
+        (None, D('100.00'), None, D('200'), 'USD', D('10'), D('11'), D('12'), None),
+        (None, D('100.00'), 'XSP', D('220.0'), 'USD', D('11.0'), D('12.1'), D('13.2'),
+         None),
+        (None, D('100.00'), 'AGF', None, None, None, None, None, None),
+        (None, D('100.00'), 'USD', D('220.0'), 'USD', D('11.0'), D('12.1'), D('13.2'),
+         None),
+        (None, D('100.00'), 'USD', None, None, None, None, None, None),
+        (None, D('100.00'), None, D('220.0'), 'USD', D('11.0'), D('12.1'), D('13.2'),
+         None),
+        (None, D('100.00'), 'CAD', D('1.32'), 'USD', D('11.0'), D('12.1'), D('13.2'),
+         None),
+        (None, D('100.00'), 'CAD', D('1.32'), 'USD', D('110.0'), D('110.0'), None,
+         None),
+        (None, D('100.00'), 'EUR', None, None, None, None, None, None),
+        (None, D('100.00'), 'USD', D('1.2'), 'USD', D('10'), D('11'), D('12'), None),
+        ]))
+    self.assertEqual(expected_holdings, converted_holdings)
+
+    # Fail elegantly if the currency itself is None.
+    none_holding = holdings.Holding(None, D('100.00'), None, D('200'), None,
+                                    None, None, None, None)
+    with self.assertRaises(ValueError):
+        converted_holdings = holdings.convert_to_currency(price_map, 'USD',
+                                                          [none_holding])
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.holdings_test.TestHoldings.test_get_commodities_at_date">
+<code class="highlight language-python">
+test_get_commodities_at_date
+(self, entries, _, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.holdings_test.TestHoldings.test_get_commodities_at_date" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-01-01 open Assets:Account1
+2013-01-01 open Assets:Account2
+2013-01-01 open Assets:Account3
+2013-01-01 open Assets:Cash
+2013-01-01 open Liabilities:Loan
+2013-01-01 open Equity:Unknown</p>
+<p>2000-01-01 commodity HOOL
+  quote: USD</p>
+<p>2000-01-01 commodity ITOT
+  ticker: "NYSEARCA:ITOT"</p>
+<p>2013-03-05 *
+  Equity:Unknown
+  Assets:Cash                   50000 USD</p>
+<p>2013-04-01 *
+  Assets:Account1             15 HOOL {518.73 USD}
+  Assets:Cash</p>
+<p>2013-04-02 *
+  Assets:Account1             10 HOOL {523.46 USD}
+  Assets:Cash</p>
+<p>2013-04-03 *
+  Assets:Account1             -4 HOOL {518.73 USD}
+  Assets:Cash</p>
+<p>2013-04-02 *
+  Assets:Account2            20 ITOT {85.195 USD}
+  Assets:Cash</p>
+<p>2013-04-03 *
+  Assets:Account3             50 HOOL {540.00 USD} @ 560.00 USD
+  Assets:Cash</p>
+<p>2013-04-10 *
+  Assets:Cash                   5111 USD
+  Liabilities:Loan</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/holdings_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_get_commodities_at_date(self, entries, _, options_map):
+    """
+    2013-01-01 open Assets:Account1
+    2013-01-01 open Assets:Account2
+    2013-01-01 open Assets:Account3
+    2013-01-01 open Assets:Cash
+    2013-01-01 open Liabilities:Loan
+    2013-01-01 open Equity:Unknown
+
+    2000-01-01 commodity HOOL
+      quote: USD
+
+    2000-01-01 commodity ITOT
+      ticker: "NYSEARCA:ITOT"
+
+    2013-03-05 *
+      Equity:Unknown
+      Assets:Cash			50000 USD
+
+    2013-04-01 *
+      Assets:Account1             15 HOOL {518.73 USD}
+      Assets:Cash
+
+    2013-04-02 *
+      Assets:Account1             10 HOOL {523.46 USD}
+      Assets:Cash
+
+    2013-04-03 *
+      Assets:Account1             -4 HOOL {518.73 USD}
+      Assets:Cash
+
+    2013-04-02 *
+      Assets:Account2            20 ITOT {85.195 USD}
+      Assets:Cash
+
+    2013-04-03 *
+      Assets:Account3             50 HOOL {540.00 USD} @ 560.00 USD
+      Assets:Cash
+
+    2013-04-10 *
+      Assets:Cash			5111 USD
+      Liabilities:Loan
+    """
+    commodities = holdings.get_commodities_at_date(entries, options_map)
+    self.assertEqual([('HOOL', 'USD', 'USD', None),
+                      ('ITOT', 'USD', None, 'NYSEARCA:ITOT'),
+                      ('USD', 'USD', None, None)],
+                     commodities)
+
+    commodities = holdings.get_commodities_at_date(entries, options_map,
+                                                   date=datetime.date(2013, 4, 2))
+    self.assertEqual([('HOOL', 'USD', 'USD', None),
+                      ('USD', 'USD', None, None)],
+                     commodities)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.holdings_test.TestHoldings.test_get_final_holdings">
+<code class="highlight language-python">
+test_get_final_holdings
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.holdings_test.TestHoldings.test_get_final_holdings" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-01-01 open Assets:Account1
+2013-01-01 open Assets:Account2
+2013-01-01 open Assets:Account3
+2013-01-01 open Assets:Cash
+2013-01-01 open Liabilities:Loan
+2013-01-01 open Equity:Unknown</p>
+<p>2013-04-05 *
+  Equity:Unknown
+  Assets:Cash                   50000 USD</p>
+<p>2013-04-01 *
+  Assets:Account1             15 HOOL {518.73 USD}
+  Assets:Cash</p>
+<p>2013-04-02 *
+  Assets:Account1             10 HOOL {523.46 USD}
+  Assets:Cash</p>
+<p>2013-04-03 *
+  Assets:Account1             -4 HOOL {518.73 USD}
+  Assets:Cash</p>
+<p>2013-04-02 *
+  Assets:Account2            20 ITOT {85.195 USD}
+  Assets:Cash</p>
+<p>2013-04-03 *
+  Assets:Account3             50 HOOL {540.00 USD} @ 560.00 USD
+  Assets:Cash</p>
+<p>2013-04-10 *
+  Assets:Cash                   5111 USD
+  Liabilities:Loan</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/holdings_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_get_final_holdings(self, entries, _, __):
+    """
+    2013-01-01 open Assets:Account1
+    2013-01-01 open Assets:Account2
+    2013-01-01 open Assets:Account3
+    2013-01-01 open Assets:Cash
+    2013-01-01 open Liabilities:Loan
+    2013-01-01 open Equity:Unknown
+
+    2013-04-05 *
+      Equity:Unknown
+      Assets:Cash			50000 USD
+
+    2013-04-01 *
+      Assets:Account1             15 HOOL {518.73 USD}
+      Assets:Cash
+
+    2013-04-02 *
+      Assets:Account1             10 HOOL {523.46 USD}
+      Assets:Cash
+
+    2013-04-03 *
+      Assets:Account1             -4 HOOL {518.73 USD}
+      Assets:Cash
+
+    2013-04-02 *
+      Assets:Account2            20 ITOT {85.195 USD}
+      Assets:Cash
+
+    2013-04-03 *
+      Assets:Account3             50 HOOL {540.00 USD} @ 560.00 USD
+      Assets:Cash
+
+    2013-04-10 *
+      Assets:Cash			5111 USD
+      Liabilities:Loan
+    """
+    holdings_list = holdings.get_final_holdings(entries)
+
+    holdings_list = sorted(map(tuple, holdings_list))
+    expected_values = [
+        ('Assets:Account1', D('10'), 'HOOL', D('523.46'), 'USD',
+         D('5234.60'), None, None, None),
+        ('Assets:Account1', D('11'), 'HOOL', D('518.73'), 'USD',
+         D('5706.03'), None, None, None),
+        ('Assets:Account2', D('20'), 'ITOT', D('85.195'), 'USD',
+         D('1703.900'), None, None, None),
+        ('Assets:Account3', D('50'), 'HOOL', D('540.00'), 'USD',
+         D('27000.00'), None, None, None),
+        ('Assets:Cash', D('15466.470'), 'USD', None, 'USD',
+         D('15466.470'), D('15466.470'), None, None),
+        ('Equity:Unknown', D('-50000'), 'USD', None, 'USD',
+         D('-50000'), D('-50000'), None, None),
+        ('Liabilities:Loan', D('-5111'), 'USD', None, 'USD',
+         D('-5111'), D('-5111'), None, None),
+    ]
+    self.assertEqual(expected_values, holdings_list)
+
+    # Try with some account type restrictions.
+    holdings_list = holdings.get_final_holdings(entries, ('Assets', 'Liabilities'))
+    holdings_list = sorted(map(tuple, holdings_list))
+    expected_values = [holding
+                       for holding in expected_values
+                       if (holding[0].startswith('Assets') or
+                           holding[0].startswith('Liabilities'))]
+    self.assertEqual(expected_values, holdings_list)
+
+    # Try with some account type restrictions.
+    holdings_list = holdings.get_final_holdings(entries, ('Assets',))
+    holdings_list = sorted(map(tuple, holdings_list))
+    expected_values = [holding
+                       for holding in expected_values
+                       if holding[0].startswith('Assets')]
+    self.assertEqual(expected_values, holdings_list)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.holdings_test.TestHoldings.test_get_final_holdings__check_no_aggregates">
+<code class="highlight language-python">
+test_get_final_holdings__check_no_aggregates
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.holdings_test.TestHoldings.test_get_final_holdings__check_no_aggregates" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>plugin "beancount.plugins.unrealized" "Unrealized"</p>
+<p>2013-01-01 open Assets:Investment   HOOL
+2013-01-01 open Assets:Cash         USD</p>
+<p>2013-04-01 *
+  Assets:Investment             15 HOOL {518.73 USD}
+  Assets:Cash</p>
+<p>2013-06-01 price HOOL  600.00 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/holdings_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_get_final_holdings__check_no_aggregates(self, entries, _, __):
+    """
+    plugin "beancount.plugins.unrealized" "Unrealized"
+
+    2013-01-01 open Assets:Investment   HOOL
+    2013-01-01 open Assets:Cash         USD
+
+    2013-04-01 *
+      Assets:Investment             15 HOOL {518.73 USD}
+      Assets:Cash
+
+    2013-06-01 price HOOL  600.00 USD
+    """
+    holdings_list = holdings.get_final_holdings(entries)
+
+    # Ensure that there is no Unrealized balance or sub-account.
+    self.assertEqual({'Assets:Cash', 'Assets:Investment'},
+                     set(holding.account for holding in holdings_list))
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.holdings_test.TestHoldings.test_get_final_holdings__zero_position">
+<code class="highlight language-python">
+test_get_final_holdings__zero_position
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.holdings_test.TestHoldings.test_get_final_holdings__zero_position" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>1970-01-01 open Assets:Stocks:NYA
+1970-01-01 open Expenses:Financial:Commissions
+1970-01-01 open Assets:Current
+1970-01-01 open Income:Dividends:NYA</p>
+<p>2012-07-02 ! "I received 1 new share in dividend, without paying"
+  Assets:Stocks:NYA 1 NYA {0 EUR}
+  Income:Dividends:NYA -0 EUR</p>
+<p>2014-11-13 balance Assets:Stocks:NYA 1 NYA</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/holdings_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_get_final_holdings__zero_position(self, entries, _, __):
+    """
+    1970-01-01 open Assets:Stocks:NYA
+    1970-01-01 open Expenses:Financial:Commissions
+    1970-01-01 open Assets:Current
+    1970-01-01 open Income:Dividends:NYA
+
+    2012-07-02 ! "I received 1 new share in dividend, without paying"
+      Assets:Stocks:NYA 1 NYA {0 EUR}
+      Income:Dividends:NYA -0 EUR
+
+    2014-11-13 balance Assets:Stocks:NYA 1 NYA
+    """
+    price_map = prices.build_price_map(entries)
+    holdings_list = holdings.get_final_holdings(entries,
+                                                ('Assets', 'Liabilities'),
+                                                price_map)
+    self.assertEqual(1, len(holdings_list))
+    self.assertEqual('EUR', holdings_list[0].cost_currency)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.holdings_test.TestHoldings.test_get_final_holdings_with_prices">
+<code class="highlight language-python">
+test_get_final_holdings_with_prices
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.holdings_test.TestHoldings.test_get_final_holdings_with_prices" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-01-01 open Assets:Account1
+2013-01-01 open Assets:Account2
+2013-01-01 open Assets:Account3
+2013-01-01 open Assets:Cash
+2013-01-01 open Equity:Unknown</p>
+<p>2013-04-05 *
+  Equity:Unknown
+  Assets:Cash                   50000 USD</p>
+<p>2013-04-01 *
+  Assets:Account1             15 HOOL {518.73 USD}
+  Assets:Cash</p>
+<p>2013-06-01 price HOOL  578.02 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/holdings_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_get_final_holdings_with_prices(self, entries, _, __):
+    """
+    2013-01-01 open Assets:Account1
+    2013-01-01 open Assets:Account2
+    2013-01-01 open Assets:Account3
+    2013-01-01 open Assets:Cash
+    2013-01-01 open Equity:Unknown
+
+    2013-04-05 *
+      Equity:Unknown
+      Assets:Cash			50000 USD
+
+    2013-04-01 *
+      Assets:Account1             15 HOOL {518.73 USD}
+      Assets:Cash
+
+    2013-06-01 price HOOL  578.02 USD
+
+    """
+    price_map = prices.build_price_map(entries)
+    holdings_list = holdings.get_final_holdings(entries,
+                                                ('Assets', 'Liabilities'),
+                                                price_map)
+
+    holdings_list = sorted(map(tuple, holdings_list))
+    expected_values = [
+        ('Assets:Account1', D('15'), 'HOOL', D('518.73'), 'USD',
+         D('7780.95'), D('8670.30'),
+         D('578.02'), datetime.date(2013, 6, 1)),
+        ('Assets:Cash', D('42219.05'), 'USD', None, 'USD',
+         D('42219.05'), D('42219.05'), None, None),
+        # Notice no Equity account.
+    ]
+    self.assertEqual(expected_values, holdings_list)
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
 <h2 class="doc doc-heading" id="beancount.ops.lifetimes">
 <code>lifetimes</code>
 <a class="headerlink" href="#beancount.ops.lifetimes" title="Permanent link"></a></h2>
@@ -3214,6 +5074,299 @@ get_commodity_lifetimes().</p>
 </div>
 </div>
 <div class="doc doc-object doc-module">
+<h2 class="doc doc-heading" id="beancount.ops.lifetimes_test">
+<code>lifetimes_test</code>
+<a class="headerlink" href="#beancount.ops.lifetimes_test" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.ops.lifetimes_test.TestCommodityLifetimes">
+<code>TestCommodityLifetimes</code>
+<a class="headerlink" href="#beancount.ops.lifetimes_test.TestCommodityLifetimes" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.lifetimes_test.TestCommodityLifetimes.test_lifetimes_closed_open">
+<code class="highlight language-python">
+test_lifetimes_closed_open
+(self, entries, errors, _)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.lifetimes_test.TestCommodityLifetimes.test_lifetimes_closed_open" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2000-01-01 open Assets:US:Invest:Cash    USD
+2000-01-01 open Assets:US:Invest:AAPL    AAPL
+2000-01-01 open Income:US:Invest:PnL
+2000-01-01 open Assets:US:Bank:Checking  USD</p>
+<p>2000-01-02 * "Deposit"
+  Assets:US:Bank:Checking    -10000 USD
+  Assets:US:Invest:Cash       10000 USD</p>
+<p>2001-03-10 * "Buy Apple"
+  Assets:US:Invest:AAPL     10 AAPL {43.40 USD}
+  Assets:US:Invest:Cash</p>
+<p>2001-08-10 * "Sell some Apple - some will remain"
+  Assets:US:Invest:AAPL     -8 AAPL {43.40 USD}
+  Assets:US:Invest:Cash   360.00 USD
+  Income:US:Invest:PnL</p>
+<p>2001-12-10 * "Sell remaining Apple - this completes the interval"
+  Assets:US:Invest:AAPL     -2 AAPL {43.40 USD}
+  Assets:US:Invest:Cash   96.00 USD
+  Income:US:Invest:PnL</p>
+<p>2002-02-10 * "Buy Apple again - this begins a new interval"
+  Assets:US:Invest:AAPL     5 AAPL {48.00 USD}
+  Assets:US:Invest:Cash</p>
+<p>2002-06-10 * "Sell Apple again - this ends it"
+  Assets:US:Invest:AAPL     -5 AAPL {48.00 USD}
+  Assets:US:Invest:Cash   260.00 USD
+  Income:US:Invest:PnL</p>
+<p>2003-04-10 * "Buy Apple - keep this open"
+  Assets:US:Invest:AAPL     7 AAPL {50.00 USD}
+  Assets:US:Invest:Cash</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/lifetimes_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_lifetimes_closed_open(self, entries, errors, _):
+    """
+    2000-01-01 open Assets:US:Invest:Cash    USD
+    2000-01-01 open Assets:US:Invest:AAPL    AAPL
+    2000-01-01 open Income:US:Invest:PnL
+    2000-01-01 open Assets:US:Bank:Checking  USD
+
+    2000-01-02 * "Deposit"
+      Assets:US:Bank:Checking    -10000 USD
+      Assets:US:Invest:Cash       10000 USD
+
+    2001-03-10 * "Buy Apple"
+      Assets:US:Invest:AAPL     10 AAPL {43.40 USD}
+      Assets:US:Invest:Cash
+
+    2001-08-10 * "Sell some Apple - some will remain"
+      Assets:US:Invest:AAPL     -8 AAPL {43.40 USD}
+      Assets:US:Invest:Cash   360.00 USD
+      Income:US:Invest:PnL
+
+    2001-12-10 * "Sell remaining Apple - this completes the interval"
+      Assets:US:Invest:AAPL     -2 AAPL {43.40 USD}
+      Assets:US:Invest:Cash   96.00 USD
+      Income:US:Invest:PnL
+
+    2002-02-10 * "Buy Apple again - this begins a new interval"
+      Assets:US:Invest:AAPL     5 AAPL {48.00 USD}
+      Assets:US:Invest:Cash
+
+    2002-06-10 * "Sell Apple again - this ends it"
+      Assets:US:Invest:AAPL     -5 AAPL {48.00 USD}
+      Assets:US:Invest:Cash   260.00 USD
+      Income:US:Invest:PnL
+
+    2003-04-10 * "Buy Apple - keep this open"
+      Assets:US:Invest:AAPL     7 AAPL {50.00 USD}
+      Assets:US:Invest:Cash
+    """
+    self.assertFalse(errors)
+    lifetimes_map = lifetimes.get_commodity_lifetimes(entries)
+    self.assertEqual(
+        {('USD', None): [(datetime.date(2000, 1, 2), None)],
+         ('AAPL', 'USD'): [(datetime.date(2001, 3, 10), datetime.date(2001, 12, 11)),
+                           (datetime.date(2002, 2, 10), datetime.date(2002, 6, 11)),
+                           (datetime.date(2003, 4, 10), None)]},
+        lifetimes_map)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.lifetimes_test.TestCommodityLifetimes.test_lifetimes_cross_accounts">
+<code class="highlight language-python">
+test_lifetimes_cross_accounts
+(self, entries, errors, _)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.lifetimes_test.TestCommodityLifetimes.test_lifetimes_cross_accounts" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2000-01-01 open Assets:US:InvestA:Cash    USD
+2000-01-01 open Assets:US:InvestA:AAPL    AAPL
+2000-01-01 open Income:US:InvestA:PnL
+2000-01-01 open Assets:US:InvestB:Cash    USD
+2000-01-01 open Assets:US:InvestB:AAPL    AAPL
+2000-01-01 open Income:US:InvestB:PnL
+2000-01-01 open Assets:US:Bank:Checking  USD</p>
+<p>2000-01-02 * "Deposit"
+  Assets:US:Bank:Checking    -10000 USD
+  Assets:US:InvestA:Cash       5000 USD
+  Assets:US:InvestB:Cash       5000 USD</p>
+<p>2001-03-10 * "Buy Apple - in first account"
+  Assets:US:InvestA:AAPL     10 AAPL {43.40 USD}
+  Assets:US:InvestA:Cash</p>
+<p>2001-05-10 * "Buy Apple - in second account"
+  Assets:US:InvestB:AAPL     10 AAPL {44.10 USD}
+  Assets:US:InvestB:Cash</p>
+<p>2001-06-10 * "Sell Apple - in first account, resulting position is zero"
+  Assets:US:InvestA:AAPL     -10 AAPL {43.40 USD}
+  Assets:US:InvestA:Cash  500.00 USD
+  Income:US:InvestA:PnL</p>
+<p>2001-06-11 balance Assets:US:InvestA:AAPL    0 AAPL</p>
+<p>2001-09-10 * "Sell Apple - in second account, this is the last AAPL position"
+  Assets:US:InvestB:AAPL     -10 AAPL {44.10 USD}
+  Assets:US:InvestB:Cash  500.00 USD
+  Income:US:InvestB:PnL</p>
+<p>2001-09-11 balance Assets:US:InvestB:AAPL    0 AAPL</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/lifetimes_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_lifetimes_cross_accounts(self, entries, errors, _):
+    """
+    2000-01-01 open Assets:US:InvestA:Cash    USD
+    2000-01-01 open Assets:US:InvestA:AAPL    AAPL
+    2000-01-01 open Income:US:InvestA:PnL
+    2000-01-01 open Assets:US:InvestB:Cash    USD
+    2000-01-01 open Assets:US:InvestB:AAPL    AAPL
+    2000-01-01 open Income:US:InvestB:PnL
+    2000-01-01 open Assets:US:Bank:Checking  USD
+
+    2000-01-02 * "Deposit"
+      Assets:US:Bank:Checking    -10000 USD
+      Assets:US:InvestA:Cash       5000 USD
+      Assets:US:InvestB:Cash       5000 USD
+
+    2001-03-10 * "Buy Apple - in first account"
+      Assets:US:InvestA:AAPL     10 AAPL {43.40 USD}
+      Assets:US:InvestA:Cash
+
+    2001-05-10 * "Buy Apple - in second account"
+      Assets:US:InvestB:AAPL     10 AAPL {44.10 USD}
+      Assets:US:InvestB:Cash
+
+    2001-06-10 * "Sell Apple - in first account, resulting position is zero"
+      Assets:US:InvestA:AAPL     -10 AAPL {43.40 USD}
+      Assets:US:InvestA:Cash  500.00 USD
+      Income:US:InvestA:PnL
+
+    2001-06-11 balance Assets:US:InvestA:AAPL    0 AAPL
+
+    2001-09-10 * "Sell Apple - in second account, this is the last AAPL position"
+      Assets:US:InvestB:AAPL     -10 AAPL {44.10 USD}
+      Assets:US:InvestB:Cash  500.00 USD
+      Income:US:InvestB:PnL
+
+    2001-09-11 balance Assets:US:InvestB:AAPL    0 AAPL
+    """
+    self.assertFalse(errors)
+    lifetimes_map = lifetimes.get_commodity_lifetimes(entries)
+    self.assertEqual(
+        {('AAPL', 'USD'): [(datetime.date(2001, 3, 10), datetime.date(2001, 9, 11))],
+         ('USD', None): [(datetime.date(2000, 1, 2), None)]},
+        lifetimes_map)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.lifetimes_test.TestCommodityLifetimes.test_lifetimes_different_currencies">
+<code class="highlight language-python">
+test_lifetimes_different_currencies
+(self, entries, errors, _)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.lifetimes_test.TestCommodityLifetimes.test_lifetimes_different_currencies" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2000-01-01 open Assets:US:Invest:Cash    USD
+2000-01-01 open Assets:US:Invest:AAPL    AAPL
+2000-01-01 open Assets:US:Invest:CSCO    CSCO
+2000-01-01 open Assets:US:Invest:INTL    INTL
+2000-01-01 open Assets:US:Invest:IBM     IBM
+2000-01-01 open Income:US:Invest:PnL
+2000-01-01 open Assets:US:Bank:Checking  USD</p>
+<p>2000-01-02 * "Deposit"
+  Assets:US:Bank:Checking    -10000 USD
+  Assets:US:Invest:Cash       10000 USD</p>
+<p>2001-02-10 * "Buy shares"
+  Assets:US:Invest:AAPL     10 AAPL {43.00 USD}
+  Assets:US:Invest:CSCO     10 CSCO {21.00 USD}
+  Assets:US:Invest:INTL     10 INTL {75.00 USD}
+  Assets:US:Invest:IBM      10 IBM  {16.00 USD}
+  Assets:US:Invest:Cash</p>
+<p>2001-07-20 * "Sell AAPL"
+  Assets:US:Invest:AAPL     -10 AAPL {43.00 USD}
+  Assets:US:Invest:Cash   500.00 USD
+  Income:US:Invest:PnL</p>
+<p>2001-07-21 * "Sell CSCO"
+  Assets:US:Invest:CSCO     -10 CSCO {21.00 USD}
+  Assets:US:Invest:Cash   300.00 USD
+  Income:US:Invest:PnL</p>
+<p>2001-07-22 * "Sell INTL"
+  Assets:US:Invest:INTL     -10 INTL {75.00 USD}
+  Assets:US:Invest:Cash   800.00 USD
+  Income:US:Invest:PnL</p>
+<p>2001-07-23 * "Sell IBM"
+  Assets:US:Invest:IBM     -10 IBM {16.00 USD}
+  Assets:US:Invest:Cash   200.00 USD
+  Income:US:Invest:PnL</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/lifetimes_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_lifetimes_different_currencies(self, entries, errors, _):
+    """
+    2000-01-01 open Assets:US:Invest:Cash    USD
+    2000-01-01 open Assets:US:Invest:AAPL    AAPL
+    2000-01-01 open Assets:US:Invest:CSCO    CSCO
+    2000-01-01 open Assets:US:Invest:INTL    INTL
+    2000-01-01 open Assets:US:Invest:IBM     IBM
+    2000-01-01 open Income:US:Invest:PnL
+    2000-01-01 open Assets:US:Bank:Checking  USD
+
+    2000-01-02 * "Deposit"
+      Assets:US:Bank:Checking    -10000 USD
+      Assets:US:Invest:Cash       10000 USD
+
+    2001-02-10 * "Buy shares"
+      Assets:US:Invest:AAPL     10 AAPL {43.00 USD}
+      Assets:US:Invest:CSCO     10 CSCO {21.00 USD}
+      Assets:US:Invest:INTL     10 INTL {75.00 USD}
+      Assets:US:Invest:IBM      10 IBM  {16.00 USD}
+      Assets:US:Invest:Cash
+
+    2001-07-20 * "Sell AAPL"
+      Assets:US:Invest:AAPL     -10 AAPL {43.00 USD}
+      Assets:US:Invest:Cash   500.00 USD
+      Income:US:Invest:PnL
+
+    2001-07-21 * "Sell CSCO"
+      Assets:US:Invest:CSCO     -10 CSCO {21.00 USD}
+      Assets:US:Invest:Cash   300.00 USD
+      Income:US:Invest:PnL
+
+    2001-07-22 * "Sell INTL"
+      Assets:US:Invest:INTL     -10 INTL {75.00 USD}
+      Assets:US:Invest:Cash   800.00 USD
+      Income:US:Invest:PnL
+
+    2001-07-23 * "Sell IBM"
+      Assets:US:Invest:IBM     -10 IBM {16.00 USD}
+      Assets:US:Invest:Cash   200.00 USD
+      Income:US:Invest:PnL
+
+    """
+    self.assertFalse(errors)
+    lifetimes_map = lifetimes.get_commodity_lifetimes(entries)
+    self.assertEqual(
+        {('USD', None): [(datetime.date(2000, 1, 2), None)],
+         ('AAPL', 'USD'): [(datetime.date(2001, 2, 10), datetime.date(2001, 7, 21))],
+         ('CSCO', 'USD'): [(datetime.date(2001, 2, 10), datetime.date(2001, 7, 22))],
+         ('INTL', 'USD'): [(datetime.date(2001, 2, 10), datetime.date(2001, 7, 23))],
+         ('IBM', 'USD'): [(datetime.date(2001, 2, 10), datetime.date(2001, 7, 24))]},
+        lifetimes_map)
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
 <h2 class="doc doc-heading" id="beancount.ops.pad">
 <code>pad</code>
 <a class="headerlink" href="#beancount.ops.pad" title="Permanent link"></a></h2>
@@ -3507,6 +5660,974 @@ errors produced.</p>
     return padded_entries, pad_errors
 </code></pre>
 </details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
+<h2 class="doc doc-heading" id="beancount.ops.pad_test">
+<code>pad_test</code>
+<a class="headerlink" href="#beancount.ops.pad_test" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.ops.pad_test.TestPadding">
+<code>TestPadding</code>
+<a class="headerlink" href="#beancount.ops.pad_test.TestPadding" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.pad_test.TestPadding.test_pad_at_cost">
+<code class="highlight language-python">
+test_pad_at_cost
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.pad_test.TestPadding.test_pad_at_cost" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-05-01 open Assets:Investments
+2013-05-01 open Equity:Opening-Balances</p>
+<p>2013-05-15 *
+  Assets:Investments   10 MSFT {54.30 USD}
+  Equity:Opening-Balances</p>
+<p>2013-06-01 pad Assets:Investments Equity:Opening-Balances</p>
+<p>2013-10-01 balance Assets:Investments   12 MSFT</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/pad_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_pad_at_cost(self, entries, errors, __):
+    """
+      2013-05-01 open Assets:Investments
+      2013-05-01 open Equity:Opening-Balances
+
+      2013-05-15 *
+        Assets:Investments   10 MSFT {54.30 USD}
+        Equity:Opening-Balances
+
+      2013-06-01 pad Assets:Investments Equity:Opening-Balances
+
+      2013-10-01 balance Assets:Investments   12 MSFT
+    """
+    self.assertEqual([pad.PadError], list(map(type, errors)))
+    self.assertRegex(errors[0].message, 'Attempt to pad an entry with cost for')
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.pad_test.TestPadding.test_pad_check_balances">
+<code class="highlight language-python">
+test_pad_check_balances
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.pad_test.TestPadding.test_pad_check_balances" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-05-01 open Assets:Checking
+2013-05-01 open Assets:Cash
+2013-05-01 open Equity:Opening-Balances</p>
+<p>2013-05-01 pad  Assets:Checking   Equity:Opening-Balances</p>
+<p>2013-05-03 txn "Add 20$"
+  Assets:Checking                        10 USD
+  Assets:Cash</p>
+<p>2013-05-10 balance Assets:Checking      105 USD</p>
+<p>2013-05-15 txn "Add 20$"
+  Assets:Checking                        20 USD
+  Assets:Cash</p>
+<p>2013-05-16 txn "Add 20$"
+  Assets:Checking                        20 USD
+  Assets:Cash</p>
+<p>2013-06-01 balance Assets:Checking      145 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/pad_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_pad_check_balances(self, entries, errors, __):
+    """
+      2013-05-01 open Assets:Checking
+      2013-05-01 open Assets:Cash
+      2013-05-01 open Equity:Opening-Balances
+
+      2013-05-01 pad  Assets:Checking   Equity:Opening-Balances
+
+      2013-05-03 txn "Add 20$"
+        Assets:Checking                        10 USD
+        Assets:Cash
+
+      2013-05-10 balance Assets:Checking      105 USD
+
+      2013-05-15 txn "Add 20$"
+        Assets:Checking                        20 USD
+        Assets:Cash
+
+      2013-05-16 txn "Add 20$"
+        Assets:Checking                        20 USD
+        Assets:Cash
+
+      2013-06-01 balance Assets:Checking      145 USD
+
+    """
+    post_map = realization.postings_by_account(entries)
+    txn_postings = post_map['Assets:Checking']
+
+    balances = []
+    pad_balance = inventory.Inventory()
+    for txn_posting in txn_postings:
+        if isinstance(txn_posting, data.TxnPosting):
+            position_, _ = pad_balance.add_position(txn_posting.posting)
+        balances.append((type(txn_posting), pad_balance.get_currency_units('USD')))
+
+    self.assertEqual(balances, [(data.Open, A('0.00 USD')),
+                                (data.Pad, A('0.00 USD')),
+                                (data.TxnPosting, A('95.00 USD')),
+                                (data.TxnPosting, A('105.00 USD')),
+                                (data.Balance, A('105.00 USD')),
+                                (data.TxnPosting, A('125.00 USD')),
+                                (data.TxnPosting, A('145.00 USD')),
+                                (data.Balance, A('145.00 USD'))])
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.pad_test.TestPadding.test_pad_issue362">
+<code class="highlight language-python">
+test_pad_issue362
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.pad_test.TestPadding.test_pad_issue362" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>1970-01-01 open Assets:Bank
+1970-01-01 open Assets:Bank-Two
+1970-01-01 open Equity:Opening-Balance
+1970-01-01 open Equity:Adjustments
+1970-01-01 open Expenses:Food</p>
+<p>2019-01-01 * "Opening balance"
+  Assets:Bank                  20.00 GBP
+  Equity:Opening-Balance      -20.00 GBP</p>
+<p>2019-01-03 * "Tesco" "Buy food"
+  Expenses:Food                30.00 GBP
+  Assets:Bank                 -30.00 GBP</p>
+<p>2019-01-04 balance Assets:Bank -10.00 GBP</p>
+<p>2019-01-03 * "Tesco" "Buy food"
+  Expenses:Food                 6.00 GBP
+  Assets:Bank-Two              -6.00 GBP</p>
+<p>; Get rid of overdraft somehow and get a £50 balance</p>
+<p>2019-01-04 pad Assets:Bank Equity:Adjustments
+2019-01-05 balance Assets:Bank 50.00 GBP</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/pad_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_pad_issue362(self, entries, errors, __):
+    """
+    1970-01-01 open Assets:Bank
+    1970-01-01 open Assets:Bank-Two
+    1970-01-01 open Equity:Opening-Balance
+    1970-01-01 open Equity:Adjustments
+    1970-01-01 open Expenses:Food
+
+    2019-01-01 * "Opening balance"
+      Assets:Bank                  20.00 GBP
+      Equity:Opening-Balance      -20.00 GBP
+
+    2019-01-03 * "Tesco" "Buy food"
+      Expenses:Food                30.00 GBP
+      Assets:Bank                 -30.00 GBP
+
+    2019-01-04 balance Assets:Bank -10.00 GBP
+
+    2019-01-03 * "Tesco" "Buy food"
+      Expenses:Food                 6.00 GBP
+      Assets:Bank-Two              -6.00 GBP
+
+    ; Get rid of overdraft somehow and get a £50 balance
+
+    2019-01-04 pad Assets:Bank Equity:Adjustments
+    2019-01-05 balance Assets:Bank 50.00 GBP
+    """
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.pad_test.TestPadding.test_pad_multiple_currencies">
+<code class="highlight language-python">
+test_pad_multiple_currencies
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.pad_test.TestPadding.test_pad_multiple_currencies" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-05-01 open Assets:Checking
+2013-05-01 open Equity:Opening-Balances</p>
+<p>2013-05-10 *
+  Assets:Checking                     1.00 USD
+  Assets:Checking                     1.00 CAD
+  Assets:Checking                     1.00 EUR
+  Equity:Opening-Balances</p>
+<p>;; This should insert two entries: one for USD, one for CAD (different
+;; amount) and none for EUR.
+2013-05-20 pad Assets:Checking Equity:Opening-Balances</p>
+<p>2013-06-01 balance Assets:Checking    5.00 USD
+2013-06-01 balance Assets:Checking    3.00 CAD
+2013-06-01 balance Assets:Checking    1.00 EUR</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/pad_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_pad_multiple_currencies(self, entries, errors, __):
+    """
+      2013-05-01 open Assets:Checking
+      2013-05-01 open Equity:Opening-Balances
+
+      2013-05-10 *
+        Assets:Checking                     1.00 USD
+        Assets:Checking                     1.00 CAD
+        Assets:Checking                     1.00 EUR
+        Equity:Opening-Balances
+
+      ;; This should insert two entries: one for USD, one for CAD (different
+      ;; amount) and none for EUR.
+      2013-05-20 pad Assets:Checking Equity:Opening-Balances
+
+      2013-06-01 balance Assets:Checking    5.00 USD
+      2013-06-01 balance Assets:Checking    3.00 CAD
+      2013-06-01 balance Assets:Checking    1.00 EUR
+
+    """
+    self.assertFalse(errors)
+    self.assertEqualEntries("""
+
+      2013-05-01 open Assets:Checking
+      2013-05-01 open Equity:Opening-Balances
+
+      2013-05-10 *
+        Assets:Checking                    1.00 USD
+        Assets:Checking                    1.00 CAD
+        Assets:Checking                    1.00 EUR
+        Equity:Opening-Balances           -1.00 USD
+        Equity:Opening-Balances           -1.00 CAD
+        Equity:Opening-Balances           -1.00 EUR
+
+      2013-05-20 pad Assets:Checking Equity:Opening-Balances
+
+      2013-05-20 P "(Padding inserted for Balance of 5.00 USD for difference 4.00 USD)"
+        Assets:Checking                    4.00 USD
+        Equity:Opening-Balances           -4.00 USD
+
+      2013-05-20 P "(Padding inserted for Balance of 3.00 CAD for difference 2.00 CAD)"
+        Assets:Checking                    2.00 CAD
+        Equity:Opening-Balances           -2.00 CAD
+
+      2013-06-01 balance Assets:Checking   5.00 USD
+      2013-06-01 balance Assets:Checking   3.00 CAD
+      2013-06-01 balance Assets:Checking   1.00 EUR
+
+    """, entries)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.pad_test.TestPadding.test_pad_multiple_times">
+<code class="highlight language-python">
+test_pad_multiple_times
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.pad_test.TestPadding.test_pad_multiple_times" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-05-01 open Assets:Checking
+2013-05-01 open Equity:Opening-Balances</p>
+<p>2013-06-01 pad Assets:Checking Equity:Opening-Balances
+2013-07-01 pad Assets:Checking Equity:Opening-Balances</p>
+<p>2013-10-01 balance Assets:Checking    5.00 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/pad_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_pad_multiple_times(self, entries, errors, __):
+    """
+      2013-05-01 open Assets:Checking
+      2013-05-01 open Equity:Opening-Balances
+
+      2013-06-01 pad Assets:Checking Equity:Opening-Balances
+      2013-07-01 pad Assets:Checking Equity:Opening-Balances
+
+      2013-10-01 balance Assets:Checking    5.00 USD
+    """
+    self.assertEqual([pad.PadError], list(map(type, errors)))
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.pad_test.TestPadding.test_pad_no_overflow">
+<code class="highlight language-python">
+test_pad_no_overflow
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.pad_test.TestPadding.test_pad_no_overflow" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-05-01 open Assets:Checking
+2013-05-01 open Assets:Cash
+2013-05-01 open Equity:Opening-Balances</p>
+<p>;; Pad before the next check.
+2013-05-01 pad Assets:Checking Equity:Opening-Balances</p>
+<p>;; The check that is being padded.
+2013-05-03 balance Assets:Checking                                 172.45 USD</p>
+<p>2013-05-15 * "Add 20$"
+  Assets:Checking                                                   20.00 USD
+  Assets:Cash                                                      -20.00 USD</p>
+<p>;; This is the next check, should not have been padded.
+2013-06-01 balance Assets:Checking                                 200.00 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/pad_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_pad_no_overflow(self, entries, errors, __):
+    """
+
+      2013-05-01 open Assets:Checking
+      2013-05-01 open Assets:Cash
+      2013-05-01 open Equity:Opening-Balances
+
+      ;; Pad before the next check.
+      2013-05-01 pad Assets:Checking Equity:Opening-Balances
+
+      ;; The check that is being padded.
+      2013-05-03 balance Assets:Checking                                 172.45 USD
+
+      2013-05-15 * "Add 20$"
+        Assets:Checking                                                   20.00 USD
+        Assets:Cash                                                      -20.00 USD
+
+      ;; This is the next check, should not have been padded.
+      2013-06-01 balance Assets:Checking                                 200.00 USD
+
+    """
+    self.assertEqual([balance.BalanceError], list(map(type, errors)))
+    self.assertEqualEntries("""
+
+      2013-05-01 open Assets:Checking
+      2013-05-01 open Assets:Cash
+      2013-05-01 open Equity:Opening-Balances
+
+      2013-05-01 pad Assets:Checking Equity:Opening-Balances
+
+      2013-05-01 P "(Padding inserted for Balance of 172.45 USD for difference 172.45 USD)"
+        Assets:Checking                                                        172.45 USD
+        Equity:Opening-Balances                                                -172.45 USD
+
+      2013-05-03 balance Assets:Checking                                 172.45 USD
+
+      2013-05-15 * "Add 20$"
+        Assets:Checking                                                         20.00 USD
+        Assets:Cash                                                            -20.00 USD
+
+      2013-06-01 balance Assets:Checking                                 200.00 USD
+
+    """, entries)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.pad_test.TestPadding.test_pad_parent">
+<code class="highlight language-python">
+test_pad_parent
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.pad_test.TestPadding.test_pad_parent" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>1998-01-01 open Assets:CA:Bank:Checking     CAD
+1998-01-01 open Assets:CA:Bank:CheckingOld  CAD
+1998-01-01 open Income:CA:Something         USD
+1998-01-01 open Equity:Beginning-Balances</p>
+<p>2006-01-01 pad Assets:CA:Bank:Checking   Equity:Beginning-Balances</p>
+<p>2006-04-04 balance Assets:CA:Bank:Checking      742.50 CAD</p>
+<p>2001-01-15 * "Referral"
+  Assets:CA:Bank:CheckingOld   1000.00 CAD @ 0.6625 USD
+  Income:CA:Something          -662.50 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/pad_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_pad_parent(self, entries, errors, __):
+    """
+      1998-01-01 open Assets:CA:Bank:Checking     CAD
+      1998-01-01 open Assets:CA:Bank:CheckingOld  CAD
+      1998-01-01 open Income:CA:Something         USD
+      1998-01-01 open Equity:Beginning-Balances
+
+      2006-01-01 pad Assets:CA:Bank:Checking   Equity:Beginning-Balances
+
+      2006-04-04 balance Assets:CA:Bank:Checking      742.50 CAD
+
+      2001-01-15 * "Referral"
+        Assets:CA:Bank:CheckingOld   1000.00 CAD @ 0.6625 USD
+        Income:CA:Something          -662.50 USD
+    """
+    self.assertFalse(errors)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.pad_test.TestPadding.test_pad_parents">
+<code class="highlight language-python">
+test_pad_parents
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.pad_test.TestPadding.test_pad_parents" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-05-01 open Assets:US
+2013-05-01 open Assets:US:Bank1:Checking
+2013-05-01 open Assets:US:Bank1:Savings
+2013-05-01 open Assets:US:Bank2:Checking
+2013-05-01 open Assets:US:Bank2:Savings
+2013-05-01 open Equity:Opening-Balances</p>
+<p>2013-05-10 *
+  Assets:US:Bank1:Checking                                 1.00 USD
+  Assets:US:Bank1:Savings                                  2.00 USD
+  Assets:US:Bank2:Checking                                 3.00 USD
+  Assets:US:Bank2:Savings                                  4.00 USD
+  Equity:Opening-Balances                                 -10.00 USD</p>
+<p>2013-05-20 pad Assets:US Equity:Opening-Balances</p>
+<p>2013-06-01 balance Assets:US                                       100.00 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/pad_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_pad_parents(self, entries, errors, __):
+    """
+
+      2013-05-01 open Assets:US
+      2013-05-01 open Assets:US:Bank1:Checking
+      2013-05-01 open Assets:US:Bank1:Savings
+      2013-05-01 open Assets:US:Bank2:Checking
+      2013-05-01 open Assets:US:Bank2:Savings
+      2013-05-01 open Equity:Opening-Balances
+
+      2013-05-10 *
+        Assets:US:Bank1:Checking                                 1.00 USD
+        Assets:US:Bank1:Savings                                  2.00 USD
+        Assets:US:Bank2:Checking                                 3.00 USD
+        Assets:US:Bank2:Savings                                  4.00 USD
+        Equity:Opening-Balances                                 -10.00 USD
+
+      2013-05-20 pad Assets:US Equity:Opening-Balances
+
+      2013-06-01 balance Assets:US                                       100.00 USD
+
+    """
+    self.assertFalse(errors)
+    self.assertEqualEntries("""
+
+      2013-05-01 open Assets:US
+      2013-05-01 open Assets:US:Bank1:Checking
+      2013-05-01 open Assets:US:Bank1:Savings
+      2013-05-01 open Assets:US:Bank2:Checking
+      2013-05-01 open Assets:US:Bank2:Savings
+      2013-05-01 open Equity:Opening-Balances
+
+      2013-05-10 *
+        Assets:US:Bank1:Checking                                                 1.00 USD
+        Assets:US:Bank1:Savings                                                  2.00 USD
+        Assets:US:Bank2:Checking                                                 3.00 USD
+        Assets:US:Bank2:Savings                                                  4.00 USD
+        Equity:Opening-Balances                                                 -10.00 USD
+
+      2013-05-20 pad Assets:US Equity:Opening-Balances
+
+      ;; A single pad that does not include child accounts should be inserted.
+      2013-05-20 P "(Padding inserted for Balance of 100.00 USD for difference 90.00 USD)"
+        Assets:US                                                              90.00 USD
+        Equity:Opening-Balances                                                -90.00 USD
+
+      2013-06-01 balance Assets:US                                       100.00 USD
+
+    """, entries)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.pad_test.TestPadding.test_pad_simple">
+<code class="highlight language-python">
+test_pad_simple
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.pad_test.TestPadding.test_pad_simple" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-05-01 open Assets:Checking
+2013-05-01 open Equity:Opening-Balances</p>
+<p>;; Test the simple case that this directive generates a padding entry.
+2013-05-01 pad Assets:Checking Equity:Opening-Balances</p>
+<p>2013-05-03 balance Assets:Checking                                 172.45 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/pad_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_pad_simple(self, entries, errors, __):
+    """
+
+      2013-05-01 open Assets:Checking
+      2013-05-01 open Equity:Opening-Balances
+
+      ;; Test the simple case that this directive generates a padding entry.
+      2013-05-01 pad Assets:Checking Equity:Opening-Balances
+
+      2013-05-03 balance Assets:Checking                                 172.45 USD
+
+    """
+    self.assertFalse(errors)
+    self.assertEqualEntries("""
+
+      2013-05-01 open Assets:Checking
+      2013-05-01 open Equity:Opening-Balances
+
+      2013-05-01 pad Assets:Checking Equity:Opening-Balances
+
+      ;; Check this is inserted.
+      2013-05-01 P "(Padding inserted for Balance of 172.45 USD for difference 172.45 USD)"
+        Assets:Checking                                                        172.45 USD
+        Equity:Opening-Balances                                                -172.45 USD
+
+      2013-05-03 balance Assets:Checking                                 172.45 USD
+
+    """, entries)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.pad_test.TestPadding.test_pad_to_zero">
+<code class="highlight language-python">
+test_pad_to_zero
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.pad_test.TestPadding.test_pad_to_zero" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>;; Test the case that this directive generates a padding entry, padding to zero.
+2013-01-01 open Assets:Checking
+2013-01-01 open Equity:Opening-Balances</p>
+<p>2013-02-01 *
+  Assets:Checking           234.56 USD
+  Equity:Opening-Balances  -234.56 USD</p>
+<p>2013-05-01 pad Assets:Checking Equity:Opening-Balances</p>
+<p>2013-05-03 balance Assets:Checking                                 0.00 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/pad_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_pad_to_zero(self, entries, errors, __):
+    """
+      ;; Test the case that this directive generates a padding entry, padding to zero.
+      2013-01-01 open Assets:Checking
+      2013-01-01 open Equity:Opening-Balances
+
+      2013-02-01 *
+        Assets:Checking           234.56 USD
+        Equity:Opening-Balances  -234.56 USD
+
+      2013-05-01 pad Assets:Checking Equity:Opening-Balances
+
+      2013-05-03 balance Assets:Checking                                 0.00 USD
+
+    """
+    self.assertFalse(errors)
+    self.assertEqualEntries("""
+
+      2013-01-01 open Assets:Checking
+      2013-01-01 open Equity:Opening-Balances
+
+      2013-02-01 *
+        Assets:Checking           234.56 USD
+        Equity:Opening-Balances  -234.56 USD
+
+      2013-05-01 pad Assets:Checking Equity:Opening-Balances
+
+      ;; Check this is inserted.
+      2013-05-01 P "(Padding inserted for Balance of 0.00 USD for difference -234.56 USD)"
+        Assets:Checking          -234.56 USD
+        Equity:Opening-Balances   234.56 USD
+
+      2013-05-03 balance Assets:Checking                                 0.00 USD
+
+    """, entries)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.pad_test.TestPadding.test_pad_tolerance">
+<code class="highlight language-python">
+test_pad_tolerance
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.pad_test.TestPadding.test_pad_tolerance" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>1998-01-01 open Assets:CA:Bank:Checking
+1998-01-01 open Income:CA:Something
+1998-01-01 open Equity:Beginning-Balances</p>
+<p>2006-01-01 pad Assets:CA:Bank:Checking   Equity:Beginning-Balances</p>
+<p>2001-01-15 * "Referral"
+  Assets:CA:Bank:Checking   999.95 CAD
+  Income:CA:Something</p>
+<p>2006-04-04 balance Assets:CA:Bank:Checking      1000.00 ~ 0.05 CAD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/pad_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_pad_tolerance(self, entries, errors, __):
+    """
+      1998-01-01 open Assets:CA:Bank:Checking
+      1998-01-01 open Income:CA:Something
+      1998-01-01 open Equity:Beginning-Balances
+
+      2006-01-01 pad Assets:CA:Bank:Checking   Equity:Beginning-Balances
+
+      2001-01-15 * "Referral"
+        Assets:CA:Bank:Checking   999.95 CAD
+        Income:CA:Something
+
+      2006-04-04 balance Assets:CA:Bank:Checking      1000.00 ~ 0.05 CAD
+
+    """
+    self.assertEqual(1, len(errors))
+    self.assertRegex(errors[0].message, 'Unused Pad entry')
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.pad_test.TestPadding.test_pad_unused">
+<code class="highlight language-python">
+test_pad_unused
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.pad_test.TestPadding.test_pad_unused" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-05-01 open Assets:Checking
+2013-05-01 open Assets:Cash
+2013-05-01 open Equity:Opening-Balances</p>
+<p>2013-05-10 * "Add 200$"
+  Assets:Checking       200.00 USD
+  Assets:Cash          -200.00 USD</p>
+<p>;; This pad will do nothing, should raise a warning..
+2013-05-20 pad  Assets:Checking   Equity:Opening-Balances</p>
+<p>2013-06-01 balance Assets:Checking   200.00 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/pad_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_pad_unused(self, entries, errors, __):
+    """
+
+      2013-05-01 open Assets:Checking
+      2013-05-01 open Assets:Cash
+      2013-05-01 open Equity:Opening-Balances
+
+      2013-05-10 * "Add 200$"
+        Assets:Checking       200.00 USD
+        Assets:Cash          -200.00 USD
+
+      ;; This pad will do nothing, should raise a warning..
+      2013-05-20 pad  Assets:Checking   Equity:Opening-Balances
+
+      2013-06-01 balance Assets:Checking   200.00 USD
+
+    """
+    self.assertEqual([pad.PadError], list(map(type, errors)))
+    self.assertEqualEntries("""
+
+      2013-05-01 open Assets:Checking
+      2013-05-01 open Assets:Cash
+      2013-05-01 open Equity:Opening-Balances
+
+      2013-05-10 * "Add 200$"
+        Assets:Checking                                                        200.00 USD
+        Assets:Cash                                                           -200.00 USD
+
+      2013-05-20 pad Assets:Checking Equity:Opening-Balances
+
+      2013-06-01 balance Assets:Checking                                 200.00 USD
+
+    """, entries)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.pad_test.TestPadding.test_pad_used_twice_illegally">
+<code class="highlight language-python">
+test_pad_used_twice_illegally
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.pad_test.TestPadding.test_pad_used_twice_illegally" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-05-01 open Assets:Checking
+2013-05-01 open Equity:Opening-Balances</p>
+<p>2013-05-03 balance Assets:Checking   0.00 USD</p>
+<p>;; Two pads in between checks.
+2013-05-10 pad  Assets:Checking   Equity:Opening-Balances
+2013-05-20 pad  Assets:Checking   Equity:Opening-Balances</p>
+<p>2013-06-01 balance Assets:Checking   200 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/pad_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_pad_used_twice_illegally(self, entries, errors, __):
+    """
+
+      2013-05-01 open Assets:Checking
+      2013-05-01 open Equity:Opening-Balances
+
+      2013-05-03 balance Assets:Checking   0.00 USD
+
+      ;; Two pads in between checks.
+      2013-05-10 pad  Assets:Checking   Equity:Opening-Balances
+      2013-05-20 pad  Assets:Checking   Equity:Opening-Balances
+
+      2013-06-01 balance Assets:Checking   200 USD
+
+    """
+    self.assertEqual([pad.PadError], list(map(type, errors)))
+    self.assertEqualEntries("""
+
+      2013-05-01 open Assets:Checking
+      2013-05-01 open Equity:Opening-Balances
+
+      2013-05-03 balance Assets:Checking                                 0.00 USD
+
+      2013-05-10 pad Assets:Checking Equity:Opening-Balances
+
+      2013-05-20 pad Assets:Checking Equity:Opening-Balances
+
+      2013-05-20 P "(Padding inserted for Balance of 200 USD for difference 200 USD)"
+        Assets:Checking                                                        200 USD
+        Equity:Opening-Balances                                               -200 USD
+
+      2013-06-01 balance Assets:Checking                                 200 USD
+
+    """, entries)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.pad_test.TestPadding.test_pad_used_twice_legally">
+<code class="highlight language-python">
+test_pad_used_twice_legally
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.pad_test.TestPadding.test_pad_used_twice_legally" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-05-01 open Assets:Checking
+2013-05-01 open Assets:Cash
+2013-05-01 open Equity:Opening-Balances</p>
+<p>;; First pad.
+2013-05-01 pad  Assets:Checking   Equity:Opening-Balances</p>
+<p>2013-05-03 balance Assets:Checking   172.45 USD</p>
+<p>2013-05-15 txn "Add 20$"
+  Assets:Checking             20 USD
+  Assets:Cash</p>
+<p>;; Second pad.
+2013-05-20 pad  Assets:Checking   Equity:Opening-Balances</p>
+<p>2013-06-01 balance Assets:Checking   200 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/pad_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_pad_used_twice_legally(self, entries, errors, __):
+    """
+
+      2013-05-01 open Assets:Checking
+      2013-05-01 open Assets:Cash
+      2013-05-01 open Equity:Opening-Balances
+
+      ;; First pad.
+      2013-05-01 pad  Assets:Checking   Equity:Opening-Balances
+
+      2013-05-03 balance Assets:Checking   172.45 USD
+
+      2013-05-15 txn "Add 20$"
+        Assets:Checking             20 USD
+        Assets:Cash
+
+      ;; Second pad.
+      2013-05-20 pad  Assets:Checking   Equity:Opening-Balances
+
+      2013-06-01 balance Assets:Checking   200 USD
+
+    """
+    self.assertFalse(errors)
+    self.assertEqualEntries("""
+
+      2013-05-01 open Assets:Checking
+      2013-05-01 open Assets:Cash
+      2013-05-01 open Equity:Opening-Balances
+
+      2013-05-01 pad Assets:Checking Equity:Opening-Balances
+
+      2013-05-01 P "(Padding inserted for Balance of 172.45 USD for difference 172.45 USD)"
+        Assets:Checking                                                        172.45 USD
+        Equity:Opening-Balances                                                -172.45 USD
+
+      2013-05-03 balance Assets:Checking                                 172.45 USD
+
+      2013-05-15 * "Add 20$"
+        Assets:Checking                                                         20 USD
+        Assets:Cash                                                            -20 USD
+
+      2013-05-20 pad Assets:Checking Equity:Opening-Balances
+
+      2013-05-20 P "(Padding inserted for Balance of 200 USD for difference 7.55 USD)"
+        Assets:Checking                                                          7.55 USD
+        Equity:Opening-Balances                                                  -7.55 USD
+
+      2013-06-01 balance Assets:Checking                                 200 USD
+
+    """, entries)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.pad_test.TestPadding.test_pad_zero_padding_issue78a">
+<code class="highlight language-python">
+test_pad_zero_padding_issue78a
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.pad_test.TestPadding.test_pad_zero_padding_issue78a" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>1970-01-01 open Assets:Cash
+1970-01-01 open Expenses:Food</p>
+<p>2015-09-15 pad Assets:Cash Expenses:Food</p>
+<p>2015-09-16 balance Assets:Cash 0 HKD</p>
+<p>;; The error should be reported here, not on the previous balance check.
+2015-11-02 balance Assets:Cash 1000 HKD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/pad_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_pad_zero_padding_issue78a(self, entries, errors, __):
+    """
+    1970-01-01 open Assets:Cash
+    1970-01-01 open Expenses:Food
+
+    2015-09-15 pad Assets:Cash Expenses:Food
+
+    2015-09-16 balance Assets:Cash 0 HKD
+
+    ;; The error should be reported here, not on the previous balance check.
+    2015-11-02 balance Assets:Cash 1000 HKD
+    """
+    self.assertEqual(2, len(errors))
+
+    self.assertRegex(errors[0].message, "Unused")
+    self.assertEqual(datetime.date(2015, 9, 15), errors[0].entry.date)
+
+    self.assertRegex(errors[1].message, "Balance failed")
+    self.assertEqual(datetime.date(2015, 11, 2), errors[1].entry.date)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.pad_test.TestPadding.test_pad_zero_padding_issue78a_original">
+<code class="highlight language-python">
+test_pad_zero_padding_issue78a_original
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.pad_test.TestPadding.test_pad_zero_padding_issue78a_original" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>1970-01-01 open Assets:Cash
+1970-01-01 open Expenses:Food</p>
+<p>;; Inserted this before the pad, because it was in the original example.
+2015-09-15 balance Assets:Cash 0 HKD</p>
+<p>2015-09-15 pad Assets:Cash Expenses:Food</p>
+<p>2015-09-16 balance Assets:Cash 0 HKD</p>
+<p>;; The error should be reported here, not on the previous balance check.
+2015-11-02 balance Assets:Cash 1000 HKD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/pad_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_pad_zero_padding_issue78a_original(self, entries, errors, __):
+    """
+    1970-01-01 open Assets:Cash
+    1970-01-01 open Expenses:Food
+
+    ;; Inserted this before the pad, because it was in the original example.
+    2015-09-15 balance Assets:Cash 0 HKD
+
+    2015-09-15 pad Assets:Cash Expenses:Food
+
+    2015-09-16 balance Assets:Cash 0 HKD
+
+    ;; The error should be reported here, not on the previous balance check.
+    2015-11-02 balance Assets:Cash 1000 HKD
+    """
+    self.assertEqual(2, len(errors))
+
+    self.assertRegex(errors[0].message, "Unused")
+    self.assertEqual(datetime.date(2015, 9, 15), errors[0].entry.date)
+
+    self.assertRegex(errors[1].message, "Balance failed")
+    self.assertEqual(datetime.date(2015, 11, 2), errors[1].entry.date)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.pad_test.TestPadding.test_pad_zero_padding_issue78b">
+<code class="highlight language-python">
+test_pad_zero_padding_issue78b
+(self, entries, errors, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.pad_test.TestPadding.test_pad_zero_padding_issue78b" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>1970-01-01 open Assets:Cash
+1970-01-01 open Expenses:Food</p>
+<p>;; Balance should fail here.
+2015-09-15 balance Assets:Cash 1 HKD</p>
+<p>;; This will not end up being marked as unused because it will fill in a transaction
+;; for the missing amount, even though there was a matching balance check earlier. A
+;; failing balance check does not automatically bring the balance to its value.
+2015-09-15 pad Assets:Cash Expenses:Food</p>
+<p>2015-09-16 balance Assets:Cash 1 HKD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/pad_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_pad_zero_padding_issue78b(self, entries, errors, __):
+    """
+    1970-01-01 open Assets:Cash
+    1970-01-01 open Expenses:Food
+
+    ;; Balance should fail here.
+    2015-09-15 balance Assets:Cash 1 HKD
+
+    ;; This will not end up being marked as unused because it will fill in a transaction
+    ;; for the missing amount, even though there was a matching balance check earlier. A
+    ;; failing balance check does not automatically bring the balance to its value.
+    2015-09-15 pad Assets:Cash Expenses:Food
+
+    2015-09-16 balance Assets:Cash 1 HKD
+    """
+    self.assertTrue(any(isinstance(entry, data.Transaction)
+                        for entry in entries))
+
+    self.assertEqual(1, len(errors))
+
+    self.assertRegex(errors[0].message, "Balance failed")
+    self.assertEqual(datetime.date(2015, 9, 15), errors[0].entry.date)
+</code></pre>
+</details>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -5427,7 +8548,16 @@ setUp
         </code>
 <a class="headerlink" href="#beancount.ops.summarize_test.TestBalanceByAccount.setUp" title="Permanent link"></a></h4>
 <div class="doc doc-contents">
-<p>Hook method for setting up the test fixture before exercising it.</p>
+<p>2001-01-01 open Assets:AccountA
+2001-01-01 open Assets:AccountB
+2001-01-01 open Equity:Opening-Balances</p>
+<p>2014-02-01 *
+  Assets:AccountA   10 USD
+  Equity:Opening-Balances</p>
+<p>2014-03-01 *
+  Assets:AccountA   1 USD
+  Assets:AccountB  12 USD
+  Equity:Opening-Balances</p>
 <details class="quote">
 <summary>Source code in <code>beancount/ops/summarize_test.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">@loader.load_doc()
@@ -5455,6 +8585,216 @@ def setUp(self, entries, _, __):
 </div>
 </div>
 <div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.ops.summarize_test.TestCap">
+<code>TestCap</code>
+<a class="headerlink" href="#beancount.ops.summarize_test.TestCap" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.summarize_test.TestCap.test_cap">
+<code class="highlight language-python">
+test_cap
+(self, entries, errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.summarize_test.TestCap.test_cap" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>plugin "beancount.plugins.auto_accounts"</p>
+<p>2014-03-01 * "Some income and expense"
+  Income:Salary        10000.00 USD
+  Expenses:Taxes        3500.00 USD
+  Assets:US:Checking</p>
+<p>2014-02-01 * "Some conversion"
+  Assets:US:Checking   -5000.00 USD @ 1.2 CAD
+  Assets:CA:Checking    6000.00 CAD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/summarize_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_cap(self, entries, errors, options_map):
+    """
+    plugin "beancount.plugins.auto_accounts"
+
+    2014-03-01 * "Some income and expense"
+      Income:Salary        10000.00 USD
+      Expenses:Taxes        3500.00 USD
+      Assets:US:Checking
+
+    2014-02-01 * "Some conversion"
+      Assets:US:Checking   -5000.00 USD @ 1.2 CAD
+      Assets:CA:Checking    6000.00 CAD
+    """
+    self.assertFalse(errors)
+    account_types = options.get_account_types(options_map)
+    capd_entries = summarize.cap(entries, account_types,
+                                 'NOTHING',
+                                 'Equity:Earnings',
+                                 'Equity:Conversions')
+
+    self.assertIncludesEntries(entries, capd_entries)
+    self.assertIncludesEntries("""
+
+    2014-03-01 T "Transfer balance for 'Expenses:Taxes' (Transfer balance)"
+      Expenses:Taxes       -3500.00 USD
+      Equity:Earnings       3500.00 USD
+
+    2014-03-01 T "Transfer balance for 'Income:Salary' (Transfer balance)"
+      Income:Salary       -10000.00 USD
+      Equity:Earnings      10000.00 USD
+
+    2014-03-01 C "Conversion for (-5000.00 USD, 6000.00 CAD)"
+      Equity:Conversions    5000.00 USD @ 0 NOTHING
+      Equity:Conversions   -6000.00 CAD @ 0 NOTHING
+
+    """, capd_entries)
+    self.assertEqual(9, len(capd_entries))
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.ops.summarize_test.TestClamp">
+<code>TestClamp</code>
+<a class="headerlink" href="#beancount.ops.summarize_test.TestClamp" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.summarize_test.TestClamp.test_clamp">
+<code class="highlight language-python">
+test_clamp
+(self, entries, errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.summarize_test.TestClamp.test_clamp" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2012-01-01 open Income:Salary
+2012-01-01 open Expenses:Taxes
+2012-01-01 open Assets:US:Checking
+2012-01-01 open Assets:CA:Checking</p>
+<p>2012-03-01 * "Some income and expense to be summarized"
+  Income:Salary        10000.00 USD
+  Expenses:Taxes        3600.00 USD
+  Assets:US:Checking  -13600.00 USD</p>
+<p>2012-03-02 * "Some conversion to be summarized"
+  Assets:US:Checking   -5000.00 USD @ 1.2 CAD
+  Assets:CA:Checking    6000.00 CAD</p>
+<p>;; 2012-06-01  BEGIN --------------------------------</p>
+<p>2012-08-01 * "Some income and expense to show"
+  Income:Salary        11000.00 USD
+  Expenses:Taxes        3200.00 USD
+  Assets:US:Checking  -14200.00 USD</p>
+<p>2012-08-02 * "Some other conversion to be summarized"
+  Assets:US:Checking   -3000.00 USD @ 1.25 CAD
+  Assets:CA:Checking    3750.00 CAD</p>
+<p>;; 2012-09-01  END   --------------------------------</p>
+<p>2012-11-01 * "Some income and expense to be truncated"
+  Income:Salary        10000.00 USD
+  Expenses:Taxes        3600.00 USD
+  Assets:US:Checking  -13600.00 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/summarize_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_clamp(self, entries, errors, options_map):
+    """
+    2012-01-01 open Income:Salary
+    2012-01-01 open Expenses:Taxes
+    2012-01-01 open Assets:US:Checking
+    2012-01-01 open Assets:CA:Checking
+
+    2012-03-01 * "Some income and expense to be summarized"
+      Income:Salary        10000.00 USD
+      Expenses:Taxes        3600.00 USD
+      Assets:US:Checking  -13600.00 USD
+
+    2012-03-02 * "Some conversion to be summarized"
+      Assets:US:Checking   -5000.00 USD @ 1.2 CAD
+      Assets:CA:Checking    6000.00 CAD
+
+    ;; 2012-06-01  BEGIN --------------------------------
+
+    2012-08-01 * "Some income and expense to show"
+      Income:Salary        11000.00 USD
+      Expenses:Taxes        3200.00 USD
+      Assets:US:Checking  -14200.00 USD
+
+    2012-08-02 * "Some other conversion to be summarized"
+      Assets:US:Checking   -3000.00 USD @ 1.25 CAD
+      Assets:CA:Checking    3750.00 CAD
+
+    ;; 2012-09-01  END   --------------------------------
+
+    2012-11-01 * "Some income and expense to be truncated"
+      Income:Salary        10000.00 USD
+      Expenses:Taxes        3600.00 USD
+      Assets:US:Checking  -13600.00 USD
+
+    """
+    self.assertFalse(errors)
+
+    begin_date = datetime.date(2012, 6, 1)
+    end_date = datetime.date(2012, 9, 1)
+    account_types = options.get_account_types(options_map)
+    clamped_entries, index = summarize.clamp(entries, begin_date, end_date,
+                                             account_types,
+                                             'NOTHING',
+                                             'Equity:Earnings',
+                                             'Equity:Opening-Balances',
+                                             'Equity:Conversions')
+    self.assertEqualEntries("""
+
+    2012-01-01 open Income:Salary
+    2012-01-01 open Expenses:Taxes
+    2012-01-01 open Assets:US:Checking
+    2012-01-01 open Assets:CA:Checking
+
+    2012-05-31 S "Opening balance for 'Assets:CA:Checking' (Summarization)"
+      Assets:CA:Checking              6000.00 CAD
+      Equity:Opening-Balances         -6000.00 CAD
+
+    2012-05-31 S "Opening balance for 'Assets:US:Checking' (Summarization)"
+      Assets:US:Checking            -18600.00 USD
+      Equity:Opening-Balances         18600.00 USD
+
+    2012-05-31 S "Opening balance for 'Equity:Earnings' (Summarization)"
+      Equity:Earnings                13600.00 USD
+      Equity:Opening-Balances        -13600.00 USD
+
+    ;; 2012-06-01  BEGIN --------------------------------
+
+    2012-08-01 * "Some income and expense to show"
+      Income:Salary                  11000.00 USD
+      Expenses:Taxes                  3200.00 USD
+      Assets:US:Checking            -14200.00 USD
+
+    2012-08-02 * "Some other conversion to be summarized"
+      Assets:US:Checking             -3000.00 USD  @ 1.25 CAD
+      Assets:CA:Checking              3750.00 CAD
+
+    ;; 2012-09-01  END   --------------------------------
+
+    2012-08-31 C "Conversion for (-3000.00 USD, 3750.00 CAD)"
+      Equity:Conversions              3000.00 USD  @ 0 NOTHING
+      Equity:Conversions             -3750.00 CAD  @ 0 NOTHING
+
+    """, clamped_entries)
+
+    self.assertEqual(7, index)
+
+    input_balance = interpolate.compute_entries_balance(entries)
+    self.assertFalse(input_balance.is_empty())
+
+    clamped_balance = interpolate.compute_entries_balance(clamped_entries)
+    self.assertTrue(clamped_balance.is_empty())
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.ops.summarize_test.TestConversions">
 <code>TestConversions</code>
 <a class="headerlink" href="#beancount.ops.summarize_test.TestConversions" title="Permanent link"></a></h3>
@@ -5469,7 +8809,22 @@ setUp
         </code>
 <a class="headerlink" href="#beancount.ops.summarize_test.TestConversions.setUp" title="Permanent link"></a></h4>
 <div class="doc doc-contents">
-<p>Hook method for setting up the test fixture before exercising it.</p>
+<p>2012-01-01 open Income:US:Job
+2012-01-01 open Assets:US:Checking
+2012-01-01 open Assets:CA:Invest
+2012-01-01 open Assets:CA:Invest:NT</p>
+<p>2012-03-01 * "Earn some money"
+  Income:US:Job            -1000.00 USD
+  Assets:US:Checking        1000.00 USD</p>
+<p>2012-03-02 * "Transfer to Investment"
+  Assets:US:Checking       -800.00 USD
+  Assets:CA:Invest          800.00 CAD @ 1 USD</p>
+<p>2012-03-03 * "Buy some stock"
+  Assets:CA:Invest         -600.00 CAD
+  Assets:CA:Invest:NT        60 NT {10 CAD}</p>
+<p>2012-05-01 * "Transfer some money back"
+  Assets:CA:Invest         -100.00 CAD @ 1 USD
+  Assets:US:Checking        100.00 USD</p>
 <details class="quote">
 <summary>Source code in <code>beancount/ops/summarize_test.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">@loader.load_doc()
@@ -5498,6 +8853,41 @@ def setUp(self, entries, _, __):
 
     """
     self.entries = entries
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.summarize_test.TestConversions.test_conversions__non_empty_but_empty_cost">
+<code class="highlight language-python">
+test_conversions__non_empty_but_empty_cost
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.summarize_test.TestConversions.test_conversions__non_empty_but_empty_cost" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2012-01-01 open Assets:Checking
+2012-01-01 open Assets:Invest</p>
+<p>2012-03-01 *
+  Assets:Checking        -800.00 USD
+  Assets:Invest           40 HOOL {20.00 USD}</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/summarize_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_conversions__non_empty_but_empty_cost(self, entries, _, __):
+    """
+      2012-01-01 open Assets:Checking
+      2012-01-01 open Assets:Invest
+
+      2012-03-01 *
+        Assets:Checking        -800.00 USD
+        Assets:Invest           40 HOOL {20.00 USD}
+    """
+    conversion_entries = summarize.conversions(entries, self.ACCOUNT, 'XFER')
+    self.assertEqualEntries(entries, conversion_entries)
+
+    converted_balance = interpolate.compute_entries_balance(entries)
+    self.assertTrue(converted_balance.reduce(convert.get_cost).is_empty())
 </code></pre>
 </details>
 </div>
@@ -5550,7 +8940,25 @@ setUp
         </code>
 <a class="headerlink" href="#beancount.ops.summarize_test.TestOpenAtDate.setUp" title="Permanent link"></a></h4>
 <div class="doc doc-contents">
-<p>Hook method for setting up the test fixture before exercising it.</p>
+<p>2011-01-01 open Assets:AccountA
+2011-02-01 open Assets:AccountB
+2011-03-01 open Assets:AccountC</p>
+<p>2011-03-15 close Assets:AccountA</p>
+<p>2011-04-01 open Assets:AccountD
+2011-05-01 open Assets:AccountE
+2011-06-01 open Assets:AccountF
+2011-07-01 open Assets:AccountG
+2011-08-01 open Assets:AccountH
+2011-09-01 open Assets:AccountI
+2011-10-01 open Assets:AccountJ
+2011-11-01 open Assets:AccountK
+2011-12-01 open Assets:AccountL</p>
+<p>2012-07-01 close Assets:AccountG
+2012-07-01 close Assets:AccountH
+2012-07-01 close Assets:AccountI
+2012-07-01 close Assets:AccountJ
+2012-07-01 close Assets:AccountK
+2012-07-01 close Assets:AccountL</p>
 <details class="quote">
 <summary>Source code in <code>beancount/ops/summarize_test.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">@loader.load_doc()
@@ -5586,6 +8994,82 @@ def setUp(self, entries, _, __):
 </details>
 </div>
 </div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.summarize_test.TestOpenAtDate.test_get_open_entries__closed_twice">
+<code class="highlight language-python">
+test_get_open_entries__closed_twice
+(self, entries, errors, _)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.summarize_test.TestOpenAtDate.test_get_open_entries__closed_twice" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2011-01-01 open  Assets:AccountA
+2011-02-01 close Assets:AccountA
+2011-02-02 close Assets:AccountA</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/summarize_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_get_open_entries__closed_twice(self, entries, errors, _):
+    """
+      2011-01-01 open  Assets:AccountA
+      2011-02-01 close Assets:AccountA
+      2011-02-02 close Assets:AccountA
+    """
+    self.assertEqualEntries("""
+    """, summarize.get_open_entries(entries, date(2013, 1, 1)))
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.summarize_test.TestOpenAtDate.test_get_open_entries__closed_without_open">
+<code class="highlight language-python">
+test_get_open_entries__closed_without_open
+(self, entries, errors, _)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.summarize_test.TestOpenAtDate.test_get_open_entries__closed_without_open" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2011-02-02 close Assets:AccountA</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/summarize_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_get_open_entries__closed_without_open(self, entries, errors, _):
+    """
+      2011-02-02 close Assets:AccountA
+    """
+    self.assertEqualEntries("""
+    """, summarize.get_open_entries(entries, date(2013, 1, 1)))
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.summarize_test.TestOpenAtDate.test_get_open_entries__duplicate_open">
+<code class="highlight language-python">
+test_get_open_entries__duplicate_open
+(self, entries, errors, _)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.summarize_test.TestOpenAtDate.test_get_open_entries__duplicate_open" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2011-01-01 open Assets:AccountA
+2011-02-01 open Assets:AccountA</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/summarize_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_get_open_entries__duplicate_open(self, entries, errors, _):
+    """
+      2011-01-01 open Assets:AccountA
+      2011-02-01 open Assets:AccountA
+    """
+    self.assertEqualEntries("""
+      2011-01-01 open Assets:AccountA
+    """, summarize.get_open_entries(entries, date(2013, 1, 1)))
+</code></pre>
+</details>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -5604,7 +9088,36 @@ setUp
         </code>
 <a class="headerlink" href="#beancount.ops.summarize_test.TestOpenClose.setUp" title="Permanent link"></a></h4>
 <div class="doc doc-contents">
-<p>Hook method for setting up the test fixture before exercising it.</p>
+<p>option "account_previous_earnings"    "Earnings:Previous"
+option "account_previous_balances"    "Opening-Balances"
+option "account_previous_conversions" "Conversions:Previous"</p>
+<p>option "account_current_earnings"     "Earnings:Current"
+option "account_current_conversions"  "Conversions:Current"
+option "conversion_currency"          "NOTHING"</p>
+<p>2012-01-01 open Income:Salary
+2012-01-01 open Expenses:Taxes
+2012-01-01 open Assets:US:Checking
+2012-01-01 open Assets:CA:Checking</p>
+<p>2012-03-01 * "Some income and expense to be summarized"
+  Income:Salary        10000 USD
+  Expenses:Taxes        3600 USD
+  Assets:US:Checking  -13600 USD</p>
+<p>2012-03-02 * "Some conversion to be summarized"
+  Assets:US:Checking   -5000 USD @ 1.2 CAD
+  Assets:CA:Checking    6000 CAD</p>
+<p>;; 2012-06-01  BEGIN --------------------------------</p>
+<p>2012-08-01 * "Some income and expense to show"
+  Income:Salary        11000 USD
+  Expenses:Taxes        3200 USD
+  Assets:US:Checking  -14200 USD</p>
+<p>2012-08-02 * "Some other conversion to be summarized"
+  Assets:US:Checking   -3000 USD @ 1.25 CAD
+  Assets:CA:Checking    3750 CAD</p>
+<p>;; 2012-09-01  END   --------------------------------</p>
+<p>2012-11-01 * "Some income and expense to be truncated"
+  Income:Salary        10000 USD
+  Expenses:Taxes        3600 USD
+  Assets:US:Checking  -13600 USD</p>
 <details class="quote">
 <summary>Source code in <code>beancount/ops/summarize_test.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">@loader.load_doc()
@@ -5674,6 +9187,59 @@ def setUp(self, entries, errors, options_map):
 </div>
 </div>
 <div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.ops.summarize_test.TestSummarize">
+<code>TestSummarize</code>
+<a class="headerlink" href="#beancount.ops.summarize_test.TestSummarize" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.summarize_test.TestSummarize.test_summarize__ordering_non_transactions">
+<code class="highlight language-python">
+test_summarize__ordering_non_transactions
+(self, entries, _, __)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.summarize_test.TestSummarize.test_summarize__ordering_non_transactions" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2016-01-15 price HOOL    123.45 USD</p>
+<p>2016-02-01 open Assets:Invest:Cash
+2016-02-01 open Assets:Invest:HOOL</p>
+<p>2016-02-16 *
+  Assets:Invest:HOOL    10 HOOL {143.45 USD}
+  Assets:Invest:Cash</p>
+<p>2016-04-01 *
+  Assets:Invest:HOOL      2 HOOL {156.32 USD}
+  Assets:Invest:Cash</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/summarize_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_summarize__ordering_non_transactions(self, entries, _, __):
+    """
+      2016-01-15 price HOOL    123.45 USD
+
+      2016-02-01 open Assets:Invest:Cash
+      2016-02-01 open Assets:Invest:HOOL
+
+      2016-02-16 *
+        Assets:Invest:HOOL    10 HOOL {143.45 USD}
+        Assets:Invest:Cash
+
+      2016-04-01 *
+        Assets:Invest:HOOL      2 HOOL {156.32 USD}
+        Assets:Invest:Cash
+    """
+    summarize_date = datetime.date(2016, 3, 1)
+    summarized_entries, index = summarize.summarize(entries, summarize_date,
+                                                    self.OPENING_ACCOUNT)
+    self.assertTrue(misc_utils.is_sorted(summarized_entries, lambda entry: entry.date))
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.ops.summarize_test.TestTransferBalances">
 <code>TestTransferBalances</code>
 <a class="headerlink" href="#beancount.ops.summarize_test.TestTransferBalances" title="Permanent link"></a></h3>
@@ -5717,7 +9283,26 @@ setUp
         </code>
 <a class="headerlink" href="#beancount.ops.summarize_test.TestTruncate.setUp" title="Permanent link"></a></h4>
 <div class="doc doc-contents">
-<p>Hook method for setting up the test fixture before exercising it.</p>
+<p>2014-01-01 open Assets:US:Bank:Checking
+2014-01-01 open Equity:Opening-Balances</p>
+<p>2014-03-10 * "A"
+  Assets:US:Bank:Checking   1 USD
+  Equity:Opening-Balances  -1 USD</p>
+<p>2014-03-11 * "B"
+  Assets:US:Bank:Checking   1 USD
+  Equity:Opening-Balances  -1 USD</p>
+<p>2014-03-12 * "C"
+  Assets:US:Bank:Checking   1 USD
+  Equity:Opening-Balances  -1 USD</p>
+<p>2014-03-13 * "D1"
+  Assets:US:Bank:Checking   1 USD
+  Equity:Opening-Balances  -1 USD</p>
+<p>2014-03-13 * "D2"
+  Assets:US:Bank:Checking   1 USD
+  Equity:Opening-Balances  -1 USD</p>
+<p>2014-03-14 * "E"
+  Assets:US:Bank:Checking   1 USD
+  Equity:Opening-Balances  -1 USD</p>
 <details class="quote">
 <summary>Source code in <code>beancount/ops/summarize_test.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">@loader.load_doc()
@@ -6788,6 +10373,787 @@ validate_open_close
     return errors
 </code></pre>
 </details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
+<h2 class="doc doc-heading" id="beancount.ops.validation_test">
+<code>validation_test</code>
+<a class="headerlink" href="#beancount.ops.validation_test" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.ops.validation_test.TestValidate">
+<code>TestValidate</code>
+<a class="headerlink" href="#beancount.ops.validation_test.TestValidate" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.validation_test.TestValidate.test_validate">
+<code class="highlight language-python">
+test_validate
+(self, entries, errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.validation_test.TestValidate.test_validate" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>;; Just trigger a few errors from here to ensure at least some of the plugins
+;; tested above are run.</p>
+<p>2014-01-01 open Assets:Investments:Cash
+2014-01-01 open Assets:Investments:Stock   AAPL</p>
+<p>2014-06-23 * "Go positive"
+  Assets:Investments:Stock    1 AAPL {41 USD}
+  Assets:Investments:Cash   -41 USD</p>
+<p>2014-06-24 * "Go negative from zero"
+  Assets:Investments:Stock   -1 AAPL {42 USD}
+  Assets:Investments:Cash    42 USD</p>
+<p>2014-06-23 * "Use invalid currency"
+  Assets:Investments:Stock    1 HOOG {500 USD}
+  Assets:Investments:Cash  -500 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/validation_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_validate(self, entries, errors, options_map):
+    """
+    ;; Just trigger a few errors from here to ensure at least some of the plugins
+    ;; tested above are run.
+
+    2014-01-01 open Assets:Investments:Cash
+    2014-01-01 open Assets:Investments:Stock   AAPL
+
+    2014-06-23 * "Go positive"
+      Assets:Investments:Stock    1 AAPL {41 USD}
+      Assets:Investments:Cash   -41 USD
+
+    2014-06-24 * "Go negative from zero"
+      Assets:Investments:Stock   -1 AAPL {42 USD}
+      Assets:Investments:Cash    42 USD
+
+    2014-06-23 * "Use invalid currency"
+      Assets:Investments:Stock    1 HOOG {500 USD}
+      Assets:Investments:Cash  -500 USD
+
+    """
+    validation_errors = validation.validate(entries, options_map)
+
+    self.assertEqual(2, len(errors))
+    self.assertRegex(errors[0].message, 'No position matches')
+    self.assertRegex(errors[1].message, 'Invalid currency')
+
+    self.assertEqual(1, len(validation_errors))
+    self.assertRegex(validation_errors[0].message, 'Invalid currency')
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.ops.validation_test.TestValidateActiveAccounts">
+<code>TestValidateActiveAccounts</code>
+<a class="headerlink" href="#beancount.ops.validation_test.TestValidateActiveAccounts" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.validation_test.TestValidateActiveAccounts.test_validate_active_accounts">
+<code class="highlight language-python">
+test_validate_active_accounts
+(self, entries, _, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.validation_test.TestValidateActiveAccounts.test_validate_active_accounts" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-01-01 open  Equity:Opening-Balances</p>
+<p>2014-02-01 * "Invalid before"
+  Assets:Temporary          1 USD
+  Equity:Opening-Balances  -1 USD</p>
+<p>2014-02-02 note  Assets:Temporary "Invalid note entry"
+2014-02-03 pad   Assets:Temporary Equity:Opening-Balances</p>
+<p>2014-03-01 open  Assets:Temporary</p>
+<p>2014-04-01 * "Valid"
+  Assets:Temporary           1 USD
+  Equity:Opening-Balances   -1 USD</p>
+<p>2014-05-01 * "Unknown account"
+  Assets:Temporary    1 USD
+  Equity:ImUnknown   -1 USD</p>
+<p>2014-09-01 close Assets:Temporary</p>
+<p>2014-10-01 * "Invalid after"
+  Assets:Temporary           1 USD
+  Equity:Opening-Balances   -1 USD</p>
+<p>;; These should be allowed after close.
+2014-10-02 note  Assets:Temporary "Invalid note entry again"
+2014-10-03 document  Assets:Temporary "/path/to/allowed-doc.pdf"</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/validation_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_validate_active_accounts(self, entries, _, options_map):
+    """
+    2014-01-01 open  Equity:Opening-Balances
+
+    2014-02-01 * "Invalid before"
+      Assets:Temporary          1 USD
+      Equity:Opening-Balances  -1 USD
+
+    2014-02-02 note  Assets:Temporary "Invalid note entry"
+    2014-02-03 pad   Assets:Temporary Equity:Opening-Balances
+
+    2014-03-01 open  Assets:Temporary
+
+    2014-04-01 * "Valid"
+      Assets:Temporary           1 USD
+      Equity:Opening-Balances   -1 USD
+
+    2014-05-01 * "Unknown account"
+      Assets:Temporary    1 USD
+      Equity:ImUnknown   -1 USD
+
+    2014-09-01 close Assets:Temporary
+
+    2014-10-01 * "Invalid after"
+      Assets:Temporary           1 USD
+      Equity:Opening-Balances   -1 USD
+
+    ;; These should be allowed after close.
+    2014-10-02 note  Assets:Temporary "Invalid note entry again"
+    2014-10-03 document  Assets:Temporary "/path/to/allowed-doc.pdf"
+
+    """
+    errors = validation.validate_active_accounts(entries, options_map)
+
+    self.assertEqualEntries("""
+
+    2014-02-01 * "Invalid before"
+      Assets:Temporary           1 USD
+      Equity:Opening-Balances   -1 USD
+
+    2014-02-02 note  Assets:Temporary "Invalid note entry"
+    2014-02-03 pad   Assets:Temporary Equity:Opening-Balances
+
+    2014-05-01 * "Unknown account"
+      Assets:Temporary           1 USD
+      Equity:ImUnknown          -1 USD
+
+    2014-10-01 * "Invalid after"
+      Assets:Temporary           1 USD
+      Equity:Opening-Balances   -1 USD
+
+    """, [error.entry for error in errors])
+
+    self.assertTrue(all(
+        (re.search('inactive.*Assets:Temporary', error.message) or
+         re.search('unknown.*Equity:ImUnknown', error.message))
+        for error in errors))
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.validation_test.TestValidateActiveAccounts.test_validate_active_accounts__unopened">
+<code class="highlight language-python">
+test_validate_active_accounts__unopened
+(self, entries, _, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.validation_test.TestValidateActiveAccounts.test_validate_active_accounts__unopened" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-02-01 *
+  Assets:US:Bank:Checking     100 USD
+  Assets:US:Bank:Savings     -100 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/validation_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_validate_active_accounts__unopened(self, entries, _, options_map):
+    """
+    2014-02-01 *
+      Assets:US:Bank:Checking     100 USD
+      Assets:US:Bank:Savings     -100 USD
+    """
+    errors = validation.validate_active_accounts(entries, options_map)
+    self.assertEqual(2, len(errors))
+    self.assertEqual([validation.ValidationError, validation.ValidationError],
+                     list(map(type, errors)))
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.ops.validation_test.TestValidateCheckTransactionBalances">
+<code>TestValidateCheckTransactionBalances</code>
+<a class="headerlink" href="#beancount.ops.validation_test.TestValidateCheckTransactionBalances" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.validation_test.TestValidateCheckTransactionBalances.test_validate_check_transaction_balances">
+<code class="highlight language-python">
+test_validate_check_transaction_balances
+(self, entries, errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.validation_test.TestValidateCheckTransactionBalances.test_validate_check_transaction_balances" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-06-24 * "Narration"
+  Assets:Investments:Stock  1 USD
+  Assets:Investments:Cash   1 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/validation_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_validate_check_transaction_balances(self, entries, errors, options_map):
+    """
+    2014-06-24 * "Narration"
+      Assets:Investments:Stock  1 USD
+      Assets:Investments:Cash   1 USD
+    """
+    valid_errors = validation.validate_check_transaction_balances(entries, options_map)
+    self.assertEqual([validation.ValidationError], list(map(type, valid_errors)))
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.ops.validation_test.TestValidateCurrencyConstraints">
+<code>TestValidateCurrencyConstraints</code>
+<a class="headerlink" href="#beancount.ops.validation_test.TestValidateCurrencyConstraints" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.validation_test.TestValidateCurrencyConstraints.test_validate_currency_constraints">
+<code class="highlight language-python">
+test_validate_currency_constraints
+(self, entries, _, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.validation_test.TestValidateCurrencyConstraints.test_validate_currency_constraints" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-01-01 open  Assets:Account1    USD
+2014-01-01 open  Assets:Account2    HOOL
+2014-01-01 open  Assets:Account3    USD,HOOL</p>
+<p>2014-01-02 * "Entries without cost"
+  Assets:Account1             1 USD
+  Equity:Opening-Balances    -1 USD</p>
+<p>2014-01-03 * "Entries without cost" #expected
+  Assets:Account1             1 CAD
+  Equity:Opening-Balances    -1 CAD</p>
+<p>2014-01-04 * "Entries with cost"
+  Assets:Account2             1 HOOL {500 USD}
+  Equity:Opening-Balances  -500 USD</p>
+<p>2014-01-05 * "Entries with cost" #expected
+  Assets:Account2             1 AAPL {500 USD}
+  Equity:Opening-Balances  -500 USD</p>
+<p>2014-01-02 * "Multiple currencies"
+  Assets:Account3             1 USD
+  Assets:Account3             1 HOOL {500 USD}
+  Equity:Opening-Balances  -501 USD</p>
+<p>2014-01-05 * "Multiple currencies" #expected
+  Assets:Account3             1 CAD
+  Equity:Opening-Balances    -1 CAD</p>
+<p>2014-01-05 * "Multiple currencies" #expected
+  Assets:Account3             1 AAPL {500 USD}
+  Equity:Opening-Balances  -500 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/validation_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_validate_currency_constraints(self, entries, _, options_map):
+    """
+    2014-01-01 open  Assets:Account1    USD
+    2014-01-01 open  Assets:Account2    HOOL
+    2014-01-01 open  Assets:Account3    USD,HOOL
+
+    2014-01-02 * "Entries without cost"
+      Assets:Account1             1 USD
+      Equity:Opening-Balances    -1 USD
+
+    2014-01-03 * "Entries without cost" #expected
+      Assets:Account1             1 CAD
+      Equity:Opening-Balances    -1 CAD
+
+    2014-01-04 * "Entries with cost"
+      Assets:Account2             1 HOOL {500 USD}
+      Equity:Opening-Balances  -500 USD
+
+    2014-01-05 * "Entries with cost" #expected
+      Assets:Account2             1 AAPL {500 USD}
+      Equity:Opening-Balances  -500 USD
+
+    2014-01-02 * "Multiple currencies"
+      Assets:Account3             1 USD
+      Assets:Account3             1 HOOL {500 USD}
+      Equity:Opening-Balances  -501 USD
+
+    2014-01-05 * "Multiple currencies" #expected
+      Assets:Account3             1 CAD
+      Equity:Opening-Balances    -1 CAD
+
+    2014-01-05 * "Multiple currencies" #expected
+      Assets:Account3             1 AAPL {500 USD}
+      Equity:Opening-Balances  -500 USD
+
+    """
+    errors = validation.validate_currency_constraints(entries, options_map)
+
+    self.assertEqualEntries([entry for entry in entries
+                             if (isinstance(entry, data.Transaction) and
+                                 entry.tags and
+                                 'expected' in entry.tags)],
+                            [error.entry for error in errors])
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.ops.validation_test.TestValidateDataTypes">
+<code>TestValidateDataTypes</code>
+<a class="headerlink" href="#beancount.ops.validation_test.TestValidateDataTypes" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.validation_test.TestValidateDataTypes.test_validate_data_types">
+<code class="highlight language-python">
+test_validate_data_types
+(self, entries, errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.validation_test.TestValidateDataTypes.test_validate_data_types" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-06-24 * "Narration"
+  Assets:Investments:Stock    1 HOOL {500 USD}
+  Assets:Investments:Cash  -500 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/validation_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_validate_data_types(self, entries, errors, options_map):
+    """
+    2014-06-24 * "Narration"
+      Assets:Investments:Stock    1 HOOL {500 USD}
+      Assets:Investments:Cash  -500 USD
+    """
+    # Just a basic test that runs the sanitation code (that should already
+    # be well tested by itself).
+    entry = entries[0]
+    new_entry = entry._replace(narration={"INVALID_SET_TYPE"})
+    valid_errors = validation.validate_data_types([new_entry], options_map)
+    self.assertEqual([validation.ValidationError], list(map(type, valid_errors)))
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.ops.validation_test.TestValidateDuplicateBalances">
+<code>TestValidateDuplicateBalances</code>
+<a class="headerlink" href="#beancount.ops.validation_test.TestValidateDuplicateBalances" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.validation_test.TestValidateDuplicateBalances.test_validate_duplicate_balances">
+<code class="highlight language-python">
+test_validate_duplicate_balances
+(self, entries, _, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.validation_test.TestValidateDuplicateBalances.test_validate_duplicate_balances" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-01-01 open Assets:US:Bank:Checking1
+2014-01-01 open Assets:US:Bank:Checking2</p>
+<p>;; Duplicates, with different amounts (error).
+2014-03-01 balance Assets:US:Bank:Checking1  100 USD
+2014-03-01 balance Assets:US:Bank:Checking1  101 USD</p>
+<p>;; Duplicates, with same amount (okay).
+2014-03-02 balance Assets:US:Bank:Checking1  100 USD
+2014-03-02 balance Assets:US:Bank:Checking1  100 USD</p>
+<p>;; Different dates (okay).
+2014-03-03 balance Assets:US:Bank:Checking1  100 USD
+2014-03-04 balance Assets:US:Bank:Checking1  101 USD</p>
+<p>;; Different currencies (okay).
+2014-03-03 balance Assets:US:Bank:Checking1  100 USD
+2014-03-04 balance Assets:US:Bank:Checking1  100 CAD</p>
+<p>;; Different accounts at same date (okay).
+2014-03-05 balance Assets:US:Bank:Checking1  100 USD
+2014-03-05 balance Assets:US:Bank:Checking2  100 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/validation_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_validate_duplicate_balances(self, entries, _, options_map):
+    """
+    2014-01-01 open Assets:US:Bank:Checking1
+    2014-01-01 open Assets:US:Bank:Checking2
+
+    ;; Duplicates, with different amounts (error).
+    2014-03-01 balance Assets:US:Bank:Checking1  100 USD
+    2014-03-01 balance Assets:US:Bank:Checking1  101 USD
+
+    ;; Duplicates, with same amount (okay).
+    2014-03-02 balance Assets:US:Bank:Checking1  100 USD
+    2014-03-02 balance Assets:US:Bank:Checking1  100 USD
+
+    ;; Different dates (okay).
+    2014-03-03 balance Assets:US:Bank:Checking1  100 USD
+    2014-03-04 balance Assets:US:Bank:Checking1  101 USD
+
+    ;; Different currencies (okay).
+    2014-03-03 balance Assets:US:Bank:Checking1  100 USD
+    2014-03-04 balance Assets:US:Bank:Checking1  100 CAD
+
+    ;; Different accounts at same date (okay).
+    2014-03-05 balance Assets:US:Bank:Checking1  100 USD
+    2014-03-05 balance Assets:US:Bank:Checking2  100 USD
+    """
+    errors = validation.validate_duplicate_balances(entries, options_map)
+    self.assertEqual([datetime.date(2014, 3, 1)],
+                     [error.entry.date for error in errors])
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.ops.validation_test.TestValidateDuplicateCommodities">
+<code>TestValidateDuplicateCommodities</code>
+<a class="headerlink" href="#beancount.ops.validation_test.TestValidateDuplicateCommodities" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.validation_test.TestValidateDuplicateCommodities.test_validate_duplicate_commodities">
+<code class="highlight language-python">
+test_validate_duplicate_commodities
+(self, entries, _, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.validation_test.TestValidateDuplicateCommodities.test_validate_duplicate_commodities" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-01-01 commodity USD
+2014-01-02 commodity CAD
+2014-01-03 commodity AAPL
+2014-01-04 commodity HOOL
+2014-01-05 commodity USD
+2014-01-06 commodity HOOL</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/validation_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_validate_duplicate_commodities(self, entries, _, options_map):
+    """
+    2014-01-01 commodity USD
+    2014-01-02 commodity CAD
+    2014-01-03 commodity AAPL
+    2014-01-04 commodity HOOL
+    2014-01-05 commodity USD
+    2014-01-06 commodity HOOL
+    """
+    errors = validation.validate_duplicate_commodities(entries, options_map)
+    self.assertEqual([datetime.date(2014, 1, 5), datetime.date(2014, 1, 6)],
+                     [error.entry.date for error in errors])
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.ops.validation_test.TestValidateOpenClose">
+<code>TestValidateOpenClose</code>
+<a class="headerlink" href="#beancount.ops.validation_test.TestValidateOpenClose" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.validation_test.TestValidateOpenClose.test_validate_open_close__close_unopened">
+<code class="highlight language-python">
+test_validate_open_close__close_unopened
+(self, entries, _, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.validation_test.TestValidateOpenClose.test_validate_open_close__close_unopened" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-03-01 close Assets:US:Bank:Checking1</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/validation_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_validate_open_close__close_unopened(self, entries, _, options_map):
+    """
+    2014-03-01 close Assets:US:Bank:Checking1
+    """
+    errors = validation.validate_open_close(entries, options_map)
+    self.assertEqual(['Assets:US:Bank:Checking1'],
+                     [error.entry.account for error in errors])
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.validation_test.TestValidateOpenClose.test_validate_open_close__duplicate_close">
+<code class="highlight language-python">
+test_validate_open_close__duplicate_close
+(self, entries, _, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.validation_test.TestValidateOpenClose.test_validate_open_close__duplicate_close" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-02-10 open  Assets:US:Bank:Checking1
+2014-02-10 open  Assets:US:Bank:Checking2
+2014-02-10 open  Assets:US:Bank:Checking3</p>
+<p>;; Regular, only appears once.
+2014-03-01 close Assets:US:Bank:Checking1</p>
+<p>;; Close twice on the same date.
+2014-03-11 close Assets:US:Bank:Checking2
+2014-03-11 close Assets:US:Bank:Checking2</p>
+<p>;; Close twice on different dates.
+2014-03-21 close Assets:US:Bank:Checking3
+2014-03-22 close Assets:US:Bank:Checking3</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/validation_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_validate_open_close__duplicate_close(self, entries, _, options_map):
+    """
+    2014-02-10 open  Assets:US:Bank:Checking1
+    2014-02-10 open  Assets:US:Bank:Checking2
+    2014-02-10 open  Assets:US:Bank:Checking3
+
+    ;; Regular, only appears once.
+    2014-03-01 close Assets:US:Bank:Checking1
+
+    ;; Close twice on the same date.
+    2014-03-11 close Assets:US:Bank:Checking2
+    2014-03-11 close Assets:US:Bank:Checking2
+
+    ;; Close twice on different dates.
+    2014-03-21 close Assets:US:Bank:Checking3
+    2014-03-22 close Assets:US:Bank:Checking3
+
+    """
+    errors = validation.validate_open_close(entries, options_map)
+    self.assertEqual(['Assets:US:Bank:Checking2',
+                      'Assets:US:Bank:Checking3'],
+                     [error.entry.account for error in errors])
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.validation_test.TestValidateOpenClose.test_validate_open_close__duplicate_open">
+<code class="highlight language-python">
+test_validate_open_close__duplicate_open
+(self, entries, _, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.validation_test.TestValidateOpenClose.test_validate_open_close__duplicate_open" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>;; Regular, only appears once.
+2014-02-10 open  Assets:US:Bank:Checking1</p>
+<p>;; Open twice on the same date.
+2014-02-11 open  Assets:US:Bank:Checking2
+2014-02-11 open  Assets:US:Bank:Checking2</p>
+<p>;; Open twice on different dates.
+2014-02-20 open  Assets:US:Bank:Checking3
+2014-02-21 open  Assets:US:Bank:Checking3</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/validation_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_validate_open_close__duplicate_open(self, entries, _, options_map):
+    """
+    ;; Regular, only appears once.
+    2014-02-10 open  Assets:US:Bank:Checking1
+
+    ;; Open twice on the same date.
+    2014-02-11 open  Assets:US:Bank:Checking2
+    2014-02-11 open  Assets:US:Bank:Checking2
+
+    ;; Open twice on different dates.
+    2014-02-20 open  Assets:US:Bank:Checking3
+    2014-02-21 open  Assets:US:Bank:Checking3
+    """
+    errors = validation.validate_open_close(entries, options_map)
+    self.assertEqual(['Assets:US:Bank:Checking2',
+                      'Assets:US:Bank:Checking3'],
+                     [error.entry.account for error in errors])
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.validation_test.TestValidateOpenClose.test_validate_open_close__ordering">
+<code class="highlight language-python">
+test_validate_open_close__ordering
+(self, entries, _, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.validation_test.TestValidateOpenClose.test_validate_open_close__ordering" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2014-03-01 open  Assets:US:Bank:Checking1
+2014-02-01 close Assets:US:Bank:Checking1</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/validation_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc(expect_errors=True)
+def test_validate_open_close__ordering(self, entries, _, options_map):
+    """
+    2014-03-01 open  Assets:US:Bank:Checking1
+    2014-02-01 close Assets:US:Bank:Checking1
+    """
+    errors = validation.validate_open_close(entries, options_map)
+    self.assertEqual(['Assets:US:Bank:Checking1'],
+                     [error.entry.account for error in errors])
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.ops.validation_test.TestValidateTolerances">
+<code>TestValidateTolerances</code>
+<a class="headerlink" href="#beancount.ops.validation_test.TestValidateTolerances" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.validation_test.TestValidateTolerances.test_tolerance_implicit_fractional_global">
+<code class="highlight language-python">
+test_tolerance_implicit_fractional_global
+(self, entries, errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.validation_test.TestValidateTolerances.test_tolerance_implicit_fractional_global" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>plugin "beancount.plugins.auto_accounts"
+option "inferred_tolerance_default" "*:0.005"</p>
+<p>1997-03-06 * "Buy"
+  Assets:Insurance:HYPOT       7.9599 HYPOT {125.63 CAD}
+  Assets:Insurance:Cash         -1000 CAD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/validation_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_tolerance_implicit_fractional_global(self, entries, errors, options_map):
+    """
+    plugin "beancount.plugins.auto_accounts"
+    option "inferred_tolerance_default" "*:0.005"
+
+    1997-03-06 * "Buy"
+      Assets:Insurance:HYPOT       7.9599 HYPOT {125.63 CAD}
+      Assets:Insurance:Cash         -1000 CAD
+    """
+    self.assertFalse(errors)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.validation_test.TestValidateTolerances.test_tolerance_implicit_fractional_specific">
+<code class="highlight language-python">
+test_tolerance_implicit_fractional_specific
+(self, entries, errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.validation_test.TestValidateTolerances.test_tolerance_implicit_fractional_specific" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>plugin "beancount.plugins.auto_accounts"
+option "inferred_tolerance_default" "CAD:0.005"</p>
+<p>1997-03-06 * "Buy"
+  Assets:Insurance:HYPOT       7.9599 HYPOT {125.63 CAD}
+  Assets:Insurance:Cash         -1000 CAD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/validation_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_tolerance_implicit_fractional_specific(self, entries, errors, options_map):
+    """
+    plugin "beancount.plugins.auto_accounts"
+    option "inferred_tolerance_default" "CAD:0.005"
+
+    1997-03-06 * "Buy"
+      Assets:Insurance:HYPOT       7.9599 HYPOT {125.63 CAD}
+      Assets:Insurance:Cash         -1000 CAD
+    """
+    self.assertFalse(errors)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.validation_test.TestValidateTolerances.test_tolerance_implicit_fractional_withprec">
+<code class="highlight language-python">
+test_tolerance_implicit_fractional_withprec
+(self, entries, errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.validation_test.TestValidateTolerances.test_tolerance_implicit_fractional_withprec" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>plugin "beancount.plugins.auto_accounts"</p>
+<p>2000-01-01 * "Buy"
+  Assets:Insurance:HYPOT          7.9599 HYPOT {125.63 CAD}
+  Assets:Insurance:Cash         -1000.00 CAD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/validation_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_tolerance_implicit_fractional_withprec(self, entries, errors, options_map):
+    """
+    plugin "beancount.plugins.auto_accounts"
+
+    2000-01-01 * "Buy"
+      Assets:Insurance:HYPOT          7.9599 HYPOT {125.63 CAD}
+      Assets:Insurance:Cash         -1000.00 CAD
+    """
+    self.assertFalse(errors)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.ops.validation_test.TestValidateTolerances.test_tolerance_implicit_integral">
+<code class="highlight language-python">
+test_tolerance_implicit_integral
+(self, entries, errors, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.ops.validation_test.TestValidateTolerances.test_tolerance_implicit_integral" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>plugin "beancount.plugins.auto_accounts"</p>
+<p>2014-02-01 * "Buy"
+  Assets:Investments:Stock   1 AAPL {41.00 USD}
+  Assets:Investments:Cash  -41 USD</p>
+<p>2014-02-02 * "Buy"
+  Assets:Investments:Stock   1 AAPL {41.00 USD}
+  Assets:Investments:Cash  -41.00 USD</p>
+<p>2014-02-03 * "Buy"
+  Assets:Investments:Stock   1 AAPL {41.00 USD}
+  Assets:Investments:Cash  -41.00000 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/ops/validation_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
+def test_tolerance_implicit_integral(self, entries, errors, options_map):
+    """
+    plugin "beancount.plugins.auto_accounts"
+
+    2014-02-01 * "Buy"
+      Assets:Investments:Stock   1 AAPL {41.00 USD}
+      Assets:Investments:Cash  -41 USD
+
+    2014-02-02 * "Buy"
+      Assets:Investments:Stock   1 AAPL {41.00 USD}
+      Assets:Investments:Cash  -41.00 USD
+
+    2014-02-03 * "Buy"
+      Assets:Investments:Stock   1 AAPL {41.00 USD}
+      Assets:Investments:Cash  -41.00000 USD
+    """
+    self.assertFalse(errors)
+</code></pre>
+</details>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>

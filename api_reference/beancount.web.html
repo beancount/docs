@@ -398,6 +398,16 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.web.web_test">web_test</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.web.web_test.TestWeb">TestWeb</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.web.web_test.TestWeb.test_scrape_empty_file">test_scrape_empty_file()</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -2377,7 +2387,29 @@ setUp
         </code>
 <a class="headerlink" href="#beancount.web.views_test.TestViews.setUp" title="Permanent link"></a></h4>
 <div class="doc doc-contents">
-<p>Hook method for setting up the test fixture before exercising it.</p>
+<p>2010-01-01 open Assets:Checking
+2010-01-01 open Assets:Savings
+2010-01-01 open Income:MoneyFountain</p>
+<p>;; Before 2013
+2012-11-15 *
+  Assets:Checking        1 USD
+  Income:MoneyFountain</p>
+<p>;; With tag
+2013-02-03 * #trip1
+  Assets:Checking        1 USD
+  Income:MoneyFountain</p>
+<p>;; With payee
+2013-04-03 * "Hardware Store" "Hammer"
+  Assets:Checking        1 USD
+  Income:MoneyFountain</p>
+<p>;; With unique account component ("Savings")
+2013-07-03 *
+  Assets:Savings        1 USD
+  Income:MoneyFountain</p>
+<p>;; After 2013
+2014-01-18 *
+  Assets:Checking        1 USD
+  Income:MoneyFountain</p>
 <details class="quote">
 <summary>Source code in <code>beancount/web/views_test.py</code></summary>
 <pre class="highlight"><code class="language-python linenums">@loader.load_doc()
@@ -4710,6 +4742,46 @@ This tells us the server is running.</p>
         time.sleep(0.05)
 </code></pre>
 </details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
+<h2 class="doc doc-heading" id="beancount.web.web_test">
+<code>web_test</code>
+<a class="headerlink" href="#beancount.web.web_test" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.web.web_test.TestWeb">
+<code>TestWeb</code>
+<a class="headerlink" href="#beancount.web.web_test.TestWeb" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.web.web_test.TestWeb.test_scrape_empty_file">
+<code class="highlight language-python">
+test_scrape_empty_file
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.web.web_test.TestWeb.test_scrape_empty_file" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>;; A file with no entries in it.</p>
+<details class="quote">
+<summary>Source code in <code>beancount/web/web_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_scrape_empty_file(self, filename):
+    """
+    ;; A file with no entries in it.
+    """
+    self.scrape(filename)
+</code></pre>
+</details>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>

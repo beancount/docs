@@ -178,6 +178,14 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#beancount.utils.csv_utils_test">csv_utils_test</a>
 <ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.utils.csv_utils_test.TestCSVUtils">TestCSVUtils</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.utils.csv_utils_test.TestCSVUtils.test_csv_dict_reader">test_csv_dict_reader()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.utils.csv_utils_test.TestCSVUtils.test_csv_tuple_reader">test_csv_tuple_reader()</a>
+</li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.csv_utils_test.linearize">linearize()</a>
 </li>
 </ul>
@@ -477,6 +485,18 @@
 <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.test_utils.subprocess_env">subprocess_env()</a>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.test_utils.tempdir">tempdir()</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.utils.test_utils_test">test_utils_test</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.utils.test_utils_test.TestTestUtils">TestTestUtils</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.utils.test_utils_test.TestTestUtils.test_docfile">test_docfile()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.utils.test_utils_test.TestTestUtils.test_docfile_extra">test_docfile_extra()</a>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -1356,6 +1376,90 @@ iter_until_empty
 <a class="headerlink" href="#beancount.utils.csv_utils_test" title="Permanent link"></a></h2>
 <div class="doc doc-contents">
 <div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.utils.csv_utils_test.TestCSVUtils">
+<code>TestCSVUtils</code>
+<a class="headerlink" href="#beancount.utils.csv_utils_test.TestCSVUtils" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.utils.csv_utils_test.TestCSVUtils.test_csv_dict_reader">
+<code class="highlight language-python">
+test_csv_dict_reader
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.utils.csv_utils_test.TestCSVUtils.test_csv_dict_reader" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>First Name, Last Name, City, Country
+Caroline, Chang, Sydney, Australia
+Martin, Blais, Vancouver, Canada</p>
+<details class="quote">
+<summary>Source code in <code>beancount/utils/csv_utils_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_csv_dict_reader(self, filename):
+    """\
+    First Name, Last Name, City, Country
+    Caroline, Chang, Sydney, Australia
+    Martin, Blais, Vancouver, Canada
+    """
+    with open(filename) as infile:
+        reader = csv_utils.csv_dict_reader(infile, skipinitialspace=True)
+        self.assertTrue(isinstance(reader, object))
+        self.assertEqual([
+            {'first_name': 'Caroline',
+             'last_name': 'Chang',
+             'city': 'Sydney',
+             'country': 'Australia'},
+            {'first_name': 'Martin',
+             'last_name': 'Blais',
+             'city': 'Vancouver',
+             'country': 'Canada'}
+            ], list(reader))
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.utils.csv_utils_test.TestCSVUtils.test_csv_tuple_reader">
+<code class="highlight language-python">
+test_csv_tuple_reader
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.utils.csv_utils_test.TestCSVUtils.test_csv_tuple_reader" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>First Name, Last Name, City, Country
+Caroline, Chang, Sydney, Australia
+Martin, Blais, Vancouver, Canada</p>
+<details class="quote">
+<summary>Source code in <code>beancount/utils/csv_utils_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_csv_tuple_reader(self, filename):
+    """\
+    First Name, Last Name, City, Country
+    Caroline, Chang, Sydney, Australia
+    Martin, Blais, Vancouver, Canada
+    """
+    with open(filename) as infile:
+        reader = csv_utils.csv_tuple_reader(infile, skipinitialspace=True)
+        self.assertTrue(isinstance(reader, object))
+
+        rows = list(reader)
+        first_row = rows[0]
+        self.assertTrue(isinstance(first_row, tuple))
+        self.assertTrue(first_row.first_name)
+        self.assertTrue(first_row.last_name)
+        self.assertTrue(first_row.city)
+        self.assertTrue(first_row.country)
+        self.assertEqual(2, len(rows))
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.utils.csv_utils_test.linearize">
 <code class="highlight language-python">
@@ -4292,7 +4396,7 @@ import_curses
 <h3 class="doc doc-heading" id="beancount.utils.misc_utils.is_sorted">
 <code class="highlight language-python">
 is_sorted
-(iterable, key=&lt;function &lt;lambda&gt; at 0x7f9524383a60&gt;, cmp=&lt;function &lt;lambda&gt; at 0x7f9524383af0&gt;)
+(iterable, key=&lt;function &lt;lambda&gt; at 0x7fb75e62ae50&gt;, cmp=&lt;function &lt;lambda&gt; at 0x7fb75e62aee0&gt;)
 
         </code>
 <a class="headerlink" href="#beancount.utils.misc_utils.is_sorted" title="Permanent link"></a></h3>
@@ -4323,7 +4427,7 @@ is_sorted
 <td>
 <p>A function to extract the quantity by which to sort.</p>
 </td>
-<td><code>&lt;function &lt;lambda&gt; at 0x7f9524383a60&gt;</code></td>
+<td><code>&lt;function &lt;lambda&gt; at 0x7fb75e62ae50&gt;</code></td>
 </tr>
 <tr>
 <td><code>cmp</code></td>
@@ -4331,7 +4435,7 @@ is_sorted
 <td>
 <p>A function that compares two elements of a sequence.</p>
 </td>
-<td><code>&lt;function &lt;lambda&gt; at 0x7f9524383af0&gt;</code></td>
+<td><code>&lt;function &lt;lambda&gt; at 0x7fb75e62aee0&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -7401,6 +7505,67 @@ def tempdir(delete=True, **kw):
             shutil.rmtree(tempdir, ignore_errors=True)
 </code></pre>
 </details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
+<h2 class="doc doc-heading" id="beancount.utils.test_utils_test">
+<code>test_utils_test</code>
+<a class="headerlink" href="#beancount.utils.test_utils_test" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.utils.test_utils_test.TestTestUtils">
+<code>TestTestUtils</code>
+<a class="headerlink" href="#beancount.utils.test_utils_test.TestTestUtils" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.utils.test_utils_test.TestTestUtils.test_docfile">
+<code class="highlight language-python">
+test_docfile
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.utils.test_utils_test.TestTestUtils.test_docfile" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>7f9034b1-51e7-420c-ac6b-945b5c594ebf</p>
+<details class="quote">
+<summary>Source code in <code>beancount/utils/test_utils_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_docfile(self, filename):
+    "7f9034b1-51e7-420c-ac6b-945b5c594ebf"
+    with open(filename) as f: uuid = f.read()
+    self.assertEqual("7f9034b1-51e7-420c-ac6b-945b5c594ebf", uuid)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.utils.test_utils_test.TestTestUtils.test_docfile_extra">
+<code class="highlight language-python">
+test_docfile_extra
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.utils.test_utils_test.TestTestUtils.test_docfile_extra" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>7f9034b1-51e7-420c-ac6b-945b5c594ebf</p>
+<details class="quote">
+<summary>Source code in <code>beancount/utils/test_utils_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile_extra(suffix='.txt')
+def test_docfile_extra(self, filename):
+    "7f9034b1-51e7-420c-ac6b-945b5c594ebf"
+    with open(filename) as f: uuid = f.read()
+    self.assertEqual("7f9034b1-51e7-420c-ac6b-945b5c594ebf", uuid)
+    self.assertTrue('.txt' in filename)
+</code></pre>
+</details>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>

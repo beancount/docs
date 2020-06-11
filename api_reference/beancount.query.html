@@ -648,6 +648,26 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#beancount.query.query_env_test">query_env_test</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.query.query_env_test.TestEnv">TestEnv</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.query.query_env_test.TestEnv.test_AnyMeta">test_AnyMeta()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.query.query_env_test.TestEnv.test_Coalesce">test_Coalesce()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.query.query_env_test.TestEnv.test_Date">test_Date()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.query.query_env_test.TestEnv.test_DateDiffAdjust">test_DateDiffAdjust()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.query.query_env_test.TestEnv.test_GrepN">test_GrepN()</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.query.query_env_test.TestEnv.test_Subst">test_Subst()</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#beancount.query.query_execute">query_execute</a>
 <ul>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.query.query_execute.Allocator">Allocator</a>
@@ -1078,6 +1098,12 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#beancount.query.shell_test">shell_test</a>
 <ul>
+<li class="toctree-l3"><a class="reference internal" href="#beancount.query.shell_test.TestShell">TestShell</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#beancount.query.shell_test.TestShell.test_success">test_success()</a>
+</li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.query.shell_test.TestUseCases">TestUseCases</a>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.query.shell_test.runshell">runshell()</a>
@@ -5501,6 +5527,8 @@ arbitrary list of transactions with next-error and previous-error.
 <div class="doc doc-contents">
 <p>An execution context that provides access to attributes on Transactions
     and other entry types.</p>
+<div class="doc doc-children">
+</div>
 </div>
 </div>
 <div class="doc doc-object doc-class">
@@ -5509,6 +5537,8 @@ arbitrary list of transactions with next-error and previous-error.
 <a class="headerlink" href="#beancount.query.query_env.FilterPostingsEnvironment" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>An execution context that provides access to attributes on Postings.</p>
+<div class="doc doc-children">
+</div>
 </div>
 </div>
 <div class="doc doc-object doc-class">
@@ -6989,6 +7019,8 @@ update
 <a class="headerlink" href="#beancount.query.query_env.TargetsEnvironment" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>An execution context that provides access to attributes on Postings.</p>
+<div class="doc doc-children">
+</div>
 </div>
 </div>
 <div class="doc doc-object doc-class">
@@ -7145,6 +7177,286 @@ update
 </div>
 </div>
 <div class="doc doc-object doc-module">
+<h2 class="doc doc-heading" id="beancount.query.query_env_test">
+<code>query_env_test</code>
+<a class="headerlink" href="#beancount.query.query_env_test" title="Permanent link"></a></h2>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.query.query_env_test.TestEnv">
+<code>TestEnv</code>
+<a class="headerlink" href="#beancount.query.query_env_test.TestEnv" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.query.query_env_test.TestEnv.test_AnyMeta">
+<code class="highlight language-python">
+test_AnyMeta
+(self, entries, _, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.query.query_env_test.TestEnv.test_AnyMeta" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2016-11-20 *
+  name: "TheName"
+  address: "1 Wrong Way"
+  empty: "NotEmpty"
+  Assets:Banking          1 USD
+    color: "Green"
+    address: "1 Right Way"
+    empty:</p>
+<details class="quote">
+<summary>Source code in <code>beancount/query/query_env_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@parser.parse_doc()
+def test_AnyMeta(self, entries, _, options_map):
+    """
+    2016-11-20 *
+      name: "TheName"
+      address: "1 Wrong Way"
+      empty: "NotEmpty"
+      Assets:Banking          1 USD
+        color: "Green"
+        address: "1 Right Way"
+        empty:
+    """
+    rtypes, rrows = query.run_query(entries, options_map,
+                                    'SELECT ANY_META("name") as m')
+    self.assertEqual([('TheName',)], rrows)
+
+    rtypes, rrows = query.run_query(entries, options_map,
+                                    'SELECT ANY_META("color") as m')
+    self.assertEqual([('Green',)], rrows)
+
+    rtypes, rrows = query.run_query(entries, options_map,
+                                    'SELECT ANY_META("address") as m')
+    self.assertEqual([('1 Right Way',)], rrows)
+
+    rtypes, rrows = query.run_query(entries, options_map,
+                                    'SELECT ANY_META("empty") as m')
+    self.assertEqual([(None,)], rrows)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.query.query_env_test.TestEnv.test_Coalesce">
+<code class="highlight language-python">
+test_Coalesce
+(self, entries, _, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.query.query_env_test.TestEnv.test_Coalesce" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2016-11-20 *
+  Assets:Banking          1 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/query/query_env_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@parser.parse_doc()
+def test_Coalesce(self, entries, _, options_map):
+    """
+    2016-11-20 *
+      Assets:Banking          1 USD
+    """
+    rtypes, rrows = query.run_query(entries, options_map,
+                                    'SELECT COALESCE(account, price) as m')
+    self.assertEqual([('Assets:Banking',)], rrows)
+
+    rtypes, rrows = query.run_query(entries, options_map,
+                                    'SELECT COALESCE(price, account) as m')
+    self.assertEqual([('Assets:Banking',)], rrows)
+
+    rtypes, rrows = query.run_query(entries, options_map,
+                                    'SELECT COALESCE(price, cost_number) as m')
+    self.assertEqual([(None,)], rrows)
+
+    rtypes, rrows = query.run_query(entries, options_map,
+                                    'SELECT COALESCE(narration, account) as m')
+    self.assertEqual([('',)], rrows)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.query.query_env_test.TestEnv.test_Date">
+<code class="highlight language-python">
+test_Date
+(self, entries, _, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.query.query_env_test.TestEnv.test_Date" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2016-11-20 * "ok"
+  Assets:Banking          1 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/query/query_env_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@parser.parse_doc()
+def test_Date(self, entries, _, options_map):
+    """
+    2016-11-20 * "ok"
+      Assets:Banking          1 USD
+    """
+    rtypes, rrows = query.run_query(entries, options_map,
+                                    'SELECT date(2020, 1, 2) as m')
+    self.assertEqual([(datetime.date(2020, 1, 2),)], rrows)
+
+    rtypes, rrows = query.run_query(entries, options_map,
+                                    'SELECT date(year, month, 1) as m')
+    self.assertEqual([(datetime.date(2016, 11, 1),)], rrows)
+
+    with self.assertRaisesRegex(ValueError, "day is out of range for month"):
+        rtypes, rrows = query.run_query(entries, options_map,
+                                        'SELECT date(2020, 2, 32) as m')
+
+    rtypes, rrows = query.run_query(entries, options_map,
+                                    'SELECT date("2020-01-02") as m')
+    self.assertEqual([(datetime.date(2020, 1, 2),)], rrows)
+
+    rtypes, rrows = query.run_query(entries, options_map,
+                                    'SELECT date("2016/11/1") as m')
+    self.assertEqual([(datetime.date(2016, 11, 1),)], rrows)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.query.query_env_test.TestEnv.test_DateDiffAdjust">
+<code class="highlight language-python">
+test_DateDiffAdjust
+(self, entries, _, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.query.query_env_test.TestEnv.test_DateDiffAdjust" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2016-11-20 * "ok"
+  Assets:Banking          -1 STOCK { 5 USD, 2016-10-30 }</p>
+<details class="quote">
+<summary>Source code in <code>beancount/query/query_env_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@parser.parse_doc()
+def test_DateDiffAdjust(self, entries, _, options_map):
+    """
+    2016-11-20 * "ok"
+      Assets:Banking          -1 STOCK { 5 USD, 2016-10-30 }
+    """
+    rtypes, rrows = query.run_query(entries, options_map,
+                                    'SELECT date_diff(date, cost_date) as m')
+    self.assertEqual([(21,)], rrows)
+
+    rtypes, rrows = query.run_query(entries, options_map,
+                                    'SELECT date_diff(cost_date, date) as m')
+    self.assertEqual([(-21,)], rrows)
+
+    rtypes, rrows = query.run_query(entries, options_map,
+                                    'SELECT date_add(date, 1) as m')
+    self.assertEqual([(datetime.date(2016, 11, 21),)], rrows)
+
+    rtypes, rrows = query.run_query(entries, options_map,
+                                    'SELECT date_add(date, -1) as m')
+    self.assertEqual([(datetime.date(2016, 11, 19),)], rrows)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.query.query_env_test.TestEnv.test_GrepN">
+<code class="highlight language-python">
+test_GrepN
+(self, entries, _, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.query.query_env_test.TestEnv.test_GrepN" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2016-11-20 * "prev match in context next"
+  Assets:Banking          1 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/query/query_env_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@parser.parse_doc()
+def test_GrepN(self, entries, _, options_map):
+    """
+    2016-11-20 * "prev match in context next"
+      Assets:Banking          1 USD
+    """
+    rtypes, rrows = query.run_query(entries, options_map, '''
+      SELECT GREPN("in", narration, 0) as m
+    ''')
+    self.assertEqual([('in',)], rrows)
+
+    rtypes, rrows = query.run_query(entries, options_map, '''
+      SELECT GREPN("match (.*) context", narration, 1) as m
+    ''')
+    self.assertEqual([('in',)], rrows)
+
+    rtypes, rrows = query.run_query(entries, options_map, '''
+      SELECT GREPN("(.*) in (.*)", narration, 2) as m
+    ''')
+    self.assertEqual([('context next',)], rrows)
+
+    rtypes, rrows = query.run_query(entries, options_map, '''
+      SELECT GREPN("ab(at)hing", "abathing", 1) as m
+    ''')
+    self.assertEqual([('at',)], rrows)
+</code></pre>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.query.query_env_test.TestEnv.test_Subst">
+<code class="highlight language-python">
+test_Subst
+(self, entries, _, options_map)
+
+        </code>
+<a class="headerlink" href="#beancount.query.query_env_test.TestEnv.test_Subst" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2016-11-20 * "I love candy"
+  Assets:Banking       -1 USD</p>
+<p>2016-11-21 * "Buy thing thing"
+  Assets:Cash          -1 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/query/query_env_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@parser.parse_doc()
+def test_Subst(self, entries, _, options_map):
+    """
+    2016-11-20 * "I love candy"
+      Assets:Banking       -1 USD
+
+    2016-11-21 * "Buy thing thing"
+      Assets:Cash          -1 USD
+    """
+    rtypes, rrows = query.run_query(entries, options_map, '''
+      SELECT SUBST("[Cc]andy", "carrots", narration) as m where date = 2016-11-20
+    ''')
+    self.assertEqual([('I love carrots',)], rrows)
+
+    rtypes, rrows = query.run_query(entries, options_map, '''
+      SELECT SUBST("thing", "t", narration) as m where date = 2016-11-21
+    ''')
+    self.assertEqual([('Buy t t',)], rrows)
+
+    rtypes, rrows = query.run_query(entries, options_map, '''
+      SELECT SUBST("random", "t", narration) as m where date = 2016-11-21
+    ''')
+    self.assertEqual([('Buy thing thing',)], rrows)
+
+    rtypes, rrows = query.run_query(entries, options_map, '''
+      SELECT SUBST("(love)", "\\1 \\1", narration) as m where date = 2016-11-20
+    ''')
+    self.assertEqual([('I love love candy',)], rrows)
+
+    rtypes, rrows = query.run_query(entries, options_map, '''
+      SELECT SUBST("Assets:.*", "Savings", account) as a, str(sum(position)) as p
+    ''')
+    self.assertEqual([('Savings', '(-2 USD)')], rrows)
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
 <h2 class="doc doc-heading" id="beancount.query.query_execute">
 <code>query_execute</code>
 <a class="headerlink" href="#beancount.query.query_execute" title="Permanent link"></a></h2>
@@ -7249,6 +7561,8 @@ create_store
 <a class="headerlink" href="#beancount.query.query_execute.RowContext" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>A dumb container for information used by a row expression.</p>
+<div class="doc doc-children">
+</div>
 </div>
 </div>
 <div class="doc doc-object doc-function">
@@ -12874,6 +13188,66 @@ of transactions and the total number of postings there in.</p>
 <a class="headerlink" href="#beancount.query.shell_test" title="Permanent link"></a></h2>
 <div class="doc doc-contents">
 <div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="beancount.query.shell_test.TestShell">
+<code>TestShell</code>
+<a class="headerlink" href="#beancount.query.shell_test.TestShell" title="Permanent link"></a></h3>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="beancount.query.shell_test.TestShell.test_success">
+<code class="highlight language-python">
+test_success
+(self, filename)
+
+        </code>
+<a class="headerlink" href="#beancount.query.shell_test.TestShell.test_success" title="Permanent link"></a></h4>
+<div class="doc doc-contents">
+<p>2013-01-01 open Assets:Account1
+2013-01-01 open Assets:Account2
+2013-01-01 open Assets:Account3
+2013-01-01 open Equity:Unknown</p>
+<p>2013-04-05 *
+  Equity:Unknown
+  Assets:Account1     5000 USD</p>
+<p>2013-04-05 *
+  Assets:Account1     -3000 USD
+  Assets:Account2        30 BOOG {100 USD}</p>
+<p>2013-04-05 *
+  Assets:Account1     -1000 USD
+  Assets:Account3       800 EUR @ 1.25 USD</p>
+<details class="quote">
+<summary>Source code in <code>beancount/query/shell_test.py</code></summary>
+<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+def test_success(self, filename):
+    """
+    2013-01-01 open Assets:Account1
+    2013-01-01 open Assets:Account2
+    2013-01-01 open Assets:Account3
+    2013-01-01 open Equity:Unknown
+
+    2013-04-05 *
+      Equity:Unknown
+      Assets:Account1     5000 USD
+
+    2013-04-05 *
+      Assets:Account1     -3000 USD
+      Assets:Account2        30 BOOG {100 USD}
+
+    2013-04-05 *
+      Assets:Account1     -1000 USD
+      Assets:Account3       800 EUR @ 1.25 USD
+    """
+    with test_utils.capture('stdout', 'stderr') as (stdout, _):
+        test_utils.run_with_args(shell.main, [filename, "SELECT 1;"])
+    self.assertTrue(stdout.getvalue())
+</code></pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.shell_test.TestUseCases">
 <code>TestUseCases</code>
