@@ -59,6 +59,7 @@ nav:
     - api_reference/beancount.query.md
     - api_reference/beancount.reports.md
     - api_reference/beancount.scripts.md
+    - api_reference/beancount.tools.md
     - api_reference/beancount.utils.md
     - api_reference/beancount.web.md
 

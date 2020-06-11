@@ -10,5 +10,6 @@
 - [beancount.query](beancount.query.md)
 - [beancount.reports](beancount.reports.md)
 - [beancount.scripts](beancount.scripts.md)
+- [beancount.tools](beancount.tools.md)
 - [beancount.utils](beancount.utils.md)
 - [beancount.web](beancount.web.md)
