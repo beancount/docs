@@ -1153,7 +1153,7 @@
 <div class="doc doc-children">
 <div class="doc doc-object doc-module">
 <h2 class="doc doc-heading" id="beancount.query.numberify">
-<code>numberify</code>
+<code>beancount.query.numberify</code>
 <a class="headerlink" href="#beancount.query.numberify" title="Permanent link"></a></h2>
 <div class="doc doc-contents">
 <p>Code to split table columns containing amounts and inventories into number columns.</p>
@@ -1216,14 +1216,14 @@ into a spreadsheet and able to be processed.</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.numberify.AmountConverter">
-<code>AmountConverter</code>
+<code>beancount.query.numberify.AmountConverter</code>
 <a class="headerlink" href="#beancount.query.numberify.AmountConverter" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>A converter that extracts the number of an amount for a specific currency.</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
 <h4 class="doc doc-heading" id="beancount.query.numberify.AmountConverter.dtype">
-<code>dtype</code>
+<code>beancount.query.numberify.AmountConverter.dtype</code>
 <a class="headerlink" href="#beancount.query.numberify.AmountConverter.dtype" title="Permanent link"></a></h4>
 <div class="doc doc-contents">
 <p>Construct a new Decimal object. 'value' can be an integer, string, tuple,
@@ -1237,7 +1237,7 @@ the InvalidOperation trap is active.</p>
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.numberify.IdentityConverter">
-<code>IdentityConverter</code>
+<code>beancount.query.numberify.IdentityConverter</code>
 <a class="headerlink" href="#beancount.query.numberify.IdentityConverter" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>A converter that simply copies its column.</p>
@@ -1247,7 +1247,7 @@ the InvalidOperation trap is active.</p>
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.numberify.InventoryConverter">
-<code>InventoryConverter</code>
+<code>beancount.query.numberify.InventoryConverter</code>
 <a class="headerlink" href="#beancount.query.numberify.InventoryConverter" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>A converter that extracts the number of a inventory for a specific currency.
@@ -1255,7 +1255,7 @@ the InvalidOperation trap is active.</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
 <h4 class="doc doc-heading" id="beancount.query.numberify.InventoryConverter.dtype">
-<code>dtype</code>
+<code>beancount.query.numberify.InventoryConverter.dtype</code>
 <a class="headerlink" href="#beancount.query.numberify.InventoryConverter.dtype" title="Permanent link"></a></h4>
 <div class="doc doc-contents">
 <p>Construct a new Decimal object. 'value' can be an integer, string, tuple,
@@ -1269,14 +1269,14 @@ the InvalidOperation trap is active.</p>
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.numberify.PositionConverter">
-<code>PositionConverter</code>
+<code>beancount.query.numberify.PositionConverter</code>
 <a class="headerlink" href="#beancount.query.numberify.PositionConverter" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>A converter that extracts the number of a position for a specific currency.</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
 <h4 class="doc doc-heading" id="beancount.query.numberify.PositionConverter.dtype">
-<code>dtype</code>
+<code>beancount.query.numberify.PositionConverter.dtype</code>
 <a class="headerlink" href="#beancount.query.numberify.PositionConverter.dtype" title="Permanent link"></a></h4>
 <div class="doc doc-contents">
 <p>Construct a new Decimal object. 'value' can be an integer, string, tuple,
@@ -1291,7 +1291,7 @@ the InvalidOperation trap is active.</p>
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.numberify.convert_col_Amount">
 <code class="highlight language-python">
-convert_col_Amount
+beancount.query.numberify.convert_col_Amount
 (name, drows, index)
 
         </code>
@@ -1380,7 +1380,7 @@ convert_col_Amount
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.numberify.convert_col_Inventory">
 <code class="highlight language-python">
-convert_col_Inventory
+beancount.query.numberify.convert_col_Inventory
 (name, drows, index)
 
         </code>
@@ -1469,7 +1469,7 @@ convert_col_Inventory
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.numberify.convert_col_Position">
 <code class="highlight language-python">
-convert_col_Position
+beancount.query.numberify.convert_col_Position
 (name, drows, index)
 
         </code>
@@ -1558,7 +1558,7 @@ convert_col_Position
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.numberify.numberify_results">
 <code class="highlight language-python">
-numberify_results
+beancount.query.numberify.numberify_results
 (dtypes, drows, dformat=None)
 
         </code>
@@ -1670,7 +1670,7 @@ Position's or Inventory'es..</p>
 </div>
 <div class="doc doc-object doc-module">
 <h2 class="doc doc-heading" id="beancount.query.query">
-<code>query</code>
+<code>beancount.query.query</code>
 <a class="headerlink" href="#beancount.query.query" title="Permanent link"></a></h2>
 <div class="doc doc-contents">
 <p>A library to run queries. This glues together all the parts of the query engine.</p>
@@ -1678,7 +1678,7 @@ Position's or Inventory'es..</p>
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.query.run_query">
 <code class="highlight language-python">
-run_query
+beancount.query.query.run_query
     (entries, options_map, query, *
 format_args, *, numberify=False)
 
@@ -1835,7 +1835,7 @@ just provided as a convenience.</p>
 </div>
 <div class="doc doc-object doc-module">
 <h2 class="doc doc-heading" id="beancount.query.query_compile">
-<code>query_compile</code>
+<code>beancount.query.query_compile</code>
 <a class="headerlink" href="#beancount.query.query_compile" title="Permanent link"></a></h2>
 <div class="doc doc-contents">
 <p>Interpreter for the query language's AST.</p>
@@ -1845,7 +1845,7 @@ query to be run against a list of entries.</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_compile.CompilationEnvironment">
-<code>CompilationEnvironment</code>
+<code>beancount.query.query_compile.CompilationEnvironment</code>
 <a class="headerlink" href="#beancount.query.query_compile.CompilationEnvironment" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Base class for all compilation contexts. A compilation context provides
@@ -1854,7 +1854,7 @@ query to be run against a list of entries.</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.CompilationEnvironment.get_column">
 <code class="highlight language-python">
-get_column
+beancount.query.query_compile.CompilationEnvironment.get_column
 (self, name)
 
         </code>
@@ -1901,7 +1901,7 @@ get_column
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.CompilationEnvironment.get_function">
 <code class="highlight language-python">
-get_function
+beancount.query.query_compile.CompilationEnvironment.get_function
 (self, name, operands)
 
         </code>
@@ -1958,7 +1958,7 @@ get_function
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_compile.CompilationError">
-<code>CompilationError</code>
+<code>beancount.query.query_compile.CompilationError</code>
 <a class="headerlink" href="#beancount.query.query_compile.CompilationError" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>A compiler/interpreter error.</p>
@@ -1966,7 +1966,7 @@ get_function
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_compile.EvalAggregator">
-<code>EvalAggregator</code>
+<code>beancount.query.query_compile.EvalAggregator</code>
 <a class="headerlink" href="#beancount.query.query_compile.EvalAggregator" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Base class for all aggregator evaluator types.</p>
@@ -1974,7 +1974,7 @@ get_function
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalAggregator.__call__">
 <code class="highlight language-python">
-__call__
+beancount.query.query_compile.EvalAggregator.__call__
 (self, context)
 
         </code>
@@ -2045,7 +2045,7 @@ data.</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalAggregator.allocate">
 <code class="highlight language-python">
-allocate
+beancount.query.query_compile.EvalAggregator.allocate
 (self, allocator)
 
         </code>
@@ -2097,7 +2097,7 @@ obtain a handle for a slot to store data on store objects later on.</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalAggregator.finalize">
 <code class="highlight language-python">
-finalize
+beancount.query.query_compile.EvalAggregator.finalize
 (self, store)
 
         </code>
@@ -2145,7 +2145,7 @@ value. The context node will be the alloc instead of the context object.</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalAggregator.initialize">
 <code class="highlight language-python">
-initialize
+beancount.query.query_compile.EvalAggregator.initialize
 (self, store)
 
         </code>
@@ -2192,7 +2192,7 @@ if you need data for storage.</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalAggregator.update">
 <code class="highlight language-python">
-update
+beancount.query.query_compile.EvalAggregator.update
 (self, store, context)
 
         </code>
@@ -2246,7 +2246,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_compile.EvalColumn">
-<code>EvalColumn</code>
+<code>beancount.query.query_compile.EvalColumn</code>
 <a class="headerlink" href="#beancount.query.query_compile.EvalColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Base class for all column accessors.</p>
@@ -2254,7 +2254,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_compile.EvalFrom">
-<code>EvalFrom</code>
+<code>beancount.query.query_compile.EvalFrom</code>
 <a class="headerlink" href="#beancount.query.query_compile.EvalFrom" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>EvalFrom(c_expr, open, close, clear)</p>
@@ -2262,7 +2262,7 @@ update
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalFrom.__getnewargs__">
 <code class="highlight language-python">
-__getnewargs__
+beancount.query.query_compile.EvalFrom.__getnewargs__
 (self)
 
         </code>
@@ -2284,7 +2284,7 @@ __getnewargs__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalFrom.__new__">
 <code class="highlight language-python">
-__new__
+beancount.query.query_compile.EvalFrom.__new__
 (_cls, c_expr, open, close, clear)
 
         </code>
@@ -2300,7 +2300,7 @@ __new__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalFrom.__repr__">
 <code class="highlight language-python">
-__repr__
+beancount.query.query_compile.EvalFrom.__repr__
 (self)
 
         </code>
@@ -2322,7 +2322,7 @@ __repr__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalFrom._asdict">
 <code class="highlight language-python">
-_asdict
+beancount.query.query_compile.EvalFrom._asdict
 (self)
 
         </code>
@@ -2344,7 +2344,7 @@ _asdict
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalFrom._make">
 <code class="highlight language-python">
-_make
+beancount.query.query_compile.EvalFrom._make
 (iterable)
 
         </code>
@@ -2370,7 +2370,7 @@ def _make(cls, iterable):
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalFrom._replace">
 <code class="highlight language-python">
-_replace
+beancount.query.query_compile.EvalFrom._replace
     (/, self, **
 kwds)
 
@@ -2397,7 +2397,7 @@ kwds)
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_compile.EvalFunction">
-<code>EvalFunction</code>
+<code>beancount.query.query_compile.EvalFunction</code>
 <a class="headerlink" href="#beancount.query.query_compile.EvalFunction" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Base class for all function objects.</p>
@@ -2407,14 +2407,14 @@ kwds)
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_compile.EvalNode">
-<code>EvalNode</code>
+<code>beancount.query.query_compile.EvalNode</code>
 <a class="headerlink" href="#beancount.query.query_compile.EvalNode" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <div class="doc doc-children">
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalNode.__call__">
 <code class="highlight language-python">
-__call__
+beancount.query.query_compile.EvalNode.__call__
 (self, context)
 
         </code>
@@ -2488,7 +2488,7 @@ data.</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalNode.__eq__">
 <code class="highlight language-python">
-__eq__
+beancount.query.query_compile.EvalNode.__eq__
 (self, other)
 
         </code>
@@ -2516,7 +2516,7 @@ of this node. This is used by tests for comparing nodes.</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalNode.__repr__">
 <code class="highlight language-python">
-__repr__
+beancount.query.query_compile.EvalNode.__repr__
 (self)
 
         </code>
@@ -2539,7 +2539,7 @@ __repr__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalNode.childnodes">
 <code class="highlight language-python">
-childnodes
+beancount.query.query_compile.EvalNode.childnodes
 (self)
 
         </code>
@@ -2572,7 +2572,7 @@ Yields:
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_compile.EvalPrint">
-<code>EvalPrint</code>
+<code>beancount.query.query_compile.EvalPrint</code>
 <a class="headerlink" href="#beancount.query.query_compile.EvalPrint" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>EvalPrint(c_from,)</p>
@@ -2580,7 +2580,7 @@ Yields:
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalPrint.__getnewargs__">
 <code class="highlight language-python">
-__getnewargs__
+beancount.query.query_compile.EvalPrint.__getnewargs__
 (self)
 
         </code>
@@ -2602,7 +2602,7 @@ __getnewargs__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalPrint.__new__">
 <code class="highlight language-python">
-__new__
+beancount.query.query_compile.EvalPrint.__new__
 (_cls, c_from)
 
         </code>
@@ -2618,7 +2618,7 @@ __new__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalPrint.__repr__">
 <code class="highlight language-python">
-__repr__
+beancount.query.query_compile.EvalPrint.__repr__
 (self)
 
         </code>
@@ -2640,7 +2640,7 @@ __repr__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalPrint._asdict">
 <code class="highlight language-python">
-_asdict
+beancount.query.query_compile.EvalPrint._asdict
 (self)
 
         </code>
@@ -2662,7 +2662,7 @@ _asdict
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalPrint._make">
 <code class="highlight language-python">
-_make
+beancount.query.query_compile.EvalPrint._make
 (iterable)
 
         </code>
@@ -2688,7 +2688,7 @@ def _make(cls, iterable):
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalPrint._replace">
 <code class="highlight language-python">
-_replace
+beancount.query.query_compile.EvalPrint._replace
     (/, self, **
 kwds)
 
@@ -2715,7 +2715,7 @@ kwds)
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_compile.EvalQuery">
-<code>EvalQuery</code>
+<code>beancount.query.query_compile.EvalQuery</code>
 <a class="headerlink" href="#beancount.query.query_compile.EvalQuery" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>EvalQuery(c_targets, c_from, c_where, group_indexes, order_indexes, ordering, limit, distinct, flatten)</p>
@@ -2723,7 +2723,7 @@ kwds)
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalQuery.__getnewargs__">
 <code class="highlight language-python">
-__getnewargs__
+beancount.query.query_compile.EvalQuery.__getnewargs__
 (self)
 
         </code>
@@ -2745,7 +2745,7 @@ __getnewargs__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalQuery.__new__">
 <code class="highlight language-python">
-__new__
+beancount.query.query_compile.EvalQuery.__new__
 (_cls, c_targets, c_from, c_where, group_indexes, order_indexes, ordering, limit, distinct, flatten)
 
         </code>
@@ -2761,7 +2761,7 @@ __new__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalQuery.__repr__">
 <code class="highlight language-python">
-__repr__
+beancount.query.query_compile.EvalQuery.__repr__
 (self)
 
         </code>
@@ -2783,7 +2783,7 @@ __repr__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalQuery._asdict">
 <code class="highlight language-python">
-_asdict
+beancount.query.query_compile.EvalQuery._asdict
 (self)
 
         </code>
@@ -2805,7 +2805,7 @@ _asdict
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalQuery._make">
 <code class="highlight language-python">
-_make
+beancount.query.query_compile.EvalQuery._make
 (iterable)
 
         </code>
@@ -2831,7 +2831,7 @@ def _make(cls, iterable):
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalQuery._replace">
 <code class="highlight language-python">
-_replace
+beancount.query.query_compile.EvalQuery._replace
     (/, self, **
 kwds)
 
@@ -2858,7 +2858,7 @@ kwds)
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_compile.EvalTarget">
-<code>EvalTarget</code>
+<code>beancount.query.query_compile.EvalTarget</code>
 <a class="headerlink" href="#beancount.query.query_compile.EvalTarget" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>EvalTarget(c_expr, name, is_aggregate)</p>
@@ -2866,7 +2866,7 @@ kwds)
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalTarget.__getnewargs__">
 <code class="highlight language-python">
-__getnewargs__
+beancount.query.query_compile.EvalTarget.__getnewargs__
 (self)
 
         </code>
@@ -2888,7 +2888,7 @@ __getnewargs__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalTarget.__new__">
 <code class="highlight language-python">
-__new__
+beancount.query.query_compile.EvalTarget.__new__
 (_cls, c_expr, name, is_aggregate)
 
         </code>
@@ -2904,7 +2904,7 @@ __new__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalTarget.__repr__">
 <code class="highlight language-python">
-__repr__
+beancount.query.query_compile.EvalTarget.__repr__
 (self)
 
         </code>
@@ -2926,7 +2926,7 @@ __repr__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalTarget._asdict">
 <code class="highlight language-python">
-_asdict
+beancount.query.query_compile.EvalTarget._asdict
 (self)
 
         </code>
@@ -2948,7 +2948,7 @@ _asdict
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalTarget._make">
 <code class="highlight language-python">
-_make
+beancount.query.query_compile.EvalTarget._make
 (iterable)
 
         </code>
@@ -2974,7 +2974,7 @@ def _make(cls, iterable):
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.EvalTarget._replace">
 <code class="highlight language-python">
-_replace
+beancount.query.query_compile.EvalTarget._replace
     (/, self, **
 kwds)
 
@@ -3001,7 +3001,7 @@ kwds)
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_compile.ResultSetEnvironment">
-<code>ResultSetEnvironment</code>
+<code>beancount.query.query_compile.ResultSetEnvironment</code>
 <a class="headerlink" href="#beancount.query.query_compile.ResultSetEnvironment" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>An execution context that provides access to attributes from a result set.</p>
@@ -3009,7 +3009,7 @@ kwds)
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile.ResultSetEnvironment.get_column">
 <code class="highlight language-python">
-get_column
+beancount.query.query_compile.ResultSetEnvironment.get_column
 (self, name)
 
         </code>
@@ -3033,7 +3033,7 @@ get_column
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.query_compile._get_columns_and_aggregates">
 <code class="highlight language-python">
-_get_columns_and_aggregates
+beancount.query.query_compile._get_columns_and_aggregates
 (node, columns, aggregates)
 
         </code>
@@ -3107,7 +3107,7 @@ _get_columns_and_aggregates
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.query_compile.compile">
 <code class="highlight language-python">
-compile
+beancount.query.query_compile.compile
 (statement, targets_environ, postings_environ, entries_environ)
 
         </code>
@@ -3232,7 +3232,7 @@ supported statements.</p>
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.query_compile.compile_expression">
 <code class="highlight language-python">
-compile_expression
+beancount.query.query_compile.compile_expression
 (expr, environ)
 
         </code>
@@ -3328,7 +3328,7 @@ compile_expression
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.query_compile.compile_from">
 <code class="highlight language-python">
-compile_from
+beancount.query.query_compile.compile_from
 (from_clause, environ)
 
         </code>
@@ -3421,7 +3421,7 @@ compile_from
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.query_compile.compile_group_by">
 <code class="highlight language-python">
-compile_group_by
+beancount.query.query_compile.compile_group_by
 (group_by, c_targets, environ)
 
         </code>
@@ -3619,7 +3619,7 @@ compile_group_by
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.query_compile.compile_order_by">
 <code class="highlight language-python">
-compile_order_by
+beancount.query.query_compile.compile_order_by
 (order_by, c_targets, environ)
 
         </code>
@@ -3756,7 +3756,7 @@ compile_order_by
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.query_compile.compile_print">
 <code class="highlight language-python">
-compile_print
+beancount.query.query_compile.compile_print
 (print_stmt, env_entries)
 
         </code>
@@ -3829,7 +3829,7 @@ compile_print
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.query_compile.compile_select">
 <code class="highlight language-python">
-compile_select
+beancount.query.query_compile.compile_select
 (select, targets_environ, postings_environ, entries_environ)
 
         </code>
@@ -4008,7 +4008,7 @@ basic optimizations.</p>
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.query_compile.compile_targets">
 <code class="highlight language-python">
-compile_targets
+beancount.query.query_compile.compile_targets
 (targets, environ)
 
         </code>
@@ -4115,7 +4115,7 @@ compile_targets
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.query_compile.find_unique_name">
 <code class="highlight language-python">
-find_unique_name
+beancount.query.query_compile.find_unique_name
 (name, allocated_set)
 
         </code>
@@ -4193,7 +4193,7 @@ find_unique_name
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.query_compile.get_columns_and_aggregates">
 <code class="highlight language-python">
-get_columns_and_aggregates
+beancount.query.query_compile.get_columns_and_aggregates
 (node)
 
         </code>
@@ -4266,7 +4266,7 @@ get_columns_and_aggregates
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.query_compile.is_aggregate">
 <code class="highlight language-python">
-is_aggregate
+beancount.query.query_compile.is_aggregate
 (node)
 
         </code>
@@ -4332,7 +4332,7 @@ is_aggregate
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.query_compile.is_hashable_type">
 <code class="highlight language-python">
-is_hashable_type
+beancount.query.query_compile.is_hashable_type
 (node)
 
         </code>
@@ -4395,7 +4395,7 @@ is_hashable_type
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.query_compile.transform_balances">
 <code class="highlight language-python">
-transform_balances
+beancount.query.query_compile.transform_balances
 (balances)
 
         </code>
@@ -4477,7 +4477,7 @@ transform_balances
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.query_compile.transform_journal">
 <code class="highlight language-python">
-transform_journal
+beancount.query.query_compile.transform_journal
 (journal)
 
         </code>
@@ -4562,20 +4562,20 @@ transform_journal
 </div>
 <div class="doc doc-object doc-module">
 <h2 class="doc doc-heading" id="beancount.query.query_compile_test">
-<code>query_compile_test</code>
+<code>beancount.query.query_compile_test</code>
 <a class="headerlink" href="#beancount.query.query_compile_test" title="Permanent link"></a></h2>
 <div class="doc doc-contents">
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_compile_test.CompileSelectBase">
-<code>CompileSelectBase</code>
+<code>beancount.query.query_compile_test.CompileSelectBase</code>
 <a class="headerlink" href="#beancount.query.query_compile_test.CompileSelectBase" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <div class="doc doc-children">
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile_test.CompileSelectBase.assertCompile">
 <code class="highlight language-python">
-assertCompile
+beancount.query.query_compile_test.CompileSelectBase.assertCompile
 (self, expected, query, debug=False)
 
         </code>
@@ -4669,7 +4669,7 @@ assertCompile
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile_test.CompileSelectBase.assertIndexes">
 <code class="highlight language-python">
-assertIndexes
+beancount.query.query_compile_test.CompileSelectBase.assertIndexes
 (self, query, expected_simple_indexes, expected_aggregate_indexes, expected_group_indexes, expected_order_indexes)
 
         </code>
@@ -4791,7 +4791,7 @@ assertIndexes
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile_test.CompileSelectBase.assertSelectInvariants">
 <code class="highlight language-python">
-assertSelectInvariants
+beancount.query.query_compile_test.CompileSelectBase.assertSelectInvariants
 (self, query)
 
         </code>
@@ -4861,7 +4861,7 @@ assertSelectInvariants
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile_test.CompileSelectBase.compile">
 <code class="highlight language-python">
-compile
+beancount.query.query_compile_test.CompileSelectBase.compile
 (self, query)
 
         </code>
@@ -4931,7 +4931,7 @@ compile
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_compile_test.CompileSelectBase.setUp">
 <code class="highlight language-python">
-setUp
+beancount.query.query_compile_test.CompileSelectBase.setUp
 (self)
 
         </code>
@@ -4954,7 +4954,7 @@ setUp
 </div>
 <div class="doc doc-object doc-module">
 <h2 class="doc doc-heading" id="beancount.query.query_env">
-<code>query_env</code>
+<code>beancount.query.query_env</code>
 <a class="headerlink" href="#beancount.query.query_env" title="Permanent link"></a></h2>
 <div class="doc doc-contents">
 <p>Environment object for compiler.</p>
@@ -4964,7 +4964,7 @@ Define new columns and functions here.</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env._Neg">
-<code>_Neg</code>
+<code>beancount.query.query_env._Neg</code>
 <span class="doc doc-properties">
 <small class="doc doc-property doc-property-private"><code>private</code></small>
 </span>
@@ -4977,7 +4977,7 @@ Define new columns and functions here.</p>
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.AbsDecimal">
-<code>AbsDecimal</code>
+<code>beancount.query.query_env.AbsDecimal</code>
 <a class="headerlink" href="#beancount.query.query_env.AbsDecimal" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Compute the length of the argument. This works on sequences.</p>
@@ -4987,7 +4987,7 @@ Define new columns and functions here.</p>
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.AbsInventory">
-<code>AbsInventory</code>
+<code>beancount.query.query_env.AbsInventory</code>
 <a class="headerlink" href="#beancount.query.query_env.AbsInventory" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Compute the length of the argument. This works on sequences.</p>
@@ -4997,7 +4997,7 @@ Define new columns and functions here.</p>
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.AbsPosition">
-<code>AbsPosition</code>
+<code>beancount.query.query_env.AbsPosition</code>
 <a class="headerlink" href="#beancount.query.query_env.AbsPosition" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Compute the length of the argument. This works on sequences.</p>
@@ -5007,7 +5007,7 @@ Define new columns and functions here.</p>
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.AccountColumn">
-<code>AccountColumn</code>
+<code>beancount.query.query_env.AccountColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.AccountColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The account of the posting.</p>
@@ -5017,7 +5017,7 @@ Define new columns and functions here.</p>
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.AccountSortKey">
-<code>AccountSortKey</code>
+<code>beancount.query.query_env.AccountSortKey</code>
 <a class="headerlink" href="#beancount.query.query_env.AccountSortKey" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Get a string to sort accounts in order taking into account the types.</p>
@@ -5027,7 +5027,7 @@ Define new columns and functions here.</p>
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.AnyMeta">
-<code>AnyMeta</code>
+<code>beancount.query.query_env.AnyMeta</code>
 <a class="headerlink" href="#beancount.query.query_env.AnyMeta" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Get metadata from the posting or its parent transaction's metadata if not present.</p>
@@ -5037,7 +5037,7 @@ Define new columns and functions here.</p>
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.BalanceColumn">
-<code>BalanceColumn</code>
+<code>beancount.query.query_env.BalanceColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.BalanceColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The balance for the posting. These can be summed into inventories.</p>
@@ -5047,7 +5047,7 @@ Define new columns and functions here.</p>
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.CloseDate">
-<code>CloseDate</code>
+<code>beancount.query.query_env.CloseDate</code>
 <a class="headerlink" href="#beancount.query.query_env.CloseDate" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Get the date of the close directive of the account.</p>
@@ -5057,7 +5057,7 @@ Define new columns and functions here.</p>
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.Coalesce">
-<code>Coalesce</code>
+<code>beancount.query.query_env.Coalesce</code>
 <a class="headerlink" href="#beancount.query.query_env.Coalesce" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Return the first non-null argument</p>
@@ -5067,7 +5067,7 @@ Define new columns and functions here.</p>
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.ConvertAmount">
-<code>ConvertAmount</code>
+<code>beancount.query.query_env.ConvertAmount</code>
 <a class="headerlink" href="#beancount.query.query_env.ConvertAmount" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Coerce an amount to a particular currency.</p>
@@ -5077,7 +5077,7 @@ Define new columns and functions here.</p>
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.ConvertAmountWithDate">
-<code>ConvertAmountWithDate</code>
+<code>beancount.query.query_env.ConvertAmountWithDate</code>
 <a class="headerlink" href="#beancount.query.query_env.ConvertAmountWithDate" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Coerce an amount to a particular currency.</p>
@@ -5087,7 +5087,7 @@ Define new columns and functions here.</p>
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.ConvertInventory">
-<code>ConvertInventory</code>
+<code>beancount.query.query_env.ConvertInventory</code>
 <a class="headerlink" href="#beancount.query.query_env.ConvertInventory" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Coerce an inventory to a particular currency.</p>
@@ -5097,7 +5097,7 @@ Define new columns and functions here.</p>
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.ConvertInventoryWithDate">
-<code>ConvertInventoryWithDate</code>
+<code>beancount.query.query_env.ConvertInventoryWithDate</code>
 <a class="headerlink" href="#beancount.query.query_env.ConvertInventoryWithDate" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Coerce an inventory to a particular currency.</p>
@@ -5107,7 +5107,7 @@ Define new columns and functions here.</p>
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.ConvertPosition">
-<code>ConvertPosition</code>
+<code>beancount.query.query_env.ConvertPosition</code>
 <a class="headerlink" href="#beancount.query.query_env.ConvertPosition" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Coerce an amount to a particular currency.</p>
@@ -5117,7 +5117,7 @@ Define new columns and functions here.</p>
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.ConvertPositionWithDate">
-<code>ConvertPositionWithDate</code>
+<code>beancount.query.query_env.ConvertPositionWithDate</code>
 <a class="headerlink" href="#beancount.query.query_env.ConvertPositionWithDate" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Coerce an amount to a particular currency.</p>
@@ -5127,7 +5127,7 @@ Define new columns and functions here.</p>
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.CostCurrencyColumn">
-<code>CostCurrencyColumn</code>
+<code>beancount.query.query_env.CostCurrencyColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.CostCurrencyColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The cost currency of the posting.</p>
@@ -5137,7 +5137,7 @@ Define new columns and functions here.</p>
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.CostDateColumn">
-<code>CostDateColumn</code>
+<code>beancount.query.query_env.CostDateColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.CostDateColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The cost currency of the posting.</p>
@@ -5147,7 +5147,7 @@ Define new columns and functions here.</p>
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.CostInventory">
-<code>CostInventory</code>
+<code>beancount.query.query_env.CostInventory</code>
 <a class="headerlink" href="#beancount.query.query_env.CostInventory" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Get the cost of an inventory.</p>
@@ -5157,7 +5157,7 @@ Define new columns and functions here.</p>
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.CostLabelColumn">
-<code>CostLabelColumn</code>
+<code>beancount.query.query_env.CostLabelColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.CostLabelColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The cost currency of the posting.</p>
@@ -5167,7 +5167,7 @@ Define new columns and functions here.</p>
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.CostNumberColumn">
-<code>CostNumberColumn</code>
+<code>beancount.query.query_env.CostNumberColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.CostNumberColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The number of cost units of the posting.</p>
@@ -5177,7 +5177,7 @@ Define new columns and functions here.</p>
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.CostPosition">
-<code>CostPosition</code>
+<code>beancount.query.query_env.CostPosition</code>
 <a class="headerlink" href="#beancount.query.query_env.CostPosition" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Get the cost of a position.</p>
@@ -5187,7 +5187,7 @@ Define new columns and functions here.</p>
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.Count">
-<code>Count</code>
+<code>beancount.query.query_env.Count</code>
 <a class="headerlink" href="#beancount.query.query_env.Count" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Count the number of occurrences of the argument.</p>
@@ -5195,7 +5195,7 @@ Define new columns and functions here.</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env.Count.allocate">
 <code class="highlight language-python">
-allocate
+beancount.query.query_env.Count.allocate
 (self, allocator)
 
         </code>
@@ -5238,7 +5238,7 @@ obtain a handle for a slot to store data on store objects later on.</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env.Count.initialize">
 <code class="highlight language-python">
-initialize
+beancount.query.query_env.Count.initialize
 (self, store)
 
         </code>
@@ -5279,7 +5279,7 @@ if you need data for storage.</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env.Count.update">
 <code class="highlight language-python">
-update
+beancount.query.query_env.Count.update
 (self, store, unused_ontext)
 
         </code>
@@ -5328,7 +5328,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.Currency">
-<code>Currency</code>
+<code>beancount.query.query_env.Currency</code>
 <a class="headerlink" href="#beancount.query.query_env.Currency" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Extract the currency from an Amount.</p>
@@ -5338,7 +5338,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.CurrencyColumn">
-<code>CurrencyColumn</code>
+<code>beancount.query.query_env.CurrencyColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.CurrencyColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The currency of the posting.</p>
@@ -5348,7 +5348,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.CurrencyMeta">
-<code>CurrencyMeta</code>
+<code>beancount.query.query_env.CurrencyMeta</code>
 <a class="headerlink" href="#beancount.query.query_env.CurrencyMeta" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Get the metadata dict of the commodity directive of the currency.</p>
@@ -5358,7 +5358,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.Date">
-<code>Date</code>
+<code>beancount.query.query_env.Date</code>
 <a class="headerlink" href="#beancount.query.query_env.Date" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Construct a date with year, month, day arguments</p>
@@ -5368,7 +5368,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.DateAdd">
-<code>DateAdd</code>
+<code>beancount.query.query_env.DateAdd</code>
 <a class="headerlink" href="#beancount.query.query_env.DateAdd" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Adds/subtracts number of days from the given date</p>
@@ -5378,7 +5378,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.DateColumn">
-<code>DateColumn</code>
+<code>beancount.query.query_env.DateColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.DateColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The date of the parent transaction for this posting.</p>
@@ -5388,7 +5388,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.DateDiff">
-<code>DateDiff</code>
+<code>beancount.query.query_env.DateDiff</code>
 <a class="headerlink" href="#beancount.query.query_env.DateDiff" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Calculates the difference (in days) between two dates</p>
@@ -5398,7 +5398,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.DateEntryColumn">
-<code>DateEntryColumn</code>
+<code>beancount.query.query_env.DateEntryColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.DateEntryColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The date of the directive.</p>
@@ -5408,7 +5408,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.Day">
-<code>Day</code>
+<code>beancount.query.query_env.Day</code>
 <a class="headerlink" href="#beancount.query.query_env.Day" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Extract the day from a date.</p>
@@ -5418,7 +5418,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.DayColumn">
-<code>DayColumn</code>
+<code>beancount.query.query_env.DayColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.DayColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The day of the date of the parent transaction for this posting.</p>
@@ -5428,7 +5428,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.DayEntryColumn">
-<code>DayEntryColumn</code>
+<code>beancount.query.query_env.DayEntryColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.DayEntryColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The day of the date of the directive.</p>
@@ -5438,7 +5438,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.DescriptionColumn">
-<code>DescriptionColumn</code>
+<code>beancount.query.query_env.DescriptionColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.DescriptionColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>A combination of the payee + narration for the transaction of this posting.</p>
@@ -5448,7 +5448,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.DescriptionEntryColumn">
-<code>DescriptionEntryColumn</code>
+<code>beancount.query.query_env.DescriptionEntryColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.DescriptionEntryColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>A combination of the payee + narration of the transaction, if present.</p>
@@ -5458,7 +5458,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.EntryMeta">
-<code>EntryMeta</code>
+<code>beancount.query.query_env.EntryMeta</code>
 <a class="headerlink" href="#beancount.query.query_env.EntryMeta" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Get some metadata key of the parent directive (Transaction).</p>
@@ -5468,7 +5468,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.FileLocationColumn">
-<code>FileLocationColumn</code>
+<code>beancount.query.query_env.FileLocationColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.FileLocationColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The filename:lineno where the posting was parsed from or created.</p>
@@ -5482,7 +5482,7 @@ arbitrary list of transactions with next-error and previous-error.
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.FilenameColumn">
-<code>FilenameColumn</code>
+<code>beancount.query.query_env.FilenameColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.FilenameColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The filename where the posting was parsed from or created.</p>
@@ -5492,7 +5492,7 @@ arbitrary list of transactions with next-error and previous-error.
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.FilenameEntryColumn">
-<code>FilenameEntryColumn</code>
+<code>beancount.query.query_env.FilenameEntryColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.FilenameEntryColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The filename where the directive was parsed from or created.</p>
@@ -5502,7 +5502,7 @@ arbitrary list of transactions with next-error and previous-error.
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.FilterCurrencyInventory">
-<code>FilterCurrencyInventory</code>
+<code>beancount.query.query_env.FilterCurrencyInventory</code>
 <a class="headerlink" href="#beancount.query.query_env.FilterCurrencyInventory" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Filter an inventory to just the specified currency.</p>
@@ -5512,7 +5512,7 @@ arbitrary list of transactions with next-error and previous-error.
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.FilterCurrencyPosition">
-<code>FilterCurrencyPosition</code>
+<code>beancount.query.query_env.FilterCurrencyPosition</code>
 <a class="headerlink" href="#beancount.query.query_env.FilterCurrencyPosition" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Filter an inventory to just the specified currency.</p>
@@ -5522,7 +5522,7 @@ arbitrary list of transactions with next-error and previous-error.
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.FilterEntriesEnvironment">
-<code>FilterEntriesEnvironment</code>
+<code>beancount.query.query_env.FilterEntriesEnvironment</code>
 <a class="headerlink" href="#beancount.query.query_env.FilterEntriesEnvironment" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>An execution context that provides access to attributes on Transactions
@@ -5533,7 +5533,7 @@ arbitrary list of transactions with next-error and previous-error.
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.FilterPostingsEnvironment">
-<code>FilterPostingsEnvironment</code>
+<code>beancount.query.query_env.FilterPostingsEnvironment</code>
 <a class="headerlink" href="#beancount.query.query_env.FilterPostingsEnvironment" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>An execution context that provides access to attributes on Postings.</p>
@@ -5543,7 +5543,7 @@ arbitrary list of transactions with next-error and previous-error.
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.FindFirst">
-<code>FindFirst</code>
+<code>beancount.query.query_env.FindFirst</code>
 <a class="headerlink" href="#beancount.query.query_env.FindFirst" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Filter a string sequence by regular expression and return the first match.</p>
@@ -5553,7 +5553,7 @@ arbitrary list of transactions with next-error and previous-error.
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.First">
-<code>First</code>
+<code>beancount.query.query_env.First</code>
 <a class="headerlink" href="#beancount.query.query_env.First" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Keep the first of the values seen.</p>
@@ -5561,7 +5561,7 @@ arbitrary list of transactions with next-error and previous-error.
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env.First.allocate">
 <code class="highlight language-python">
-allocate
+beancount.query.query_env.First.allocate
 (self, allocator)
 
         </code>
@@ -5604,7 +5604,7 @@ obtain a handle for a slot to store data on store objects later on.</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env.First.initialize">
 <code class="highlight language-python">
-initialize
+beancount.query.query_env.First.initialize
 (self, store)
 
         </code>
@@ -5645,7 +5645,7 @@ if you need data for storage.</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env.First.update">
 <code class="highlight language-python">
-update
+beancount.query.query_env.First.update
 (self, store, context)
 
         </code>
@@ -5696,7 +5696,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.FlagColumn">
-<code>FlagColumn</code>
+<code>beancount.query.query_env.FlagColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.FlagColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The flag of the parent transaction for this posting.</p>
@@ -5706,7 +5706,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.FlagEntryColumn">
-<code>FlagEntryColumn</code>
+<code>beancount.query.query_env.FlagEntryColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.FlagEntryColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The flag the transaction.</p>
@@ -5716,7 +5716,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.GetItemStr">
-<code>GetItemStr</code>
+<code>beancount.query.query_env.GetItemStr</code>
 <a class="headerlink" href="#beancount.query.query_env.GetItemStr" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Get the string value of a dict. The value is always converted to a string.</p>
@@ -5726,7 +5726,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.Grep">
-<code>Grep</code>
+<code>beancount.query.query_env.Grep</code>
 <a class="headerlink" href="#beancount.query.query_env.Grep" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Match a group against a string and return only the matched portion.</p>
@@ -5736,7 +5736,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.GrepN">
-<code>GrepN</code>
+<code>beancount.query.query_env.GrepN</code>
 <a class="headerlink" href="#beancount.query.query_env.GrepN" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Match a pattern with subgroups against a string and return the subgroup at the index</p>
@@ -5746,7 +5746,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.IdColumn">
-<code>IdColumn</code>
+<code>beancount.query.query_env.IdColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.IdColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The unique id of the parent transaction for this posting.</p>
@@ -5756,7 +5756,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.IdEntryColumn">
-<code>IdEntryColumn</code>
+<code>beancount.query.query_env.IdEntryColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.IdEntryColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Unique id of a directive.</p>
@@ -5766,7 +5766,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.JoinStr">
-<code>JoinStr</code>
+<code>beancount.query.query_env.JoinStr</code>
 <a class="headerlink" href="#beancount.query.query_env.JoinStr" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Join a sequence of strings to a single comma-separated string.</p>
@@ -5776,7 +5776,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.Last">
-<code>Last</code>
+<code>beancount.query.query_env.Last</code>
 <a class="headerlink" href="#beancount.query.query_env.Last" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Keep the last of the values seen.</p>
@@ -5784,7 +5784,7 @@ update
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env.Last.allocate">
 <code class="highlight language-python">
-allocate
+beancount.query.query_env.Last.allocate
 (self, allocator)
 
         </code>
@@ -5827,7 +5827,7 @@ obtain a handle for a slot to store data on store objects later on.</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env.Last.initialize">
 <code class="highlight language-python">
-initialize
+beancount.query.query_env.Last.initialize
 (self, store)
 
         </code>
@@ -5868,7 +5868,7 @@ if you need data for storage.</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env.Last.update">
 <code class="highlight language-python">
-update
+beancount.query.query_env.Last.update
 (self, store, context)
 
         </code>
@@ -5918,7 +5918,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.Leaf">
-<code>Leaf</code>
+<code>beancount.query.query_env.Leaf</code>
 <a class="headerlink" href="#beancount.query.query_env.Leaf" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Get the name of the leaf subaccount.</p>
@@ -5928,7 +5928,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.Length">
-<code>Length</code>
+<code>beancount.query.query_env.Length</code>
 <a class="headerlink" href="#beancount.query.query_env.Length" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Compute the length of the argument. This works on sequences.</p>
@@ -5938,7 +5938,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.LineNoColumn">
-<code>LineNoColumn</code>
+<code>beancount.query.query_env.LineNoColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.LineNoColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The line number from the file the posting was parsed from.</p>
@@ -5948,7 +5948,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.LineNoEntryColumn">
-<code>LineNoEntryColumn</code>
+<code>beancount.query.query_env.LineNoEntryColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.LineNoEntryColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The line number from the file the directive was parsed from.</p>
@@ -5958,7 +5958,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.LinksColumn">
-<code>LinksColumn</code>
+<code>beancount.query.query_env.LinksColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.LinksColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The set of links of the parent transaction for this posting.</p>
@@ -5968,7 +5968,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.LinksEntryColumn">
-<code>LinksEntryColumn</code>
+<code>beancount.query.query_env.LinksEntryColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.LinksEntryColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The set of links of the transaction.</p>
@@ -5978,7 +5978,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.MatchAccount">
-<code>MatchAccount</code>
+<code>beancount.query.query_env.MatchAccount</code>
 <a class="headerlink" href="#beancount.query.query_env.MatchAccount" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>A predicate, true if the transaction has at least one posting matching
@@ -5989,7 +5989,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.Max">
-<code>Max</code>
+<code>beancount.query.query_env.Max</code>
 <a class="headerlink" href="#beancount.query.query_env.Max" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Compute the maximum of the values.</p>
@@ -5997,7 +5997,7 @@ update
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env.Max.allocate">
 <code class="highlight language-python">
-allocate
+beancount.query.query_env.Max.allocate
 (self, allocator)
 
         </code>
@@ -6040,7 +6040,7 @@ obtain a handle for a slot to store data on store objects later on.</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env.Max.initialize">
 <code class="highlight language-python">
-initialize
+beancount.query.query_env.Max.initialize
 (self, store)
 
         </code>
@@ -6081,7 +6081,7 @@ if you need data for storage.</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env.Max.update">
 <code class="highlight language-python">
-update
+beancount.query.query_env.Max.update
 (self, store, context)
 
         </code>
@@ -6132,7 +6132,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.MaxWidth">
-<code>MaxWidth</code>
+<code>beancount.query.query_env.MaxWidth</code>
 <a class="headerlink" href="#beancount.query.query_env.MaxWidth" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Convert the argument to a substring. This can be used to ensure maximum width</p>
@@ -6142,7 +6142,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.Meta">
-<code>Meta</code>
+<code>beancount.query.query_env.Meta</code>
 <a class="headerlink" href="#beancount.query.query_env.Meta" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Get some metadata key of the Posting.</p>
@@ -6152,7 +6152,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.Min">
-<code>Min</code>
+<code>beancount.query.query_env.Min</code>
 <a class="headerlink" href="#beancount.query.query_env.Min" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Compute the minimum of the values.</p>
@@ -6160,7 +6160,7 @@ update
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env.Min.allocate">
 <code class="highlight language-python">
-allocate
+beancount.query.query_env.Min.allocate
 (self, allocator)
 
         </code>
@@ -6203,7 +6203,7 @@ obtain a handle for a slot to store data on store objects later on.</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env.Min.initialize">
 <code class="highlight language-python">
-initialize
+beancount.query.query_env.Min.initialize
 (self, store)
 
         </code>
@@ -6244,7 +6244,7 @@ if you need data for storage.</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env.Min.update">
 <code class="highlight language-python">
-update
+beancount.query.query_env.Min.update
 (self, store, context)
 
         </code>
@@ -6295,7 +6295,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.Month">
-<code>Month</code>
+<code>beancount.query.query_env.Month</code>
 <a class="headerlink" href="#beancount.query.query_env.Month" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Extract the month from a date.</p>
@@ -6305,7 +6305,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.MonthColumn">
-<code>MonthColumn</code>
+<code>beancount.query.query_env.MonthColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.MonthColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The month of the date of the parent transaction for this posting.</p>
@@ -6315,7 +6315,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.MonthEntryColumn">
-<code>MonthEntryColumn</code>
+<code>beancount.query.query_env.MonthEntryColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.MonthEntryColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The month of the date of the directive.</p>
@@ -6325,7 +6325,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.NarrationColumn">
-<code>NarrationColumn</code>
+<code>beancount.query.query_env.NarrationColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.NarrationColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The narration of the parent transaction for this posting.</p>
@@ -6335,7 +6335,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.NarrationEntryColumn">
-<code>NarrationEntryColumn</code>
+<code>beancount.query.query_env.NarrationEntryColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.NarrationEntryColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The narration of the transaction.</p>
@@ -6345,7 +6345,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.Number">
-<code>Number</code>
+<code>beancount.query.query_env.Number</code>
 <a class="headerlink" href="#beancount.query.query_env.Number" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Extract the number from an Amount.</p>
@@ -6355,7 +6355,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.NumberColumn">
-<code>NumberColumn</code>
+<code>beancount.query.query_env.NumberColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.NumberColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The number of units of the posting.</p>
@@ -6365,7 +6365,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.OnlyInventory">
-<code>OnlyInventory</code>
+<code>beancount.query.query_env.OnlyInventory</code>
 <a class="headerlink" href="#beancount.query.query_env.OnlyInventory" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Get one currency's amount from the inventory.</p>
@@ -6375,7 +6375,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.OpenDate">
-<code>OpenDate</code>
+<code>beancount.query.query_env.OpenDate</code>
 <a class="headerlink" href="#beancount.query.query_env.OpenDate" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Get the date of the open directive of the account.</p>
@@ -6385,7 +6385,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.OpenMeta">
-<code>OpenMeta</code>
+<code>beancount.query.query_env.OpenMeta</code>
 <a class="headerlink" href="#beancount.query.query_env.OpenMeta" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Get the metadata dict of the open directive of the account.</p>
@@ -6395,7 +6395,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.OtherAccountsColumn">
-<code>OtherAccountsColumn</code>
+<code>beancount.query.query_env.OtherAccountsColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.OtherAccountsColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The list of other accounts in the transaction, excluding that of this posting.</p>
@@ -6405,7 +6405,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.Parent">
-<code>Parent</code>
+<code>beancount.query.query_env.Parent</code>
 <a class="headerlink" href="#beancount.query.query_env.Parent" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Get the parent name of the account.</p>
@@ -6415,7 +6415,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.ParseDate">
-<code>ParseDate</code>
+<code>beancount.query.query_env.ParseDate</code>
 <a class="headerlink" href="#beancount.query.query_env.ParseDate" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Construct a date with year, month, day arguments</p>
@@ -6425,7 +6425,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.PayeeColumn">
-<code>PayeeColumn</code>
+<code>beancount.query.query_env.PayeeColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.PayeeColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The payee of the parent transaction for this posting.</p>
@@ -6435,7 +6435,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.PayeeEntryColumn">
-<code>PayeeEntryColumn</code>
+<code>beancount.query.query_env.PayeeEntryColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.PayeeEntryColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The payee of the transaction.</p>
@@ -6445,7 +6445,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.PositionColumn">
-<code>PositionColumn</code>
+<code>beancount.query.query_env.PositionColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.PositionColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The position for the posting. These can be summed into inventories.</p>
@@ -6455,7 +6455,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.PosSignAmount">
-<code>PosSignAmount</code>
+<code>beancount.query.query_env.PosSignAmount</code>
 <a class="headerlink" href="#beancount.query.query_env.PosSignAmount" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Correct sign of an Amount based on the usual balance of associated account.</p>
@@ -6465,7 +6465,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.PosSignDecimal">
-<code>PosSignDecimal</code>
+<code>beancount.query.query_env.PosSignDecimal</code>
 <a class="headerlink" href="#beancount.query.query_env.PosSignDecimal" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Correct sign of an Amount based on the usual balance of associated account.</p>
@@ -6475,7 +6475,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.PosSignInventory">
-<code>PosSignInventory</code>
+<code>beancount.query.query_env.PosSignInventory</code>
 <a class="headerlink" href="#beancount.query.query_env.PosSignInventory" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Correct sign of an Amount based on the usual balance of associated account.</p>
@@ -6485,7 +6485,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.PosSignPosition">
-<code>PosSignPosition</code>
+<code>beancount.query.query_env.PosSignPosition</code>
 <a class="headerlink" href="#beancount.query.query_env.PosSignPosition" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Correct sign of an Amount based on the usual balance of associated account.</p>
@@ -6495,7 +6495,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.PostingFlagColumn">
-<code>PostingFlagColumn</code>
+<code>beancount.query.query_env.PostingFlagColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.PostingFlagColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The flag of the posting itself.</p>
@@ -6505,7 +6505,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.Price">
-<code>Price</code>
+<code>beancount.query.query_env.Price</code>
 <a class="headerlink" href="#beancount.query.query_env.Price" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Fetch a price for something at a particular date</p>
@@ -6515,7 +6515,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.PriceColumn">
-<code>PriceColumn</code>
+<code>beancount.query.query_env.PriceColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.PriceColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The price attached to the posting.</p>
@@ -6525,7 +6525,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.PriceWithDate">
-<code>PriceWithDate</code>
+<code>beancount.query.query_env.PriceWithDate</code>
 <a class="headerlink" href="#beancount.query.query_env.PriceWithDate" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Fetch a price for something at a particular date</p>
@@ -6535,7 +6535,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.Quarter">
-<code>Quarter</code>
+<code>beancount.query.query_env.Quarter</code>
 <a class="headerlink" href="#beancount.query.query_env.Quarter" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Extract the quarter from a date.</p>
@@ -6545,7 +6545,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.Root">
-<code>Root</code>
+<code>beancount.query.query_env.Root</code>
 <a class="headerlink" href="#beancount.query.query_env.Root" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Get the root name(s) of the account.</p>
@@ -6555,7 +6555,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.SafeDiv">
-<code>SafeDiv</code>
+<code>beancount.query.query_env.SafeDiv</code>
 <a class="headerlink" href="#beancount.query.query_env.SafeDiv" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>A division operation that swallows dbz exceptions and outputs 0 instead.</p>
@@ -6565,7 +6565,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.Str">
-<code>Str</code>
+<code>beancount.query.query_env.Str</code>
 <a class="headerlink" href="#beancount.query.query_env.Str" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Convert the argument to a string.</p>
@@ -6575,7 +6575,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.Subst">
-<code>Subst</code>
+<code>beancount.query.query_env.Subst</code>
 <a class="headerlink" href="#beancount.query.query_env.Subst" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Substitute leftmost non-overlapping occurrences of pattern by replacement.</p>
@@ -6585,7 +6585,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.Sum">
-<code>Sum</code>
+<code>beancount.query.query_env.Sum</code>
 <a class="headerlink" href="#beancount.query.query_env.Sum" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Calculate the sum of the numerical argument.</p>
@@ -6593,7 +6593,7 @@ update
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env.Sum.allocate">
 <code class="highlight language-python">
-allocate
+beancount.query.query_env.Sum.allocate
 (self, allocator)
 
         </code>
@@ -6636,7 +6636,7 @@ obtain a handle for a slot to store data on store objects later on.</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env.Sum.initialize">
 <code class="highlight language-python">
-initialize
+beancount.query.query_env.Sum.initialize
 (self, store)
 
         </code>
@@ -6677,7 +6677,7 @@ if you need data for storage.</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env.Sum.update">
 <code class="highlight language-python">
-update
+beancount.query.query_env.Sum.update
 (self, store, context)
 
         </code>
@@ -6728,7 +6728,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.SumAmount">
-<code>SumAmount</code>
+<code>beancount.query.query_env.SumAmount</code>
 <a class="headerlink" href="#beancount.query.query_env.SumAmount" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Calculate the sum of the amount. The result is an Inventory.</p>
@@ -6736,7 +6736,7 @@ update
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env.SumAmount.update">
 <code class="highlight language-python">
-update
+beancount.query.query_env.SumAmount.update
 (self, store, context)
 
         </code>
@@ -6786,14 +6786,14 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.SumBase">
-<code>SumBase</code>
+<code>beancount.query.query_env.SumBase</code>
 <a class="headerlink" href="#beancount.query.query_env.SumBase" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <div class="doc doc-children">
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env.SumBase.allocate">
 <code class="highlight language-python">
-allocate
+beancount.query.query_env.SumBase.allocate
 (self, allocator)
 
         </code>
@@ -6836,7 +6836,7 @@ obtain a handle for a slot to store data on store objects later on.</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env.SumBase.initialize">
 <code class="highlight language-python">
-initialize
+beancount.query.query_env.SumBase.initialize
 (self, store)
 
         </code>
@@ -6879,7 +6879,7 @@ if you need data for storage.</p>
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.SumInventory">
-<code>SumInventory</code>
+<code>beancount.query.query_env.SumInventory</code>
 <a class="headerlink" href="#beancount.query.query_env.SumInventory" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Calculate the sum of the inventories. The result is an Inventory.</p>
@@ -6887,7 +6887,7 @@ if you need data for storage.</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env.SumInventory.update">
 <code class="highlight language-python">
-update
+beancount.query.query_env.SumInventory.update
 (self, store, context)
 
         </code>
@@ -6937,7 +6937,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.SumPosition">
-<code>SumPosition</code>
+<code>beancount.query.query_env.SumPosition</code>
 <a class="headerlink" href="#beancount.query.query_env.SumPosition" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Calculate the sum of the position. The result is an Inventory.</p>
@@ -6945,7 +6945,7 @@ update
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env.SumPosition.update">
 <code class="highlight language-python">
-update
+beancount.query.query_env.SumPosition.update
 (self, store, context)
 
         </code>
@@ -6995,7 +6995,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.TagsColumn">
-<code>TagsColumn</code>
+<code>beancount.query.query_env.TagsColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.TagsColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The set of tags of the parent transaction for this posting.</p>
@@ -7005,7 +7005,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.TagsEntryColumn">
-<code>TagsEntryColumn</code>
+<code>beancount.query.query_env.TagsEntryColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.TagsEntryColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The set of tags of the transaction.</p>
@@ -7015,7 +7015,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.TargetsEnvironment">
-<code>TargetsEnvironment</code>
+<code>beancount.query.query_env.TargetsEnvironment</code>
 <a class="headerlink" href="#beancount.query.query_env.TargetsEnvironment" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>An execution context that provides access to attributes on Postings.</p>
@@ -7025,7 +7025,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.Today">
-<code>Today</code>
+<code>beancount.query.query_env.Today</code>
 <a class="headerlink" href="#beancount.query.query_env.Today" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Today's date</p>
@@ -7035,7 +7035,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.TypeColumn">
-<code>TypeColumn</code>
+<code>beancount.query.query_env.TypeColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.TypeColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The data type of the parent transaction for this posting.</p>
@@ -7045,7 +7045,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.TypeEntryColumn">
-<code>TypeEntryColumn</code>
+<code>beancount.query.query_env.TypeEntryColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.TypeEntryColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The data type of the directive.</p>
@@ -7055,7 +7055,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.UnitsInventory">
-<code>UnitsInventory</code>
+<code>beancount.query.query_env.UnitsInventory</code>
 <a class="headerlink" href="#beancount.query.query_env.UnitsInventory" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Get the number of units of an inventory (stripping cost).</p>
@@ -7065,7 +7065,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.UnitsPosition">
-<code>UnitsPosition</code>
+<code>beancount.query.query_env.UnitsPosition</code>
 <a class="headerlink" href="#beancount.query.query_env.UnitsPosition" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Get the number of units of a position (stripping cost).</p>
@@ -7075,7 +7075,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.ValueInventory">
-<code>ValueInventory</code>
+<code>beancount.query.query_env.ValueInventory</code>
 <a class="headerlink" href="#beancount.query.query_env.ValueInventory" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Coerce an inventory to its market value at the current date.</p>
@@ -7085,7 +7085,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.ValueInventoryWithDate">
-<code>ValueInventoryWithDate</code>
+<code>beancount.query.query_env.ValueInventoryWithDate</code>
 <a class="headerlink" href="#beancount.query.query_env.ValueInventoryWithDate" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Coerce an inventory to its market value at a particular date.</p>
@@ -7095,7 +7095,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.ValuePosition">
-<code>ValuePosition</code>
+<code>beancount.query.query_env.ValuePosition</code>
 <a class="headerlink" href="#beancount.query.query_env.ValuePosition" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Convert a position to its cost currency at the market value.</p>
@@ -7105,7 +7105,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.ValuePositionWithDate">
-<code>ValuePositionWithDate</code>
+<code>beancount.query.query_env.ValuePositionWithDate</code>
 <a class="headerlink" href="#beancount.query.query_env.ValuePositionWithDate" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Convert a position to its cost currency at the market value of a particular date.</p>
@@ -7115,7 +7115,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.Weekday">
-<code>Weekday</code>
+<code>beancount.query.query_env.Weekday</code>
 <a class="headerlink" href="#beancount.query.query_env.Weekday" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Extract a 3-letter weekday from a date.</p>
@@ -7125,7 +7125,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.WeightColumn">
-<code>WeightColumn</code>
+<code>beancount.query.query_env.WeightColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.WeightColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The computed weight used for this posting.</p>
@@ -7135,7 +7135,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.Year">
-<code>Year</code>
+<code>beancount.query.query_env.Year</code>
 <a class="headerlink" href="#beancount.query.query_env.Year" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Extract the year from a date.</p>
@@ -7145,7 +7145,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.YearColumn">
-<code>YearColumn</code>
+<code>beancount.query.query_env.YearColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.YearColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The year of the date of the parent transaction for this posting.</p>
@@ -7155,7 +7155,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.YearEntryColumn">
-<code>YearEntryColumn</code>
+<code>beancount.query.query_env.YearEntryColumn</code>
 <a class="headerlink" href="#beancount.query.query_env.YearEntryColumn" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>The year of the date of the directive.</p>
@@ -7165,7 +7165,7 @@ update
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env.YearMonth">
-<code>YearMonth</code>
+<code>beancount.query.query_env.YearMonth</code>
 <a class="headerlink" href="#beancount.query.query_env.YearMonth" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Extract the year and month from a date.</p>
@@ -7178,20 +7178,20 @@ update
 </div>
 <div class="doc doc-object doc-module">
 <h2 class="doc doc-heading" id="beancount.query.query_env_test">
-<code>query_env_test</code>
+<code>beancount.query.query_env_test</code>
 <a class="headerlink" href="#beancount.query.query_env_test" title="Permanent link"></a></h2>
 <div class="doc doc-contents">
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_env_test.TestEnv">
-<code>TestEnv</code>
+<code>beancount.query.query_env_test.TestEnv</code>
 <a class="headerlink" href="#beancount.query.query_env_test.TestEnv" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <div class="doc doc-children">
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env_test.TestEnv.test_AnyMeta">
 <code class="highlight language-python">
-test_AnyMeta
+beancount.query.query_env_test.TestEnv.test_AnyMeta
 (self, entries, _, options_map)
 
         </code>
@@ -7241,7 +7241,7 @@ def test_AnyMeta(self, entries, _, options_map):
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env_test.TestEnv.test_Coalesce">
 <code class="highlight language-python">
-test_Coalesce
+beancount.query.query_env_test.TestEnv.test_Coalesce
 (self, entries, _, options_map)
 
         </code>
@@ -7279,7 +7279,7 @@ def test_Coalesce(self, entries, _, options_map):
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env_test.TestEnv.test_Date">
 <code class="highlight language-python">
-test_Date
+beancount.query.query_env_test.TestEnv.test_Date
 (self, entries, _, options_map)
 
         </code>
@@ -7321,7 +7321,7 @@ def test_Date(self, entries, _, options_map):
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env_test.TestEnv.test_DateDiffAdjust">
 <code class="highlight language-python">
-test_DateDiffAdjust
+beancount.query.query_env_test.TestEnv.test_DateDiffAdjust
 (self, entries, _, options_map)
 
         </code>
@@ -7359,7 +7359,7 @@ def test_DateDiffAdjust(self, entries, _, options_map):
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env_test.TestEnv.test_GrepN">
 <code class="highlight language-python">
-test_GrepN
+beancount.query.query_env_test.TestEnv.test_GrepN
 (self, entries, _, options_map)
 
         </code>
@@ -7401,7 +7401,7 @@ def test_GrepN(self, entries, _, options_map):
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_env_test.TestEnv.test_Subst">
 <code class="highlight language-python">
-test_Subst
+beancount.query.query_env_test.TestEnv.test_Subst
 (self, entries, _, options_map)
 
         </code>
@@ -7458,14 +7458,14 @@ def test_Subst(self, entries, _, options_map):
 </div>
 <div class="doc doc-object doc-module">
 <h2 class="doc doc-heading" id="beancount.query.query_execute">
-<code>query_execute</code>
+<code>beancount.query.query_execute</code>
 <a class="headerlink" href="#beancount.query.query_execute" title="Permanent link"></a></h2>
 <div class="doc doc-contents">
 <p>Execution of interpreter on data rows.</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_execute.Allocator">
-<code>Allocator</code>
+<code>beancount.query.query_execute.Allocator</code>
 <a class="headerlink" href="#beancount.query.query_execute.Allocator" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>A helper class to count slot allocations and return unique handles to them.</p>
@@ -7473,7 +7473,7 @@ def test_Subst(self, entries, _, options_map):
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_execute.Allocator.allocate">
 <code class="highlight language-python">
-allocate
+beancount.query.query_execute.Allocator.allocate
 (self)
 
         </code>
@@ -7515,7 +7515,7 @@ allocate
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_execute.Allocator.create_store">
 <code class="highlight language-python">
-create_store
+beancount.query.query_execute.Allocator.create_store
 (self)
 
         </code>
@@ -7557,7 +7557,7 @@ create_store
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_execute.RowContext">
-<code>RowContext</code>
+<code>beancount.query.query_execute.RowContext</code>
 <a class="headerlink" href="#beancount.query.query_execute.RowContext" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>A dumb container for information used by a row expression.</p>
@@ -7568,7 +7568,7 @@ create_store
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.query_execute.create_row_context">
 <code class="highlight language-python">
-create_row_context
+beancount.query.query_execute.create_row_context
 (entries, options_map)
 
         </code>
@@ -7597,7 +7597,7 @@ create_row_context
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.query_execute.execute_print">
 <code class="highlight language-python">
-execute_print
+beancount.query.query_execute.execute_print
 (c_print, entries, options_map, file)
 
         </code>
@@ -7677,7 +7677,7 @@ execute_print
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.query_execute.execute_query">
 <code class="highlight language-python">
-execute_query
+beancount.query.query_execute.execute_query
 (query, entries, options_map)
 
         </code>
@@ -7921,7 +7921,7 @@ execute_query
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.query_execute.filter_entries">
 <code class="highlight language-python">
-filter_entries
+beancount.query.query_execute.filter_entries
 (c_from, entries, options_map, context)
 
         </code>
@@ -8049,7 +8049,7 @@ filter_entries
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.query_execute.flatten_results">
 <code class="highlight language-python">
-flatten_results
+beancount.query.query_execute.flatten_results
 (result_types, result_rows)
 
         </code>
@@ -8165,7 +8165,7 @@ result_rows: A list of ResultRow tuples of length and types described by
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.query_execute.row_sortkey">
 <code class="highlight language-python">
-row_sortkey
+beancount.query.query_execute.row_sortkey
 (order_indexes, values, c_exprs)
 
         </code>
@@ -8254,7 +8254,7 @@ row_sortkey
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.query_execute.uses_balance_column">
 <code class="highlight language-python">
-uses_balance_column
+beancount.query.query_execute.uses_balance_column
 (c_expr)
 
         </code>
@@ -8320,20 +8320,20 @@ uses_balance_column
 </div>
 <div class="doc doc-object doc-module">
 <h2 class="doc doc-heading" id="beancount.query.query_execute_test">
-<code>query_execute_test</code>
+<code>beancount.query.query_execute_test</code>
 <a class="headerlink" href="#beancount.query.query_execute_test" title="Permanent link"></a></h2>
 <div class="doc doc-contents">
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_execute_test.QueryBase">
-<code>QueryBase</code>
+<code>beancount.query.query_execute_test.QueryBase</code>
 <a class="headerlink" href="#beancount.query.query_execute_test.QueryBase" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <div class="doc doc-children">
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_execute_test.QueryBase.compile">
 <code class="highlight language-python">
-compile
+beancount.query.query_execute_test.QueryBase.compile
 (self, bql_string)
 
         </code>
@@ -8399,7 +8399,7 @@ compile
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_execute_test.QueryBase.parse">
 <code class="highlight language-python">
-parse
+beancount.query.query_execute_test.QueryBase.parse
 (self, bql_string)
 
         </code>
@@ -8462,7 +8462,7 @@ parse
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_execute_test.QueryBase.setUp">
 <code class="highlight language-python">
-setUp
+beancount.query.query_execute_test.QueryBase.setUp
 (self)
 
         </code>
@@ -8486,14 +8486,14 @@ setUp
 </div>
 <div class="doc doc-object doc-module">
 <h2 class="doc doc-heading" id="beancount.query.query_parser">
-<code>query_parser</code>
+<code>beancount.query.query_parser</code>
 <a class="headerlink" href="#beancount.query.query_parser" title="Permanent link"></a></h2>
 <div class="doc doc-contents">
 <p>Parser for Beancount Query Language.</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_parser.Balances">
-<code>Balances</code>
+<code>beancount.query.query_parser.Balances</code>
 <a class="headerlink" href="#beancount.query.query_parser.Balances" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Balances(summary_func, from_clause, where_clause)</p>
@@ -8501,7 +8501,7 @@ setUp
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Balances.__getnewargs__">
 <code class="highlight language-python">
-__getnewargs__
+beancount.query.query_parser.Balances.__getnewargs__
 (self)
 
         </code>
@@ -8523,7 +8523,7 @@ __getnewargs__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Balances.__new__">
 <code class="highlight language-python">
-__new__
+beancount.query.query_parser.Balances.__new__
 (_cls, summary_func, from_clause, where_clause)
 
         </code>
@@ -8539,7 +8539,7 @@ __new__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Balances.__repr__">
 <code class="highlight language-python">
-__repr__
+beancount.query.query_parser.Balances.__repr__
 (self)
 
         </code>
@@ -8561,7 +8561,7 @@ __repr__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Balances._asdict">
 <code class="highlight language-python">
-_asdict
+beancount.query.query_parser.Balances._asdict
 (self)
 
         </code>
@@ -8583,7 +8583,7 @@ _asdict
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Balances._make">
 <code class="highlight language-python">
-_make
+beancount.query.query_parser.Balances._make
 (iterable)
 
         </code>
@@ -8609,7 +8609,7 @@ def _make(cls, iterable):
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Balances._replace">
 <code class="highlight language-python">
-_replace
+beancount.query.query_parser.Balances._replace
     (/, self, **
 kwds)
 
@@ -8636,7 +8636,7 @@ kwds)
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_parser.Errors">
-<code>Errors</code>
+<code>beancount.query.query_parser.Errors</code>
 <a class="headerlink" href="#beancount.query.query_parser.Errors" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Errors()</p>
@@ -8644,7 +8644,7 @@ kwds)
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Errors.__getnewargs__">
 <code class="highlight language-python">
-__getnewargs__
+beancount.query.query_parser.Errors.__getnewargs__
 (self)
 
         </code>
@@ -8666,7 +8666,7 @@ __getnewargs__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Errors.__new__">
 <code class="highlight language-python">
-__new__
+beancount.query.query_parser.Errors.__new__
 (_cls)
 
         </code>
@@ -8682,7 +8682,7 @@ __new__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Errors.__repr__">
 <code class="highlight language-python">
-__repr__
+beancount.query.query_parser.Errors.__repr__
 (self)
 
         </code>
@@ -8704,7 +8704,7 @@ __repr__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Errors._asdict">
 <code class="highlight language-python">
-_asdict
+beancount.query.query_parser.Errors._asdict
 (self)
 
         </code>
@@ -8726,7 +8726,7 @@ _asdict
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Errors._make">
 <code class="highlight language-python">
-_make
+beancount.query.query_parser.Errors._make
 (iterable)
 
         </code>
@@ -8752,7 +8752,7 @@ def _make(cls, iterable):
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Errors._replace">
 <code class="highlight language-python">
-_replace
+beancount.query.query_parser.Errors._replace
     (/, self, **
 kwds)
 
@@ -8779,7 +8779,7 @@ kwds)
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_parser.Explain">
-<code>Explain</code>
+<code>beancount.query.query_parser.Explain</code>
 <a class="headerlink" href="#beancount.query.query_parser.Explain" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Explain(statement,)</p>
@@ -8787,7 +8787,7 @@ kwds)
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Explain.__getnewargs__">
 <code class="highlight language-python">
-__getnewargs__
+beancount.query.query_parser.Explain.__getnewargs__
 (self)
 
         </code>
@@ -8809,7 +8809,7 @@ __getnewargs__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Explain.__new__">
 <code class="highlight language-python">
-__new__
+beancount.query.query_parser.Explain.__new__
 (_cls, statement)
 
         </code>
@@ -8825,7 +8825,7 @@ __new__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Explain.__repr__">
 <code class="highlight language-python">
-__repr__
+beancount.query.query_parser.Explain.__repr__
 (self)
 
         </code>
@@ -8847,7 +8847,7 @@ __repr__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Explain._asdict">
 <code class="highlight language-python">
-_asdict
+beancount.query.query_parser.Explain._asdict
 (self)
 
         </code>
@@ -8869,7 +8869,7 @@ _asdict
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Explain._make">
 <code class="highlight language-python">
-_make
+beancount.query.query_parser.Explain._make
 (iterable)
 
         </code>
@@ -8895,7 +8895,7 @@ def _make(cls, iterable):
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Explain._replace">
 <code class="highlight language-python">
-_replace
+beancount.query.query_parser.Explain._replace
     (/, self, **
 kwds)
 
@@ -8922,7 +8922,7 @@ kwds)
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_parser.Journal">
-<code>Journal</code>
+<code>beancount.query.query_parser.Journal</code>
 <a class="headerlink" href="#beancount.query.query_parser.Journal" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Journal(account, summary_func, from_clause)</p>
@@ -8930,7 +8930,7 @@ kwds)
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Journal.__getnewargs__">
 <code class="highlight language-python">
-__getnewargs__
+beancount.query.query_parser.Journal.__getnewargs__
 (self)
 
         </code>
@@ -8952,7 +8952,7 @@ __getnewargs__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Journal.__new__">
 <code class="highlight language-python">
-__new__
+beancount.query.query_parser.Journal.__new__
 (_cls, account, summary_func, from_clause)
 
         </code>
@@ -8968,7 +8968,7 @@ __new__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Journal.__repr__">
 <code class="highlight language-python">
-__repr__
+beancount.query.query_parser.Journal.__repr__
 (self)
 
         </code>
@@ -8990,7 +8990,7 @@ __repr__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Journal._asdict">
 <code class="highlight language-python">
-_asdict
+beancount.query.query_parser.Journal._asdict
 (self)
 
         </code>
@@ -9012,7 +9012,7 @@ _asdict
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Journal._make">
 <code class="highlight language-python">
-_make
+beancount.query.query_parser.Journal._make
 (iterable)
 
         </code>
@@ -9038,7 +9038,7 @@ def _make(cls, iterable):
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Journal._replace">
 <code class="highlight language-python">
-_replace
+beancount.query.query_parser.Journal._replace
     (/, self, **
 kwds)
 
@@ -9065,7 +9065,7 @@ kwds)
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_parser.Lexer">
-<code>Lexer</code>
+<code>beancount.query.query_parser.Lexer</code>
 <a class="headerlink" href="#beancount.query.query_parser.Lexer" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>PLY lexer for the Beancount Query Language.</p>
@@ -9073,7 +9073,7 @@ kwds)
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Lexer.t_DATE">
 <code class="highlight language-python">
-t_DATE
+beancount.query.query_parser.Lexer.t_DATE
 (self, token)
 
         </code>
@@ -9096,7 +9096,7 @@ t_DATE
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Lexer.t_DECIMAL">
 <code class="highlight language-python">
-t_DECIMAL
+beancount.query.query_parser.Lexer.t_DECIMAL
 (self, token)
 
         </code>
@@ -9116,7 +9116,7 @@ t_DECIMAL
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Lexer.t_ID">
 <code class="highlight language-python">
-t_ID
+beancount.query.query_parser.Lexer.t_ID
 (self, token)
 
         </code>
@@ -9141,7 +9141,7 @@ t_ID
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Lexer.t_INTEGER">
 <code class="highlight language-python">
-t_INTEGER
+beancount.query.query_parser.Lexer.t_INTEGER
 (self, token)
 
         </code>
@@ -9161,7 +9161,7 @@ t_INTEGER
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Lexer.t_STRING">
 <code class="highlight language-python">
-t_STRING
+beancount.query.query_parser.Lexer.t_STRING
 (self, token)
 
         </code>
@@ -9183,7 +9183,7 @@ t_STRING
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_parser.ParseError">
-<code>ParseError</code>
+<code>beancount.query.query_parser.ParseError</code>
 <a class="headerlink" href="#beancount.query.query_parser.ParseError" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>A parser error.</p>
@@ -9191,7 +9191,7 @@ t_STRING
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_parser.Parser">
-<code>Parser</code>
+<code>beancount.query.query_parser.Parser</code>
 <a class="headerlink" href="#beancount.query.query_parser.Parser" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>PLY parser for the Beancount Query Language's full command syntax.</p>
@@ -9199,7 +9199,7 @@ t_STRING
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Parser.p_balances_statement">
 <code class="highlight language-python">
-p_balances_statement
+beancount.query.query_parser.Parser.p_balances_statement
 (self, p)
 
         </code>
@@ -9220,7 +9220,7 @@ p_balances_statement
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Parser.p_delimiter">
 <code class="highlight language-python">
-p_delimiter
+beancount.query.query_parser.Parser.p_delimiter
 (self, p)
 
         </code>
@@ -9242,7 +9242,7 @@ p_delimiter
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Parser.p_errors_statement">
 <code class="highlight language-python">
-p_errors_statement
+beancount.query.query_parser.Parser.p_errors_statement
 (self, p)
 
         </code>
@@ -9263,7 +9263,7 @@ p_errors_statement
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Parser.p_explain_statement">
 <code class="highlight language-python">
-p_explain_statement
+beancount.query.query_parser.Parser.p_explain_statement
 (self, p)
 
         </code>
@@ -9282,7 +9282,7 @@ p_explain_statement
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Parser.p_journal_statement">
 <code class="highlight language-python">
-p_journal_statement
+beancount.query.query_parser.Parser.p_journal_statement
 (self, p)
 
         </code>
@@ -9305,7 +9305,7 @@ p_journal_statement
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Parser.p_print_statement">
 <code class="highlight language-python">
-p_print_statement
+beancount.query.query_parser.Parser.p_print_statement
 (self, p)
 
         </code>
@@ -9326,7 +9326,7 @@ p_print_statement
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Parser.p_regular_statement">
 <code class="highlight language-python">
-p_regular_statement
+beancount.query.query_parser.Parser.p_regular_statement
 (self, p)
 
         </code>
@@ -9345,7 +9345,7 @@ p_regular_statement
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Parser.p_reload_statement">
 <code class="highlight language-python">
-p_reload_statement
+beancount.query.query_parser.Parser.p_reload_statement
 (self, p)
 
         </code>
@@ -9366,7 +9366,7 @@ p_reload_statement
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Parser.p_run_statement">
 <code class="highlight language-python">
-p_run_statement
+beancount.query.query_parser.Parser.p_run_statement
 (self, p)
 
         </code>
@@ -9393,7 +9393,7 @@ p_run_statement
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Parser.p_statement">
 <code class="highlight language-python">
-p_statement
+beancount.query.query_parser.Parser.p_statement
 (self, p)
 
         </code>
@@ -9426,7 +9426,7 @@ p_statement
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Parser.p_summary_func">
 <code class="highlight language-python">
-p_summary_func
+beancount.query.query_parser.Parser.p_summary_func
 (self, p)
 
         </code>
@@ -9451,7 +9451,7 @@ p_summary_func
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_parser.Print">
-<code>Print</code>
+<code>beancount.query.query_parser.Print</code>
 <a class="headerlink" href="#beancount.query.query_parser.Print" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Print(from_clause,)</p>
@@ -9459,7 +9459,7 @@ p_summary_func
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Print.__getnewargs__">
 <code class="highlight language-python">
-__getnewargs__
+beancount.query.query_parser.Print.__getnewargs__
 (self)
 
         </code>
@@ -9481,7 +9481,7 @@ __getnewargs__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Print.__new__">
 <code class="highlight language-python">
-__new__
+beancount.query.query_parser.Print.__new__
 (_cls, from_clause)
 
         </code>
@@ -9497,7 +9497,7 @@ __new__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Print.__repr__">
 <code class="highlight language-python">
-__repr__
+beancount.query.query_parser.Print.__repr__
 (self)
 
         </code>
@@ -9519,7 +9519,7 @@ __repr__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Print._asdict">
 <code class="highlight language-python">
-_asdict
+beancount.query.query_parser.Print._asdict
 (self)
 
         </code>
@@ -9541,7 +9541,7 @@ _asdict
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Print._make">
 <code class="highlight language-python">
-_make
+beancount.query.query_parser.Print._make
 (iterable)
 
         </code>
@@ -9567,7 +9567,7 @@ def _make(cls, iterable):
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Print._replace">
 <code class="highlight language-python">
-_replace
+beancount.query.query_parser.Print._replace
     (/, self, **
 kwds)
 
@@ -9594,7 +9594,7 @@ kwds)
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_parser.Reload">
-<code>Reload</code>
+<code>beancount.query.query_parser.Reload</code>
 <a class="headerlink" href="#beancount.query.query_parser.Reload" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Reload()</p>
@@ -9602,7 +9602,7 @@ kwds)
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Reload.__getnewargs__">
 <code class="highlight language-python">
-__getnewargs__
+beancount.query.query_parser.Reload.__getnewargs__
 (self)
 
         </code>
@@ -9624,7 +9624,7 @@ __getnewargs__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Reload.__new__">
 <code class="highlight language-python">
-__new__
+beancount.query.query_parser.Reload.__new__
 (_cls)
 
         </code>
@@ -9640,7 +9640,7 @@ __new__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Reload.__repr__">
 <code class="highlight language-python">
-__repr__
+beancount.query.query_parser.Reload.__repr__
 (self)
 
         </code>
@@ -9662,7 +9662,7 @@ __repr__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Reload._asdict">
 <code class="highlight language-python">
-_asdict
+beancount.query.query_parser.Reload._asdict
 (self)
 
         </code>
@@ -9684,7 +9684,7 @@ _asdict
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Reload._make">
 <code class="highlight language-python">
-_make
+beancount.query.query_parser.Reload._make
 (iterable)
 
         </code>
@@ -9710,7 +9710,7 @@ def _make(cls, iterable):
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Reload._replace">
 <code class="highlight language-python">
-_replace
+beancount.query.query_parser.Reload._replace
     (/, self, **
 kwds)
 
@@ -9737,7 +9737,7 @@ kwds)
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_parser.RunCustom">
-<code>RunCustom</code>
+<code>beancount.query.query_parser.RunCustom</code>
 <a class="headerlink" href="#beancount.query.query_parser.RunCustom" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>RunCustom(query_name,)</p>
@@ -9745,7 +9745,7 @@ kwds)
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.RunCustom.__getnewargs__">
 <code class="highlight language-python">
-__getnewargs__
+beancount.query.query_parser.RunCustom.__getnewargs__
 (self)
 
         </code>
@@ -9767,7 +9767,7 @@ __getnewargs__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.RunCustom.__new__">
 <code class="highlight language-python">
-__new__
+beancount.query.query_parser.RunCustom.__new__
 (_cls, query_name)
 
         </code>
@@ -9783,7 +9783,7 @@ __new__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.RunCustom.__repr__">
 <code class="highlight language-python">
-__repr__
+beancount.query.query_parser.RunCustom.__repr__
 (self)
 
         </code>
@@ -9805,7 +9805,7 @@ __repr__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.RunCustom._asdict">
 <code class="highlight language-python">
-_asdict
+beancount.query.query_parser.RunCustom._asdict
 (self)
 
         </code>
@@ -9827,7 +9827,7 @@ _asdict
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.RunCustom._make">
 <code class="highlight language-python">
-_make
+beancount.query.query_parser.RunCustom._make
 (iterable)
 
         </code>
@@ -9853,7 +9853,7 @@ def _make(cls, iterable):
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.RunCustom._replace">
 <code class="highlight language-python">
-_replace
+beancount.query.query_parser.RunCustom._replace
     (/, self, **
 kwds)
 
@@ -9880,7 +9880,7 @@ kwds)
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_parser.Select">
-<code>Select</code>
+<code>beancount.query.query_parser.Select</code>
 <a class="headerlink" href="#beancount.query.query_parser.Select" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Select(targets, from_clause, where_clause, group_by, order_by, pivot_by, limit, distinct, flatten)</p>
@@ -9888,7 +9888,7 @@ kwds)
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Select.__getnewargs__">
 <code class="highlight language-python">
-__getnewargs__
+beancount.query.query_parser.Select.__getnewargs__
 (self)
 
         </code>
@@ -9910,7 +9910,7 @@ __getnewargs__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Select.__new__">
 <code class="highlight language-python">
-__new__
+beancount.query.query_parser.Select.__new__
 (_cls, targets, from_clause, where_clause, group_by, order_by, pivot_by, limit, distinct, flatten)
 
         </code>
@@ -9926,7 +9926,7 @@ __new__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Select.__repr__">
 <code class="highlight language-python">
-__repr__
+beancount.query.query_parser.Select.__repr__
 (self)
 
         </code>
@@ -9948,7 +9948,7 @@ __repr__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Select._asdict">
 <code class="highlight language-python">
-_asdict
+beancount.query.query_parser.Select._asdict
 (self)
 
         </code>
@@ -9970,7 +9970,7 @@ _asdict
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Select._make">
 <code class="highlight language-python">
-_make
+beancount.query.query_parser.Select._make
 (iterable)
 
         </code>
@@ -9996,7 +9996,7 @@ def _make(cls, iterable):
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.Select._replace">
 <code class="highlight language-python">
-_replace
+beancount.query.query_parser.Select._replace
     (/, self, **
 kwds)
 
@@ -10023,7 +10023,7 @@ kwds)
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_parser.SelectParser">
-<code>SelectParser</code>
+<code>beancount.query.query_parser.SelectParser</code>
 <a class="headerlink" href="#beancount.query.query_parser.SelectParser" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>PLY parser for the Beancount Query Language's SELECT statement.</p>
@@ -10031,7 +10031,7 @@ kwds)
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.handle_comma_separated_list">
 <code class="highlight language-python">
-handle_comma_separated_list
+beancount.query.query_parser.SelectParser.handle_comma_separated_list
 (self, p)
 
         </code>
@@ -10077,7 +10077,7 @@ handle_comma_separated_list
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_account">
 <code class="highlight language-python">
-p_account
+beancount.query.query_parser.SelectParser.p_account
 (self, p)
 
         </code>
@@ -10098,7 +10098,7 @@ p_account
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_boolean">
 <code class="highlight language-python">
-p_boolean
+beancount.query.query_parser.SelectParser.p_boolean
 (self, p)
 
         </code>
@@ -10121,7 +10121,7 @@ p_boolean
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_column">
 <code class="highlight language-python">
-p_column
+beancount.query.query_parser.SelectParser.p_column
 (self, p)
 
         </code>
@@ -10142,7 +10142,7 @@ p_column
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_column_list">
 <code class="highlight language-python">
-p_column_list
+beancount.query.query_parser.SelectParser.p_column_list
 (self, p)
 
         </code>
@@ -10165,7 +10165,7 @@ p_column_list
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_constant">
 <code class="highlight language-python">
-p_constant
+beancount.query.query_parser.SelectParser.p_constant
 (self, p)
 
         </code>
@@ -10196,7 +10196,7 @@ p_constant
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_distinct">
 <code class="highlight language-python">
-p_distinct
+beancount.query.query_parser.SelectParser.p_distinct
 (self, p)
 
         </code>
@@ -10219,7 +10219,7 @@ p_distinct
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_empty">
 <code class="highlight language-python">
-p_empty
+beancount.query.query_parser.SelectParser.p_empty
 (self, _)
 
         </code>
@@ -10239,7 +10239,7 @@ p_empty
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_expr_index">
 <code class="highlight language-python">
-p_expr_index
+beancount.query.query_parser.SelectParser.p_expr_index
 (self, p)
 
         </code>
@@ -10262,7 +10262,7 @@ p_expr_index
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_expr_index_list">
 <code class="highlight language-python">
-p_expr_index_list
+beancount.query.query_parser.SelectParser.p_expr_index_list
 (self, p)
 
         </code>
@@ -10285,7 +10285,7 @@ p_expr_index_list
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_expression_add">
 <code class="highlight language-python">
-p_expression_add
+beancount.query.query_parser.SelectParser.p_expression_add
 (self, p)
 
         </code>
@@ -10304,7 +10304,7 @@ p_expression_add
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_expression_and">
 <code class="highlight language-python">
-p_expression_and
+beancount.query.query_parser.SelectParser.p_expression_and
 (self, p)
 
         </code>
@@ -10323,7 +10323,7 @@ p_expression_and
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_expression_column">
 <code class="highlight language-python">
-p_expression_column
+beancount.query.query_parser.SelectParser.p_expression_column
 (self, p)
 
         </code>
@@ -10342,7 +10342,7 @@ p_expression_column
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_expression_constant">
 <code class="highlight language-python">
-p_expression_constant
+beancount.query.query_parser.SelectParser.p_expression_constant
 (self, p)
 
         </code>
@@ -10361,7 +10361,7 @@ p_expression_constant
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_expression_contains">
 <code class="highlight language-python">
-p_expression_contains
+beancount.query.query_parser.SelectParser.p_expression_contains
 (self, p)
 
         </code>
@@ -10380,7 +10380,7 @@ p_expression_contains
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_expression_div">
 <code class="highlight language-python">
-p_expression_div
+beancount.query.query_parser.SelectParser.p_expression_div
 (self, p)
 
         </code>
@@ -10399,7 +10399,7 @@ p_expression_div
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_expression_eq">
 <code class="highlight language-python">
-p_expression_eq
+beancount.query.query_parser.SelectParser.p_expression_eq
 (self, p)
 
         </code>
@@ -10418,7 +10418,7 @@ p_expression_eq
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_expression_function">
 <code class="highlight language-python">
-p_expression_function
+beancount.query.query_parser.SelectParser.p_expression_function
 (self, p)
 
         </code>
@@ -10437,7 +10437,7 @@ p_expression_function
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_expression_gt">
 <code class="highlight language-python">
-p_expression_gt
+beancount.query.query_parser.SelectParser.p_expression_gt
 (self, p)
 
         </code>
@@ -10456,7 +10456,7 @@ p_expression_gt
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_expression_gte">
 <code class="highlight language-python">
-p_expression_gte
+beancount.query.query_parser.SelectParser.p_expression_gte
 (self, p)
 
         </code>
@@ -10475,7 +10475,7 @@ p_expression_gte
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_expression_list">
 <code class="highlight language-python">
-p_expression_list
+beancount.query.query_parser.SelectParser.p_expression_list
 (self, p)
 
         </code>
@@ -10498,7 +10498,7 @@ p_expression_list
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_expression_list_opt">
 <code class="highlight language-python">
-p_expression_list_opt
+beancount.query.query_parser.SelectParser.p_expression_list_opt
 (self, p)
 
         </code>
@@ -10523,7 +10523,7 @@ p_expression_list_opt
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_expression_lt">
 <code class="highlight language-python">
-p_expression_lt
+beancount.query.query_parser.SelectParser.p_expression_lt
 (self, p)
 
         </code>
@@ -10542,7 +10542,7 @@ p_expression_lt
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_expression_lte">
 <code class="highlight language-python">
-p_expression_lte
+beancount.query.query_parser.SelectParser.p_expression_lte
 (self, p)
 
         </code>
@@ -10561,7 +10561,7 @@ p_expression_lte
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_expression_match">
 <code class="highlight language-python">
-p_expression_match
+beancount.query.query_parser.SelectParser.p_expression_match
 (self, p)
 
         </code>
@@ -10580,7 +10580,7 @@ p_expression_match
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_expression_mul">
 <code class="highlight language-python">
-p_expression_mul
+beancount.query.query_parser.SelectParser.p_expression_mul
 (self, p)
 
         </code>
@@ -10599,7 +10599,7 @@ p_expression_mul
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_expression_ne">
 <code class="highlight language-python">
-p_expression_ne
+beancount.query.query_parser.SelectParser.p_expression_ne
 (self, p)
 
         </code>
@@ -10618,7 +10618,7 @@ p_expression_ne
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_expression_not">
 <code class="highlight language-python">
-p_expression_not
+beancount.query.query_parser.SelectParser.p_expression_not
 (self, p)
 
         </code>
@@ -10637,7 +10637,7 @@ p_expression_not
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_expression_or">
 <code class="highlight language-python">
-p_expression_or
+beancount.query.query_parser.SelectParser.p_expression_or
 (self, p)
 
         </code>
@@ -10656,7 +10656,7 @@ p_expression_or
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_expression_paren">
 <code class="highlight language-python">
-p_expression_paren
+beancount.query.query_parser.SelectParser.p_expression_paren
 (self, p)
 
         </code>
@@ -10675,7 +10675,7 @@ p_expression_paren
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_expression_sub">
 <code class="highlight language-python">
-p_expression_sub
+beancount.query.query_parser.SelectParser.p_expression_sub
 (self, p)
 
         </code>
@@ -10694,7 +10694,7 @@ p_expression_sub
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_flatten">
 <code class="highlight language-python">
-p_flatten
+beancount.query.query_parser.SelectParser.p_flatten
 (self, p)
 
         </code>
@@ -10717,7 +10717,7 @@ p_flatten
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_from">
 <code class="highlight language-python">
-p_from
+beancount.query.query_parser.SelectParser.p_from
 (self, p)
 
         </code>
@@ -10745,7 +10745,7 @@ p_from
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_from_subselect">
 <code class="highlight language-python">
-p_from_subselect
+beancount.query.query_parser.SelectParser.p_from_subselect
 (self, p)
 
         </code>
@@ -10771,7 +10771,7 @@ p_from_subselect
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_group_by">
 <code class="highlight language-python">
-p_group_by
+beancount.query.query_parser.SelectParser.p_group_by
 (self, p)
 
         </code>
@@ -10794,7 +10794,7 @@ p_group_by
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_having">
 <code class="highlight language-python">
-p_having
+beancount.query.query_parser.SelectParser.p_having
 (self, p)
 
         </code>
@@ -10817,7 +10817,7 @@ p_having
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_limit">
 <code class="highlight language-python">
-p_limit
+beancount.query.query_parser.SelectParser.p_limit
 (self, p)
 
         </code>
@@ -10840,7 +10840,7 @@ p_limit
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_opt_clear">
 <code class="highlight language-python">
-p_opt_clear
+beancount.query.query_parser.SelectParser.p_opt_clear
 (self, p)
 
         </code>
@@ -10863,7 +10863,7 @@ p_opt_clear
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_opt_close">
 <code class="highlight language-python">
-p_opt_close
+beancount.query.query_parser.SelectParser.p_opt_close
 (self, p)
 
         </code>
@@ -10890,7 +10890,7 @@ p_opt_close
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_opt_expression">
 <code class="highlight language-python">
-p_opt_expression
+beancount.query.query_parser.SelectParser.p_opt_expression
 (self, p)
 
         </code>
@@ -10913,7 +10913,7 @@ p_opt_expression
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_opt_open">
 <code class="highlight language-python">
-p_opt_open
+beancount.query.query_parser.SelectParser.p_opt_open
 (self, p)
 
         </code>
@@ -10936,7 +10936,7 @@ p_opt_open
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_order_by">
 <code class="highlight language-python">
-p_order_by
+beancount.query.query_parser.SelectParser.p_order_by
 (self, p)
 
         </code>
@@ -10959,7 +10959,7 @@ p_order_by
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_ordering">
 <code class="highlight language-python">
-p_ordering
+beancount.query.query_parser.SelectParser.p_ordering
 (self, p)
 
         </code>
@@ -10984,7 +10984,7 @@ p_ordering
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_pivot_by">
 <code class="highlight language-python">
-p_pivot_by
+beancount.query.query_parser.SelectParser.p_pivot_by
 (self, p)
 
         </code>
@@ -11007,7 +11007,7 @@ p_pivot_by
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_select_statement">
 <code class="highlight language-python">
-p_select_statement
+beancount.query.query_parser.SelectParser.p_select_statement
 (self, p)
 
         </code>
@@ -11029,7 +11029,7 @@ p_select_statement
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_target">
 <code class="highlight language-python">
-p_target
+beancount.query.query_parser.SelectParser.p_target
 (self, p)
 
         </code>
@@ -11052,7 +11052,7 @@ p_target
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_target_list">
 <code class="highlight language-python">
-p_target_list
+beancount.query.query_parser.SelectParser.p_target_list
 (self, p)
 
         </code>
@@ -11075,7 +11075,7 @@ p_target_list
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_target_spec">
 <code class="highlight language-python">
-p_target_spec
+beancount.query.query_parser.SelectParser.p_target_spec
 (self, p)
 
         </code>
@@ -11098,7 +11098,7 @@ p_target_spec
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser.SelectParser.p_where">
 <code class="highlight language-python">
-p_where
+beancount.query.query_parser.SelectParser.p_where
 (self, p)
 
         </code>
@@ -11126,7 +11126,7 @@ p_where
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.query_parser.get_expression_name">
 <code class="highlight language-python">
-get_expression_name
+beancount.query.query_parser.get_expression_name
 (expr)
 
         </code>
@@ -11194,20 +11194,20 @@ get_expression_name
 </div>
 <div class="doc doc-object doc-module">
 <h2 class="doc doc-heading" id="beancount.query.query_parser_test">
-<code>query_parser_test</code>
+<code>beancount.query.query_parser_test</code>
 <a class="headerlink" href="#beancount.query.query_parser_test" title="Permanent link"></a></h2>
 <div class="doc doc-contents">
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_parser_test.QueryParserTestBase">
-<code>QueryParserTestBase</code>
+<code>beancount.query.query_parser_test.QueryParserTestBase</code>
 <a class="headerlink" href="#beancount.query.query_parser_test.QueryParserTestBase" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <div class="doc doc-children">
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser_test.QueryParserTestBase.assertParse">
 <code class="highlight language-python">
-assertParse
+beancount.query.query_parser_test.QueryParserTestBase.assertParse
 (self, expected, query, debug=False)
 
         </code>
@@ -11295,7 +11295,7 @@ assertParse
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser_test.QueryParserTestBase.parse">
 <code class="highlight language-python">
-parse
+beancount.query.query_parser_test.QueryParserTestBase.parse
 (self, query)
 
         </code>
@@ -11358,7 +11358,7 @@ parse
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser_test.QueryParserTestBase.setUp">
 <code class="highlight language-python">
-setUp
+beancount.query.query_parser_test.QueryParserTestBase.setUp
 (self)
 
         </code>
@@ -11378,14 +11378,14 @@ setUp
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.query_parser_test.TestSelectFromBase">
-<code>TestSelectFromBase</code>
+<code>beancount.query.query_parser_test.TestSelectFromBase</code>
 <a class="headerlink" href="#beancount.query.query_parser_test.TestSelectFromBase" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <div class="doc doc-children">
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.query_parser_test.TestSelectFromBase.setUp">
 <code class="highlight language-python">
-setUp
+beancount.query.query_parser_test.TestSelectFromBase.setUp
 (self)
 
         </code>
@@ -11412,7 +11412,7 @@ setUp
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.query_parser_test.qSelect">
 <code class="highlight language-python">
-qSelect
+beancount.query.query_parser_test.qSelect
 (target_spec=None, from_clause=None, where_clause=None, group_by=None, order_by=None, pivot_by=None, limit=None, distinct=None, flatten=None)
 
         </code>
@@ -11439,14 +11439,14 @@ qSelect
 </div>
 <div class="doc doc-object doc-module">
 <h2 class="doc doc-heading" id="beancount.query.shell">
-<code>shell</code>
+<code>beancount.query.shell</code>
 <a class="headerlink" href="#beancount.query.shell" title="Permanent link"></a></h2>
 <div class="doc doc-contents">
 <p>An interactive command-line shell interpreter for the Beancount Query Language.</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.shell.BQLShell">
-<code>BQLShell</code>
+<code>beancount.query.shell.BQLShell</code>
 <a class="headerlink" href="#beancount.query.shell.BQLShell" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>An interactive shell interpreter for the Beancount query language.</p>
@@ -11454,7 +11454,7 @@ qSelect
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell.BQLShell.on_Balances">
 <code class="highlight language-python">
-on_Balances
+beancount.query.shell.BQLShell.on_Balances
 (self, balance)
 
         </code>
@@ -11490,7 +11490,7 @@ of entries as a table.</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell.BQLShell.on_Errors">
 <code class="highlight language-python">
-on_Errors
+beancount.query.shell.BQLShell.on_Errors
 (self, errors_statement)
 
         </code>
@@ -11514,7 +11514,7 @@ on_Errors
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell.BQLShell.on_Explain">
 <code class="highlight language-python">
-on_Explain
+beancount.query.shell.BQLShell.on_Explain
 (self, explain)
 
         </code>
@@ -11560,7 +11560,7 @@ on_Explain
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell.BQLShell.on_Journal">
 <code class="highlight language-python">
-on_Journal
+beancount.query.shell.BQLShell.on_Journal
 (self, journal)
 
         </code>
@@ -11596,7 +11596,7 @@ of entries as a table.</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell.BQLShell.on_Print">
 <code class="highlight language-python">
-on_Print
+beancount.query.shell.BQLShell.on_Print
 (self, print_stmt)
 
         </code>
@@ -11653,7 +11653,7 @@ selector:</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell.BQLShell.on_Reload">
 <code class="highlight language-python">
-on_Reload
+beancount.query.shell.BQLShell.on_Reload
 (self, unused_statement=None)
 
         </code>
@@ -11676,7 +11676,7 @@ on_Reload
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell.BQLShell.on_RunCustom">
 <code class="highlight language-python">
-on_RunCustom
+beancount.query.shell.BQLShell.on_RunCustom
 (self, run_stmt)
 
         </code>
@@ -11734,7 +11734,7 @@ on_RunCustom
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell.BQLShell.on_Select">
 <code class="highlight language-python">
-on_Select
+beancount.query.shell.BQLShell.on_Select
 (self, statement)
 
         </code>
@@ -11877,7 +11877,7 @@ some mild and idiomatic extensions:</p>
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.shell.DispatchingShell">
-<code>DispatchingShell</code>
+<code>beancount.query.shell.DispatchingShell</code>
 <a class="headerlink" href="#beancount.query.shell.DispatchingShell" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>A usable convenient shell for interpreting commands, with history.</p>
@@ -11885,7 +11885,7 @@ some mild and idiomatic extensions:</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell.DispatchingShell.__init__">
 <code class="highlight language-python">
-__init__
+beancount.query.shell.DispatchingShell.__init__
 (self, is_interactive, parser, outfile, default_format, do_numberify)
 
         </code>
@@ -11966,7 +11966,7 @@ __init__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell.DispatchingShell.add_help">
 <code class="highlight language-python">
-add_help
+beancount.query.shell.DispatchingShell.add_help
 (self)
 
         </code>
@@ -11992,7 +11992,7 @@ add_help
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell.DispatchingShell.cmdloop">
 <code class="highlight language-python">
-cmdloop
+beancount.query.shell.DispatchingShell.cmdloop
 (self)
 
         </code>
@@ -12016,7 +12016,7 @@ cmdloop
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell.DispatchingShell.default">
 <code class="highlight language-python">
-default
+beancount.query.shell.DispatchingShell.default
 (self, line)
 
         </code>
@@ -12060,7 +12060,7 @@ default
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell.DispatchingShell.dispatch">
 <code class="highlight language-python">
-dispatch
+beancount.query.shell.DispatchingShell.dispatch
 (self, statement)
 
         </code>
@@ -12129,7 +12129,7 @@ dispatch
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell.DispatchingShell.do_clear">
 <code class="highlight language-python">
-do_clear
+beancount.query.shell.DispatchingShell.do_clear
 (self, _)
 
         </code>
@@ -12148,7 +12148,7 @@ do_clear
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell.DispatchingShell.do_EOF">
 <code class="highlight language-python">
-do_EOF
+beancount.query.shell.DispatchingShell.do_EOF
 (self, _)
 
         </code>
@@ -12168,7 +12168,7 @@ do_EOF
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell.DispatchingShell.do_exit">
 <code class="highlight language-python">
-do_exit
+beancount.query.shell.DispatchingShell.do_exit
 (self, _)
 
         </code>
@@ -12188,7 +12188,7 @@ do_exit
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell.DispatchingShell.do_help">
 <code class="highlight language-python">
-do_help
+beancount.query.shell.DispatchingShell.do_help
 (self, command)
 
         </code>
@@ -12207,7 +12207,7 @@ do_help
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell.DispatchingShell.do_history">
 <code class="highlight language-python">
-do_history
+beancount.query.shell.DispatchingShell.do_history
 (self, _)
 
         </code>
@@ -12228,7 +12228,7 @@ do_history
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell.DispatchingShell.do_lex">
 <code class="highlight language-python">
-do_lex
+beancount.query.shell.DispatchingShell.do_lex
 (self, line)
 
         </code>
@@ -12250,7 +12250,7 @@ do_lex
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell.DispatchingShell.do_parse">
 <code class="highlight language-python">
-do_parse
+beancount.query.shell.DispatchingShell.do_parse
 (self, line)
 
         </code>
@@ -12277,7 +12277,7 @@ do_parse
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell.DispatchingShell.do_quit">
 <code class="highlight language-python">
-do_quit
+beancount.query.shell.DispatchingShell.do_quit
 (self, _)
 
         </code>
@@ -12297,7 +12297,7 @@ do_quit
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell.DispatchingShell.do_set">
 <code class="highlight language-python">
-do_set
+beancount.query.shell.DispatchingShell.do_set
 (self, line)
 
         </code>
@@ -12339,7 +12339,7 @@ do_set
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell.DispatchingShell.do_tokenize">
 <code class="highlight language-python">
-do_tokenize
+beancount.query.shell.DispatchingShell.do_tokenize
 (self, line)
 
         </code>
@@ -12361,7 +12361,7 @@ do_tokenize
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell.DispatchingShell.emptyline">
 <code class="highlight language-python">
-emptyline
+beancount.query.shell.DispatchingShell.emptyline
 (self)
 
         </code>
@@ -12379,7 +12379,7 @@ emptyline
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell.DispatchingShell.exit">
 <code class="highlight language-python">
-exit
+beancount.query.shell.DispatchingShell.exit
 (self, _)
 
         </code>
@@ -12399,7 +12399,7 @@ exit
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell.DispatchingShell.get_pager">
 <code class="highlight language-python">
-get_pager
+beancount.query.shell.DispatchingShell.get_pager
 (self)
 
         </code>
@@ -12448,7 +12448,7 @@ get_pager
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell.DispatchingShell.initialize_vars">
 <code class="highlight language-python">
-initialize_vars
+beancount.query.shell.DispatchingShell.initialize_vars
 (self, default_format, do_numberify)
 
         </code>
@@ -12482,7 +12482,7 @@ initialize_vars
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell.DispatchingShell.run_parser">
 <code class="highlight language-python">
-run_parser
+beancount.query.shell.DispatchingShell.run_parser
 (self, line, default_close_date=None)
 
         </code>
@@ -12545,7 +12545,7 @@ run_parser
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.shell.convert_bool">
 <code class="highlight language-python">
-convert_bool
+beancount.query.shell.convert_bool
 (string)
 
         </code>
@@ -12608,7 +12608,7 @@ convert_bool
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.shell.create_custom_query_map">
 <code class="highlight language-python">
-create_custom_query_map
+beancount.query.shell.create_custom_query_map
 (entries)
 
         </code>
@@ -12678,7 +12678,7 @@ create_custom_query_map
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.shell.generate_env_attribute_list">
 <code class="highlight language-python">
-generate_env_attribute_list
+beancount.query.shell.generate_env_attribute_list
 (env)
 
         </code>
@@ -12759,7 +12759,7 @@ and formatted strings.</p>
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.shell.generate_env_attributes">
 <code class="highlight language-python">
-generate_env_attributes
+beancount.query.shell.generate_env_attributes
 (wrapper, field_dict, filter_pred=None)
 
         </code>
@@ -12881,7 +12881,7 @@ the evaluator node instances.</p>
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.shell.get_history">
 <code class="highlight language-python">
-get_history
+beancount.query.shell.get_history
 (max_entries)
 
         </code>
@@ -12948,7 +12948,7 @@ get_history
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.shell.load_history">
 <code class="highlight language-python">
-load_history
+beancount.query.shell.load_history
 (filename)
 
         </code>
@@ -12999,7 +12999,7 @@ load_history
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.shell.print_statistics">
 <code class="highlight language-python">
-print_statistics
+beancount.query.shell.print_statistics
 (entries, options_map, outfile)
 
         </code>
@@ -13066,7 +13066,7 @@ print_statistics
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.shell.save_history">
 <code class="highlight language-python">
-save_history
+beancount.query.shell.save_history
 (filename)
 
         </code>
@@ -13110,7 +13110,7 @@ save_history
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.shell.summary_statistics">
 <code class="highlight language-python">
-summary_statistics
+beancount.query.shell.summary_statistics
 (entries)
 
         </code>
@@ -13184,20 +13184,20 @@ of transactions and the total number of postings there in.</p>
 </div>
 <div class="doc doc-object doc-module">
 <h2 class="doc doc-heading" id="beancount.query.shell_test">
-<code>shell_test</code>
+<code>beancount.query.shell_test</code>
 <a class="headerlink" href="#beancount.query.shell_test" title="Permanent link"></a></h2>
 <div class="doc doc-contents">
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.shell_test.TestShell">
-<code>TestShell</code>
+<code>beancount.query.shell_test.TestShell</code>
 <a class="headerlink" href="#beancount.query.shell_test.TestShell" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <div class="doc doc-children">
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.query.shell_test.TestShell.test_success">
 <code class="highlight language-python">
-test_success
+beancount.query.shell_test.TestShell.test_success
 (self, filename)
 
         </code>
@@ -13250,7 +13250,7 @@ def test_success(self, filename):
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.query.shell_test.TestUseCases">
-<code>TestUseCases</code>
+<code>beancount.query.shell_test.TestUseCases</code>
 <a class="headerlink" href="#beancount.query.shell_test.TestUseCases" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>Testing all the use cases from the proposal here.
@@ -13262,7 +13262,7 @@ def test_success(self, filename):
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.query.shell_test.runshell">
 <code class="highlight language-python">
-runshell
+beancount.query.shell_test.runshell
 (function)
 
         </code>

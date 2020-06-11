@@ -162,16 +162,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#beancount.web.bottle_utils_test">bottle_utils_test</a>
-<ul>
-<li class="toctree-l3"><a class="reference internal" href="#beancount.web.bottle_utils_test.TestAttrMapper">TestAttrMapper</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#beancount.web.bottle_utils_test.TestAttrMapper.setUp">setUp()</a>
-</li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="#beancount.web.scrape">scrape</a>
 <ul>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.web.scrape.iterlinks">iterlinks()</a>
@@ -181,20 +171,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#beancount.web.scrape.validate_local_links">validate_local_links()</a>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#beancount.web.scrape.validate_local_links_in_dir">validate_local_links_in_dir()</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#beancount.web.scrape_test">scrape_test</a>
-<ul>
-<li class="toctree-l3"><a class="reference internal" href="#beancount.web.scrape_test.Redirect">Redirect</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#beancount.web.scrape_test.Redirect.__getnewargs__">__getnewargs__()</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#beancount.web.scrape_test.Redirect.__new__">__new__()</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#beancount.web.scrape_test.Redirect.__repr__">__repr__()</a>
-</li>
-</ul>
 </li>
 </ul>
 </li>
@@ -261,16 +237,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#beancount.web.views.YearView.__init__">__init__()</a>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#beancount.web.views.YearView.apply_filter">apply_filter()</a>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#beancount.web.views_test">views_test</a>
-<ul>
-<li class="toctree-l3"><a class="reference internal" href="#beancount.web.views_test.TestViews">TestViews</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#beancount.web.views_test.TestViews.setUp">setUp()</a>
 </li>
 </ul>
 </li>
@@ -398,16 +364,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#beancount.web.web_test">web_test</a>
-<ul>
-<li class="toctree-l3"><a class="reference internal" href="#beancount.web.web_test.TestWeb">TestWeb</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#beancount.web.web_test.TestWeb.test_scrape_empty_file">test_scrape_empty_file()</a>
-</li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -443,14 +399,14 @@
 <div class="doc doc-children">
 <div class="doc doc-object doc-module">
 <h2 class="doc doc-heading" id="beancount.web.bottle_utils">
-<code>bottle_utils</code>
+<code>beancount.web.bottle_utils</code>
 <a class="headerlink" href="#beancount.web.bottle_utils" title="Permanent link"></a></h2>
 <div class="doc doc-contents">
 <p>Bottle utilities, mostly helpers to do mounts on top of dynamic routes.</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.web.bottle_utils.AttrMapper">
-<code>AttrMapper</code>
+<code>beancount.web.bottle_utils.AttrMapper</code>
 <a class="headerlink" href="#beancount.web.bottle_utils.AttrMapper" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>A URL mapper that allows attribute access for view-links.
@@ -459,7 +415,7 @@
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.web.bottle_utils.AttrMapper.__init__">
 <code class="highlight language-python">
-__init__
+beancount.web.bottle_utils.AttrMapper.__init__
 (self, mapper_function)
 
         </code>
@@ -511,7 +467,7 @@ upon calling .build().</p>
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.bottle_utils.internal_redirect">
 <code class="highlight language-python">
-internal_redirect
+beancount.web.bottle_utils.internal_redirect
 (app, path_depth)
 
         </code>
@@ -642,54 +598,15 @@ depth is 2.</p>
 </div>
 </div>
 <div class="doc doc-object doc-module">
-<h2 class="doc doc-heading" id="beancount.web.bottle_utils_test">
-<code>bottle_utils_test</code>
-<a class="headerlink" href="#beancount.web.bottle_utils_test" title="Permanent link"></a></h2>
-<div class="doc doc-contents">
-<div class="doc doc-children">
-<div class="doc doc-object doc-class">
-<h3 class="doc doc-heading" id="beancount.web.bottle_utils_test.TestAttrMapper">
-<code>TestAttrMapper</code>
-<a class="headerlink" href="#beancount.web.bottle_utils_test.TestAttrMapper" title="Permanent link"></a></h3>
-<div class="doc doc-contents">
-<div class="doc doc-children">
-<div class="doc doc-object doc-method">
-<h4 class="doc doc-heading" id="beancount.web.bottle_utils_test.TestAttrMapper.setUp">
-<code class="highlight language-python">
-setUp
-(self)
-
-        </code>
-<a class="headerlink" href="#beancount.web.bottle_utils_test.TestAttrMapper.setUp" title="Permanent link"></a></h4>
-<div class="doc doc-contents">
-<p>Hook method for setting up the test fixture before exercising it.</p>
-<details class="quote">
-<summary>Source code in <code>beancount/web/bottle_utils_test.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def setUp(self):
-    dictionary = {'a': 'the_a',
-                  'b': 'the_b',
-                  'c': 'the_c'}
-    self.mapper = bottle_utils.AttrMapper(dictionary.__getitem__)
-</code></pre>
-</details>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="doc doc-object doc-module">
 <h2 class="doc doc-heading" id="beancount.web.scrape">
-<code>scrape</code>
+<code>beancount.web.scrape</code>
 <a class="headerlink" href="#beancount.web.scrape" title="Permanent link"></a></h2>
 <div class="doc doc-contents">
 <div class="doc doc-children">
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.scrape.iterlinks">
 <code class="highlight language-python">
-iterlinks
+beancount.web.scrape.iterlinks
 (html, html_path)
 
         </code>
@@ -762,7 +679,7 @@ external sites.</p>
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.scrape.scrape_urls">
 <code class="highlight language-python">
-scrape_urls
+beancount.web.scrape.scrape_urls
 (url_format, callback, ignore_regexp=None)
 
         </code>
@@ -907,7 +824,7 @@ This function should trigger an error on failure (via an exception).</p>
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.scrape.validate_local_links">
 <code class="highlight language-python">
-validate_local_links
+beancount.web.scrape.validate_local_links
 (filename)
 
         </code>
@@ -998,7 +915,7 @@ does not have links to files that do not exist, that all the links are valid.</p
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.scrape.validate_local_links_in_dir">
 <code class="highlight language-python">
-validate_local_links_in_dir
+beancount.web.scrape.validate_local_links_in_dir
 (directory)
 
         </code>
@@ -1079,94 +996,15 @@ validate_local_links_in_dir
 </div>
 </div>
 <div class="doc doc-object doc-module">
-<h2 class="doc doc-heading" id="beancount.web.scrape_test">
-<code>scrape_test</code>
-<a class="headerlink" href="#beancount.web.scrape_test" title="Permanent link"></a></h2>
-<div class="doc doc-contents">
-<div class="doc doc-children">
-<div class="doc doc-object doc-class">
-<h3 class="doc doc-heading" id="beancount.web.scrape_test.Redirect">
-<code>Redirect</code>
-<a class="headerlink" href="#beancount.web.scrape_test.Redirect" title="Permanent link"></a></h3>
-<div class="doc doc-contents">
-<p>Redirect(target_url,)</p>
-<div class="doc doc-children">
-<div class="doc doc-object doc-method">
-<h4 class="doc doc-heading" id="beancount.web.scrape_test.Redirect.__getnewargs__">
-<code class="highlight language-python">
-__getnewargs__
-(self)
-
-        </code>
-<span class="doc doc-properties">
-<small class="doc doc-property doc-property-special"><code>special</code></small>
-</span>
-<a class="headerlink" href="#beancount.web.scrape_test.Redirect.__getnewargs__" title="Permanent link"></a></h4>
-<div class="doc doc-contents">
-<p>Return self as a plain tuple.  Used by copy and pickle.</p>
-<details class="quote">
-<summary>Source code in <code>beancount/web/scrape_test.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
-    'Return self as a plain tuple.  Used by copy and pickle.'
-    return _tuple(self)
-</code></pre>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h4 class="doc doc-heading" id="beancount.web.scrape_test.Redirect.__new__">
-<code class="highlight language-python">
-__new__
-(_cls, target_url)
-
-        </code>
-<span class="doc doc-properties">
-<small class="doc doc-property doc-property-special"><code>special</code></small>
-<small class="doc doc-property doc-property-staticmethod"><code>staticmethod</code></small>
-</span>
-<a class="headerlink" href="#beancount.web.scrape_test.Redirect.__new__" title="Permanent link"></a></h4>
-<div class="doc doc-contents">
-<p>Create new instance of Redirect(target_url,)</p>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h4 class="doc doc-heading" id="beancount.web.scrape_test.Redirect.__repr__">
-<code class="highlight language-python">
-__repr__
-(self)
-
-        </code>
-<span class="doc doc-properties">
-<small class="doc doc-property doc-property-special"><code>special</code></small>
-</span>
-<a class="headerlink" href="#beancount.web.scrape_test.Redirect.__repr__" title="Permanent link"></a></h4>
-<div class="doc doc-contents">
-<p>Return a nicely formatted representation string</p>
-<details class="quote">
-<summary>Source code in <code>beancount/web/scrape_test.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def __repr__(self):
-    'Return a nicely formatted representation string'
-    return self.__class__.__name__ + repr_fmt % self
-</code></pre>
-</details>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="doc doc-object doc-module">
 <h2 class="doc doc-heading" id="beancount.web.views">
-<code>views</code>
+<code>beancount.web.views</code>
 <a class="headerlink" href="#beancount.web.views" title="Permanent link"></a></h2>
 <div class="doc doc-contents">
 <p>Views are filters on the global list of entries, which produces a subset of entries.</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.web.views.AllView">
-<code>AllView</code>
+<code>beancount.web.views.AllView</code>
 <a class="headerlink" href="#beancount.web.views.AllView" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>A view that includes all the entries, unmodified.</p>
@@ -1174,7 +1012,7 @@ __repr__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.web.views.AllView.apply_filter">
 <code class="highlight language-python">
-apply_filter
+beancount.web.views.AllView.apply_filter
 (self, entries, options_map)
 
         </code>
@@ -1239,7 +1077,7 @@ apply_filter
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.web.views.ComponentView">
-<code>ComponentView</code>
+<code>beancount.web.views.ComponentView</code>
 <a class="headerlink" href="#beancount.web.views.ComponentView" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>A view that includes transactions with at least one posting with an account
@@ -1248,7 +1086,7 @@ apply_filter
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.web.views.ComponentView.__init__">
 <code class="highlight language-python">
-__init__
+beancount.web.views.ComponentView.__init__
 (self, entries, options_map, title, component)
 
         </code>
@@ -1329,7 +1167,7 @@ clamped.</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.web.views.ComponentView.apply_filter">
 <code class="highlight language-python">
-apply_filter
+beancount.web.views.ComponentView.apply_filter
 (self, entries, options_map)
 
         </code>
@@ -1399,7 +1237,7 @@ apply_filter
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.web.views.EmptyView">
-<code>EmptyView</code>
+<code>beancount.web.views.EmptyView</code>
 <a class="headerlink" href="#beancount.web.views.EmptyView" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>An empty view, for testing.</p>
@@ -1407,7 +1245,7 @@ apply_filter
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.web.views.EmptyView.__init__">
 <code class="highlight language-python">
-__init__
+beancount.web.views.EmptyView.__init__
     (self, entries, options_map, title, *
 args, **
 kw)
@@ -1492,7 +1330,7 @@ kw)
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.web.views.EmptyView.apply_filter">
 <code class="highlight language-python">
-apply_filter
+beancount.web.views.EmptyView.apply_filter
 (self, _, __)
 
         </code>
@@ -1513,7 +1351,7 @@ apply_filter
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.web.views.MonthNavigation">
-<code>MonthNavigation</code>
+<code>beancount.web.views.MonthNavigation</code>
 <a class="headerlink" href="#beancount.web.views.MonthNavigation" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>An enumeration.</p>
@@ -1523,7 +1361,7 @@ apply_filter
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.web.views.MonthView">
-<code>MonthView</code>
+<code>beancount.web.views.MonthView</code>
 <a class="headerlink" href="#beancount.web.views.MonthView" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>A view of the entries for a single month.</p>
@@ -1531,7 +1369,7 @@ apply_filter
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.web.views.MonthView.__init__">
 <code class="highlight language-python">
-__init__
+beancount.web.views.MonthView.__init__
 (self, entries, options_map, title, year, month)
 
         </code>
@@ -1618,7 +1456,7 @@ __init__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.web.views.MonthView.apply_filter">
 <code class="highlight language-python">
-apply_filter
+beancount.web.views.MonthView.apply_filter
 (self, entries, options_map)
 
         </code>
@@ -1691,7 +1529,7 @@ apply_filter
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.web.views.PayeeView">
-<code>PayeeView</code>
+<code>beancount.web.views.PayeeView</code>
 <a class="headerlink" href="#beancount.web.views.PayeeView" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>A view that includes entries with some specific payee.</p>
@@ -1699,7 +1537,7 @@ apply_filter
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.web.views.PayeeView.__init__">
 <code class="highlight language-python">
-__init__
+beancount.web.views.PayeeView.__init__
 (self, entries, options_map, title, payee)
 
         </code>
@@ -1780,7 +1618,7 @@ clamped.</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.web.views.PayeeView.apply_filter">
 <code class="highlight language-python">
-apply_filter
+beancount.web.views.PayeeView.apply_filter
 (self, entries, options_map)
 
         </code>
@@ -1850,7 +1688,7 @@ apply_filter
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.web.views.TagView">
-<code>TagView</code>
+<code>beancount.web.views.TagView</code>
 <a class="headerlink" href="#beancount.web.views.TagView" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>A view that includes only entries some specific tags.</p>
@@ -1858,7 +1696,7 @@ apply_filter
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.web.views.TagView.__init__">
 <code class="highlight language-python">
-__init__
+beancount.web.views.TagView.__init__
 (self, entries, options_map, title, tags)
 
         </code>
@@ -1941,7 +1779,7 @@ one of these tags will be included in the output.</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.web.views.TagView.apply_filter">
 <code class="highlight language-python">
-apply_filter
+beancount.web.views.TagView.apply_filter
 (self, entries, options_map)
 
         </code>
@@ -2012,7 +1850,7 @@ apply_filter
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.web.views.View">
-<code>View</code>
+<code>beancount.web.views.View</code>
 <a class="headerlink" href="#beancount.web.views.View" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>A container for filtering a subset of entries and realizing that for
@@ -2021,7 +1859,7 @@ apply_filter
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.web.views.View.__init__">
 <code class="highlight language-python">
-__init__
+beancount.web.views.View.__init__
 (self, all_entries, options_map, title)
 
         </code>
@@ -2111,7 +1949,7 @@ __init__
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.web.views.View.apply_filter">
 <code class="highlight language-python">
-apply_filter
+beancount.web.views.View.apply_filter
 (self, entries)
 
         </code>
@@ -2191,7 +2029,7 @@ apply_filter
 </div>
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.web.views.YearView">
-<code>YearView</code>
+<code>beancount.web.views.YearView</code>
 <a class="headerlink" href="#beancount.web.views.YearView" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>A view of the entries for a single year.</p>
@@ -2199,7 +2037,7 @@ apply_filter
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.web.views.YearView.__init__">
 <code class="highlight language-python">
-__init__
+beancount.web.views.YearView.__init__
 (self, entries, options_map, title, year, first_month=1)
 
         </code>
@@ -2293,7 +2131,7 @@ clamped.</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.web.views.YearView.apply_filter">
 <code class="highlight language-python">
-apply_filter
+beancount.web.views.YearView.apply_filter
 (self, entries, options_map)
 
         </code>
@@ -2367,103 +2205,8 @@ apply_filter
 </div>
 </div>
 <div class="doc doc-object doc-module">
-<h2 class="doc doc-heading" id="beancount.web.views_test">
-<code>views_test</code>
-<a class="headerlink" href="#beancount.web.views_test" title="Permanent link"></a></h2>
-<div class="doc doc-contents">
-<div class="doc doc-children">
-<div class="doc doc-object doc-class">
-<h3 class="doc doc-heading" id="beancount.web.views_test.TestViews">
-<code>TestViews</code>
-<a class="headerlink" href="#beancount.web.views_test.TestViews" title="Permanent link"></a></h3>
-<div class="doc doc-contents">
-<div class="doc doc-children">
-<div class="doc doc-object doc-method">
-<h4 class="doc doc-heading" id="beancount.web.views_test.TestViews.setUp">
-<code class="highlight language-python">
-setUp
-(self, entries, errors, options_map)
-
-        </code>
-<a class="headerlink" href="#beancount.web.views_test.TestViews.setUp" title="Permanent link"></a></h4>
-<div class="doc doc-contents">
-<p>2010-01-01 open Assets:Checking
-2010-01-01 open Assets:Savings
-2010-01-01 open Income:MoneyFountain</p>
-<p>;; Before 2013
-2012-11-15 *
-  Assets:Checking        1 USD
-  Income:MoneyFountain</p>
-<p>;; With tag
-2013-02-03 * #trip1
-  Assets:Checking        1 USD
-  Income:MoneyFountain</p>
-<p>;; With payee
-2013-04-03 * "Hardware Store" "Hammer"
-  Assets:Checking        1 USD
-  Income:MoneyFountain</p>
-<p>;; With unique account component ("Savings")
-2013-07-03 *
-  Assets:Savings        1 USD
-  Income:MoneyFountain</p>
-<p>;; After 2013
-2014-01-18 *
-  Assets:Checking        1 USD
-  Income:MoneyFountain</p>
-<details class="quote">
-<summary>Source code in <code>beancount/web/views_test.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">@loader.load_doc()
-def setUp(self, entries, errors, options_map):
-    """
-    2010-01-01 open Assets:Checking
-    2010-01-01 open Assets:Savings
-    2010-01-01 open Income:MoneyFountain
-
-    ;; Before 2013
-    2012-11-15 *
-      Assets:Checking        1 USD
-      Income:MoneyFountain
-
-    ;; With tag
-    2013-02-03 * #trip1
-      Assets:Checking        1 USD
-      Income:MoneyFountain
-
-    ;; With payee
-    2013-04-03 * "Hardware Store" "Hammer"
-      Assets:Checking        1 USD
-      Income:MoneyFountain
-
-    ;; With unique account component ("Savings")
-    2013-07-03 *
-      Assets:Savings        1 USD
-      Income:MoneyFountain
-
-    ;; After 2013
-    2014-01-18 *
-      Assets:Checking        1 USD
-      Income:MoneyFountain
-
-    """
-    self.assertFalse(errors)
-    self.entries = entries
-    self.options_map = options_map
-
-    self.empty_realization = realization.realize(
-        '', options.get_account_types(options_map))
-</code></pre>
-</details>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="doc doc-object doc-module">
 <h2 class="doc doc-heading" id="beancount.web.web">
-<code>web</code>
+<code>beancount.web.web</code>
 <a class="headerlink" href="#beancount.web.web" title="Permanent link"></a></h2>
 <div class="doc doc-contents">
 <p>Web server for Beancount ledgers.
@@ -2471,7 +2214,7 @@ This uses the Bottle single-file micro web framework (with no plugins).</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
 <h3 class="doc doc-heading" id="beancount.web.web.HTMLFormatter">
-<code>HTMLFormatter</code>
+<code>beancount.web.web.HTMLFormatter</code>
 <a class="headerlink" href="#beancount.web.web.HTMLFormatter" title="Permanent link"></a></h3>
 <div class="doc doc-contents">
 <p>A formatter object that can be used to render accounts links.</p>
@@ -2483,7 +2226,7 @@ This uses the Bottle single-file micro web framework (with no plugins).</p>
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.web.web.HTMLFormatter.build_global">
 <code class="highlight language-python">
-build_global
+beancount.web.web.HTMLFormatter.build_global
     (self, *
 args, **
 kwds)
@@ -2504,7 +2247,7 @@ kwds)
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.web.web.HTMLFormatter.render_account">
 <code class="highlight language-python">
-render_account
+beancount.web.web.HTMLFormatter.render_account
 (self, account_name)
 
         </code>
@@ -2551,7 +2294,7 @@ render_account
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.web.web.HTMLFormatter.render_commodity">
 <code class="highlight language-python">
-render_commodity
+beancount.web.web.HTMLFormatter.render_commodity
 (self, base_quote)
 
         </code>
@@ -2572,7 +2315,7 @@ render_commodity
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.web.web.HTMLFormatter.render_context">
 <code class="highlight language-python">
-render_context
+beancount.web.web.HTMLFormatter.render_context
 (self, entry)
 
         </code>
@@ -2594,7 +2337,7 @@ render_context
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.web.web.HTMLFormatter.render_doc">
 <code class="highlight language-python">
-render_doc
+beancount.web.web.HTMLFormatter.render_doc
 (self, filename)
 
         </code>
@@ -2615,7 +2358,7 @@ render_doc
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.web.web.HTMLFormatter.render_event_type">
 <code class="highlight language-python">
-render_event_type
+beancount.web.web.HTMLFormatter.render_event_type
 (self, event)
 
         </code>
@@ -2635,7 +2378,7 @@ render_event_type
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.web.web.HTMLFormatter.render_inventory">
 <code class="highlight language-python">
-render_inventory
+beancount.web.web.HTMLFormatter.render_inventory
 (self, inv)
 
         </code>
@@ -2654,7 +2397,7 @@ render_inventory
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.web.web.HTMLFormatter.render_link">
 <code class="highlight language-python">
-render_link
+beancount.web.web.HTMLFormatter.render_link
 (self, link)
 
         </code>
@@ -2674,7 +2417,7 @@ render_link
 <div class="doc doc-object doc-method">
 <h4 class="doc doc-heading" id="beancount.web.web.HTMLFormatter.render_source">
 <code class="highlight language-python">
-render_source
+beancount.web.web.HTMLFormatter.render_source
 (self, source)
 
         </code>
@@ -2696,7 +2439,7 @@ render_source
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.activity">
 <code class="highlight language-python">
-activity
+beancount.web.web.activity
 ()
 
         </code>
@@ -2722,7 +2465,7 @@ def activity():
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.auto_reload_input_file">
 <code class="highlight language-python">
-auto_reload_input_file
+beancount.web.web.auto_reload_input_file
 (callback)
 
         </code>
@@ -2787,7 +2530,7 @@ last page was loaded.</p>
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.balsheet">
 <code class="highlight language-python">
-balsheet
+beancount.web.web.balsheet
 ()
 
         </code>
@@ -2812,7 +2555,7 @@ def balsheet():
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.commodities">
 <code class="highlight language-python">
-commodities
+beancount.web.web.commodities
 ()
 
         </code>
@@ -2837,7 +2580,7 @@ def commodities():
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.context_">
 <code class="highlight language-python">
-context_
+beancount.web.web.context_
 (ehash=None)
 
         </code>
@@ -2891,7 +2634,7 @@ def context_(ehash=None):
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.conversions_">
 <code class="highlight language-python">
-conversions_
+beancount.web.web.conversions_
 ()
 
         </code>
@@ -2914,7 +2657,7 @@ def conversions_():
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.doc">
 <code class="highlight language-python">
-doc
+beancount.web.web.doc
 (filename=None)
 
         </code>
@@ -2947,7 +2690,7 @@ def doc(filename=None):
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.documents">
 <code class="highlight language-python">
-documents
+beancount.web.web.documents
 ()
 
         </code>
@@ -2970,7 +2713,7 @@ def documents():
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.errors">
 <code class="highlight language-python">
-errors
+beancount.web.web.errors
 ()
 
         </code>
@@ -2992,7 +2735,7 @@ def errors():
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.event">
 <code class="highlight language-python">
-event
+beancount.web.web.event
 (event=None)
 
         </code>
@@ -3017,7 +2760,7 @@ def event(event=None):
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.event_index">
 <code class="highlight language-python">
-event_index
+beancount.web.web.event_index
 ()
 
         </code>
@@ -3040,7 +2783,7 @@ def event_index():
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.get_all_view">
 <code class="highlight language-python">
-get_all_view
+beancount.web.web.get_all_view
 (app)
 
         </code>
@@ -3080,7 +2823,7 @@ get_all_view
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.handle_view">
 <code class="highlight language-python">
-handle_view
+beancount.web.web.handle_view
 (path_depth)
 
         </code>
@@ -3165,7 +2908,7 @@ which is cached.</p>
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.holdings_">
 <code class="highlight language-python">
-holdings_
+beancount.web.web.holdings_
 ()
 
         </code>
@@ -3191,7 +2934,7 @@ def holdings_():
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.holdings_byaccount">
 <code class="highlight language-python">
-holdings_byaccount
+beancount.web.web.holdings_byaccount
 ()
 
         </code>
@@ -3218,7 +2961,7 @@ def holdings_byaccount():
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.holdings_bycommodity">
 <code class="highlight language-python">
-holdings_bycommodity
+beancount.web.web.holdings_bycommodity
 ()
 
         </code>
@@ -3245,7 +2988,7 @@ def holdings_bycommodity():
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.holdings_bycurrency">
 <code class="highlight language-python">
-holdings_bycurrency
+beancount.web.web.holdings_bycurrency
 ()
 
         </code>
@@ -3272,7 +3015,7 @@ def holdings_bycurrency():
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.holdings_byrootaccount">
 <code class="highlight language-python">
-holdings_byrootaccount
+beancount.web.web.holdings_byrootaccount
 ()
 
         </code>
@@ -3299,7 +3042,7 @@ def holdings_byrootaccount():
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.incognito">
 <code class="highlight language-python">
-incognito
+beancount.web.web.incognito
 (callback)
 
         </code>
@@ -3337,7 +3080,7 @@ detail that looks realistic.</p>
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.income">
 <code class="highlight language-python">
-income
+beancount.web.web.income
 ()
 
         </code>
@@ -3362,7 +3105,7 @@ def income():
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.index">
 <code class="highlight language-python">
-index
+beancount.web.web.index
 ()
 
         </code>
@@ -3411,7 +3154,7 @@ def index():
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.journal_">
 <code class="highlight language-python">
-journal_
+beancount.web.web.journal_
 (account_name=None)
 
         </code>
@@ -3462,7 +3205,7 @@ def journal_(account_name=None):
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.journal_all">
 <code class="highlight language-python">
-journal_all
+beancount.web.web.journal_all
 ()
 
         </code>
@@ -3482,7 +3225,7 @@ def journal_all():
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.link">
 <code class="highlight language-python">
-link
+beancount.web.web.link
 (link=None)
 
         </code>
@@ -3512,7 +3255,7 @@ def link(link=None):
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.main">
 <code class="highlight language-python">
-main
+beancount.web.web.main
 ()
 
         </code>
@@ -3536,7 +3279,7 @@ main
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.month_request">
 <code class="highlight language-python">
-month_request
+beancount.web.web.month_request
 (year, month)
 
         </code>
@@ -3561,7 +3304,7 @@ month_request
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.networth">
 <code class="highlight language-python">
-networth
+beancount.web.web.networth
 ()
 
         </code>
@@ -3585,7 +3328,7 @@ def networth():
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.openbal">
 <code class="highlight language-python">
-openbal
+beancount.web.web.openbal
 ()
 
         </code>
@@ -3610,7 +3353,7 @@ def openbal():
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.populate_view">
 <code class="highlight language-python">
-populate_view
+beancount.web.web.populate_view
 (callback)
 
         </code>
@@ -3676,7 +3419,7 @@ populate_view
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.prices_values">
 <code class="highlight language-python">
-prices_values
+beancount.web.web.prices_values
 (base=None, quote=None)
 
         </code>
@@ -3703,7 +3446,7 @@ def prices_values(base=None, quote=None):
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.render_global">
 <code class="highlight language-python">
-render_global
+beancount.web.web.render_global
     (*
 args, **
 kw)
@@ -3790,7 +3533,7 @@ kw)
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.render_overlay">
 <code class="highlight language-python">
-render_overlay
+beancount.web.web.render_overlay
 (contents)
 
         </code>
@@ -3838,7 +3581,7 @@ render_overlay
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.render_real_report">
 <code class="highlight language-python">
-render_real_report
+beancount.web.web.render_real_report
 (report_class, real_root, price_map, price_date, args=None, leaf_only=False)
 
         </code>
@@ -3958,7 +3701,7 @@ render_real_report
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.render_report">
 <code class="highlight language-python">
-render_report
+beancount.web.web.render_report
 (report_class, entries, args=None, css_id=None, css_class=None, center=False, leaf_only=True)
 
         </code>
@@ -4088,7 +3831,7 @@ render_report
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.render_view">
 <code class="highlight language-python">
-render_view
+beancount.web.web.render_view
     (*
 args, **
 kw)
@@ -4189,7 +3932,7 @@ kw)
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.root">
 <code class="highlight language-python">
-root
+beancount.web.web.root
 ()
 
         </code>
@@ -4209,7 +3952,7 @@ def root():
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.scrape_webapp">
 <code class="highlight language-python">
-scrape_webapp
+beancount.web.web.scrape_webapp
 (webargs, callback, ignore_regexp)
 
         </code>
@@ -4312,7 +4055,7 @@ This function should trigger an error on failure (via an exception).</p>
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.setup_monkey_patch_for_server_shutdown">
 <code class="highlight language-python">
-setup_monkey_patch_for_server_shutdown
+beancount.web.web.setup_monkey_patch_for_server_shutdown
 ()
 
         </code>
@@ -4348,7 +4091,7 @@ This is required to initiate shutdown, unfortunately.
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.shutdown">
 <code class="highlight language-python">
-shutdown
+beancount.web.web.shutdown
 ()
 
         </code>
@@ -4367,7 +4110,7 @@ shutdown
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.source">
 <code class="highlight language-python">
-source
+beancount.web.web.source
 ()
 
         </code>
@@ -4403,7 +4146,7 @@ def source():
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.stats_postings">
 <code class="highlight language-python">
-stats_postings
+beancount.web.web.stats_postings
 ()
 
         </code>
@@ -4426,7 +4169,7 @@ def stats_postings():
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.stats_types">
 <code class="highlight language-python">
-stats_types
+beancount.web.web.stats_types
 ()
 
         </code>
@@ -4449,7 +4192,7 @@ def stats_types():
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.style">
 <code class="highlight language-python">
-style
+beancount.web.web.style
 ()
 
         </code>
@@ -4473,7 +4216,7 @@ def style():
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.thread_server_shutdown">
 <code class="highlight language-python">
-thread_server_shutdown
+beancount.web.web.thread_server_shutdown
 (thread)
 
         </code>
@@ -4525,7 +4268,7 @@ This returns after waiting that the thread has stopped.</p>
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.thread_server_start">
 <code class="highlight language-python">
-thread_server_start
+beancount.web.web.thread_server_start
     (web_args, **
 kwargs)
 
@@ -4603,7 +4346,7 @@ from add_web_arguments().</p>
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.trial">
 <code class="highlight language-python">
-trial
+beancount.web.web.trial
 ()
 
         </code>
@@ -4629,7 +4372,7 @@ def trial():
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.url_restrict_generator">
 <code class="highlight language-python">
-url_restrict_generator
+beancount.web.web.url_restrict_generator
 (url_prefix)
 
         </code>
@@ -4724,7 +4467,7 @@ url_restrict_generator
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="beancount.web.web.wait_ready">
 <code class="highlight language-python">
-wait_ready
+beancount.web.web.wait_ready
 ()
 
         </code>
@@ -4742,46 +4485,6 @@ This tells us the server is running.</p>
         time.sleep(0.05)
 </code></pre>
 </details>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="doc doc-object doc-module">
-<h2 class="doc doc-heading" id="beancount.web.web_test">
-<code>web_test</code>
-<a class="headerlink" href="#beancount.web.web_test" title="Permanent link"></a></h2>
-<div class="doc doc-contents">
-<div class="doc doc-children">
-<div class="doc doc-object doc-class">
-<h3 class="doc doc-heading" id="beancount.web.web_test.TestWeb">
-<code>TestWeb</code>
-<a class="headerlink" href="#beancount.web.web_test.TestWeb" title="Permanent link"></a></h3>
-<div class="doc doc-contents">
-<div class="doc doc-children">
-<div class="doc doc-object doc-method">
-<h4 class="doc doc-heading" id="beancount.web.web_test.TestWeb.test_scrape_empty_file">
-<code class="highlight language-python">
-test_scrape_empty_file
-(self, filename)
-
-        </code>
-<a class="headerlink" href="#beancount.web.web_test.TestWeb.test_scrape_empty_file" title="Permanent link"></a></h4>
-<div class="doc doc-contents">
-<p>;; A file with no entries in it.</p>
-<details class="quote">
-<summary>Source code in <code>beancount/web/web_test.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">@test_utils.docfile
-def test_scrape_empty_file(self, filename):
-    """
-    ;; A file with no entries in it.
-    """
-    self.scrape(filename)
-</code></pre>
-</details>
-</div>
-</div>
-</div>
 </div>
 </div>
 </div>
