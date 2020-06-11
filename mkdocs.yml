@@ -75,6 +75,11 @@ plugins:
         python:
           rendering:
             show_source: true
+            show_object_full_path: true
+          selection:
+            filters:
+              - "!_test$"
+              - "!^_[^_]"
   - redirects:
       redirect_maps:
         'g/export/index.md': 'https://docs.google.com/document/d/1mNyE_ONuyEkF_I2l6V_AoAU5HJgI654AOBhHsnNPPqw/'
