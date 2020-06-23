@@ -1,11 +1,13 @@
-Installing Beancount<a id="title"></a>
-======================================
+Installing Beancount (v2)<a id="title"></a>
+===========================================
 
 [<span class="underline">Martin Blais</span>](mailto:blais@furius.ca) - Updated: June 2015
 
 [<span class="underline">http://furius.ca/beancount/doc/install</span>](http://furius.ca/beancount/doc/install)
 
 *Instructions for downloading and installing Beancount on your computer.*
+
+<table><tbody><tr class="odd"><td><em>This document is about Beancount v2; Beancount v3 is in development and uses a completely different build and installation system. For instructions on building v3, see <a href="https://docs.google.com/document/d/1WwZYqsp28Uuk5eFqHQ1u1zqdjghymy8S_Yo-OJENoa4/"><span class="underline">this document</span></a>.</em></td></tr></tbody></table>
 
 Releases<a id="releases"></a>
 -----------------------------

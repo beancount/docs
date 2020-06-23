@@ -155,7 +155,7 @@ Other booking methods are available. They can be configured using options, like 
 
     option "booking_method" "FIFO"
 
-The “**FIFO**” method automatically select the oldest of the matching lots up to the requested size of the reduction. For example, given our previous inventory:
+The “**FIFO**” method automatically selects the oldest of the matching lots up to the requested size of the reduction. For example, given our previous inventory:
 
               units ccy   cost  cost-ccy lot-date    label
                  25 HOOL {23.00 USD,     2015-04-01, "first-lot"}
@@ -220,7 +220,7 @@ Even with negative units the number and cost get aggregated separately:
               units ccy    cost    cost-ccy lot-date    label
             98.1842 VBMPX {11.0508 USD,     2016-07-28, None}
 
-<table><tbody><tr class="odd"><td><em>This feature isn’t yet supported in Beancount; it’s fairly tricky to implement, and will be the subject for in a minor release in the future.</em></td></tr></tbody></table>
+<table><tbody><tr class="odd"><td><em>This feature isn’t yet supported in Beancount; it’s fairly tricky to implement, and will be the subject in a minor release in the future.</em></td></tr></tbody></table>
 
 ### No Booking<a id="no-booking"></a>
 

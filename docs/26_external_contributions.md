@@ -49,6 +49,8 @@ Tools<a id="tools"></a>
 
 [<span class="underline">redstreet/fava\_tax\_loss\_harvester</span>](https://github.com/redstreet/fava_tax_loss_harvester) (RedStreet): Tax loss harvester. Reports the set of lots that can be tax loss harvested from your beancount input file. Plugin for Fava.
 
+[<span class="underline">Pinto</span>](https://pypi.org/project/pinto/) (Sean Leavey): Supercharged command line interface for Beancount. Supports automatic insertions of transactions in ledger file.
+
 Importers<a id="importers"></a>
 -------------------------------
 
