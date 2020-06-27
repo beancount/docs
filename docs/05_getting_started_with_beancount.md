@@ -15,33 +15,51 @@ You will probably want to have read some of the [<span class="underline">User’
 Editor Support<a id="editor-support"></a>
 -----------------------------------------
 
+Beancount ledgers are simple text files. You can use any text editor to compose your input file. However, a good text editor which understands enough of the Beancount syntax to offer focused facilities like syntax highlighting, autocompletion, and automatic indentation highly has the potential to greatly increase productivity in compiling and maintaining your ledger.
+
 ### Emacs<a id="emacs"></a>
 
-First, you will want a bit of support for your text editor. I’m using Emacs, so I’ll explain my setup for this, but certainly you can use any text editor to compose your input file.
+Emacs support for editing Beancount ledger files is distributed with Beancount. It provides `beancount-mode`: an Emacs [<span class="underline">major mode</span>](https://www.gnu.org/software/emacs/manual/html_node/emacs/Major-Modes.html) that provides syntax highlighting, automatic indentation, autocompletion for account names, and other facilities.
 
-Beancount’s Emacs support provides a [*<span class="underline">Minor Mode</span>*](https://www.gnu.org/software/emacs/manual/html_node/emacs/Minor-Modes.html) (as opposed to a [*<span class="underline">Major Mode</span>*](https://www.gnu.org/software/emacs/manual/html_node/emacs/Major-Modes.html)) on purpose, so that you can combine it with your favorite text editing mode. I like to use [*<span class="underline">Org-Mode</span>*](http://orgmode.org/), which is an outline mode for Emacs which allows you to fold and unfold its sections to view the outline of your document. This makes it much easier to edit a very long text file. (I don’t use Org-Mode’s literal programming blocks, I only use it to fold and unfold sections of text.)
-
-You can configure Emacs to automatically open files with a “`.beancount`” extension to enable beancount-mode by adding this code to your `~/.emacs` file:
+To instruct Emacs to activate `beancount-mode` when opening files with a `.beancount` extension, you can add this code to your Emacs configuration, typically in the `~/.emacs.d/init.el` file:
 
     (add-to-list 'load-path "/path/to/beancount/src/elisp")
     (require 'beancount)
     (add-to-list 'auto-mode-alist '("\\.beancount\\'" . beancount-mode))
 
-[<span class="underline">Beancount-mode</span>](https://bitbucket.org/blais/beancount/src/tip/editors/emacs/beancount.el) provides some nice editing features:
+    beancount-mode provides most facilities expected by an Emacs major mode. Documentation on the provided functionality and on the default keybindings can be obtained with the describe-mode command in a buffer with beancount-mode active.
 
--   In order to quickly and painlessly insert account names, you need completion on the account names. You will probably get frustrated with all the typing if you don’t have completion. Beancount-mode automatically recognizes account names already present in the input file (refresh the list with “`C-c r`”) and you can insert a new account name with ”`C-c ‘`”.
+In a nutshell, when beancount mode is active:
 
--   It’s also nice to align the amounts in a transaction nicely; this formatting can be done automatically with “`C-c ;`” with the cursor on the transaction you want to align.
+-   The "`TAB`" key either indents, completes, or folds the heading depending on the context.
+
+-   Amounts in postings are indented so that the decimal point is at the 52nd column. This can be configured customizing `beancount-number-alignment-column`. Setting it to 0 will cause the alignment column to be determined from file content.
+
+-   Postings in transactions are indented with `beancount-transaction-indent` spaces.
+
+-   Pressing "`RET`" causes the current line to be indented. If the current line is a posting, the amount will be indented as per above. This behavior is defined by Emacs auto indent mechanism. It can be disabled setting `electric-indent-chars` to `nil` after loading Beancount mode, for example like this:
+
+<!-- -->
+
+    (add-hook 'beancount-mode-hook
+      (lambda () (setq-local electric-indent-chars nil)) 
+
+Beancount ledger files can grow very large. It is thus often practical to structure them in sections and subsections. To support this practice, `beancount-mode` recognizes all lines starting with one asterisks “`*`” (all lines starting with an asterisks are ignored by Beancount) or three or more semicolons “`;;;`” (the semicolon starts a comment in Beancount syntax) as section headings and builds on [<span class="underline">outline minor mode</span>](https://www.gnu.org/software/emacs/manual/html_node/emacs/Outline-Mode.html) to enable navigation of the document structure defined by those headings and to enable to fold and unfold the document sections, similarly to what is possible in [<span class="underline">Org mode</span>](https://orgmode.org/).
+
+To enable this functionality outline minor mode should be explicitly activated. It is possible to do so automatically when Beancout mode is activated adding this line to the Emacs configuration:
+
+    (add-hook 'beancount-mode-hook #'outline-minor-mode)
+
+Outline minor mode uses a rather peculiar choice of keybindings. It is possible to map the most used functionality to keys more familiar to Org mode users adding a few lines to the Emacs configuration:
+
+    (define-key beancount-mode-map (key "C-c C-n")
+      #'outline-next-visible-heading)
+    (define-key beancount-mode-map (key "C-c C-p")
+      #'outline-previous-visible-heading)
 
 ### Vim<a id="vim"></a>
 
-Nathan Grigg implement support for vim in [<span class="underline">this github repo</span>](https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fnathangrigg%2Fvim-beancount&sa=D&sntz=1&usg=AFQjCNFgEjRsUHfpvOFxn8gD4-c_eK_wsA). It supports:
-
--   Syntax highlighting (not exhaustive, but all the basics)
-
--   Account name completion (using omnifunc, C-X C-O)
-
--   Aligning the decimal points across transactions (:AlignCommodity)
+Support for editing Beancount ledger files in Vim, has been implemented by Nathan Grigg and is available in [<span class="underline">this github repo</span>](https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fnathangrigg%2Fvim-beancount&sa=D&sntz=1&usg=AFQjCNFgEjRsUHfpvOFxn8gD4-c_eK_wsA). It supports: syntax highlighting (not exhaustive, but covering all the basics), account name completion (using omnifunc), and aligning the decimal points across transactions.
 
 ### Sublime<a id="sublime"></a>
 
@@ -103,14 +121,14 @@ In this section we provide general guidelines for how to organize your file. Thi
 
 ### Preamble to your Input File<a id="preamble-to-your-input-file"></a>
 
-I recommend that you begin with just a single file[^1]. My file has a header that tells my editor (Emacs) what “mode” to open the file with, followed by some common options:
+I recommend that you begin with just a single file[^1]. My file has a header that tells Emacs what mode to open the file with, followed by some common options:
 
-    ;; -*- mode: org; mode: beancount; coding: utf-8; fill-column: 400; -*-
+    ;; -*- mode: beancount; coding: utf-8; fill-column: 400; -*-
     option "title" "My Personal Ledger"
     option "operating_currency" "USD"
     option "operating_currency" "CAD"
 
-The title options is used in reports. The list of “operating currencies” identify those commodities which you use most commonly as “currencies” and which warrant rendering in their own dedicated columns in reports (this declaration has no other effect on the behavior of any of the calculations).
+The title option is used in reports. The list of “operating currencies” identify those commodities which you use most commonly as “currencies” and which warrant rendering in their own dedicated columns in reports (this declaration has no other effect on the behavior of any of the calculations).
 
 ### Sections & Declaring Accounts<a id="sections-declaring-accounts"></a>
 
@@ -179,7 +197,7 @@ Many times, transactions from these accounts need to be booked to an expense acc
 
 I often leave one of the description lines in comments—just my choice, Beancount ignores it. Also note that I had to choose one of the two dates. I just choose the one I prefer, as long as it does not break any balance assertion.
 
-In the case that you would forget to merge those two imported transactions, worry not! That’s what balance assertions are for. Regularly place a balance assertion in either of these accounts, e.g., every time you import, and you will get a nice error if you ended up entering the transaction twice. This is pretty common and after a while it becomes second nature to interpret that compiler error and fix it in seconds.
+In the case that you would forget to merge those two imported transactions, worry not! That’s what balance assertions are for. Regularly place a balance assertion in either of these accounts, e.g., every time you import, and you will get a nice error if you end up entering the transaction twice. This is pretty common and after a while it becomes second nature to interpret that compiler error and fix it in seconds.
 
 Finally, when I know I import just one side of these, I select the other account manually and I mark the posting I know will be imported later with a flag, which tells me I haven’t de-duped this transaction yet:
 
@@ -189,7 +207,7 @@ Finally, when I know I import just one side of these, I select the other account
 
 Later on, when I import the checking account’s transactions and go fishing for the other side of this payment, I will find this and get a good feeling that the world is operating as it should.
 
-(If you’re interested in more of a discussion around de-duping and merging transaction, see this [<span class="underline">feature proposal</span>](28_settlement_dates_in_beancount.md). Also, you might be interested in the [<span class="underline">“effective\_date” plugin</span>](https://www.google.com/url?q=https://github.com/redstreet/beancount_plugins_redstreet&sa=D&ust=1458615376548000&usg=AFQjCNGY-CWtCRP75-3p8Yr02BC_itG76g) external contribution, which splits transactions in two.)
+(If you’re interested in more of a discussion around de-duplicating and merging transactions, see this [<span class="underline">feature proposal</span>](28_settlement_dates_in_beancount.md). Also, you might be interested in the [<span class="underline">“effective\_date” plugin</span>](https://www.google.com/url?q=https://github.com/redstreet/beancount_plugins_redstreet&sa=D&ust=1458615376548000&usg=AFQjCNGY-CWtCRP75-3p8Yr02BC_itG76g) external contribution, which splits transactions in two.)
 
 ### Which Side?<a id="which-side"></a>
 
