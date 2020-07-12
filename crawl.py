@@ -1,5 +1,6 @@
 import json
 import os
+import shutil
 import tempfile
 
 from bs4 import BeautifulSoup
@@ -33,7 +34,7 @@ def get_index() -> dict:
             # Bad markup here
             document_title = 'How Inventories Work'
         document_slug = slugify(document_title, separator='_')
-        filename = f'{len(document_map):02d}_{document_slug}.md'
+        filename = f'{document_slug}.md'
         document_map[document_id] = filename
 
     with open('index.json', 'w') as index_json:
@@ -47,6 +48,15 @@ def main():
     """
     Export and convert all found documents
     """
+    # Remove old docs before converting
+    for filename in os.listdir('docs'):
+        if filename in ['js', 'css', 'api_reference']:
+            continue
+        filepath = os.path.join('docs', filename)
+        if os.path.isfile(filepath):
+            os.remove(filepath)
+        else:
+            shutil.rmtree(filepath)
     documents = get_index()
     for document_id, filename in documents.items():
         print(f'Processing https://docs.google.com/document/d/{document_id}/')
