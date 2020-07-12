@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://beancount.github.io/docs/exporting_your_portfolio.html" rel="canonical"/>
+<link href="img/favicon.ico" rel="shortcut icon"/>
+<title>Exporting Your Portfolio - Beancount Documentation</title>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
+<link href="css/theme.css" rel="stylesheet">
+<link href="css/theme_extra.css" rel="stylesheet"/>
+<link href="css/custom.css" rel="stylesheet"/>
+<script>
+    // Current page data
+    var mkdocs_page_name = "Exporting Your Portfolio";
+    var mkdocs_page_input_path = "exporting_your_portfolio.md";
+    var mkdocs_page_url = "/docs/exporting_your_portfolio.html";
+  </script>
+<script defer="" src="js/jquery-2.1.1.min.js"></script>
+<script defer="" src="js/modernizr-2.8.3.min.js"></script>
+</link></link></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="."> Beancount Documentation</a>
+<div role="search">
+<form action="./search.html" class="wy-form" id="rtd-search-form" method="get">
+<input name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Index</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Outline</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal current" href="#">Documentation for Users</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="command_line_accounting_in_context.html">Command Line Accounting in Context</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="the_double_entry_counting_method.html">The Double Entry Counting Method</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installing_beancount.html">Installing Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started_with_beancount.html">Getting Started with Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="beancount_language_syntax.html">Beancount Language Syntax</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="beancount_options_reference.html">Beancount Options Reference</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="precision_tolerances.html">Precision Tolerances</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="beancount_query_language.html">Beancount Query Language</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="how_inventories_work.html">How Inventories Work</a>
+</li>
+<li class="toctree-l2 current"><a class="reference internal current" href="exporting_your_portfolio.html">Exporting Your Portfolio</a>
+<ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#portfolio-tracking-tools">Portfolio Tracking Tools</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#exporting-to-google-finance">Exporting to Google Finance</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#exporting-your-holdings-to-ofx">Exporting your Holdings to OFX</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#importing-the-ofx-file-in-google-finance">Importing the OFX File in Google Finance</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#controlling-exported-commodities">Controlling Exported Commodities</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#declaring-your-commodities">Declaring Your Commodities</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#what-happens-by-default">What Happens by Default</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#explicitly-specifying-exported-symbols">Explicitly Specifying Exported Symbols</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#exchangesymbol">Exchange:Symbol</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#exporting-to-a-cash-equivalent">Exporting to a Cash Equivalent</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#declaring-money-instruments">Declaring Money Instruments</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#ignoring-commodities">Ignoring Commodities</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#comparing-with-net-worth">Comparing with Net Worth</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#details-of-the-ofx-export">Details of the OFX Export</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#import-failures">Import Failures</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#mutual-funds-vs-stocks">Mutual Funds vs. Stocks</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#debugging-the-export">Debugging the Export</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#purchase-dates">Purchase Dates</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#disable-dividends">Disable Dividends</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#automate-upload">Automate Upload</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#summary">Summary</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_example.html">Tutorial &amp; Example</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="beancount_history_and_credits.html">Beancount History and Credits</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="importing_external_data.html">Importing External Data</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#">Cookbooks &amp; Examples</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="trading_with_beancount.html">Trading with Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="how_we_share_expenses.html">How We Share Expenses</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="health_care_expenses.html">Health Care Expenses</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#">Documentation for Developers</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="beancount_design_doc.html">Beancount Design Doc</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="external_contributions.html">External Contributions</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#">Enhancement Proposals &amp; Discussions</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/index.html">beancount</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.core.html">beancount.core</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ingest.html">beancount.ingest</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.loader.html">beancount.loader</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ops.html">beancount.ops</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.parser.html">beancount.parser</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.plugins.html">beancount.plugins</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.prices.html">beancount.prices</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.query.html">beancount.query</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.reports.html">beancount.reports</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.scripts.html">beancount.scripts</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.tools.html">beancount.tools</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.utils.html">beancount.utils</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.web.html">beancount.web</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href=".">Beancount Documentation</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a href=".">Docs</a> »</li>
+<li>Documentation for Users »</li>
+<li>Outline »</li>
+<li>Exporting Your Portfolio</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/beancount/docs/edit/master/docs/exporting_your_portfolio.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div role="main">
+<div class="section">
+<h1 id="exporting-your-portfolio">Exporting Your Portfolio<a id="title"></a><a class="headerlink" href="#exporting-your-portfolio" title="Permanent link"></a></h1>
+<p><a href="mailto:blais@furius.ca"><span class="underline">Martin Blais</span></a>, December 2015 (v2)</p>
+<p><a href="http://furius.ca/beancount/doc/export"><span class="underline">http://furius.ca/beancount/doc/export</span></a></p>
+<h2 id="overview">Overview<a id="overview"></a><a class="headerlink" href="#overview" title="Permanent link"></a></h2>
+<p>This document explains how to export your portfolio of holdings from Beancount to a Google Finance portfolio (and eventually to other portfolio tracking websites).</p>
+<p><em>Note: This is the second version of this document, rewritten in Dec 2015, after greatly simplifying the process of exporting portfolios and completely separating the specification of stock tickers for price downloads. This new, simplified version only uses a single metadata field name: “export”. The previous document can be found <a href="https://docs.google.com/document/d/1eZIDRmQZxR6cmDyOJf7U3BnCm4PDMah2twxYFfKPJtM/"><span class="underline">here</span></a>.</em></p>
+<h2 id="portfolio-tracking-tools">Portfolio Tracking Tools<a id="portfolio-tracking-tools"></a><a class="headerlink" href="#portfolio-tracking-tools" title="Permanent link"></a></h2>
+<p>There are multiple websites on the internet that allow someone to create a portfolio of investments (or upload a list of transactions to create such a portfolio) and that reports on the changes in the portfolio due to price movements, shows you unrealized capital gains, etc. One such website is the <a href="http://finance.google.com"><span class="underline">Google Finance</span></a> portal. Another example is the <a href="http://finance.yahoo.com"><span class="underline">Yahoo Finance</span></a> one. These are convenient because they allow you to monitor the impact of price changes on your entire portfolio of assets, across all accounts, during the day or otherwise.</p>
+<p>However, each of these sites expects their users to use their interfaces and workflows to painfully enter each of the positions one-by-one. A great advantage of using Beancount is that you should never have to enter this type of information manually; instead, you should be able to extract it and upload it to one of these sites. You can be independent of the particular portfolio tracking service you use and should be able to switch between them without losing any data; Beancount can serve as your pristine source for your list of holdings as your needs evolve.</p>
+<p>Google Finance supports an “import” feature to create portfolio data which supports the Microsoft OFX financial interchange data format. In this document, we show how we built a Beancount report that exports the portfolio of holdings to OFX for creating a Google Finance portfolio.</p>
+<h2 id="exporting-to-google-finance">Exporting to Google Finance<a id="exporting-to-google-finance"></a><a class="headerlink" href="#exporting-to-google-finance" title="Permanent link"></a></h2>
+<h3 id="exporting-your-holdings-to-ofx">Exporting your Holdings to OFX<a id="exporting-your-holdings-to-ofx"></a><a class="headerlink" href="#exporting-your-holdings-to-ofx" title="Permanent link"></a></h3>
+<p>First, create an OFX file corresponding to your Beancount holdings. You can use this command to do this:</p>
+<pre><code>bean-report file.beancount export_portfolio &gt; portfolio.ofx
+</code></pre>
+<p>See the report’s own help for options:</p>
+<pre><code>bean-report file.beancount export_portfolio --help
+</code></pre>
+<h3 id="importing-the-ofx-file-in-google-finance">Importing the OFX File in Google Finance<a id="importing-the-ofx-file-in-google-finance"></a><a class="headerlink" href="#importing-the-ofx-file-in-google-finance" title="Permanent link"></a></h3>
+<p>Then we have to import that OFX file in a web-based portfolio.</p>
+<ol>
+<li>
+<p>Visit <a href="http://finance.google.com"><span class="underline">http://finance.google.com</span></a> and click on “Portfolios” on the left (or simply visit <a href="https://www.google.com/finance/portfolio"><span class="underline">https://www.google.com/finance/portfolio</span></a>, this works as of Jan 2015)</p>
+</li>
+<li>
+<p>If you have an existing, previously imported portfolio, click on “Delete Portfolio” to get rid of it.</p>
+</li>
+<li>
+<p>Click on “Import Transactions”, then “Choose File” and select the <em>portfolio.ofx</em> file you exported to, then click on “Preview Import”.</p>
+</li>
+<li>
+<p>You should see a list of imported lots, with familiar stock symbols and names, and Type “Buy” with realistic Shares and Price columns. If not, see the note below. Otherwise, scroll to the bottom of the page and click “Import”.</p>
+</li>
+<li>
+<p>Your portfolio should now appear. You are done.</p>
+</li>
+</ol>
+<p>You should never bother updating this portfolio directly using the website… instead, update your Beancount ledger file, re-export to a new OFX file, <strong>delete</strong> the previous portfolio and re-import a brand new one over it. Your pristine source is always your Beancount file, ideally you should never have to be worried about corrupting or deleting the portfolio data in any external website.</p>
+<h2 id="controlling-exported-commodities">Controlling Exported Commodities<a id="controlling-exported-commodities"></a><a class="headerlink" href="#controlling-exported-commodities" title="Permanent link"></a></h2>
+<h3 id="declaring-your-commodities">Declaring Your Commodities<a id="declaring-your-commodities"></a><a class="headerlink" href="#declaring-your-commodities" title="Permanent link"></a></h3>
+<p>Generally, we recommend that you explicitly declare each of the commodities used in your input file. It is a neat place to attach information about those commodities, metadata that you should be able to use later on from bean-query or in scripts that you make. For example, you could declare a human-readable description of the commodity, and some other attributes, like this:</p>
+<pre><code>2001-09-06 commodity XIN
+  name: "iShares MSCI EAFE Index ETF (CAD-Hedged)"
+  class: "Stock"
+  type: "ETF"
+  ...
+</code></pre>
+<p>Beancount will work with or without these declarations (it automatically generates Commodity directives if you haven’t provided them). If you like to be strict and have a bit of discipline, you can <em>require</em> that each commodity be declared by using a plugin that will issue an error when an undeclared commodity appears:</p>
+<pre><code>plugin "beancount.plugins.check_commodity"
+</code></pre>
+<p>You can use any date for that Commodity directive. I recommend using the date of the commodity’s inception, or perhaps when it was first introduced by the issuing country, if it is a currency. You can find a suitable date on Wikipedia or on the issuer’s websites. Google Finance may have the date itself.</p>
+<h3 id="what-happens-by-default">What Happens by Default<a id="what-happens-by-default"></a><a class="headerlink" href="#what-happens-by-default" title="Permanent link"></a></h3>
+<p>By default, all holdings are exported as positions with a ticker symbol named the same as the Beancount commodity that you used to define them. If you have a holding of “AAPL” units, it will create an export entry for “AAPL”. The export code attempts to export all holdings by default.</p>
+<p>However, in any but the simplest unambiguous cases, this is probably not good enough to produce a working Google Finance portfolio. The name for each commodity that you use in your Beancount input file may or may not correspond to a financial instrument in the Google Finance database; due to the very large number of symbols supported in its database, just specifying the ticker symbol is often ambiguous. Google Finance attempts to resolve an ambiguous symbol string to the most likely instrument in its database. It is possible that it resolves it to a different financial instrument from the one you intended. So even if you use the same basic symbol that is used by the exchange, you often still need to disambiguate the symbol by specifying which exchange or symbology it lives in. Google provides a <a href="http://www.google.com/googlefinance/disclaimer/"><span class="underline">list of these symbol spaces</span></a>.</p>
+<p>Here is a real-life example. The symbol for the “<a href="http://www.blackrock.com/ca/individual/en/products/239624/ishares-msci-eafe-index-etf-cadhedged-fund"><span class="underline">CAD-Hedged MSCI EAFE Index</span></a>” ETF product issued by iShares/Blackrock is “<code>XIN</code>” on the Toronto Stock Exchange (<code>TSE</code>). If you just <a href="https://www.google.com/finance?q=xin"><span class="underline">looked up “XIN” on Google Finance</span></a>, it would choose to resolve it by default to the more likely “<code>NYSE:XIN</code>” symbol (<a href="https://www.google.com/finance?q=NYSE%3AXIN"><span class="underline">Xinyuan Real Estate Co. on the New York Stock Exchange</span></a>). So you need to disambiguate it by specifying that the desired ETF ticker for this instrument is “<code>TSE:XIN</code>”.</p>
+<h3 id="explicitly-specifying-exported-symbols">Explicitly Specifying Exported Symbols<a id="explicitly-specifying-exported-symbols"></a><a class="headerlink" href="#explicitly-specifying-exported-symbols" title="Permanent link"></a></h3>
+<p>You can specify which exchange-specific symbol is used to export a commodity by attaching an “<code>export</code>” metadata field to each of your Commodity directives, like this:</p>
+<pre><code>2001-09-06 commodity XIN
+  ...
+  export: "TSE:XIN"
+</code></pre>
+<p>The “<code>export</code>” field is used to map your commodity name to the corresponding instrument in the Google Finance system. If a holding in that commodity needs to be exported, this code is used instead of the Beancount currency name.</p>
+<p>The symbology used by Google Finance appears to follow the following syntax:</p>
+<h3 id="exchangesymbol"><em>Exchange:Symbol</em><a id="exchangesymbol"></a><a class="headerlink" href="#exchangesymbol" title="Permanent link"></a></h3>
+<p>where <em>Exchange</em> is a code either for the exchange where the stock trades, or for another source of financial data, e.g. “<code>MUTF</code>” for “mutual funds in the US”, <a href="http://www.google.com/googlefinance/disclaimer/"><span class="underline">and more</span></a>. <em>Symbol</em> is a name that is unique within that exchange. I recommend searching for each of your financial instruments in Google Finance, confirming that the instrument corresponds to your instrument (by inspecting the full name, description and price), and inserting the corresponding code like this.</p>
+<h3 id="exporting-to-a-cash-equivalent">Exporting to a Cash Equivalent<a id="exporting-to-a-cash-equivalent"></a><a class="headerlink" href="#exporting-to-a-cash-equivalent" title="Permanent link"></a></h3>
+<p>To account for positions that aren’t supported in Google Finance, the export report can convert a holding to its cash-equivalent value. This is also useful for cash positions (e.g., cash sitting idle in a savings or checking account).</p>
+<p>For example, I hold units of an insurance policy investment vehicle (this is common in Canada, for example, with London Life). This is a financial instrument, but each particular policy issuance has its own associated value—there is no public source of data for each of those products, it’s rather opaque, I can obtain its value with my annual statement, but definitely not in Google Finance. But I’d still like for the asset’s value to be reflected in my portfolio.</p>
+<p>The way you tell the export code to make this conversion is to specify a special value of “CASH” for the “export” field, like this:</p>
+<pre><code>1878-01-01 commodity LDNLIFE
+  export: "CASH"
+</code></pre>
+<p>This would convert holdings in <code>LDNLIFE</code> commodities to their corresponding quoted value before exporting, using the price nearest to the date of exporting. Note that attempting to convert to cash a commodity that does not have a corresponding cost or price available for us to determine its value will generate an error. A price must be present to make the conversion.</p>
+<p>Simple currencies should also be marked as cash in order to be exported:</p>
+<pre><code>1999-01-01 commodity EUR
+  name: "European Union Euro currency"
+  export: "CASH"
+</code></pre>
+<p>Finally, all converted holdings are agglomerated into a single cash position. There is no point in exporting these cash entries to separate OFX entries because the Google Finance code will agglomerate them to a single one anyhow.</p>
+<h3 id="declaring-money-instruments">Declaring Money Instruments<a id="declaring-money-instruments"></a><a class="headerlink" href="#declaring-money-instruments" title="Permanent link"></a></h3>
+<p>There is a small hiccup in this cash conversion story: the Google Finance importer does not appear to correctly grok an OFX position in “cash” amounts in the importer; I think this is probably just a bug in Google Finance’s import code (or perhaps I haven’t found the correct OFX field values to make this work).</p>
+<p>Instead, in order to insert a cash position the exporter uses a cash-equivalent commodity which always prices at 1 unit of the currency, e.g. $1.00 for US dollars. For example, for US dollars I I use <a href="https://www.google.com/finance?q=MUTF:VMMXX"><span class="underline">VMMXX</span></a> which is a Vanguard Prime Money Market Fund, and for Canadian dollars I use <a href="https://www.google.com/finance?q=MUTF_CA:IGI806"><span class="underline">IGI806</span></a>. A good type of commodity for this is some sort of Money Market fund. It doesn’t matter so much which one you use, as long as it prices very close to 1. Find one.</p>
+<p>If you want to include cash commodities, you need to find such a commodity for each of the cash currencies you have on your books and tell Beancount about them. Typically that will be only one or two currencies.</p>
+<p>You declare them by append the special value “<code>MONEY</code>” for the “<code>export</code>” field, specifying which currency this commodity represents, like this:</p>
+<pre><code>1900-01-01 commodity VMMXX
+  export: "MUTF:VMMXX (MONEY:USD)"
+
+1900-01-01 commodity IGI806
+  export: "MUTF_CA:IGI806 (MONEY:CAD)"
+</code></pre>
+<h3 id="ignoring-commodities">Ignoring Commodities<a id="ignoring-commodities"></a><a class="headerlink" href="#ignoring-commodities" title="Permanent link"></a></h3>
+<p>Finally, some commodities held in a ledger should be ignored. This is the case for the imaginary commodities used in mirror accounting, for example, to track unvested shares of an employment stock plan, or commodities used to track amounts contributed to a retirement account, like this:</p>
+<pre><code>1996-01-01 commodity RSPCAD
+  name: "Canada Registered Savings Plan Contributions"
+</code></pre>
+<p>You tell the export code to ignore a commodity specifying the special value “<code>IGNORE</code>” for the “<code>export</code>” field, like this:</p>
+<pre><code>1996-01-01 commodity RSPCAD
+  name: "Canada Registered Savings Plan Contributions"
+  export: "IGNORE"
+</code></pre>
+<p>All holdings in units of <code>RSPCAD</code> will thus not be exported.</p>
+<p>The question of whether some commodities should be exported or not sometimes presents interesting choices. Here is an example: I track my accumulated vacation hours in an asset account. The units are “<code>VACHR</code>”. I associate with this commodity a price that is roughly equivalent to my net hourly salary. This gives me a rough idea how much vacation time money is accumulated on the books, e.g. if I quit my job, how much I’d get paid. Do I want to them included in my total net worth? Should the value from those hours be reflected in the value of my exported portfolio? I think that largely depends on whether I plan to use up those vacations before I leave this job or not, whether I want to have this accumulated value show up on my balance sheet.</p>
+<h2 id="comparing-with-net-worth">Comparing with Net Worth<a id="comparing-with-net-worth"></a><a class="headerlink" href="#comparing-with-net-worth" title="Permanent link"></a></h2>
+<p>The end result is that the sum total of all your exported positions plus the cash position should approximate the value of all your assets, and the total value calculated by the Google Finance website should be very close to the one reported by this report:</p>
+<pre><code>bean-report file.beancount networth
+</code></pre>
+<p>As a point of comparison, the value of my own portfolio is usually close to within a few hundred US dollars.</p>
+<h2 id="details-of-the-ofx-export">Details of the OFX Export<a id="details-of-the-ofx-export"></a><a class="headerlink" href="#details-of-the-ofx-export" title="Permanent link"></a></h2>
+<h3 id="import-failures">Import Failures<a id="import-failures"></a><a class="headerlink" href="#import-failures" title="Permanent link"></a></h3>
+<p>Exporting a portfolio with symbols that Google Finance does not recognize <strong>fatally</strong> trips up Google’s import feature. Google Finance then proceeds to fail to recognize your <strong>entire</strong> file. I recommend that you use explicit exchange:symbol names on all commodities that get exported in order to avoid this problem, as is described further in this document.</p>
+<p>Google Finance can also be a little bit finicky about the format of the particular OFX file you give it to import. The <code>export_portfolio</code> command attempts to avoid OFX features that would break it but it’s fragile, and it’s possible that the particulars of your portfolio’s contents triggers output that fails to import. If this is the case, at step (4) above, instead of a list of stock symbols you would see a long list of positions that look like XML tags (this is how failure manifests itself). If that is the case, send email to the mailing-list (best if you can isolate the positions that trigger breakage and have the capability to diff files and do some troubleshooting).</p>
+<h3 id="mutual-funds-vs-stocks">Mutual Funds vs. Stocks<a id="mutual-funds-vs.-stocks"></a><a class="headerlink" href="#mutual-funds-vs-stocks" title="Permanent link"></a></h3>
+<p>The OFX format distinguishes between stocks and mutual funds. In practice, the Google Finance importer does not appear to distinguish between these two (at least it appears to behave the same way), so this is likely an irrelevant implementation detail. Nevertheless, the export code is able to honor the OFX convention of distinguishing between “BUYMF” vs. “BUYSTOCK” XML elements.</p>
+<p>To this effect, the export code attempts to classify which commodities represent mutual funds by inspecting whether the ticker associated with the commodity begins with the letters “MUTF” and is followed by a colon. For example, “<code>MUTF:RGAGX</code>” and “<code>MUTF_CA:RBF1005</code>" will both be detected as mutual funds, for example.</p>
+<h3 id="debugging-the-export">Debugging the Export<a id="debugging-the-export"></a><a class="headerlink" href="#debugging-the-export" title="Permanent link"></a></h3>
+<p>In order to debug how each of your holdings gets exported, use the <code>--debug</code> flag, which will print a detailed account of how each holding is handled by the export script to <strong>stderr</strong>:</p>
+<pre><code>bean-report file.beancount export_portfolio --debug 2&gt;&amp;1 &gt;/dev/null | more
+</code></pre>
+<p>The script should print the list of exported positions and their corresponding holdings, then the list of converted positions and their corresponding holdings (usually many cash positions are aggregated together) and finally, the list of ignored holdings. This should be enough to explain the entire contents of the exported portfolio.</p>
+<h3 id="purchase-dates">Purchase Dates<a id="purchase-dates"></a><a class="headerlink" href="#purchase-dates" title="Permanent link"></a></h3>
+<p>Beancount does not currently have all the lot purchase dates, so the purchase dates are exported as if purchased the day before the export.</p>
+<p>Eventually, when the purchase date is available in Beancount (pending the <a href="http://furius.ca/beancount/doc/booking-proposal"><span class="underline">inventory booking changes</span></a>) the actual lot purchase date will probably be used in the export format. However, it’s not yet clear that using the correct date is the right thing to do, because Google Finance might insist on inserting cash for dividends since the reported purchase date… but Beancount already takes care of inserting a special lot for cash that should already include this. We shall see when we get there.</p>
+<h3 id="disable-dividends">Disable Dividends<a id="disable-dividends"></a><a class="headerlink" href="#disable-dividends" title="Permanent link"></a></h3>
+<p>Under the “Edit Portfolio” option there is a checkbox that appears to disable the calculation of dividends offered. It would be nice to find a way to automatically disable this checkbox upon import.</p>
+<h3 id="automate-upload">Automate Upload<a id="automate-upload"></a><a class="headerlink" href="#automate-upload" title="Permanent link"></a></h3>
+<p>It would be nice to automate the replacement of the portfolio with a Python script. Unfortunately, the Google Finance API has been deprecated. Maybe someone can write a screen-scraping routine to do this.</p>
+<h2 id="summary">Summary<a id="summary"></a><a class="headerlink" href="#summary" title="Permanent link"></a></h2>
+<p>Each holding’s export can be controlled by how its commodity is treated, in one of the following ways:</p>
+<ol>
+<li>
+<p><strong>Exported</strong> to a portfolio position. This is the default, but you should specify the ticker symbol using the “<code>ticker</code>” or “<code>export</code>” metadata fields, in “<em>ExchangeCode:Symbol</em>” format.</p>
+</li>
+<li>
+<p><strong>Converted</strong> to cash and exported to a money market cash-equivalent position, by setting the value of the “<code>export</code>” metadata field to the special value “<code>CASH</code>”.</p>
+</li>
+<li>
+<p><strong>Ignored</strong> by specifying the “<code>export</code>” metadata field to the special value “<code>IGNORE</code>”.</p>
+</li>
+<li>
+<p>Provided as <strong>Money Instrument</strong>, to be used for cash-equivalent value of each holding intended to be converted to cash and included in the portfolio. These are identified by a special value “(<code>MONEY:&lt;currency&gt;)</code>” in the “<code>export</code>” metadata field.</p>
+</li>
+</ol>
+</div>
+</div>
+<footer>
+<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-right" href="tutorial_example.html" title="Tutorial &amp; Example">Next <span class="icon icon-circle-arrow-right"></span></a>
+<a class="btn btn-neutral" href="how_inventories_work.html" title="How Inventories Work"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<a class="fa fa-github" href="https://github.com/beancount/docs/" style="float: left; color: #fcfcfc"> GitHub</a>
+<span><a href="how_inventories_work.html" style="color: #fcfcfc;">« Previous</a></span>
+<span style="margin-left: 15px"><a href="tutorial_example.html" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script>var base_url = '.';</script>
+<script defer="" src="js/theme.js"></script>
+<script defer="" src="js/extra.js"></script>
+<script defer="" src="search/main.js"></script>
+<script defer="">
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+</body>
+</html>

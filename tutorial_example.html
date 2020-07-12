@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://beancount.github.io/docs/tutorial_example.html" rel="canonical"/>
+<link href="img/favicon.ico" rel="shortcut icon"/>
+<title>Tutorial &amp; Example - Beancount Documentation</title>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
+<link href="css/theme.css" rel="stylesheet">
+<link href="css/theme_extra.css" rel="stylesheet"/>
+<link href="css/custom.css" rel="stylesheet"/>
+<script>
+    // Current page data
+    var mkdocs_page_name = "Tutorial & Example";
+    var mkdocs_page_input_path = "tutorial_example.md";
+    var mkdocs_page_url = "/docs/tutorial_example.html";
+  </script>
+<script defer="" src="js/jquery-2.1.1.min.js"></script>
+<script defer="" src="js/modernizr-2.8.3.min.js"></script>
+</link></link></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="."> Beancount Documentation</a>
+<div role="search">
+<form action="./search.html" class="wy-form" id="rtd-search-form" method="get">
+<input name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Index</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Outline</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal current" href="#">Documentation for Users</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="command_line_accounting_in_context.html">Command Line Accounting in Context</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="the_double_entry_counting_method.html">The Double Entry Counting Method</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installing_beancount.html">Installing Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started_with_beancount.html">Getting Started with Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="beancount_language_syntax.html">Beancount Language Syntax</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="beancount_options_reference.html">Beancount Options Reference</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="precision_tolerances.html">Precision Tolerances</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="beancount_query_language.html">Beancount Query Language</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="how_inventories_work.html">How Inventories Work</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exporting_your_portfolio.html">Exporting Your Portfolio</a>
+</li>
+<li class="toctree-l2 current"><a class="reference internal current" href="tutorial_example.html">Tutorial &amp; Example</a>
+<ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#example-file-generator">Example File Generator</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#converting-to-ledger-input">Converting to Ledger Input</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#profile-of-example-user">Profile of Example User</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#future-additions">Future Additions</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tutorial">Tutorial</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#generate-an-example-file">Generate an Example File</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#generating-reports">Generating Reports</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#generating-balances">Generating Balances</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#formatting-tools">Formatting Tools</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#generating-a-balance-sheet-and-income-statement">Generating a Balance Sheet and Income Statement</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#journals">Journals</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#holdings">Holdings</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#other-reports">Other Reports</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#other-formats">Other Formats</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#viewing-reports-through-the-web-interface">Viewing Reports through the Web Interface</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#the-future-of-beancount-reports">The Future of Beancount Reports</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="beancount_history_and_credits.html">Beancount History and Credits</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="importing_external_data.html">Importing External Data</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#">Cookbooks &amp; Examples</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="trading_with_beancount.html">Trading with Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="how_we_share_expenses.html">How We Share Expenses</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="health_care_expenses.html">Health Care Expenses</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#">Documentation for Developers</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="beancount_design_doc.html">Beancount Design Doc</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="external_contributions.html">External Contributions</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#">Enhancement Proposals &amp; Discussions</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/index.html">beancount</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.core.html">beancount.core</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ingest.html">beancount.ingest</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.loader.html">beancount.loader</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ops.html">beancount.ops</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.parser.html">beancount.parser</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.plugins.html">beancount.plugins</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.prices.html">beancount.prices</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.query.html">beancount.query</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.reports.html">beancount.reports</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.scripts.html">beancount.scripts</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.tools.html">beancount.tools</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.utils.html">beancount.utils</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.web.html">beancount.web</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href=".">Beancount Documentation</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a href=".">Docs</a> »</li>
+<li>Documentation for Users »</li>
+<li>Outline »</li>
+<li>Tutorial &amp; Example</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/beancount/docs/edit/master/docs/tutorial_example.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div role="main">
+<div class="section">
+<h1 id="beancount-example-tutorial">Beancount Example &amp; Tutorial<a id="title"></a><a class="headerlink" href="#beancount-example-tutorial" title="Permanent link"></a></h1>
+<p><a href="mailto:blais@furius.ca"><span class="underline">Martin Blais</span></a>, October 2014</p>
+<p><a href="http://furius.ca/beancount/doc/example"><span class="underline">http://furius.ca/beancount/doc/example</span></a></p>
+<blockquote>
+<p><a href="#example-file-generator"><span class="underline">Example File Generator</span></a></p>
+<p><a href="#converting-to-ledger-input"><span class="underline">Converting to Ledger Input</span></a></p>
+<p><a href="#profile-of-example-user"><span class="underline">Profile of Example User</span></a></p>
+<p><a href="#future-additions"><span class="underline">Future Additions</span></a></p>
+<p><a href="#tutorial"><span class="underline">Tutorial</span></a></p>
+<p><a href="#generate-an-example-file"><span class="underline">Generate an Example File</span></a></p>
+<p><a href="#generating-reports"><span class="underline">Generating Reports</span></a></p>
+<p><a href="#generating-balances"><span class="underline">Generating Balances</span></a></p>
+<p><a href="#generating-a-balance-sheet-and-income-statement"><span class="underline">Generating a Balance Sheet and Income Statement</span></a></p>
+<p><a href="#journals"><span class="underline">Journals</span></a></p>
+<p><a href="#holdings"><span class="underline">Holdings</span></a></p>
+<p><a href="#other-reports"><span class="underline">Other Reports</span></a></p>
+<p><a href="#other-formats"><span class="underline">Other Formats</span></a></p>
+<p><a href="#viewing-reports-through-the-web-interface"><span class="underline">Viewing Reports through the Web Interface</span></a></p>
+<p><a href="#the-future-of-beancount-reports"><span class="underline">The Future of Beancount Reports</span></a></p>
+</blockquote>
+<h2 id="example-file-generator">Example File Generator<a id="example-file-generator"></a><a class="headerlink" href="#example-file-generator" title="Permanent link"></a></h2>
+<p>Beancount has a command to generate a few years of a realistic user’s historical entries:</p>
+<pre><code>bean-example &gt; example.beancount
+</code></pre>
+<p>The script checks if the output fails to process cleanly in Beancount (if this occurs, try rerunning or contact the author at <a href="mailto:blais@furius.ca"><span class="underline">blais@furius.ca</span></a>). Note that there is an option to fix the random generator’s seed to be used to generate the entries.</p>
+<p>You can generate multiple years of ledger data for this user; see available options with</p>
+<pre><code>bean-example --help
+</code></pre>
+<p>The purpose of the script is:</p>
+<ul>
+<li>
+<p>To provide a realistic corpus of anonymous data for users to experiment with, to kick the tires of Beancount, generate reports, etc.</p>
+</li>
+<li>
+<p>To compare reports with those generated by Ledger.</p>
+</li>
+<li>
+<p>As an example file to be used in this tutorial.</p>
+</li>
+<li>
+<p>As input for stress testing Beancount.</p>
+</li>
+</ul>
+<h3 id="converting-to-ledger-input">Converting to Ledger Input<a id="converting-to-ledger-input"></a><a class="headerlink" href="#converting-to-ledger-input" title="Permanent link"></a></h3>
+<p>It should be possible to convert example files generated from the script to Ledger syntax, like this:</p>
+<pre><code>bean-report example.beancount ledger &gt; example.lgr
+</code></pre>
+<p>If you encounter any problems with the conversion, please let me know. While I have an automated test to check that the conversion succeeds, I’m focusing my efforts on Beancount itself and I’m not using Ledger much other than for the occasional comparison or for illustrating something on the mailing-list.</p>
+<h2 id="profile-of-example-user">Profile of Example User<a id="profile-of-example-user"></a><a class="headerlink" href="#profile-of-example-user" title="Permanent link"></a></h2>
+<p>Here’s a high-level profile of this user. In the text that follows, I’ll use the masculine “he” for simplicity’s sake.</p>
+<ul>
+<li>
+<p>He lives somewhere in the USA and uses a single operating currency: “USD”. He rents an apartment.</p>
+</li>
+<li>
+<p><strong>Income</strong>: He is a software engineer (sorry I could not resist), receives a modest salary income from a software company.</p>
+<ul>
+<li>
+<p>He is paid bi-weekly.</p>
+</li>
+<li>
+<p>He maximizes contributions to his company’s 401k plan. His company offers a match to his contributions.</p>
+</li>
+<li>
+<p>His salary is paid as a direct deposit to his checking account.</p>
+</li>
+<li>
+<p>He benefits from and pays premiums for a health insurance plan provided by his employer.</p>
+</li>
+<li>
+<p>He tracks his vacation hours explicitly.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Expenses</strong>:</p>
+<ul>
+<li>
+<p><strong>Checking account</strong>: He pays his apartment’s rent by check. He also pays his electricity, internet ISP and mobile phone bills directly from his checking account. His bank also takes a monthly bank fee.</p>
+</li>
+<li>
+<p><strong>Credit cards</strong>: He also has other regular expenses, such as groceries and restaurant outings with friends, which he pays from his credit card.</p>
+</li>
+</ul>
+</li>
+</ul>
+<!-- -->
+<ul>
+<li>
+<p><strong>Assets</strong>:</p>
+<ul>
+<li>
+<p><strong>Banking</strong>: He has an account at a major US bank.</p>
+</li>
+<li>
+<p><strong>Retirement account</strong>: His 401k account is held at Fidelity or Vanguard and is allocated in its entirety to two funds, a mix of stocks and bonds. There are never any sales in this account. This account is held at average cost.</p>
+</li>
+<li>
+<p><strong>Other investments</strong>: Extra money that he is able to save is transferred from his checking account towards a taxable investment account in which he purchases a mix of stocks and ETFs, and occasionally makes sales and realizes profits.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Liabilities</strong>:</p>
+<ul>
+<li><strong>Credit cards</strong>: He has one or two credit cards issued by another bank.</li>
+</ul>
+</li>
+<li>
+<p><strong>Events/Tags</strong>: He takes a short vacation or two per year, where he travels somewhere fun.</p>
+</li>
+</ul>
+<h3 id="future-additions">Future Additions<a id="future-additions"></a><a class="headerlink" href="#future-additions" title="Permanent link"></a></h3>
+<p>Note that as I beef up the example generator script, this profile will increase in complexity. If there is a particular situation from the <a href="command_line_accounting_cookbook.html"><span class="underline">cookbook</span></a> or otherwise that you’d like to see in the example file, please let me know (a patch is the best way to let me know).</p>
+<ul>
+<li>
+<p>Generate fake PDF files for documents (from an option) along with suitable document directives for them, most of them implicit but some explicit.</p>
+</li>
+<li>
+<p>Generate more expenses:</p>
+<ul>
+<li>
+<p>Some amount of realistic cash expenses.</p>
+</li>
+<li>
+<p>Add a vehicle: car repairs, gas, etc. Remove tram example, it is too urban-specific.</p>
+</li>
+<li>
+<p>Add donations for charity.</p>
+</li>
+<li>
+<p>Add a second credit card and vary sources of expenses.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Add some real uses for links, for the 401k match, for instance, the employer contributions should be linked with the employee contributions. Or other ones.</p>
+</li>
+<li>
+<p>Generate a loan and payments for a student loan. Having a large liability is a common case, I’d like to represent that, even if it’s not a mortgage.</p>
+</li>
+<li>
+<p>Convert retirement accounts to book using the average cost method, and add corresponding fees which would otherwise be impossible to track with explicit lots.</p>
+</li>
+<li>
+<p>Add tracking of health care expenses as per the cookbook.</p>
+</li>
+<li>
+<p>Add foreign accounts in another currency and transactions and transfers in that currency.</p>
+</li>
+</ul>
+<h2 id="tutorial">Tutorial<a id="tutorial"></a><a class="headerlink" href="#tutorial" title="Permanent link"></a></h2>
+<p>This section provides basic examples of generating reports with Beancount, on the typical example file that would be output by it. The list of reports here is not meant to be exhaustive.</p>
+<p>You may follow the tutorial and generate your own example file, or look at the files from <a href="http://bitbucket.org/blais/beancount/src/tip/examples/tutorial/"><span class="underline">beancount/examples/tutorial</span></a> if you prefer.</p>
+<h3 id="generate-an-example-file">Generate an Example File<a id="generate-an-example-file"></a><a class="headerlink" href="#generate-an-example-file" title="Permanent link"></a></h3>
+<p>Begin by generating the example file:</p>
+<pre><code>bean-example &gt; example.beancount
+</code></pre>
+<p>Open <code>example.beancount</code> and examine it.</p>
+<p>Next, before we begin generating reports, verify that the file loads without any errors:</p>
+<pre><code>bean-check example.beancount
+</code></pre>
+<p>It should return quietly, without outputting anything (bean-check only writes errors when there are some, otherwise on success it writes nothing).</p>
+<h3 id="generating-reports">Generating Reports<a id="generating-reports"></a><a class="headerlink" href="#generating-reports" title="Permanent link"></a></h3>
+<p>Let’s generate a report of the final balances of all accounts <a href="http://furius.ca/beancount/examples/tutorial/balances.output"><span class="underline">[output]</span></a>:</p>
+<pre><code>bean-report example.beancount balances
+</code></pre>
+<p>As you can see, the bean-report script has subcommands for the various reports it generates. To list the available reports, use --help-reports <a href="http://furius.ca/beancount/examples/tutorial/help-reports.output"><span class="underline">[output]</span></a>:</p>
+<pre><code>bean-report --help-reports
+</code></pre>
+<p>To list the options available for a particular report, use --help on it <a href="http://furius.ca/beancount/examples/tutorial/help-subcmd.output"><span class="underline">[output]</span></a>:</p>
+<pre><code>bean-report example.beancount balances --help
+</code></pre>
+<p>The report-specific options vary for each report type.</p>
+<p>You can also list the global options for the script <a href="http://furius.ca/beancount/examples/tutorial/help-global.output"><span class="underline">[output]</span></a>:</p>
+<pre><code>bean-report --help
+</code></pre>
+<p>The global options allow you to specify the desired output format for the reports. To see which formats are available for which report, use --help-formats <a href="http://furius.ca/beancount/examples/tutorial/help-formats.output"><span class="underline">[output]</span></a>:</p>
+<pre><code>bean-report --help-formats
+</code></pre>
+<h3 id="generating-balances">Generating Balances<a id="generating-balances"></a><a class="headerlink" href="#generating-balances" title="Permanent link"></a></h3>
+<p>Good, so we know how to generate a report of balances for all accounts. This is a pretty detailed list of accounts though. Let’s just restrict the output to the accounts that we’re interested in <a href="http://furius.ca/beancount/examples/tutorial/balances-restrict.output"><span class="underline">[output]</span></a>:</p>
+<pre><code>bean-report example.beancount balances -e ETrade
+</code></pre>
+<p>Here you can view the number of units held in each of the investment subaccounts. To render the cost, use the --cost option <a href="http://furius.ca/beancount/examples/tutorial/balances-restrict-cost.output"><span class="underline">[output]</span></a>:</p>
+<pre><code>bean-report example.beancount balances -e ETrade --cost
+</code></pre>
+<h3 id="formatting-tools">Formatting Tools<a id="formatting-tools"></a><a class="headerlink" href="#formatting-tools" title="Permanent link"></a></h3>
+<p>Sometimes it’s nice to render a hierarchical list of accounts as a tree. You can use the “treeify” tool provided by Beancount to do this:</p>
+<pre><code>bean-report example.beancount balances | treeify
+</code></pre>
+<p>This tool will work on any column of data that looks like a column of account names (you can also configure it work with filenames as well, or other patterns).</p>
+<h3 id="generating-a-balance-sheet-and-income-statement">Generating a Balance Sheet and Income Statement<a id="generating-a-balance-sheet-and-income-statement"></a><a class="headerlink" href="#generating-a-balance-sheet-and-income-statement" title="Permanent link"></a></h3>
+<p>Let us generate a balance sheet:</p>
+<pre><code>bean-report example.beancount balsheet
+</code></pre>
+<p>Unfortunately, the only output format supported for it at this point is HTML. Also, filtering balance sheet entries from the command-line is not supported. Generate this to a file and open a browser to it <a href="http://furius.ca/beancount/examples/tutorial/balsheet.output"><span class="underline">[output]</span></a>:</p>
+<pre><code>bean-report example.beancount balsheet &gt; /tmp/balsheet.html
+</code></pre>
+<p>You can to the same for income statements:</p>
+<pre><code>bean-report example.beancount income &gt; /tmp/income.html
+</code></pre>
+<h3 id="journals">Journals<a id="journals"></a><a class="headerlink" href="#journals" title="Permanent link"></a></h3>
+<p>You can also generate journals (in Ledger parlance, these are “registers”). Let’s look at a checking account postings, for instance <a href="http://furius.ca/beancount/examples/tutorial/journal.output"><span class="underline">[output]</span></a>:</p>
+<pre><code>bean-report example.beancount journal -a Assets:US:BofA:Checking
+</code></pre>
+<p>To render a column of running balances, add the --balance option <a href="http://furius.ca/beancount/examples/tutorial/journal-with-balance.output"><span class="underline">[output]</span></a>:</p>
+<pre><code>bean-report example.beancount journal -a Assets:US:BofA:Checking --balance
+</code></pre>
+<p>The inventories are rendered in the number of units they’re holding <a href="http://furius.ca/beancount/examples/tutorial/invest.output"><span class="underline">[output]</span></a>:</p>
+<pre><code>bean-report example.beancount journal -a Assets:US:ETrade:GLD
+</code></pre>
+<p>If you want to render the values at cost, use the --cost option <a href="http://furius.ca/beancount/examples/tutorial/invest-with-cost.output"><span class="underline">[output]</span></a>:</p>
+<pre><code>bean-report example.beancount journal -a Assets:US:ETrade:GLD --cost
+</code></pre>
+<p>To render journals, you will typically restrict the set of postings that you want to view. If you did not, the postings would render no change, because all the legs of the transactions would be applied to the running balance and the total would be zero. But try it, nonetheless <a href="http://furius.ca/beancount/examples/tutorial/journal-unrestricted.output"><span class="underline">[output]</span></a>:</p>
+<pre><code>bean-report example.beancount journal --balance
+</code></pre>
+<h3 id="holdings">Holdings<a id="holdings"></a><a class="headerlink" href="#holdings" title="Permanent link"></a></h3>
+<p>There are a variety of ways to obtain aggregations for the total list of holdings. List the detailed holdings <a href="http://furius.ca/beancount/examples/tutorial/holdings.output"><span class="underline">[output]</span></a>:</p>
+<pre><code>bean-report example.beancount holdings
+</code></pre>
+<p>To aggregate the holdings by account, do this <a href="http://furius.ca/beancount/examples/tutorial/holdings-by-account.output"><span class="underline">[output]</span></a>:</p>
+<pre><code>bean-report example.beancount holdings --by=account
+</code></pre>
+<p>Because it’s common practice to create and use a dedicated Beancount subaccount name for each commodity held in a real-world account, we can refine this further to aggregate to the parent (“root”) accounts of those subaccounts <a href="http://furius.ca/beancount/examples/tutorial/holdings-by-root-account.output"><span class="underline">[output]</span></a>:</p>
+<pre><code>bean-report example.beancount holdings --by=root-account
+</code></pre>
+<p>We can aggregate by commodity <a href="http://furius.ca/beancount/examples/tutorial/holdings-by-commodity.output"><span class="underline">[output]</span></a>:</p>
+<pre><code>bean-report example.beancount holdings --by=commodity
+</code></pre>
+<p>Or by the currency in which the commodities are quoted, which gives us a glimpse into our currency exposure <a href="http://furius.ca/beancount/examples/tutorial/holdings-by-currency.output"><span class="underline">[output]</span></a>:</p>
+<pre><code>bean-report example.beancount holdings --by=currency
+</code></pre>
+<p>Finally, we can aggregate all the holdings to obtain net worth <a href="http://furius.ca/beancount/examples/tutorial/networth.output"><span class="underline">[output]</span></a>:</p>
+<pre><code>bean-report example.beancount networth
+</code></pre>
+<p>There are a few more options for converting amounts to a common currency. See help for details.</p>
+<h3 id="other-reports">Other Reports<a id="other-reports"></a><a class="headerlink" href="#other-reports" title="Permanent link"></a></h3>
+<p>There are many other miscellaneous reports available. Try a few of those.</p>
+<p>Listing all accounts <a href="http://furius.ca/beancount/examples/tutorial/accounts.output"><span class="underline">[output]</span></a>:</p>
+<pre><code>bean-report example.beancount accounts
+</code></pre>
+<p>Listing events <a href="http://furius.ca/beancount/examples/tutorial/events.output"><span class="underline">[output]</span></a>:</p>
+<pre><code>bean-report example.beancount events
+</code></pre>
+<p>Number of directives by type <a href="http://furius.ca/beancount/examples/tutorial/stats-directives.output"><span class="underline">[output]</span></a>:</p>
+<pre><code>bean-report example.beancount stats-directives
+</code></pre>
+<p>Number of postings by type <a href="http://furius.ca/beancount/examples/tutorial/stats-postings.output"><span class="underline">[output]</span></a>:</p>
+<pre><code>bean-report example.beancount stats-postings
+</code></pre>
+<h3 id="other-formats">Other Formats<a id="other-formats"></a><a class="headerlink" href="#other-formats" title="Permanent link"></a></h3>
+<p>Reports may support various output formats. You can change the output format with the --format (-f) global option <a href="http://furius.ca/beancount/examples/tutorial/holdings-csv.output"><span class="underline">[output]</span></a>:</p>
+<pre><code>bean-report -f csv example.beancount holdings
+</code></pre>
+<p>Note that “beancount” and “ledger” are valid output formats: they refer to the Beancount and Ledger input syntaxes.</p>
+<h3 id="viewing-reports-through-the-web-interface">Viewing Reports through the Web Interface<a id="viewing-reports-through-the-web-interface"></a><a class="headerlink" href="#viewing-reports-through-the-web-interface" title="Permanent link"></a></h3>
+<p>The original way to access reports in Beancount is via its web interface that serves to a local web server on your machine. Serve the example file like this:</p>
+<pre><code>bean-web example.beancount
+</code></pre>
+<p>Then navigate with a web browser to <a href="http://localhost:8080"><span class="underline">http://localhost:8080</span></a>. From there, you can click on any number of filtered views and access some of the reports previously demonstrated. For example, click on a year view; that will provide balance sheets and income statements and various other reports for this subset of transactions.</p>
+<p>The bean-web tool has many options for restricting what is being served. (Note that by default the server listens only for connections from your computer; if you want to host this on a web server and accept connections from anywhere, use <code>--public</code>).</p>
+<p><em>Note: There exists a separate project which provides a better web interface than the one which comes with Beancount: <a href="https://github.com/aumayr/fava"><span class="underline">Fava</span></a>. You might want to check it out.</em></p>
+<h2 id="the-future-of-beancount-reports">The Future of Beancount Reports<a id="the-future-of-beancount-reports"></a><a class="headerlink" href="#the-future-of-beancount-reports" title="Permanent link"></a></h2>
+<p>I find my command-line reports above to be rather unsatisfying, from the point-of-view of customizability. They bother me a lot. This is largely because I’ve been happy and satisfied with the capabilities of the web interface to Beancount. As I’m beginning to use the command-line interface more and more, I’m finding myself desiring for more explicit and well-defined way to apply all the filters I have available from the web interface, and more. For this reason, I’m <a href="http://furius.ca/beancount/doc/proposal-filtering"><span class="underline">currently implementing a query language that looks similar to SQL</span></a>. This syntax will allow me to remove all the custom reports above and to replace them by a single consistent query syntax. This work is underway.</p>
+<p>All the holdings reports and even their internal objects will be replaced by the SQL-like query syntax as well. Holdings need not be treated separately: they are simply the list of positions available at a particular point in time, and along with suitable accessors from the query syntax and support for aggregations over their many columns, we should be able to generate all of those reports equivalently and simplify the code.</p>
+<p><em>— Martin Blais, October 2014</em></p>
+</div>
+</div>
+<footer>
+<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-right" href="beancount_history_and_credits.html" title="Beancount History and Credits">Next <span class="icon icon-circle-arrow-right"></span></a>
+<a class="btn btn-neutral" href="exporting_your_portfolio.html" title="Exporting Your Portfolio"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<a class="fa fa-github" href="https://github.com/beancount/docs/" style="float: left; color: #fcfcfc"> GitHub</a>
+<span><a href="exporting_your_portfolio.html" style="color: #fcfcfc;">« Previous</a></span>
+<span style="margin-left: 15px"><a href="beancount_history_and_credits.html" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script>var base_url = '.';</script>
+<script defer="" src="js/theme.js"></script>
+<script defer="" src="js/extra.js"></script>
+<script defer="" src="search/main.js"></script>
+<script defer="">
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+</body>
+</html>

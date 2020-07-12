@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://beancount.github.io/docs/health_care_expenses.html" rel="canonical"/>
+<link href="img/favicon.ico" rel="shortcut icon"/>
+<title>Health Care Expenses - Beancount Documentation</title>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
+<link href="css/theme.css" rel="stylesheet">
+<link href="css/theme_extra.css" rel="stylesheet"/>
+<link href="css/custom.css" rel="stylesheet"/>
+<script>
+    // Current page data
+    var mkdocs_page_name = "Health Care Expenses";
+    var mkdocs_page_input_path = "health_care_expenses.md";
+    var mkdocs_page_url = "/docs/health_care_expenses.html";
+  </script>
+<script defer="" src="js/jquery-2.1.1.min.js"></script>
+<script defer="" src="js/modernizr-2.8.3.min.js"></script>
+</link></link></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="."> Beancount Documentation</a>
+<div role="search">
+<form action="./search.html" class="wy-form" id="rtd-search-form" method="get">
+<input name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Index</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Outline</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="#">Documentation for Users</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="command_line_accounting_in_context.html">Command Line Accounting in Context</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="the_double_entry_counting_method.html">The Double Entry Counting Method</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installing_beancount.html">Installing Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started_with_beancount.html">Getting Started with Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="beancount_language_syntax.html">Beancount Language Syntax</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="beancount_options_reference.html">Beancount Options Reference</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="precision_tolerances.html">Precision Tolerances</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="beancount_query_language.html">Beancount Query Language</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="how_inventories_work.html">How Inventories Work</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exporting_your_portfolio.html">Exporting Your Portfolio</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_example.html">Tutorial &amp; Example</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="beancount_history_and_credits.html">Beancount History and Credits</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="importing_external_data.html">Importing External Data</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal current" href="#">Cookbooks &amp; Examples</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="trading_with_beancount.html">Trading with Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="how_we_share_expenses.html">How We Share Expenses</a>
+</li>
+<li class="toctree-l2 current"><a class="reference internal current" href="health_care_expenses.html">Health Care Expenses</a>
+<ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#accounting-with-no-insurance-plan-the-naive-way">Accounting With No Insurance Plan - The Naive Way</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#counting-the-cash-payments-the-incorrect-way">Counting the Cash Payments - The Incorrect Way</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#how-health-care-insurance-payments-work">How Health Care Insurance Payments Work</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#provider-networks">Provider Networks</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#accruing-on-service-date-the-correct-way">Accruing on Service Date - The Correct Way</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#in-network-providers">In-Network Providers</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#out-of-network-providers">Out-of-Network Providers</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tracking-deductible-and-copayment-limits">Tracking Deductible and Copayment Limits</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#insurance-premiums">Insurance Premiums</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#drugs">Drugs</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#">Documentation for Developers</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="beancount_design_doc.html">Beancount Design Doc</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="external_contributions.html">External Contributions</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#">Enhancement Proposals &amp; Discussions</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/index.html">beancount</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.core.html">beancount.core</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ingest.html">beancount.ingest</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.loader.html">beancount.loader</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ops.html">beancount.ops</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.parser.html">beancount.parser</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.plugins.html">beancount.plugins</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.prices.html">beancount.prices</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.query.html">beancount.query</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.reports.html">beancount.reports</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.scripts.html">beancount.scripts</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.tools.html">beancount.tools</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.utils.html">beancount.utils</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.web.html">beancount.web</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href=".">Beancount Documentation</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a href=".">Docs</a> »</li>
+<li>Cookbooks &amp; Examples »</li>
+<li>Outline »</li>
+<li>Health Care Expenses</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/beancount/docs/edit/master/docs/health_care_expenses.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div role="main">
+<div class="section">
+<h1 id="health-care-expenses">Health Care Expenses<a id="title"></a><a class="headerlink" href="#health-care-expenses" title="Permanent link"></a></h1>
+<p><a href="mailto:blais@furius.ca"><span class="underline">Martin Blais</span></a>, July 2014</p>
+<p><em>This is incomplete, work-in-progress, not released yet.</em></p>
+<p>Accounting for your health care expenses is a little different than regular expenses because of the various maximums imposed by your insurance plan. For the purpose of this section, we will assume a context of privatized health care system as is present in the USA, but the same principles may apply to other countries (if anything, it will be simpler).</p>
+<h3 id="accounting-with-no-insurance-plan-the-naive-way">Accounting With No Insurance Plan - The Naive Way<a id="accounting-with-no-insurance-plan---the-naive-way"></a><a class="headerlink" href="#accounting-with-no-insurance-plan-the-naive-way" title="Permanent link"></a></h3>
+<p>So what’s so different about health care expenses? You might argue that they should be treated the same as other expenses. Say, we could define a few categories like these:</p>
+<pre><code>1973-04-27 open Expenses:Health:Medical
+1973-04-27 open Expenses:Health:Dental
+1973-04-27 open Expenses:Health:Vision
+1973-04-27 open Expenses:Health:Drugs
+1973-04-27 open Expenses:Health:Acupuncture
+1973-04-27 open Expenses:Health:Massage-Therapy
+1973-04-27 open Expenses:Health:Physical-Therapy
+</code></pre>
+<p>And simply book outflows of moneys to them when you spend on one of these categories:</p>
+<pre><code>2014-01-08 * "CityPT" "Copay for PT session w/ Rob on 12/28"
+  Liabilities:US:BofA:Credit-Card     -25 USD
+  Expenses:Health:Physical-Therapy     25 USD
+</code></pre>
+<p>In fact, this would be work just fine if you paid for all of your health care costs out-of-pocket. If that is your situation, this is what you should do. It’s straightforward.</p>
+<p>The problem is that in practice, the great majority of people don’t pay for health care costs themselves. The great majority of your health-related costs are paid for by your insurance. This does not mean that there are no costs: your insurance usually only pays for a portion of the actual expenses, depending on the service. In particular, depending on your insurance plan, in any calendar year you pay for 100% of your health care costs up to a fixed amount (usually a few hundred dollars). This is called the <em>deductible</em> amount. Heretofore, you pay a percentage of the service (the <em>copayment</em> amounts<em>)</em>, and after a higher limit amount (the <em>out-of-pocket maximum</em> amount), you don’t pay anything anymore; plans with such limits guarantee that you will never pay more than this amount.</p>
+<p>If you booked the amounts that you pay for your deductible, the scale of the expenses that would get reflected on your income statement would depend mostly on which type of service you <em>happened to use first</em> after January 1st. It would not accurately reflect the cost of each service that you use. It would not be that useful.</p>
+<h3 id="counting-the-cash-payments-the-incorrect-way">Counting the Cash Payments - The Incorrect Way<a id="counting-the-cash-payments---the-incorrect-way"></a><a class="headerlink" href="#counting-the-cash-payments-the-incorrect-way" title="Permanent link"></a></h3>
+<p>So you might argue that you should instead book the same outflows of money to categories that reflect their true nature:</p>
+<pre><code>1973-04-27 open Expenses:Health:Medical:Deductible
+1973-04-27 open Expenses:Health:Medical:Copayments
+1973-04-27 open Expenses:Health:Vision:Deductible
+1973-04-27 open Expenses:Health:Vision:Copayments
+1973-04-27 open Expenses:Health:Dental:Deductible
+1973-04-27 open Expenses:Health:Dental:Copayments
+</code></pre>
+<p>Then booking the payments to those categories:</p>
+<pre><code>2014-01-08 * "CityPT" "Copay for PT session w/ Rob on 12/28"
+  Liabilities:US:BofA:Credit-Card     -25 USD
+  Expenses:Health:Medical:Copayments   25 USD
+</code></pre>
+<p>But this is largely unsatisfying, for a few reasons: while this tracks how much of was paid in total in deductible and copayments, it does not reflect anything about how much of a particular health provider services was used.</p>
+<p>More importantly, it is incorrect, because deductible and copayment limits apply to each calendar year for dates when the service was provided, not when it was paid for. In other words, if you received the service on December 28th, 2013 but paid for it the year following on January 8th, 2014, the copayment accrual is going towards the wrong year. In order to do this correctly, you must accrue the deductible and copayment amounts on the <em>date of service</em>, which is always provided on the documents your insurance company provides (the <em>Explanation of Benefits</em>, more later about this). The date of service is the date you actually were seen by the provider.</p>
+<p>Another solution would be to define accounts for each year, similarly to tax accounts (see chapter on Taxes):</p>
+<pre><code>2012-01-01 open Expenses:Health:Medical:Y2012:Deductible
+2012-01-01 open Expenses:Health:Medical:Y2012:Copayments
+2013-01-01 open Expenses:Health:Medical:Y2013:Deductible
+2013-01-01 open Expenses:Health:Medical:Y2013:Copayments
+2014-01-01 open Expenses:Health:Medical:Y2014:Deductible
+2014-01-91 open Expenses:Health:Medical:Y2014:Copayments
+2014-01-01 open Expenses:Health:Dental:Y2012:Deductible
+2014-01-91 open Expenses:Health:Dental:Y2012:Copayments
+…
+</code></pre>
+<p>Then when you book your expense, you could use the account corresponding to the year the service was received:</p>
+<pre><code>2014-01-08 * "CityPT" "Copay for PT session w/ Rob on 12/28"
+  Liabilities:US:BofA:Credit-Card          -25 USD
+  Expenses:Health:Medical:Y2013:Copayments  25 USD
+</code></pre>
+<p>This is not a nice solution however, due to the proliferation of accounts that need to get created for each year, and it still does not tell us how much of each service we’ve consumed. We clearly need a better solution.</p>
+<h3 id="how-health-care-insurance-payments-work">How Health Care Insurance Payments Work<a id="how-health-care-insurance-payments-work"></a><a class="headerlink" href="#how-health-care-insurance-payments-work" title="Permanent link"></a></h3>
+<p>Let’s first review how insurance payments work, as it will be needed to have a basic understanding of claims payments to correctly account for these costs.</p>
+<p>For each service, your insurance covers a portion of it and you normally pay the difference. The way that this works is that your doctor sends a bill to the insurance company and the insurance company either (a) responds to them directly with payment for the covered part of the service, or (b) the insurance company sends you a check and you are meant to sign it over to your doctor (usually after some annoying reminders for you to do so). Sometimes, but not always, your insurance company sends you a report of the doctor’s claim. This document is called an <em>explanation of benefits</em> or “EOB”, and it details the portion of the service that the insurance paid for, the portion that you’re responsible to pay for, and other amounts. Service providers that have no direct relationship with your insurance company will need this detail. This is a useful document for the purpose of accounting: make sure to keep a copy for yourself<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
+<p>Here is a sample from an EOB, with the important areas highlighted:</p>
+<p><img alt="eob-in.png" src="health_care_expenses/media/c761f3ffaf9104d3c7daf3acf520e1892ae5c74f.png" style="width:6.5in;height:3.16667in"/></p>
+<p>The example above exhibits the following amounts:</p>
+<ul>
+<li>
+<p><strong>Claims/Billed.</strong> How much the doctor asked the insurance for the service.</p>
+</li>
+<li>
+<p><strong>Patient Savings.</strong> How much the service was reduced as a result of pre-established negotiations with the provider (for in-network providers).</p>
+</li>
+<li>
+<p><strong>Applied to Deductible.</strong> How much of this service you need to cover yourself as part of this calendar year’s deductible amount. You need to pay this.</p>
+</li>
+<li>
+<p><strong>Copayments.</strong> The portion of the service not covered by the insurance. You have to pay this.</p>
+</li>
+<li>
+<p><strong>Claims Payments.</strong> How much the insurance actually sent a check to the provider for.</p>
+</li>
+</ul>
+<p>The terminology used on the EOB provided by your insurance company may vary slightly, but you should be able to find corresponding amounts easily.</p>
+<p>The doctor’s billing dept. then sends you a bill for the uncovered portion<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> and you issue them a payment, by credit card, check or otherwise. Consider this a payable when the bill or EOB arrives at your door.</p>
+<p>All in all, there are four dates relevant to a claim:</p>
+<ul>
+<li>
+<p><strong>Date of Service.</strong> That is the date you visited the doctor’s office, the date you received the service. This is the date relevant for accounting for deductibles and copayments.</p>
+</li>
+<li>
+<p><strong>Date of Issue.</strong> The date that the claim was processed by the insurance. You may ignore this.</p>
+</li>
+<li>
+<p><strong>Billing Date.</strong> The date the provider receive payments for its claim and issue you a bill for the remaining portion. We don’t care much about this either.</p>
+</li>
+<li>
+<p><strong>Date of Payment.</strong> The date you made the payment. This will automatically appear on your credit card or checking account statement, or if you paid cash, you need to enter this manually (as you do all cash transactions you care about).</p>
+</li>
+</ul>
+<p>The most important date when you refer to any claim is the <em>date of service</em>. If you scan and file your EOBs to documents, it is wise to rename them to include this date in the filename.</p>
+<h3 id="provider-networks">Provider Networks<a id="provider-networks"></a><a class="headerlink" href="#provider-networks" title="Permanent link"></a></h3>
+<p>In the USA, each medical professional (or “service provider”) decides whether to maintain an established arrangement with each insurance company, depending on their rates of payment and on how much of a pain they are about paying up bills. When they do, they are considered an “in-network provider” by the insurance company. Otherwise they are considered an “out-of-network provider” and the proportion of the services that the insurance covers is much smaller. That’s the only difference. The list of providers that an insurance has in their network—and how difficult they are about refusing to pay bills—is usually a major consideration in the selection of an insurance plan, for someone who has a choice.</p>
+<p>But because most employers compete on compensation benefits by paying for their employees’ health care insurance costs, as well as the fact that they are usually able to negotiate better rates from insurance companies than an individual can because they represent a large pool of customers (the employees), the great majority of people with jobs end up choosing their employer’s plan and then try to go to in-network providers. This is not always possible, however: your family doctor may decide to stop accepting your insurance as in-network during the course of the year, and you might prefer to maintain an established relationship with your doctor rather than switch, so you end up having to pay a bit more. The bottom line is that in a typical year, you usually use some services of both in-network and out-of-network professionals and you have to account for both of these costs.</p>
+<h3 id="accruing-on-service-date-the-correct-way">Accruing on Service Date - The Correct Way<a id="accruing-on-service-date---the-correct-way"></a><a class="headerlink" href="#accruing-on-service-date-the-correct-way" title="Permanent link"></a></h3>
+<p>Ideally, we would like to obtain balances for the following amounts:</p>
+<ul>
+<li>
+<p>The amount of money that each service cost, regardless of who paid</p>
+</li>
+<li>
+<p>The amount of deductible and copayments that are used in each calendar year</p>
+</li>
+</ul>
+<p>What we will do, is enter two entries:</p>
+<ol>
+<li>
+<p>An entry for each EOB, at the date of service, for which we obtain a payable.</p>
+</li>
+<li>
+<p>An entry for each payments, that comes out of an <em>Asset</em> or <em>Liability</em> account.</p>
+</li>
+</ol>
+<h4 id="in-network-providers">In-Network Providers<a id="in-network-providers"></a><a class="headerlink" href="#in-network-providers" title="Permanent link"></a></h4>
+<p>For in-network providers a typical entry looks like this:</p>
+<pre><code>2013-04-01 * "DR RAPPOPORT" "Office visit" ^anthem-claim-8765937424
+  Expenses:Health:Medical:Claims            225.00 USD
+  Expenses:Health:Medical:PatientSavings   -151.53 USD
+  Liabilities:US:Accounts-Payable           -10.00 USD ; Copay
+  Expenses:Health:Medical:ClaimsPayment     -63.47 USD
+</code></pre>
+<p>Once you’ve figured out which numbers to pull out of of these EOBs, it becomes simpler to enter others, because they are very regular and all look the same.</p>
+<p>Note that an in-network EOB will include a “Patient Savings” number. This is meant to reflect how much lower you’re paying due to your insurance plan selection. (In practice, this is a bit of smoke and mirrors, because all the claims made by doctors are inflated to reflect the amount they actually get paid for, but I think the insurance likes to show these to you anyway.)</p>
+<p>I like to immediately reflect the missing portion to an “accounts payable” liability, which tells me I have this registered as an upcoming payment:</p>
+<pre><code>1973-04-27 open Liabilities:US:Accounts-Payable
+</code></pre>
+<p>You can then eliminate this payable as the payment entry comes in through your credit card import:</p>
+<pre><code>2014-01-08 * "Rappoport Medical Office" ^anthem-claim-8765937424
+  Liabilities:US:BofA:Credit-Card     -10.00 USD
+  Liabilities:US:Accounts-Payable      10.00 USD
+</code></pre>
+<p>Note how I “link” both of the transactions to each other with “<code>^anthem-claim-8765937424</code>” so they can easily be found and verified later on.</p>
+<p>For in-network doctors, because the payments from the insurance are generally predictable, the doctor’s office will sometimes require the copayment on the same day you visit. Just book this as a cash entry against the same liability account.</p>
+<p>If you have a doctor that you visit regularly, you may create dedicated Liabilities accounts for them:</p>
+<pre><code>2009-09-17 open Liabilities:US:Accounts-Payable:DrRappoport
+</code></pre>
+<h4 id="out-of-network-providers">Out-of-Network Providers<a id="out-of-network-providers"></a><a class="headerlink" href="#out-of-network-providers" title="Permanent link"></a></h4>
+<p>For out-of-network providers, the EOBs are slightly different:</p>
+<p><img alt="eob-oon.png" src="health_care_expenses/media/504f7f0b138afdd841ec04934f3f838df0ec28f7.png" style="width:6.5in;height:3.47222in"/></p>
+<p>What we noticed is that there is an “other amount” section, which is essentially what will be written off by the provider, and the Patient Savings section is empty.</p>
+<p>A typical entry corresponding to this EOB would look like this:</p>
+<pre><code>2014-02-13 * "ROB BOONAN" | "Physical Therapy" ^anthem-claim-17646398
+  Expenses:Health:PhysicalTherapy:Claims           320.00 USD
+  Expenses:Health:PhysicalTherapy:ClaimsPayment   -115.14 USD
+  Expenses:Health:PhysicalTherapy:Uncovered       -155.52 USD                                                                                                                                                                                                                                                                  
+  Liabilities:US:Accounts-Payable:CityPT           -49.34 USD
+</code></pre>
+<p>You will typically receive the check for your service provider’s payment (in the example, that is a check for $115.14) and have to send it over to them yourself. You can either deposit the check right away and make the full payment with your credit card, or send the check and just pay the difference (this is what most people do):</p>
+<pre><code>2014-01-08 * "City PhysioTherapy" ^anthem-claim-17646398
+  Liabilities:US:BofA:Credit-Card            -49.34 USD
+  Liabilities:US:Accounts-Payable:CityPT      49.34 USD
+</code></pre>
+<p>One interesting twist is that many out-of-network providers will accept the lower amount that insurance companies pay for out-of-network services and write off the excess amount, or charge you nominal amount only. For example, the “deal” with my favorite physical therapy place is that they charge me 25$ per session. Once again, the claim is inflated, of course, and the apparent amount the insurance says you have to pay has to be largely written off. This is how you’d book such an entry’s EOB:</p>
+<pre><code>2014-02-13 * "ROB BOONAN" | "Physical Therapy" ^anthem-claim-17646398
+  Expenses:Health:PhysicalTherapy:Claims           320.00 USD
+  Expenses:Health:PhysicalTherapy:ClaimsPayment   -115.14 USD
+  Liabilities:US:Accounts-Payable:CityPT           -25.00 USD
+  Expenses:Health:PhysicalTherapy:WriteOffs
+</code></pre>
+<p>The provider’s administrator does not charge me on every visit. She accrues the amounts and whenever decides to process her accounting, she makes a charge for the total, which clears the account to zero. This might look like this:</p>
+<pre><code>2014-02-26 * "Payment for 3 Physical Therapy treatments"
+  Liabilities:US:BofA:CreditCard             -75.00 USD
+  Liabilities:US:Accounts-Payable:CityPT
+</code></pre>
+<h3 id="tracking-deductible-and-copayment-limits">Tracking Deductible and Copayment Limits<a id="tracking-deductible-and-copayment-limits"></a><a class="headerlink" href="#tracking-deductible-and-copayment-limits" title="Permanent link"></a></h3>
+<p>As we’ve seen previously, there are limits on how much you end up paying for health care services. These limits are applied by calendar year, so they need to be applied at the date of service. For this reasons, we can attach corresponding entries to the EOB entries, and then filter transactions by year to calculate the balances for that year.</p>
+<p>I like to keep tabs on these limits and ensure that they are applied properly. According to my insurance plan, the limits are defined like this:</p>
+<ul>
+<li>
+<p><strong>Deductible.</strong> “The amount you pay out-of-pocket within a calendar year before your health insurance begins to pay for covered service.”</p>
+</li>
+<li>
+<p><strong>Out-of-pocket maximum.</strong> “The maximum amount of money you could pay out-of-pocket in a calendar year for covered health care services. There are exclusions, e.g. for prescription drugs and some services.”</p>
+</li>
+<li>
+<p><strong>Co-payment.</strong> “A fixed fee that you pay out-of-pocket for a service. This fee does not vary according to the actual cost of the service.”</p>
+</li>
+</ul>
+<p>It is not straightforward, however, because there are distinct limits for in-network and out-of-network providers, both for deductible amounts and copayment amounts:</p>
+<ul>
+<li>
+<p>Amounts paid for in-network deductibles count towards your limit for out-of-network deductibles.</p>
+</li>
+<li>
+<p>Amounts paid for in-network copayments count towards your limit for out-of-network copayments.</p>
+</li>
+<li>
+<p>Amounts paid for deductibles count towards your limit for copayments.</p>
+</li>
+</ul>
+<p>I carry this out using the “mirror accounting” technique I describe in another document. The idea is to use an alternative currency to count for these amounts.</p>
+<p><strong><em>TODO: complete this</em></strong></p>
+<h3 id="insurance-premiums">Insurance Premiums<a id="insurance-premiums"></a><a class="headerlink" href="#insurance-premiums" title="Permanent link"></a></h3>
+<p>Then you have to track how much you spend on your insurance premiums. These are the fixed semi-monthly payments you make—usually directly processed out of your paycheck—for getting the insurance policy itself. As for most people with jobs in the US, my employer offers a few health coverage plans and pays for most of it, but there is always a portion I have to pay myself:</p>
+<pre><code>1973-04-27 open Expenses:Health:Insurance
+</code></pre>
+<p>A fixed premium is automatically deducted from my paycheck entries, as it appears on my pay stub:</p>
+<pre><code>2014-02-08 * "Acme Corp - Salary"
+  …
+  Expenses:Health:Insurance        42.45 USD
+  …
+</code></pre>
+<p>On your pay stub, be careful not to confuse this with the “Medicare tax,” which is a tax used to pay for the bit of socialized medicine costs the US has for older people. This is just a tax and has little to do with your own health care expenses.</p>
+<h3 id="drugs">Drugs<a id="drugs"></a><a class="headerlink" href="#drugs" title="Permanent link"></a></h3>
+<p>Drugs are accounted for separately.</p>
+<p><strong><em>TODO: complete this</em></strong></p>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>You do not always receive these through the mail, but insurance companies are now finally coming up with websites where you can download all the claims that were made on your behalf (and account for them), even those which weren’t mailed to you. <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+<li id="fn:2">
+<p>This is a tremendous annoyance because each doctor has a different billing department, they are typically antiquated and their online payment options are almost always broken (you end up having to call a phone number and convince a grumpy administrator to pay by credit card because they are still used to receiving <em>checks</em>), and all the different service providers that collaborate together to offer you a health service will bill you separately (with different billing departments as well). For example, if you undergo surgery, over the following 6 months you can expect to get different bills from your surgeon, his assistant, the anesthesiologist, the person who monitored your brain activity while asleep, the lab who did the blood work, the person who read an X-ray, and so on. And the bills may be sent more than 6 months after the operation took place, well into the following year. It’s completely Kafkaesque. You have to really wonder why the insurance company does not always pay the full service to the providers and then bill <em>you</em>, just once, for the deductibles. That would make the process a lot simpler and reduce the exhorbitant cost of administering health care. <a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">↩</a></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<footer>
+<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-right" href="beancount_scripting_plugins.html" title="Beancount Scripting Plugins">Next <span class="icon icon-circle-arrow-right"></span></a>
+<a class="btn btn-neutral" href="how_we_share_expenses.html" title="How We Share Expenses"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<a class="fa fa-github" href="https://github.com/beancount/docs/" style="float: left; color: #fcfcfc"> GitHub</a>
+<span><a href="how_we_share_expenses.html" style="color: #fcfcfc;">« Previous</a></span>
+<span style="margin-left: 15px"><a href="beancount_scripting_plugins.html" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script>var base_url = '.';</script>
+<script defer="" src="js/theme.js"></script>
+<script defer="" src="js/extra.js"></script>
+<script defer="" src="search/main.js"></script>
+<script defer="">
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+</body>
+</html>
