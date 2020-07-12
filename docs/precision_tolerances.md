@@ -280,7 +280,7 @@ Internally, Beancount uses a decimal number representation (not a binary/float r
 References<a id="references"></a>
 ---------------------------------
 
-The [<span class="underline">original proposal</span>](31_rounding_precision_in_beancount.md) that led to this implementation can be [<span class="underline">found here</span>](31_rounding_precision_in_beancount.md). In particular, the proposal highlights on the other systems have attempted to deal with this issue. There are also [<span class="underline">some discussions</span>](https://groups.google.com/forum/#!msg/ledger-cli/m-TgILbfrwA/YjkmOM3LHXIJ) on the mailing-list dedicated to this topic.
+The [<span class="underline">original proposal</span>](rounding_precision_in_beancount.md) that led to this implementation can be [<span class="underline">found here</span>](rounding_precision_in_beancount.md). In particular, the proposal highlights on the other systems have attempted to deal with this issue. There are also [<span class="underline">some discussions</span>](https://groups.google.com/forum/#!msg/ledger-cli/m-TgILbfrwA/YjkmOM3LHXIJ) on the mailing-list dedicated to this topic.
 
 Note that for the longest time, Beancount used a fixed precision of 0.005 across all currencies. This was eliminated once the method described in this document was implemented.
 

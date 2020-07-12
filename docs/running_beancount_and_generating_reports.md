@@ -86,7 +86,7 @@ Running Beancount & Generating Reports<a id="title"></a>
 Introduction<a id="introduction"></a>
 -------------------------------------
 
-This document describes the tools you use to process Beancount input files, and many of the reports available from it. The syntax of the language is described in the [<span class="underline">Beancount Language Syntax</span>](06_beancount_language_syntax.md) document. This manual only covers the technical details for using Beancount from the command-line.
+This document describes the tools you use to process Beancount input files, and many of the reports available from it. The syntax of the language is described in the [<span class="underline">Beancount Language Syntax</span>](beancount_language_syntax.md) document. This manual only covers the technical details for using Beancount from the command-line.
 
 Tools<a id="tools"></a>
 -----------------------
@@ -144,7 +144,7 @@ Beancount’s parsed list of transactions and postings is like an in-memory data
     Ready with 14212 directives (21284 postings in 8879 transactions).
     beancount> _
 
-More details are available [<span class="underline">in its own document</span>](09_beancount_query_language.md).
+More details are available [<span class="underline">in its own document</span>](beancount_query_language.md).
 
 ### bean-web<a id="bean-web"></a>
 
@@ -249,7 +249,7 @@ This pure text processing tool will reformat Beancount input to right-align all 
 
 ### bean-example<a id="bean-example"></a>
 
-This program generates an example Beancount input file. See the [<span class="underline">Tutorial</span>](13_tutorial_example.md) for more details about the contents of this example file.
+This program generates an example Beancount input file. See the [<span class="underline">Tutorial</span>](tutorial_example.md) for more details about the contents of this example file.
 
 Filtering Transactions<a id="filtering-transactions"></a>
 ---------------------------------------------------------
@@ -341,7 +341,7 @@ A [<span class="underline">balance sheet</span>](http://en.wikipedia.org/wiki/Ba
 
 5.  render a tree of the Equity accounts below the Liabilities accounts.
 
-See the [<span class="underline">introduction document</span>](02_the_double_entry_counting_method.md) for an example.
+See the [<span class="underline">introduction document</span>](the_double_entry_counting_method.md) for an example.
 
 Note that the Equity accounts include the amounts reported from the Income and Expenses accounts, also often called “Net Income.”
 
@@ -355,11 +355,11 @@ The equivalent bean-query command is:
 
 #### Opening Balances (`openbal`)<a id="opening-balances-openbal"></a>
 
-The opening balances report is simply a balance sheet drawn at the beginning of the reporting period. This report only makes sense for a list of filtered entries that represents a period of time, such as “year 2014.” The balance sheet is generated using only the summarization entries that were synthesized when the transactions were filtered (see the [<span class="underline">double-entry method document</span>](02_the_double_entry_counting_method.md)).
+The opening balances report is simply a balance sheet drawn at the beginning of the reporting period. This report only makes sense for a list of filtered entries that represents a period of time, such as “year 2014.” The balance sheet is generated using only the summarization entries that were synthesized when the transactions were filtered (see the [<span class="underline">double-entry method document</span>](the_double_entry_counting_method.md)).
 
 #### Income Statement (`income`)<a id="income-statement-income"></a>
 
-An [<span class="underline">income statement</span>](http://en.wikipedia.org/wiki/Income_statement) lists the final balances of the Income and Expenses accounts. It represents a summary of the transient activity within these accounts. If the balance sheet is the snapshot at a particular point in time, this is the difference between the beginning and the end of a period (in our case: of a filtered set of transactions). The balances of the active Income accounts are rendered on the left, and those of the active Expenses accounts on the right. See the [<span class="underline">introduction document</span>](02_the_double_entry_counting_method.md) for an example.
+An [<span class="underline">income statement</span>](http://en.wikipedia.org/wiki/Income_statement) lists the final balances of the Income and Expenses accounts. It represents a summary of the transient activity within these accounts. If the balance sheet is the snapshot at a particular point in time, this is the difference between the beginning and the end of a period (in our case: of a filtered set of transactions). The balances of the active Income accounts are rendered on the left, and those of the active Expenses accounts on the right. See the [<span class="underline">introduction document</span>](the_double_entry_counting_method.md) for an example.
 
 The difference between the total of Income and Expenses balances is the Net Income.
 

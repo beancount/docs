@@ -156,4 +156,4 @@ By default, this accumulation should be turned off. It’s not clear whether the
 Implementation<a id="implementation"></a>
 -----------------------------------------
 
-The implementation of this proposal is [<span class="underline">documented here</span>](08_precision_tolerances.md).
+The implementation of this proposal is [<span class="underline">documented here</span>](precision_tolerances.md).

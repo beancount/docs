@@ -15,7 +15,7 @@ A working example file can be found [<span class="underline">here</span>](https:
 Restricted Stock Compensation<a id="restricted-stock-compensation"></a>
 -----------------------------------------------------------------------
 
-Many technology companies offer their employees incentive compensation in the form of “grants” (or “awards”) of “restricted stock units” (RSU), which is essentially a promise for the “release” to you of actual shares in the future. The stock is “restricted” in the sense that you cannot access it—you only receive it when it “vests”, and this happens based on a schedule. Typically, you are promised a fixed number of shares that vest every quarter or every month over a period of 3 or 4 years. If you leave the company, your remaining unvested shares are lost. <img src="20_stock_vesting_in_beancount/media/6a910c80cfb0385f9cff8de1b5976716a1eb7324.jpg" style="width:2.18229in;height:1.26744in" />
+Many technology companies offer their employees incentive compensation in the form of “grants” (or “awards”) of “restricted stock units” (RSU), which is essentially a promise for the “release” to you of actual shares in the future. The stock is “restricted” in the sense that you cannot access it—you only receive it when it “vests”, and this happens based on a schedule. Typically, you are promised a fixed number of shares that vest every quarter or every month over a period of 3 or 4 years. If you leave the company, your remaining unvested shares are lost. <img src="stock_vesting_in_beancount/media/6a910c80cfb0385f9cff8de1b5976716a1eb7324.jpg" style="width:2.18229in;height:1.26744in" />
 
 One way you can view these RSUs is as an asset, a receivable that arrives regularly over time. These RSUs are essentially compensation denominated in the currency of the company’s shares itself. We want to track the unraveling of these unvested units, and correctly account for their conversion to real stock with a cost basis and including whatever taxes were paid upon vesting.
 
@@ -231,7 +231,7 @@ At the time of this writing, the bean-web interface does not convert the units i
 Selling Vested Stock<a id="selling-vested-stock"></a>
 -----------------------------------------------------
 
-After each vesting event, the stock is left in your brokerage account. Selling this stock proceeds just as in any other trading transaction (see [<span class="underline">Trading with Beancount</span>](19_trading_with_beancount.md) for full details). For example, selling the shares from the example would look something like this:
+After each vesting event, the stock is left in your brokerage account. Selling this stock proceeds just as in any other trading transaction (see [<span class="underline">Trading with Beancount</span>](trading_with_beancount.md) for full details). For example, selling the shares from the example would look something like this:
 
     2015-09-10 * "Selling shares"
       Assets:US:Schwab:HOOL        -26 HOOL {131.3700 USD} @ 138.23 USD
@@ -242,7 +242,7 @@ Here you can see why it matters that the cost basis you used on the conversion e
 
 I like to keep all the brokerage transactions in a separate section of my document, where other transactions related to the brokerage occur, such as fees, dividends and transfers.
 
-Conclusion<img src="20_stock_vesting_in_beancount/media/04de27aeb8e7b7cbc9201ce82ae780d21cec36fb.jpg" style="width:2.04688in;height:1.39525in" /><a id="conclusion"></a>
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Conclusion<img src="stock_vesting_in_beancount/media/04de27aeb8e7b7cbc9201ce82ae780d21cec36fb.jpg" style="width:2.04688in;height:1.39525in" /><a id="conclusion"></a>
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 This is a simple example that is modeled after how technology companies deal with this type of compensation. It is by no means comprehensive, and some of the details will necessarily vary in your situation. In particular, it does not explain how to deal with options (ISOs). My hope is that there is enough meat in this document to allow you to extrapolate and adapt to your particular situation. If you get stuck, please reach out on the [<span class="underline">mailing-list</span>](http://furius.ca/beancount/doc/mailing-list).

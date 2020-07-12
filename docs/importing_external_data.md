@@ -418,13 +418,13 @@ There once was a first implementation of the process described in this document.
 
 Documents about LedgerHub are preserved, and can help you understand the origins and design choices for Beancount’s importer support. They can be found here:
 
--   [<span class="underline">Original design</span>](25_ledgerhub_design_doc.md)
+-   [<span class="underline">Original design</span>](ledgerhub_design_doc.md)
 
 -   [<span class="underline">Original instructions & final status</span>](http://furius.ca/beancount/doc/ledgerhub/manual) (the old version of this doc)
 
 -   [<span class="underline">An analysis of the reasons why it the project was terminated</span>](http://furius.ca/beancount/doc/ledgerhub/postmortem) (post-mortem)
 
-[^1]: There are essentially three conceptual modes of entering such transactions: (1) a user crafts a single transaction manually, (2) another where a user inputs the two sides as a single transaction to transfer accounts, and (3) the two separate transactions get merged into a single one automatically. These are dual modes of each other. The twist in this story is that the same transaction often posts at different dates in each of its accounts. Beancount currently \[March 2016\] does not support multiple dates for a single transaction’s postings, but a discussion is ongoing to implement support for these input modes. See [<span class="underline">this document</span>](28_settlement_dates_in_beancount.md) for more details.
+[^1]: There are essentially three conceptual modes of entering such transactions: (1) a user crafts a single transaction manually, (2) another where a user inputs the two sides as a single transaction to transfer accounts, and (3) the two separate transactions get merged into a single one automatically. These are dual modes of each other. The twist in this story is that the same transaction often posts at different dates in each of its accounts. Beancount currently \[March 2016\] does not support multiple dates for a single transaction’s postings, but a discussion is ongoing to implement support for these input modes. See [<span class="underline">this document</span>](settlement_dates_in_beancount.md) for more details.
 
 [^2]: The closest to universal downloader you will find in the free software world is [<span class="underline">ofxclient</span>](https://github.com/captin411/ofxclient) for OFX files, and in the commercial world, [<span class="underline">Yodlee</span>](http://www.yodlee.com/) provides a service that connects to many financial institutions.
 

@@ -238,7 +238,7 @@ So I’ve described what I do to organize my finances. Here I’ll tell you abou
 
 See the diagram below for a pretty picture that illustrates how these work together.
 
-<img src="01_command_line_accounting_in_context/media/06b0187ae0b90e183f5f7480deb0701b3441ed64.png" style="width:5.56944in;height:6.22222in" />
+<img src="command_line_accounting_in_context/media/06b0187ae0b90e183f5f7480deb0701b3441ed64.png" style="width:5.56944in;height:6.22222in" />
 
 Why not just use a spreadsheet?<a id="why-not-just-use-a-spreadsheet"></a>
 --------------------------------------------------------------------------
@@ -381,4 +381,4 @@ But all the software I tried was either disappointing, broken, or too complicate
 
 Ever since, I feel so excited about anything related to personal finance. Probably because it makes me so happy to have such a level of awareness about what’s going on with mine. I even sometimes find myself *loving* spending money in a new way, just from knowing that I’ll have to figure out how to account for it later. I feel so elated by the ability to solve these financial puzzles that I have had bouts of engaging complete weekends in building this software. They are small challenges with a truly practical application and a tangible consequence. Instant gratification. I get a feeling of *empowerment*. And I wish the same for you.
 
-[^1]: For a full list of differences, refer to [<span class="underline">this document</span>](15_a_comparison_of_beancount_and_ledger_hledger.md).
+[^1]: For a full list of differences, refer to [<span class="underline">this document</span>](a_comparison_of_beancount_and_ledger_hledger.md).

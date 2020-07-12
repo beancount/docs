@@ -122,7 +122,7 @@ Martin Blais ([<span class="underline">blais@furius.ca</span>](mailto:blais@furi
 Introduction<a id="introduction"></a>
 -------------------------------------
 
-This document describes the principles behind the design of Beancount and a high-level overview of its codebase, data structures, algorithms, implementation and methodology. This is not a user's manual; if you are interested in just using Beancount, see the associated [<span class="underline">User's Manual</span>](06_beancount_language_syntax.md) and all the other documents [<span class="underline">available here</span>](index.md).
+This document describes the principles behind the design of Beancount and a high-level overview of its codebase, data structures, algorithms, implementation and methodology. This is not a user's manual; if you are interested in just using Beancount, see the associated [<span class="underline">User's Manual</span>](beancount_language_syntax.md) and all the other documents [<span class="underline">available here</span>](index.md).
 
 However, if you just want to understand more deeply how Beancount works this document should be very helpful. This should also be of interest to developers. This is a place where I wrote about a lot of the ideas behind Beancount that did not find any other venue. Expect some random thoughts that aren’t important for users.
 
@@ -157,7 +157,7 @@ All transactions must balance by “weight.” There is no exception. Beancount 
 
 In particular, there is no allowance for exceptions such as the “virtual postings” that can be seen in Ledger. The first implementation of Beancount allowed such postings. As a result, I often used them to “resolve” issues that I did not know how to model well otherwise. When I rewrote Beancount, I set out to convert my entire input file to avoid using these, and over time I succeeded in doing this and learned a lot of new things in the process. I have since become convinced that virtual postings are wholly unnecessary, and that making them available only provides a *crutch* upon which a lot of users will latch instead of learning to model transfers using balanced transactions. I have yet to come across a sufficiently convincing case for them[^1].
 
-This provides the property that any subsets of transactions will sum up to zero. This is a nice property to have, it means we can generate balance sheets at any point in time. Even when we eventually [<span class="underline">support settlement dates or per-posting dates</span>](28_settlement_dates_in_beancount.md), we will split up transactions in a way that does not break this invariant.
+This provides the property that any subsets of transactions will sum up to zero. This is a nice property to have, it means we can generate balance sheets at any point in time. Even when we eventually [<span class="underline">support settlement dates or per-posting dates</span>](settlement_dates_in_beancount.md), we will split up transactions in a way that does not break this invariant.
 
 ### Accounts Have Types<a id="accounts-have-types"></a>
 
@@ -202,7 +202,7 @@ Overview of the Codebase<a id="overview-of-the-codebase"></a>
 
 All source code lives under a “[<span class="underline">beancount</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/)” Python package. It consists of several packages with well-defined roles, the dependencies between which are enforced strictly.
 
-<img src="24_beancount_design_doc/media/8a94847808878214d3557076d587ecc648809812.png" style="width:5.80556in;height:4.94444in" />
+<img src="beancount_design_doc/media/8a94847808878214d3557076d587ecc648809812.png" style="width:5.80556in;height:4.94444in" />
 
 *Beancount source code packages and approximate dependencies between them.*
 
@@ -241,7 +241,7 @@ This section describes the basic data structures that are used as building block
 
 ### Number<a id="number"></a>
 
-**Numbers** are represented using [<span class="underline">decimal</span>](https://en.wikipedia.org/wiki/Decimal_data_type) objects, which are perfectly suited for this. The great majority of numbers entered in accounting systems are naturally decimal numbers and binary representations involve representational errors which cause many problems for display and in precision. Rational numbers avoid this problem, but they do not carry the limited amount of precision that the user intended in the input. We must deal with [<span class="underline">tolerances</span>](08_precision_tolerances.md) explicitly.
+**Numbers** are represented using [<span class="underline">decimal</span>](https://en.wikipedia.org/wiki/Decimal_data_type) objects, which are perfectly suited for this. The great majority of numbers entered in accounting systems are naturally decimal numbers and binary representations involve representational errors which cause many problems for display and in precision. Rational numbers avoid this problem, but they do not carry the limited amount of precision that the user intended in the input. We must deal with [<span class="underline">tolerances</span>](precision_tolerances.md) explicitly.
 
 Therefore, all numbers should use Python’s “`decimal.Decimal`” objects. Conveniently, Python v3.x supports a C implementation of decimal types natively (in its standard library; this used to be an external “cdecimal” package to install but it has been integrated in the C/Python interpreter).
 
@@ -352,7 +352,7 @@ Each Transaction directive is composed of multiple Postings (I often informally 
 
     Posting = (Account, Units, Cost-or-CostSpec, Price, Flag, Metadata)
 
-As you can see, a *Posting* embeds its *Position* instance[^3]. The *Units* is an *Amount*, and the ‘cost’ attribute refers to either a *Cost* or a *CostSpec* instance (the parser outputs *Posting* instances with an *CostSpec* attribute which is resolved to a *Cost* instance by the booking process; see [<span class="underline">How Inventories Work</span>](11_how_inventories_work.md) for details).
+As you can see, a *Posting* embeds its *Position* instance[^3]. The *Units* is an *Amount*, and the ‘cost’ attribute refers to either a *Cost* or a *CostSpec* instance (the parser outputs *Posting* instances with an *CostSpec* attribute which is resolved to a *Cost* instance by the booking process; see [<span class="underline">How Inventories Work</span>](how_inventories_work.md) for details).
 
 The *Price* is an instance of *Amount* or a null value. It is used to declare a currency conversion for balancing the transaction, or the current price of a position held at cost. It is the Amount that appears next to a “@” in the input.
 
@@ -368,7 +368,7 @@ An Inventory is a container for an account’s balance in various lots of commod
 
 Generally, the combination of a position’s (*Units.Currency, Cost)* is kept unique in the list, like the key of a mapping. Positions for equal values of currency and cost are merged together by summing up their *Units.Number* and keeping a single position for it. And simple positions are mixed in the list with positions held at cost.
 
-The *Inventory* is one of the most important and oft-used object in Beancount’s implementation, because it is used to sum the balance of one or more accounts over time. It is also the place where the inventory reduction algorithms get applied to, and traces of that mechanism can be found there. The “[<span class="underline">How Inventories Work</span>](11_how_inventories_work.md)” document provides the full detail of that process.
+The *Inventory* is one of the most important and oft-used object in Beancount’s implementation, because it is used to sum the balance of one or more accounts over time. It is also the place where the inventory reduction algorithms get applied to, and traces of that mechanism can be found there. The “[<span class="underline">How Inventories Work</span>](how_inventories_work.md)” document provides the full detail of that process.
 
 For testing, you can create initialized instances of Inventory using `inventory.from_string()`. All the inventory code is written in [<span class="underline">beancount.core.inventory</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/inventory.py).
 
@@ -396,7 +396,7 @@ Finally, the loader produces lists of directives which are all simple `namedtupl
 
 The following diagram explains how these objects relate to each other, starting from a Posting.
 
-<img src="24_beancount_design_doc/media/93cd070d4d5efd741b33a3e91d6b3e8f86e58be6.png" style="width:4.36111in;height:6.11111in" />
+<img src="beancount_design_doc/media/93cd070d4d5efd741b33a3e91d6b3e8f86e58be6.png" style="width:4.36111in;height:6.11111in" />
 
 For example, to access the number of units of a postings you could use
 
@@ -412,7 +412,7 @@ You can print out the tuples in Python to figure out their structure.
 
 For the sake of preservation, if you go back in time in the repository, the structure of postings was deeper and more complex. The new design reflects a flatter and simpler version of it. Here is what the old design used to look like:
 
-<img src="24_beancount_design_doc/media/a36336143a27c30f063d6ef8edc147ff87d0beb2.png" style="width:6.69444in;height:4.19444in" />
+<img src="beancount_design_doc/media/a36336143a27c30f063d6ef8edc147ff87d0beb2.png" style="width:6.69444in;height:4.19444in" />
 
 Directives<a id="directives"></a>
 ---------------------------------
@@ -501,7 +501,7 @@ In contrast to tags, their strings are most often unique numbers produced by the
 
 A list of Postings are attached to the Transaction object. Technically this list object is mutable but in practice we try not to modify it. A Posting can ever only be part of a single Transaction.
 
-Sometimes different postings of the same transaction will settle at different dates in their respective accounts, so eventually we may allow a posting to have its own date to override the transaction's date, to be used as documentation; in the simplest version, we enforce all transactions to occur punctually, which is simple to understand and was not found to be a significant problem in practice. Eventually we might implement this by implicitly converting Transactions with multiple dates into multiple Transactions and using some sort of transfer account to hold the pending balance in-between dates. See the [<span class="underline">associated proposal</span>](28_settlement_dates_in_beancount.md) for details.
+Sometimes different postings of the same transaction will settle at different dates in their respective accounts, so eventually we may allow a posting to have its own date to override the transaction's date, to be used as documentation; in the simplest version, we enforce all transactions to occur punctually, which is simple to understand and was not found to be a significant problem in practice. Eventually we might implement this by implicitly converting Transactions with multiple dates into multiple Transactions and using some sort of transfer account to hold the pending balance in-between dates. See the [<span class="underline">associated proposal</span>](settlement_dates_in_beancount.md) for details.
 
 #### Balancing Postings<a id="balancing-postings"></a>
 
@@ -535,7 +535,7 @@ Some terminology is in order: for this example posting:
 
 3.  Finally, if the posting has no associated cost nor conversion price, the number of units of the lot are used directly.
 
-Balancing is really simple: each of the Posting's positions are first converted into their weight. These amounts are then grouped together by currency, and the final sum for each currency is asserted to be close to zero, that is, within a small amount of tolerance (as [<span class="underline">inferred by a combination of by the numbers in the input and the options</span>](08_precision_tolerances.md)).
+Balancing is really simple: each of the Posting's positions are first converted into their weight. These amounts are then grouped together by currency, and the final sum for each currency is asserted to be close to zero, that is, within a small amount of tolerance (as [<span class="underline">inferred by a combination of by the numbers in the input and the options</span>](precision_tolerances.md)).
 
 The following example is one of case (2), with a price conversion and a regular leg with neither a cost nor a price (case 3):
 
@@ -586,7 +586,7 @@ Here there are three groups of weights to balance:
 
 Transactions allow for at most one posting to be elided and automatically set; if an amount was elided, the final balance of all the other postings is attributed to the balance.
 
-With the [<span class="underline">inventory booking proposal</span>](27_a_proposal_for_an_improvement_on_inventory_booking.md), it should be extended to be able to handle more cases of elision. An interesting idea would be to allow the elided postings to at least specify the currency they're using. This would allow the user to elide multiple postings, like this:
+With the [<span class="underline">inventory booking proposal</span>](a_proposal_for_an_improvement_on_inventory_booking.md), it should be extended to be able to handle more cases of elision. An interesting idea would be to allow the elided postings to at least specify the currency they're using. This would allow the user to elide multiple postings, like this:
 
          2013-07-05 * "COMPANY INC PAYROLL"
            Assets:US:TD:Checking                                    USD
@@ -631,7 +631,7 @@ Loader & Processing Order<a id="loader-processing-order"></a>
 
 The process of **loading** a list of entries from an input file is the heart of the project. It is important to understand it in order to understand how Beancount works. Refer to the diagram below.
 
-<img src="24_beancount_design_doc/media/d9525818c27bd84d2bd50e0e03d42a27eb597e2d.png" style="width:8.66667in;height:3.23611in" />
+<img src="beancount_design_doc/media/d9525818c27bd84d2bd50e0e03d42a27eb597e2d.png" style="width:8.66667in;height:3.23611in" />
 
 It consists of
 
@@ -668,7 +668,7 @@ There is a lexer file lexer.l written in flex and a Bison grammar in grammar.y. 
 
 Eventually we could consider creating a small dependency rule in setup.py to invoke flex and Bison automatically but at the moment, in order to minimize the installation burden, I check the generated source code in the repository (lexer.h/c and grammar.h/c).
 
-<img src="24_beancount_design_doc/media/65eccfffba7aaf2e25a7f536d974f846d096ddcf.png" style="width:7.70833in;height:4.01389in" />
+<img src="beancount_design_doc/media/65eccfffba7aaf2e25a7f536d974f846d096ddcf.png" style="width:7.70833in;height:4.01389in" />
 
 The interaction between the Python and C code works like this:
 
@@ -692,7 +692,7 @@ At the moment, the parser produces transactions which may or may not balance. Th
 
 However, the postings on the transactions are always complete objects, with all their expected attributes set. For example, a posting which has its amount elided in the input syntax will have a filled in position by the time it comes out of the parser.
 
-We will have to loosen this property when we implement the [<span class="underline">inventory booking proposal</span>](27_a_proposal_for_an_improvement_on_inventory_booking.md), because we want to support the elision of numbers whose values depend on the accumulated state of previous transactions. Here is an obvious example. A posting like this
+We will have to loosen this property when we implement the [<span class="underline">inventory booking proposal</span>](a_proposal_for_an_improvement_on_inventory_booking.md), because we want to support the elision of numbers whose values depend on the accumulated state of previous transactions. Here is an obvious example. A posting like this
 
     2015-04-03 * "Sell stock"
       Assets:Investments:AAPL     -10 AAPL {}
@@ -706,7 +706,7 @@ So the parser will need to be split into two phases:
 
 2.  A separate step for the interpolation which will have available the inventory balances of each account as inputs. This second step is where the booking algorithms (e.g., FIFO) will be invoked from.
 
-<img src="24_beancount_design_doc/media/8ba8202797ee7206951b5913c9b3c264c33c7df0.png" style="width:6.05556in;height:3.01389in" />
+<img src="beancount_design_doc/media/8ba8202797ee7206951b5913c9b3c264c33c7df0.png" style="width:6.05556in;height:3.01389in" />
 
 See the diagram above for reference. Once implemented, everything else should be the same.
 
@@ -716,7 +716,7 @@ In the same package as the parser lives a printer. This isolates all the functio
 
 At some point I decided to make sure that the printer was able to round-trip through the parser, that is, given a stream of entries produced by the loader, you should be able to convert those to text input and parse them back in and the resulting set of entries should be the same (outputting the re-read input back to text should produce the same text), e.g.,
 
-<img src="24_beancount_design_doc/media/22acb27dd9fa94cc4e32fa5ed449c155cf85c225.png" style="width:7.56944in;height:0.83333in" />
+<img src="beancount_design_doc/media/22acb27dd9fa94cc4e32fa5ed449c155cf85c225.png" style="width:7.56944in;height:0.83333in" />
 
 Note that the reverse isn’t necessarily true: reading an input file and processing it through the loader potentially synthesizes a lot of entries (thanks to the plugins), so printing it back may not produce the same input file (even ignoring reordering and white space concerns).
 
@@ -768,8 +768,8 @@ Realization<a id="realization"></a>
 
 It occurs often that one needs to compute the final balances of a list of filtered transactions, and to report on them in a hierarchical account structure. See diagram below.
 
-<img src="24_beancount_design_doc/media/736b05ad5dbed8af111f3f9d01d38b8b99914e7b.png" style="width:8.66667in;height:3.06944in" /><a id="section"></a>
------------------------------------------------------------------------------------------------------------------------------------------------------
+<img src="beancount_design_doc/media/736b05ad5dbed8af111f3f9d01d38b8b99914e7b.png" style="width:8.66667in;height:3.06944in" /><a id="section"></a>
+--------------------------------------------------------------------------------------------------------------------------------------------------
 
 For the purpose of creating hierarchical renderings, I provide a process called a “[<span class="underline">realization</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/realization.py).” A realization is a tree of nodes, each of which contains
 

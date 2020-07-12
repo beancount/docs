@@ -58,7 +58,7 @@ Introduction<a id="introduction"></a>
 
 The best way to learn the double-entry method is to look at real-world examples. The method is elegant, but it can seem unintuitive to the newcomer how transactions have to be posted in order to perform the various operations that one needs to do in counting for different types financial events. This is why I wrote this cookbook. It is not meant to be a comprehensive description of all the features supported, but rather a set of practical guidelines to help you solve problems. I think this will likely be the most useful document in the Beancount documentation set!
 
-All the examples here apply to any double-entry accounting system: Ledger, GnuCash, or even commercial systems. Some of the details may differ only slightly. This cookbook is written using the syntax and calculation method of the Beancount software. This document also assumes that you are already familiar with the [<span class="underline">general balancing concepts of the double-entry method</span>](02_the_double_entry_counting_method.md) and with at least some of the syntax of Beancount which is available from its [<span class="underline">user’s manual</span>](06_beancount_language_syntax.md) or its [<span class="underline">cheat sheet</span>](10_beancount_cheat_sheet.md). If you haven’t begun writing down your first file, you will want to read [<span class="underline">Getting Started with Beancount</span>](05_getting_started_with_beancount.md) and do that first.
+All the examples here apply to any double-entry accounting system: Ledger, GnuCash, or even commercial systems. Some of the details may differ only slightly. This cookbook is written using the syntax and calculation method of the Beancount software. This document also assumes that you are already familiar with the [<span class="underline">general balancing concepts of the double-entry method</span>](the_double_entry_counting_method.md) and with at least some of the syntax of Beancount which is available from its [<span class="underline">user’s manual</span>](beancount_language_syntax.md) or its [<span class="underline">cheat sheet</span>](beancount_cheat_sheet.md). If you haven’t begun writing down your first file, you will want to read [<span class="underline">Getting Started with Beancount</span>](getting_started_with_beancount.md) and do that first.
 
 Command-line accounting systems are agnostic about the types of things they can count and allow you to get creative with the kinds of units that you can invent to track various kinds of things. For instance, you can count “IRA contribution dollars,” which are not real dollars, but which correspond to “possible contributions in real dollars,” and you obtain accounts of assets, income and expenses types for them - it works. Please do realize that some of those clever tricks may not be possible in more traditional accounting systems. In addition, some of the operations that would normally require a manual process in these systems can be automated away for us, e.g., “closing a year” is entirely done by the software at any point in time, and balance assertions provide a safeguard that allow us to change the details of past transactions with little risk, so there is no need to “reconcile” by baking the past into a frozen state. More flexibility is at hand.
 
@@ -71,7 +71,7 @@ While reading this, please take note that the author is a dilettante: I am a com
 Account Naming Conventions<a id="account-naming-conventions"></a>
 -----------------------------------------------------------------
 
-You can define any account name you like, as long as it begins with one of the five categories: Assets, Liabilities, Income, Expenses, or Equity (note that you can customize those names with options - see the [<span class="underline">Language Syntax document</span>](06_beancount_language_syntax.md) for details). The accounts names are generally defined to have multiple name *components,* separated by a colon (:), which imply an accounts hierarchy, or “[<span class="underline">chart of accounts</span>](http://en.wikipedia.org/wiki/Chart_of_accounts)”:
+You can define any account name you like, as long as it begins with one of the five categories: Assets, Liabilities, Income, Expenses, or Equity (note that you can customize those names with options - see the [<span class="underline">Language Syntax document</span>](beancount_language_syntax.md) for details). The accounts names are generally defined to have multiple name *components,* separated by a colon (:), which imply an accounts hierarchy, or “[<span class="underline">chart of accounts</span>](http://en.wikipedia.org/wiki/Chart_of_accounts)”:
 
     Assets:Component1:Component2:Component3:...
 
@@ -378,7 +378,7 @@ It is common for them to do this in order to track each source of contribution s
 
 ### Vesting Stock Grants<a id="vesting-stock-grants"></a>
 
-See the [<span class="underline">dedicated document</span>](20_stock_vesting_in_beancount.md) on this topic for more details.
+See the [<span class="underline">dedicated document</span>](stock_vesting_in_beancount.md) on this topic for more details.
 
 ### Other Benefits<a id="other-benefits"></a>
 
@@ -455,7 +455,7 @@ Finally, a rather subtle problem is that using these price conversions back and 
 Investing and Trading<a id="investing-and-trading"></a>
 -------------------------------------------------------
 
-Tracking trades and associated gains is a fairly involved topic. You will find a more complete introduction to profit and loss and a detailed discussion of various scenarios in the [<span class="underline">Trading with Beancount</span>](19_trading_with_beancount.md) document, which is dedicated to this topic. Here we will discuss how to setup your account and provide simple example transactions to get you started.
+Tracking trades and associated gains is a fairly involved topic. You will find a more complete introduction to profit and loss and a detailed discussion of various scenarios in the [<span class="underline">Trading with Beancount</span>](trading_with_beancount.md) document, which is dedicated to this topic. Here we will discuss how to setup your account and provide simple example transactions to get you started.
 
 ### Accounts Setup<a id="accounts-setup"></a>
 
@@ -534,7 +534,7 @@ Or you can receive dividends in shares reinvested:
 
 This is booked similarly to a stock purchase, and you also have to provide the cost basis of the received units. This would typically happen in a non-taxable retirement account.
 
-Refer to the [<span class="underline">Trading with Beancount</span>](19_trading_with_beancount.md) document for a more thorough discussion and numerous and more complex examples.
+Refer to the [<span class="underline">Trading with Beancount</span>](trading_with_beancount.md) document for a more thorough discussion and numerous and more complex examples.
 
 ### Choosing a Date<a id="choosing-a-date"></a>
 
@@ -565,6 +565,6 @@ This document is incomplete. I have many more example use cases that I’m plann
 
 [^3]: Yet another extension to Beancount involves support multiple Pad directives between two balance assertions and automatically support this spreading out of padding directives.
 
-[^4]: If you’re concerned about the issue of precision or rounding in balancing, see [<span class="underline">this document</span>](08_precision_tolerances.md).
+[^4]: If you’re concerned about the issue of precision or rounding in balancing, see [<span class="underline">this document</span>](precision_tolerances.md).
 
 [^5]: Note that if the price database needs to invert the date its calculation may result in a price with a large number of digits. Beancount uses IEEE decimal objects and the default context of the Python implementation is 28 digits, so inverting 0.9 will result in 1.111111….111 with 28 digits.

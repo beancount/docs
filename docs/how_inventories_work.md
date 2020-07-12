@@ -308,7 +308,7 @@ The price is an annotation for your records. It remains attached to the Posting 
 
 -   [**<span class="underline">beancount.plugins.sellgains</span>**](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/plugins/sellgains.py): This plugin implements an additional balancing check: it uses the prices to compute the expected proceeds and weighs them against all the other postings of the transaction *excluding* any postings to Income accounts. In our example, it would check that (-12 x 24.70 + 296.40) = 0. This provides yet another means of verifying the correctness of your input.
 
-See the [<span class="underline">Trading with Beancount</span>](19_trading_with_beancount.md) document for more details on this topic.
+See the [<span class="underline">Trading with Beancount</span>](trading_with_beancount.md) document for more details on this topic.
 
 Trades<a id="trades"></a>
 -------------------------
@@ -347,7 +347,7 @@ It is useful to know how positions are represented in an inventory object. A *Po
 
 We often refer to these position objects as “lots” or “legs.” Schematically, a position object looks like this:
 
-<img src="11_how_inventories_work/media/53be27dbd44584c32fec4dc94642a67e83d2023d.png" style="width:3.76389in;height:3.75in" />
+<img src="how_inventories_work/media/53be27dbd44584c32fec4dc94642a67e83d2023d.png" style="width:3.76389in;height:3.75in" />
 
 The structure of a *Position* object.
 
@@ -361,7 +361,7 @@ An *Inventory* is simply an accumulation of such positions, represented as a lis
 
 A *Posting* is an object which is a superset of a position: in addition to units and cost, it has an associated account and an optional price attributes. If present, the price has the same type as units. It represents one of the legs of a transaction in the input. Postings imply positions, and these positions are added to inventories. We can say that a position is *posted* to an account.
 
-For more details on the internal data structures used in Beancount, please refer to the [<span class="underline">Design Doc</span>](24_beancount_design_doc.md) which expands on this topic further.
+For more details on the internal data structures used in Beancount, please refer to the [<span class="underline">Design Doc</span>](beancount_design_doc.md) which expands on this topic further.
 
 ### Why Booking is Not Simple<a id="why-booking-is-not-simple"></a>
 
@@ -477,4 +477,4 @@ As you may intuit, the notion of “augmenting” or “reducing” only makes s
 
 ### Original Proposal<a id="original-proposal"></a>
 
-If you’re interested in the design doc that led to this implementation, you can find the document [<span class="underline">here</span>](27_a_proposal_for_an_improvement_on_inventory_booking.md). I hope the resulting implementation is simple enough yet general.
+If you’re interested in the design doc that led to this implementation, you can find the document [<span class="underline">here</span>](a_proposal_for_an_improvement_on_inventory_booking.md). I hope the resulting implementation is simple enough yet general.

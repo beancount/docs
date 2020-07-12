@@ -109,7 +109,7 @@ Here’s a high-level profile of this user. In the text that follows, I’ll use
 
 ### Future Additions<a id="future-additions"></a>
 
-Note that as I beef up the example generator script, this profile will increase in complexity. If there is a particular situation from the [<span class="underline">cookbook</span>](18_command_line_accounting_cookbook.md) or otherwise that you’d like to see in the example file, please let me know (a patch is the best way to let me know).
+Note that as I beef up the example generator script, this profile will increase in complexity. If there is a particular situation from the [<span class="underline">cookbook</span>](command_line_accounting_cookbook.md) or otherwise that you’d like to see in the example file, please let me know (a patch is the best way to let me know).
 
 -   Generate fake PDF files for documents (from an option) along with suitable document directives for them, most of them implicit but some explicit.
 

@@ -216,14 +216,14 @@ Some users have reported problems installing lxml, and a solution: when installi
 
 ### Checking your Install<a id="checking-your-install"></a>
 
-You should be able to run the binaries from [<span class="underline">this document</span>](04_running_beancount_and_generating_reports.md). For example, running bean-check should produce something like this:
+You should be able to run the binaries from [<span class="underline">this document</span>](running_beancount_and_generating_reports.md). For example, running bean-check should produce something like this:
 
     $ bean-check
 
     usage: bean-check [-h] [-v] filename
     bean-check: error: the following arguments are required: filename
 
-If this works, you can now go to the [<span class="underline">tutorial</span>](13_tutorial_example.md) and begin learning how Beancount works.
+If this works, you can now go to the [<span class="underline">tutorial</span>](tutorial_example.md) and begin learning how Beancount works.
 
 ### Reporting Problems<a id="reporting-problems"></a>
 
@@ -236,7 +236,7 @@ Editor Support<a id="editor-support"></a>
 
 There is support for some editors available:
 
--   Emacs support is [<span class="underline">provided in the distribution</span>](https://bitbucket.org/blais/beancount/src/tip/src/elisp/). See the [<span class="underline">Getting Started</span>](05_getting_started_with_beancount.md) text for installation instruction.
+-   Emacs support is [<span class="underline">provided in the distribution</span>](https://bitbucket.org/blais/beancount/src/tip/src/elisp/). See the [<span class="underline">Getting Started</span>](getting_started_with_beancount.md) text for installation instruction.
 
 -   Support for [<span class="underline">editing with Sublime</span>](https://sublime.wbond.net/packages/Beancount) has been contributed by [<span class="underline">Martin Andreas Andersen</span>](https://groups.google.com/d/msg/beancount/WvlhcCjNl-Q/s4wOBQnRVxYJ). See [<span class="underline">his github repo</span>](https://github.com/draug3n/sublime-beancount).
 

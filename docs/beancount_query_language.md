@@ -90,8 +90,8 @@ Transactions and Postings<a id="transactions-and-postings"></a>
 
 The structure of transactions and entries can be explained by the following simplified diagram:
 
-<img src="09_beancount_query_language/media/99e941362869147aff7bb5b64676940fdeebe7f1.png" style="width:5.19444in;height:1.81944in" /><a id="section"></a>
----------------------------------------------------------------------------------------------------------------------------------------------------------
+<img src="beancount_query_language/media/99e941362869147aff7bb5b64676940fdeebe7f1.png" style="width:5.19444in;height:1.81944in" /><a id="section"></a>
+------------------------------------------------------------------------------------------------------------------------------------------------------
 
 The contents of a ledger is parsed into a list of directives, most of which are “Transaction” objects which contain two or more “Posting” objects. Postings are always linked only to a single transaction (they are never shared between transactions). Each posting refers to its parent transaction but has a unique account name, amount and associated lot (possibly with a cost), a price and some other attributes. The parent transaction itself contains a few useful attributes as well, such as a date, the name of a payee, a narration string, a flag, links, tags, etc.
 
@@ -122,7 +122,7 @@ You may name targets explicitly with the familiar AS operator:
 
 The full list of posting columns and functions available on them is best viewed by querying your actual client using “`help targets`“ or “`help where`”, which prints out the list and data type of each available data column. You may also refer to the following diagram of the structure of a Posting object for the correspondence between the columns and the data structure attributes.
 
-<img src="09_beancount_query_language/media/9fb4295fd32eccb04043dcd76b4a2b2b6374fe1c.png" style="width:8.66667in;height:4.47222in" />
+<img src="beancount_query_language/media/9fb4295fd32eccb04043dcd76b4a2b2b6374fe1c.png" style="width:8.66667in;height:4.47222in" />
 
 ### Entry Data Columns<a id="entry-data-columns"></a>
 
@@ -377,7 +377,7 @@ However, for `PRINT` queries, the output format is Beancount input text format.
 Statement Operators<a id="statement-operators"></a>
 ---------------------------------------------------
 
-The shell provides a few operators designed to facilitate the generation of balance sheets and income statements. The particular methodology used to define these operations should be described in detail in the “[<span class="underline">introduction to double-entry bookkeeping</span>](02_the_double_entry_counting_method.md)” document that accompanies Beancount and is mostly located in the source code in the [<span class="underline">summarize</span>](http://bitbucket.org/blais/beancount/src/tip/src/python/beancount/ops/summarize.py) module.
+The shell provides a few operators designed to facilitate the generation of balance sheets and income statements. The particular methodology used to define these operations should be described in detail in the “[<span class="underline">introduction to double-entry bookkeeping</span>](the_double_entry_counting_method.md)” document that accompanies Beancount and is mostly located in the source code in the [<span class="underline">summarize</span>](http://bitbucket.org/blais/beancount/src/tip/src/python/beancount/ops/summarize.py) module.
 
 These special operators are provided on the `FROM` clause that is made available on the various forms of query commands in the shell. These further transform the set of entries selected by the `FROM` expression at the transaction levels (not postings).
 

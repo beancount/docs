@@ -33,7 +33,7 @@ Load Pipeline<a id="load-pipeline"></a>
 
 You need to know a little bit about how Beancount processes its input files. Internally, the single point of entry to load an input file is the `beancount.loader.load_file()` function, which accepts an input file and carries out a list of transformation steps, as in this diagram:
 
-<img src="23_beancount_scripting_plugins/media/d9525818c27bd84d2bd50e0e03d42a27eb597e2d.png" style="width:8.66667in;height:3.23611in" />
+<img src="beancount_scripting_plugins/media/d9525818c27bd84d2bd50e0e03d42a27eb597e2d.png" style="width:8.66667in;height:3.23611in" />
 
 The stages of loading are as follows:
 
@@ -71,7 +71,7 @@ As you saw in the previous section, loading a Beancount file essentially produce
 
 There is no limit to what you can do, as long as the entries your plugin produces fulfill certain constraints (all postings balance, all data types are as expected).
 
-A plugin is added to the input file via the [<span class="underline">option syntax</span>](06_beancount_language_syntax.md), for example, like this:
+A plugin is added to the input file via the [<span class="underline">option syntax</span>](beancount_language_syntax.md), for example, like this:
 
     plugin "accounting.wash_sales"
 
@@ -212,6 +212,6 @@ To understand how to manipulate entries, you should refer to the source code, an
 
 -   [<span class="underline">beancount.core.inventory</span>](https://bitbucket.org/blais/beancount/src/tip/beancount/core/inventory.py)
 
-Refer to the [<span class="underline">Design Doc</span>](24_beancount_design_doc.md) for more details. Enjoy!
+Refer to the [<span class="underline">Design Doc</span>](beancount_design_doc.md) for more details. Enjoy!
 
 [^1]: [<span class="underline"> </span> Technically, Python does not prevent the modifications of namedtuple attributes that are themselves mutable such as lists and sets, but in practice, by convention, once an entry is created we never modify it in any way. Avoiding side-effects and using a functional style provides benefits in any language.](http://validator.w3.org/check?uri=referer)
