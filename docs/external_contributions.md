@@ -104,6 +104,14 @@ Price Sources<a id="price-sources"></a>
 
 [<span class="underline">grostim/Beancount-myTools/.../iexcloud.py</span>](https://github.com/grostim/Beancount-myTools/blob/master/price/iexcloud.py) : Price fetcher for iexcloud by Timothee Gros.
 
+[<span class="underline">xuhcc/beancount-cryptoassets</span>](https://github.com/xuhcc/beancount-cryptoassets) (Kirill Goncharov): Price sources for cryptocurrencies.
+
+[<span class="underline">xuhcc/beancount-ethereum-importer</span>](https://github.com/xuhcc/beancount-ethereum-importer) (Kirill Goncharov): Ethereum transaction importer for Beancount. Includes a script that downloads transactions from Etherscan and an importer for downloaded transactions.
+
+[<span class="underline">xuhcc/beancount-exchangerates</span>](https://github.com/xuhcc/beancount-exchangerates) (Kirill Goncharov): Price source for [<span class="underline">http://exchangeratesapi.io</span>](http://exchangeratesapi.io).
+
+[<span class="underline">tarioch/beancounttools</span>](https://github.com/tarioch/beancounttools) (Patrick Ruckstuhl): Price sources and importers.
+
 Development<a id="development"></a>
 -----------------------------------
 
