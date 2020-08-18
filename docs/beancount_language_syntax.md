@@ -202,7 +202,7 @@ There is something elegant about the fact that there is no “special” currenc
 
 And your use of currencies can get quite creative: you can create a currency for your home, for example (e.g. `MYLOFT`), a currency to count accumulated vacation hours (`VACHR`), or a currency to count potential contributions to your retirement accounts allowed annually (`IRAUSD`). You can actually solve many problems this way. The [<span class="underline">cookbook</span>](command_line_accounting_cookbook.md) describes many such concrete examples.
 
-Beancount does not support the dollar sign syntax, e.g., “$120.00”. You should always use symbols for currencies in your input file. This makes the input more regular and is a design choice. For monetary units, I suggest that you use the standard [<span class="underline">ISO 4217 currency code</span>](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) as a guideline; these quickly become familiar. However, you may include some other characters in currency names, like underscores (\_) or dashes (-), but no spaces.
+Beancount does not support the dollar sign syntax, e.g., “$120.00”. You should always use names for currencies in your input file. This makes the input more regular and is a design choice. For monetary units, I suggest that you use the standard [<span class="underline">ISO 4217 currency code</span>](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) as a guideline; these quickly become familiar. However, as detailed above, you may include some other characters in currency names, like underscores (\_), dashes (-), periods (.), or apostrophes (‘), but no spaces.
 
 Finally, you will notice that there exists a “`commodity`” directive that can be used to declare currencies. It is entirely optional: currencies come into being as you use them. The purpose of the directive is simply to attach metadata to it.
 
@@ -324,7 +324,7 @@ It is an error to declare the same commodity twice.
 
 ### Transactions<a id="transactions"></a>
 
-Transactions are the most common type of directives that occur in a ledger. They are slightly different than the other ones, because they can be followed by a list of postings. Here is an example:
+Transactions are the most common type of directives that occur in a ledger. They are slightly different to the other ones, because they can be followed by a list of postings. Here is an example:
 
     2014-05-05 txn "Cafe Mogador" "Lamb tagine with wine"
       Liabilities:CreditCard:CapitalOne         -37.45 USD
@@ -486,7 +486,7 @@ When you post a *reduction* to a position in an account, the reduction must alwa
 
 A change posted to an account, regardless of the account type, can result in a positive or negative balance; there are no limitations on the balances of simple commodity amounts (that is, those with no cost associated to them). For example, while Assets accounts *normally* have a positive balance and Liabilities accounts *usually* a negative one, you can legally credit an Assets account to a negative balance, or debit a Liabilities account to a positive balance. This is because in the real world these things do happen: you might write a check too many and obtain temporary credit from your bank’s checking account (usually along with an outrageous “overdraft” fee), or pay that credit card balance twice by mistake.
 
-For commodities held at cost, the cost specification of the posting must match one of the lots held in the inventory before the transaction is applied. The list of lots is gathered, and matched against the specification in the {...} part of the of posting. For example, if you provide a cost, only those lots whose cost match that will remain. If you provide a date, only those lots which match that date will remain. And you can use a label as well. If you provide a cost and a date, both of these are matched against the list of candidate lots to reduce. This is essentially a filter on the list of lots.
+For commodities held at cost, the cost specification of the posting must match one of the lots held in the inventory before the transaction is applied. The list of lots is gathered, and matched against the specification in the {...} part of the posting. For example, if you provide a cost, only those lots whose cost match that will remain. If you provide a date, only those lots which match that date will remain. And you can use a label as well. If you provide a cost and a date, both of these are matched against the list of candidate lots to reduce. This is essentially a filter on the list of lots.
 
 If the filtered list results in a single lot, that lot is chosen to be reduced. If the list results in multiple lots, but the total amount being reduced equals the total amount in the lots, all those lots are reduced by that posting.
 
@@ -546,7 +546,7 @@ This constraint is enforced for a few reasons:
 
 This is why this check is enabled by default.
 
-<table><tbody><tr class="odd"><td><em><strong>PLEASE NOTE!</strong></em> In a future version of Beancount, we will relax this constraint somewhat. We will allow an account to hold a negative number of units of a commodity if and only if there are no other units of that commodity held in the account. Either that, or we will allow you to mark an account has having no such constraints at all. The purpose is to allow the account of short positions in commodities. The only blocking factor is this constraint.</td></tr></tbody></table>
+<table><tbody><tr class="odd"><td><em><strong>PLEASE NOTE!</strong></em> In a future version of Beancount, we will relax this constraint somewhat. We will allow an account to hold a negative number of units of a commodity if and only if there are no other units of that commodity held in the account. Either that, or we will allow you to mark an account as having no such constraints at all. The purpose is to allow the account of short positions in commodities. The only blocking factor is this constraint.</td></tr></tbody></table>
 
 For more details of the inventory booking algorithm, see the [<span class="underline">How Inventories Work</span>](how_inventories_work.md) document.
 
@@ -686,7 +686,7 @@ Note that in this example if an exhaustive check really matters to you, you coul
 
 #### Lots Are Aggregated<a id="lots-are-aggregated"></a>
 
-The balance assertion applies to the sum of units of a particular commodities, irrespective of their cost. For example, if you hold three lots of the same commodity in an account, for example, 5 HOOL {500 USD} and 6 HOOL {510 USD}, the following balance check should succeed:
+The balance assertion applies to the sum of units of a particular commody, irrespective of their cost. For example, if you hold three lots of the same commodity in an account, for example, 5 HOOL {500 USD} and 6 HOOL {510 USD}, the following balance check should succeed:
 
     2014-08-09 balance Assets:Investing:HOOL     11 HOOL
 
@@ -814,7 +814,7 @@ You cannot currently insert multiple padding entries for the same account and co
 
     2014-04-19 balance Assets:Cash    987.34 USD
 
-(There is a [<span class="underline">proposal</span>](http://furius.ca/beancount/doc/proposal-padding) pending to allowing this and spread the padding amount evenly among all the intervening Pad directives, but it is as of yet unimplemented.)
+(There is a [<span class="underline">proposal</span>](http://furius.ca/beancount/doc/proposal-padding) pending to allow this and spread the padding amount evenly among all the intervening Pad directives, but it is as of yet unimplemented.)
 
 ### Notes<a id="notes"></a>
 

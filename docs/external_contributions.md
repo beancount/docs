@@ -68,6 +68,10 @@ Importers<a id="importers"></a>
 
 [<span class="underline">siddhantgoel/beancount-dkb</span>](https://github.com/siddhantgoel/beancount-dkb) (Siddhant Goel): importer for DKB CSV files.
 
+[<span class="underline">prabusw/beancount-importer-zerodha</span>](https://github.com/prabusw/beancount-importer-zerodha): Importer for the Indian broker Zerodha.
+
+[<span class="underline">swapi/beancount-utils</span>](https://github.com/swapi/beancount-utils) : Another importer for Zerodha.
+
 Converters<a id="converters"></a>
 ---------------------------------
 
@@ -145,7 +149,9 @@ Interfaces / Web<a id="interfaces-web"></a>
 
 [<span class="underline">Fava Envelope</span>](https://github.com/bryall/fava-envelope) (Brian Ryall): A beancount fava extension to add an envelope budgeting capability to fava and beancount. It is developed as a Fava plugin and CLI.
 
+[<span class="underline">scauligi/refried</span>](https://github.com/scauligi/refried) (Sunjay Cauligi): An envelope budgeting plugin for Fava, inspired by YNAB: all expense accounts become individual budgeting categories, budgeting is carried out using transactions to these accounts, and the plugin automaticallyapplies a tag to all rebudget transactions so they can easily be filtered out. Provides budget and account views like YNAB.
+
 Mobile/Phone Data Entry<a id="mobilephone-data-entry"></a>
 ----------------------------------------------------------
 
-[<span class="underline">Beancount Mobile</span>](https://play.google.com/store/apps/details?id=link.beancount.mobile) App (Kirill Goncharov): A mobile data entry app for Beancount. (Currently only Android is supported.) Repo: [<span class="underline">https://github.com/xuhcc/beancount-mobile</span>](https://github.com/xuhcc/beancount-mobile) ([<span class="underline">Annoucement</span>](https://groups.google.com/d/msgid/beancount/014e0879-70e0-4cac-b884-82d8004e1b43%40googlegroups.com?utm_medium=email&utm_source=footer)).
+[<span class="underline">Beancount Mobile</span>](https://play.google.com/store/apps/details?id=link.beancount.mobile) App (Kirill Goncharov): A mobile data entry app for Beancount. (Currently only Android is supported.) Repo: [<span class="underline">https://github.com/xuhcc/beancount-mobile</span>](https://github.com/xuhcc/beancount-mobile) ([<span class="underline">Announcement</span>](https://groups.google.com/d/msgid/beancount/014e0879-70e0-4cac-b884-82d8004e1b43%40googlegroups.com?utm_medium=email&utm_source=footer)).

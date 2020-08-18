@@ -39,7 +39,7 @@ The “bean-price” Tool<a id="the-bean-price-tool"></a>
 
 Beancount comes with a “bean-price” command-line tool that integrates the ideas above. By default, this script accepts a list of Beancount input filenames, and fetches prices required to compute latest market values for current positions held in accounts:
 
-`bean-price /home/joe/finances/joe.beancount`
+    bean-price /home/joe/finances/joe.beancount                                                                                                          
 
 It is also possible to provide a list of specific price fetching jobs to run, e.g.,
 
@@ -95,7 +95,7 @@ As you may now, Beancount's in-memory price database works in both directions (t
 
 By default, the latest prices for the assets are pulled in. You can use an option to fetch prices for a desired date in the past instead:
 
-`bean-price –date=2015-02-03 …`
+    bean-price --date=2015-02-03 …
 
 If you are using an input file to specify the list of prices to be fetched, the tool will figure out the list of assets held on the books *at that time* and fetch historical prices for those assets only.
 
