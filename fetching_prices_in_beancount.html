@@ -231,7 +231,8 @@
 <p>Finally, while we provide some basic implementations of price sources, we cannot provide such codes for all possible online sources and websites. The problem is analogous to that of importing and extracting data from various institutions. In order to address that, we provide a mechanism for <strong>extensibility</strong>, a way that you can implement your own price source fetcher in a Python module and point to it from your input file by specifying the module's name as the source for that commodity.</p>
 <h2 id="the-bean-price-tool">The “bean-price” Tool<a id="the-bean-price-tool"></a><a class="headerlink" href="#the-bean-price-tool" title="Permanent link"></a></h2>
 <p>Beancount comes with a “bean-price” command-line tool that integrates the ideas above. By default, this script accepts a list of Beancount input filenames, and fetches prices required to compute latest market values for current positions held in accounts:</p>
-<p><code>bean-price /home/joe/finances/joe.beancount</code></p>
+<pre><code>bean-price /home/joe/finances/joe.beancount
+</code></pre>
 <p>It is also possible to provide a list of specific price fetching jobs to run, e.g.,</p>
 <pre><code>bean-price -e USD:google/TSE:XUS CAD:mysources.morningstar/RBF1005
 </code></pre>
@@ -266,7 +267,8 @@
 </code></pre>
 <h3 id="date">Date <a id="date"></a><a class="headerlink" href="#date" title="Permanent link"></a></h3>
 <p>By default, the latest prices for the assets are pulled in. You can use an option to fetch prices for a desired date in the past instead:</p>
-<p><code>bean-price –date=2015-02-03 …</code></p>
+<pre><code>bean-price --date=2015-02-03 …
+</code></pre>
 <p>If you are using an input file to specify the list of prices to be fetched, the tool will figure out the list of assets held on the books <em>at that time</em> and fetch historical prices for those assets only.</p>
 <h3 id="caching">Caching<a id="caching"></a><a class="headerlink" href="#caching" title="Permanent link"></a></h3>
 <p>Prices are automatically cached (if current and latest, prices are cached for only a short period of time, about half an hour). This is convenient when you're having to run the script multiple times in a row for troubleshooting.</p>
