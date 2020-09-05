@@ -64,7 +64,7 @@ Note that the final balance of expenses for each participant may differ, and the
 How to Track Expenses<a id="how-to-track-expenses"></a>
 -------------------------------------------------------
 
-In order to write down all expenses for this trip we will open a brand new Beancount input file. Despite the fact that the expenses will come from each person’s personal accounts, it is useful to think of the trip as a special project, as if it were a separate entity, e.g., a company that exists only for the duration of the trip. The example file we wrote for our trip [<span class="underline">can be found here</span>](http://bitbucket.org/blais/beancount/src/tip/examples/sharing/cozumel2015.beancount) and should help you follow along this text.
+In order to write down all expenses for this trip we will open a brand new Beancount input file. Despite the fact that the expenses will come from each person’s personal accounts, it is useful to think of the trip as a special project, as if it were a separate entity, e.g., a company that exists only for the duration of the trip. The example file we wrote for our trip [<span class="underline">can be found here</span>](https://github.com/beancount/beancount/blob/master/examples/sharing/cozumel2015.beancount) and should help you follow along this text.
 
 ### Accounts<a id="accounts"></a>
 
@@ -277,7 +277,7 @@ I made a paper spreadsheet where each line had
 
 -   The amount (either in USD or MXN)
 
-After our trip, I sat down at the computer and typed [<span class="underline">the corresponding Beancount file</span>](http://www.google.com/url?q=http%3A%2F%2Fbitbucket.org%2Fblais%2Fbeancount%2Fsrc%2Ftip%2Fexamples%2Fsharing%2Fcozumel2015.beancount&sa=D&sntz=1&usg=AFQjCNEPaKdOQ8UzCsGwRksl6sbCp6J2ZA). If I had a computer during my vacation I probably would have typed it as we went along. Of course, I had to do a few adjustments here and there because of mistakes.
+After our trip, I sat down at the computer and typed [<span class="underline">the corresponding Beancount file</span>](https://github.com/beancount/beancount/blob/master/examples/sharing/cozumel2015.beancount). If I had a computer during my vacation I probably would have typed it as we went along. Of course, I had to do a few adjustments here and there because of mistakes.
 
 The bottom line is: if you’re organized well, the overhead of doing this is minimal.
 
@@ -585,12 +585,12 @@ For each person, it will generate the following reports:
 
 -   A breakdown of expenses for each category (account type)
 
-Finally, it will also generate a final balance for each person, which you can use to send final reconciling transfers to each other. Try it now on one of the [<span class="underline">example files</span>](https://bitbucket.org/blais/beancount/src/tip/examples/sharing/) provided with Beancount.
+Finally, it will also generate a final balance for each person, which you can use to send final reconciling transfers to each other. Try it now on one of the [<span class="underline">example files</span>](https://github.com/beancount/beancount/tree/master/examples/sharing) provided with Beancount.
 
 Other Examples<a id="other-examples"></a>
 -----------------------------------------
 
-There is another example file that shows how to share expenses between three participants in [<span class="underline">duxbury2015.beancount</span>](https://bitbucket.org/blais/beancount/src/66e85c8343d8704745ae16cb6ac622f4b6246c3c/examples/sharing/duxbury2015.beancount?at=default&fileviewer=file-view-default). Look to more example files to be introduced over time.
+There is another example file that shows how to share expenses between three participants in [<span class="underline">duxbury2015.beancount</span>](https://github.com/beancount/beancount/blob/master/examples/sharing/duxbury2015.beancount). Look to more example files to be introduced over time.
 
 Conclusion<img src="sharing_expenses_with_beancount/media/b2573bbadd485ef104e25a4b13b53f46c4b541ca.jpg" style="width:2.02604in;height:1.52427in" /><a id="conclusion"></a>
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
