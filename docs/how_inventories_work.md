@@ -58,7 +58,7 @@ After those two transactions, the Restaurants account contains 34.58 USD and 62.
 
 brings the balance of that account to 34.58 USD and 86.02 CAD. The number of units USD hasn’t changed.
 
-Note that accounts may contain any number of commodities, and this is also true for commodities held at cost, which we’ll see shortly. While this is made possible, I recommend that you define enough accounts to keep a single commodity in each; this can be enforced with the “[<span class="underline">onecommodity</span>](https://bitbucket.org/blais/beancount/src/default/beancount/plugins/onecommodity.py)” plugin.
+Note that accounts may contain any number of commodities, and this is also true for commodities held at cost, which we’ll see shortly. While this is made possible, I recommend that you define enough accounts to keep a single commodity in each; this can be enforced with the “[<span class="underline">onecommodity</span>](http://github.com/beancount/beancount/tree/master/beancount/plugins/onecommodity.py)” plugin.
 
 ### Cost Basis<a id="cost-basis"></a>
 
@@ -304,9 +304,9 @@ In general, the way that profits on sales are calculated is by weighing the proc
 
 The price is an annotation for your records. It remains attached to the Posting objects and if you want to make use of it somehow, you can always do that by writing some Python code. There are already two plugins which make use of this annotation:
 
--   [**<span class="underline">beancount.plugins.implicit\_prices</span>**](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/plugins/implicit_prices.py): This plugin takes the prices attached to the postings and automatically creates and inserts Price directives for each of them, in order to feed the global price database.
+-   [**<span class="underline">beancount.plugins.implicit\_prices</span>**](http://github.com/beancount/beancount/tree/master/beancount/plugins/implicit_prices.py): This plugin takes the prices attached to the postings and automatically creates and inserts Price directives for each of them, in order to feed the global price database.
 
--   [**<span class="underline">beancount.plugins.sellgains</span>**](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/plugins/sellgains.py): This plugin implements an additional balancing check: it uses the prices to compute the expected proceeds and weighs them against all the other postings of the transaction *excluding* any postings to Income accounts. In our example, it would check that (-12 x 24.70 + 296.40) = 0. This provides yet another means of verifying the correctness of your input.
+-   [**<span class="underline">beancount.plugins.sellgains</span>**](http://github.com/beancount/beancount/tree/master/beancount/plugins/sellgains.py): This plugin implements an additional balancing check: it uses the prices to compute the expected proceeds and weighs them against all the other postings of the transaction *excluding* any postings to Income accounts. In our example, it would check that (-12 x 24.70 + 296.40) = 0. This provides yet another means of verifying the correctness of your input.
 
 See the [<span class="underline">Trading with Beancount</span>](trading_with_beancount.md) document for more details on this topic.
 

@@ -72,6 +72,8 @@ Importers<a id="importers"></a>
 
 [<span class="underline">swapi/beancount-utils</span>](https://github.com/swapi/beancount-utils) : Another importer for Zerodha.
 
+[<span class="underline">Dr-Nuke/drnuke-bean</span>](https://github.com/Dr-Nuke/drnuke-bean) (Dr Nuke): An importer for IBKR, based on the flex query (API-like) and one for Swiss PostFinance.
+
 Converters<a id="converters"></a>
 ---------------------------------
 

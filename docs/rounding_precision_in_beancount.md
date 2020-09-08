@@ -53,7 +53,7 @@ The precision of a balance assertions is also subject to this problem, assertion
 
 The user does not intend for this balance check to precisely sum up to 4526.77000000… USD. However, it this cash account previously received a deposit with a greater precision as in the previous section’s example, then we have a problem. Now the cash amount contains some of the crumbs deposited from the interpolation (0.0067 USD). If we were able to find a good solution for the automatic rounding of postings in the previous section, this would not be a problem. But in the meantime, we must find a solution.
 
-Beancount’s current approach is a kludge: it uses a [<span class="underline">user-configurable tolerance</span>](https://bitbucket.org/blais/beancount/src/f9f90945dd751ecec5d0f63c1bccc372ed21f58f/src/python/beancount/ops/balance.py?at=default#cl-92) of 0.0150 (in any unit). We’d like to change this so that the tolerance used is able to depend on the commodity, the account, or even the particular directive in use.
+Beancount’s current approach is a kludge: it uses a [<span class="underline">user-configurable tolerance</span>](http://github.com/beancount/beancount/tree/master/beancount/ops/balance.py#L23) of 0.0150 (in any unit). We’d like to change this so that the tolerance used is able to depend on the commodity, the account, or even the particular directive in use.
 
 Other Systems<a id="other-systems"></a>
 ---------------------------------------
@@ -64,7 +64,7 @@ Other command-line accounting systems differ in how they choose that tolerance:
 
 -   HLedger, on the other hand, uses global precision settings. [<span class="underline">The whole file is processed first, then the precisions are derived from the most precise numbers seen in the entire input file.</span>](https://groups.google.com/d/msg/ledger-cli/m-TgILbfrwA/SoGZDNhlDOkJ)
 
--   At the moment, Beancount uses a [<span class="underline">constant value</span>](https://bitbucket.org/blais/beancount/src/c194c7fa6c15a0356e9d26b20b471f0868843c42/src/python/beancount/core/complete.py?at=default#cl-25) for the tolerance used in its [<span class="underline">balance checking algorithm</span>](https://bitbucket.org/blais/beancount/src/c194c7fa6c15a0356e9d26b20b471f0868843c42/src/python/beancount/ops/validation.py?at=default#cl-391) (0.005 of any unit). This is weak and should, at the very least, be commodity-dependent, if not also dependent on the particular account in which the commodity is used.
+-   At the moment, Beancount uses a constant value for the tolerance used in its [<span class="underline">balance checking algorithm</span>](http://github.com/beancount/beancount/tree/master/beancount/ops/validation.py) (0.005 of any unit). This is weak and should, at the very least, be commodity-dependent, if not also dependent on the particular account in which the commodity is used.
 
 Proposal<a id="proposal"></a>
 -----------------------------

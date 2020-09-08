@@ -37,6 +37,7 @@ nav:
       - Sharing Expenses with Beancount: sharing_expenses_with_beancount.md
       - How We Share Expenses: how_we_share_expenses.md
       - Health Care Expenses: health_care_expenses.md
+      - Calculating Portfolio Returns: calculating_portolio_returns.md
     - Documentation for Developers:
       - Beancount Scripting Plugins: beancount_scripting_plugins.md
       - Beancount Design Doc: beancount_design_doc.md

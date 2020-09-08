@@ -10,7 +10,7 @@ Introduction<a id="introduction"></a>
 
 This document explains the vesting of restricted stock units in Beancount, by way of an example. This example may not exactly match your situation, but enough detail is provided that you should be able to adapt it for your own particular differences.
 
-A working example file can be found [<span class="underline">here</span>](https://bitbucket.org/blais/beancount/src/tip/examples/vesting/vesting.beancount) to follow along with this text.
+A working example file can be found [<span class="underline">here</span>](http://github.com/beancount/beancount/tree/master/examples/vesting/vesting.beancount) to follow along with this text.
 
 Restricted Stock Compensation<a id="restricted-stock-compensation"></a>
 -----------------------------------------------------------------------

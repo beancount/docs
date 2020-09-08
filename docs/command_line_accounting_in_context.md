@@ -230,7 +230,7 @@ So I’ve described what I do to organize my finances. Here I’ll tell you abou
 
 -   [<span class="underline">Beancount</span>](http://furius.ca/beancount/) is the core of the system. It reads the text file I update, parses the computer language I’ve defined and produces reports from the resulting data structures. This software *only* reads the input file and does not communicate with other programs on purpose. It runs in isolation.
 
--   Beancount’s [<span class="underline">ingest</span>](https://bitbucket.org/blais/beancount/src/tip/beancount/ingest/) package and tools help automate the updating of account data by extracting transactions from file downloads from banks and other institutions. These tools orchestrate the running of importers which you implement (this is where all the messy importing code lives, the code you need to make it easier to keep your text file up-to-date, which can parse OFX and CSV files, for instance). See bean-extract, bean-identify tools.
+-   Beancount’s [<span class="underline">ingest</span>](http://github.com/beancount/beancount/tree/v2/beancount/ingest/) package and tools help automate the updating of account data by extracting transactions from file downloads from banks and other institutions. These tools orchestrate the running of importers which you implement (this is where all the messy importing code lives, the code you need to make it easier to keep your text file up-to-date, which can parse OFX and CSV files, for instance). See bean-extract, bean-identify tools.
 
 -   The ingest package also helps with filing documents (see bean-file tool). Because it is able to identify which document belongs to which account, it can move the downloaded file to my documents archive automatically. This saves me time.
 

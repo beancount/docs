@@ -529,7 +529,7 @@ If you’re familiar with SQL databases, you might ask why Beancount doesn’t s
 
 This is why Beancount provides a custom tool to directly process and query its data: It provides its own implementation of an SQL client that lets you specify open and close dates and leverages a custom “Inventory” data structure to create sums of the positions of postings. This tools supports columns of Beancount’s core types: Amount, Position and Inventory objects.
 
-(In any case, if you’re not convinced, Beancount provides a [<span class="underline">tool</span>](https://bitbucket.org/blais/beancount/src/tip/bin/bean-sql) to export its contents to a regular SQL database system. Feel free to experiment with it if you like, knock yourself out.)
+(In any case, if you’re not convinced, Beancount provides a [<span class="underline">tool</span>](https://github.com/beancount/beancount/tree/v2/bin/bean-sql) to export its contents to a regular SQL database system. Feel free to experiment with it if you like, knock yourself out.)
 
 [^1]: Please don’t pay attention to the numbers in these large figures, they were randomly generated and don’t reflect this. We’re just interested in showing the structure, in these figures.
 

@@ -61,6 +61,8 @@ Cookbook & Examples<a id="cookbook-examples"></a>
 
 [<span class="underline">Health care Expenses</span>](health_care_expenses.md) (incomplete): A not-quite finished document explaining how to handle the sequence of health care expenses for in and out of network providers in the USA.
 
+[<span class="underline">Calculating Portolio Returns</span>](calculating_portolio_returns.md): How to compute portfolio returns from a Beancount ledger. This describes work done in an experimental script and the process that was involved in extracting the correct data for it.
+
 Documentation for Developers<a id="documentation-for-developers"></a>
 ---------------------------------------------------------------------
 
@@ -68,9 +70,9 @@ Documentation for Developers<a id="documentation-for-developers"></a>
 
 [<span class="underline">Beancount Design Doc</span>](beancount_design_doc.md): Information about the program’s architecture and design choices, code conventions, invariants and methodology. Read this if you want to get a deeper understanding.
 
-[<span class="underline">LedgerHub Design Doc</span>](ledgerhub_design_doc.md): The design and architecture of the importing tools and library implemented in [<span class="underline">beancount.ingest</span>](https://bitbucket.org/blais/beancount/src/tip/beancount/ingest/). This used to be a separate project called LedgerHub (now defunct), whose useful parts have been eventually folded into Beancount. This is the somewhat dated original design doc.
+[<span class="underline">LedgerHub Design Doc</span>](ledgerhub_design_doc.md): The design and architecture of the importing tools and library implemented in [<span class="underline">beancount.ingest</span>](http://github.com/beancount/beancount/tree/master/beancount/ingest/). This used to be a separate project called LedgerHub (now defunct), whose useful parts have been eventually folded into Beancount. This is the somewhat dated original design doc.
 
-[<span class="underline">Source Code</span>](https://github.com/beancount/beancount/): The official repository of the Beancount source code lives at [<span class="underline">Github</span>](http://github.com/beancount/beancount/) since May 2020. (From 2008 to May 2020 it was hosted at [<span class="underline">Bitbucket</span>](http://bitbucket.org/blais/beancount)).
+[<span class="underline">Source Code</span>](https://github.com/beancount/beancount/): The official repository of the Beancount source code lives at [<span class="underline">Github</span>](http://github.com/beancount/beancount/) since May 2020. (From 2008 to May 2020 it was hosted at Bitbucket).
 
 [<span class="underline">External Contributions</span>](external_contributions.md): A list of plugins, importers and other codes that build on Beancount’s libraries that other people have made and shared.
 

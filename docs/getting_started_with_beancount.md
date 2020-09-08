@@ -52,9 +52,9 @@ To enable this functionality outline minor mode should be explicitly activated. 
 
 Outline minor mode uses a rather peculiar choice of keybindings. It is possible to map the most used functionality to keys more familiar to Org mode users adding a few lines to the Emacs configuration:
 
-    (define-key beancount-mode-map (key "C-c C-n")
+    (define-key beancount-mode-map (kbd "C-c C-n")
       #'outline-next-visible-heading)
-    (define-key beancount-mode-map (key "C-c C-p")
+    (define-key beancount-mode-map (kbd "C-c C-p")
       #'outline-previous-visible-heading)
 
 ### Vim<a id="vim"></a>

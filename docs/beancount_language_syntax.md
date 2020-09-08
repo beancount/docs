@@ -1025,7 +1025,7 @@ There are three ways to view the list of options:
 
 -   To view the definitive list of options supported by your installed version, use the following command: `bean-doctor list-options`
 
--   Finally, you can [<span class="underline">peek at the source code</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/parser/options.py?at=default) as well.
+-   Finally, you can [<span class="underline">peek at the source code</span>](http://github.com/beancount/beancount/tree/master/beancount/parser/options.py) as well.
 
 ### Operating Currencies<a id="operating-currencies"></a>
 

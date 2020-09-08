@@ -43,7 +43,7 @@ This is done by a custom plugin I built that splits the expenses according to so
 
 We also have to keep track of the money she spends on her own for shared expenses. Since she’s not a Beancount user, I’ve set up a Google Sheets doc in which she can add rows to a particular sheet. This sheet has fields: Date, Description, Account, Amount. I try to keep it simple.
 
-Then, I built an [<span class="underline">extract\_sheets.py</span>](https://bitbucket.org/blais/beancount/src/tip/experiments/sharing/extract_sheets.py) script that can pull down this data automatically and it writes it to a dedicated file for this, overwriting the entire contents each time. The contents of this ledger (`carolyn.beancount`) look like this:
+Then, I built an [<span class="underline">extract\_sheets.py</span>](http://github.com/beancount/beancount/tree/master/experiments/sharing/extract_sheets.py) script that can pull down this data automatically and it writes it to a dedicated file for this, overwriting the entire contents each time. The contents of this ledger (`carolyn.beancount`) look like this:
 
     pushtag #carolyn
     ...
@@ -121,7 +121,7 @@ And I have a different plugin that *automatically* makes the conversion of those
      Expenses:Kyle                   49.99 USD
        diverted_account: "Expenses:Pharmacy"
 
-So from my personal side, all those expenses get booked to my “Kyle project” account. This is accomplished by the [<span class="underline">divert\_expenses</span>](https://bitbucket.org/blais/beancount/src/tip/beancount/plugins/divert_expenses.py) plugin, with this configuration:
+So from my personal side, all those expenses get booked to my “Kyle project” account. This is accomplished by the [<span class="underline">divert\_expenses</span>](http://github.com/beancount/beancount/tree/master/beancount/plugins/divert_expenses.py) plugin, with this configuration:
 
     plugin "beancount.plugins.divert_expenses" "{                                                                                                                                                                                                                                                                                                                                                                                           
       'tag': 'kyle',                                                                                                                                                                                                                                                                                                                                                                                                                         
@@ -132,7 +132,7 @@ The “diverted\_account” metadata is used to keep track of the original accou
 
 ### My Child Expenses in Kyle’s own Ledger<a id="my-child-expenses-in-kyles-own-ledger"></a>
 
-Now, because we’re considering Kyle’s expenses a project of his own, I have to maintain a set of ledgers for him. I automatically pull the transactions I described in the previous section from my personal ledger and automatically convert them to a file dedicated to his dad (me). This is done by calling the [<span class="underline">extract\_tagged</span>](https://bitbucket.org/blais/beancount/src/tip/experiments/sharing/extract_tagged.py) script:
+Now, because we’re considering Kyle’s expenses a project of his own, I have to maintain a set of ledgers for him. I automatically pull the transactions I described in the previous section from my personal ledger and automatically convert them to a file dedicated to his dad (me). This is done by calling the [<span class="underline">extract\_tagged</span>](http://github.com/beancount/beancount/tree/master/experiments/sharing/extract_tagged.py) script:
 
     extract_tagged.py blais.beancount '#kyle' 'Income:Dad' --translate "Expenses:Kyle:Mom=Income:Mom" > dad.beancount
 
