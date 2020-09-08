@@ -8,14 +8,14 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="https://beancount.github.io/docs/calculating_portolio_returns.html" rel="canonical"/>
 <link href="img/favicon.ico" rel="shortcut icon"/>
-<title>Calculating portolio returns - Beancount Documentation</title>
+<title>Calculating Portfolio Returns - Beancount Documentation</title>
 <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
 <link href="css/theme.css" rel="stylesheet">
 <link href="css/theme_extra.css" rel="stylesheet"/>
 <link href="css/custom.css" rel="stylesheet"/>
 <script>
     // Current page data
-    var mkdocs_page_name = "Calculating portolio returns";
+    var mkdocs_page_name = "Calculating Portfolio Returns";
     var mkdocs_page_input_path = "calculating_portolio_returns.md";
     var mkdocs_page_url = "/docs/calculating_portolio_returns.html";
   </script>
@@ -40,7 +40,7 @@
 </li>
 </ul>
 <p class="caption"><span class="caption-text">Outline</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="#">Documentation for Users</a>
 <ul>
 <li class="toctree-l2"><a class="reference internal" href="command_line_accounting_in_context.html">Command Line Accounting in Context</a>
@@ -79,8 +79,8 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#">Cookbooks &amp; Examples</a>
-<ul>
+<li class="toctree-l1 current"><a class="reference internal current" href="#">Cookbooks &amp; Examples</a>
+<ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="trading_with_beancount.html">Trading with Beancount</a>
@@ -92,6 +92,52 @@
 <li class="toctree-l2"><a class="reference internal" href="how_we_share_expenses.html">How We Share Expenses</a>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="health_care_expenses.html">Health Care Expenses</a>
+</li>
+<li class="toctree-l2 current"><a class="reference internal current" href="calculating_portolio_returns.html">Calculating Portfolio Returns</a>
+<ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#motivation">Motivation</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#history">History</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#method-overview">Method Overview</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#extracting-cash-flow-data">Extracting Cash Flow Data</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#finding-accounts">Finding Accounts</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#extracting-relevant-transactions">Extracting Relevant Transactions</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#account-categorization">Account Categorization</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#transaction-signature">Transaction Signature</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#cash-flows">Cash Flows</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#grouping-accounts">Grouping Accounts</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#computing-returns">Computing Returns</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#filling-in-missing-price-points">Filling in Missing Price Points</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#currency-conversion">Currency Conversion</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#comparison-against-benchmark">Comparison against benchmark</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#reporting-results">Reporting Results</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#interpretation-gotchas">Interpretation Gotchas</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#extending-to-other-instruments">Extending to Other Instruments</a>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -166,7 +212,9 @@
 <div aria-label="breadcrumbs navigation" role="navigation">
 <ul class="wy-breadcrumbs">
 <li><a href=".">Docs</a> »</li>
-<li>Calculating portolio returns</li>
+<li>Cookbooks &amp; Examples »</li>
+<li>Outline »</li>
+<li>Calculating Portfolio Returns</li>
 <li class="wy-breadcrumbs-aside">
 <a class="icon icon-github" href="https://github.com/beancount/docs/edit/master/docs/calculating_portolio_returns.md"> Edit on GitHub</a>
 </li>
@@ -463,6 +511,10 @@ ASSET_OTHERASSET        : Exchange of stock/symbol
 </div>
 </div>
 <footer>
+<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-right" href="beancount_scripting_plugins.html" title="Beancount Scripting Plugins">Next <span class="icon icon-circle-arrow-right"></span></a>
+<a class="btn btn-neutral" href="health_care_expenses.html" title="Health Care Expenses"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+</div>
 <hr/>
 <div role="contentinfo">
 <!-- Copyright etc -->
@@ -477,6 +529,8 @@ ASSET_OTHERASSET        : Exchange of stock/symbol
 <div aria-label="versions" class="rst-versions" role="note">
 <span class="rst-current-version" data-toggle="rst-current-version">
 <a class="fa fa-github" href="https://github.com/beancount/docs/" style="float: left; color: #fcfcfc"> GitHub</a>
+<span><a href="health_care_expenses.html" style="color: #fcfcfc;">« Previous</a></span>
+<span style="margin-left: 15px"><a href="beancount_scripting_plugins.html" style="color: #fcfcfc">Next »</a></span>
 </span>
 </div>
 <script>var base_url = '.';</script>
