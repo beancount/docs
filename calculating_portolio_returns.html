@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://beancount.github.io/docs/calculating_portolio_returns.html" rel="canonical"/>
+<link href="img/favicon.ico" rel="shortcut icon"/>
+<title>Calculating portolio returns - Beancount Documentation</title>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
+<link href="css/theme.css" rel="stylesheet">
+<link href="css/theme_extra.css" rel="stylesheet"/>
+<link href="css/custom.css" rel="stylesheet"/>
+<script>
+    // Current page data
+    var mkdocs_page_name = "Calculating portolio returns";
+    var mkdocs_page_input_path = "calculating_portolio_returns.md";
+    var mkdocs_page_url = "/docs/calculating_portolio_returns.html";
+  </script>
+<script defer="" src="js/jquery-2.1.1.min.js"></script>
+<script defer="" src="js/modernizr-2.8.3.min.js"></script>
+</link></link></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="."> Beancount Documentation</a>
+<div role="search">
+<form action="./search.html" class="wy-form" id="rtd-search-form" method="get">
+<input name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Index</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Outline</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="#">Documentation for Users</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="command_line_accounting_in_context.html">Command Line Accounting in Context</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="the_double_entry_counting_method.html">The Double Entry Counting Method</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installing_beancount.html">Installing Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started_with_beancount.html">Getting Started with Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="beancount_language_syntax.html">Beancount Language Syntax</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="beancount_options_reference.html">Beancount Options Reference</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="precision_tolerances.html">Precision Tolerances</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="beancount_query_language.html">Beancount Query Language</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="how_inventories_work.html">How Inventories Work</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exporting_your_portfolio.html">Exporting Your Portfolio</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_example.html">Tutorial &amp; Example</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="beancount_history_and_credits.html">Beancount History and Credits</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="importing_external_data.html">Importing External Data</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#">Cookbooks &amp; Examples</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="trading_with_beancount.html">Trading with Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="how_we_share_expenses.html">How We Share Expenses</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="health_care_expenses.html">Health Care Expenses</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#">Documentation for Developers</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="beancount_design_doc.html">Beancount Design Doc</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="external_contributions.html">External Contributions</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#">Enhancement Proposals &amp; Discussions</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/index.html">beancount</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.core.html">beancount.core</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ingest.html">beancount.ingest</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.loader.html">beancount.loader</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ops.html">beancount.ops</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.parser.html">beancount.parser</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.plugins.html">beancount.plugins</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.prices.html">beancount.prices</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.query.html">beancount.query</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.reports.html">beancount.reports</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.scripts.html">beancount.scripts</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.tools.html">beancount.tools</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.utils.html">beancount.utils</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.web.html">beancount.web</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href=".">Beancount Documentation</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a href=".">Docs</a> »</li>
+<li>Calculating portolio returns</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/beancount/docs/edit/master/docs/calculating_portolio_returns.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div role="main">
+<div class="section">
+<h1 id="calculating-portfolio-returns">Calculating Portfolio Returns<a id="title"></a><a class="headerlink" href="#calculating-portfolio-returns" title="Permanent link"></a></h1>
+<p><a href="http://plus.google.com/+MartinBlais"><span class="underline">Martin Blais</span></a>, Sept 2020</p>
+<p><a href="http://furius.ca/beancount/doc/returns"><span class="underline">http://furius.ca/beancount/doc/returns</span></a></p>
+<p><em>This document describes how to compute portfolio returns from a Beancount ledger</em></p>
+<p><strong><em>Status: Draft</em></strong></p>
+<h2 id="motivation">Motivation<a id="motivation"></a><a class="headerlink" href="#motivation" title="Permanent link"></a></h2>
+<p>You will be surprised to find that discount brokers typically do not provide accurate and complete returns calculations for your investments based on your specific cash flows. They tend to report other measures of performance:</p>
+<ul>
+<li>
+<p><strong>Change in value.</strong> The simplest they provide is a snapshot of the account value at the beginning and end of the period (or year). The problem with this method is that it does not reflect your infusions or removal of cash as such, nor your changes in positions. For example, if you had an account with $50,000 at the beginning of the year and you've added in $30,000 in August, reporting a difference of $37,000 at the end of December is just not useful (you'd have to mentally discount for new invested cash during the year, and what if you want to break it down and compare the returns from different instruments in the account?).</p>
+</li>
+<li>
+<p><strong>Underlying performance.</strong> They might report the growth of the underlying asset in isolation, disregarding your specific positions. It's not very useful to say "HDV grew by 8.2% over the last year" if you invested only (or even mostly) in the second half of the year. What I'd like is to know how much my specific investments grew, given my specific changes in positions and timings. In other words, how did <em>I</em> do?</p>
+</li>
+<li>
+<p><strong>No dividends.</strong> Another issue is that performance is typically only reporting capital appreciation due to the change in price of the investment. Ideally one would like to break down the performance between capital appreciation and dividends and returns for each of those components, as well as overall performance, so you can compare returns from stocks and bonds to each other. You can sometimes find out that information from the Yield field in the summary, but for uneven distributions, this won't help me find out what my actual returns from dividends were, over any period.</p>
+</li>
+<li>
+<p><strong>Commissions and management expenses.</strong> Some brokers charge management expenses on a monthly basis, based on the value of the account. I would like to know what my portfolio return is net of those expenses.</p>
+</li>
+</ul>
+<p><strong>I want accurate returns reporting, based on my actual cash flows and changes of positions over time.</strong></p>
+<p>If I maintain your investment information in a Beancount ledger, in theory it contains all the data I need in order to compute your true returns, based on the specific timings of my own savings (cash infusions) and which positions I held at which time. It's just not in the simplest format required to do it— Beancount transactions are much more flexible than one might want and a simpler series of cash flows needs to be extracted from it. <strong>This document explains how I finally did this from my own Ledger.</strong> And how we might generalize this to yours, based on some simple rules for data entry. Most of this text is dedicated to the pedestrian details of extracting the right data.</p>
+<p>The source code can be found <a href="https://github.com/beancount/beancount/blob/v2/experiments/returns/compute_returns.py"><span class="underline">here</span></a>.</p>
+<p>In addition, a fair and honest comparison to other investments scenarios should be possible, based on those same cash flows. For instance, you should be able to produce data that looks like "My investments in ZZZ have returned 8.2%, 1.1% of which were from dividends, and if I'd invested in a 60/40 portfolio of broad stocks and bonds it would have returned 7.2% instead." In other words, I want to assess my performance <em>relative</em> to a number of common alternatives.</p>
+<p>(Finally, note that if all you need is a snapshot of your current positions, that's already handled by the <a href="https://github.com/beancount/beancount/blob/v2/beancount/projects/export.py"><span class="underline">export script</span></a>.)</p>
+<h3 id="history">History<a id="history"></a><a class="headerlink" href="#history" title="Permanent link"></a></h3>
+<p>In 2014, I made <a href="https://github.com/beancount/beancount/blob/2.3.1/experiments/returns/returns.py"><span class="underline">a brief attempt</span></a> to break down information from my ledger to do this. At the time I got bogged down in details when some of the time-series I was extracting weren't producing what looked like sensible results (some with outliers). I got too detailed too fast. Sometimes it's better to just get the whole job done and come back for the details. I hadn't logged enough debugging information and I didn't have enough confidence in its output to use it. I never actually finished the work at the time, and eventually moved the scripts to experiments and shrugged. "Later."</p>
+<p>In August 2020, I sat down to do this again, this time with a less ambitious goal of just getting a good approximation and producing lots of debug output, boiling down extraction to pull out just the cash flows and to get the job complete over all my accounts, even if it meant making some adjustments to my input file. It turned out to be the right decision: I managed to complete the task, and this document presents my journey, the method, its assumptions, quirks, and some results.</p>
+<h2 id="method-overview">Method Overview<a id="method-overview"></a><a class="headerlink" href="#method-overview" title="Permanent link"></a></h2>
+<p>The method I'll use is to extract cash flow information for each investment. What I call "<strong>an investment</strong>" in this context is a kind of <strong>financial instrument</strong>, e.g., shares of "VTI" for the Vanguard Total Stock Market ETF, <strong>invested in a particular account</strong>, e.g. a Vanguard 401k. A list of cash flows is a dated list of positive or negative currency being invested or withdrawn as proceeds to/from that investment. So I have a list of cash flows per account, and each account records only one instrument.</p>
+<p>For reporting I'll group those per-account series in logical units, for example lumping together ones for the same instrument bought in different accounts / brokers, or different instruments that represent the same underlying by merging their cash flows. Or even to group them by "strategy". Basically, by merging the cash flows of multiple accounts, I have a generic way to group any subsets of accounts and compute their returns.</p>
+<p>Using the cash flows, I will then run a simple root finding routine to calculate the average (annual) rate those flows would have to grow in order to result in their final market value. This provides me with overall returns. This is similar to calculating the <a href="https://en.wikipedia.org/wiki/Internal_rate_of_return"><span class="underline">Internal Rate of Return</span></a>. I will do that for the entire time series, but also for sub-intervals within the time series to compute, e.g. calendar returns (i.e., each year or quarter) or cumulative returns for trailing periods. Since cash flows are flagged as dividends or not, I can separate the returns from appreciation from the returns from dividends. Reports with plots are produced for each of the groups.</p>
+<h2 id="extracting-cash-flow-data">Extracting Cash Flow Data<a id="extracting-cash-flow-data"></a><a class="headerlink" href="#extracting-cash-flow-data" title="Permanent link"></a></h2>
+<p>This section describes the various steps I took to extract relevant data from my ledger.</p>
+<h3 id="finding-accounts">Finding Accounts<a id="finding-accounts"></a><a class="headerlink" href="#finding-accounts" title="Permanent link"></a></h3>
+<p>First, we need to figure out the list of available investments to report on. By convention I keep pairs of dedicated leaf accounts for each commodity type in my ledger, one to contain the actual positions and one to receive dividends, e.g., for "VTI" held in broker "BTrade", accounts like</p>
+<pre><code>2012-03-01 open Assets:US:BTrade:Main:VTI              VTI
+2012-03-01 open Income:US:BTrade:Main:VTI:Dividend     USD
+</code></pre>
+<p>This has two consequences: (a) it makes it easy to find the list of accounts that contain investments (any account with a leaf account name that is also one of the commodities found in the ledger), and (b) it nicely isolates all the activity related to each of those investments by finding all the transactions with a posting to that account<strong>. I recommend you follow the same convention in your chart of accounts.</strong> The result is a list of accounts like "Assets:US:BTrade:Main:VTI", specific to each (instrument, institution).</p>
+<p>I further filter down this list to the subset of accounts which were still open up to 15 years ago (I close my accounts—using Beancount's Close directive—when they're done). In my particular case, I didn't have much savings back then, and there's no point in bothering to do the work to normalize those crumbs in my investing history for that far back.</p>
+<h3 id="extracting-relevant-transactions">Extracting Relevant Transactions<a id="extracting-relevant-transactions"></a><a class="headerlink" href="#extracting-relevant-transactions" title="Permanent link"></a></h3>
+<p>For each of the identified asset accounts, we want to pull out from the ledger's transactions the list of transactions affecting that account. We simply run through the entire ledger's transactions keeping just the transactions with a posting to that account.</p>
+<p>Note that dividend payments will not have an asset posting so it's necessary to also adjust the regular expression we match account names to, to include not just the asset account, but also our dividend income account, as described in the previous section. A typical dividend payment would contain only the dividend income posting and a cash posting (for the deposit), e.g.:</p>
+<pre><code>2019-11-27 * "Dividend"
+  Income:US:BTrade:Main:VTI:Dividend   -123.45 USD
+  Assets:US:BTrade:Main:Cash            123.45 USD
+</code></pre>
+<p>We'll see examples of these in the template section.</p>
+<h3 id="account-categorization">Account Categorization<a id="account-categorization"></a><a class="headerlink" href="#account-categorization" title="Permanent link"></a></h3>
+<p>The next step is to generalize the set of accounts witnessed in the transactions for an instrument to account categories based on their role in the transaction. For example, if I inspect my "VTI" trades, I will encounter the following accounts:</p>
+<pre><code> Assets:US:BTrade:Main:Cash
+ Assets:US:BTrade:Main:VTI
+ Expenses:Financial:Commissions
+ Income:US:BTrade:Main:VTI:Dividend
+</code></pre>
+<p>I map each account to one of several generic categories (I could probably simplify this now):</p>
+<pre><code>ASSET         # The account holding the commodity.                                                                                                                                                                                                                                                                                                                                                                                     
+CASH          # Transfers from other cash accounts, employer contributions.                                                                                                                                                                                                                                                                                                                                                           
+PNL           # Profit/loss income accounts.
+INTEREST      # Interest income accounts.
+DIVIDEND      # Dividend income accounts.
+ROUNDING      # Misc adjustment accounts.
+OTHERASSET    # Trades in other commodities.
+OTHERDIVIDEND # Dividends in other commodities.
+EXPENSES      # Commissions, fees and other expenses.
+CONVERSIONS   # Currency conversion transactions.
+TRACKING      # Mirror tracking accounts in other currencies.
+UNKNOWN       # Uncategorized.
+</code></pre>
+<p>Like this:</p>
+<pre><code> 'Assets:US:BTrade:Main:Cash': &lt;Cat.CASH: 2&gt;
+ 'Assets:US:BTrade:Main:VTI': &lt;Cat.ASSET: 1&gt;
+ 'Expenses:Financial:Commissions': &lt;Cat.EXPENSES: 9&gt;
+ 'Income:US:BTrade:Main:VTI:Dividend': &lt;Cat.DIVIDEND: 5&gt;
+</code></pre>
+<p>In this way, I can compare transactions to each other across instruments. For example, a transaction signature of "DIVIDEND + CASH" is a dividend payment, and I write a generic handler to extract the cash flows for this. The categorization was implemented using a set of ad-hoc rules on my account names; it could probably be generalized if the ledger is assumed to follow some naming rules on accounts, or by requiring metadata on the Open directives.</p>
+<p><em><strong>Fixup</strong>: In the process I noticed many irregularities in how I named my accounts. For example, I used ":Dividend" and ":Dividends" sometimes. I went through my ledger and made some changes to name accounts coherently, and iterated until all my accounts were categorized correctly.</em></p>
+<h3 id="transaction-signature">Transaction Signature<a id="transaction-signature"></a><a class="headerlink" href="#transaction-signature" title="Permanent link"></a></h3>
+<p>Using the account-category mappings from the previous section, I'm able to derive a unique "signature" for each transaction, e.g. a transaction like this:</p>
+<pre><code>2020-03-12 * "(DOI) ORDINARY DIVIDEND"
+  Income:US:Ameritrade:Main:VTI:Dividend  -1312.31 USD                                                                                                                                                                                                                                                                                                                                                                                  
+  Assets:US:Ameritrade:Main:Cash           1312.31 USD
+</code></pre>
+<p>would have a signature of</p>
+<pre><code>CASH_DIVIDEND
+</code></pre>
+<p>Which hopefully is always a dividend payment. I had my script output two sets of files for debugging:</p>
+<ul>
+<li>
+<p><strong>Account details.</strong> A file for each account, rendering a list of all the transactions extracted for it, decorated with metadata showing the categorizations inferred, as well as the categorization map over all the accounts. I inspected these files visually to ensure that my automated rules were correct.</p>
+</li>
+<li>
+<p><strong>Signature transactions.</strong> A file for each unique signature, with the full list of transactions matching that signature. By inspecting these Beancount files, I made sure that all the transactions with the same signature were indeed having the same role.</p>
+</li>
+</ul>
+<p>At this point, I had a limited list of unique signatures, each with clear unique roles:</p>
+<pre><code>ASSET_CASH              : Purchase or sale
+ASSET_CASH_EXPENSES     : Purchase or sale with commission
+ASSET_CASH_PNL          : Purchase or sale and profit
+ASSET_CASH_PNL_EXPENSES : Purchase or sale with commission and profit
+ASSET_EXPENSES          : Fee paid from liquidation
+ASSET_PNL               : Cost basis adjustment (with P/L)
+ASSET_PNL_EXPENSES      : Fee from liquidation (with P/L)
+ASSET                   : Conversion
+ASSET_DIVIDEND          : Dividend reinvested
+CASH_DIVIDEND           : Dividend payment
+CASH_PNL_DIVIDEND       : Dividend payment and gains distribution
+ASSET_OTHERASSET        : Exchange of stock/symbol
+</code></pre>
+<p>Now, instead of trying to come up with a general rule for extracting flows from just the account categories, I wrote specific handlers to produce the cash flows corresponding to each of those transaction signatures, reasoning about each of them one-by-one. (It might be possible to review that code and simplify it further, but I like how each of the template transactions has an explicit handler with well-documented reasoning behind the production of its corresponding cash flows).</p>
+<p><em><strong>Fixups:</strong> In practice I encountered 3 or 4 more signatures types that were a bit exotic and by fixing up my ledger I managed to either change or correct these transactions to equivalent but simpler ones. In particular, one of my importers was lumping together trades occurring on the same day, and I went back and fixed it and those transactions manually. The ASSET_OTHERASSET signature, in particular, is an exchange of stock (Google -&gt; GOOG,GOOGL). Doing something like this brings up idiosyncrasies in your bookkeeping technique. Being consistent and using fewer templates is helpful.</em></p>
+<h3 id="cash-flows">Cash Flows<a id="cash-flows"></a><a class="headerlink" href="#cash-flows" title="Permanent link"></a></h3>
+<p>The handlers described in the previous section each produced a list of cash flows per transaction, and together for the account, they are essentially a list of:</p>
+<pre><code>(Date, Amount, IsDividend, Balance)
+</code></pre>
+<p>This is a simple model to work from. For each account, we now have a sorted series of dated cash flows. Note that <em>Amount</em> includes its cost currency (I have both USD and CAD), <em>IsDividend</em> is a flag identifying the cash flow as being a dividend payment or not (to compute returns without the dividends), and <em>Balance</em> is the resulting account balance after this transaction occurs. <em>Balance</em> will be useful to truncate series of cash flows in order to compute returns over arbitrary sub-intervals (e.g., per year).</p>
+<p>These series of cash flows can be easily merged between accounts, and truncated over time by inserting initial or final cash flows corresponding to the market value at those dates.</p>
+<h3 id="grouping-accounts">Grouping Accounts<a id="grouping-accounts"></a><a class="headerlink" href="#grouping-accounts" title="Permanent link"></a></h3>
+<p>For reporting, I'm choosing to build arbitrary groups of accounts, for many reasons:</p>
+<ul>
+<li>
+<p><strong>Same underlying.</strong> Some instruments represent the same stock, e.g. GOOG and GOOGL (different share class, same company). Or IAU and GLD (Gold).</p>
+</li>
+<li>
+<p><strong>Asset class.</strong> Instruments from the same asset class, e.g. "metals", which would include IAU, GLD, SLV, COPX, etc., or "REITs", which would include VNQ, VGSLX, etc. Or "all stocks" vs. "all bonds".</p>
+</li>
+<li>
+<p><strong>Strategy.</strong> In my portfolio investment method, I have a multi-headed approach where I define specific broad strategies and then select a list of instruments to implement it.</p>
+<ul>
+<li>
+<p>For instance, I have a "tech sector" strategy, which includes FAANG companies.</p>
+</li>
+<li>
+<p>Or a "growth stock" strategy, which might include different indexes like VUG, IWO and RGAGX. I can report how well those strategies are doing, across brokers.</p>
+</li>
+<li>
+<p>Or geographically, "developed APAC", including EWY, EWT, EWS, EWA.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Broker.</strong> I can report returns by broker or broker account. This is useful because realized profits are treated differently in some accounts (e.g., 401k is tax-deferred).</p>
+</li>
+<li>
+<p><strong>Asset type.</strong> Comparing index funds with managed mutual funds.</p>
+</li>
+</ul>
+<p>These are specified from a JSON file loaded in my script. I create this file to explicitly specify all the subsets of accounts I want to produce a returns page for, like this:</p>
+<pre><code>{
+    "group.Metals": [
+        "Assets:US:BTrade:IAU",
+        "Assets:US:BTrade:GLD",
+        "Assets:US:Schwab:IAU",
+        "Assets:US:Schwab:SLV",
+        "Assets:US:Fidelity:RothIRA:IAU"],
+
+    "group.Reits": [
+        "Assets:US:Fidelity:RothIRA:VGSLX",
+        "Assets:US:BTrade:VNQ"],
+… 
+}
+</code></pre>
+<p>For reference, I use more than 20 reporting groups.</p>
+<h3 id="computing-returns">Computing Returns<a id="computing-returns"></a><a class="headerlink" href="#computing-returns" title="Permanent link"></a></h3>
+<p>Finally, for each of those groups, the cash flows are merged together. I use <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fsolve.html"><span class="underline">scipy.optimize.fsolve</span></a> to calculate the rate that satisfies net present value:</p>
+<p><em>c</em><em>f</em><sub><em>i</em></sub>/(1 + <em>i</em><em>r</em><em>r</em>)<sup><em>t</em><sub><em>i</em></sub></sup>= 0</p>
+<p>where <em>cf<sub>i</sub></em> are the signed cash flow amounts and <em>t<sub>i</sub></em> are the times from today for each cash flow. We solve for <em>irr</em>. To compute the returns ex-dividend, we just exclude cash flows returning from dividends. The difference tells us how much of our returns was due to dividend income.</p>
+<p>It's important to note that if the corresponding positions are still invested, you have to insert a final negative cash flow for the market value of that position to zero it out. You're essentially simulating a sale. If significant transaction costs are going to be involved, you might want to simulate those as well (e.g. if you're doing this for a home, in particular).</p>
+<p>Here's the beauty in this: <strong>nowhere was the underlying price used</strong>, except for marking the current position value to market value. We did not read any external measure of returns. These returns are computed <em>from cash going in and coming out</em>. These are <em>actual</em> realized returns. You cannot lie to yourself.</p>
+<p><strong>Subintervals.</strong> To compute calendar returns, e.g., returns for years 2016, 2017, 2018, 2019, 2020, I truncate the cash flows to keep only those in the interval, e.g. 2018-01-01 to 2018-12-31 for year 2018, and if there was an existing position at the beginning of the interval, insert a cash flow at the start of the series equivalent to the market value at those dates. Do the same thing at the interval end date, with a negative cash flow, as described previously.</p>
+<p>Ideally I'd like to look at three things:</p>
+<ul>
+<li>
+<p>Total returns over the entire lifetime of the positions, to boil it all down to a single number.</p>
+</li>
+<li>
+<p>Calendar year/quarterly returns over the last 10 or 15 years, to witness variation in returns.</p>
+</li>
+<li>
+<p>Cumulative returns over the last 10 or 15 years, aligned on calendar periods, to get a sense of whether things are improving or worsening, and how well my strategies are doing in more recent periods (e.g. last 3 years).</p>
+</li>
+<li>
+<p>Cumulative returns over the last 12 months, aligned with monthly or weekly dates, to assess the impact of decisions in the short-term.</p>
+</li>
+</ul>
+<h3 id="filling-in-missing-price-points">Filling in Missing Price Points<a id="filling-in-missing-price-points"></a><a class="headerlink" href="#filling-in-missing-price-points" title="Permanent link"></a></h3>
+<p>The calculations of returns over various intervals require marking positions to market value at the beginning and end of the interval dates. Beancount being designed hermetically, i.e., it does not fetch any price externally, only uses what's in the ledger, its price database lookup will automatically produce the last available price point and its recording date. Depending on your recording discipline, some of those prices might be out-of-date and introduce inaccuracies. This is especially important since the amounts converted are large; this is used to estimate the value of current positions.</p>
+<p>So it's important to have relatively fresh price points in the ledger's price database. Now the question is, <strong>given a changing set of positions over time, for a given set of interval dates, which price entries are required to produce?</strong></p>
+<p>Because this depends heavily on the particular inputs of the returns script, in order to solve this problem I simply wrapped the price database with a facade that collected all the (date, instrument) pairs for requested conversions during the production of the returns reports, when the date was older than some age threshold (e.g., 3 days). These are essentially the price points missing from my database.</p>
+<p>At the end of the script, I output these to a file with Price directives, and <a href="https://github.com/beancount/beancount/blob/v2/experiments/returns/download_prices.py"><span class="underline">another program</span></a> I wrote will read it and fetch historical rates for those, and output updated rates. I pasted the output in my ledger file as a one-off adjustment. Pulling data from Yahoo! Finance worked for 90% of my positions, but some of my older instruments were quite old or even retired, or not available (e.g., some retirement funds), so I had to find them by browsing and manually entering some of these price points (I had something like 30… no big deal).</p>
+<p><strong>Rolling windows.</strong> One important point is that going forward, it will be easier to align reporting intervals to some calendar-based interval (e.g., monthly), so that I don't have to regenerate price data every time I produce my returns. Aligning to months is probably good enough for my time horizon.</p>
+<h3 id="currency-conversion">Currency Conversion<a id="currency-conversion"></a><a class="headerlink" href="#currency-conversion" title="Permanent link"></a></h3>
+<p>Another important detail is that each investment has its own quote currency. I used to live in Canada, and some of my older investments are denominated in CAD. So the question arises: do I compute the returns in local (CAD) currency, or in terms of my reference currency (USD)?</p>
+<p>It's convenient that Beancount's Inventory object has functions that can easily perform those conversions where needed. And since the cash flows I extracted are stored using Beancount's Amount object, I already have the quote currencies correctly in my extracted dataset. In any group, if all the instruments have the same quote currency, I report returns in that currency. If the group includes a mix of quote currencies, I further convert everything to USD (so I get USD returns).</p>
+<h3 id="comparison-against-benchmark">Comparison against benchmark<a id="comparison-against-benchmark"></a><a class="headerlink" href="#comparison-against-benchmark" title="Permanent link"></a></h3>
+<p><em>As of 2020-09-04, I haven't implemented this yet. This picture is complicated by cash-flows from sales, and the need to generate realistic dividends. Beancount does not currently have a database of % dividend distributions from assets.</em></p>
+<h2 id="reporting-results">Reporting Results<a id="reporting-results"></a><a class="headerlink" href="#reporting-results" title="Permanent link"></a></h2>
+<p>For each reporting group, I currently produce:</p>
+<ul>
+<li>
+<p>A plot of the <strong>cash flows over time</strong>, and a smaller plot of <em>log</em>(cash flows). Dividend payments are typically dwarfed by cash flows for the principal, so the log chart allows me to see timings. This is mainly used to get an overview of activity over time, and for debugging.</p>
+</li>
+<li>
+<p>A plot of cumulative value, where I render two curves:</p>
+<ul>
+<li>
+<p><strong>Cumulative cash flows</strong>, with a growth curve matching that returns I regressed over. The result should be a plot with gentle slope between cash flows (corresponding to the total returns growth), with a final drop to zero.</p>
+</li>
+<li>
+<p><strong>Market value over time</strong>: A curve of the mark-to-market value of the portfolio over time. This allows me to make some sense of calendar returns, by witnessing how the asset value moves based on price.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>A table of <strong>total returns</strong>, returns without dividends, and returns from dividends only.</p>
+</li>
+<li>
+<p>A table of <strong>calendar returns</strong> for each year, also broken down by total, ex-dividends, dividends-only. (I'll probably render this as a plot in the future.)</p>
+</li>
+<li>
+<p>A table of trailing <strong>cumulative returns</strong>.</p>
+</li>
+</ul>
+<h3 id="example">Example<a id="example"></a><a class="headerlink" href="#example" title="Permanent link"></a></h3>
+<p>Here's an example report, for a subset of accounts with a "growth" focus, held at different brokers. I produce one of these for each reporting group. (I greyed out relevant parts for privacy.)</p>
+<p><img src="calculating_portolio_returns/media/b3d221eee6baea23a117e8d92ddfa56ba415d836.png" style="width:6.5in;height:8.52778in"/></p>
+<h3 id="interpretation-gotchas">Interpretation Gotchas<a id="interpretation-gotchas"></a><a class="headerlink" href="#interpretation-gotchas" title="Permanent link"></a></h3>
+<p>A few notes are in order:</p>
+<ul>
+<li>
+<p><strong>All rates are <em>annualized</em>.</strong> This makes it easy to compare numbers to each other, but it also means that positions held for a short amount of time will produce numbers that are unrealistic for long term extrapolation. In particular, new positions entered only a few months ago may be subject to high growth or a big drop, both of which when extrapolated to an entire year may show eye-popping percentages. Keep this in mind.</p>
+</li>
+<li>
+<p><strong>The curve is nominal (does not account for inflation).</strong> When looking at amounts over long periods of time, it would be useful to discount the curve over time using the CPI (or some other estimate of inflation, you could even make up your own, from your ledger), so that we can look at a curve of real growth and not nominal growth.</p>
+</li>
+<li>
+<p><strong>Taxes aren't factored in.</strong> Returns from taxable accounts and tax-deferred accounts should be evaluated differently. I could compute an estimate after-tax return and deal with this approximately (after all, I have all the lot dates so I can automatically figure out short-term vs. long-term lots). It's not 100% obvious though, because in the US, taxes are only due on realization, and positions held for the long-term will grow without tax withdrawals, so ultimately, this depends on the expected schedule of withdrawals or sales.</p>
+</li>
+</ul>
+<h2 id="extending-to-other-instruments">Extending to Other Instruments<a id="extending-to-other-instruments"></a><a class="headerlink" href="#extending-to-other-instruments" title="Permanent link"></a></h2>
+<p>Using the same methodology, we can include other types of instruments:</p>
+<ul>
+<li>
+<p><strong>Real Estate.</strong> Cash flows can be extracted from all transactions for a home. This will require much more categorization work, and given the rarity of such purchases, it will be best done as a separate project. Most importantly, since most places offer tax incentives on interest payments and/or gains, it will be crucial to include a tax estimate for this project.</p>
+</li>
+<li>
+<p><strong>P2P Lending.</strong> I've used LendingClub before it collapsed. Again, with adequate categorization, it would be possible to apply the same methodology to compute returns from those investments.</p>
+</li>
+</ul>
+<p>This is recent work, and work in progress. Part of the motivation for this document is to stimulate a discussion of reasonable constraints to generalize this and make it useful for others.</p>
+<p><em>TODO:</em></p>
+<ul>
+<li>
+<p><em>Add example of cash flows truncation for a period (tables).</em></p>
+</li>
+<li>
+<p><em>Put in examples for each of the signature templates.</em></p>
+</li>
+<li>
+<p><em>Mention something about cost basis being irrelevant, add taxes section.</em></p>
+</li>
+<li>
+<p><em>Automatically extracting configuration, and translating it to one that can be modified manually.</em></p>
+</li>
+<li>
+<p><em>Split up inference of configuration and pulling together account data from calculation.</em></p>
+</li>
+<li>
+<p><em>Flatten list of CF to a single CF per transaction.</em></p>
+</li>
+</ul>
+<!-- -->
+<ul>
+<li>
+<p><em>Do home</em></p>
+</li>
+<li>
+<p><em>Do options</em></p>
+</li>
+<li>
+<p><em>Do P2P lending</em></p>
+</li>
+</ul>
+</div>
+</div>
+<footer>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<a class="fa fa-github" href="https://github.com/beancount/docs/" style="float: left; color: #fcfcfc"> GitHub</a>
+</span>
+</div>
+<script>var base_url = '.';</script>
+<script defer="" src="js/theme.js"></script>
+<script defer="" src="js/extra.js"></script>
+<script defer="" src="search/main.js"></script>
+<script defer="">
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+</body>
+</html>

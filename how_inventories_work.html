@@ -276,7 +276,7 @@ match sales (reductions) against accumulated inventory contents.</em></p>
   …
 </code></pre>
 <p>brings the balance of that account to 34.58 USD and 86.02 CAD. The number of units USD hasn’t changed.</p>
-<p>Note that accounts may contain any number of commodities, and this is also true for commodities held at cost, which we’ll see shortly. While this is made possible, I recommend that you define enough accounts to keep a single commodity in each; this can be enforced with the “<a href="https://bitbucket.org/blais/beancount/src/default/beancount/plugins/onecommodity.py"><span class="underline">onecommodity</span></a>” plugin.</p>
+<p>Note that accounts may contain any number of commodities, and this is also true for commodities held at cost, which we’ll see shortly. While this is made possible, I recommend that you define enough accounts to keep a single commodity in each; this can be enforced with the “<a href="http://github.com/beancount/beancount/tree/master/beancount/plugins/onecommodity.py"><span class="underline">onecommodity</span></a>” plugin.</p>
 <h3 id="cost-basis">Cost Basis<a id="cost-basis"></a><a class="headerlink" href="#cost-basis" title="Permanent link"></a></h3>
 <p>Things get a little more hairy when we consider the tracking of investments with a cost basis. Beancount allows you to associate a cost basis and an optional label with a particular lot acquired. Consider these two purchases to an investment account:</p>
 <pre><code>2015-04-01 * "Buy some shares of Hooli in April"
@@ -472,10 +472,10 @@ match sales (reductions) against accumulated inventory contents.</em></p>
 <p>The price is an annotation for your records. It remains attached to the Posting objects and if you want to make use of it somehow, you can always do that by writing some Python code. There are already two plugins which make use of this annotation:</p>
 <ul>
 <li>
-<p><a href="https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/plugins/implicit_prices.py"><strong><span class="underline">beancount.plugins.implicit_prices</span></strong></a>: This plugin takes the prices attached to the postings and automatically creates and inserts Price directives for each of them, in order to feed the global price database.</p>
+<p><a href="http://github.com/beancount/beancount/tree/master/beancount/plugins/implicit_prices.py"><strong><span class="underline">beancount.plugins.implicit_prices</span></strong></a>: This plugin takes the prices attached to the postings and automatically creates and inserts Price directives for each of them, in order to feed the global price database.</p>
 </li>
 <li>
-<p><a href="https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/plugins/sellgains.py"><strong><span class="underline">beancount.plugins.sellgains</span></strong></a>: This plugin implements an additional balancing check: it uses the prices to compute the expected proceeds and weighs them against all the other postings of the transaction <em>excluding</em> any postings to Income accounts. In our example, it would check that (-12 x 24.70 + 296.40) = 0. This provides yet another means of verifying the correctness of your input.</p>
+<p><a href="http://github.com/beancount/beancount/tree/master/beancount/plugins/sellgains.py"><strong><span class="underline">beancount.plugins.sellgains</span></strong></a>: This plugin implements an additional balancing check: it uses the prices to compute the expected proceeds and weighs them against all the other postings of the transaction <em>excluding</em> any postings to Income accounts. In our example, it would check that (-12 x 24.70 + 296.40) = 0. This provides yet another means of verifying the correctness of your input.</p>
 </li>
 </ul>
 <p>See the <a href="trading_with_beancount.html"><span class="underline">Trading with Beancount</span></a> document for more details on this topic.</p>
