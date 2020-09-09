@@ -9,52 +9,6 @@ A Comparison of Beancount and Ledger<a id="title"></a>
 
 *Keep in mind that this document is written from the perspective of Beancount and as its author, reflects my own biased views for what the design of a CLI accounting system should be. My purpose here is not to shoot down other systems, but rather to highlight material differences to help newcomers understand how these systems vary in their operation and capabilities, and perhaps to stimulate a fruitful discussion about design choices with the other developers.*
 
-> [<span class="underline">Differences</span>](#specific-differences)
->
-> [<span class="underline">Inventory Booking</span>](#inventory-booking-cost-basis-treatment)
->
-> [<span class="underline">Currency Conversions</span>](#currency-conversions)
->
-> [<span class="underline">Isolation of Inputs</span>](#isolation-of-inputs)
->
-> [<span class="underline">Language Syntax</span>](#language-syntax)
->
-> [<span class="underline">Order Independence</span>](#order-independence)
->
-> [<span class="underline">Account Types</span>](#account-types)
->
-> [<span class="underline">Transactions Must Balance</span>](#transactions-must-balance)
->
-> [<span class="underline">Numbers and Precision of Operations</span>](#numbers-and-precision-of-operations)
->
-> [<span class="underline">Filtering at the Transactional Level</span>](#filtering-at-the-transactional-level)
->
-> [<span class="underline">Extension Mechanisms</span>](#extension-mechanisms)
->
-> [<span class="underline">Automated Transactions via Plugins</span>](#automated-transactions-via-plugins)
->
-> [<span class="underline">No Support for Time or Effective Dates</span>](#no-support-for-time-or-effective-dates)
->
-> [<span class="underline">Documents</span>](#documents)
->
-> [<span class="underline">Simpler and More Strict</span>](#simpler-and-more-strict)
->
-> [<span class="underline">Web Interface</span>](#web-interface)
->
-> [<span class="underline">Missing Features</span>](#missing-features)
->
-> [<span class="underline">Console Output</span>](#console-output)
->
-> [<span class="underline">Filtering Language</span>](#filtering-language)
->
-> [<span class="underline">No Meta-data</span>](#no-meta-data)
->
-> [<span class="underline">No Arithmetic Expressions</span>](#no-arithmetic-expressions)
->
-> [<span class="underline">Limited Support for Unicode</span>](#limited-support-for-unicode)
->
-> [<span class="underline">No Forecasting or Periodic Transactions</span>](#no-forecasting-or-periodic-transactions)
-
 Philosophical Differences<a id="philosophical-differences"></a>
 ---------------------------------------------------------------
 
@@ -62,7 +16,7 @@ Philosophical Differences<a id="philosophical-differences"></a>
 
 First, Ledger is optimistic. It assumes it's easy to input correct data by a user. My experience with data entry of the kind we're doing is that it's impossible to do this right without many automated checks. Sign errors on unasserted accounts are very common, for instance. In contrast, Beancount is highly pessimistic. It assumes the user is unreliable. It imposes a number of constraints on the input. For instance, if you added a share of AAPL at $100 to an empty account it won't let you remove a share of AAPL at $101 from it; you just don't have one. It doesn't assume the user is able or should be relied upon to input transactions in the correct order (dated assertions instead of file-order assertions). It optionally checks that proceeds match sale price (sellgains plugin). And it allows you to place extra constraints on your chart of accounts, e.g. a plugin that refuses postings to non-leaf accounts, or that refuses more than one commodity per account, or that requires you declare all accounts with Open directives; choose your level of pedanticity a-la-carte. It adds more automated cross-checks than the double-entry method provides. After all, cross-checking is why we choose to use the DE method in the first place, why not go hardcore on checking for correctness? Beancount should appeal to anyone who does not trust themselves too much. And because of this, it does not provide support for unbalanced/virtual postings; it's not a shortcoming, it's on purpose.
 
-Secondly, there's a design ethos difference. As is evidenced in the user manual, Ledger provides a myriad of options. This surely will be appealing to many, but to me it seems it has grown into a very complicated monolithic tool. How these options interact and some of the semantic consequences of many of these options are confusing and very subtle. Beancount offers a minimalistic approach: while there are some [<span class="underline">small number of options</span>](https://bitbucket.org/blais/beancount/src/tip/beancount/parser/options.py?fileviewer=file-view-default#options.py-196), it tries really hard not to have them. And those options that do affect the semantics of transactions always appear in the input file (nothing on the command-line) and are distinct from the options of particular tools. Loading a file always results in the same stream of transactions, regardless of the reporting tool that will consume them. The only command-line options present are those which affect the particular behavior of the reporting tool invoked; those never change the semantics of the stream itself.
+Secondly, there's a design ethos difference. As is evidenced in the user manual, Ledger provides a myriad of options. This surely will be appealing to many, but to me it seems it has grown into a very complicated monolithic tool. How these options interact and some of the semantic consequences of many of these options are confusing and very subtle. Beancount offers a minimalistic approach: while there are some [<span class="underline">small number of options</span>](http://github.com/beancount/beancount/tree/v2/beancount/parser/options.py), it tries really hard not to have them. And those options that do affect the semantics of transactions always appear in the input file (nothing on the command-line) and are distinct from the options of particular tools. Loading a file always results in the same stream of transactions, regardless of the reporting tool that will consume them. The only command-line options present are those which affect the particular behavior of the reporting tool invoked; those never change the semantics of the stream itself.
 
 Thirdly, Beancount embraces stream processing to a deeper extent. Its loader creates a single ordered list of directives, and all the directives share some common attributes (a name, a date, metadata). This is all the data. Directives that are considered "grammar" in Ledger are defined as ordinary directive objects, e.g. "Open" is nothing special in Beancount and does nothing by itself. It's simply used in some routines that apply constraints (an account appears, has an Open directive been witnessed prior?) or that might want to hang per-account metadata to them. Prices are also specified as directives and are embedded in the stream, and can be generated in this way. All internal operations are defined as processing and outputting a stream of directives. This makes it possible to allow a user to insert their own code inside the processing pipeline to carry out arbitrary transformations on this stream of directives—anything is possible, unlimited by the particular semantics of an expression language. It's a mechanism that allows users to build new features by writing a short add-on in Python, which gets run at the core of Beancount, not an API to access its data at the edges. If anything, Beancount's own internal processing will evolve towards doing less and less and moving all the work to these plugins, perhaps even to the extent of allowing plugins to declare the directive types (with the exception of Transaction objects). It is evolving into a shallow driver that just puts together a processing pipeline to produce a stream of directives, with a handy library and functional operations.
 
@@ -105,7 +59,7 @@ There are too many external formats for downloadable files that contains transac
 
 Fetching historical or current price information is a similarly annoying task. While Yahoo and Google Finance are able to provide some basic level of price data for common stocks on US exchanges, when you need to fetch information for instruments traded on foreign exchanges, or instruments typically not traded on exchanges, such as mutual funds, either the data is not available, or if it is, you need to figure out what ticker symbol they decided to map it to, there are few standards for this. You must manually sign the ticker. Finally, it is entirely possible that you want to manage instruments for which there is no existing external price source, so it is necessary that your bookkeeping software provide a mechanism whereby you can manually input price values (both Beancount and Ledger provide a way). The same declaration mechanism is used for caching historical price data, so that Beancount need not require the network at all.
 
-Most users will want to write their own scripts for import, but some libraries exist: the [<span class="underline">beancount.ingest</span>](http://bitbucket.org/blais/beancount/src/tip/beancount/ingest) library (within Beancount) provides a framework to automate the identification, extraction of transactions from and filing of downloadable files for various institutions. See its [<span class="underline">design doc</span>](http://furius.ca/ledgerhub/doc/design-doc) for details.
+Most users will want to write their own scripts for import, but some libraries exist: the [<span class="underline">beancount.ingest</span>](http://github.com/beancount/beancount/tree/v2/beancount/ingest) library (within Beancount) provides a framework to automate the identification, extraction of transactions from and filing of downloadable files for various institutions. See its [<span class="underline">design doc</span>](http://furius.ca/ledgerhub/doc/design-doc) for details.
 
 In comparison, Ledger and HLedger support [<span class="underline">rudimentary conversions of transactions from CSV files</span>](http://ledger-cli.org/3.0/doc/ledger3.html#Converting-from-other-formats) as well as [<span class="underline">automated fetching of current prices</span>](http://ledger-cli.org/3.0/doc/ledger3.html#Commodity-reporting) that uses an external script you are meant to provide (`getquote`). CSV import is far insufficient for real world usage if you are to track all your accounts, so this needs to be extended. Hooking into an external script is the right thing to do, but Beancount favors taking a strong stance about this issue and instead not to provide code that would trigger any kind of network access nor support any external format as input. In Beancount you are meant to integrate price updates on your own, perhaps with your own script, and maybe bring in the data via an include file. (But if you don't like this, you could also write your own plugin module that could fetch live prices.)
 
@@ -189,7 +143,7 @@ The systems differ in how they choose that tolerance:
 
 -   HLedger, on the other hand, uses global precision settings. [<span class="underline">The whole file is processed first, then the precisions are derived from the most precise numbers seen in the entire input file.</span>](https://groups.google.com/d/msg/ledger-cli/m-TgILbfrwA/SoGZDNhlDOkJ)
 
--   At the moment, Beancount uses a [<span class="underline">constant value</span>](https://bitbucket.org/blais/beancount/src/c194c7fa6c15a0356e9d26b20b471f0868843c42/src/python/beancount/core/complete.py?at=default#cl-25) for the tolerance used in its [<span class="underline">balance checking algorithm</span>](https://bitbucket.org/blais/beancount/src/c194c7fa6c15a0356e9d26b20b471f0868843c42/src/python/beancount/ops/validation.py?at=default#cl-391) (0.005 of any unit). This is weak and should, at the very least, be commodity-dependent, if not also dependent on the particular account in which the commodity is used. Ultimately, it depends on the numbers of digits used to represent the particular postings. We have a [<span class="underline">proposal</span>](precision_tolerances.md) en route to fix this.
+-   At the moment, Beancount uses a constant value for the tolerance used in its balance checking algorithm (0.005 of any unit). This is weak and should, at the very least, be commodity-dependent, if not also dependent on the particular account in which the commodity is used. Ultimately, it depends on the numbers of digits used to represent the particular postings. We have a [<span class="underline">proposal</span>](precision_tolerances.md) en route to fix this.
 
 I am planning to fix this: Beancount will eventually derive its precision using a method entirely *local* to each transaction, perhaps with a global value for defaults (this is still in the works - *Oct 2014*). Half of the most precise digit will be the tolerance. This will be derived similarly to HLedger’s method, but for each transaction separately. This will allow the user to use an arbitrary precision, simply by inserting more digits in the input. Only fractional digits will be used to derive precision. No global effect implied by transactions will be applied. No transaction should ever affect any other transaction’s balancing context. [<span class="underline">Rounding error will be optionally accumulated to an Equity account if you want to monitor it</span>](https://groups.google.com/d/msg/ledger-cli/m-TgILbfrwA/YjkmOM3LHXIJ).
 

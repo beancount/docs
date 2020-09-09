@@ -27,7 +27,7 @@ To instruct Emacs to activate `beancount-mode` when opening files with a `.beanc
     (require 'beancount)
     (add-to-list 'auto-mode-alist '("\\.beancount\\'" . beancount-mode))
 
-    beancount-mode provides most facilities expected by an Emacs major mode. Documentation on the provided functionality and on the default keybindings can be obtained with the describe-mode command in a buffer with beancount-mode active.
+Most facilities commonly provided by Emacs major modes are implemented by `beancount-mode.` Documentation on the provided functionality and on the default keybindings can be obtained with the `describe-mode` command in a buffer with `beancount-mode` active.
 
 In a nutshell, when beancount mode is active:
 

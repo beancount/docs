@@ -199,9 +199,9 @@ For reference, I use more than 20 reporting groups.
 
 Finally, for each of those groups, the cash flows are merged together. I use [<span class="underline">scipy.optimize.fsolve</span>](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fsolve.html) to calculate the rate that satisfies net present value:
 
-*c**f*<sub>*i*</sub>/(1 + *i**r**r*)<sup>*t*<sub>*i*</sub></sup>= 0
+*c**f*<sub>*i*</sub>/(1 + *r*)<sup>*t*<sub>*i*</sub></sup>= 0
 
-where *cf<sub>i</sub>* are the signed cash flow amounts and *t<sub>i</sub>* are the times from today for each cash flow. We solve for *irr*. To compute the returns ex-dividend, we just exclude cash flows returning from dividends. The difference tells us how much of our returns was due to dividend income.
+where *cf<sub>i</sub>* are the signed cash flow amounts and *t<sub>i</sub>* are the times from today for each cash flow (in years). We solve for *r*. To compute the returns ex-dividend, we just exclude cash flows returning from dividends. The difference tells us how much of our returns was due to dividend income.
 
 It's important to note that if the corresponding positions are still invested, you have to insert a final negative cash flow for the market value of that position to zero it out. You're essentially simulating a sale. If significant transaction costs are going to be involved, you might want to simulate those as well (e.g. if you're doing this for a home, in particular).
 

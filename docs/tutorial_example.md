@@ -138,7 +138,7 @@ Tutorial<a id="tutorial"></a>
 
 This section provides basic examples of generating reports with Beancount, on the typical example file that would be output by it. The list of reports here is not meant to be exhaustive.
 
-You may follow the tutorial and generate your own example file, or look at the files from [<span class="underline">beancount/examples/tutorial</span>](http://bitbucket.org/blais/beancount/src/tip/examples/tutorial/) if you prefer.
+You may follow the tutorial and generate your own example file, or look at the files from [<span class="underline">beancount/examples/tutorial</span>](http://github.com/beancount/beancount/tree/v2/examples/tutorial/) if you prefer.
 
 ### Generate an Example File<a id="generate-an-example-file"></a>
 

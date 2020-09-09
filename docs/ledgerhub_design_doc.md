@@ -186,8 +186,6 @@ Notes about the initial implementation:
 
     -   Python3 is now widely distributed and all desired parsing libraries are commonly available for it at this point
 
--   The project will be hosted at either [<span class="underline">http://hg.furius.ca/public/ledgerhub/</span>](http://hg.furius.ca/public/ledgerhub/) (or perhaps [<span class="underline">https://bitbucket.org/blais/ledgerhub/</span>](https://bitbucket.org/blais/ledgerhub/) ?)
-
 -   All modules should be tested, including testing with sample input. If you want to add a new module, you should need to provide an anonymized sample file for it. We will have to have an automated test suite, because past experience has shown this type of code to be quite brittle and fragile to new and unexpected inputs. It’s easy to write, but it’s also easy to break.
 
     -   In order to test binary files that cannot be anonymized, we will provide the ability to test from match-text instead of from original binary statement PDF. Those files are generally not extractable anyhow and are only there for identification and filing (e.g. a PDF statement, we can’t extract any meaningful data out of those except perhaps for the statement date).

@@ -54,7 +54,7 @@ Tools<a id="tools"></a>
 Importers<a id="importers"></a>
 -------------------------------
 
-[<span class="underline">yodlee importer</span>](https://bitbucket.org/redstreet/ledgerhub/commits/5cad3e7495479b1598585a3cfcdd9a06051efcc1): redstreet0 wrote an importer for fetching data from the Yodlee account aggregator. Apparently you can get free access [<span class="underline">as per this thread</span>](https://groups.google.com/d/msg/beancount/nsRCbC6nP4I/Dx5NlTioDq0J).
+yodlee importer [<span class="underline">(expired bitbucket repo)</span>](https://bitbucket.org/redstreet/ledgerhub/commits/5cad3e7495479b1598585a3cfcdd9a06051efcc1): redstreet0 wrote an importer for fetching data from the Yodlee account aggregator. Apparently you can get free access [<span class="underline">as per this thread</span>](https://groups.google.com/d/msg/beancount/nsRCbC6nP4I/Dx5NlTioDq0J).
 
 [<span class="underline">plaid2text</span>](https://github.com/madhat2r/plaid2text): An importer from [<span class="underline">Plaid</span>](http://www.plaid.com/) which stores the transactions to a Mongo DB and is able to render it to Beancount syntax. By Micah Duke.
 
@@ -62,7 +62,7 @@ Importers<a id="importers"></a>
 
 [<span class="underline">awesome-beancount</span>](https://github.com/wzyboy/awesome-beancount): A collection of importers for Chinese banks + tips and tricks. By [<span class="underline">Zhuoyun Wei</span>](https://github.com/wzyboy).
 
-[<span class="underline">beansoup</span>](https://bitbucket.org/fxt/beansoup/): Filippo Tampieri is sharing some of his Beancount importers and auto-completer in this project.
+[<span class="underline">beansoup</span>](https://github.com/fxtlabs/beansoup): Filippo Tampieri is sharing some of his Beancount importers and auto-completer in this project.
 
 [<span class="underline">montaropdf/beancount-importers</span>](https://github.com/montaropdf/beancount-importers/): An importer to extract overtime and vacation from a timesheet format for invoicing customers.
 

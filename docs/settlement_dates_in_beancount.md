@@ -67,7 +67,7 @@ For example, a user may want to input the two sides of a transaction separately,
 
 Most importantly, we want to be able to easily identify which of the transactions is not matched on the other side, which indicates missing data.
 
--   There is a prototype of this under [<span class="underline">beancount.plugins.tag\_pending</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/plugins/tag_pending.py?at=default).
+-   There is a prototype of this under [<span class="underline">beancount.plugins.tag\_pending</span>](https://github.com/beancount/beancount/tree/v2/beancount/plugins/tag_pending.py).
 
 -   Also see redstreet0’s “[<span class="underline">zerosum</span>](https://groups.google.com/d/msgid/beancount/8adbb83d-a7c7-476a-97ca-d600d110db20%40googlegroups.com?utm_medium=email&utm_source=footer)” plugin from [<span class="underline">this thread</span>](https://groups.google.com/d/msgid/beancount/8adbb83d-a7c7-476a-97ca-d600d110db20%40googlegroups.com?utm_medium=email&utm_source=footer).
 
