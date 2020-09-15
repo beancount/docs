@@ -7,6 +7,15 @@ External Contributions to Beancount<a id="title"></a>
 
     Links to codes written by other people that build on top of or that are related to Beancount and/or Ledgerhub.
 
+Indexes<a id="indexes"></a>
+---------------------------
+
+This document contains only packages that were discussed or have had an announcement sent to the mailing-list. You will be able to find other packages on public indices:
+
+-   PyPI: You can find a lot of other Beancount-related projects at [<span class="underline">PyPI</span>](https://pypi.org/search/?q=beancount&o=).
+
+-   GitHub: A [<span class="underline">search for "beancount"</span>](https://github.com/search?p=5&q=beancount&ref=opensearch&type=Repositories) as of September 2020 brings up 318 projects.
+
 Plugins<a id="plugins"></a>
 ---------------------------
 
@@ -41,20 +50,16 @@ Tools<a id="tools"></a>
 
 [<span class="underline">hoostus/portfolio-returns</span>](https://github.com/hoostus/portfolio-returns) (Justus Pendleton): portfolio returns calculator
 
-[<span class="underline">redstreet/beancount\_assert\_allocation</span>](https://github.com/redstreet/beancount_asset_allocation) (Red S): allocation analysis tool to understand the asset allocation of a portfolio.
-
 [<span class="underline">costflow/syntax</span>](https://github.com/costflow/syntax) (Leplay Li): A product that allows users to keep plain text accounting from their favorite messaging apps. A syntax for converting one-line message to beancount/\*ledger format.
 
 [<span class="underline">process control chart</span>](https://github.com/hoostus/beancount-control-chart) (Justus Pendleton): Spending relative to portfolio size. [<span class="underline">Thread.</span>](https://groups.google.com/d/msgid/beancount/0cd47f9a-37d6-444e-8516-25e247a9e0cd%40googlegroups.com?utm_medium=email&utm_source=footer)
-
-[<span class="underline">redstreet/fava\_tax\_loss\_harvester</span>](https://github.com/redstreet/fava_tax_loss_harvester) (RedStreet): Tax loss harvester. Reports the set of lots that can be tax loss harvested from your beancount input file. Plugin for Fava.
 
 [<span class="underline">Pinto</span>](https://pypi.org/project/pinto/) (Sean Leavey): Supercharged command line interface for Beancount. Supports automatic insertions of transactions in ledger file.
 
 Importers<a id="importers"></a>
 -------------------------------
 
-yodlee importer [<span class="underline">(expired bitbucket repo)</span>](https://bitbucket.org/redstreet/ledgerhub/commits/5cad3e7495479b1598585a3cfcdd9a06051efcc1): redstreet0 wrote an importer for fetching data from the Yodlee account aggregator. Apparently you can get free access [<span class="underline">as per this thread</span>](https://groups.google.com/d/msg/beancount/nsRCbC6nP4I/Dx5NlTioDq0J).
+[<span class="underline">reds importers</span>](https://github.com/redstreet/beancount_reds_importers): Simple importers and tools, mostly ofx based and built on top of \`ofxparse\`. Using ofx (over csv) minimizes data and coding errors, eliminates format breaking changes in csv, allows for automatic imports of balances to generate balance assertions, and imports prices. The goal is to factor out importer code into well maintained common libraries for banks, credit cards, and investment houses, to minimize institution specific code and make writing new importers easy. Look inside the importers/ directory to see a list of institutions supported. More investment, credit card, and banking institutions will be added in the future. Contributions welcome. See [<span class="underline">this thread</span>](https://groups.google.com/d/msg/beancount/nsRCbC6nP4I/Dx5NlTioDq0J) for information about a Yodlee importer.
 
 [<span class="underline">plaid2text</span>](https://github.com/madhat2r/plaid2text): An importer from [<span class="underline">Plaid</span>](http://www.plaid.com/) which stores the transactions to a Mongo DB and is able to render it to Beancount syntax. By Micah Duke.
 
@@ -145,7 +150,7 @@ Interfaces / Web<a id="interfaces-web"></a>
 
 [<span class="underline">Fava Classy Portfolio</span>](https://github.com/seltzered/fava-classy-portfolio) (Vivek Gani): Classy Portfolio is an Extension for Fava, a web interface for the Beancount plaintext accounting software. The extension displays a list of different portfolios (e.g. 'taxable' vs. 'retirement'), with breakdowns using 'asset-class' and 'asset-subclass' metadata labels on commodities.
 
-[<span class="underline">Fava Investor</span>](https://github.com/redstreet/fava_investor) project: Asset allocation plugin for fava/beancount (personal finance software).
+[<span class="underline">Fava Investor</span>](https://github.com/redstreet/fava_investor) project: Fava\_investor aims to be a comprehensive set of reports, analyses, and tools for investments, for Beancount and Fava. It is a collection of modules, with each module offering a Fava plugin, a Beancount library, and a Beancount based CLI (command line interface). Current modules include: Visual, tree structured asset allocation by class, asset allocation by account, tax loss harvester, cash drag analysis.
 
 [<span class="underline">Fava Miler</span>](https://github.com/redstreet/fava_miler) (RedStreet): Airline miles and rewards points: expiration and value reporting.
 
