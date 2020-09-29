@@ -163,6 +163,8 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#comparison-against-a-benchmark">Comparison Against a Benchmark</a>
 </li>
+<li class="toctree-l4"><a class="reference internal" href="#including-uninvested-cash">Including Uninvested Cash</a>
+</li>
 <li class="toctree-l4"><a class="reference internal" href="#after-tax-value">After-Tax Value</a>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#inflation-adjustments">Inflation Adjustments</a>
@@ -692,6 +694,9 @@ ASSET_OTHERASSET           : Exchange of stock/symbol
   distribution: 0.295 USD
 </code></pre>
 <p>Overall, it wouldn't be too difficult to implement this.</p>
+<h3 id="including-uninvested-cash">Including Uninvested Cash<a id="including-uninvested-cash"></a><a class="headerlink" href="#including-uninvested-cash" title="Permanent link"></a></h3>
+<p>One of the problems I'm facing in investing my own portfolio is the lack of discipline around timely investing of available cash, especially when times are uncertain and difficult decisions have to be made. In order to account for the drag on performance from that, I should include an "investment" that's purely reflecting the total amount of uninvested cash over time.</p>
+<p>Because this varies a lot, a good approximation can be obtained by sampling total amount of investable cash every month and synthesizing cash flows from differences. If that cash flow series gets included as part of a portfolio, it'll suitably drag its returns by diluting them.</p>
 <h3 id="after-tax-value">After-Tax Value<a id="after-tax-value"></a><a class="headerlink" href="#after-tax-value" title="Permanent link"></a></h3>
 <p>At the moment I export all my holdings to a Google Sheets doc using the <a href="https://github.com/beancount/beancount/blob/master/beancount/projects/export.py"><span class="underline">export script</span></a>, and from that, break it down between long-term and short-term positions vs. pre-tax, after-tax, Roth, and taxable buckets. From those 8 aggregates, I remove estimated taxes and report a single "estimated after-tax net worth" and corresponding tax liability. This is a rough estimate.</p>
 <p>The returns report is however much more detailed, and I could simulate tax payments not only on liquidation, but also at the end of each year (from dividends and sales). I have all the lot dates on each position held so I can automatically figure out short-term vs. long-term lots.</p>
