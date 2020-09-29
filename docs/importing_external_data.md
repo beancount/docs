@@ -116,11 +116,11 @@ Tools<a id="tools"></a>
 
 There are three Beancount tools provided to orchestrate the three stages of importing:
 
-1.  [**<span class="underline">bean-identify</span>**](http://bitbucket.org/blais/beancount/src/tip/bin/bean-identify): Given a messy list of downloaded files (e.g. in ~/Downloads), automatically identify which of your configured importers is able to handle them and print them out. This is to be used for debugging and figuring out if your configuration is properly associating a suitable importer for each of the files you downloaded;
+1.  [**<span class="underline">bean-identify</span>**](https://github.com/beancount/beancount/tree/master/bin/bean-identify): Given a messy list of downloaded files (e.g. in ~/Downloads), automatically identify which of your configured importers is able to handle them and print them out. This is to be used for debugging and figuring out if your configuration is properly associating a suitable importer for each of the files you downloaded;
 
-2.  [**<span class="underline">bean-extract</span>**](https://bitbucket.org/blais/beancount/src/tip/bin/bean-extract): Extracting transactions and statement date from each file, if at all possible. This produces some Beancount input text to be moved to your input file;
+2.  [**<span class="underline">bean-extract</span>**](https://github.com/beancount/beancount/tree/master/bin/bean-extract): Extracting transactions and statement date from each file, if at all possible. This produces some Beancount input text to be moved to your input file;
 
-3.  [**<span class="underline">bean-file</span>**](https://bitbucket.org/blais/beancount/src/tip/bin/bean-file): Filing away the downloaded files to a directory hierarchy which mirrors the chart of accounts, for preservation, e.g. in a personal git repo. The filenames are cleaned, the files are moved and an appropriate statement date is prepended to each of them so that Beancount may produce corresponding Document directives.
+3.  [**<span class="underline">bean-file</span>**](https://github.com/beancount/beancount/tree/master/bin/bean-file): Filing away the downloaded files to a directory hierarchy which mirrors the chart of accounts, for preservation, e.g. in a personal git repo. The filenames are cleaned, the files are moved and an appropriate statement date is prepended to each of them so that Beancount may produce corresponding Document directives.
 
 ### Invocation<a id="invocation"></a>
 
@@ -171,7 +171,7 @@ An interesting idea that I haven’t tested yet is to use one’s Beancount inpu
 Writing an Importer<a id="writing-an-importer"></a>
 ---------------------------------------------------
 
-Each of the importers must comply with a particular protocol and implement at least some of its methods. The full detail of this protocol is best found in the source code itself: [<span class="underline">importer.py</span>](https://bitbucket.org/blais/beancount/src/tip/beancount/ingest/importer.py). The tools above will take care of finding the downloads and invoking the appropriate methods on your importer objects.
+Each of the importers must comply with a particular protocol and implement at least some of its methods. The full detail of this protocol is best found in the source code itself: [<span class="underline">importer.py</span>](https://github.com/beancount/beancount/tree/master/beancount/ingest/importer.py). The tools above will take care of finding the downloads and invoking the appropriate methods on your importer objects.
 
 Here’s a brief summary of the methods you need to, or may want to, implement:
 
@@ -206,7 +206,7 @@ I've found over time that regression testing is *key* to maintaining your import
 
 The easiest, laziest and most relevant way to test those importers is to use some **real data files** and compare what your importer extracts from them to expected outputs. For the importers to be at least somewhat reliable, you really need to be able to reproduce the extractions on a number of real inputs. And since the inputs are so unpredictable and poorly defined, it’s not practical to write exhaustive tests on what they could be. In practice, I have to make at least *some* fix to *some* of my importers every couple of months, and with this process, it only sinks about a half-hour of my time: I add the new downloaded file which causes breakage to the importer directory, I fix the code by running it there locally as a test. And I also run the tests over *all* the previously downloaded test inputs in that directory (old and new) to ensure my importer is still working as intended on the older files.
 
-There is some support for automating this process in [<span class="underline">beancount.ingest.regression</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/ingest/regression.py). What we want is some routine that will list the importer’s package directory, identify the input files which are to be used for testing, and generate a suite of unit tests which compares the output produced by importer methods to the contents of “expected files” placed next to the test file.
+There is some support for automating this process in [<span class="underline">beancount.ingest.regression</span>](https://github.com/beancount/beancount/tree/master/beancount/ingest/regression.py). What we want is some routine that will list the importer’s package directory, identify the input files which are to be used for testing, and generate a suite of unit tests which compares the output produced by importer methods to the contents of “expected files” placed next to the test file.
 
 For example, given a package with an implementation of an importer and two sample input files:
 
@@ -278,7 +278,7 @@ This conversion is automatically memoized: if two importers or two different met
 
 #### On-Disk Caching<a id="on-disk-caching"></a>
 
-At the moment. Beancount only implements (1). On-disk caching will be implemented later. *Track this [<span class="underline">ticket</span>](https://bitbucket.org/blais/beancount/issues/113/implement-on-disk-caching-of-conversions) for status updates.*
+At the moment. Beancount only implements (1). On-disk caching will be implemented later. *Track this [<span class="underline">ticket</span>](https://github.com/beancount/beancount/issues/113) for status updates.*
 
 Organizing your Files<a id="organizing-your-files"></a>
 -------------------------------------------------------
@@ -343,11 +343,11 @@ Personally, I have a `Makefile` in my root directory with these targets to make 
 Example Importers<a id="example-importers"></a>
 -----------------------------------------------
 
-Beyond the documentation above, I cooked up an example importer for a made-up CSV file format for a made-up investment account. See [<span class="underline">this directory</span>](https://bitbucket.org/blais/beancount/src/tip/examples/ingest/office/importers/utrade/).
+Beyond the documentation above, I cooked up an example importer for a made-up CSV file format for a made-up investment account. See [<span class="underline">this directory</span>](https://github.com/beancount/beancount/tree/master/examples/ingest/office/importers/utrade/).
 
-There’s also an example of an importer which uses an external tool (PDFMiner2) to convert a PDF file to text to identify it and to extract the statement date from it. See [<span class="underline">this directory</span>](https://bitbucket.org/blais/beancount/src/tip/examples/ingest/office/importers/acme/).
+There’s also an example of an importer which uses an external tool (PDFMiner2) to convert a PDF file to text to identify it and to extract the statement date from it. See [<span class="underline">this directory</span>](https://github.com/beancount/beancount/tree/master/examples/ingest/office/importers/acme/).
 
-Beancount also comes with some very basic generic importers. See [<span class="underline">this directory</span>](https://bitbucket.org/blais/beancount/src/tip/beancount/ingest/importers/).
+Beancount also comes with some very basic generic importers. See [<span class="underline">this directory</span>](https://github.com/beancount/beancount/tree/master/beancount/ingest/importers/).
 
 -   There is a simple OFX importer that has worked for me for a long time. Though it’s pretty simple, I’ve used it for years, it’s good enough to pull info out of most credit card accounts.
 
@@ -414,7 +414,7 @@ Related Discussion Threads<a id="related-discussion-threads"></a>
 Historical Note<a id="historical-note"></a>
 -------------------------------------------
 
-There once was a first implementation of the process described in this document. The project was called LedgerHub and has been decommissioned in February 2016, rewritten and the resulting code integrated in Beancount itself, into this [<span class="underline">beancount.ingest</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/ingest/) library. The original project was intended to include the implementation of various importers to share them with other people, but this sharing was not very successful, and so the rewrite includes only the scaffolding for building your own importers and invoking them, and only a very limited number of example importer implementations.
+There once was a first implementation of the process described in this document. The project was called LedgerHub and has been decommissioned in February 2016, rewritten and the resulting code integrated in Beancount itself, into this [<span class="underline">beancount.ingest</span>](https://github.com/beancount/beancount/tree/master/beancount/ingest/) library. The original project was intended to include the implementation of various importers to share them with other people, but this sharing was not very successful, and so the rewrite includes only the scaffolding for building your own importers and invoking them, and only a very limited number of example importer implementations.
 
 Documents about LedgerHub are preserved, and can help you understand the origins and design choices for Beancount’s importer support. They can be found here:
 

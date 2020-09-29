@@ -502,6 +502,12 @@ Perhaps more complicated is the fact that Beancount does not currently support a
 
 Overall, it wouldn't be too difficult to implement this.
 
+### Including Uninvested Cash<a id="including-uninvested-cash"></a>
+
+One of the problems I'm facing in investing my own portfolio is the lack of discipline around timely investing of available cash, especially when times are uncertain and difficult decisions have to be made. In order to account for the drag on performance from that, I should include an "investment" that's purely reflecting the total amount of uninvested cash over time.
+
+Because this varies a lot, a good approximation can be obtained by sampling total amount of investable cash every month and synthesizing cash flows from differences. If that cash flow series gets included as part of a portfolio, it'll suitably drag its returns by diluting them.
+
 ### After-Tax Value<a id="after-tax-value"></a>
 
 At the moment I export all my holdings to a Google Sheets doc using the [<span class="underline">export script</span>](https://github.com/beancount/beancount/blob/master/beancount/projects/export.py), and from that, break it down between long-term and short-term positions vs. pre-tax, after-tax, Roth, and taxable buckets. From those 8 aggregates, I remove estimated taxes and report a single "estimated after-tax net worth" and corresponding tax liability. This is a rough estimate.
