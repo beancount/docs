@@ -230,46 +230,11 @@
 <h2 id="editor-support">Editor Support<a id="editor-support"></a><a class="headerlink" href="#editor-support" title="Permanent link"></a></h2>
 <p>Beancount ledgers are simple text files. You can use any text editor to compose your input file. However, a good text editor which understands enough of the Beancount syntax to offer focused facilities like syntax highlighting, autocompletion, and automatic indentation highly has the potential to greatly increase productivity in compiling and maintaining your ledger.</p>
 <h3 id="emacs">Emacs<a id="emacs"></a><a class="headerlink" href="#emacs" title="Permanent link"></a></h3>
-<p>Emacs support for editing Beancount ledger files is distributed with Beancount. It provides <code>beancount-mode</code>: an Emacs <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Major-Modes.html"><span class="underline">major mode</span></a> that provides syntax highlighting, automatic indentation, autocompletion for account names, and other facilities.</p>
-<p>To instruct Emacs to activate <code>beancount-mode</code> when opening files with a <code>.beancount</code> extension, you can add this code to your Emacs configuration, typically in the <code>~/.emacs.d/init.el</code> file:</p>
-<pre><code>(add-to-list 'load-path "/path/to/beancount/src/elisp")
-(require 'beancount)
-(add-to-list 'auto-mode-alist '("\\.beancount\\'" . beancount-mode))
-</code></pre>
-<p>Most facilities commonly provided by Emacs major modes are implemented by <code>beancount-mode.</code> Documentation on the provided functionality and on the default keybindings can be obtained with the <code>describe-mode</code> command in a buffer with <code>beancount-mode</code> active.</p>
-<p>In a nutshell, when beancount mode is active:</p>
-<ul>
-<li>
-<p>The "<code>TAB</code>" key either indents, completes, or folds the heading depending on the context.</p>
-</li>
-<li>
-<p>Amounts in postings are indented so that the decimal point is at the 52nd column. This can be configured customizing <code>beancount-number-alignment-column</code>. Setting it to 0 will cause the alignment column to be determined from file content.</p>
-</li>
-<li>
-<p>Postings in transactions are indented with <code>beancount-transaction-indent</code> spaces.</p>
-</li>
-<li>
-<p>Pressing "<code>RET</code>" causes the current line to be indented. If the current line is a posting, the amount will be indented as per above. This behavior is defined by Emacs auto indent mechanism. It can be disabled setting <code>electric-indent-chars</code> to <code>nil</code> after loading Beancount mode, for example like this:</p>
-</li>
-</ul>
-<!-- -->
-<pre><code>(add-hook 'beancount-mode-hook
-  (lambda () (setq-local electric-indent-chars nil))
-</code></pre>
-<p>Beancount ledger files can grow very large. It is thus often practical to structure them in sections and subsections. To support this practice, <code>beancount-mode</code> recognizes all lines starting with one asterisks “<code>*</code>” (all lines starting with an asterisks are ignored by Beancount) or three or more semicolons “<code>;;;</code>” (the semicolon starts a comment in Beancount syntax) as section headings and builds on <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Outline-Mode.html"><span class="underline">outline minor mode</span></a> to enable navigation of the document structure defined by those headings and to enable to fold and unfold the document sections, similarly to what is possible in <a href="https://orgmode.org/"><span class="underline">Org mode</span></a>.</p>
-<p>To enable this functionality outline minor mode should be explicitly activated. It is possible to do so automatically when Beancout mode is activated adding this line to the Emacs configuration:</p>
-<pre><code>(add-hook 'beancount-mode-hook #'outline-minor-mode)
-</code></pre>
-<p>Outline minor mode uses a rather peculiar choice of keybindings. It is possible to map the most used functionality to keys more familiar to Org mode users adding a few lines to the Emacs configuration:</p>
-<pre><code>(define-key beancount-mode-map (kbd "C-c C-n")
-  #'outline-next-visible-heading)
-(define-key beancount-mode-map (kbd "C-c C-p")
-  #'outline-previous-visible-heading)
-</code></pre>
+<p>Support for editing Beancount ledger files in Emacs was traditionally distributed with Beancount. It now lives as its own project in <a href="https://github.com/beancount/beancount-mode/"><span class="underline">this Github repository</span></a>.</p>
 <h3 id="vim">Vim<a id="vim"></a><a class="headerlink" href="#vim" title="Permanent link"></a></h3>
-<p>Support for editing Beancount ledger files in Vim, has been implemented by Nathan Grigg and is available in <a href="https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fnathangrigg%2Fvim-beancount&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFgEjRsUHfpvOFxn8gD4-c_eK_wsA"><span class="underline">this github repo</span></a>. It supports: syntax highlighting (not exhaustive, but covering all the basics), account name completion (using omnifunc), and aligning the decimal points across transactions.</p>
+<p>Support for editing Beancount ledger files in Vim has been implemented by Nathan Grigg and is available in <a href="https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fnathangrigg%2Fvim-beancount&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFgEjRsUHfpvOFxn8gD4-c_eK_wsA"><span class="underline">this Github repository</span></a>.</p>
 <h3 id="sublime">Sublime<a id="sublime"></a><a class="headerlink" href="#sublime" title="Permanent link"></a></h3>
-<p>Support for <a href="https://sublime.wbond.net/packages/Beancount"><span class="underline">editing with Sublime</span></a> has been contributed by <a href="https://groups.google.com/d/msg/beancount/WvlhcCjNl-Q/s4wOBQnRVxYJ"><span class="underline">Martin Andreas Andersen</span></a>. See <a href="https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fdraug3n%2Fsublime-beancount&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNExx6wdX5QF1hnixgHcKJV-5XJwMA"><span class="underline">his github repo</span></a>.</p>
+<p>Support for editing with Sublime has been contributed by Martin Andreas Andersen and is available in <a href="https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fdraug3n%2Fsublime-beancount&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNExx6wdX5QF1hnixgHcKJV-5XJwMA"><span class="underline">this github repository</span></a> or as a Sublime package <a href="https://packagecontrol.io/packages/Beancount"><span class="underline">here</span></a>.</p>
 <h2 id="creating-your-first-input-file">Creating your First Input File<a id="creating-your-first-input-file"></a><a class="headerlink" href="#creating-your-first-input-file" title="Permanent link"></a></h2>
 <p>To get started, let’s create a minimal input file with two accounts and a single transaction. Enter or copy the following input to a text file:</p>
 <pre><code>2014-01-01 open Assets:Checking
