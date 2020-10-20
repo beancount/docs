@@ -19,51 +19,15 @@ Beancount ledgers are simple text files. You can use any text editor to compose 
 
 ### Emacs<a id="emacs"></a>
 
-Emacs support for editing Beancount ledger files is distributed with Beancount. It provides `beancount-mode`: an Emacs [<span class="underline">major mode</span>](https://www.gnu.org/software/emacs/manual/html_node/emacs/Major-Modes.html) that provides syntax highlighting, automatic indentation, autocompletion for account names, and other facilities.
-
-To instruct Emacs to activate `beancount-mode` when opening files with a `.beancount` extension, you can add this code to your Emacs configuration, typically in the `~/.emacs.d/init.el` file:
-
-    (add-to-list 'load-path "/path/to/beancount/src/elisp")
-    (require 'beancount)
-    (add-to-list 'auto-mode-alist '("\\.beancount\\'" . beancount-mode))
-
-Most facilities commonly provided by Emacs major modes are implemented by `beancount-mode.` Documentation on the provided functionality and on the default keybindings can be obtained with the `describe-mode` command in a buffer with `beancount-mode` active.
-
-In a nutshell, when beancount mode is active:
-
--   The "`TAB`" key either indents, completes, or folds the heading depending on the context.
-
--   Amounts in postings are indented so that the decimal point is at the 52nd column. This can be configured customizing `beancount-number-alignment-column`. Setting it to 0 will cause the alignment column to be determined from file content.
-
--   Postings in transactions are indented with `beancount-transaction-indent` spaces.
-
--   Pressing "`RET`" causes the current line to be indented. If the current line is a posting, the amount will be indented as per above. This behavior is defined by Emacs auto indent mechanism. It can be disabled setting `electric-indent-chars` to `nil` after loading Beancount mode, for example like this:
-
-<!-- -->
-
-    (add-hook 'beancount-mode-hook
-      (lambda () (setq-local electric-indent-chars nil)) 
-
-Beancount ledger files can grow very large. It is thus often practical to structure them in sections and subsections. To support this practice, `beancount-mode` recognizes all lines starting with one asterisks “`*`” (all lines starting with an asterisks are ignored by Beancount) or three or more semicolons “`;;;`” (the semicolon starts a comment in Beancount syntax) as section headings and builds on [<span class="underline">outline minor mode</span>](https://www.gnu.org/software/emacs/manual/html_node/emacs/Outline-Mode.html) to enable navigation of the document structure defined by those headings and to enable to fold and unfold the document sections, similarly to what is possible in [<span class="underline">Org mode</span>](https://orgmode.org/).
-
-To enable this functionality outline minor mode should be explicitly activated. It is possible to do so automatically when Beancout mode is activated adding this line to the Emacs configuration:
-
-    (add-hook 'beancount-mode-hook #'outline-minor-mode)
-
-Outline minor mode uses a rather peculiar choice of keybindings. It is possible to map the most used functionality to keys more familiar to Org mode users adding a few lines to the Emacs configuration:
-
-    (define-key beancount-mode-map (kbd "C-c C-n")
-      #'outline-next-visible-heading)
-    (define-key beancount-mode-map (kbd "C-c C-p")
-      #'outline-previous-visible-heading)
+Support for editing Beancount ledger files in Emacs was traditionally distributed with Beancount. It now lives as its own project in [<span class="underline">this Github repository</span>](https://github.com/beancount/beancount-mode/).
 
 ### Vim<a id="vim"></a>
 
-Support for editing Beancount ledger files in Vim, has been implemented by Nathan Grigg and is available in [<span class="underline">this github repo</span>](https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fnathangrigg%2Fvim-beancount&sa=D&sntz=1&usg=AFQjCNFgEjRsUHfpvOFxn8gD4-c_eK_wsA). It supports: syntax highlighting (not exhaustive, but covering all the basics), account name completion (using omnifunc), and aligning the decimal points across transactions.
+Support for editing Beancount ledger files in Vim has been implemented by Nathan Grigg and is available in [<span class="underline">this Github repository</span>](https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fnathangrigg%2Fvim-beancount&sa=D&sntz=1&usg=AFQjCNFgEjRsUHfpvOFxn8gD4-c_eK_wsA).
 
 ### Sublime<a id="sublime"></a>
 
-Support for [<span class="underline">editing with Sublime</span>](https://sublime.wbond.net/packages/Beancount) has been contributed by [<span class="underline">Martin Andreas Andersen</span>](https://groups.google.com/d/msg/beancount/WvlhcCjNl-Q/s4wOBQnRVxYJ). See [<span class="underline">his github repo</span>](https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fdraug3n%2Fsublime-beancount&sa=D&sntz=1&usg=AFQjCNExx6wdX5QF1hnixgHcKJV-5XJwMA).
+Support for editing with Sublime has been contributed by Martin Andreas Andersen and is available in [<span class="underline">this github repository</span>](https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fdraug3n%2Fsublime-beancount&sa=D&sntz=1&usg=AFQjCNExx6wdX5QF1hnixgHcKJV-5XJwMA) or as a Sublime package [<span class="underline">here</span>](https://packagecontrol.io/packages/Beancount).
 
 Creating your First Input File<a id="creating-your-first-input-file"></a>
 -------------------------------------------------------------------------
