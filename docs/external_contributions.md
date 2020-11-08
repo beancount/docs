@@ -16,6 +16,11 @@ This document contains only packages that were discussed or have had an announce
 
 -   GitHub: A [<span class="underline">search for "beancount"</span>](https://github.com/search?p=5&q=beancount&ref=opensearch&type=Repositories) as of September 2020 brings up 318 projects.
 
+Books and Articles<a id="books-and-articles"></a>
+-------------------------------------------------
+
+[<span class="underline">https://personalfinancespython.com/</span>](https://personalfinancespython.com/) "Managing Personal Finances using Python", a 2020 book on plain-text accounting, and Beancount (Siddhant Goel).
+
 Plugins<a id="plugins"></a>
 ---------------------------
 
@@ -162,3 +167,5 @@ Mobile/Phone Data Entry<a id="mobilephone-data-entry"></a>
 ----------------------------------------------------------
 
 [<span class="underline">Beancount Mobile</span>](https://play.google.com/store/apps/details?id=link.beancount.mobile) App (Kirill Goncharov): A mobile data entry app for Beancount. (Currently only Android is supported.) Repo: [<span class="underline">https://github.com/xuhcc/beancount-mobile</span>](https://github.com/xuhcc/beancount-mobile) ([<span class="underline">Announcement</span>](https://groups.google.com/d/msgid/beancount/014e0879-70e0-4cac-b884-82d8004e1b43%40googlegroups.com?utm_medium=email&utm_source=footer)).
+
+[<span class="underline">http://costflow.io</span>](http://costflow.io/): Plain Text Accounting in WeChat. "*Send a message to our bot in Telegram, Facebook Messenger, Whatsapp, LINE, WeChat, etc. Costflow will transform your message into Beancount / Ledger / hledger format transaction magically. Append the transaction to the file in your Dropbox / Google Drive. With the help of their apps, the file will be synced to your computer.*"

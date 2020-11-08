@@ -14,7 +14,7 @@ Releases<a id="releases"></a>
 
 Beancount is a mature project: the first version was written in 2008. The current rewrite of Beancount is stable. (Technically, this is what I call version 2.x beta).
 
-I’m still working on this Beancount code every weekend these days, so it is very much in active development and evolving, though the great majority of the basic features are basically unchanging. I’ve built an extensive suite of tests so you can consider the “default” branch of the repository as stable. New features are developed in branches and only merged in the “default” branch when fully stable (the entire battery of tests passes without failures). Changes to “default” are posted to the [<span class="underline">CHANGES</span>](https://bitbucket.org/blais/beancount/src/tip/CHANGES) file and a corresponding email is sent to the [<span class="underline">mailing-list</span>](https://groups.google.com/forum/#!forum/beancount).
+I’m still working on this Beancount code every weekend these days, so it is very much in active development and evolving, though the great majority of the basic features are basically unchanging. I’ve built an extensive suite of tests so you can consider the “default” branch of the repository as stable. New features are developed in branches and only merged in the “default” branch when fully stable (the entire battery of tests passes without failures). Changes to “default” are posted to the [<span class="underline">CHANGES</span>](https://github.com/beancount/beancount/tree/v2/CHANGES) file and a corresponding email is sent to the [<span class="underline">mailing-list</span>](https://groups.google.com/forum/#!forum/beancount).
 
 ***So I’m not cutting releases yet.*** You have to install or run from source. I don't actively update the [<span class="underline">PyPI page</span>](https://pypi.python.org/pypi/beancount) actively either.
 
@@ -40,8 +40,6 @@ First, you should have a working Python install. Install the latest stable versi
 
 Beancount supports setuptools since Feb 2016, and you will need to install dependencies. You will want to have the “pip3” tool installed. It’s probably installed by default along with Python3—test this out by invoking “pip3” command. In any case, under a Debian/Ubuntu system you would simply install the **`python3-pip`** package.
 
-    Note for Arch Linux: Arch’s Python package does not correctly install all of its runtime dependencies. With the Python installation that comes with it, you have to install the “mpdecimal” package in order for the C decimal implementation to work. See this issue for a discussion. Others say easiest might just be to use the AUR package, which installs all the required dependencies.
-
 #### Python Dependencies<a id="python-dependencies"></a>
 
 Note that in order to build a full working Python install from source, you will probably need to install a host of other development libraries and their corresponding header files, e.g., libxml2, libxslt1, libgdbm, libmp, libssl, etc. Installing those is dependent on your particular distribution and/or OS. Just make sure that your Python installation has all the basic modules compiled for its default configuration.
@@ -54,7 +52,7 @@ This is the easiest way to install Beancount. You just install Beancount using
 
 This should automatically download and install all the dependencies.
 
-Note, however, that this will install the latest version that was pushed to the [<span class="underline">PyPI repository</span>](https://pypi.python.org/pypi/beancount/) and not the very latest version available from source. Releases to PyPI are made sporadically but frequently enough not to be too far behind. Consult the [<span class="underline">CHANGES file</span>](https://bitbucket.org/blais/beancount/src/tip/CHANGES) if you’d like to find out what is not included since the release date.
+Note, however, that this will install the latest version that was pushed to the [<span class="underline">PyPI repository</span>](https://pypi.python.org/pypi/beancount/) and not the very latest version available from source. Releases to PyPI are made sporadically but frequently enough not to be too far behind. Consult the [<span class="underline">CHANGES file</span>](https://github.com/beancount/beancount/tree/v2/CHANGES) if you’d like to find out what is not included since the release date.
 
 ### Installing Beancount using pip from Repository<a id="installing-beancount-using-pip-from-repository"></a>
 
@@ -251,12 +249,12 @@ There is support for some editors available:
 If You Have Problems<a id="if-you-have-problems"></a>
 -----------------------------------------------------
 
-If you run into any installation problems, [<span class="underline">file a ticket</span>](https://bitbucket.org/blais/beancount/issues), [<span class="underline">email me</span>](mailto:blais@furius.ca), or hit the [<span class="underline">mailing-list</span>](https://groups.google.com/forum/#!forum/beancount).
+If you run into any installation problems, [<span class="underline">file a ticket</span>](https://github.com/beancount/beancount/issues/), [<span class="underline">email me</span>](mailto:blais@furius.ca), or hit the [<span class="underline">mailing-list</span>](https://groups.google.com/forum/#!forum/beancount).
 
 Post-Installation Usage<a id="post-installation-usage"></a>
 -----------------------------------------------------------
 
-Normally the [<span class="underline">scripts located under beancount/bin</span>](https://bitbucket.org/blais/beancount/src/tip/bin/) should be automatically installed somewhere in your executable path. For example, you should be able to just run “bean-check” on the command-line.
+Normally the [<span class="underline">scripts located under beancount/bin</span>](https://github.com/beancount/beancount/tree/v2/bin) should be automatically installed somewhere in your executable path. For example, you should be able to just run “bean-check” on the command-line.
 
 Appendix<a id="appendix"></a>
 -----------------------------

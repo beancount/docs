@@ -21,7 +21,7 @@ Motivation<a id="motivation"></a>
 
 So one might ask: Why create another SQL client? Why not output the data to an SQLite database and allow the user to use that SQL client?
 
-Well, we have done that (see the [<span class="underline">bean-sql</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/scripts/sql.py) script which converts your Beancount ledger into an SQLite database) and the results are not great. Writing queries is painful and carrying out operations on lots that are held at cost is difficult. By taking advantage of a few aspects of our in-memory data structures, we can do better. So Beancount comes with its own SQL-like query client called “[<span class="underline">bean-query</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/scripts/query.py)”.
+Well, we have done that (see the [<span class="underline">bean-sql</span>](https://github.com/beancount/beancount/tree/v2/beancount/scripts/sql.py) script which converts your Beancount ledger into an SQLite database) and the results are not great. Writing queries is painful and carrying out operations on lots that are held at cost is difficult. By taking advantage of a few aspects of our in-memory data structures, we can do better. So Beancount comes with its own SQL-like query client called “[<span class="underline">bean-query</span>](https://github.com/beancount/beancount/tree/master/beancount/scripts/query.py)”.
 
 The clients implements the following “extras” that are essential to Beancount:
 
@@ -128,7 +128,7 @@ The full list of posting columns and functions available on them is best viewed 
 
 A different list of column names is available on the *&lt;entry-filter-expression&gt;* of the `FROM` clause. These columns refer to attributes of the Transaction objects. This clause is intended to filter whole transactions (i.e., all their postings or none at all). Available attributes include the date, transaction flag, the optional payee, narration, set of tags and links. Use the “`help from`” command to find the complete list of columns and functions available in this clause.
 
-A Beancount input file consists of many different types of entries, not just transactions. Some of these other types of entries (such as Open, Close, Balance, etc.) may also provide attributes that can be access from the `FROM` clause. This is embryonic at this point. (It’s unclear yet how these will be used in the future, but I suspect we will find some interesting applications for them eventually. The `FROM` clause provides access to the type of the data entry via column “`type`”. It’s still an exploration how much we can make pragmatic use of the SQL language for other types of directives.)
+A Beancount input file consists of many different types of entries, not just transactions. Some of these other types of entries (such as Open, Close, Balance, etc.) may also provide attributes that can be accessed from the `FROM` clause. This is embryonic at this point. (It’s unclear yet how these will be used in the future, but I suspect we will find some interesting applications for them eventually. The `FROM` clause provides access to the type of the data entry via column “`type`”. It’s still an exploration how much we can make pragmatic use of the SQL language for other types of directives.)
 
 **The “id” Column**
 
@@ -197,7 +197,7 @@ The data attributes extracted from the postings or transactions have particular 
 
 ### Positions and Inventories<a id="positions-and-inventories"></a>
 
-However, one reason that our SQL-like client exists in the first place is for its ability to carry out aggregation operations on inventories of positions, the data structures at the core of Beancount, that implements its balancing semantics. Internally, Beancount defines [<span class="underline">Position</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/position.py) and [<span class="underline">Inventory</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/inventory.py) objects and is able to aggregate them together in an instance of Inventory. On each Posting, the “position” column extracts an object of type Position, which when summed over produces an instance of Inventory.
+However, one reason that our SQL-like client exists in the first place is for its ability to carry out aggregation operations on inventories of positions, the data structures at the core of Beancount, that implements its balancing semantics. Internally, Beancount defines [<span class="underline">Position</span>](https://github.com/beancount/beancount/tree/master/beancount/core/position.py) and [<span class="underline">Inventory</span>](https://github.com/beancount/beancount/tree/master/beancount/core/inventory.py) objects and is able to aggregate them together in an instance of Inventory. On each Posting, the “position” column extracts an object of type Position, which when summed over produces an instance of Inventory.
 
 The shell is able to display those appropriately. More specifically, Inventory objects can contain multiple different lots of holdings, and each of these will get rendered on a separate line.
 
@@ -282,7 +282,7 @@ Some example functions follow:
 
 These are just examples; for the complete list, see “`help targets`”, “`help where`”, “`help from`”.
 
-Note that it is [<span class="underline">exceedingly easy</span>](https://bitbucket.org/blais/beancount/src/5ac80aea64bfd9ee1d7a23b9bf0d875559d91b62/src/python/beancount/query/query_env.py?at=shell) to add new functions to this list. As of December 2014, we are just beginning using the shell widely and we expect to be adding new functions as needed. If you need a function, please add a comment here or log a ticket and we will consider adding it to the list (we understand that the current list is limited). I intend to be liberal about adding new functions; as long as they have generic application, I don’t think it should be a problem. Otherwise, I may be able to provide a mechanism for user to register new functions as part of Python plugins that could live outside the Beancount codebase.
+Note that it is [<span class="underline">exceedingly easy</span>](https://github.com/beancount/beancount/tree/master/beancount/query/query_env.py) to add new functions to this list. As of December 2014, we are just beginning using the shell widely and we expect to be adding new functions as needed. If you need a function, please add a comment here or log a ticket and we will consider adding it to the list (we understand that the current list is limited). I intend to be liberal about adding new functions; as long as they have generic application, I don’t think it should be a problem. Otherwise, I may be able to provide a mechanism for user to register new functions as part of Python plugins that could live outside the Beancount codebase.
 
 Aggregate Functions<a id="aggregate-functions"></a>
 ---------------------------------------------------
@@ -305,7 +305,7 @@ Examples of aggregate functions include:
 
 As for simple functions, this is just a starting list. We will be adding more as needed. Use “`help targets`” to access the full list of available aggregate functions.
 
-Note: You cannot filter (using a `WHERE` clause) the results of aggregation functions; this requires the implementation offering a `HAVING` clause, and at the moment, [<span class="underline">HAVING filtering is not yet implemented</span>](https://bitbucket.org/blais/beancount/src/de8cf9a6a8).
+Note: You cannot filter (using a `WHERE` clause) the results of aggregation functions; this requires the implementation offering a `HAVING` clause, and at the moment, HAVING filtering is not yet implemented.
 
 Simple vs. Aggregated Queries<a id="simple-vs.-aggregated-queries"></a>
 -----------------------------------------------------------------------
@@ -377,7 +377,7 @@ However, for `PRINT` queries, the output format is Beancount input text format.
 Statement Operators<a id="statement-operators"></a>
 ---------------------------------------------------
 
-The shell provides a few operators designed to facilitate the generation of balance sheets and income statements. The particular methodology used to define these operations should be described in detail in the “[<span class="underline">introduction to double-entry bookkeeping</span>](the_double_entry_counting_method.md)” document that accompanies Beancount and is mostly located in the source code in the [<span class="underline">summarize</span>](http://bitbucket.org/blais/beancount/src/tip/src/python/beancount/ops/summarize.py) module.
+The shell provides a few operators designed to facilitate the generation of balance sheets and income statements. The particular methodology used to define these operations should be described in detail in the “[<span class="underline">introduction to double-entry bookkeeping</span>](the_double_entry_counting_method.md)” document that accompanies Beancount and is mostly located in the source code in the [<span class="underline">summarize</span>](https://github.com/beancount/beancount/tree/master/beancount/ops/summarize.py) module.
 
 These special operators are provided on the `FROM` clause that is made available on the various forms of query commands in the shell. These further transform the set of entries selected by the `FROM` expression at the transaction levels (not postings).
 
@@ -645,4 +645,4 @@ Pivoting, this would generate this table:
 More Information<a id="more-information"></a>
 ---------------------------------------------
 
-This document attempts to provide a good high-level summary of the features supported in our query language. However, should you find you need more information, you may take a look at the [<span class="underline">original proposal</span>](http://furius.ca/beancount/doc/proposal-query), or consult the source code under the [<span class="underline">beancount.query</span>](https://github.com/beancount/beancount/tree/master/beancount/query) directory. In particular, the [<span class="underline">parser</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/query/query_parser.py) will provide insight into the specifics of the syntax, and the [<span class="underline">environments</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/query/query_env.py) will shed some light on the supported data columns and functions. Feel free to rummage in the source code and ask questions on the mailing-list.
+This document attempts to provide a good high-level summary of the features supported in our query language. However, should you find you need more information, you may take a look at the [<span class="underline">original proposal</span>](http://furius.ca/beancount/doc/proposal-query), or consult the source code under the [<span class="underline">beancount.query</span>](https://github.com/beancount/beancount/tree/v2/beancount/query/) directory. In particular, the [<span class="underline">parser</span>](https://github.com/beancount/beancount/tree/master/beancount/parser) will provide insight into the specifics of the syntax, and the [<span class="underline">environments</span>](https://github.com/beancount/beancount/tree/v2/beancount/query/query_env.py) will shed some light on the supported data columns and functions. Feel free to rummage in the source code and ask questions on the mailing-list.

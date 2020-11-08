@@ -200,37 +200,37 @@ There may be a few more produced in the future but in any case, the core should 
 Overview of the Codebase<a id="overview-of-the-codebase"></a>
 -------------------------------------------------------------
 
-All source code lives under a “[<span class="underline">beancount</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/)” Python package. It consists of several packages with well-defined roles, the dependencies between which are enforced strictly.
+All source code lives under a “[<span class="underline">beancount</span>](https://github.com/beancount/beancount/tree/master/beancount/)” Python package. It consists of several packages with well-defined roles, the dependencies between which are enforced strictly.
 
 <img src="beancount_design_doc/media/8a94847808878214d3557076d587ecc648809812.png" style="width:5.80556in;height:4.94444in" />
 
 *Beancount source code packages and approximate dependencies between them.*
 
-At the bottom, we have a [<span class="underline">beancount.core</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core) package which contains the data structures used to represent transactions and other directives in memory. This contains code for accounts, amounts, lots, positions, and inventories. It also contains commonly used routines for processing streams of directives.
+At the bottom, we have a [<span class="underline">beancount.core</span>](https://github.com/beancount/beancount/tree/master/beancount/core) package which contains the data structures used to represent transactions and other directives in memory. This contains code for accounts, amounts, lots, positions, and inventories. It also contains commonly used routines for processing streams of directives.
 
-One level up, the [<span class="underline">beancount.parser</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/parser) package contains code to parse the Beancount language and a printer that can produce the corresponding text given a stream of directives. It should be possible to convert between text and data structure and round-trip this process without loss.
+One level up, the [<span class="underline">beancount.parser</span>](https://github.com/beancount/beancount/tree/master/beancount/parser) package contains code to parse the Beancount language and a printer that can produce the corresponding text given a stream of directives. It should be possible to convert between text and data structure and round-trip this process without loss.
 
-At the root of the main package is a [<span class="underline">beancount.loader</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/loader.py) module that coordinates everything that has to be done to load a file in memory. This is the main entry point for anyone writing a script for Beancount, it always starts with loading a stream of entries. This calls the parser, runs some processing code, imports the plugins and runs them in order to produce the final stream of directives which is used to produce reports.
+At the root of the main package is a [<span class="underline">beancount.loader</span>](https://github.com/beancount/beancount/tree/master/beancount/loader.py) module that coordinates everything that has to be done to load a file in memory. This is the main entry point for anyone writing a script for Beancount, it always starts with loading a stream of entries. This calls the parser, runs some processing code, imports the plugins and runs them in order to produce the final stream of directives which is used to produce reports.
 
-The [<span class="underline">beancount.plugins</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/plugins) package contains implementations of various plugins. Each of these plugin modules are independent from each other. Consult the docstrings in the source code to figure out what each of these does. Some of these are prototypes of ideas.
+The [<span class="underline">beancount.plugins</span>](https://github.com/beancount/beancount/tree/master/beancount/plugins) package contains implementations of various plugins. Each of these plugin modules are independent from each other. Consult the docstrings in the source code to figure out what each of these does. Some of these are prototypes of ideas.
 
-There is a [<span class="underline">beancount.ops</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/) package which contains some high-level processing code and some of the default code that always runs by default that is implemented as plugins as well (like padding using the Pad directive). This package needs to be shuffled a bit in order to clarify its role.
+There is a [<span class="underline">beancount.ops</span>](https://github.com/beancount/beancount/tree/master/beancount/) package which contains some high-level processing code and some of the default code that always runs by default that is implemented as plugins as well (like padding using the Pad directive). This package needs to be shuffled a bit in order to clarify its role.
 
 On top of this, reporting code calls modules from those packages. There are four packages which contain reporting code, corresponding to the Beancount reporting tools:
 
--   [<span class="underline">beancount.reports</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/reports/): This package contains code specialized to produce different kinds of outputs (invoked by bean-report). In general I’d like to avoid defining custom routines to produce desired outputs and use the SQL query tool to express grouping & aggregation instead, but I think there will always be a need for at least some of these. The reports are defined in a class hierarchy with a common interface and you should be able to extend them. Each report supports some subset of a number of output formats.
+-   [<span class="underline">beancount.reports</span>](https://github.com/beancount/beancount/tree/v2/beancount/reports/): This package contains code specialized to produce different kinds of outputs (invoked by bean-report). In general I’d like to avoid defining custom routines to produce desired outputs and use the SQL query tool to express grouping & aggregation instead, but I think there will always be a need for at least some of these. The reports are defined in a class hierarchy with a common interface and you should be able to extend them. Each report supports some subset of a number of output formats.
 
--   [<span class="underline">beancount.query</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/query/): This package contains the implementation of a query language and interactive shell (invoked by bean-query) that allows you to group and aggregate positions using an SQL-like DSL. This essentially implements processing over an in-memory table of Posting objects, with functions defined over Amount, Position and Inventory objects.
+-   [<span class="underline">beancount.query</span>](https://github.com/beancount/beancount/tree/v2/beancount/query/): This package contains the implementation of a query language and interactive shell (invoked by bean-query) that allows you to group and aggregate positions using an SQL-like DSL. This essentially implements processing over an in-memory table of Posting objects, with functions defined over Amount, Position and Inventory objects.
 
--   [<span class="underline">beancount.web</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/): This package contains all the source code for the default web interface (invoked by bean-web). This is a simple [<span class="underline">Bottle</span>](http://bottlepy.org/) application that serves many of the reports from beancount.report to HTML format, running on your machine locally. The web interface provides simple views and access to your data. (It stands to be improved greatly, it’s in no way perfect.)
+-   [<span class="underline">beancount.web</span>](https://github.com/beancount/beancount/tree/v2/beancount/): This package contains all the source code for the default web interface (invoked by bean-web). This is a simple [<span class="underline">Bottle</span>](http://bottlepy.org/) application that serves many of the reports from beancount.report to HTML format, running on your machine locally. The web interface provides simple views and access to your data. (It stands to be improved greatly, it’s in no way perfect.)
 
--   [<span class="underline">beancount.projects</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/projects/): This package contains various custom scripts for particular applications that I’ve wanted to share and distribute. Wherever possible, I aim to fold these into reports. There are no scripts to invoke these; you should use “`python3 -m beancount.projects.<name>`” to run them.
+-   [<span class="underline">beancount.projects</span>](https://github.com/beancount/beancount/tree/v2/projects/): This package contains various custom scripts for particular applications that I’ve wanted to share and distribute. Wherever possible, I aim to fold these into reports. There are no scripts to invoke these; you should use “`python3 -m beancount.projects.<name>`” to run them.
 
-There is a [<span class="underline">beancount.scripts</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/scripts/) package that contains the “main” programs for all the scripts under the [<span class="underline">bin directory</span>](https://bitbucket.org/blais/beancount/src/tip/bin). Those scripts are simple launchers that import the corresponding file under beancount.scripts. This allows us to keep all the source code under a single directory and that makes it easier to run linters and other code health checkers on the code—it’s all in one place.
+There is a [<span class="underline">beancount.scripts</span>](https://github.com/beancount/beancount/tree/v2/beancount/scripts/) package that contains the “main” programs for all the scripts under the [<span class="underline">bin directory</span>](https://github.com/beancount/beancount/tree/v2/bin). Those scripts are simple launchers that import the corresponding file under beancount.scripts. This allows us to keep all the source code under a single directory and that makes it easier to run linters and other code health checkers on the code—it’s all in one place.
 
-Finally, there is a [<span class="underline">beancount.utils</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/utils) package which is there to contain generic reusable random bits of utility code. And there is a relatively unimportant [<span class="underline">beancount.docs</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/docs/) package that contains code used by the author just to produce and maintain this documentation (code that connects to Google Drive).
+Finally, there is a [<span class="underline">beancount.utils</span>](https://github.com/beancount/beancount/tree/master/beancount/utils) package which is there to contain generic reusable random bits of utility code. And there is a relatively unimportant [<span class="underline">beancount.docs</span>](https://github.com/beancount/beancount/tree/master/docs/) package that contains code used by the author just to produce and maintain this documentation (code that connects to Google Drive).
 
-Enforcing the dependency relationships between those packages is done by a [<span class="underline">custom script</span>](https://bitbucket.org/blais/beancount/src/tip/tools/dependency_constraints.py?at=default&fileviewer=file-view-default).
+Enforcing the dependency relationships between those packages is done by a [<span class="underline">custom script</span>](https://github.com/beancount/beancount/tree/master/tools/dependency_constraints.py).
 
 Core Data Structures<a id="core-data-structures"></a>
 -----------------------------------------------------
@@ -251,7 +251,7 @@ The default constructor for decimal objects does not support some of the input s
     …
     number = D("2,402.21")
 
-I like to import the “`D`” symbol by itself (and not use `number.D`). All the number-related code is located under [<span class="underline">beancount.core.number</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/number.py).
+I like to import the “`D`” symbol by itself (and not use `number.D`). All the number-related code is located under [<span class="underline">beancount.core.number</span>](https://github.com/beancount/beancount/tree/master/beancount/core/number.py).
 
 Some number constants have been defined as well: `ZERO`, `ONE`, and `HALF`. Use those instead of explicitly constructed numbers (such as `D("1")`) as it makes it easier to grep for such initializations.
 
@@ -271,7 +271,7 @@ An account is basically just the name of a bucket associated with a posting and 
 
 Accounts don’t have a corresponding object type; we just refer to them by their unique name string (like filenames in Python). When per-account attributes are needed, we can extract the Open directives from the stream of entries and find the one corresponding to the particular account we’re looking for.
 
-Similar to Python’s os.path module, there are some routines to manipulate account names in [<span class="underline">beancount.core.account</span>](https://bitbucket.org/blais/beancount/src/default/beancount/core/account.py) and the functions are named similarly to those of the [<span class="underline">os.path</span>](https://docs.python.org/3.3/library/os.path.html) module.
+Similar to Python’s os.path module, there are some routines to manipulate account names in [<span class="underline">beancount.core.account</span>](https://github.com/beancount/beancount/tree/master/beancount/core/account.py) and the functions are named similarly to those of the [<span class="underline">os.path</span>](https://docs.python.org/3.3/library/os.path.html) module.
 
 The first component of an account’s name is limited to one of five types:
 
@@ -285,14 +285,14 @@ The first component of an account’s name is limited to one of five types:
 
 -   Expenses
 
-The names of the account types as read in the input syntax may be customized with some "option" directives, so that you can change those names to another language, or even just rename "Income" to "Revenue" if you prefer that. The [<span class="underline">beancount.core.account\_types</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/account_types.py) module contains some helpers to deal with these.
+The names of the account types as read in the input syntax may be customized with some "option" directives, so that you can change those names to another language, or even just rename "Income" to "Revenue" if you prefer that. The [<span class="underline">beancount.core.account\_types</span>](https://github.com/beancount/beancount/tree/master/beancount/core/account_types.pybeancount/) module contains some helpers to deal with these.
 
 Note that the set of account names forms an implicit hierarchy. For example, the names:
 
     Assets:US:TDBank:Checking
     Assets:US:TDBank:Savings
 
-implicitly defines a tree of nodes with parent nodes "Assets", "US", "TDBank" with two leaf nodes "Checking" and "Savings". This implicit tree is never realized during processing, but there is a Python module that allows one to do this easily (see [<span class="underline">beancount.core.realization</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/realization.py)) and create linearized renderings of the tree.
+implicitly defines a tree of nodes with parent nodes "Assets", "US", "TDBank" with two leaf nodes "Checking" and "Savings". This implicit tree is never realized during processing, but there is a Python module that allows one to do this easily (see [<span class="underline">beancount.core.realization</span>](https://github.com/beancount/beancount/tree/master/beancount/core/realization.py)) and create linearized renderings of the tree.
 
 ### Flag<a id="flag"></a>
 
@@ -306,7 +306,7 @@ An **Amount** is the combination of a number and an associated currency, concept
 
 Amount instances are used to represent a quantity of a particular currency (the “units”) and the price on a posting.
 
-A class is defined in [<span class="underline">beancount.core.amount</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/amount.py) as a simple tuple-like object. Functions exist to perform simple math operations directly on instances of Amount. You can also create Amount instance using `amount.from_string()`, for example:
+A class is defined in [<span class="underline">beancount.core.amount</span>](https://github.com/beancount/beancount/tree/master/beancount/core/amount.py) as a simple tuple-like object. Functions exist to perform simple math operations directly on instances of Amount. You can also create Amount instance using `amount.from_string()`, for example:
 
     value = amount.from_string("201.32 USD")
 
@@ -320,7 +320,7 @@ The number and currency is that of the cost itself, not of the commodity. For ex
 
     Cost(Decimal("56.78"), "USD", date(2012, 3, 5), "lot15")
 
-The *Date* is the acquisition date of the corresponding lot (a `datetime.date` object). This is automatically attached to the Cost object when a posting augments an inventory—the Transaction’s date is automatically attached to the Cost object—or if the input syntax provides an explicit date overriden.
+The *Date* is the acquisition date of the corresponding lot (a `datetime.date` object). This is automatically attached to the Cost object when a posting augments an inventory—the Transaction’s date is automatically attached to the Cost object—or if the input syntax provides an explicit date override.
 
 The *Label* can be any string. It is provided as a convenience for a user to refer to a particular lot or disambiguate similar lots.
 
@@ -358,7 +358,7 @@ The *Price* is an instance of *Amount* or a null value. It is used to declare a 
 
 Flags on postings are relatively rare; users will normally find it sufficient to flag an entire transaction instead of a specific posting. The flag is usually left to None; if set, it is a single-character string.
 
-The Posting type is defined in [<span class="underline">beancount.core.data</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/data.py), along with all the directive types.
+The Posting type is defined in [<span class="underline">beancount.core.data</span>](https://github.com/beancount/beancount/tree/master/beancount/core/data.py), along with all the directive types.
 
 ### Inventory<a id="inventory"></a>
 
@@ -370,7 +370,7 @@ Generally, the combination of a position’s (*Units.Currency, Cost)* is kept un
 
 The *Inventory* is one of the most important and oft-used object in Beancount’s implementation, because it is used to sum the balance of one or more accounts over time. It is also the place where the inventory reduction algorithms get applied to, and traces of that mechanism can be found there. The “[<span class="underline">How Inventories Work</span>](how_inventories_work.md)” document provides the full detail of that process.
 
-For testing, you can create initialized instances of Inventory using `inventory.from_string()`. All the inventory code is written in [<span class="underline">beancount.core.inventory</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/inventory.py).
+For testing, you can create initialized instances of Inventory using `inventory.from_string()`. All the inventory code is written in [<span class="underline">beancount.core.inventory</span>](https://github.com/beancount/beancount/tree/master/beancount/core/inventory.py).
 
 ### About Tuples & Mutability<a id="about-tuples-mutability"></a>
 
@@ -384,7 +384,7 @@ Regardless, functional programming is not so much an attribute of the language u
 
 -   I avoid the creation of classes which mutate their internal state, except for a few cases (e.g. the web application). I prefer functions to objects and where I define classes I mostly avoid inheritance.
 
-These properties are especially true for all the small objects: Amount, Lot, Position, Posting objects, and all the directives types from [<span class="underline">beancount.core.data</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/data.py).
+These properties are especially true for all the small objects: Amount, Lot, Position, Posting objects, and all the directives types from [<span class="underline">beancount.core.data</span>](https://github.com/beancount/beancount/tree/master/beancount/core/data.py).
 
 On the other hand, the Inventory object is nearly always used as an accumulator and *does* allow the modification of its internal state (it would require a special, persistent data structure to avoid this). You have to be careful how you share access to Inventory objects… and modify them, if you ever do.
 
@@ -606,11 +606,11 @@ For example,
 
 -   The “Pad” directive is implemented by processing the stream of transactions, accumulating balances, inserting a new padding transaction after the Pad directive when a balance assertion fails.
 
--   [<span class="underline">Summarization</span>](http://bitbucket.org/blais/beancount/src/tip/src/python/beancount/ops/summarize.py) operations (open books, close books, clear net income to equity) are all implemented this way, as functional operators on the list of streams. For example, opening the books at a particular date is implemented by summing all balances before a certain date and replacing those transactions by new transactions that pull the final balance from an Equity account. Closing the books only involves moving the balances of income statement account to Equity and truncation the list of transactions to that date. This is very elegant—the reporting code can be oblivious to the fact that summarization has occurred.
+-   [<span class="underline">Summarization</span>](https://github.com/beancount/beancount/tree/master/beancount/ops/summarize.py) operations (open books, close books, clear net income to equity) are all implemented this way, as functional operators on the list of streams. For example, opening the books at a particular date is implemented by summing all balances before a certain date and replacing those transactions by new transactions that pull the final balance from an Equity account. Closing the books only involves moving the balances of income statement account to Equity and truncation the list of transactions to that date. This is very elegant—the reporting code can be oblivious to the fact that summarization has occurred.
 
 -   Prices on postings held with a cost are normally ignored. The “implicit prices” option is implemented using a plugin which works its magic by processing the stream of operations and inserting otherwise banal Price directives automatically when such a posting is found.
 
--   Many types of verifications are also implemented this way; the [<span class="underline">sellgains</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/plugins/sellgains.py) plugin verifies that non-income balances check against the converted price of postings disregarding the cost. This one does not insert any new directives, but may generate new errors.
+-   Many types of verifications are also implemented this way; the [<span class="underline">sellgains</span>](https://github.com/beancount/beancount/tree/master/beancount/plugins/sellgains.py) plugin verifies that non-income balances check against the converted price of postings disregarding the cost. This one does not insert any new directives, but may generate new errors.
 
 These are just some examples. I’m aiming to make most operations work this way. This design has proved to be elegant, but also surprisingly flexible and it has given birth to the plugins system available in Beancount; you might be surprised to learn that I had not originally thought to provide a plugins system... it just emerged over time teasing abstractions and trying to avoid state in my program.
 
@@ -641,7 +641,7 @@ It consists of
 
 3.  A final validation step that ensures the invariants have not been broken by the plugins.
 
-The [<span class="underline">beancount.loader</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/loader.py) module orchestrates this processing. **In the code and documents, I’m careful to distinguish between the terms “parsing” and “loading” carefully.** These two concepts are distinct. “Parsing” is only a part of “loading.”
+The [<span class="underline">beancount.loader</span>](https://github.com/beancount/beancount/tree/master/beancount/loader.py) module orchestrates this processing. **In the code and documents, I’m careful to distinguish between the terms “parsing” and “loading” carefully.** These two concepts are distinct. “Parsing” is only a part of “loading.”
 
 The user-specified plugins are run in the order they are provided in the input files.
 
@@ -724,17 +724,17 @@ This is a nice property to have. Among other things, it allows us to use the par
 
 -   Metadata round-tripping hasn’t been tested super well. In particular, some of the metadata fields need to be ignored (e.g., filename and lineno).
 
--   Some directives contain derived data, e.g. the Balance directive has a “diff\_amount” field that contains the difference when there is a failure in asserting a balance. This is used to report errors more easily. I probably need to remove these [<span class="underline">exceptions</span>](https://bitbucket.org/blais/beancount/src/24acbceb37aef8ab6bc6f324599fe434b7bad31c/src/python/beancount/core/compare.py?at=default#cl-14) at some point because it is the only one of its kind (I could replace it with an inserted “Error” directive).
+-   Some directives contain derived data, e.g. the Balance directive has a “diff\_amount” field that contains the difference when there is a failure in asserting a balance. This is used to report errors more easily. I probably need to remove these [<span class="underline">exceptions</span>](https://github.com/beancount/beancount/tree/master/beancount/core/compare.py) at some point because it is the only one of its kind (I could replace it with an inserted “Error” directive).
 
 This probably needs to get refined a bit at some point with a more complete test (it’s not far as it is).
 
 ### Uniqueness & Hashing<a id="uniqueness-hashing"></a>
 
-In order to make it possible to compare directives quickly, we support unique hashing of all directives, that is, from each directive we should be able to produce a short and unique id. We can then use these ids to [<span class="underline">perform set inclusion/exclusion/comparison tests</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/compare.py) for our unit tests. We provide a [<span class="underline">base test case class with assertion methods that use this capability</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/parser/cmptest.py). This feature is used liberally throughout our test suites.
+In order to make it possible to compare directives quickly, we support unique hashing of all directives, that is, from each directive we should be able to produce a short and unique id. We can then use these ids to [<span class="underline">perform set inclusion/exclusion/comparison tests</span>](https://github.com/beancount/beancount/tree/master/beancount/core/compare.py) for our unit tests. We provide a [<span class="underline">base test case class with assertion methods that use this capability</span>](https://github.com/beancount/beancount/tree/master/beancount/parser/cmptest.py). This feature is used liberally throughout our test suites.
 
 This is also used to detect and remove duplicates. This feature is optional and enabled by the `beancount.plugins.noduplicates` plugin.
 
-Note that the hashing of directives currently [<span class="underline">does not include user meta-data</span>](https://bitbucket.org/blais/beancount/src/24acbceb37aef8ab6bc6f324599fe434b7bad31c/src/python/beancount/core/compare.py?at=default#cl-14).
+Note that the hashing of directives currently [<span class="underline">does not include user meta-data</span>](https://github.com/beancount/beancount/tree/master/beancount/core/compare.py).
 
 ### Display Context<a id="display-context"></a>
 
@@ -759,7 +759,7 @@ Consider that:
 
 -   We want to render text report which need to align numbers with varying number of fractional digits together, aligning them by their period or rightmost digits, and possibly rendering a currency thereafter.
 
-In order to deal with this thorny problem, I built a kind of accumulator which is used to record all numbers seen from some input and tally statistics about the precisions witnessed for each currency. I call this a [<span class="underline">DisplayContext</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/display_context.py). From this object one can request to build a DisplayFormatter object which can be used to render numbers in a particular way.
+In order to deal with this thorny problem, I built a kind of accumulator which is used to record all numbers seen from some input and tally statistics about the precisions witnessed for each currency. I call this a [<span class="underline">DisplayContext</span>](https://github.com/beancount/beancount/tree/master/beancount/core/display_context.py). From this object one can request to build a DisplayFormatter object which can be used to render numbers in a particular way.
 
 I refer to those objects using the variable names `dcontext` and `dformat` throughout the code. The parser automatically creates a DisplayContext object and feeds it all the numbers it sees during parsing. The object is available in the options\_map produced by the loader.
 
@@ -771,7 +771,7 @@ It occurs often that one needs to compute the final balances of a list of filter
 <img src="beancount_design_doc/media/736b05ad5dbed8af111f3f9d01d38b8b99914e7b.png" style="width:8.66667in;height:3.06944in" /><a id="section"></a>
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
-For the purpose of creating hierarchical renderings, I provide a process called a “[<span class="underline">realization</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/realization.py).” A realization is a tree of nodes, each of which contains
+For the purpose of creating hierarchical renderings, I provide a process called a “[<span class="underline">realization</span>](https://github.com/beancount/beancount/tree/master/beancount/core/realization.py).” A realization is a tree of nodes, each of which contains
 
 -   An account name,
 
@@ -781,7 +781,7 @@ For the purpose of creating hierarchical renderings, I provide a process called 
 
 -   A mapping of sub-account names to child nodes.
 
-The nodes are of type “RealAccount,” which is also a dict of its children. All variables of type RealAccount in the codebase are by convention prefixed by “real\_\*”. The [<span class="underline">realization</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/realization.py) module provides functions to iterate and produce hierarchical reports on these trees of balances, and the reporting routines all use these.
+The nodes are of type “RealAccount,” which is also a dict of its children. All variables of type RealAccount in the codebase are by convention prefixed by “real\_\*”. The [<span class="underline">realization</span>](https://github.com/beancount/beancount/tree/master/beancount/core/realization.py) module provides functions to iterate and produce hierarchical reports on these trees of balances, and the reporting routines all use these.
 
 For example, here is a bit of code that will dump a tree of balances of your accounts to the console:
 
@@ -796,11 +796,11 @@ For example, here is a bit of code that will dump a tree of balances of your acc
 The Web Interface<a id="the-web-interface"></a>
 -----------------------------------------------
 
-Before the appearance of the SQL syntax to filter and aggregate postings, the only report produced by Beancount was the web interface provide by bean-web. As such, bean-web evolved to be good enough for most usage and general reports.
+Before the appearance of the SQL syntax to filter and aggregate postings, the only report produced by Beancount was the web interface provided by bean-web. As such, bean-web evolved to be good enough for most usage and general reports.
 
 ### Reports vs. Web<a id="reports-vs.-web"></a>
 
-One of the important characteristics of bean-web is that it should just be a thin dispatching shell that serves reports generated from the [<span class="underline">beancount.reports</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/reports/) layer. It used to contain the report rendering code itself, but at some point I began to factor out all the reporting code to a separate package in order to produce reports to other formats, such as text reports and output to CSV. This is mostly finished, but at this time \[July 2015\] some reports remain that only support HTML output. This is why.
+One of the important characteristics of bean-web is that it should just be a thin dispatching shell that serves reports generated from the [<span class="underline">beancount.reports</span>](https://github.com/beancount/beancount/tree/v2/beancount/reports/) layer. It used to contain the report rendering code itself, but at some point I began to factor out all the reporting code to a separate package in order to produce reports to other formats, such as text reports and output to CSV. This is mostly finished, but at this time \[July 2015\] some reports remain that only support HTML output. This is why.
 
 ### Client-Side JavaScript<a id="client-side-javascript"></a>
 
@@ -836,9 +836,9 @@ So.. by default I will resist making changes that aren't generic or that would n
 
 Beancount provides a simple syntax, a parser and printer for it, and a library of very simple data record types to allow a user to easily write their scripts to process their data, taking advantage of the multitude of libraries available from the Python environment. Should the built-in querying tools fail to suffice, I want it to be trivially easy for someone to build what they need on top of Beancount.
 
-This also means that the tools provided by Beancount don’t have to support *all* the features everyone might ever possibly want. Beancount’s strength should be representational coherence and simplicity rather the richness of its reporting features. Creating new kinds of reports should be easy; changing the internals should be hard. (That said, it does provide an evolving palette of querying utilities that should be sufficient for most users.)
+This also means that the tools provided by Beancount don’t have to support *all* the features everyone might ever possibly want. Beancount’s strength should be representational coherence and simplicity rather than the richness of its reporting features. Creating new kinds of reports should be easy; changing the internals should be hard. (That said, it does provide an evolving palette of querying utilities that should be sufficient for most users.)
 
-In contrast, the implementation of the Ledger system provides high-level operations that are invoked as "expressions" defined in a domain-specific language, expressions which are either provided on the command-line or in the input file itself. For the user, this expression language is yet another thing to learn, and it’s yet another thing that might involve limitations require expansion and work… I prefer to avoid DSLs if possible and use Python’s well understood semantics instead, though this is not always sensible.
+In contrast, the implementation of the Ledger system provides high-level operations that are invoked as "expressions" defined in a domain-specific language, expressions which are either provided on the command-line or in the input file itself. For the user, this expression language is yet another thing to learn, and it’s yet another thing that might involve limitations requiring expansion and work… I prefer to avoid DSLs if possible and use Python’s well understood semantics instead, though this is not always sensible.
 
 ### File Format or Input Language?<a id="file-format-or-input-language"></a>
 

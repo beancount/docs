@@ -105,7 +105,7 @@ Here’s a description of the typical kinds of files involved; this describes my
 
 ### Extracting Data from PDF Files<a id="extracting-data-from-pdf-files"></a>
 
-I've made some headway toward converting data from PDF file, which is a common need, but it's incomplete; it turns out that fully automating table extraction from PDF isn't easy in the general case. I have some code that is close to working and will release it when the time is right. Otherwise, the best FOSS solution I’ve found for this is a tool called [<span class="underline">TabulaPDF</span>](http://tabula.technology/) but you still need to manually identify where the tables of data are located on the page; you may be able to automate some fetching its sister project [<span class="underline">tabula-java</span>](https://github.com/tabulapdf/tabula-java).
+I've made some headway toward converting data from PDF files, which is a common need, but it's incomplete; it turns out that fully automating table extraction from PDF isn't easy in the general case. I have some code that is close to working and will release it when the time is right. Otherwise, the best FOSS solution I’ve found for this is a tool called [<span class="underline">TabulaPDF</span>](http://tabula.technology/) but you still need to manually identify where the tables of data are located on the page; you may be able to automate some fetching using its sister project [<span class="underline">tabula-java</span>](https://github.com/tabulapdf/tabula-java).
 
 Nevertheless, I usually have good success with my importers grepping around PDF statements converted to ugly text in order to identify what institution they are for and extracting the date of issuance of the document.
 
@@ -158,11 +158,11 @@ The configuration should be a Python3 module in which you instantiate the import
       …
     ]
 
-Of course, since you’re crafting a Python script, you can insert whatever other code in there you like. All that matters is that this “`CONFIG`” variable refer to a list of objects which comply with the importer protocol (described in the next section). Their order does not matter.
+Of course, since you’re crafting a Python script, you can insert whatever other code in there you like. All that matters is that this “`CONFIG`” variable refers to a list of objects which comply with the importer protocol (described in the next section). Their order does not matter.
 
 In particular, it’s a good idea to write your importers as generically as possible and to parameterize them with the particular account names you use in your input file. This helps keep your code independent of the particular accounts and forces you to define logical accounts, and I’ve found that this helps with clarity.
 
-Or not… at the end of the day, these importer codes live in some of your own personal place, not with Beancount. If you so desire, you can keep them as messy and unshareable as you like.
+Or not… At the end of the day, these importer codes live in some of your own personal place, not with Beancount. If you so desire, you can keep them as messy and unshareable as you like.
 
 ### Configuring from an Input File<a id="configuring-from-an-input-file"></a>
 

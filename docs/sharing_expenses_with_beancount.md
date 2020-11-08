@@ -27,7 +27,7 @@ Our assumptions are:
 
 -   **Multiple currencies.** Some of our expenses will be denominated in US dollars and some in Mexican pesos. For example, flights were paid in US dollars, local meals and the accommodation were paid in pesos, but the local dive shop charged us dollars. Converted amounts will come from both cash and credit cards sources.
 
--   **Individual expenses in shared pool.** While most of the expenses are to be shared equally, some of the expenses will apply to only one of us, and we want to account for those explicitly. For example, Caroline took a SCUBA certification course ([<span class="underline">PADI Open Water</span>](http://www.padi.com/scuba-diving/padi-courses/course-catalog/open-water-diver/)) and will pay for that on her own; similarly, she should not be paying for Martin’s expensive boat diving costs. To complicate matters, the dive shop issued us a single joint bill for everything at the end of our stay.
+-   **Individual expenses in a shared pool.** While most of the expenses are to be shared equally, some of the expenses will apply to only one of us, and we want to account for those explicitly. For example, Caroline took a SCUBA certification course ([<span class="underline">PADI Open Water</span>](http://www.padi.com/scuba-diving/padi-courses/course-catalog/open-water-diver/)) and will pay for that on her own; similarly, she should not be paying for Martin’s expensive boat diving costs. To complicate matters, the dive shop issued us a single joint bill for everything at the end of our stay.
 
 A Note About Sharing<a id="a-note-about-sharing"></a>
 -----------------------------------------------------
@@ -64,7 +64,7 @@ Note that the final balance of expenses for each participant may differ, and the
 How to Track Expenses<a id="how-to-track-expenses"></a>
 -------------------------------------------------------
 
-In order to write down all expenses for this trip we will open a brand new Beancount input file. Despite the fact that the expenses will come from each person’s personal accounts, it is useful to think of the trip as a special project, as if it were a separate entity, e.g., a company that exists only for the duration of the trip. The example file we wrote for our trip [<span class="underline">can be found here</span>](http://bitbucket.org/blais/beancount/src/tip/examples/sharing/cozumel2015.beancount) and should help you follow along this text.
+In order to write down all expenses for this trip we will open a brand new Beancount input file. Despite the fact that the expenses will come from each person’s personal accounts, it is useful to think of the trip as a special project, as if it were a separate entity, e.g., a company that exists only for the duration of the trip. The example file we wrote for our trip [<span class="underline">can be found here</span>](https://raw.githubusercontent.com/beancount/beancount/v2/examples/sharing/cozumel2015.beancount) and should help you follow along this text.
 
 ### Accounts<a id="accounts"></a>
 
@@ -94,7 +94,7 @@ Transactions carried out from these accounts must be copied from your personal B
 
 #### Assets & Liabilities Accounts<a id="assets-liabilities-accounts"></a>
 
-There will have a few Asset accounts that will be active and exist for the duration of the trip. These temporary accounts will be zero’ed out at the end of it. One example is a pool of petty cash in local currency:
+There will be a few Asset accounts that will be active and exist for the duration of the trip. These temporary accounts will be zero’ed out at the end of it. One example is a pool of petty cash in local currency:
 
     2015-02-01 open Assets:Cash:Pesos
       description: "A shared account to contain our pocket of pesos"
@@ -111,7 +111,7 @@ Note however that despite their individual names, those accounts are considered 
 
 #### Expenses Accounts<a id="expenses-accounts"></a>
 
-We will define various accounts to book our Expenses to. For example, “`Expenses:Flights`” will contains our costs associated with flight travel. For convenience, and because there are many types of expenses in this file, we chose to leverage the “auto-accounts” plugin and let Beancount automatically open these accounts:
+We will define various accounts to book our Expenses to. For example, “`Expenses:Flights`” will contain our costs associated with flight travel. For convenience, and because there are many types of expenses in this file, we chose to leverage the “auto-accounts” plugin and let Beancount automatically open these accounts:
 
     plugin "beancount.ops.auto_accounts"
 
@@ -121,7 +121,7 @@ However, for expenses that are intended to be covered by one of us only, we simp
 
 ### Example Transactions<a id="example-transactions"></a>
 
-Let’s turn our attention to the different types of transactions present in the file. In this section I will walk you through some representative transactions (the names I give to these is arbitrary).
+Let’s turn our attention to the different types of transactions present in the file. In this section I will walk you through some representative transactions (the names I give to these are arbitrary).
 
 #### Contributing Transactions<a id="contributing-transactions"></a>
 
@@ -199,7 +199,7 @@ I used the unfavorable rate the restaurant was offering to accept dollars at (th
 
 #### Individual Expenses<a id="individual-expenses"></a>
 
-Here is an example of booking individual expenses using shared money. In order for us have access to the reef for diving, we had to pay a “marine park” fee of $2.50 per day to the island. This was a short trip where I dove only three days there and Caroline’s fee was included in her course except for one day:<img src="sharing_expenses_with_beancount/media/e0cef7785d12af297926017d805ccad2efc51dbd.jpg" style="width:1.44375in;height:1.92188in" />
+Here is an example of booking individual expenses using shared money. In order for us to have access to the reef for diving, we had to pay a “marine park” fee of $2.50 per day to the island. This was a short trip where I dove only three days there and Caroline’s fee was included in her course except for one day:<img src="sharing_expenses_with_beancount/media/e0cef7785d12af297926017d805ccad2efc51dbd.jpg" style="width:1.44375in;height:1.92188in" />
 
       2015-02-25 * "Marine Park (3 days Martin, 1 day Caroline)"
         Expenses:Scuba:ParkFees:Martin             7.50 USD
@@ -258,7 +258,7 @@ Our clearing transaction looked like this:
     2015-03-07 balance Assets:Cash:Martin               0 USD
     2015-03-07 balance Assets:Cash:Caroline             0 USD
 
-We had three 20 peso bills, and I kept the bills for future travels. Caroline kept the 5 peso coin (forgot to hand it over as tip). We transferred out the respective cash amounts we had been carrying together during the trip.
+We had three 20 peso bills, and I kept the bills for future travels. Caroline kept the 5 peso coin (forgot to hand it over as a tip). We transferred out the respective cash amounts we had been carrying together during the trip.
 
 How to Take Notes<a id="how-to-take-notes"></a>
 -----------------------------------------------
@@ -585,12 +585,12 @@ For each person, it will generate the following reports:
 
 -   A breakdown of expenses for each category (account type)
 
-Finally, it will also generate a final balance for each person, which you can use to send final reconciling transfers to each other. Try it now on one of the [<span class="underline">example files</span>](https://bitbucket.org/blais/beancount/src/tip/examples/sharing/) provided with Beancount.
+Finally, it will also generate a final balance for each person, which you can use to send final reconciling transfers to each other. Try it now on one of the [<span class="underline">example files</span>](https://raw.githubusercontent.com/beancount/beancount/v2/examples/sharing/) provided with Beancount.
 
 Other Examples<a id="other-examples"></a>
 -----------------------------------------
 
-There is another example file that shows how to share expenses between three participants in [<span class="underline">duxbury2015.beancount</span>](https://bitbucket.org/blais/beancount/src/66e85c8343d8704745ae16cb6ac622f4b6246c3c/examples/sharing/duxbury2015.beancount?at=default&fileviewer=file-view-default). Look to more example files to be introduced over time.
+There is another example file that shows how to share expenses between three participants in [<span class="underline">duxbury2015.beancount</span>](https://raw.githubusercontent.com/beancount/beancount/v2/examples/sharing/duxbury2015.beancount). Look to more example files to be introduced over time.
 
 Conclusion<img src="sharing_expenses_with_beancount/media/b2573bbadd485ef104e25a4b13b53f46c4b541ca.jpg" style="width:2.02604in;height:1.52427in" /><a id="conclusion"></a>
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
