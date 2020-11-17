@@ -344,7 +344,7 @@ A position represents some units of a particular commodity held at cost. It cons
 
     Position = (Units, Cost)
 
-*Units* is an instance of *Amount*, and *Cost* is an instance of *Cost*, or a null value if the commodity is not held at cost. Inventories contain lists of *Position* instances. See its definition in [<span class="underline">beancount.core.position</span>](https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/position.py)`.`
+*Units* is an instance of *Amount*, and *Cost* is an instance of *Cost*, or a null value if the commodity is not held at cost. Inventories contain lists of *Position* instances. See its definition in [<span class="underline">beancount.core.position</span>](http://github.com/beancount/beancount/tree/v2/beancount/core/position.py)`.`
 
 ### Posting<a id="posting"></a>
 

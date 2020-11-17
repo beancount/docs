@@ -234,7 +234,7 @@ Editor Support<a id="editor-support"></a>
 
 There is support for some editors available:
 
--   Emacs support is [<span class="underline">provided in the distribution</span>](https://bitbucket.org/blais/beancount/src/tip/src/elisp/). See the [<span class="underline">Getting Started</span>](getting_started_with_beancount.md) text for installation instruction.
+-   Emacs support is provided [<span class="underline">in a separate repo</span>](https://github.com/beancount/beancount-mode). See the [<span class="underline">Getting Started</span>](getting_started_with_beancount.md) text for installation instruction.
 
 -   Support for [<span class="underline">editing with Sublime</span>](https://sublime.wbond.net/packages/Beancount) has been contributed by [<span class="underline">Martin Andreas Andersen</span>](https://groups.google.com/d/msg/beancount/WvlhcCjNl-Q/s4wOBQnRVxYJ). See [<span class="underline">his github repo</span>](https://github.com/draug3n/sublime-beancount).
 

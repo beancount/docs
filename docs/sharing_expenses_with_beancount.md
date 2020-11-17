@@ -277,7 +277,7 @@ I made a paper spreadsheet where each line had
 
 -   The amount (either in USD or MXN)
 
-After our trip, I sat down at the computer and typed [<span class="underline">the corresponding Beancount file</span>](http://www.google.com/url?q=http%3A%2F%2Fbitbucket.org%2Fblais%2Fbeancount%2Fsrc%2Ftip%2Fexamples%2Fsharing%2Fcozumel2015.beancount&sa=D&sntz=1&usg=AFQjCNEPaKdOQ8UzCsGwRksl6sbCp6J2ZA). If I had a computer during my vacation I probably would have typed it as we went along. Of course, I had to do a few adjustments here and there because of mistakes.
+After our trip, I sat down at the computer and typed [<span class="underline">the corresponding Beancount file</span>](https://github.com/beancount/beancount/blob/master/examples/sharing/cozumel2015.beancount). If I had a computer during my vacation I probably would have typed it as we went along. Of course, I had to do a few adjustments here and there because of mistakes.
 
 The bottom line is: if you’re organized well, the overhead of doing this is minimal.
 

@@ -30,8 +30,6 @@ Plugins<a id="plugins"></a>
 
 [<span class="underline">effective\_dates</span>](https://github.com/redstreet/beancount_plugins_redstreet): redstreet0 wrote a plugin to book different legs of a transaction to different dates
 
-[<span class="underline">depreciation</span>](https://bitbucket.org/snippets/happyalu/EAMgj/beancount-automated-depreciation-plugin): [<span class="underline">Alok Parlikar</span>](https://plus.google.com/u/0/+AlokParlikar/posts) [<span class="underline">wrote a plugin</span>](https://bitbucket.org/snippets/happyalu/EAMgj/beancount-automated-depreciation-plugin) to automatically add entries at the EOY for the depreciation of assets.
-
 [<span class="underline">beancount-plugins</span>](https://github.com/davidastephens/beancount-plugins): Dave Stephens created a repository to share various of his plugins related to depreciation.
 
 [<span class="underline">beancount-plugins-zack</span>](https://github.com/zacchiro/beancount-plugins-zack): Stefano Zacchiroli created this repository to share his plugins.
