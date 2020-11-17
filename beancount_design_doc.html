@@ -517,7 +517,7 @@ Assets:US:TDBank:Savings
 <p>A position represents some units of a particular commodity held at cost. It consists simply in</p>
 <pre><code>Position = (Units, Cost)
 </code></pre>
-<p><em>Units</em> is an instance of <em>Amount</em>, and <em>Cost</em> is an instance of <em>Cost</em>, or a null value if the commodity is not held at cost. Inventories contain lists of <em>Position</em> instances. See its definition in <a href="https://bitbucket.org/blais/beancount/src/tip/src/python/beancount/core/position.py"><span class="underline">beancount.core.position</span></a><code>.</code></p>
+<p><em>Units</em> is an instance of <em>Amount</em>, and <em>Cost</em> is an instance of <em>Cost</em>, or a null value if the commodity is not held at cost. Inventories contain lists of <em>Position</em> instances. See its definition in <a href="http://github.com/beancount/beancount/tree/v2/beancount/core/position.py"><span class="underline">beancount.core.position</span></a><code>.</code></p>
 <h3 id="posting">Posting<a id="posting"></a><a class="headerlink" href="#posting" title="Permanent link"></a></h3>
 <p>Each Transaction directive is composed of multiple Postings (I often informally refer to these in the code and on the mailing-list as the “legs” of a transaction). Each of these postings is associated with an account, a position and an optional price and flag:</p>
 <pre><code>Posting = (Account, Units, Cost-or-CostSpec, Price, Flag, Metadata)
