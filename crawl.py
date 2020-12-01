@@ -29,6 +29,9 @@ def get_index() -> dict:
         document_id = match.group(1)
         if document_id in document_map:
             continue
+        if document_id == '1Ia4zYmkB6I6IbWPRlcZYYuMS1ZI55T99dp9LiMJqXCE':
+            # Temporarily not available
+            continue
         document_title = elem.get_text()
         if document_title == 'H':
             # Bad markup here
