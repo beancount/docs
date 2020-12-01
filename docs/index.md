@@ -100,6 +100,19 @@ External Links<a id="external-links"></a>
 
 [<span class="underline">Beancount ou la comptabilité pour les hackers</span>](http://blog.deguet.fr/beancount-comptabilite-pour-hackers/) (Cyril Deguet): An overview blog entry (in french).
 
+V3 Documentation<a id="v3-documentation"></a>
+---------------------------------------------
+
+*As of summer 2020, a rewrite to C++ is underway. These are the documents related to that.*
+
+[<span class="underline">Beancount V3</span>](beancount_v3.md): Goals & Design: Motivation, goals and design for version 3 rewrite to C++.
+
+[<span class="underline">Beancount V3: Changes from V2</span>](https://docs.google.com/document/d/1Ia4zYmkB6I6IbWPRlcZYYuMS1ZI55T99dp9LiMJqXCE/): A list of current changes presently done in v3 (on the "master" branch) whose documentation hasn't made it to the v2 documentation set.
+
+[<span class="underline">Installing Beancount (v3)</span>](installing_beancount_v3.md): Installation procedure for v3.
+
+[<span class="underline">Beancount V3: Dependencies</span>](beancount_v3_dependencies.md): Software dependencies for building version 3.
+
 About this Documentation<a id="about-this-documentation"></a>
 -------------------------------------------------------------
 

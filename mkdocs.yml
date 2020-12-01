@@ -49,6 +49,10 @@ nav:
       - Balance Assertions in Beancount: balance_assertions_in_beancount.md
       - Fund Accounting with Beancount: fund_accounting_with_beancount.md
       - Rounding Precision in Beancount: rounding_precision_in_beancount.md
+    - Beancount 3:
+      - Goals & Design: beancount_v3.md
+      - Installing Beancount: installing_beancount_v3.md
+      - Dependencies: beancount_v3_dependencies.md
   - API reference:
     - beancount: api_reference/index.md
     - api_reference/beancount.core.md

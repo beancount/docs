@@ -32,5 +32,8 @@
     "1x0qqWGRHi02ef-FtUW172SHkdJ8quOZD-Xli7r4Nl_k": "settlement_dates_in_beancount.md",
     "1vyemZFox47IZjuBrT2RjhSHZyTgloYOUeJb73RxMRD0": "balance_assertions_in_beancount.md",
     "1nf_yCiLuewVCEjkXq9Kd9SqbZGWqcs0v0pT5xQnkyzs": "fund_accounting_with_beancount.md",
-    "1MY2JMiiXUmcwsOT0CkiK-fCo0ZE7nbr8uTcTL50b6X4": "rounding_precision_in_beancount.md"
+    "1MY2JMiiXUmcwsOT0CkiK-fCo0ZE7nbr8uTcTL50b6X4": "rounding_precision_in_beancount.md",
+    "1qPdNXaz5zuDQ8M9uoZFyyFis7hA0G55BEfhWhrVBsfc": "beancount_v3.md",
+    "1WwZYqsp28Uuk5eFqHQ1u1zqdjghymy8S_Yo-OJENoa4": "installing_beancount_v3.md",
+    "10R-msZljuqFY8nckUnR1jVxMX1ol7rJUCMZo7w7QUQs": "beancount_v3_dependencies.md"
 }
