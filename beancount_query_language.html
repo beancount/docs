@@ -151,11 +151,15 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#sub-selects">Sub-Selects</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#pivot-by">Pivot By</a>
-</li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#more-information">More Information</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#appendix">Appendix</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#future-features_1">Future Features</a>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -721,8 +725,13 @@ WHERE year &lt;= 2015
 <p>This should return three separate rows, with all the selected attributes, as if there were that many postings.</p>
 <h3 id="sub-selects">Sub-Selects<a id="sub-selects"></a><a class="headerlink" href="#sub-selects" title="Permanent link"></a></h3>
 <p>The ability to select from the result of another <code>SELECT</code> is not currently supported, but the internals of the query code are prepared to do so.</p>
-<h3 id="pivot-by">Pivot By<a id="pivot-by"></a><a class="headerlink" href="#pivot-by" title="Permanent link"></a></h3>
-<p>A special <code>PIVOT BY</code> clause can be used to convert the output from a one-dimensional list of results to a two-dimensional table. For example, the following query:</p>
+<h2 id="more-information">More Information<a id="more-information"></a><a class="headerlink" href="#more-information" title="Permanent link"></a></h2>
+<p>This document attempts to provide a good high-level summary of the features supported in our query language. However, should you find you need more information, you may take a look at the <a href="http://furius.ca/beancount/doc/proposal-query"><span class="underline">original proposal</span></a>, or consult the source code under the <a href="https://github.com/beancount/beancount/tree/v2/beancount/query/"><span class="underline">beancount.query</span></a> directory. In particular, the <a href="https://github.com/beancount/beancount/tree/master/beancount/parser"><span class="underline">parser</span></a> will provide insight into the specifics of the syntax, and the <a href="https://github.com/beancount/beancount/tree/v2/beancount/query/query_env.py"><span class="underline">environments</span></a> will shed some light on the supported data columns and functions. Feel free to rummage in the source code and ask questions on the mailing-list.</p>
+<h2 id="appendix">Appendix<a id="appendix"></a><a class="headerlink" href="#appendix" title="Permanent link"></a></h2>
+<h3 id="future-features_1">Future Features<a id="future-features-1"></a><a class="headerlink" href="#future-features_1" title="Permanent link"></a></h3>
+<p><em>This section documents ideas for features to be implemented in a future version.</em></p>
+<h4 id="pivot-by">Pivot By<a id="pivot-by"></a><a class="headerlink" href="#pivot-by" title="Permanent link"></a></h4>
+<p>A special <code>PIVOT BY</code> clause will eventually be usable to convert the output from a one-dimensional list of results to a two-dimensional table. For example, the following query:</p>
 <pre><code>SELECT
   account,
   YEAR(date) AS year,
@@ -797,8 +806,6 @@ Expenses:Food:Coffee       42.07 USD 2012-07-19  124.69 USD 2013-12-16   38.74 U
 Expenses:Food:Groceries  2172.97 USD 2012-12-30 2161.90 USD 2013-12-31 2072.36 USD 2014-11-20
 Expenses:Food:Restaurant 4310.60 USD 2012-12-30 5053.61 USD 2013-12-29 4209.06 USD 2014-11-28
 </code></pre>
-<h2 id="more-information">More Information<a id="more-information"></a><a class="headerlink" href="#more-information" title="Permanent link"></a></h2>
-<p>This document attempts to provide a good high-level summary of the features supported in our query language. However, should you find you need more information, you may take a look at the <a href="http://furius.ca/beancount/doc/proposal-query"><span class="underline">original proposal</span></a>, or consult the source code under the <a href="https://github.com/beancount/beancount/tree/v2/beancount/query/"><span class="underline">beancount.query</span></a> directory. In particular, the <a href="https://github.com/beancount/beancount/tree/master/beancount/parser"><span class="underline">parser</span></a> will provide insight into the specifics of the syntax, and the <a href="https://github.com/beancount/beancount/tree/v2/beancount/query/query_env.py"><span class="underline">environments</span></a> will shed some light on the supported data columns and functions. Feel free to rummage in the source code and ask questions on the mailing-list.</p>
 </div>
 </div>
 <footer>
