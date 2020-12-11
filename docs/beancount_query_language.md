@@ -558,9 +558,21 @@ This should return three separate rows, with all the selected attributes, as if 
 
 The ability to select from the result of another `SELECT` is not currently supported, but the internals of the query code are prepared to do so.
 
-### Pivot By<a id="pivot-by"></a>
+More Information<a id="more-information"></a>
+---------------------------------------------
 
-A special `PIVOT BY` clause can be used to convert the output from a one-dimensional list of results to a two-dimensional table. For example, the following query:
+This document attempts to provide a good high-level summary of the features supported in our query language. However, should you find you need more information, you may take a look at the [<span class="underline">original proposal</span>](http://furius.ca/beancount/doc/proposal-query), or consult the source code under the [<span class="underline">beancount.query</span>](https://github.com/beancount/beancount/tree/v2/beancount/query/) directory. In particular, the [<span class="underline">parser</span>](https://github.com/beancount/beancount/tree/master/beancount/parser) will provide insight into the specifics of the syntax, and the [<span class="underline">environments</span>](https://github.com/beancount/beancount/tree/v2/beancount/query/query_env.py) will shed some light on the supported data columns and functions. Feel free to rummage in the source code and ask questions on the mailing-list.
+
+Appendix<a id="appendix"></a>
+-----------------------------
+
+### Future Features<a id="future-features-1"></a>
+
+*This section documents ideas for features to be implemented in a future version.*
+
+#### Pivot By<a id="pivot-by"></a>
+
+A special `PIVOT BY` clause will eventually be usable to convert the output from a one-dimensional list of results to a two-dimensional table. For example, the following query:
 
     SELECT
       account,
@@ -641,8 +653,3 @@ Pivoting, this would generate this table:
     Expenses:Food:Coffee       42.07 USD 2012-07-19  124.69 USD 2013-12-16   38.74 USD 2014-09-21
     Expenses:Food:Groceries  2172.97 USD 2012-12-30 2161.90 USD 2013-12-31 2072.36 USD 2014-11-20
     Expenses:Food:Restaurant 4310.60 USD 2012-12-30 5053.61 USD 2013-12-29 4209.06 USD 2014-11-28
-
-More Information<a id="more-information"></a>
----------------------------------------------
-
-This document attempts to provide a good high-level summary of the features supported in our query language. However, should you find you need more information, you may take a look at the [<span class="underline">original proposal</span>](http://furius.ca/beancount/doc/proposal-query), or consult the source code under the [<span class="underline">beancount.query</span>](https://github.com/beancount/beancount/tree/v2/beancount/query/) directory. In particular, the [<span class="underline">parser</span>](https://github.com/beancount/beancount/tree/master/beancount/parser) will provide insight into the specifics of the syntax, and the [<span class="underline">environments</span>](https://github.com/beancount/beancount/tree/v2/beancount/query/query_env.py) will shed some light on the supported data columns and functions. Feel free to rummage in the source code and ask questions on the mailing-list.

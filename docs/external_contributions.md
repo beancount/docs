@@ -131,6 +131,8 @@ Development<a id="development"></a>
 
 [<span class="underline">Py3k type annotations</span>](https://github.com/yegle/beancount-type-stubs): Yuchen Ying is implementing python3 type annotations for Beancount.
 
+[<span class="underline">bryall/tree-sitter-beancount</span>](https://github.com/bryall/tree-sitter-beancount) (Bryan Ryall): A tree-sitter parser for the beancount syntax.
+
 Documentation<a id="documentation"></a>
 ---------------------------------------
 
