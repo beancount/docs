@@ -109,24 +109,24 @@ Here's an example of 6 investments and 3 reports:
       }
     }
 
-    reports {
-      report {
+    groups {
+      group {
         name: "strategy.gold"
         investment: "Assets:US:BTrade:GLD"
         investment: "Assets:US:IBKR:IAU"
       }
-      report {
+      group {
         name: "strategy.tech"
         investment: "Assets:US:BTrade:QQQ"
         investment: "Assets:US:BTrade:FB"
         investment: "Assets:US:Schwab:GOOG"
       }
-      report {
+      group {
         name: "all"
         investment: "Assets:US:*"
         currency: "USD"
       }
-      report {
+      group {
         name: "accounts.BTrade"
         investment: "Assets:US:BTrade:*"
         currency: "USD"
@@ -369,7 +369,7 @@ Simply call
 
     ./experiments/returns/compute_returns.py <file.beancount> <config.pbtxt> <output-dir>
 
-to generate all reports and debugging files. It's a little slow — some performance improvements are possible — but if you supply a list of report names after the final argument, only those investments and reports will be processed, so you can iterate faster that way. See flags with `--help` for details, and `config.proto` for the configuration input documentation.
+to generate all reports and debugging files, where *&lt;config.pbtxt&gt;* is in the format shown in “Configuration” . It's a little slow — some performance improvements are possible — but if you supply a list of report names after the final argument, only those investments and reports will be processed, so you can iterate faster that way. See flags with `--help` for details, and `config.proto` for the configuration input documentation.
 
 ### Results Rendered<a id="results-rendered"></a>
 

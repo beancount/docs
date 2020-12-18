@@ -37,7 +37,7 @@ This gets automatically converted to:
       Assets:US:Share:Carolyn       13.06 USD
         share: TRUE
 
-This is done by a custom plugin I built that splits the expenses according to some rules that we have between us (exporting this externally is TBD, I haven't shared this code yet because it's not very general, has idiosyncrasies due to how we happen to do things, you should build your own). In this example, 40% of 32.66 (13.06) gets rerouted to her account. Note that this is an asset account for me, because she owes this.
+This is done by a [<span class="underline">custom plugin</span>](https://github.com/beancount/beancount/tree/master/experiments/sharing) I built that splits the expenses according to some rules that we have between us (see also [<span class="underline">this plugin by Akkukis</span>](https://github.com/Akuukis/beancount_share)). In this example, 40% of 32.66 (13.06) gets rerouted to her account. Note that this is an asset account for me, because she owes this.
 
 ### Her Shared Expenses<a id="her-shared-expenses"></a>
 

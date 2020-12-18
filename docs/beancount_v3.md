@@ -49,6 +49,30 @@ The next iteration will see both the intermediate parser production and final re
 
 Furthermore, there may be two types of plugins: a plugin that runs on the uninterpolated, unbooked output of the parser, and a plugin that runs on the resolved and booked stream. This would allow more creative use of partial input that might be invalid under the limitations of interpolation and booking.
 
+### Make Rewriting the Input First Class<a id="make-rewriting-the-input-first-class"></a>
+
+*Added in Dec 2020 after comments and[<span class="underline">\#586</span>](https://github.com/beancount/beancount/issues/586).*
+
+A number of frequently asked questions have to do with how to process the input data itself. Usually, a new user will attempt to load the contents of the ledger, modify the data structures, and print to update their file, not realizing that the printer includes all the interpolations, booking data, and modifications from plugins, so this cannot work.
+
+However, since we're rewriting the parser and ensuring a clean separation between intermediate ASI-like data and processed and finalized directives, we can implement a special printer for the AST intermediate data, so that users could run just the parser, modify the intermediate directives, and print them back out, perhaps losing just some of the formatting and whitespace. This formatting loss can be leveraged to reimplement bean-format more naturally: the output of that printer should always be formatted neatly. This would avoid users having to write ad-hoc parsers on their input file, sed-like conversions, and so on. They could do it properly by modifying the data structure instead.
+
+What's more, in order for this to work accurately, we'd have to delay processing of the arithmetic operations post-parsing, so that we can render them back out. This offers another advantage: if we process the calculations after parsing, we can afford to provide an option to let the user specify the precision configuration to use for mpdecimal. I really like that idea, because it avoids hard-coding calculation precision and better defines the outcome of these options, potentially opening the door to a more rational way to remove extra digits that often get rendered out.
+
+Finally, if a nice library function can be made to process transactions in-place and output them back out, preserving all comments around them, this can become another way—perhaps the preferential way—for us to clean payees and somesuch. At the moment, the solution is to write a plugin that will clean up the data, but the input file remains a bit of a mess. Making it easy to automatically clean up the input file is an appealing alternative and potentially will add an important new dimension to the Beancount workflow.
+
+I want to make all changes necessary to make this possible and well supported (I'm imagining my ledger file all cleaned up right now and it's appealing). I think it's not very much work, it involves:
+
+-   Storing begin/end line information on everything.
+
+-   Adding AST constructs for representing arithmetic calculations.
+
+-   Adding comments parsing to the renderer.
+
+-   Implementing a new renderer that can reproduce the AST, including handling missing data.
+
+-   Implementing a library to make modification of a file in-place as easy as writing plugins, while preserving all non-directive data in the file as is.
+
 ### Contributions<a id="contributions"></a>
 
 For most of the development of Beancount, I've been pretty reluctant to accept contributions. It has been a closely held pet project of mine since it has so much impact on my personal financial arrangements and I dread unplanned breakage. The main reservations I've had over contributions are two-fold:

@@ -40,6 +40,8 @@ Plugins<a id="plugins"></a>
 
 [<span class="underline">metadata-spray</span>](https://github.com/seltzered/beancount-plugins-metadata-spray): Add metadata across entries by regex expression rather than having explicit entries (by Vivek Gani).
 
+[<span class="underline">Akuukis/beancount\_share</span>](https://github.com/Akuukis/beancount_share): A beancount plugin to share expenses among multiple partners within one ledger. This plugin is very powerful and most probably can deal with all of your sharing needs.
+
 Tools<a id="tools"></a>
 -----------------------
 
