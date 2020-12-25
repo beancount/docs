@@ -77,7 +77,7 @@ The contents of accounts can change over time. In order to change the content of
 
 Now, we can draw the updated balance of the account after the posting with another little number right after it:
 
-<img src="the_double_entry_counting_method/media/0c8a78dac61ae7fddde25761f036e7f379cad247.png" style="width:6.23611in;height:0.77778in" />
+<img src="the_double_entry_counting_method/media/6281f96c3465982c6bf48fccb302b40f90890311.png" style="width:6.23611in;height:0.77778in" />
 
 The account’s balance, after adding $100, is now $100.
 
@@ -149,7 +149,7 @@ Remember this, as this is the foundation of the double-entry method, and its mos
 
 In our example, we remove $79 from the “Checking” account and “give it” to the “Restaurant” account. ($79) + ($-79) = $0. To emphasize this, I could draw a little summation line under the postings of the transaction, like this:
 
-<img src="the_double_entry_counting_method/media/b4182b9f64113868123cbcec20d468ab18b2786f.png" style="width:2.18055in;height:2.5in" />
+<img src="the_double_entry_counting_method/media/a56ad72219b0d8a6c90c692655d1b24459add2d6.png" style="width:2.18055in;height:2.5in" />
 
 ### Many Accounts<a id="many-accounts"></a>
 
