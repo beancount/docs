@@ -77,7 +77,7 @@ The contents of accounts can change over time. In order to change the content of
 
 Now, we can draw the updated balance of the account after the posting with another little number right after it:
 
-<img src="the_double_entry_counting_method/media/6281f96c3465982c6bf48fccb302b40f90890311.png" style="width:6.23611in;height:0.77778in" />
+<img src="the_double_entry_counting_method/media/0c8a78dac61ae7fddde25761f036e7f379cad247.png" style="width:6.23611in;height:0.77778in" />
 
 The account’s balance, after adding $100, is now $100.
 
