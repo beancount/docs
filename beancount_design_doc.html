@@ -845,7 +845,7 @@ Assets:US:TDBank:Savings
 <p>A separate step for the interpolation which will have available the inventory balances of each account as inputs. This second step is where the booking algorithms (e.g., FIFO) will be invoked from.</p>
 </li>
 </ol>
-<p><img src="beancount_design_doc/media/8ba8202797ee7206951b5913c9b3c264c33c7df0.png" style="width:6.05556in;height:3.01389in"/></p>
+<p><img src="beancount_design_doc/media/033922268f9fe3d624c80b311804a81e4990ae07.png" style="width:6.05556in;height:3.01389in"/></p>
 <p>See the diagram above for reference. Once implemented, everything else should be the same.</p>
 <h3 id="the-printer">The Printer<a id="the-printer"></a><a class="headerlink" href="#the-printer" title="Permanent link"></a></h3>
 <p>In the same package as the parser lives a printer. This isolates all the functionality that deals with the Beancount “language” in the <code>beancount.parser</code> package: the parser converts from input syntax to data structure and the printer does the reverse. No code outside this package should concern itself with the Beancount syntax.</p>
