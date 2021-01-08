@@ -162,6 +162,8 @@ Here is a detailed breakdown of the various parts of the codebase today and what
 
 -   beancount/ingest/importers: someone could revive a repository of importer implementations, like what LedgerHub once aimed to become, and swallow those codes.
 
+> See [<span class="underline">this document</span>](https://docs.google.com/document/d/1O42HgYQBQEna6YpobTqszSgTGnbRX7RdjmzR2xumfjs/) for details on what's to happen with the ingestion code.
+
 -   **Custom reports and bean-web** should be removed: the underlying [<span class="underline">bottle</span>](https://bottlepy.org/docs/dev/) library seems unmaintained at this point, Fava subsumes bean-web, and I never liked the custom reports code anyway (they're a pain to modify). I never use them myself anymore (other than through bean-web). I really think it's possible to replace those with filters on top enhanced SQL query results. The conversion to Ledger and HLedger from Beancount now seems largely useless, I'm not sure anyone's using those. I'll probably move these to another repo, where they would eventually rot, or if someone cares, adopt them and maintain or evolve them.
 
 -   beancount/web : will be deleted or moved to another repo.
@@ -448,6 +450,12 @@ A few core tasks related to P/L and trading still need to be implemented.
 
 -   **Commissions in P/L.** Properly counting profits & losses by taking off the fraction of buying commission of an original lot and the selling commission into account is not possible at the moment. I think it could be done with a plugin that moves some of the (computed) income leg into a separate negative income account to do this properly for reporting purposes.
 
+### Self-Reductions<a id="self-reductions"></a>
+
+Currently the application of reductions operates on the inventory preceding the transaction. This prevents the common case of self-reductions, and both I and some users have come across this problem before, e.g. [<span class="underline">this recent thread</span>](https://groups.google.com/d/msgid/beancount/aa5b7b54-9bd1-4308-b872-7d3e52b1ef71n%40googlegroups.com?utm_medium=email&utm_source=footer) ([<span class="underline">ticket</span>](https://github.com/beancount/beancount/issues/602)). This comes off as unintuitive to some users and ought to have a better solution than requiring splitting of transactions.
+
+Since we're rewriting the booking code entirely in v3, contemplate a new definition that would provide a well-defined behavior in this case. I remember from prior experiments attempting to implement this that it wasn't a trivial thing to define. Revisit. This would be a nice improvement.
+
 ### Stock Splits<a id="stock-splits"></a>
 
 Some discussion and perhaps a strategy for handling stock splits should be devised in v3. Right now, Beancount ignores the issue. At the minimum this could be just adding the information to the price database. See [<span class="underline">this document</span>](http://furius.ca/beancount/doc/proposal-split) for more details.
@@ -523,3 +531,9 @@ Appendix<a id="appendix"></a>
 ### Customizable Booking<a id="customizable-booking"></a>
 
 For transfer lots with cost basis… an idea would be to create a new kind of hook, one that is registered from a plugin, e.g. a callback of yours invoked by the booking code itself, and whose results applied to a transaction are immediately reflected on the state of the affected inventories. Maybe this is the right place to provide custom algorithms so that their impact is affecting the subsequent inventories correctly and immediately. Now, imagine generalizing this further to provide and implement all of the current booking mechanisms that are currently built in the core. Call this "customizable booking." ([<span class="underline">thread</span>](https://groups.google.com/d/msgid/beancount/58b12132-c3cd-401b-98e5-3035d034846dn%40googlegroups.com?utm_medium=email&utm_source=footer)).
+
+### Ugly Little Things<a id="ugly-little-things"></a>
+
+-   print\_entry() uses buffering that makes it impossible to use regular print() interspersed with the regular stdout without providing file= option. Fix this, make this regular instead, that's just annoying, just print to regular stdout.
+
+-   The defaulit format for \_\_str\_\_ for inventories puts () around the rendering. When there's a single position, that looks like a negative number. That's dumb. Use {} instead, or something else.

@@ -16,7 +16,7 @@ Beancount is a mature project: the first version was written in 2008. The curren
 
 I’m still working on this Beancount code every weekend these days, so it is very much in active development and evolving, though the great majority of the basic features are basically unchanging. I’ve built an extensive suite of tests so you can consider the “default” branch of the repository as stable. New features are developed in branches and only merged in the “default” branch when fully stable (the entire battery of tests passes without failures). Changes to “default” are posted to the [<span class="underline">CHANGES</span>](https://github.com/beancount/beancount/tree/v2/CHANGES) file and a corresponding email is sent to the [<span class="underline">mailing-list</span>](https://groups.google.com/forum/#!forum/beancount).
 
-***So I’m not cutting releases yet.*** You have to install or run from source. I don't actively update the [<span class="underline">PyPI page</span>](https://pypi.python.org/pypi/beancount) actively either.
+There's a [<span class="underline">PyPI</span>](https://pypi.python.org/pypi/beancount) page.
 
 Where to Get It<a id="where-to-get-it"></a>
 -------------------------------------------
@@ -259,7 +259,7 @@ Normally the [<span class="underline">scripts located under beancount/bin</span>
 Appendix<a id="appendix"></a>
 -----------------------------
 
-**If everything worked, you can stop reading here.** Here I just discuss the various dependencies and why you need them (or why you don’t, some of them are optional). This is of interest to developers and some of this info might help troubleshoot problems if you encounter any.
+**If everything works, you can stop reading here.** Here I just discuss the various dependencies and why you need them (or why you don’t, some of them are optional). This is of interest to developers and some of this info might help troubleshoot problems if you encounter any.
 
 ### Notes on Dependencies<a id="notes-on-dependencies"></a>
 

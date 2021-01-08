@@ -109,7 +109,7 @@ In any case, the “balance” column always shows the resulting balance *after*
 
 In this story, this account belongs to someone. We’ll call this person the **owner** of the account. The account can be used to represent a real world account, for example, imagine that we use it to represent the content of the owner’s checking account at a bank. So we’re going to label the account by giving it a name, in this case “Checking”:
 
-<img src="the_double_entry_counting_method/media/380ec8fea9ee9069411a61ccabcc838de44042ef.png" style="width:6.23611in;height:0.98611in" />
+<img src="the_double_entry_counting_method/media/a4ac6f0f3d2cf7df150fd501f0ab9a5942f79a80.png" style="width:6.23611in;height:0.98611in" />
 
 Imagine that at some point, this account has a balance of $1000, like I’ve drawn on the picture. Now, if the owner spends $79 of this account, we would represent it like this:
 
@@ -149,7 +149,7 @@ Remember this, as this is the foundation of the double-entry method, and its mos
 
 In our example, we remove $79 from the “Checking” account and “give it” to the “Restaurant” account. ($79) + ($-79) = $0. To emphasize this, I could draw a little summation line under the postings of the transaction, like this:
 
-<img src="the_double_entry_counting_method/media/a56ad72219b0d8a6c90c692655d1b24459add2d6.png" style="width:2.18055in;height:2.5in" />
+<img src="the_double_entry_counting_method/media/b4182b9f64113868123cbcec20d468ab18b2786f.png" style="width:2.18055in;height:2.5in" />
 
 ### Many Accounts<a id="many-accounts"></a>
 
@@ -169,7 +169,7 @@ Finally, transactions may have more than two postings; in fact, they may have an
 
 For example, let’s look at what would happen if the owner gets her salary paid for December:
 
-<img src="the_double_entry_counting_method/media/18980f41275676c5c7cf3b39dd256512bb45b78b.png" style="width:8.22222in;height:5.05556in" />
+<img src="the_double_entry_counting_method/media/19e2cc49a057dfeea1cf5254610eab4c9a124488.png" style="width:8.22222in;height:5.05556in" />
 
 Her gross salary received in this example is recorded as $-2,905 (I’ll explain the sign in a moment). $905 is set aside for taxes. Her “net” salary of $2,000, the remainder, is deposited in her “Checking” account and the resulting balance of that account is $2,921 (the previous balance of $921 + $2,000 = $2,921). This transaction has three postings: (+2,000) + (-2,905) + (+905) = 0. The double-entry rule is respected.
 

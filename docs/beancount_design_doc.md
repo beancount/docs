@@ -202,7 +202,7 @@ Overview of the Codebase<a id="overview-of-the-codebase"></a>
 
 All source code lives under a “[<span class="underline">beancount</span>](https://github.com/beancount/beancount/tree/master/beancount/)” Python package. It consists of several packages with well-defined roles, the dependencies between which are enforced strictly.
 
-<img src="beancount_design_doc/media/8a94847808878214d3557076d587ecc648809812.png" style="width:5.80556in;height:4.94444in" />
+<img src="beancount_design_doc/media/387889600cf8649fb88c89349dfbbdc9cb2fc7c4.png" style="width:5.80556in;height:4.94444in" />
 
 *Beancount source code packages and approximate dependencies between them.*
 
@@ -706,7 +706,7 @@ So the parser will need to be split into two phases:
 
 2.  A separate step for the interpolation which will have available the inventory balances of each account as inputs. This second step is where the booking algorithms (e.g., FIFO) will be invoked from.
 
-<img src="beancount_design_doc/media/033922268f9fe3d624c80b311804a81e4990ae07.png" style="width:6.05556in;height:3.01389in" />
+<img src="beancount_design_doc/media/8ba8202797ee7206951b5913c9b3c264c33c7df0.png" style="width:6.05556in;height:3.01389in" />
 
 See the diagram above for reference. Once implemented, everything else should be the same.
 
