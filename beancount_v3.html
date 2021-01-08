@@ -167,6 +167,8 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#trade-matching-reporting">Trade Matching &amp; Reporting</a>
 </li>
+<li class="toctree-l4"><a class="reference internal" href="#self-reductions">Self-Reductions</a>
+</li>
 <li class="toctree-l4"><a class="reference internal" href="#stock-splits">Stock Splits</a>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#returns-calculations">Returns Calculations</a>
@@ -186,6 +188,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#appendix">Appendix</a>
 <ul>
 <li class="toctree-l4"><a class="reference internal" href="#customizable-booking">Customizable Booking</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#ugly-little-things">Ugly Little Things</a>
 </li>
 </ul>
 </li>
@@ -426,6 +430,11 @@
 <li>
 <p>beancount/ingest/importers: someone could revive a repository of importer implementations, like what LedgerHub once aimed to become, and swallow those codes.</p>
 </li>
+</ul>
+<blockquote>
+<p>See <a href="https://docs.google.com/document/d/1O42HgYQBQEna6YpobTqszSgTGnbRX7RdjmzR2xumfjs/"><span class="underline">this document</span></a> for details on what's to happen with the ingestion code.</p>
+</blockquote>
+<ul>
 <li>
 <p><strong>Custom reports and bean-web</strong> should be removed: the underlying <a href="https://bottlepy.org/docs/dev/"><span class="underline">bottle</span></a> library seems unmaintained at this point, Fava subsumes bean-web, and I never liked the custom reports code anyway (they're a pain to modify). I never use them myself anymore (other than through bean-web). I really think it's possible to replace those with filters on top enhanced SQL query results. The conversion to Ledger and HLedger from Beancount now seems largely useless, I'm not sure anyone's using those. I'll probably move these to another repo, where they would eventually rot, or if someone cares, adopt them and maintain or evolve them.</p>
 </li>
@@ -727,6 +736,9 @@
 <p><strong>Commissions in P/L.</strong> Properly counting profits &amp; losses by taking off the fraction of buying commission of an original lot and the selling commission into account is not possible at the moment. I think it could be done with a plugin that moves some of the (computed) income leg into a separate negative income account to do this properly for reporting purposes.</p>
 </li>
 </ul>
+<h3 id="self-reductions">Self-Reductions<a id="self-reductions"></a><a class="headerlink" href="#self-reductions" title="Permanent link"></a></h3>
+<p>Currently the application of reductions operates on the inventory preceding the transaction. This prevents the common case of self-reductions, and both I and some users have come across this problem before, e.g. <a href="https://groups.google.com/d/msgid/beancount/aa5b7b54-9bd1-4308-b872-7d3e52b1ef71n%40googlegroups.com?utm_medium=email&amp;utm_source=footer"><span class="underline">this recent thread</span></a> (<a href="https://github.com/beancount/beancount/issues/602"><span class="underline">ticket</span></a>). This comes off as unintuitive to some users and ought to have a better solution than requiring splitting of transactions.</p>
+<p>Since we're rewriting the booking code entirely in v3, contemplate a new definition that would provide a well-defined behavior in this case. I remember from prior experiments attempting to implement this that it wasn't a trivial thing to define. Revisit. This would be a nice improvement.</p>
 <h3 id="stock-splits">Stock Splits<a id="stock-splits"></a><a class="headerlink" href="#stock-splits" title="Permanent link"></a></h3>
 <p>Some discussion and perhaps a strategy for handling stock splits should be devised in v3. Right now, Beancount ignores the issue. At the minimum this could be just adding the information to the price database. See <a href="http://furius.ca/beancount/doc/proposal-split"><span class="underline">this document</span></a> for more details.</p>
 <h3 id="returns-calculations">Returns Calculations<a id="returns-calculations"></a><a class="headerlink" href="#returns-calculations" title="Permanent link"></a></h3>
@@ -783,6 +795,15 @@
 <p><em>More core ideas for v3 that came about during discussions after the fact.</em></p>
 <h3 id="customizable-booking">Customizable Booking<a id="customizable-booking"></a><a class="headerlink" href="#customizable-booking" title="Permanent link"></a></h3>
 <p>For transfer lots with cost basis… an idea would be to create a new kind of hook, one that is registered from a plugin, e.g. a callback of yours invoked by the booking code itself, and whose results applied to a transaction are immediately reflected on the state of the affected inventories. Maybe this is the right place to provide custom algorithms so that their impact is affecting the subsequent inventories correctly and immediately. Now, imagine generalizing this further to provide and implement all of the current booking mechanisms that are currently built in the core. Call this "customizable booking." (<a href="https://groups.google.com/d/msgid/beancount/58b12132-c3cd-401b-98e5-3035d034846dn%40googlegroups.com?utm_medium=email&amp;utm_source=footer"><span class="underline">thread</span></a>).</p>
+<h3 id="ugly-little-things">Ugly Little Things<a id="ugly-little-things"></a><a class="headerlink" href="#ugly-little-things" title="Permanent link"></a></h3>
+<ul>
+<li>
+<p>print_entry() uses buffering that makes it impossible to use regular print() interspersed with the regular stdout without providing file= option. Fix this, make this regular instead, that's just annoying, just print to regular stdout.</p>
+</li>
+<li>
+<p>The defaulit format for __str__ for inventories puts () around the rendering. When there's a single position, that looks like a negative number. That's dumb. Use {} instead, or something else.</p>
+</li>
+</ul>
 </div>
 </div>
 <footer>
