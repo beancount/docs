@@ -69,11 +69,11 @@ On the left, we have the past, and to the right, increasing time: the present, t
 
 For now, let’s assume that accounts can contain only one kind of thing, for example, *dollars*. All accounts begin with an empty content of zero dollars. We will call the number of units in the account the **balance** of an account. Note that it represents its contents at a particular point in time. I will draw the balance using a number above the account’s timeline:
 
-<img src="the_double_entry_counting_method/media/842dcb36da9e0e70c35d1023d65d8a571062baf0.png" style="width:6.23611in;height:0.56944in" />
+<img src="the_double_entry_counting_method/media/54633827be99c315dc937778221752b848411ca9.png" style="width:6.23611in;height:0.56944in" />
 
 The contents of accounts can change over time. In order to change the content of an account, we have to add something to it. We will call this addition a **posting** to an account, and I will draw this change as a circled number on the account’s timeline, for example, adding $100 to the account:
 
-<img src="the_double_entry_counting_method/media/5e5e7897a346355eccd4d21ec9485c3464a2d996.png" style="width:6.23611in;height:0.77778in" />
+<img src="the_double_entry_counting_method/media/004bc3354eb84bf554a8e5080a21f8d16fc29d82.png" style="width:6.23611in;height:0.77778in" />
 
 Now, we can draw the updated balance of the account after the posting with another little number right after it:
 
@@ -87,7 +87,7 @@ We can also remove from the contents of an account. For example, we could remove
 
 Account balances can also become *negative*, if we remove more dollars than there are in the account. For example, if we remove $200 from this account, the balance now becomes $-125:
 
-<img src="the_double_entry_counting_method/media/bdc8a23347040de123e3359a7c8f0cc253c6d7d2.png" style="width:6.23611in;height:0.77778in" />
+<img src="the_double_entry_counting_method/media/862c0b57a35631a52eead2cf8cdd7b5f2a1aa106.png" style="width:6.23611in;height:0.77778in" />
 
 It’s perfectly fine for accounts to contain a negative balance number. Remember that all we’re doing is counting things. As we will see shortly, some accounts will remain with a negative balance for most of their timeline.
 
@@ -109,7 +109,7 @@ In any case, the “balance” column always shows the resulting balance *after*
 
 In this story, this account belongs to someone. We’ll call this person the **owner** of the account. The account can be used to represent a real world account, for example, imagine that we use it to represent the content of the owner’s checking account at a bank. So we’re going to label the account by giving it a name, in this case “Checking”:
 
-<img src="the_double_entry_counting_method/media/a4ac6f0f3d2cf7df150fd501f0ab9a5942f79a80.png" style="width:6.23611in;height:0.98611in" />
+<img src="the_double_entry_counting_method/media/380ec8fea9ee9069411a61ccabcc838de44042ef.png" style="width:6.23611in;height:0.98611in" />
 
 Imagine that at some point, this account has a balance of $1000, like I’ve drawn on the picture. Now, if the owner spends $79 of this account, we would represent it like this:
 
@@ -127,7 +127,7 @@ But we’re not going to do it this way; we have a better way. Bear with me for 
 
 An owner may have multiple accounts. I will represent this by drawing many similar account timelines on the same graphic. As before, these are labeled with unique names. Let’s assume that the owner has the same “Checking” account as previously, but now also a **“**Restaurant**”** account as well, which can be used to accumulate all food expenses at restaurants. It looks like this:
 
-<img src="the_double_entry_counting_method/media/3c380375442a643877c59660832bd7df6192e9cb.png" style="width:6.23611in;height:2.01389in" />
+<img src="the_double_entry_counting_method/media/3088280515ab5b6da599edd5a1b2ca30100f2b0b.png" style="width:6.23611in;height:2.01389in" />
 
 Now, instead of *categorizing* the posting to a “restaurant category” as we did previously, we could create a matching posting on the “Restaurant” account to record how much we spent for food, with the amount spent ($79):
 

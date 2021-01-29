@@ -289,6 +289,8 @@ I've used the convention that the Fund name precedes the root account name. Note
 Transfer Accounts Proposal<a id="transfer-accounts-proposal"></a>
 -----------------------------------------------------------------
 
+*By Carl Hauser*
+
 One problem that I’ve experienced using the Fund approach is that it’s a bit too easy to make mistakes when transferring money between funds, such as in the very last transaction above. Formalizing the idea of Transfer accounts can help with this. The most common mistake is to end up with something that moves assets in both accounts in the same direction -- both up or both down as in this mistaken version of the transaction in question:
 
     2014-07-20 ! "Medical expense reimbursed from FSA - with mistake"
@@ -322,10 +324,10 @@ The paycheck transaction using transfer accounts for the FSA and the retirement 
       Expenses:OASI                                            375 USD
       Expenses:Medicare                                        100 USD
       Expenses:MedicalAid                                       10 USD
-      Transfer:Outgoing:SalReduction          600 USD
+      Transfer:Outgoing:Retirement403b:SalReduction          600 USD
       Retirement403b:Transfer:Incoming:EmployeeContrib
       Retirement403b:Assets:CREF                               600 USD
-      Transfer:Outgoing:SalReduction                        75 USD
+      Transfer:Outgoing:FSA:SalReduction                        75 USD
       FSA:Transfer:Incoming:Contributions
       FSA:Liabilities                                                   
       Expenses:SalReduction:HealthInsurance                              

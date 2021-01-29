@@ -668,7 +668,7 @@ There is a lexer file lexer.l written in flex and a Bison grammar in grammar.y. 
 
 Eventually we could consider creating a small dependency rule in setup.py to invoke flex and Bison automatically but at the moment, in order to minimize the installation burden, I check the generated source code in the repository (lexer.h/c and grammar.h/c).
 
-<img src="beancount_design_doc/media/65eccfffba7aaf2e25a7f536d974f846d096ddcf.png" style="width:7.70833in;height:4.01389in" />
+<img src="beancount_design_doc/media/695c060c71a08a1bc93a0cc82412c4892dbfd662.png" style="width:7.70833in;height:4.01389in" />
 
 The interaction between the Python and C code works like this:
 

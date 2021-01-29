@@ -49,6 +49,12 @@ The next iteration will see both the intermediate parser production and final re
 
 Furthermore, there may be two types of plugins: a plugin that runs on the uninterpolated, unbooked output of the parser, and a plugin that runs on the resolved and booked stream. This would allow more creative use of partial input that might be invalid under the limitations of interpolation and booking.
 
+Updates:
+
+-   We could convert the plugin system to one that runs at booking/interpolation time.
+
+-   We should attempt to make the booking/interpolation atomic, in that one could write a Python loop with an accumulator and invoke it independently, so that in theory, booking could be used in the importers (like I do for Ameritrade).
+
 ### Make Rewriting the Input First Class<a id="make-rewriting-the-input-first-class"></a>
 
 *Added in Dec 2020 after comments and[<span class="underline">\#586</span>](https://github.com/beancount/beancount/issues/586).*
@@ -252,6 +258,8 @@ Here is a detailed breakdown of the various parts of the codebase today and what
 
 -   Projects. The beancount/projects directory contains the export script and a project to produce data for a will. The will script will be moved outside the core of Beancount, I'm not sure anyone's using that. Maybe the new external plugins repo could include that script and other scripts I shared under /experimental. The export script should be grouped together with beancount/scripts/sql and other methods to send / share data outside of a ledger; these could remain in the core (I'm using the export script regularly to sync my aggregates and stock exposure to a Google Sheets doc which reflects intraday changes).
 
+-   **Scripts.** Some of the scripts are completely unrelated to Beancount, they are companions. The scrape validator. The sheets upload. The treeify tool. These should be moved elsewhere.
+
 One of the advantages of having all the code in the same repo is that it makes it possible to synchronize API changes across the entire codebase with a single commit. As such, I may keep some of the codes in the same repo until the new C++ core has stabilized, and properly separate them only when v3 releases.
 
 ### Universal Lightweight Query Engine (ulque)<a id="universal-lightweight-query-engine-ulque"></a>
@@ -270,11 +278,49 @@ The tool will be made extensible in the ways required to add some of the idiosyn
 
 -   The ability to render a "**bottom line**" of aggregates at the end of the results table.
 
--   Functions for **splitting of aggregated columns**, for amounts and inventories into multiple columns (e..g, "123.00 USD" becomes two columns: (123.00, "USD") to be processable in spreadsheets, and also for splitting debits and credits to their own columns.
+-   Functions for **splitting of aggregated columns**, for amounts and inventories into multiple columns (e..g, "123.00 USD" becomes two columns: (123.00, "USD") to be processable in spreadsheets, and also for splitting debits and credits to their own columns. In particular, printing multiple lots accumulated in an account should be made natural from the SQL query, replacing the "flatten" feature by a more standard splitting off an array type.
 
 Moreover, broadening the focus with a new project definition will make a change to testing it thoroughly (the current one is still in a bit of a prototype stage and does not have nearly the amount of required tests), and also include data type validation (no more exceptions at runtime), by implementing a typed SQL translator. I'll document this elsewhere. This is a much bigger project, but I suspect with the broader scope, it will be easier to test and take on a life of its own.
 
 I'm preparing a design doc on this.
+
+### API Rework<a id="api-rework"></a>
+
+I write a lot of custom scripts, and there are a number of things that bother me about today's Beancount API, which I want to radically improve:
+
+-   **Consolidate symbols under "bn".** The internal API calls for importing the symbols from each package separately, but now that I'll have split off the ingestion and reporting code, all of the public API, or at least the majority of the commonly used objects in the core should be available from a single package, a bit like numpy:
+
+<!-- -->
+
+    import beancount as bn
+
+    …
+
+    bn.Inventory(...)
+
+    bn.Amount(...)
+
+    bn.Transaction(...)
+
+    # etc.
+
+I'd like for "bn" to become the de-facto two-letter import on top of which we write all the scripts.
+
+-   **Default values in constructors.** The namedtuple containers are mighty fine, but their constructors never had optional arguments, and it's always a bit of a dance to create those containers with a ton of "None" options. I never liked it. We'll make this tidy in the next iteration.
+
+-   **No API documentation.** While there is a substantial amount of documentation around the project, there is no documentation showing people how to use the Python API, e.g. how to accumulate balances, how to create and use a realization tree, how to pull information out of an accumulated inventory object, etc. I think that documenting some of the most common operations will go a long way towards empowering people to make the most out of Beancount. Some of these operations include:
+
+    -   Accumulating lots of an inventory and printing them.
+
+    -   Converting to market value, and making corresponding account adjustments.
+
+    -   …. *add more …*
+
+-   **Exposed, usable booking.** Booking will be a simple loop that can be invoked from Python with an entry and some accumulated state.
+
+-   **Data types.** Well defined data types should be provided for all objects to make liberal use of the typing module over all new code. Maybe create a module called "bn.types" but they should be available directly from "bn.\*" so that there is a single short-named import.
+
+-   **Terminology.** I'd like to stop using "entries" and consolidate over the name "directives" in v3.
 
 Parser Rewrite<a id="parser-rewrite"></a>
 -----------------------------------------
@@ -537,3 +583,15 @@ For transfer lots with cost basis… an idea would be to create a new kind of ho
 -   print\_entry() uses buffering that makes it impossible to use regular print() interspersed with the regular stdout without providing file= option. Fix this, make this regular instead, that's just annoying, just print to regular stdout.
 
 -   The defaulit format for \_\_str\_\_ for inventories puts () around the rendering. When there's a single position, that looks like a negative number. That's dumb. Use {} instead, or something else.
+
+### Incremental Booking/ Beancount Server / Emacs Companion<a id="incremental-booking-beancount-server-emacs-companion"></a>
+
+In order to make recomputation fast, the idea of creating a standalone "Beancount server" starts to make sense. The expensive part of the Beancout calculations on a large file is the booking and interpolation. The key to making things fast is thus to keep all the original unprocessed transactions in memory along with the booked and interpolated ones, and on a change, reparse the modified files and scan all the transactions, updating only the ones whose accounts have been affected.
+
+*This could be problematic in theory:* some plugins may rely on non-local effects in a way that affects what they output. I believe in practice it would work 99% of the time. But I think it may be worth a prototype. On the other hand, v3 may turn out to be fast enough recomputing everything from scratch every single time (my own file went from 4s -&gt; 0.3ms for the parsing stage of the largest file), so maybe this is irrelevant overall.
+
+Such a server would be a perfect companion to a running Emacs. We could build an Emacs mode which communicates with the server.
+
+### Tags & Links Merge with MetaData<a id="tags-links-merge-with-metadata"></a>
+
+*TODO(blais): Add colon syntax*

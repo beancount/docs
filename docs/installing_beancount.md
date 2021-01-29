@@ -227,7 +227,7 @@ If this works, you can now go to the [<span class="underline">tutorial</span>](t
 
 If you need to report a problem, either send email on the mailing-list or [<span class="underline">file a ticket</span>](https://github.com/beancount/beancount/issues) on Github. Running the following command lists the presence and versions of dependencies installed on your computer and it might be useful to include the output of this command in your bug report:
 
-    bean-doctor checkdeps
+    python3 -m beancount.scripts.deps
 
 Editor Support<a id="editor-support"></a>
 -----------------------------------------

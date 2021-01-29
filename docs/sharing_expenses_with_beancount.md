@@ -57,7 +57,7 @@ After the trip, remaining Assets (like cash we walked home with) gets distribute
 
 Finally, the list of shared Expenses are split between each other—using a plugin that forks every posting that is intended to be a shared expense—and the final amount is used to make a final transfer between each other so that we’ve each paid for our respective expenses and we’re square:
 
-<img src="sharing_expenses_with_beancount/media/a8ef6b0ea3068f0799045e923c603b8aa77b1cc2.png" style="width:4.86111in;height:1.97222in" />
+<img src="sharing_expenses_with_beancount/media/0f6d6fb89adb1feef313fe6fbd4532a8b8decb1c.png" style="width:4.86111in;height:1.97222in" />
 
 Note that the final balance of expenses for each participant may differ, and these are due to particular expenses that were attributed separately, or if we decide to split the total unevenly.
 
