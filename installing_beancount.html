@@ -417,7 +417,7 @@ bean-check: error: the following arguments are required: filename
 <p>If this works, you can now go to the <a href="tutorial_example.html"><span class="underline">tutorial</span></a> and begin learning how Beancount works.</p>
 <h3 id="reporting-problems">Reporting Problems<a id="reporting-problems"></a><a class="headerlink" href="#reporting-problems" title="Permanent link"></a></h3>
 <p>If you need to report a problem, either send email on the mailing-list or <a href="https://github.com/beancount/beancount/issues"><span class="underline">file a ticket</span></a> on Github. Running the following command lists the presence and versions of dependencies installed on your computer and it might be useful to include the output of this command in your bug report:</p>
-<pre><code>bean-doctor checkdeps
+<pre><code>python3 -m beancount.scripts.deps
 </code></pre>
 <h2 id="editor-support">Editor Support<a id="editor-support"></a><a class="headerlink" href="#editor-support" title="Permanent link"></a></h2>
 <p>There is support for some editors available:</p>

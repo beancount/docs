@@ -457,7 +457,7 @@ entries, errors, options = beancount.loader.load_file('myfile.ledger')</p>
 </li>
 </ul>
 <p>See the diagram below for a pretty picture that illustrates how these work together.</p>
-<p><img src="command_line_accounting_in_context/media/06b0187ae0b90e183f5f7480deb0701b3441ed64.png" style="width:5.56944in;height:6.22222in"/></p>
+<p><img src="command_line_accounting_in_context/media/8c379088c695488f3b0837e6c1144e81ed6b47f4.png" style="width:5.56944in;height:6.22222in"/></p>
 <h2 id="why-not-just-use-a-spreadsheet">Why not just use a spreadsheet?<a id="why-not-just-use-a-spreadsheet"></a><a class="headerlink" href="#why-not-just-use-a-spreadsheet" title="Permanent link"></a></h2>
 <p>This is indeed a good question, and spreadsheets are incredibly useful for sure. I certainly would not be writing my own software if I could track my finances with a spreadsheet.</p>
 <p>The problem is that the intrinsic <em>structure</em> of the double-entry transactional data does not lend itself to a tabular representation. Each transaction has multiple attributes (date, narration, tags), and two or more legs, each of which has an associated amount and possibly a cost. If you put the dates on one axis and the accounts on the other, you would end up with a very sparse and very large table; that would not be very useful, and it would be incredibly difficult to edit. If on the other hand, you had a column dedicated to account names for each row, all of your computations would have to take the account cell into the calculation logic. It would be very difficult to deal with, if not impossible. All matters of data aggregations are performed relative to account names.</p>
