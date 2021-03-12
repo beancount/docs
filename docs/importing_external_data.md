@@ -5,6 +5,8 @@ Importing External Data in Beancount<a id="title"></a>
 
 [<span class="underline">http://furius.ca/beancount/doc/ingest</span>](http://furius.ca/beancount/doc/ingest)
 
+<table><tbody><tr class="odd"><td><em>This document is about Beancount v2; Beancount v3 is in development and uses a completely different build and installation system. For instructions on importing v3, see <a href="https://docs.google.com/document/d/1hBfsHZcoHgz5rvhCdP42g2FJ5ouycIMV4H1tfgXpwBU/"><span class="underline">this document</span></a> (Beangulp).</em></td></tr></tbody></table>
+
 > [<span class="underline">Introduction</span>](#introduction)
 >
 > [<span class="underline">The Importing Process</span>](#the-importing-process)

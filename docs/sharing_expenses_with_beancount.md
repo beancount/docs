@@ -45,15 +45,15 @@ Overview of the Method<a id="overview-of-the-method"></a>
 
 In this section we present a brief illustrated overview of the method. A set of common Assets accounts that belong to the project, and book all our individual expenses and transfer for the trip as coming from external Income accounts:
 
-<img src="sharing_expenses_with_beancount/media/289330baa5c79e87573a00beb6f2833acb4422b2.png" style="width:3.94444in;height:2.08333in" />
+<img src="sharing_expenses_with_beancount/media/ffb8e59cbae992f20b0bf1ccad53f2ffa905eb74.png" style="width:3.94444in;height:2.08333in" />
 
 During the trip, we use the common Assets to make expenses. Most of the expenses are attributed to both of us (and to be shared eventually), but some of the expenses are intended to be attributed to each of us individually:
 
-<img src="sharing_expenses_with_beancount/media/6ef882be80d2737b1a9d5a539d83db18ed6f3629.png" style="width:3.94444in;height:2.23611in" />
+<img src="sharing_expenses_with_beancount/media/be8e07e2facf2ca2b272fd376561bc7e8765f7eb.png" style="width:3.94444in;height:2.23611in" />
 
 After the trip, remaining Assets (like cash we walked home with) gets distributed back to ourselves to zero out the balances of the Assets accounts and we record this through contra postings to Income accounts:
 
-<img src="sharing_expenses_with_beancount/media/caf48cd3423e49909dd47cfcec7e23618b6543e0.png" style="width:3.90278in;height:2.94444in" />
+<img src="sharing_expenses_with_beancount/media/fd13b24fc35683de39d20328e011c1d01f1caa7b.png" style="width:3.90278in;height:2.94444in" />
 
 Finally, the list of shared Expenses are split between each other—using a plugin that forks every posting that is intended to be a shared expense—and the final amount is used to make a final transfer between each other so that we’ve each paid for our respective expenses and we’re square:
 

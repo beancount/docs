@@ -33,7 +33,7 @@ Load Pipeline<a id="load-pipeline"></a>
 
 You need to know a little bit about how Beancount processes its input files. Internally, the single point of entry to load an input file is the `beancount.loader.load_file()` function, which accepts an input file and carries out a list of transformation steps, as in this diagram:
 
-<img src="beancount_scripting_plugins/media/d9525818c27bd84d2bd50e0e03d42a27eb597e2d.png" style="width:8.66667in;height:3.23611in" />
+<img src="beancount_scripting_plugins/media/4117596158f0642dae7becf17be7a89f169bf4a0.png" style="width:8.66667in;height:3.23611in" />
 
 The stages of loading are as follows:
 

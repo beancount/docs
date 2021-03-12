@@ -396,7 +396,7 @@ Finally, the loader produces lists of directives which are all simple `namedtupl
 
 The following diagram explains how these objects relate to each other, starting from a Posting.
 
-<img src="beancount_design_doc/media/93cd070d4d5efd741b33a3e91d6b3e8f86e58be6.png" style="width:4.36111in;height:6.11111in" />
+<img src="beancount_design_doc/media/5babd760547ea333a338558c5688dbbadc278a67.png" style="width:4.36111in;height:6.11111in" />
 
 For example, to access the number of units of a postings you could use
 
@@ -412,7 +412,7 @@ You can print out the tuples in Python to figure out their structure.
 
 For the sake of preservation, if you go back in time in the repository, the structure of postings was deeper and more complex. The new design reflects a flatter and simpler version of it. Here is what the old design used to look like:
 
-<img src="beancount_design_doc/media/a36336143a27c30f063d6ef8edc147ff87d0beb2.png" style="width:6.69444in;height:4.19444in" />
+<img src="beancount_design_doc/media/458836b1e3d3fe85ff59395e3b8a4c7b19a9ed96.png" style="width:6.69444in;height:4.19444in" />
 
 Directives<a id="directives"></a>
 ---------------------------------
@@ -631,7 +631,7 @@ Loader & Processing Order<a id="loader-processing-order"></a>
 
 The process of **loading** a list of entries from an input file is the heart of the project. It is important to understand it in order to understand how Beancount works. Refer to the diagram below.
 
-<img src="beancount_design_doc/media/d9525818c27bd84d2bd50e0e03d42a27eb597e2d.png" style="width:8.66667in;height:3.23611in" />
+<img src="beancount_design_doc/media/4117596158f0642dae7becf17be7a89f169bf4a0.png" style="width:8.66667in;height:3.23611in" />
 
 It consists of
 
@@ -706,7 +706,7 @@ So the parser will need to be split into two phases:
 
 2.  A separate step for the interpolation which will have available the inventory balances of each account as inputs. This second step is where the booking algorithms (e.g., FIFO) will be invoked from.
 
-<img src="beancount_design_doc/media/8ba8202797ee7206951b5913c9b3c264c33c7df0.png" style="width:6.05556in;height:3.01389in" />
+<img src="beancount_design_doc/media/033922268f9fe3d624c80b311804a81e4990ae07.png" style="width:6.05556in;height:3.01389in" />
 
 See the diagram above for reference. Once implemented, everything else should be the same.
 
@@ -716,7 +716,7 @@ In the same package as the parser lives a printer. This isolates all the functio
 
 At some point I decided to make sure that the printer was able to round-trip through the parser, that is, given a stream of entries produced by the loader, you should be able to convert those to text input and parse them back in and the resulting set of entries should be the same (outputting the re-read input back to text should produce the same text), e.g.,
 
-<img src="beancount_design_doc/media/22acb27dd9fa94cc4e32fa5ed449c155cf85c225.png" style="width:7.56944in;height:0.83333in" />
+<img src="beancount_design_doc/media/159bc64bb5f5ed77127ab76c31afb5a3b0928a64.png" style="width:7.56944in;height:0.83333in" />
 
 Note that the reverse isn’t necessarily true: reading an input file and processing it through the loader potentially synthesizes a lot of entries (thanks to the plugins), so printing it back may not produce the same input file (even ignoring reordering and white space concerns).
 
@@ -768,7 +768,7 @@ Realization<a id="realization"></a>
 
 It occurs often that one needs to compute the final balances of a list of filtered transactions, and to report on them in a hierarchical account structure. See diagram below.
 
-<img src="beancount_design_doc/media/736b05ad5dbed8af111f3f9d01d38b8b99914e7b.png" style="width:8.66667in;height:3.06944in" /><a id="section"></a>
+<img src="beancount_design_doc/media/b633e0570d20bca6677965dc55c7eb506255230b.png" style="width:8.66667in;height:3.06944in" /><a id="section"></a>
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
 For the purpose of creating hierarchical renderings, I provide a process called a “[<span class="underline">realization</span>](https://github.com/beancount/beancount/tree/master/beancount/core/realization.py).” A realization is a tree of nodes, each of which contains

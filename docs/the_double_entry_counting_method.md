@@ -63,7 +63,7 @@ The double-entry system is just a simple *method of counting*, with some simple 
 
 Let’s begin by defining the notion of an **account**. An account is something that can contain things, like a bag. It is used to count things, to accumulate things. Let’s draw a horizontal arrow to visually represent the evolving contents of an account over time:
 
-<img src="the_double_entry_counting_method/media/5b1da6643866c557b2a5ce687e70ee1db16b14de.png" style="width:6.23611in;height:0.11111in" />
+<img src="the_double_entry_counting_method/media/2f37aa3938d599d4783ca9b74965026fba0a3b50.png" style="width:6.23611in;height:0.11111in" />
 
 On the left, we have the past, and to the right, increasing time: the present, the future, etc.
 
@@ -77,13 +77,13 @@ The contents of accounts can change over time. In order to change the content of
 
 Now, we can draw the updated balance of the account after the posting with another little number right after it:
 
-<img src="the_double_entry_counting_method/media/0c8a78dac61ae7fddde25761f036e7f379cad247.png" style="width:6.23611in;height:0.77778in" />
+<img src="the_double_entry_counting_method/media/6281f96c3465982c6bf48fccb302b40f90890311.png" style="width:6.23611in;height:0.77778in" />
 
 The account’s balance, after adding $100, is now $100.
 
 We can also remove from the contents of an account. For example, we could remove $25, and the resulting account balance is now $75:
 
-<img src="the_double_entry_counting_method/media/98e314125325ecc72262a73a21b74db3200414fd.png" style="width:6.23611in;height:0.77778in" />
+<img src="the_double_entry_counting_method/media/1672e121ec80f8fcdb158bb497e05e6dc809dee5.png" style="width:6.23611in;height:0.77778in" />
 
 Account balances can also become *negative*, if we remove more dollars than there are in the account. For example, if we remove $200 from this account, the balance now becomes $-125:
 
@@ -109,15 +109,15 @@ In any case, the “balance” column always shows the resulting balance *after*
 
 In this story, this account belongs to someone. We’ll call this person the **owner** of the account. The account can be used to represent a real world account, for example, imagine that we use it to represent the content of the owner’s checking account at a bank. So we’re going to label the account by giving it a name, in this case “Checking”:
 
-<img src="the_double_entry_counting_method/media/380ec8fea9ee9069411a61ccabcc838de44042ef.png" style="width:6.23611in;height:0.98611in" />
+<img src="the_double_entry_counting_method/media/a4ac6f0f3d2cf7df150fd501f0ab9a5942f79a80.png" style="width:6.23611in;height:0.98611in" />
 
 Imagine that at some point, this account has a balance of $1000, like I’ve drawn on the picture. Now, if the owner spends $79 of this account, we would represent it like this:
 
-<img src="the_double_entry_counting_method/media/b24d8c1e40edf6fd7e9d768ba8f0df279cd41f0e.png" style="width:6.23611in;height:0.98611in" />
+<img src="the_double_entry_counting_method/media/75337406afb5f23c23733fd25be8683ae151b410.png" style="width:6.23611in;height:0.98611in" />
 
 Furthermore, if the expense was for a meal at a restaurant, we could flag the posting with a **category** to indicate what the change was used for. Let’s say, “Restaurant”, like this:
 
-<img src="the_double_entry_counting_method/media/7ee843cd9b997a9447bb022d7d35121a820e296d.png" style="width:6.23611in;height:1.81944in" />
+<img src="the_double_entry_counting_method/media/d7f6ec08cb13d409752000bb42495399abc85848.png" style="width:6.23611in;height:1.81944in" />
 
 Now, if we have a lot of these, we could write a computer program to accumulate all the changes for each category and calculate the sums for each of them. That would tell us how much we spent in restaurants in total, for example. This is called the **single-entry method** of accounting.
 
@@ -131,13 +131,13 @@ An owner may have multiple accounts. I will represent this by drawing many simil
 
 Now, instead of *categorizing* the posting to a “restaurant category” as we did previously, we could create a matching posting on the “Restaurant” account to record how much we spent for food, with the amount spent ($79):
 
-<img src="the_double_entry_counting_method/media/b86a7242b92effc613f88bc0cc70381d72e774f0.png" style="width:6.23611in;height:2.01389in" />
+<img src="the_double_entry_counting_method/media/2801d8aff3ccd91dcd584f58a5bcabbb57fb19d4.png" style="width:6.23611in;height:2.01389in" />
 
 The “Restaurant” account, like all other accounts, also has an accumulated balance, so we can find out how much we spent in “Restaurant” in total. This is entirely symmetrical to counting changes in a checking account.
 
 Now, we can associate the two postings together, by creating a kind of “parent” box that refers to both of them. We will call this object a **transaction**:
 
-<img src="the_double_entry_counting_method/media/b77efafcf2d6a6f1afbfb13da70be2f892b339b4.png" style="width:6.23611in;height:2.69444in" />
+<img src="the_double_entry_counting_method/media/18524adffedac5e812eb65dcbb179b66b0ae9e53.png" style="width:6.23611in;height:2.69444in" />
 
 Notice here that we’ve also associated a description to this transaction: “Dinner at Uncle Boons”. A transaction also has a **date**, and all of its postings are recorded to occur on that date. We call this the transaction date.
 
@@ -149,13 +149,13 @@ Remember this, as this is the foundation of the double-entry method, and its mos
 
 In our example, we remove $79 from the “Checking” account and “give it” to the “Restaurant” account. ($79) + ($-79) = $0. To emphasize this, I could draw a little summation line under the postings of the transaction, like this:
 
-<img src="the_double_entry_counting_method/media/b4182b9f64113868123cbcec20d468ab18b2786f.png" style="width:2.18055in;height:2.5in" />
+<img src="the_double_entry_counting_method/media/a56ad72219b0d8a6c90c692655d1b24459add2d6.png" style="width:2.18055in;height:2.5in" />
 
 ### Many Accounts<a id="many-accounts"></a>
 
 There may be many such transactions, over many different accounts. For example, if the owner of the accounts had a lunch the next day which she paid using a credit card, it could be represented by creating a “Credit Card” account dedicated to tracking the real world credit card balance, and with a corresponding transaction:
 
-<img src="the_double_entry_counting_method/media/f85a66510ce2e3bb614edca76463a9c4752a7d26.png" style="width:7.45833in;height:3.47222in" />
+<img src="the_double_entry_counting_method/media/458909db06c7f38f7896205f67d60397b292e7d9.png" style="width:7.45833in;height:3.47222in" />
 
 In this example, the owner spent $35 at a restaurant called “Eataly.” The previous balance of the owner’s credit card was $-450; after the expense, the new balance is $-485.
 
