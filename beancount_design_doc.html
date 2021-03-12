@@ -563,7 +563,7 @@ Assets:US:TDBank:Savings
 <p><em>I credit my ability to make wide-ranging changes to a mid-size Python codebase to the adoption of these principles. I would love to have </em><em>types</em><em> in order to safeguard against another class of potential errors, and I plan to experiment with <a href="https://www.python.org/dev/peps/pep-0484/"><span class="underline">Python 3.5’s upcoming typing module</span></a>.</em></p>
 <h3 id="summary">Summary<a id="summary"></a><a class="headerlink" href="#summary" title="Permanent link"></a></h3>
 <p>The following diagram explains how these objects relate to each other, starting from a Posting.</p>
-<p><img src="beancount_design_doc/media/93cd070d4d5efd741b33a3e91d6b3e8f86e58be6.png" style="width:4.36111in;height:6.11111in"/></p>
+<p><img src="beancount_design_doc/media/5babd760547ea333a338558c5688dbbadc278a67.png" style="width:4.36111in;height:6.11111in"/></p>
 <p>For example, to access the number of units of a postings you could use</p>
 <pre><code>posting.units.number
 </code></pre>
@@ -573,7 +573,7 @@ Assets:US:TDBank:Savings
 <p>You can print out the tuples in Python to figure out their structure.</p>
 <h4 id="previous-design">Previous Design <a id="previous-design"></a><a class="headerlink" href="#previous-design" title="Permanent link"></a></h4>
 <p>For the sake of preservation, if you go back in time in the repository, the structure of postings was deeper and more complex. The new design reflects a flatter and simpler version of it. Here is what the old design used to look like:</p>
-<p><img src="beancount_design_doc/media/a36336143a27c30f063d6ef8edc147ff87d0beb2.png" style="width:6.69444in;height:4.19444in"/></p>
+<p><img src="beancount_design_doc/media/458836b1e3d3fe85ff59395e3b8a4c7b19a9ed96.png" style="width:6.69444in;height:4.19444in"/></p>
 <h2 id="directives">Directives<a id="directives"></a><a class="headerlink" href="#directives" title="Permanent link"></a></h2>
 <p>The main production from loading a Beancount input file is a list of <strong>directives</strong>. I also call these <strong>entries</strong> interchangeably in the codebase and in the documents. There are directives of various types:</p>
 <ul>
@@ -774,7 +774,7 @@ Assets:US:TDBank:Savings
 </ul>
 <h2 id="loader-processing-order">Loader &amp; Processing Order<a id="loader-processing-order"></a><a class="headerlink" href="#loader-processing-order" title="Permanent link"></a></h2>
 <p>The process of <strong>loading</strong> a list of entries from an input file is the heart of the project. It is important to understand it in order to understand how Beancount works. Refer to the diagram below.</p>
-<p><img src="beancount_design_doc/media/d9525818c27bd84d2bd50e0e03d42a27eb597e2d.png" style="width:8.66667in;height:3.23611in"/></p>
+<p><img src="beancount_design_doc/media/4117596158f0642dae7becf17be7a89f169bf4a0.png" style="width:8.66667in;height:3.23611in"/></p>
 <p>It consists of</p>
 <ol>
 <li>
@@ -845,12 +845,12 @@ Assets:US:TDBank:Savings
 <p>A separate step for the interpolation which will have available the inventory balances of each account as inputs. This second step is where the booking algorithms (e.g., FIFO) will be invoked from.</p>
 </li>
 </ol>
-<p><img src="beancount_design_doc/media/8ba8202797ee7206951b5913c9b3c264c33c7df0.png" style="width:6.05556in;height:3.01389in"/></p>
+<p><img src="beancount_design_doc/media/033922268f9fe3d624c80b311804a81e4990ae07.png" style="width:6.05556in;height:3.01389in"/></p>
 <p>See the diagram above for reference. Once implemented, everything else should be the same.</p>
 <h3 id="the-printer">The Printer<a id="the-printer"></a><a class="headerlink" href="#the-printer" title="Permanent link"></a></h3>
 <p>In the same package as the parser lives a printer. This isolates all the functionality that deals with the Beancount “language” in the <code>beancount.parser</code> package: the parser converts from input syntax to data structure and the printer does the reverse. No code outside this package should concern itself with the Beancount syntax.</p>
 <p>At some point I decided to make sure that the printer was able to round-trip through the parser, that is, given a stream of entries produced by the loader, you should be able to convert those to text input and parse them back in and the resulting set of entries should be the same (outputting the re-read input back to text should produce the same text), e.g.,</p>
-<p><img src="beancount_design_doc/media/22acb27dd9fa94cc4e32fa5ed449c155cf85c225.png" style="width:7.56944in;height:0.83333in"/></p>
+<p><img src="beancount_design_doc/media/159bc64bb5f5ed77127ab76c31afb5a3b0928a64.png" style="width:7.56944in;height:0.83333in"/></p>
 <p>Note that the reverse isn’t necessarily true: reading an input file and processing it through the loader potentially synthesizes a lot of entries (thanks to the plugins), so printing it back may not produce the same input file (even ignoring reordering and white space concerns).</p>
 <p>This is a nice property to have. Among other things, it allows us to use the parser to easily create tests with expected outputs. While there is a test that attempts to protect this property, some of the recent changes break it partially:</p>
 <ul>
@@ -896,7 +896,7 @@ Assets:US:TDBank:Savings
 <p>I refer to those objects using the variable names <code>dcontext</code> and <code>dformat</code> throughout the code. The parser automatically creates a DisplayContext object and feeds it all the numbers it sees during parsing. The object is available in the options_map produced by the loader.</p>
 <h2 id="realization">Realization<a id="realization"></a><a class="headerlink" href="#realization" title="Permanent link"></a></h2>
 <p>It occurs often that one needs to compute the final balances of a list of filtered transactions, and to report on them in a hierarchical account structure. See diagram below.</p>
-<h2 id="_1"><img src="beancount_design_doc/media/736b05ad5dbed8af111f3f9d01d38b8b99914e7b.png" style="width:8.66667in;height:3.06944in"/><a id="section"></a><a class="headerlink" href="#_1" title="Permanent link"></a></h2>
+<h2 id="_1"><img src="beancount_design_doc/media/b633e0570d20bca6677965dc55c7eb506255230b.png" style="width:8.66667in;height:3.06944in"/><a id="section"></a><a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <p>For the purpose of creating hierarchical renderings, I provide a process called a “<a href="https://github.com/beancount/beancount/tree/master/beancount/core/realization.py"><span class="underline">realization</span></a>.” A realization is a tree of nodes, each of which contains</p>
 <ul>
 <li>

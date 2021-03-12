@@ -155,6 +155,8 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#core-improvements">Core Improvements</a>
 <ul>
+<li class="toctree-l4"><a class="reference internal" href="#booking-rules-redesign">Booking Rules Redesign</a>
+</li>
 <li class="toctree-l4"><a class="reference internal" href="#posting-vs-settlement-dates">Posting vs. Settlement Dates</a>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#currency-accounts-instead-of-a-single-conversion">Currency Accounts instead of a Single Conversion</a>
@@ -172,6 +174,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#self-reductions">Self-Reductions</a>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#stock-splits">Stock Splits</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#multipliers">Multipliers</a>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#returns-calculations">Returns Calculations</a>
 </li>
@@ -368,7 +372,7 @@
 </li>
 </ul>
 <p>Note that because the core outputs the stream of directives as proto objects, any language supported by protobufs should be able to read those. This extends the reach of Beancount. Here's a simplified diagram showing how this might look:</p>
-<p><img src="beancount_v3/media/57c9d575001e15e240499e40fa55269b48704fc6.png" style="width:3.47222in;height:3.38889in"/></p>
+<p><img src="beancount_v3/media/c8e76e1f74eeaba6ecb79f612719f105efac6b88.png" style="width:3.47222in;height:3.38889in"/></p>
 <p>Here is a detailed breakdown of the various parts of the codebase today and what I think will happen to them:</p>
 <ul>
 <li>
@@ -641,13 +645,16 @@ bn.Transaction(...)
 </ul>
 </li>
 <li>
-<p><strong>Exposed, usable booking.</strong> Booking will be a simple loop that can be invoked from Python with an entry and some accumulated state.</p>
+<p><strong>Exposed, usable booking.</strong> Booking will be a simple loop that can be invoked from Python with an entry and some accumulated state. Moreover, the Inventory object should begin to implement some of the lower-level operations required for booking, such that iterating over a set of postings and doing e.g., average booking, can be done via method calls on an Inventory object. Inventory should take a more prominent place in the API.</p>
 </li>
 <li>
 <p><strong>Data types.</strong> Well defined data types should be provided for all objects to make liberal use of the typing module over all new code. Maybe create a module called "bn.types" but they should be available directly from "bn.*" so that there is a single short-named import.</p>
 </li>
 <li>
 <p><strong>Terminology.</strong> I'd like to stop using "entries" and consolidate over the name "directives" in v3.</p>
+</li>
+<li>
+<p><strong>Realization.</strong> I've been using a collections.defaultdict(Inventory) and a "realization" interchangeably. Both of these are mappings from an account name (or some other key) to an Inventory state object. I'd like to unify both of these constructs into the realization and make it into a commonly used object, with some helper methods.</p>
 </li>
 </ul>
 <h2 id="parser-rewrite">Parser Rewrite<a id="parser-rewrite"></a><a class="headerlink" href="#parser-rewrite" title="Permanent link"></a></h2>
@@ -681,6 +688,9 @@ bn.Transaction(...)
 <h2 id="code-quality-improvements">Code Quality Improvements<a id="code-quality-improvements"></a><a class="headerlink" href="#code-quality-improvements" title="Permanent link"></a></h2>
 <ul>
 <li>
+<p><strong>Rename "augmentation" and "reduction" to "opening" and "closing" everywhere.</strong> This is just more common terminology and will be more familiar and understandable to people outside of our context.</p>
+</li>
+<li>
 <p><strong>Type annotations.</strong> The use of mypy or pytype with type annotations in Python 3 is by now a very common sight, and works quite well. As part of V3, all of the core libraries will be modified to include type annotations and the build should be running <a href="https://github.com/google/pytype"><span class="underline">pytype</span></a> automatically. I'll need to add this to our Bazel rules (Google doesn't currently provide external support for this). While doing this, I may relax some of the Args/Returns documentation convention, because in many cases (but not all) the type annotations are sufficient to get a good interpretation of a function's API.</p>
 </li>
 <li>
@@ -708,6 +718,81 @@ bn.Transaction(...)
 <p>Some prior design documentation exists <a href="rounding_precision_in_beancount.html"><span class="underline">here</span></a>.</p>
 <h2 id="core-improvements">Core Improvements<a id="core-improvements"></a><a class="headerlink" href="#core-improvements" title="Permanent link"></a></h2>
 <p>Some desiderata of new features are discussed below. These are all relevant to the core. Note that the changes should not interfere with current usage much, if at all. I expect that v2 users will be largely unaffected and won't have to change their ledger files.</p>
+<h3 id="booking-rules-redesign">Booking Rules Redesign<a id="booking-rules-redesign"></a><a class="headerlink" href="#booking-rules-redesign" title="Permanent link"></a></h3>
+<p>One of the current problems with booking is that entering an augmenting leg and a reducing leg have to be different by nature. The augmentation leg has to provide the cost basis via {...} syntax, and the reducing leg has to enter the price in the annotation and not in the cost basis. For example:</p>
+<pre><code>2021-02-24 * "BOT +1 /NQH21:XCME 1/20 FEB 21 (EOM) /QNEG21:XCME 13100 CALL @143.75"
+  Assets:US:Ameritrade:Futures:Options         1 QNEG21C13100 {2875.00 USD}
+    contract: 143.75 USD
+  ...
+
+2021-02-24 * "SOLD -1 /NQH21:XCME 1/20 FEB 21 (EOM) /QNEG21:XCME 13100 CALL @149.00"
+  Assets:US:Ameritrade:Futures:Options        -1 QNEG21C13100 {} @ 2980.00 USD
+    contract: 149.00 USD
+  ...
+</code></pre>
+<p>Notice how the selling transaction has to be written down differently from the perspective of the user. The thing is, this makes it difficult from the perspective of the importer writer. It also ties the required syntax with the state of the inventory it's applied to, as it assumes something about this inventory.</p>
+<p>Moreover, this makes it difficult to write an importer that would handle a crossing of the absolute position, like this:</p>
+<pre><code>2021-02-19 * "BOT +1 /NQH21:XCME @13593.00"
+  Assets:US:Ameritrade:Futures:Contracts           1 NQH21 {271860.00 USD}
+    contract: 13593.00 USD
+  Assets:US:Ameritrade:Futures:Margin     -271860.00 USD
+  Expenses:Financial:Commissions                2.25 USD
+  Expenses:Financial:Fees                       1.25 USD
+  Assets:US:Ameritrade:Futures:Cash            -3.50 USD
+
+2021-02-19 * "SOLD -2 /NQH21:XCME @13590.75"
+  Assets:US:Ameritrade:Futures:Contracts         -2 NQH21 {271815.00 USD}
+    contract: 13590.75 USD
+  Assets:US:Ameritrade:Futures:Margin     543630.00 USD
+  Income:US:Ameritrade:Futures:PnL            45.00 USD
+  Expenses:Financial:Commissions               4.50 USD
+  Expenses:Financial:Fees                      2.50 USD
+  Assets:US:Ameritrade:Futures:Cash          -52.00 USD
+</code></pre>
+<p>The issue here is that we're crossing the flat line, in other words, we go from long one to short one. There are only two ways to do that properly right now:</p>
+<ul>
+<li>
+<p>Disable booking and use the cost only, as per above. This is not great — booking is terribly useful.</p>
+</li>
+<li>
+<p>Track the position in your importer and separate the reducing and augmenting legs:  </p>
+<p>2021-02-19 * "SOLD -2 /NQH21:XCME @13590.75"<br/>
+Assets:US:Ameritrade:Futures:Contracts -1 NQH21 {} @ 271815.00 USD<br/>
+Assets:US:Ameritrade:Futures:Contracts -1 NQH21 {271815.00 USD}</p>
+</li>
+</ul>
+<p>Both solutions aren't great. So I came up with something new: <strong><em>a complete reevaluation of how the syntax is to be interpreted.</em></strong> In fact, it's a simplification.</p>
+<pre><code>What we can do is the following: use only the price annotation syntax for both augmentation and reduction and currency conversions, with a new booking rule —
+</code></pre>
+<ul>
+<li>
+<p><strong>Match lots without cost basis in priority. If the lots have no cost basis, the weight of this posting is simply the converted amount, as before.</strong></p>
+</li>
+<li>
+<p><strong>If a match has been made against a lot with cost basis, the weight of this posting is that implied by the matched lots.</strong></p>
+</li>
+<li>
+<p><strong>Make the {...} used <em>solely</em> for disambiguating lots to match, and nothing else. If you have unambiguous matches, or a flexible booking strategy, e.g. FIFO, you'd pretty much never have to use the cost matching reduction.</strong></p>
+</li>
+</ul>
+<p>With this, the futures transaction above would simply use the @ price annotation syntax for both transactions. It would</p>
+<ul>
+<li>
+<p>Make importers substantially simpler to write</p>
+</li>
+<li>
+<p>Supports futures naturally</p>
+</li>
+<li>
+<p>Be backward compatible with existing inputs for both currency conversions and investments.</p>
+</li>
+</ul>
+<p>It is also more generally consistent and friendlier to Ledger users, without sacrificing any of the tighter constraints Beancount provides. I think it's even simpler to think about.</p>
+<p>Furthermore, this:</p>
+<pre><code>Assets:US:Ameritrade:Futures:Contracts         -1 NQH21 {} @ 271815.00 USD
+</code></pre>
+<p>would be interpreted as "match this lot, but only those with a cost basis attached to them."</p>
+<p>One question that remains is to decide whether an augmentation — now written down simply with @ price annotation — would store the cost basis in the inventory or not. I think we could make this determination per-commodity, or per-account. This would impose a new constraint: a commodity (or "in an account") would always be stored with cost basis, or not.</p>
 <h3 id="posting-vs-settlement-dates">Posting vs. Settlement Dates<a id="posting-vs.-settlement-dates"></a><a class="headerlink" href="#posting-vs-settlement-dates" title="Permanent link"></a></h3>
 <p>When you import a transaction between multiple accounts within a single ledger, e.g. a credit card payment from one's checking account, the dates at which the transaction posts in each account may differ. One side is called the "transaction date" or "posting date" and the other side the "settlement date." Where the money lives in between is somewhere in limbo (well in practice there is no money at all, just differences in accounting between institutions, things are never reflected instantly).</p>
 <p>One of the major shortcomings of the current core code is that the ability to insert a single transaction with postings at different dates is missing. Users are recommended to select a single date and fudge the other one. Some prior discussion on this topic exists <a href="settlement_dates_in_beancount.html"><span class="underline">here</span></a>. Unfortunately, this method makes it impossible to represent the precise posting history on at least one of the two accounts.</p>
@@ -808,6 +893,11 @@ bn.Transaction(...)
 <p>Since we're rewriting the booking code entirely in v3, contemplate a new definition that would provide a well-defined behavior in this case. I remember from prior experiments attempting to implement this that it wasn't a trivial thing to define. Revisit. This would be a nice improvement.</p>
 <h3 id="stock-splits">Stock Splits<a id="stock-splits"></a><a class="headerlink" href="#stock-splits" title="Permanent link"></a></h3>
 <p>Some discussion and perhaps a strategy for handling stock splits should be devised in v3. Right now, Beancount ignores the issue. At the minimum this could be just adding the information to the price database. See <a href="http://furius.ca/beancount/doc/proposal-split"><span class="underline">this document</span></a> for more details.</p>
+<h3 id="multipliers">Multipliers<a id="multipliers"></a><a class="headerlink" href="#multipliers" title="Permanent link"></a></h3>
+<p>Options have a standard contract size of 100. Futures have a contract size that depends on the particular instrument (e.g., /NQ with a multiplier of 20).</p>
+<p>I've been handling this for options by multiplying the units by 100, and for futures by multiplying the contract size by the per-contract multipliers (ditto for options on futures). I do this in the importers. For options, it works and it isn't too bad (e.g. positions of -300 instead of -3), but for futures, it's ugly. The result is not representative of the actual transaction.</p>
+<p>I'd like to add a per-currency multiplier, as well as a global dictionary of regexps-to-multiplier to apply, and for this to be applied everywhere consistently. One challenge is that <em>everywhere</em> there's a cost or price calculation, this has to be applied. In the current version, those are just multiplications so in many parts of the codebase these haven't been wrapped up in a function that could easily be modified. This needs to happen in a big rewrite — this is the opportunity to do this.</p>
+<p><a href="https://groups.google.com/d/msgid/beancount/CACGEkZvAZf78coQ77XDpegNLHxYbVGQAStC8-KLhRY8%3DN8pzdg%40mail.gmail.com?utm_medium=email&amp;utm_source=footer"><span class="underline">Example here.</span></a></p>
 <h3 id="returns-calculations">Returns Calculations<a id="returns-calculations"></a><a class="headerlink" href="#returns-calculations" title="Permanent link"></a></h3>
 <p>If you look at investment brokers out there, no one calculates returns correctly. Brokers provide one of two features:</p>
 <ol>
@@ -868,7 +958,10 @@ bn.Transaction(...)
 <p>print_entry() uses buffering that makes it impossible to use regular print() interspersed with the regular stdout without providing file= option. Fix this, make this regular instead, that's just annoying, just print to regular stdout.</p>
 </li>
 <li>
-<p>The defaulit format for __str__ for inventories puts () around the rendering. When there's a single position, that looks like a negative number. That's dumb. Use {} instead, or something else.</p>
+<p>The default format for __str__ for inventories puts () around the rendering. When there's a single position, that looks like a negative number. That's dumb. Use {} instead, or something else.</p>
+</li>
+<li>
+<p>Add a flag to bean-check to make it run --auto plugins by default. This is great for imported files, which may not have a complete ledger to feed in.</p>
 </li>
 </ul>
 <h3 id="incremental-booking-beancount-server-emacs-companion">Incremental Booking/ Beancount Server / Emacs Companion<a id="incremental-booking-beancount-server-emacs-companion"></a><a class="headerlink" href="#incremental-booking-beancount-server-emacs-companion" title="Permanent link"></a></h3>

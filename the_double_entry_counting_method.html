@@ -272,17 +272,17 @@
 <h2 id="basics-of-double-entry-bookkeeping">Basics of Double-Entry Bookkeeping<a id="basics-of-double-entry-bookkeeping"></a><a class="headerlink" href="#basics-of-double-entry-bookkeeping" title="Permanent link"></a></h2>
 <p>The double-entry system is just a simple <em>method of counting</em>, with some simple rules.</p>
 <p>Let’s begin by defining the notion of an <strong>account</strong>. An account is something that can contain things, like a bag. It is used to count things, to accumulate things. Let’s draw a horizontal arrow to visually represent the evolving contents of an account over time:</p>
-<p><img src="the_double_entry_counting_method/media/5b1da6643866c557b2a5ce687e70ee1db16b14de.png" style="width:6.23611in;height:0.11111in"/></p>
+<p><img src="the_double_entry_counting_method/media/2f37aa3938d599d4783ca9b74965026fba0a3b50.png" style="width:6.23611in;height:0.11111in"/></p>
 <p>On the left, we have the past, and to the right, increasing time: the present, the future, etc.</p>
 <p>For now, let’s assume that accounts can contain only one kind of thing, for example, <em>dollars</em>. All accounts begin with an empty content of zero dollars. We will call the number of units in the account the <strong>balance</strong> of an account. Note that it represents its contents at a particular point in time. I will draw the balance using a number above the account’s timeline:</p>
 <p><img src="the_double_entry_counting_method/media/54633827be99c315dc937778221752b848411ca9.png" style="width:6.23611in;height:0.56944in"/></p>
 <p>The contents of accounts can change over time. In order to change the content of an account, we have to add something to it. We will call this addition a <strong>posting</strong> to an account, and I will draw this change as a circled number on the account’s timeline, for example, adding $100 to the account:</p>
 <p><img src="the_double_entry_counting_method/media/004bc3354eb84bf554a8e5080a21f8d16fc29d82.png" style="width:6.23611in;height:0.77778in"/></p>
 <p>Now, we can draw the updated balance of the account after the posting with another little number right after it:</p>
-<p><img src="the_double_entry_counting_method/media/0c8a78dac61ae7fddde25761f036e7f379cad247.png" style="width:6.23611in;height:0.77778in"/></p>
+<p><img src="the_double_entry_counting_method/media/6281f96c3465982c6bf48fccb302b40f90890311.png" style="width:6.23611in;height:0.77778in"/></p>
 <p>The account’s balance, after adding $100, is now $100.</p>
 <p>We can also remove from the contents of an account. For example, we could remove $25, and the resulting account balance is now $75:</p>
-<p><img src="the_double_entry_counting_method/media/98e314125325ecc72262a73a21b74db3200414fd.png" style="width:6.23611in;height:0.77778in"/></p>
+<p><img src="the_double_entry_counting_method/media/1672e121ec80f8fcdb158bb497e05e6dc809dee5.png" style="width:6.23611in;height:0.77778in"/></p>
 <p>Account balances can also become <em>negative</em>, if we remove more dollars than there are in the account. For example, if we remove $200 from this account, the balance now becomes $-125:</p>
 <p><img src="the_double_entry_counting_method/media/862c0b57a35631a52eead2cf8cdd7b5f2a1aa106.png" style="width:6.23611in;height:0.77778in"/></p>
 <p>It’s perfectly fine for accounts to contain a negative balance number. Remember that all we’re doing is counting things. As we will see shortly, some accounts will remain with a negative balance for most of their timeline.</p>
@@ -295,31 +295,31 @@
 <p>In any case, the “balance” column always shows the resulting balance <em>after</em> the amount has been posted to the account. And sometimes the statements are rendered in decreasing order of time.</p>
 <h3 id="single-entry-bookkeeping">Single-Entry Bookkeeping<a id="single-entry-bookkeeping"></a><a class="headerlink" href="#single-entry-bookkeeping" title="Permanent link"></a></h3>
 <p>In this story, this account belongs to someone. We’ll call this person the <strong>owner</strong> of the account. The account can be used to represent a real world account, for example, imagine that we use it to represent the content of the owner’s checking account at a bank. So we’re going to label the account by giving it a name, in this case “Checking”:</p>
-<p><img src="the_double_entry_counting_method/media/380ec8fea9ee9069411a61ccabcc838de44042ef.png" style="width:6.23611in;height:0.98611in"/></p>
+<p><img src="the_double_entry_counting_method/media/a4ac6f0f3d2cf7df150fd501f0ab9a5942f79a80.png" style="width:6.23611in;height:0.98611in"/></p>
 <p>Imagine that at some point, this account has a balance of $1000, like I’ve drawn on the picture. Now, if the owner spends $79 of this account, we would represent it like this:</p>
-<p><img src="the_double_entry_counting_method/media/b24d8c1e40edf6fd7e9d768ba8f0df279cd41f0e.png" style="width:6.23611in;height:0.98611in"/></p>
+<p><img src="the_double_entry_counting_method/media/75337406afb5f23c23733fd25be8683ae151b410.png" style="width:6.23611in;height:0.98611in"/></p>
 <p>Furthermore, if the expense was for a meal at a restaurant, we could flag the posting with a <strong>category</strong> to indicate what the change was used for. Let’s say, “Restaurant”, like this:</p>
-<p><img src="the_double_entry_counting_method/media/7ee843cd9b997a9447bb022d7d35121a820e296d.png" style="width:6.23611in;height:1.81944in"/></p>
+<p><img src="the_double_entry_counting_method/media/d7f6ec08cb13d409752000bb42495399abc85848.png" style="width:6.23611in;height:1.81944in"/></p>
 <p>Now, if we have a lot of these, we could write a computer program to accumulate all the changes for each category and calculate the sums for each of them. That would tell us how much we spent in restaurants in total, for example. This is called the <strong>single-entry method</strong> of accounting.</p>
 <p>But we’re not going to do it this way; we have a better way. Bear with me for a few more sections.</p>
 <h3 id="double-entry-bookkeeping">Double-Entry Bookkeeping<a id="double-entry-bookkeeping"></a><a class="headerlink" href="#double-entry-bookkeeping" title="Permanent link"></a></h3>
 <p>An owner may have multiple accounts. I will represent this by drawing many similar account timelines on the same graphic. As before, these are labeled with unique names. Let’s assume that the owner has the same “Checking” account as previously, but now also a <strong>“</strong>Restaurant<strong>”</strong> account as well, which can be used to accumulate all food expenses at restaurants. It looks like this:</p>
 <p><img src="the_double_entry_counting_method/media/3088280515ab5b6da599edd5a1b2ca30100f2b0b.png" style="width:6.23611in;height:2.01389in"/></p>
 <p>Now, instead of <em>categorizing</em> the posting to a “restaurant category” as we did previously, we could create a matching posting on the “Restaurant” account to record how much we spent for food, with the amount spent ($79):</p>
-<p><img src="the_double_entry_counting_method/media/b86a7242b92effc613f88bc0cc70381d72e774f0.png" style="width:6.23611in;height:2.01389in"/></p>
+<p><img src="the_double_entry_counting_method/media/2801d8aff3ccd91dcd584f58a5bcabbb57fb19d4.png" style="width:6.23611in;height:2.01389in"/></p>
 <p>The “Restaurant” account, like all other accounts, also has an accumulated balance, so we can find out how much we spent in “Restaurant” in total. This is entirely symmetrical to counting changes in a checking account.</p>
 <p>Now, we can associate the two postings together, by creating a kind of “parent” box that refers to both of them. We will call this object a <strong>transaction</strong>:</p>
-<p><img src="the_double_entry_counting_method/media/b77efafcf2d6a6f1afbfb13da70be2f892b339b4.png" style="width:6.23611in;height:2.69444in"/></p>
+<p><img src="the_double_entry_counting_method/media/18524adffedac5e812eb65dcbb179b66b0ae9e53.png" style="width:6.23611in;height:2.69444in"/></p>
 <p>Notice here that we’ve also associated a description to this transaction: “Dinner at Uncle Boons”. A transaction also has a <strong>date</strong>, and all of its postings are recorded to occur on that date. We call this the transaction date.</p>
 <p>We can now introduce the fundamental rule of double-entry bookkeeping system:</p>
 <pre><code>The sum of all the postings of a transaction must equal zero.
 </code></pre>
 <p>Remember this, as this is the foundation of the double-entry method, and its most important characteristic. It has important consequences which I will discuss later in this document.</p>
 <p>In our example, we remove $79 from the “Checking” account and “give it” to the “Restaurant” account. ($79) + ($-79) = $0. To emphasize this, I could draw a little summation line under the postings of the transaction, like this:</p>
-<p><img src="the_double_entry_counting_method/media/b4182b9f64113868123cbcec20d468ab18b2786f.png" style="width:2.18055in;height:2.5in"/></p>
+<p><img src="the_double_entry_counting_method/media/a56ad72219b0d8a6c90c692655d1b24459add2d6.png" style="width:2.18055in;height:2.5in"/></p>
 <h3 id="many-accounts">Many Accounts<a id="many-accounts"></a><a class="headerlink" href="#many-accounts" title="Permanent link"></a></h3>
 <p>There may be many such transactions, over many different accounts. For example, if the owner of the accounts had a lunch the next day which she paid using a credit card, it could be represented by creating a “Credit Card” account dedicated to tracking the real world credit card balance, and with a corresponding transaction:</p>
-<p><img src="the_double_entry_counting_method/media/f85a66510ce2e3bb614edca76463a9c4752a7d26.png" style="width:7.45833in;height:3.47222in"/></p>
+<p><img src="the_double_entry_counting_method/media/458909db06c7f38f7896205f67d60397b292e7d9.png" style="width:7.45833in;height:3.47222in"/></p>
 <p>In this example, the owner spent $35 at a restaurant called “Eataly.” The previous balance of the owner’s credit card was $-450; after the expense, the new balance is $-485.</p>
 <p>For each real world account, the owner can create a bookkeeping account like we did. Also, for each category of expenditure, the owner also creates a bookkeeping account. In this system, there are no limits to how many accounts can be created.</p>
 <p>Note that the balance in the example is a negative number; this is not an error. Balances for credit card accounts are normally negative: they represent an amount <em>you owe</em>, that the bank is lending you <em>on credit</em>. When your credit card company keeps track of your expenses, they write out your statement from their perspective, as positive numbers. For you, those are amounts you need to eventually pay. But here, in our accounting system, we’re representing numbers from the owner’s point-of-view, and from her perspective, this is money she owes, not something she has. What we have is a meal sitting in our stomach (a positive number of $ of “Restaurant”).</p>
