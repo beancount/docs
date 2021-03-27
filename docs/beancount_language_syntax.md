@@ -336,7 +336,9 @@ As for all the other directives, a transaction directive begins with a date in t
       Liabilities:CreditCard:CapitalOne         -37.45 USD
       Expenses:Restaurant
 
-A flag is used to indicate the status of a transaction, and the particular meaning of the flag is yours to define. We recommend using the following interpretation for them:
+A flag is a character used to indicate the status of a transaction. The characters accepted as flags are `*`, `!`, `P`, `S`, `T`, `C`, `U`, `R` and `M`.
+
+The particular meaning of the flag is yours to define. We recommend using the following interpretation for them:
 
 -   *: Completed transaction, known amounts, “this looks correct.”
 
