@@ -42,6 +42,8 @@ Plugins<a id="plugins"></a>
 
 [<span class="underline">Akuukis/beancount\_share</span>](https://github.com/Akuukis/beancount_share): A beancount plugin to share expenses among multiple partners within one ledger. This plugin is very powerful and most probably can deal with all of your sharing needs.
 
+[<span class="underline">w1ndy/beancount\_balexpr</span>](https://github.com/w1ndy/beancount_balexpr) (Di Weng): A plugin that provides "balance expressions" to be run against the Beancount entries, as a Custom directive. See [<span class="underline">this thread</span>](https://groups.google.com/d/msgid/beancount/cdcf2cc7-8061-4f69-ae6a-c82564463652n%40googlegroups.com?utm_medium=email&utm_source=footer).
+
 Tools<a id="tools"></a>
 -----------------------
 
@@ -83,6 +85,8 @@ Importers<a id="importers"></a>
 [<span class="underline">swapi/beancount-utils</span>](https://github.com/swapi/beancount-utils) : Another importer for Zerodha.
 
 [<span class="underline">Dr-Nuke/drnuke-bean</span>](https://github.com/Dr-Nuke/drnuke-bean) (Dr Nuke): An importer for IBKR, based on the flex query (API-like) and one for Swiss PostFinance.
+
+[<span class="underline">Beanborg</span>](https://github.com/luciano-fiandesio/beanborg) (Luciano Fiandesio): Beanborg automatically imports financial transactions from external CSV files into the Beancount bookkeeping system.
 
 Converters<a id="converters"></a>
 ---------------------------------
