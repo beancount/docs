@@ -207,7 +207,7 @@ Note that handling those split transaction and merging them together will be han
 
 ### Documents<a id="documents"></a>
 
-Beancount offers support for integrating a directory hierarchy of documents with the contents of a ledger’s chart of accounts. You can provide a directory path and Beancount will automatically find and create corresponding Document directives for filenames that begin with a date in directories that match mirror account names, and attach those documents to those accounts. And given a bit of configuration, the bean-file tool can automatically file downloaded documents to such a directory hierarchy.
+Beancount offers support for integrating a directory hierarchy of documents with the contents of a ledger’s chart of accounts. You can provide a directory path and Beancount will automatically find and create corresponding Document directives for filenames that begin with a date in directories that match account names, and attach those documents to those accounts. And given a bit of configuration, the bean-file tool can automatically file downloaded documents to such a directory hierarchy.
 
 Ledger’s binding of documents to transactions works by generic meta-data. Users can attach arbitrary key-value pairs to their transactions, and those can be filenames. Beyond that, there is no particular support for document organization.
 
@@ -226,7 +226,7 @@ Missing Features<a id="missing-features"></a>
 
 Beancount generally attempts to *minimize* the number of features it provides. This is in contrast with Ledger’s implementation, which has received a substantial amount of feature addition in order to experiment with double-entry bookkeeping. There are a large number of options. This reflects a difference in approach: I believe that there is a small core of essential features to be identified and that forward progress is made when we are able to minimize and remove any feature that is not strictly necessary. My goal is to provide the smallest possible kernel of features that will allow one to carry out the full spectrum of bookkeeping activities, and to make it possible for users to extend the system to automate repetitive syntax.
 
-But here is a list of features that Beancount does not support that are supported in Ledger, and that I find would be useful, that I think would be nice to have eventually. The list below is unlikely to be exhaustive.
+But here is a list of features that Beancount does not support that are supported in Ledger, and that I think would be nice to have eventually. The list below is unlikely to be exhaustive.
 
 ### <s>Console Output</s><a id="console-output"></a>
 
