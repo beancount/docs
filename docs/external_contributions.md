@@ -44,6 +44,8 @@ Plugins<a id="plugins"></a>
 
 [<span class="underline">w1ndy/beancount\_balexpr</span>](https://github.com/w1ndy/beancount_balexpr) (Di Weng): A plugin that provides "balance expressions" to be run against the Beancount entries, as a Custom directive. See [<span class="underline">this thread</span>](https://groups.google.com/d/msgid/beancount/cdcf2cc7-8061-4f69-ae6a-c82564463652n%40googlegroups.com?utm_medium=email&utm_source=footer).
 
+[<span class="underline">autobean.narration</span>](https://git.io/autobean.narration) (Archimedes Smith): Allows to annotate each posting in a concise way by populating per-posting narration metadata from inline comments.
+
 Tools<a id="tools"></a>
 -----------------------
 

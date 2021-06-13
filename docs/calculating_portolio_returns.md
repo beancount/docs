@@ -24,7 +24,7 @@ You will be surprised to find that discount brokers typically do not provide acc
 
 If I maintain your investment information in a Beancount ledger, in theory it contains all the data I need in order to compute your true returns, based on the specific timings of my own savings (cash infusions) and which positions I held at which time. It's just not in the simplest format required to do it— Beancount transactions are much more flexible than one might want and a simpler series of cash flows needs to be extracted from it. **This document explains how I finally did this from my own Ledger.** And how we might generalize this to yours, based on some simple rules. Most of this text is dedicated to the pedestrian details of extracting the right data.
 
-The source code can be found [<span class="underline">here</span>](https://github.com/beancount/beanlabs/tree/master/beanlabs/returns/compute_returns.py).
+The source code can be found [<span class="underline">here</span>](https://github.com/beancount/beangrow).
 
 In addition, a fair and honest comparison to other investments scenarios should be possible, based on those same cash flows. For instance, you should be able to produce data that looks like "My investments in ZZZ have returned 8.2%, 1.1% of which were from dividends, and if I'd invested in a 60/40 portfolio of broad stocks and bonds it would have returned 7.2% instead." In other words, I want to assess my performance *relative* to a number of common alternatives.
 
