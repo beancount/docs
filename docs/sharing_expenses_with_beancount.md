@@ -267,7 +267,7 @@ During this trip I did not carry a laptop—this was vacation after all. I like 
 
 These notes look like this:
 
-<img src="sharing_expenses_with_beancount/media/1a614f1e796245370dd17906a9115eca79d78756.png" alt="sharing-example-note-taking.png" style="width:6.5in;height:3.68056in" />
+<img src="sharing_expenses_with_beancount/media/6eccd752444847a6f97ae99b34a046074a39ddd8.png" alt="sharing-example-note-taking.png" style="width:6.5in;height:3.68056in" />
 
 I made a paper spreadsheet where each line had
 
@@ -292,7 +292,7 @@ You can view the balances in the “All Transactions” view (click on “All Tr
 
 The Balance Sheet should show empty balances for Assets accounts:
 
-<img src="sharing_expenses_with_beancount/media/2a9a41808ed0e2b5fec809a5fde47f4e205646b5.png" alt="balsheet.png" style="width:6.28646in;height:2.57906in" />
+<img src="sharing_expenses_with_beancount/media/2b7f16e905c9fe8c22ed0ee11d3fd9199dbf139a.png" alt="balsheet.png" style="width:6.28646in;height:2.57906in" />
 
 The balances of the equity accounts should reflect the total amount of currency conversions made during the trip. You can verify this by calculating the amount-weight average rate like this: 7539.00 / 559.88 ~= 13.465 USD/MXN (which is about right).
 
@@ -300,7 +300,7 @@ The balances of the equity accounts should reflect the total amount of currency 
 
 The Income Statement should show a summary of all expenses and contributions to the project:
 
-<img src="sharing_expenses_with_beancount/media/a8d4c5e20494c749682470c47ba891cc1e32d47f.png" alt="income.png" style="width:6.41468in;height:4.30729in" />
+<img src="sharing_expenses_with_beancount/media/725237ab95f02c9bfbb8700f307d591c2ab82f95.png" alt="income.png" style="width:6.41468in;height:4.30729in" />
 
 The Income account balances show the total amounts of contributions for each person. Note that in creating the Income accounts, I went through the extra step of creating some specific accounts for each source of payment, like “Caroline’s Credit Card”, etc.
 
@@ -308,7 +308,7 @@ From this view, we can see that we contributed a total of 4254.28 USD (and were 
 
 If you want to view the list of contribution payments and the final balance, click on a particular traveler’s root account, e.g., “Income:Caroline” (click on “Caroline”) which should take you to the Journal for that root account:
 
-<img src="sharing_expenses_with_beancount/media/9954279c84e3e4f951c125bffc0550f09bb82bc0.png" alt="caroline.png" style="width:6.5in;height:4.63889in" />
+<img src="sharing_expenses_with_beancount/media/064623b8b809747c335fdc4eb4a0bc9efc7dbc15.png" alt="caroline.png" style="width:6.5in;height:4.63889in" />
 
 This journal includes all the transactions in its sub-accounts. The final value at the bottom should show the total balance of those accounts, and thus, the amount of money Caroline contributed to this trip: 415 USD, and kept 5 MXN (in coin). We can do the same for Martin and find the final balance of 3839.28 USD and kept 60 MXN (in bills).
 

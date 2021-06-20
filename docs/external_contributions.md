@@ -32,7 +32,7 @@ Plugins<a id="plugins"></a>
 
 [<span class="underline">beancount-plugins</span>](https://github.com/davidastephens/beancount-plugins): Dave Stephens created a repository to share various of his plugins related to depreciation.
 
-[<span class="underline">beancount-plugins-zack</span>](https://github.com/zacchiro/beancount-plugins-zack): Stefano Zacchiroli created this repository to share his plugins.
+[<span class="underline">beancount-plugins-zack</span>](https://github.com/zacchiro/beancount-plugins-zack): Stefano Zacchiroli created this repository to share his plugins. Contains sorting of directives and more.
 
 <span class="underline">b[eancount-oneliner](https://github.com/Akuukis/beancount-oneliner)</span>: Akuukis created a plugin to write an entry in one line ([<span class="underline">PyPi</span>](https://pypi.python.org/pypi/beancount-oneliner/1.0.0)).
 
@@ -45,6 +45,8 @@ Plugins<a id="plugins"></a>
 [<span class="underline">w1ndy/beancount\_balexpr</span>](https://github.com/w1ndy/beancount_balexpr) (Di Weng): A plugin that provides "balance expressions" to be run against the Beancount entries, as a Custom directive. See [<span class="underline">this thread</span>](https://groups.google.com/d/msgid/beancount/cdcf2cc7-8061-4f69-ae6a-c82564463652n%40googlegroups.com?utm_medium=email&utm_source=footer).
 
 [<span class="underline">autobean.narration</span>](https://git.io/autobean.narration) (Archimedes Smith): Allows to annotate each posting in a concise way by populating per-posting narration metadata from inline comments.
+
+[<span class="underline">autobean.sorted</span>](https://github.com/SEIAROTg/autobean/): Checks that transactions are in non-descending order in each file. Helps identifying misplaced or misdated directives, by warning on those directives not following a non-descending order by date in the file.
 
 Tools<a id="tools"></a>
 -----------------------
@@ -89,6 +91,10 @@ Importers<a id="importers"></a>
 [<span class="underline">Dr-Nuke/drnuke-bean</span>](https://github.com/Dr-Nuke/drnuke-bean) (Dr Nuke): An importer for IBKR, based on the flex query (API-like) and one for Swiss PostFinance.
 
 [<span class="underline">Beanborg</span>](https://github.com/luciano-fiandesio/beanborg) (Luciano Fiandesio): Beanborg automatically imports financial transactions from external CSV files into the Beancount bookkeeping system.
+
+[<span class="underline">szabootibor/beancount-degiro</span>](https://gitlab.com/szabootibor/beancount-degiro) ([<span class="underline">PyPI</span>](https://pypi.org/project/beancount-degiro)): Importer for the trading accounts of the Dutch broker Degiro.
+
+[<span class="underline">https://github.com/siddhantgoel/beancount-ing-diba</span>](https://github.com/siddhantgoel/beancount-ing-diba) ([<span class="underline">PyPI</span>](https://pypi.org/project/beancount-ing-diba/)): ING account importer (NL).
 
 Converters<a id="converters"></a>
 ---------------------------------
