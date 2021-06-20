@@ -428,7 +428,7 @@
 <h2 id="how-to-take-notes">How to Take Notes<a id="how-to-take-notes"></a><a class="headerlink" href="#how-to-take-notes" title="Permanent link"></a></h2>
 <p>During this trip I did not carry a laptop—this was vacation after all. I like to disconnect. I did not carry a notebook either. Instead, I just took notes at the end of the day on a few sheets of paper at the hotel. This process took about 5-10 minutes each night, just recalling from memory and writing things down.</p>
 <p>These notes look like this:</p>
-<p><img alt="sharing-example-note-taking.png" src="sharing_expenses_with_beancount/media/1a614f1e796245370dd17906a9115eca79d78756.png" style="width:6.5in;height:3.68056in"/></p>
+<p><img alt="sharing-example-note-taking.png" src="sharing_expenses_with_beancount/media/6eccd752444847a6f97ae99b34a046074a39ddd8.png" style="width:6.5in;height:3.68056in"/></p>
 <p>I made a paper spreadsheet where each line had</p>
 <ul>
 <li>
@@ -449,15 +449,15 @@
 </code></pre>
 <p>You can view the balances in the “All Transactions” view (click on “All Transactions”).</p>
 <p>The Balance Sheet should show empty balances for Assets accounts:</p>
-<p><img alt="balsheet.png" src="sharing_expenses_with_beancount/media/2a9a41808ed0e2b5fec809a5fde47f4e205646b5.png" style="width:6.28646in;height:2.57906in"/></p>
+<p><img alt="balsheet.png" src="sharing_expenses_with_beancount/media/2b7f16e905c9fe8c22ed0ee11d3fd9199dbf139a.png" style="width:6.28646in;height:2.57906in"/></p>
 <p>The balances of the equity accounts should reflect the total amount of currency conversions made during the trip. You can verify this by calculating the amount-weight average rate like this: 7539.00 / 559.88 ~= 13.465 USD/MXN (which is about right).</p>
 <h3 id="reviewing-contributions">Reviewing Contributions<a id="reviewing-contributions"></a><a class="headerlink" href="#reviewing-contributions" title="Permanent link"></a></h3>
 <p>The Income Statement should show a summary of all expenses and contributions to the project:</p>
-<p><img alt="income.png" src="sharing_expenses_with_beancount/media/a8d4c5e20494c749682470c47ba891cc1e32d47f.png" style="width:6.41468in;height:4.30729in"/></p>
+<p><img alt="income.png" src="sharing_expenses_with_beancount/media/725237ab95f02c9bfbb8700f307d591c2ab82f95.png" style="width:6.41468in;height:4.30729in"/></p>
 <p>The Income account balances show the total amounts of contributions for each person. Note that in creating the Income accounts, I went through the extra step of creating some specific accounts for each source of payment, like “Caroline’s Credit Card”, etc.</p>
 <p>From this view, we can see that we contributed a total of 4254.28 USD (and were left with 65 MXN in hand) for this trip. The expenses side should match, considering the currency exchanges: 3694.40 + 7474 / 13.465 ~= 4249 USD which is approximately right (the small difference can be explained by the varying currency conversions).</p>
 <p>If you want to view the list of contribution payments and the final balance, click on a particular traveler’s root account, e.g., “Income:Caroline” (click on “Caroline”) which should take you to the Journal for that root account:</p>
-<p><img alt="caroline.png" src="sharing_expenses_with_beancount/media/9954279c84e3e4f951c125bffc0550f09bb82bc0.png" style="width:6.5in;height:4.63889in"/></p>
+<p><img alt="caroline.png" src="sharing_expenses_with_beancount/media/064623b8b809747c335fdc4eb4a0bc9efc7dbc15.png" style="width:6.5in;height:4.63889in"/></p>
 <p>This journal includes all the transactions in its sub-accounts. The final value at the bottom should show the total balance of those accounts, and thus, the amount of money Caroline contributed to this trip: 415 USD, and kept 5 MXN (in coin). We can do the same for Martin and find the final balance of 3839.28 USD and kept 60 MXN (in bills).</p>
 <p>You can also get the same amounts by using bean-query to achieve the same thing:</p>
 <pre><code>~/p/.../examples/sharing$ bean-query cozumel2015.beancount
