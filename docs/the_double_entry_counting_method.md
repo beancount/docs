@@ -262,7 +262,7 @@ In order to generate this summary, we simply turn our attention to the balances 
 
 <img src="the_double_entry_counting_method/media/ab46fde5b92d9bbb69758aaa203ddafd3640990b.png" alt="out.png" style="width:6.5in;height:2.29167in" />
 
-It is important to take note of the signs here: Income numbers are negative, and Expenses numbers are positive. So if you earned more than you spent (a good outcome), the final sum of Income + Expenses balances will be a negative number. Like any other income, a net income that has a negative number means that there is a corresponding amount of Assets and/or Expenses with positive numbers (this is good for you).
+It is important to take note of the signs here: Income numbers are negative, and Expenses numbers are positive. So if you earned more than you spent (a good outcome), the final sum of Income + Expenses balances will be a negative number. Like any other income, a net income that has a negative number means that there is a corresponding amount of Assets and/or Liabilities with positive numbers (this is good for you).
 
 An Income Statement tells us what changed during a particular period of time. Companies typically report this information **quarterly** to investors and perhaps the public (if they are a publicly traded company) in order to share how much profit they were able to make. Individuals typically report this information on their **annual** tax returns.
 
