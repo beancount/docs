@@ -260,9 +260,9 @@ One kind of common information that is useful to extract from the list of transa
 
 In order to generate this summary, we simply turn our attention to the balances of the accounts of types Income and Expenses, summing up just the transactions for a particular period, and we draw the Income balances on the left, and Expenses balances on the right:
 
-<img src="the_double_entry_counting_method/media/ab46fde5b92d9bbb69758aaa203ddafd3640990b.png" alt="out.png" style="width:6.5in;height:2.29167in" />
+<img src="the_double_entry_counting_method/media/6d57026ecb4c28873f77167eb49ea8025bbf150b.png" alt="out.png" style="width:6.5in;height:2.29167in" />
 
-It is important to take note of the signs here: Income numbers are negative, and Expenses numbers are positive. So if you earned more than you spent (a good outcome), the final sum of Income + Expenses balances will be a negative number. Like any other income, a net income that has a negative number means that there is a corresponding amount of Assets and/or Expenses with positive numbers (this is good for you).
+It is important to take note of the signs here: Income numbers are negative, and Expenses numbers are positive. So if you earned more than you spent (a good outcome), the final sum of Income + Expenses balances will be a negative number. Like any other income, a net income that has a negative number means that there is a corresponding amount of Assets and/or Liabilities with positive numbers (this is good for you).
 
 An Income Statement tells us what changed during a particular period of time. Companies typically report this information **quarterly** to investors and perhaps the public (if they are a publicly traded company) in order to share how much profit they were able to make. Individuals typically report this information on their **annual** tax returns.
 
@@ -315,7 +315,7 @@ However, in practice, there is another closely related question that comes up an
 
 If the Income & Expenses accounts have been cleared to zero and all their balances have been transferred to Equity accounts, the net worth should be equal to the sum of all the Equity accounts. So in building up the Balance Sheet, it it customary to clear the net income and then display the balances of the Equity accounts. The report looks like this:
 
-<img src="the_double_entry_counting_method/media/172b7b33c25ca91255603688deaa93feb4fe8875.png" alt="out.png" style="width:6.5in;height:1.25in" />
+<img src="the_double_entry_counting_method/media/d495b61bc719ab90cdfc9fd379ef62531cff0627.png" alt="out.png" style="width:6.5in;height:1.25in" />
 
 Note that the balance sheet can be drawn for *any point in time*, simply by truncating the list of transactions following a particular date. A balance sheet displays a snapshot of balances at one date; an income statement displays the difference of those balances between two dates.
 

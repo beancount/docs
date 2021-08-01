@@ -281,7 +281,7 @@ The handlers described in the previous section each produced a list of cash flow
 
 Now, this is a simpler model to work from. For each account, we now have a sorted series of dated cash flows. Note that *Amount* includes its cost currency (I have both USD and CAD), *IsDividend* is a flag identifying the cash flow as being a dividend payment or not (to compute returns without the dividends). These series of cash flows can be easily merged between accounts, and truncated over time by inserting initial or final cash flows corresponding to the market value at those dates. Rendered, they might look like this (because of the scale, rendering the log brings up detail that is otherwise difficult to see; dividends are rendered in green):
 
-<img src="calculating_portolio_returns/media/ad99d237824b6e15515ec6bd40fb3a0d28ba410c.png" style="width:6.5in;height:2.59722in" />
+<img src="calculating_portolio_returns/media/f0edb3b5af2d9d4208a3a8c99b4aece8ab8ae3ee.png" style="width:6.5in;height:2.59722in" />
 
 Note that since many transactions do not generate cash flows, the list of cash flows of an investment is insufficient by itself to compute the value of the investment over time. When truncating for a time interval, the market value of the investment is derived using the list of transactions.
 
@@ -395,7 +395,7 @@ This is going to get refined and augmented as I'm actively working on this code 
 
 Here's an example report, for a subset of accounts with a "growth" focus, held at different brokers. I produce one of these for each reporting group. (I greyed out parts for privacy.)
 
-<img src="calculating_portolio_returns/media/b3d221eee6baea23a117e8d92ddfa56ba415d836.png" style="width:6.5in;height:8.52778in" />
+<img src="calculating_portolio_returns/media/00ea07c3b4d79fb98da4eed821cc2d8eaea034e9.png" style="width:6.5in;height:8.52778in" />
 
 ### Interpretation Gotchas<a id="interpretation-gotchas"></a>
 
