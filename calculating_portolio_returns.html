@@ -512,7 +512,7 @@ ASSET_OTHERASSET           : Exchange of stock/symbol
 <pre><code>(Date, Amount, IsDividend)
 </code></pre>
 <p>Now, this is a simpler model to work from. For each account, we now have a sorted series of dated cash flows. Note that <em>Amount</em> includes its cost currency (I have both USD and CAD), <em>IsDividend</em> is a flag identifying the cash flow as being a dividend payment or not (to compute returns without the dividends). These series of cash flows can be easily merged between accounts, and truncated over time by inserting initial or final cash flows corresponding to the market value at those dates. Rendered, they might look like this (because of the scale, rendering the log brings up detail that is otherwise difficult to see; dividends are rendered in green):</p>
-<p><img src="calculating_portolio_returns/media/ad99d237824b6e15515ec6bd40fb3a0d28ba410c.png" style="width:6.5in;height:2.59722in"/></p>
+<p><img src="calculating_portolio_returns/media/f0edb3b5af2d9d4208a3a8c99b4aece8ab8ae3ee.png" style="width:6.5in;height:2.59722in"/></p>
 <p>Note that since many transactions do not generate cash flows, the list of cash flows of an investment is insufficient by itself to compute the value of the investment over time. When truncating for a time interval, the market value of the investment is derived using the list of transactions.</p>
 <p>Finally, the list of cash flows for each group of investments reported can be trivially merged by concatenating them.</p>
 <h2 id="computing-returns">Computing Returns<a id="computing-returns"></a><a class="headerlink" href="#computing-returns" title="Permanent link"></a></h2>
@@ -619,7 +619,7 @@ ASSET_OTHERASSET           : Exchange of stock/symbol
 <p>This is going to get refined and augmented as I'm actively working on this code [September 2020].</p>
 <h3 id="example">Example<a id="example"></a><a class="headerlink" href="#example" title="Permanent link"></a></h3>
 <p>Here's an example report, for a subset of accounts with a "growth" focus, held at different brokers. I produce one of these for each reporting group. (I greyed out parts for privacy.)</p>
-<p><img src="calculating_portolio_returns/media/b3d221eee6baea23a117e8d92ddfa56ba415d836.png" style="width:6.5in;height:8.52778in"/></p>
+<p><img src="calculating_portolio_returns/media/00ea07c3b4d79fb98da4eed821cc2d8eaea034e9.png" style="width:6.5in;height:8.52778in"/></p>
 <h3 id="interpretation-gotchas">Interpretation Gotchas<a id="interpretation-gotchas"></a><a class="headerlink" href="#interpretation-gotchas" title="Permanent link"></a></h3>
 <p>A few notes are in order:</p>
 <p><strong>All rates are <em>annualized</em>.</strong> This makes it easy to compare numbers to each other, but it also means that positions held for a short amount of time will produce numbers that are unrealistic for long term extrapolation. In particular, new positions entered only a few months ago may be subject to high growth or a big drop, both of which when extrapolated to an entire year may show eye-popping percentages. Do keep this in mind, especially when looking at recent positions added to your portfolio.</p>
