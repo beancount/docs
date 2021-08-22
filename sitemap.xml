@@ -1,207 +1,207 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://beancount.github.io/docs/index.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/command_line_accounting_in_context.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/the_double_entry_counting_method.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/installing_beancount.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/running_beancount_and_generating_reports.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/getting_started_with_beancount.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/beancount_language_syntax.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/beancount_options_reference.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/precision_tolerances.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/beancount_query_language.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/beancount_cheat_sheet.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/how_inventories_work.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/exporting_your_portfolio.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/tutorial_example.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/beancount_history_and_credits.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/a_comparison_of_beancount_and_ledger_hledger.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/fetching_prices_in_beancount.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/importing_external_data.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/command_line_accounting_cookbook.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/trading_with_beancount.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/stock_vesting_in_beancount.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/sharing_expenses_with_beancount.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/how_we_share_expenses.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/health_care_expenses.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/calculating_portolio_returns.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/beancount_scripting_plugins.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/beancount_design_doc.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/ledgerhub_design_doc.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/external_contributions.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/a_proposal_for_an_improvement_on_inventory_booking.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/settlement_dates_in_beancount.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/balance_assertions_in_beancount.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/fund_accounting_with_beancount.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/rounding_precision_in_beancount.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/beancount_v3.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/installing_beancount_v3.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/beancount_v3_dependencies.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/api_reference/index.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/api_reference/beancount.core.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/api_reference/beancount.ingest.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/api_reference/beancount.loader.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/api_reference/beancount.ops.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/api_reference/beancount.parser.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/api_reference/beancount.plugins.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/api_reference/beancount.prices.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/api_reference/beancount.query.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/api_reference/beancount.reports.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/api_reference/beancount.scripts.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/api_reference/beancount.tools.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/api_reference/beancount.utils.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://beancount.github.io/docs/api_reference/beancount.web.html</loc>
-     <lastmod>2021-08-01</lastmod>
+     <lastmod>2021-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
