@@ -140,6 +140,8 @@ Price Sources<a id="price-sources"></a>
 
 [<span class="underline">tarioch/beancounttools</span>](https://github.com/tarioch/beancounttools) (Patrick Ruckstuhl): Price sources and importers.
 
+[<span class="underline">https://gitlab.com/chrisberkhout/pricehist</span>](https://gitlab.com/chrisberkhout/pricehist) (Chris Berkhout): A command-line tool that can fetch daily historical prices from multiple sources and output them in several formats. Supports some sources for CoinDesk, European Central Bank, Alpha Vantage, CoinMarketCap. The user can request a specific price type such as high, low, open, close or adjusted close. It can also be used through bean-price.
+
 Development<a id="development"></a>
 -----------------------------------
 

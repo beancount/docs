@@ -196,7 +196,7 @@ Accounts contain **currencies**, which we sometimes also call **commodities** (w
     IBM
     AIRMILE
 
-(Technically: up to 24 characters long, beginning with a capital letter and ending with a capital letter or a number. The middle characters may include “`_-’.`”.) The first three might evoke real world currencies to you (US dollars, Canadian dollars, Euros); the next two, stock ticker names (Microsoft and IBM). And the last: rewards points (airmiles). Beancount knows of no such thing; from its perspective all of these instruments are treated similarly. There is no built-in notion of any previously existing currency. These currency names are just names of “things” that can be put in accounts and accumulated in inventories associated with these accounts.
+(Technically, a currency name may be up to 24 characters long, and it must start with a capital letter, must end with with a capital letter or number, and its other characters must only be capital letters, numbers, or punctuation limited to these characters: “'.\_-” (apostrophe, period, underscore, dash.) The first three might evoke real world currencies to you (US dollars, Canadian dollars, Euros); the next two, stock ticker names (Microsoft and IBM). And the last: rewards points (airmiles). Beancount knows of no such thing; from its perspective all of these instruments are treated similarly. There is no built-in notion of any previously existing currency. These currency names are just names of “things” that can be put in accounts and accumulated in inventories associated with these accounts.
 
 There is something elegant about the fact that there is no “special” currency unit, that all commodities are treated equally the same: Beancount is inherently a multi-currency system. You will appreciate this if, like many of us, you are an expat and your life is divided between two or three continents. You can handle an international ledger of accounts without any problems.
 
@@ -366,6 +366,14 @@ The lines that follow the first line are for “Postings.” You can attach as m
       Expenses:Taxes:TY2014:Medicare       66.92 USD     ; Medicare
       Expenses:Taxes:TY2014:StateNY       277.90 USD     ; New York taxes
       Expenses:Taxes:TY2014:SDI             1.20 USD     ; Disability insurance
+
+The Amount in “Postings” can also be an arithmetic expression using `( ) * / - +` . For example,
+
+    2014-10-05 * "Costco" "Shopping for birthday"
+      Liabilities:CreditCard:CapitalOne         -45.00          USD
+      Assets:AccountsReceivable:John            ((40.00/3) + 5) USD
+      Assets:AccountsReceivable:Michael         40.00/3         USD
+      Expenses:Shopping
 
 The crucial and only constraint on postings is that the sum of their balance amounts must be zero. This is explained in full detail below.
 
