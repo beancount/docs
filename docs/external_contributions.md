@@ -48,6 +48,8 @@ Plugins<a id="plugins"></a>
 
 [<span class="underline">autobean.sorted</span>](https://github.com/SEIAROTg/autobean/): Checks that transactions are in non-descending order in each file. Helps identifying misplaced or misdated directives, by warning on those directives not following a non-descending order by date in the file.
 
+[<span class="underline">hoostus/beancount-asset-transfer-plugin</span>](https://github.com/hoostus/beancount-asset-transfer-plugin): A plugin to automatically generate in-kind transfers between two beancount accounts, while preserving the cost basis and acquisition date.
+
 Tools<a id="tools"></a>
 -----------------------
 

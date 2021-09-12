@@ -314,7 +314,7 @@ I'd like for "bn" to become the de-facto two-letter import on top of which we wr
 
     -   Converting to market value, and making corresponding account adjustments.
 
-    -   …. *add more …*
+    -   …. *add more* *…*
 
 -   **Exposed, usable booking.** Booking will be a simple loop that can be invoked from Python with an entry and some accumulated state. Moreover, the Inventory object should begin to implement some of the lower-level operations required for booking, such that iterating over a set of postings and doing e.g., average booking, can be done via method calls on an Inventory object. Inventory should take a more prominent place in the API.
 
@@ -379,6 +379,8 @@ Core Improvements<a id="core-improvements"></a>
 Some desiderata of new features are discussed below. These are all relevant to the core. Note that the changes should not interfere with current usage much, if at all. I expect that v2 users will be largely unaffected and won't have to change their ledger files.
 
 ### Booking Rules Redesign<a id="booking-rules-redesign"></a>
+
+[*<span class="underline">Main document</span>*](https://docs.google.com/document/d/1H0UDD1cKenraIMe40PbdMgnqJdeqI6yKv0og51mXk-0/view#)
 
 One of the current problems with booking is that entering an augmenting leg and a reducing leg have to be different by nature. The augmentation leg has to provide the cost basis via {...} syntax, and the reducing leg has to enter the price in the annotation and not in the cost basis. For example:
 
