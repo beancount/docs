@@ -640,7 +640,7 @@ bn.Transaction(...)
 <p>Converting to market value, and making corresponding account adjustments.</p>
 </li>
 <li>
-<p>…. <em>add more …</em></p>
+<p>…. <em>add more</em> <em>…</em></p>
 </li>
 </ul>
 </li>
@@ -719,6 +719,7 @@ bn.Transaction(...)
 <h2 id="core-improvements">Core Improvements<a id="core-improvements"></a><a class="headerlink" href="#core-improvements" title="Permanent link"></a></h2>
 <p>Some desiderata of new features are discussed below. These are all relevant to the core. Note that the changes should not interfere with current usage much, if at all. I expect that v2 users will be largely unaffected and won't have to change their ledger files.</p>
 <h3 id="booking-rules-redesign">Booking Rules Redesign<a id="booking-rules-redesign"></a><a class="headerlink" href="#booking-rules-redesign" title="Permanent link"></a></h3>
+<p><a href="https://docs.google.com/document/d/1H0UDD1cKenraIMe40PbdMgnqJdeqI6yKv0og51mXk-0/view#"><em><span class="underline">Main document</span></em></a></p>
 <p>One of the current problems with booking is that entering an augmenting leg and a reducing leg have to be different by nature. The augmentation leg has to provide the cost basis via {...} syntax, and the reducing leg has to enter the price in the annotation and not in the cost basis. For example:</p>
 <pre><code>2021-02-24 * "BOT +1 /NQH21:XCME 1/20 FEB 21 (EOM) /QNEG21:XCME 13100 CALL @143.75"
   Assets:US:Ameritrade:Futures:Options         1 QNEG21C13100 {2875.00 USD}
