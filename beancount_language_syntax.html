@@ -457,13 +457,13 @@ AIRMILE
 <p>At the moment, once an account is closed, you cannot reopen it after that date. (Though you can, of course, delete or comment-out the directive that closed it.) Finally, there are utility functions in the code that allow you to establish which accounts are open on a particular date. I strongly recommend that you close accounts when they actually close in reality, it will keep your ledger more tidy.</p>
 <h3 id="commodity">Commodity<a id="commodity"></a><a class="headerlink" href="#commodity" title="Permanent link"></a></h3>
 <p>There is a “Commodity” directive that can be used to declare currencies, financial instruments, commodities (different names for the same thing in Beancount):</p>
-<pre><code>1867-01-01 commodity CAD
+<pre><code>1867-07-01 commodity CAD
 </code></pre>
 <p>The general format of the Commodity directive is:</p>
 <pre><code>YYYY-MM-DD commodity Currency
 </code></pre>
 <p>This directive is a late arrival, and is entirely optional: you can use commodities without having to really declare them this way. The purpose of this directive is to attach commodity-specific metadata fields on it, so that it can be gathered by plugins later on. For example, you might want to provide a long descriptive name for each commodity, such as “Swiss Franc” for commodity “CHF”, or “Hooli Corporation Class C Shares” for “HOOL”, like this:</p>
-<pre><code>1867-01-01 commodity CAD
+<pre><code>1867-07-01 commodity CAD
   name: "Canadian Dollar"
   asset-class: "cash"
 
