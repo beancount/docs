@@ -300,7 +300,7 @@ At the moment, once an account is closed, you cannot reopen it after that date. 
 
 There is a “Commodity” directive that can be used to declare currencies, financial instruments, commodities (different names for the same thing in Beancount):
 
-    1867-01-01 commodity CAD
+    1867-07-01 commodity CAD
 
 The general format of the Commodity directive is:
 
@@ -308,7 +308,7 @@ The general format of the Commodity directive is:
 
 This directive is a late arrival, and is entirely optional: you can use commodities without having to really declare them this way. The purpose of this directive is to attach commodity-specific metadata fields on it, so that it can be gathered by plugins later on. For example, you might want to provide a long descriptive name for each commodity, such as “Swiss Franc” for commodity “CHF”, or “Hooli Corporation Class C Shares” for “HOOL”, like this:
 
-    1867-01-01 commodity CAD
+    1867-07-01 commodity CAD
       name: "Canadian Dollar"
       asset-class: "cash"
 

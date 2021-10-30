@@ -5,7 +5,7 @@ Installing Beancount (v3)<a id="title"></a>
 
 [<span class="underline">http://furius.ca/beancount/doc/v3-install</span>](http://furius.ca/beancount/doc/v3-install)
 
-*Instructions for downloading and running Beancount v3 (in development) on your computer.*
+*Instructions for downloading and running Beancount v3 (in development) on your computer. For v2, see this document instead: [Beancount - Install (v2)](installing_beancount.md)*
 
 <table><tbody><tr class="odd"><td><em><strong>This document is about Beancount v3, an experimental in-development version (as of July 2020); Instructions for building the stable version (Beancount v2) can be found in <a href="installing_beancount.md"><span class="underline">this other document</span></a>.</strong></em></td></tr></tbody></table>
 
