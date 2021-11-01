@@ -2,7 +2,8 @@ site_name: Beancount Documentation
 site_description: Auto-generated markdown version
 site_url: "https://beancount.github.io/docs/"
 
-repo_url: https://github.com/beancount/docs
+# Don't show "Edit on GitHub" link
+# repo_url: https://github.com/beancount/docs
 use_directory_urls: false
 
 theme:
