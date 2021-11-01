@@ -91,11 +91,6 @@ plugins:
       redirect_maps:
         'g/export/index.md': 'https://docs.google.com/document/d/1mNyE_ONuyEkF_I2l6V_AoAU5HJgI654AOBhHsnNPPqw/'
 
-# Waiting for mkdocstrings to support readthedocs theme
-# https://github.com/pawamoy/mkdocstrings/issues/107
+# Additional styles for readthedocs theme
 extra_css:
   - css/custom.css
-
-# Workaround for https://github.com/mkdocs/mkdocs/issues/2028
-extra_javascript:
-  - js/extra.js
