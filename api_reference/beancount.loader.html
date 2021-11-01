@@ -1,353 +1,447 @@
 <!DOCTYPE html>
-
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
-<meta charset="utf-8"/>
-<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link href="https://beancount.github.io/docs/api_reference/beancount.loader.html" rel="canonical"/>
-<link href="../img/favicon.ico" rel="shortcut icon"/>
-<title>beancount.loader - Beancount Documentation</title>
-<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
-<link href="../css/theme.css" rel="stylesheet">
-<link href="../css/theme_extra.css" rel="stylesheet"/>
-<link href="../css/custom.css" rel="stylesheet"/>
-<script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="https://beancount.github.io/docs/api_reference/beancount.loader.html">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>beancount.loader - Beancount Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+  <link href="../css/custom.css" rel="stylesheet" />
+  
+  <script>
     // Current page data
     var mkdocs_page_name = "beancount.loader";
     var mkdocs_page_input_path = "api_reference/beancount.loader.md";
     var mkdocs_page_url = "/docs/api_reference/beancount.loader.html";
   </script>
-<script defer="" src="../js/jquery-2.1.1.min.js"></script>
-<script defer="" src="../js/modernizr-2.8.3.min.js"></script>
-</link></link></head>
-<body class="wy-body-for-nav" role="document">
-<div class="wy-grid-for-nav">
-<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
-<div class="wy-side-scroll">
-<div class="wy-side-nav-search">
-<a class="icon icon-home" href=".."> Beancount Documentation</a>
-<div role="search">
-<form action="../search.html" class="wy-form" id="rtd-search-form" method="get">
-<input name="q" placeholder="Search docs" title="Type search term here" type="text"/>
-</form>
-</div>
-</div>
-<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Index</a>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Outline</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="#">Documentation for Users</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="../command_line_accounting_in_context.html">Command Line Accounting in Context</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../the_double_entry_counting_method.html">The Double Entry Counting Method</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../installing_beancount.html">Installing Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started_with_beancount.html">Getting Started with Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../beancount_language_syntax.html">Beancount Language Syntax</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../beancount_options_reference.html">Beancount Options Reference</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../precision_tolerances.html">Precision Tolerances</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../beancount_query_language.html">Beancount Query Language</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../how_inventories_work.html">How Inventories Work</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../exporting_your_portfolio.html">Exporting Your Portfolio</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial_example.html">Tutorial &amp; Example</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../beancount_history_and_credits.html">Beancount History and Credits</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../importing_external_data.html">Importing External Data</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#">Cookbooks &amp; Examples</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="../command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../trading_with_beancount.html">Trading with Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../how_we_share_expenses.html">How We Share Expenses</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../health_care_expenses.html">Health Care Expenses</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../calculating_portolio_returns.html">Calculating Portfolio Returns</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#">Documentation for Developers</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="../beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../beancount_design_doc.html">Beancount Design Doc</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../external_contributions.html">External Contributions</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#">Enhancement Proposals &amp; Discussions</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="../a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#">Beancount 3</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="../beancount_v3.html">Goals &amp; Design</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../installing_beancount_v3.html">Installing Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../beancount_v3_dependencies.html">Dependencies</a>
-</li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">API reference</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="index.html">beancount</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="beancount.core.html">beancount.core</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="beancount.ingest.html">beancount.ingest</a>
-</li>
-<li class="toctree-l1 current"><a class="reference internal current" href="beancount.loader.html">beancount.loader</a>
-<ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="#beancount.loader">beancount.loader</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#beancount.loader.LoadError">LoadError</a>
-<ul>
-<li class="toctree-l3"><a class="reference internal" href="#beancount.loader.LoadError.__getnewargs__">__getnewargs__()</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#beancount.loader.LoadError.__new__">__new__()</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#beancount.loader.LoadError.__repr__">__repr__()</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#beancount.loader.aggregate_options_map">aggregate_options_map()</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#beancount.loader.combine_plugins">combine_plugins()</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#beancount.loader.compute_input_hash">compute_input_hash()</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#beancount.loader.delete_cache_function">delete_cache_function()</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#beancount.loader.get_cache_filename">get_cache_filename()</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#beancount.loader.initialize">initialize()</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#beancount.loader.load_doc">load_doc()</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#beancount.loader.load_encrypted_file">load_encrypted_file()</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#beancount.loader.load_file">load_file()</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#beancount.loader.load_string">load_string()</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#beancount.loader.needs_refresh">needs_refresh()</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#beancount.loader.pickle_cache_function">pickle_cache_function()</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#beancount.loader.run_transformations">run_transformations()</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="beancount.ops.html">beancount.ops</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="beancount.parser.html">beancount.parser</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="beancount.plugins.html">beancount.plugins</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="beancount.prices.html">beancount.prices</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="beancount.query.html">beancount.query</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="beancount.reports.html">beancount.reports</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="beancount.scripts.html">beancount.scripts</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="beancount.tools.html">beancount.tools</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="beancount.utils.html">beancount.utils</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="beancount.web.html">beancount.web</a>
-</li>
-</ul>
-</div>
-</div>
-</nav>
-<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
-<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
-<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
-<a href="..">Beancount Documentation</a>
-</nav>
-<div class="wy-nav-content">
-<div class="rst-content">
-<div aria-label="breadcrumbs navigation" role="navigation">
-<ul class="wy-breadcrumbs">
-<li><a href="..">Docs</a> »</li>
-<li>API reference »</li>
-<li>beancount.loader</li>
-<li class="wy-breadcrumbs-aside">
-<a class="icon icon-github" href="https://github.com/beancount/docs/edit/master/docs/api_reference/beancount.loader.md"> Edit on GitHub</a>
-</li>
-</ul>
-<hr/>
-</div>
-<div role="main">
-<div class="section">
-<h1 id="beancountloader">beancount.loader<a class="headerlink" href="#beancountloader" title="Permanent link"></a></h1>
-<div class="doc doc-object doc-module">
-<h2 class="hidden-toc" href="#beancount.loader" id="beancount.loader" style="visibility: hidden; width: 0; height: 0;">
-<a class="headerlink" href="#beancount.loader" title="Permanent link"></a></h2>
-<div class="doc doc-contents first">
-<p>Loader code. This is the main entry point to load up a file.</p>
-<div class="doc doc-children">
-<div class="doc doc-object doc-class">
-<h2 class="doc doc-heading" id="beancount.loader.LoadError">
-<code>beancount.loader.LoadError</code>
-<a class="headerlink" href="#beancount.loader.LoadError" title="Permanent link"></a></h2>
-<div class="doc doc-contents">
-<p>LoadError(source, message, entry)</p>
-<div class="doc doc-children">
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="beancount.loader.LoadError.__getnewargs__">
-<code class="highlight language-python">
-beancount.loader.LoadError.__getnewargs__
-(self)
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script> 
+</head>
 
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="icon icon-home"> Beancount Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../index.html">Index</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Outline</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Documentation for Users</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../command_line_accounting_in_context.html">Command Line Accounting in Context</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../the_double_entry_counting_method.html">The Double Entry Counting Method</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../installing_beancount.html">Installing Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../getting_started_with_beancount.html">Getting Started with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../beancount_language_syntax.html">Beancount Language Syntax</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../beancount_options_reference.html">Beancount Options Reference</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../precision_tolerances.html">Precision Tolerances</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../beancount_query_language.html">Beancount Query Language</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../how_inventories_work.html">How Inventories Work</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../exporting_your_portfolio.html">Exporting Your Portfolio</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../tutorial_example.html">Tutorial & Example</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../beancount_history_and_credits.html">Beancount History and Credits</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../importing_external_data.html">Importing External Data</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Cookbooks & Examples</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../trading_with_beancount.html">Trading with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../how_we_share_expenses.html">How We Share Expenses</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../health_care_expenses.html">Health Care Expenses</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../calculating_portolio_returns.html">Calculating Portfolio Returns</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Documentation for Developers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../beancount_design_doc.html">Beancount Design Doc</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../external_contributions.html">External Contributions</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Enhancement Proposals & Discussions</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Beancount 3</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../beancount_v3.html">Goals & Design</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../installing_beancount_v3.html">Installing Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../beancount_v3_dependencies.html">Dependencies</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">API reference</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="index.html">beancount</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="beancount.core.html">beancount.core</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="beancount.ingest.html">beancount.ingest</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="beancount.loader.html">beancount.loader</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#beancount.loader">beancount.loader</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#beancount.loader.LoadError">LoadError</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.loader.LoadError.__getnewargs__">__getnewargs__()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.loader.LoadError.__new__">__new__()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.loader.LoadError.__repr__">__repr__()</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#beancount.loader.aggregate_options_map">aggregate_options_map()</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#beancount.loader.combine_plugins">combine_plugins()</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#beancount.loader.compute_input_hash">compute_input_hash()</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#beancount.loader.delete_cache_function">delete_cache_function()</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#beancount.loader.get_cache_filename">get_cache_filename()</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#beancount.loader.initialize">initialize()</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#beancount.loader.load_doc">load_doc()</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#beancount.loader.load_encrypted_file">load_encrypted_file()</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#beancount.loader.load_file">load_file()</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#beancount.loader.load_string">load_string()</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#beancount.loader.needs_refresh">needs_refresh()</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#beancount.loader.pickle_cache_function">pickle_cache_function()</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#beancount.loader.run_transformations">run_transformations()</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="beancount.ops.html">beancount.ops</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="beancount.parser.html">beancount.parser</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="beancount.plugins.html">beancount.plugins</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="beancount.prices.html">beancount.prices</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="beancount.query.html">beancount.query</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="beancount.reports.html">beancount.reports</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="beancount.scripts.html">beancount.scripts</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="beancount.tools.html">beancount.tools</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="beancount.utils.html">beancount.utils</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="beancount.web.html">beancount.web</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Beancount Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>API reference &raquo;</li>
+        
+      
+    
+    <li>beancount.loader</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/beancount/docs/edit/master/docs/api_reference/beancount.loader.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="beancountloader">beancount.loader<a class="headerlink" href="#beancountloader" title="Permanent link"></a></h1>
+
+
+  <div class="doc doc-object doc-module">
+
+<a id="beancount.loader"></a>
+    <div class="doc doc-contents first">
+
+      <p>Loader code. This is the main entry point to load up a file.</p>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h2 id="beancount.loader.LoadError" class="doc doc-heading">
+        <code>
+beancount.loader.LoadError            (<span title="tuple">tuple</span>)
         </code>
-<span class="doc doc-properties">
-<small class="doc doc-property doc-property-special"><code>special</code></small>
-</span>
-<a class="headerlink" href="#beancount.loader.LoadError.__getnewargs__" title="Permanent link"></a></h3>
-<div class="doc doc-contents">
-<p>Return self as a plain tuple.  Used by copy and pickle.</p>
-<details class="quote">
-<summary>Source code in <code>beancount/loader.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+
+
+
+<a href="#beancount.loader.LoadError" class="headerlink" title="Permanent link"></a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>LoadError(source, message, entry)</p>
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="beancount.loader.LoadError.__getnewargs__" class="doc doc-heading">
+<code class="highlight language-python">beancount.loader.LoadError.__getnewargs__(self)</code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-special"><code>special</code></small>
+  </span>
+
+<a href="#beancount.loader.LoadError.__getnewargs__" class="headerlink" title="Permanent link"></a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Return self as a plain tuple.  Used by copy and pickle.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>beancount/loader.py</code></summary>
+          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="beancount.loader.LoadError.__new__">
-<code class="highlight language-python">
-beancount.loader.LoadError.__new__
-(_cls, source, message, entry)
+        </details>
+    </div>
 
-        </code>
-<span class="doc doc-properties">
-<small class="doc doc-property doc-property-special"><code>special</code></small>
-<small class="doc doc-property doc-property-staticmethod"><code>staticmethod</code></small>
-</span>
-<a class="headerlink" href="#beancount.loader.LoadError.__new__" title="Permanent link"></a></h3>
-<div class="doc doc-contents">
-<p>Create new instance of LoadError(source, message, entry)</p>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="beancount.loader.LoadError.__repr__">
-<code class="highlight language-python">
-beancount.loader.LoadError.__repr__
-(self)
+  </div>
 
-        </code>
-<span class="doc doc-properties">
-<small class="doc doc-property doc-property-special"><code>special</code></small>
-</span>
-<a class="headerlink" href="#beancount.loader.LoadError.__repr__" title="Permanent link"></a></h3>
-<div class="doc doc-contents">
-<p>Return a nicely formatted representation string</p>
-<details class="quote">
-<summary>Source code in <code>beancount/loader.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def __repr__(self):
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="beancount.loader.LoadError.__new__" class="doc doc-heading">
+<code class="highlight language-python">beancount.loader.LoadError.__new__(_cls, source, message, entry)</code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-special"><code>special</code></small>
+      <small class="doc doc-property doc-property-staticmethod"><code>staticmethod</code></small>
+  </span>
+
+<a href="#beancount.loader.LoadError.__new__" class="headerlink" title="Permanent link"></a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Create new instance of LoadError(source, message, entry)</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="beancount.loader.LoadError.__repr__" class="doc doc-heading">
+<code class="highlight language-python">beancount.loader.LoadError.__repr__(self)</code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-special"><code>special</code></small>
+  </span>
+
+<a href="#beancount.loader.LoadError.__repr__" class="headerlink" title="Permanent link"></a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Return a nicely formatted representation string</p>
+
+        <details class="quote">
+          <summary>Source code in <code>beancount/loader.py</code></summary>
+          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
-</details>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="beancount.loader.aggregate_options_map">
-<code class="highlight language-python">
-beancount.loader.aggregate_options_map
-(options_map, src_options_map)
+        </details>
+    </div>
 
-        </code>
-<a class="headerlink" href="#beancount.loader.aggregate_options_map" title="Permanent link"></a></h2>
-<div class="doc doc-contents">
-<p>Aggregate some of the attributes of options map.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>options_map</code></td>
-<td><code></code></td>
-<td>
-<p>The target map in which we want to aggregate attributes.
-Note: This value is mutated in-place.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>src_options_map</code></td>
-<td><code></code></td>
-<td>
-<p>A source map whose values we'd like to see aggregated.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="beancount.loader.aggregate_options_map" class="doc doc-heading">
+<code class="highlight language-python">beancount.loader.aggregate_options_map(options_map, src_options_map)</code>
+
+
+<a href="#beancount.loader.aggregate_options_map" class="headerlink" title="Permanent link"></a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Aggregate some of the attributes of options map.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>options_map</strong> – The target map in which we want to aggregate attributes.
+Note: This value is mutated in-place.</p></li>
+            <li><p><strong>src_options_map</strong> – A source map whose values we'd like to see aggregated.</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>beancount/loader.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def aggregate_options_map(options_map, src_options_map):
+        <details class="quote">
+          <summary>Source code in <code>beancount/loader.py</code></summary>
+          <pre class="highlight"><code class="language-python linenums">def aggregate_options_map(options_map, src_options_map):
     """Aggregate some of the attributes of options map.
 
     Args:
@@ -364,62 +458,63 @@ Note: This value is mutated in-place.</p>
     for currency in src_options_map["commodities"]:
         commodities.add(currency)
 </code></pre>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="beancount.loader.combine_plugins">
-<code class="highlight language-python">
-beancount.loader.combine_plugins
-    (*
-plugin_modules)
+        </details>
+    </div>
 
-        </code>
-<a class="headerlink" href="#beancount.loader.combine_plugins" title="Permanent link"></a></h2>
-<div class="doc doc-contents">
-<p>Combine the plugins from the given plugin modules.</p>
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="beancount.loader.combine_plugins" class="doc doc-heading">
+<code class="highlight language-python">beancount.loader.combine_plugins(*plugin_modules)</code>
+
+
+<a href="#beancount.loader.combine_plugins" class="headerlink" title="Permanent link"></a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Combine the plugins from the given plugin modules.</p>
 <p>This is used to create plugins of plugins.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>*plugins_modules</code></td>
-<td><code></code></td>
-<td>
-<p>A sequence of module objects.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>*plugins_modules</strong> – A sequence of module objects.</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code></code></td>
-<td>
-<p>A list that can be assigned to the new module's <strong>plugins</strong> attribute.</p>
-</td>
-</tr>
-</tbody>
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+        <ul class="first simple">
+          <li><p>A list that can be assigned to the new module's <strong>plugins</strong> attribute.</p></li>
+        </ul>
+    </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>beancount/loader.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def combine_plugins(*plugin_modules):
+        <details class="quote">
+          <summary>Source code in <code>beancount/loader.py</code></summary>
+          <pre class="highlight"><code class="language-python linenums">def combine_plugins(*plugin_modules):
     """Combine the plugins from the given plugin modules.
 
     This is used to create plugins of plugins.
@@ -434,43 +529,46 @@ plugin_modules)
                         for name in module.__plugins__])
     return modules
 </code></pre>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="beancount.loader.compute_input_hash">
-<code class="highlight language-python">
-beancount.loader.compute_input_hash
-(filenames)
+        </details>
+    </div>
 
-        </code>
-<a class="headerlink" href="#beancount.loader.compute_input_hash" title="Permanent link"></a></h2>
-<div class="doc doc-contents">
-<p>Compute a hash of the input data.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>filenames</code></td>
-<td><code></code></td>
-<td>
-<p>A list of input files. Order is not relevant.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="beancount.loader.compute_input_hash" class="doc doc-heading">
+<code class="highlight language-python">beancount.loader.compute_input_hash(filenames)</code>
+
+
+<a href="#beancount.loader.compute_input_hash" class="headerlink" title="Permanent link"></a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Compute a hash of the input data.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>filenames</strong> – A list of input files. Order is not relevant.</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>beancount/loader.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def compute_input_hash(filenames):
+        <details class="quote">
+          <summary>Source code in <code>beancount/loader.py</code></summary>
+          <pre class="highlight"><code class="language-python linenums">def compute_input_hash(filenames):
     """Compute a hash of the input data.
 
     Args:
@@ -485,69 +583,64 @@ beancount.loader.compute_input_hash
         md5.update(struct.pack('dd', stat.st_mtime_ns, stat.st_size))
     return md5.hexdigest()
 </code></pre>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="beancount.loader.delete_cache_function">
-<code class="highlight language-python">
-beancount.loader.delete_cache_function
-(cache_getter, function)
+        </details>
+    </div>
 
-        </code>
-<a class="headerlink" href="#beancount.loader.delete_cache_function" title="Permanent link"></a></h2>
-<div class="doc doc-contents">
-<p>A wrapper that removes the cached filename.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>cache_getter</code></td>
-<td><code></code></td>
-<td>
-<p>A function of one argument, the top-level filename, which
-will return the name of the corresponding cache file.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>function</code></td>
-<td><code></code></td>
-<td>
-<p>A function object to decorate for caching.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="beancount.loader.delete_cache_function" class="doc doc-heading">
+<code class="highlight language-python">beancount.loader.delete_cache_function(cache_getter, function)</code>
+
+
+<a href="#beancount.loader.delete_cache_function" class="headerlink" title="Permanent link"></a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>A wrapper that removes the cached filename.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>cache_getter</strong> – A function of one argument, the top-level filename, which
+will return the name of the corresponding cache file.</p></li>
+            <li><p><strong>function</strong> – A function object to decorate for caching.</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code></code></td>
-<td>
-<p>A decorated function which will delete the cached filename, if it exists.</p>
-</td>
-</tr>
-</tbody>
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+        <ul class="first simple">
+          <li><p>A decorated function which will delete the cached filename, if it exists.</p></li>
+        </ul>
+    </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>beancount/loader.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def delete_cache_function(cache_getter, function):
+        <details class="quote">
+          <summary>Source code in <code>beancount/loader.py</code></summary>
+          <pre class="highlight"><code class="language-python linenums">def delete_cache_function(cache_getter, function):
     """A wrapper that removes the cached filename.
 
     Args:
@@ -568,69 +661,64 @@ will return the name of the corresponding cache file.</p>
         return function(toplevel_filename, *args, **kw)
     return wrapped
 </code></pre>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="beancount.loader.get_cache_filename">
-<code class="highlight language-python">
-beancount.loader.get_cache_filename
-(pattern, filename)
+        </details>
+    </div>
 
-        </code>
-<a class="headerlink" href="#beancount.loader.get_cache_filename" title="Permanent link"></a></h2>
-<div class="doc doc-contents">
-<p>Compute the cache filename from a given pattern and the top-level filename.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>pattern</code></td>
-<td><code>str</code></td>
-<td>
-<p>A cache filename or pattern. If the pattern contains '{filename}' this
-will get replaced by the top-level filename. This may be absolute or relative.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>filename</code></td>
-<td><code>str</code></td>
-<td>
-<p>The top-level filename.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="beancount.loader.get_cache_filename" class="doc doc-heading">
+<code class="highlight language-python">beancount.loader.get_cache_filename(pattern, filename)</code>
+
+
+<a href="#beancount.loader.get_cache_filename" class="headerlink" title="Permanent link"></a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Compute the cache filename from a given pattern and the top-level filename.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>pattern</strong> (<code>str</code>) – A cache filename or pattern. If the pattern contains '{filename}' this
+will get replaced by the top-level filename. This may be absolute or relative.</p></li>
+            <li><p><strong>filename</strong> (<code>str</code>) – The top-level filename.</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>str</code></td>
-<td>
-<p>The resolved cache filename.</p>
-</td>
-</tr>
-</tbody>
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+        <ul class="first simple">
+          <li><p><code>str</code> – The resolved cache filename.</p></li>
+        </ul>
+    </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>beancount/loader.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def get_cache_filename(pattern: str, filename: str) -&gt; str:
+        <details class="quote">
+          <summary>Source code in <code>beancount/loader.py</code></summary>
+          <pre class="highlight"><code class="language-python linenums">def get_cache_filename(pattern: str, filename: str) -&gt; str:
     """Compute the cache filename from a given pattern and the top-level filename.
 
     Args:
@@ -647,22 +735,30 @@ will get replaced by the top-level filename. This may be absolute or relative.</
         abs_pattern = path.join(path.dirname(abs_filename), pattern)
     return abs_pattern.format(filename=path.basename(filename))
 </code></pre>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="beancount.loader.initialize">
-<code class="highlight language-python">
-beancount.loader.initialize
-(use_cache, cache_filename=None)
+        </details>
+    </div>
 
-        </code>
-<a class="headerlink" href="#beancount.loader.initialize" title="Permanent link"></a></h2>
-<div class="doc doc-contents">
-<p>Initialize the loader.</p>
-<details class="quote">
-<summary>Source code in <code>beancount/loader.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def initialize(use_cache: bool, cache_filename: Optional[str] = None):
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="beancount.loader.initialize" class="doc doc-heading">
+<code class="highlight language-python">beancount.loader.initialize(use_cache, cache_filename=None)</code>
+
+
+<a href="#beancount.loader.initialize" class="headerlink" title="Permanent link"></a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Initialize the loader.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>beancount/loader.py</code></summary>
+          <pre class="highlight"><code class="language-python linenums">def initialize(use_cache: bool, cache_filename: Optional[str] = None):
     """Initialize the loader."""
 
     # Unless an environment variable disables it, use the pickle load cache
@@ -688,66 +784,68 @@ beancount.loader.initialize
         _load_file = delete_cache_function(cache_getter,
                                            _uncached_load_file)
 </code></pre>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="beancount.loader.load_doc">
-<code class="highlight language-python">
-beancount.loader.load_doc
-(expect_errors=False)
+        </details>
+    </div>
 
-        </code>
-<a class="headerlink" href="#beancount.loader.load_doc" title="Permanent link"></a></h2>
-<div class="doc doc-contents">
-<p>A factory of decorators that loads the docstring and calls the function with entries.</p>
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="beancount.loader.load_doc" class="doc doc-heading">
+<code class="highlight language-python">beancount.loader.load_doc(expect_errors=False)</code>
+
+
+<a href="#beancount.loader.load_doc" class="headerlink" title="Permanent link"></a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>A factory of decorators that loads the docstring and calls the function with entries.</p>
 <p>This is an incredibly convenient tool to write lots of tests. Write a
 unittest using the standard TestCase class and put the input entries in the
 function's docstring.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>expect_errors</code></td>
-<td><code></code></td>
-<td>
-<p>A boolean or None, with the following semantics,
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>expect_errors</strong> – A boolean or None, with the following semantics,
 True: Expect errors and fail if there are none.
 False: Expect no errors and fail if there are some.
-None: Do nothing, no check.</p>
-</td>
-<td><code>False</code></td>
-</tr>
-</tbody>
+None: Do nothing, no check.</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code></code></td>
-<td>
-<p>A wrapped method that accepts a single 'self' argument.</p>
-</td>
-</tr>
-</tbody>
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+        <ul class="first simple">
+          <li><p>A wrapped method that accepts a single 'self' argument.</p></li>
+        </ul>
+    </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>beancount/loader.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def load_doc(expect_errors=False):
+        <details class="quote">
+          <summary>Source code in <code>beancount/loader.py</code></summary>
+          <pre class="highlight"><code class="language-python linenums">def load_doc(expect_errors=False):
     """A factory of decorators that loads the docstring and calls the function with entries.
 
     This is an incredibly convenient tool to write lots of tests. Write a
@@ -795,103 +893,70 @@ None: Do nothing, no check.</p>
 
     return decorator
 </code></pre>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="beancount.loader.load_encrypted_file">
-<code class="highlight language-python">
-beancount.loader.load_encrypted_file
-(filename, log_timings=None, log_errors=None, extra_validations=None, dedent=False, encoding=None)
+        </details>
+    </div>
 
-        </code>
-<a class="headerlink" href="#beancount.loader.load_encrypted_file" title="Permanent link"></a></h2>
-<div class="doc doc-contents">
-<p>Load an encrypted Beancount input file.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>filename</code></td>
-<td><code></code></td>
-<td>
-<p>The name of an encrypted file to be parsed.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>log_timings</code></td>
-<td><code></code></td>
-<td>
-<p>See load_string().</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>log_errors</code></td>
-<td><code></code></td>
-<td>
-<p>See load_string().</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>extra_validations</code></td>
-<td><code></code></td>
-<td>
-<p>See load_string().</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>dedent</code></td>
-<td><code></code></td>
-<td>
-<p>See load_string().</p>
-</td>
-<td><code>False</code></td>
-</tr>
-<tr>
-<td><code>encoding</code></td>
-<td><code></code></td>
-<td>
-<p>See load_string().</p>
-</td>
-<td><code>None</code></td>
-</tr>
-</tbody>
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="beancount.loader.load_encrypted_file" class="doc doc-heading">
+<code class="highlight language-python">beancount.loader.load_encrypted_file(filename, log_timings=None, log_errors=None, extra_validations=None, dedent=False, encoding=None)</code>
+
+
+<a href="#beancount.loader.load_encrypted_file" class="headerlink" title="Permanent link"></a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Load an encrypted Beancount input file.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>filename</strong> – The name of an encrypted file to be parsed.</p></li>
+            <li><p><strong>log_timings</strong> – See load_string().</p></li>
+            <li><p><strong>log_errors</strong> – See load_string().</p></li>
+            <li><p><strong>extra_validations</strong> – See load_string().</p></li>
+            <li><p><strong>dedent</strong> – See load_string().</p></li>
+            <li><p><strong>encoding</strong> – See load_string().</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code></code></td>
-<td>
-<p>A triple of (entries, errors, option_map) where "entries" is a date-sorted
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+        <ul class="first simple">
+          <li><p>A triple of (entries, errors, option_map) where "entries" is a date-sorted
 list of entries from the file, "errors" a list of error objects generated
 while parsing and validating the file, and "options_map", a dict of the
-options parsed from the file.</p>
-</td>
-</tr>
-</tbody>
+options parsed from the file.</p></li>
+        </ul>
+    </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>beancount/loader.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def load_encrypted_file(filename, log_timings=None, log_errors=None, extra_validations=None,
+        <details class="quote">
+          <summary>Source code in <code>beancount/loader.py</code></summary>
+          <pre class="highlight"><code class="language-python linenums">def load_encrypted_file(filename, log_timings=None, log_errors=None, extra_validations=None,
                         dedent=False, encoding=None):
     """Load an encrypted Beancount input file.
 
@@ -915,98 +980,72 @@ options parsed from the file.</p>
                        extra_validations=extra_validations,
                        encoding=encoding)
 </code></pre>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="beancount.loader.load_file">
-<code class="highlight language-python">
-beancount.loader.load_file
-(filename, log_timings=None, log_errors=None, extra_validations=None, encoding=None)
+        </details>
+    </div>
 
-        </code>
-<a class="headerlink" href="#beancount.loader.load_file" title="Permanent link"></a></h2>
-<div class="doc doc-contents">
-<p>Open a Beancount input file, parse it, run transformations and validate.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>filename</code></td>
-<td><code></code></td>
-<td>
-<p>The name of the file to be parsed.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>log_timings</code></td>
-<td><code></code></td>
-<td>
-<p>A file object or function to write timings to,
-or None, if it should remain quiet.</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>log_errors</code></td>
-<td><code></code></td>
-<td>
-<p>A file object or function to write errors to,
-or None, if it should remain quiet.</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>extra_validations</code></td>
-<td><code></code></td>
-<td>
-<p>A list of extra validation functions to run after loading
-this list of entries.</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>encoding</code></td>
-<td><code></code></td>
-<td>
-<p>A string or None, the encoding to decode the input filename with.</p>
-</td>
-<td><code>None</code></td>
-</tr>
-</tbody>
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="beancount.loader.load_file" class="doc doc-heading">
+<code class="highlight language-python">beancount.loader.load_file(filename, log_timings=None, log_errors=None, extra_validations=None, encoding=None)</code>
+
+
+<a href="#beancount.loader.load_file" class="headerlink" title="Permanent link"></a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Open a Beancount input file, parse it, run transformations and validate.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>filename</strong> – The name of the file to be parsed.</p></li>
+            <li><p><strong>log_timings</strong> – A file object or function to write timings to,
+or None, if it should remain quiet.</p></li>
+            <li><p><strong>log_errors</strong> – A file object or function to write errors to,
+or None, if it should remain quiet.</p></li>
+            <li><p><strong>extra_validations</strong> – A list of extra validation functions to run after loading
+this list of entries.</p></li>
+            <li><p><strong>encoding</strong> – A string or None, the encoding to decode the input filename with.</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code></code></td>
-<td>
-<p>A triple of (entries, errors, option_map) where "entries" is a date-sorted
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+        <ul class="first simple">
+          <li><p>A triple of (entries, errors, option_map) where "entries" is a date-sorted
 list of entries from the file, "errors" a list of error objects generated
 while parsing and validating the file, and "options_map", a dict of the
-options parsed from the file.</p>
-</td>
-</tr>
-</tbody>
+options parsed from the file.</p></li>
+        </ul>
+    </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>beancount/loader.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def load_file(filename, log_timings=None, log_errors=None, extra_validations=None,
+        <details class="quote">
+          <summary>Source code in <code>beancount/loader.py</code></summary>
+          <pre class="highlight"><code class="language-python linenums">def load_file(filename, log_timings=None, log_errors=None, extra_validations=None,
               encoding=None):
     """Open a Beancount input file, parse it, run transformations and validate.
 
@@ -1042,106 +1081,73 @@ options parsed from the file.</p>
         _log_errors(errors, log_errors)
     return entries, errors, options_map
 </code></pre>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="beancount.loader.load_string">
-<code class="highlight language-python">
-beancount.loader.load_string
-(string, log_timings=None, log_errors=None, extra_validations=None, dedent=False, encoding=None)
+        </details>
+    </div>
 
-        </code>
-<a class="headerlink" href="#beancount.loader.load_string" title="Permanent link"></a></h2>
-<div class="doc doc-contents">
-<p>Open a Beancount input string, parse it, run transformations and validate.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>string</code></td>
-<td><code></code></td>
-<td>
-<p>A Beancount input string.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>log_timings</code></td>
-<td><code></code></td>
-<td>
-<p>A file object or function to write timings to,
-or None, if it should remain quiet.</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>log_errors</code></td>
-<td><code></code></td>
-<td>
-<p>A file object or function to write errors to,
-or None, if it should remain quiet.</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>extra_validations</code></td>
-<td><code></code></td>
-<td>
-<p>A list of extra validation functions to run after loading
-this list of entries.</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>dedent</code></td>
-<td><code></code></td>
-<td>
-<p>A boolean, if set, remove the whitespace in front of the lines.</p>
-</td>
-<td><code>False</code></td>
-</tr>
-<tr>
-<td><code>encoding</code></td>
-<td><code></code></td>
-<td>
-<p>A string or None, the encoding to decode the input string with.</p>
-</td>
-<td><code>None</code></td>
-</tr>
-</tbody>
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="beancount.loader.load_string" class="doc doc-heading">
+<code class="highlight language-python">beancount.loader.load_string(string, log_timings=None, log_errors=None, extra_validations=None, dedent=False, encoding=None)</code>
+
+
+<a href="#beancount.loader.load_string" class="headerlink" title="Permanent link"></a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Open a Beancount input string, parse it, run transformations and validate.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>string</strong> – A Beancount input string.</p></li>
+            <li><p><strong>log_timings</strong> – A file object or function to write timings to,
+or None, if it should remain quiet.</p></li>
+            <li><p><strong>log_errors</strong> – A file object or function to write errors to,
+or None, if it should remain quiet.</p></li>
+            <li><p><strong>extra_validations</strong> – A list of extra validation functions to run after loading
+this list of entries.</p></li>
+            <li><p><strong>dedent</strong> – A boolean, if set, remove the whitespace in front of the lines.</p></li>
+            <li><p><strong>encoding</strong> – A string or None, the encoding to decode the input string with.</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code></code></td>
-<td>
-<p>A triple of (entries, errors, option_map) where "entries" is a date-sorted
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+        <ul class="first simple">
+          <li><p>A triple of (entries, errors, option_map) where "entries" is a date-sorted
 list of entries from the string, "errors" a list of error objects
 generated while parsing and validating the string, and "options_map", a
-dict of the options parsed from the string.</p>
-</td>
-</tr>
-</tbody>
+dict of the options parsed from the string.</p></li>
+        </ul>
+    </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>beancount/loader.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def load_string(string, log_timings=None, log_errors=None, extra_validations=None,
+        <details class="quote">
+          <summary>Source code in <code>beancount/loader.py</code></summary>
+          <pre class="highlight"><code class="language-python linenums">def load_string(string, log_timings=None, log_errors=None, extra_validations=None,
                 dedent=False, encoding=None):
 
     """Open a Beancount input string, parse it, run transformations and validate.
@@ -1169,68 +1175,63 @@ dict of the options parsed from the string.</p>
     _log_errors(errors, log_errors)
     return entries, errors, options_map
 </code></pre>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="beancount.loader.needs_refresh">
-<code class="highlight language-python">
-beancount.loader.needs_refresh
-(options_map)
+        </details>
+    </div>
 
-        </code>
-<a class="headerlink" href="#beancount.loader.needs_refresh" title="Permanent link"></a></h2>
-<div class="doc doc-contents">
-<p>Predicate that returns true if at least one of the input files may have changed.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>options_map</code></td>
-<td><code></code></td>
-<td>
-<p>An options dict as per the parser.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>mtime</code></td>
-<td><code></code></td>
-<td>
-<p>A modified time, to check if it covers the include files in the options_map.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="beancount.loader.needs_refresh" class="doc doc-heading">
+<code class="highlight language-python">beancount.loader.needs_refresh(options_map)</code>
+
+
+<a href="#beancount.loader.needs_refresh" class="headerlink" title="Permanent link"></a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Predicate that returns true if at least one of the input files may have changed.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>options_map</strong> – An options dict as per the parser.</p></li>
+            <li><p><strong>mtime</strong> – A modified time, to check if it covers the include files in the options_map.</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code></code></td>
-<td>
-<p>A boolean, true if the input is obsoleted by changes in the input files.</p>
-</td>
-</tr>
-</tbody>
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+        <ul class="first simple">
+          <li><p>A boolean, true if the input is obsoleted by changes in the input files.</p></li>
+        </ul>
+    </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>beancount/loader.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def needs_refresh(options_map):
+        <details class="quote">
+          <summary>Source code in <code>beancount/loader.py</code></summary>
+          <pre class="highlight"><code class="language-python linenums">def needs_refresh(options_map):
     """Predicate that returns true if at least one of the input files may have changed.
 
     Args:
@@ -1244,85 +1245,73 @@ beancount.loader.needs_refresh
     input_hash = compute_input_hash(options_map['include'])
     return 'input_hash' not in options_map or input_hash != options_map['input_hash']
 </code></pre>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="beancount.loader.pickle_cache_function">
-<code class="highlight language-python">
-beancount.loader.pickle_cache_function
-(cache_getter, time_threshold, function)
+        </details>
+    </div>
 
-        </code>
-<a class="headerlink" href="#beancount.loader.pickle_cache_function" title="Permanent link"></a></h2>
-<div class="doc doc-contents">
-<p>Decorate a loader function to make it loads its result from a pickle cache.</p>
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="beancount.loader.pickle_cache_function" class="doc doc-heading">
+<code class="highlight language-python">beancount.loader.pickle_cache_function(cache_getter, time_threshold, function)</code>
+
+
+<a href="#beancount.loader.pickle_cache_function" class="headerlink" title="Permanent link"></a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Decorate a loader function to make it loads its result from a pickle cache.</p>
 <p>This considers the first argument as a top-level filename and assumes the
 function to be cached returns an (entries, errors, options_map) triple. We
 use the 'include' option value in order to check whether any of the included
 files has changed. It's essentially a special case for an on-disk memoizer.
 If any of the included files are more recent than the cache, the function is
 recomputed and the cache refreshed.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>cache_getter</code></td>
-<td><code></code></td>
-<td>
-<p>A function of one argument, the top-level filename, which
-will return the name of the corresponding cache file.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>time_threshold</code></td>
-<td><code></code></td>
-<td>
-<p>A float, the number of seconds below which we don't bother
-caching.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>function</code></td>
-<td><code></code></td>
-<td>
-<p>A function object to decorate for caching.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>cache_getter</strong> – A function of one argument, the top-level filename, which
+will return the name of the corresponding cache file.</p></li>
+            <li><p><strong>time_threshold</strong> – A float, the number of seconds below which we don't bother
+caching.</p></li>
+            <li><p><strong>function</strong> – A function object to decorate for caching.</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code></code></td>
-<td>
-<p>A decorated function which will pull its result from a cache file if
-it is available.</p>
-</td>
-</tr>
-</tbody>
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+        <ul class="first simple">
+          <li><p>A decorated function which will pull its result from a cache file if
+it is available.</p></li>
+        </ul>
+    </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>beancount/loader.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def pickle_cache_function(cache_getter, time_threshold, function):
+        <details class="quote">
+          <summary>Source code in <code>beancount/loader.py</code></summary>
+          <pre class="highlight"><code class="language-python linenums">def pickle_cache_function(cache_getter, time_threshold, function):
     """Decorate a loader function to make it loads its result from a pickle cache.
 
     This considers the first argument as a top-level filename and assumes the
@@ -1397,86 +1386,67 @@ it is available.</p>
         return result
     return wrapped
 </code></pre>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="beancount.loader.run_transformations">
-<code class="highlight language-python">
-beancount.loader.run_transformations
-(entries, parse_errors, options_map, log_timings)
+        </details>
+    </div>
 
-        </code>
-<a class="headerlink" href="#beancount.loader.run_transformations" title="Permanent link"></a></h2>
-<div class="doc doc-contents">
-<p>Run the various transformations on the entries.</p>
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="beancount.loader.run_transformations" class="doc doc-heading">
+<code class="highlight language-python">beancount.loader.run_transformations(entries, parse_errors, options_map, log_timings)</code>
+
+
+<a href="#beancount.loader.run_transformations" class="headerlink" title="Permanent link"></a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Run the various transformations on the entries.</p>
 <p>This is where entries are being synthesized, checked, plugins are run, etc.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>entries</code></td>
-<td><code></code></td>
-<td>
-<p>A list of directives as read from the parser.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>parse_errors</code></td>
-<td><code></code></td>
-<td>
-<p>A list of errors so far.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>options_map</code></td>
-<td><code></code></td>
-<td>
-<p>An options dict as read from the parser.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>log_timings</code></td>
-<td><code></code></td>
-<td>
-<p>A function to write timing log entries to, or None, if it
-should be quiet.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>entries</strong> – A list of directives as read from the parser.</p></li>
+            <li><p><strong>parse_errors</strong> – A list of errors so far.</p></li>
+            <li><p><strong>options_map</strong> – An options dict as read from the parser.</p></li>
+            <li><p><strong>log_timings</strong> – A function to write timing log entries to, or None, if it
+should be quiet.</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code></code></td>
-<td>
-<p>A list of modified entries, and a list of errors, also possibly modified.</p>
-</td>
-</tr>
-</tbody>
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+        <ul class="first simple">
+          <li><p>A list of modified entries, and a list of errors, also possibly modified.</p></li>
+        </ul>
+    </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>beancount/loader.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def run_transformations(entries, parse_errors, options_map, log_timings):
+        <details class="quote">
+          <summary>Source code in <code>beancount/loader.py</code></summary>
+          <pre class="highlight"><code class="language-python linenums">def run_transformations(entries, parse_errors, options_map, log_timings):
     """Run the various transformations on the entries.
 
     This is where entries are being synthesized, checked, plugins are run, etc.
@@ -1550,45 +1520,77 @@ should be quiet.</p>
 
     return entries, errors
 </code></pre>
-</details>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<footer>
-<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
-<a class="btn btn-neutral float-right" href="beancount.ops.html" title="beancount.ops">Next <span class="icon icon-circle-arrow-right"></span></a>
-<a class="btn btn-neutral" href="beancount.ingest.html" title="beancount.ingest"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-</div>
-<hr/>
-<div role="contentinfo">
-<!-- Copyright etc -->
-</div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="beancount.ops.html" class="btn btn-neutral float-right" title="beancount.ops">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="beancount.ingest.html" class="btn btn-neutral" title="beancount.ingest"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
 
   Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/beancount/docs/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="beancount.ingest.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="beancount.ops.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
-</div>
-</section>
-</div>
-<div aria-label="versions" class="rst-versions" role="note">
-<span class="rst-current-version" data-toggle="rst-current-version">
-<a class="fa fa-github" href="https://github.com/beancount/docs/" style="float: left; color: #fcfcfc"> GitHub</a>
-<span><a href="beancount.ingest.html" style="color: #fcfcfc;">« Previous</a></span>
-<span style="margin-left: 15px"><a href="beancount.ops.html" style="color: #fcfcfc">Next »</a></span>
-</span>
-</div>
-<script>var base_url = '..';</script>
-<script defer="" src="../js/theme.js"></script>
-<script defer="" src="../js/extra.js"></script>
-<script defer="" src="../search/main.js"></script>
-<script defer="">
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);
         };
     </script>
+
 </body>
 </html>

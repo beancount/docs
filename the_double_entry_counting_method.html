@@ -1,243 +1,273 @@
 <!DOCTYPE html>
-
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
-<meta charset="utf-8"/>
-<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link href="https://beancount.github.io/docs/the_double_entry_counting_method.html" rel="canonical"/>
-<link href="img/favicon.ico" rel="shortcut icon"/>
-<title>The Double Entry Counting Method - Beancount Documentation</title>
-<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
-<link href="css/theme.css" rel="stylesheet">
-<link href="css/theme_extra.css" rel="stylesheet"/>
-<link href="css/custom.css" rel="stylesheet"/>
-<script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="https://beancount.github.io/docs/the_double_entry_counting_method.html">
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>The Double Entry Counting Method - Beancount Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/theme_extra.css" />
+  <link href="assets/_mkdocstrings.css" rel="stylesheet" />
+  <link href="css/custom.css" rel="stylesheet" />
+  
+  <script>
     // Current page data
     var mkdocs_page_name = "The Double Entry Counting Method";
     var mkdocs_page_input_path = "the_double_entry_counting_method.md";
     var mkdocs_page_url = "/docs/the_double_entry_counting_method.html";
   </script>
-<script defer="" src="js/jquery-2.1.1.min.js"></script>
-<script defer="" src="js/modernizr-2.8.3.min.js"></script>
-</link></link></head>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script> 
+</head>
+
 <body class="wy-body-for-nav" role="document">
-<div class="wy-grid-for-nav">
-<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
-<div class="wy-side-scroll">
-<div class="wy-side-nav-search">
-<a class="icon icon-home" href="."> Beancount Documentation</a>
-<div role="search">
-<form action="./search.html" class="wy-form" id="rtd-search-form" method="get">
-<input name="q" placeholder="Search docs" title="Type search term here" type="text"/>
-</form>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="icon icon-home"> Beancount Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
 </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="index.html">Index</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Outline</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Documentation for Users</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="command_line_accounting_in_context.html">Command Line Accounting in Context</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="the_double_entry_counting_method.html">The Double Entry Counting Method</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basics-of-double-entry-bookkeeping">Basics of Double-Entry Bookkeeping</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#statements">Statements</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#single-entry-bookkeeping">Single-Entry Bookkeeping</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#double-entry-bookkeeping">Double-Entry Bookkeeping</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#many-accounts">Many Accounts</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#multiple-postings">Multiple Postings</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#types-of-accounts">Types of Accounts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#trial-balance">Trial Balance</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#income-statement">Income Statement</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#clearing-income">Clearing Income</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#equity">Equity</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#balance-sheet">Balance Sheet</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summarizing">Summarizing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#period-reporting">Period Reporting</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#chart-of-accounts">Chart of Accounts</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#country-institution-convention">Country-Institution Convention</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#credits-debits">Credits &amp; Debits</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#accounting-equations">Accounting Equations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#plain-text-accounting">Plain-Text Accounting</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-table-perspective">The Table Perspective</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="installing_beancount.html">Installing Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="getting_started_with_beancount.html">Getting Started with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_language_syntax.html">Beancount Language Syntax</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_options_reference.html">Beancount Options Reference</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="precision_tolerances.html">Precision Tolerances</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_query_language.html">Beancount Query Language</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="how_inventories_work.html">How Inventories Work</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="exporting_your_portfolio.html">Exporting Your Portfolio</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="tutorial_example.html">Tutorial & Example</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_history_and_credits.html">Beancount History and Credits</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="importing_external_data.html">Importing External Data</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Cookbooks & Examples</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="trading_with_beancount.html">Trading with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="how_we_share_expenses.html">How We Share Expenses</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="health_care_expenses.html">Health Care Expenses</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="calculating_portolio_returns.html">Calculating Portfolio Returns</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Documentation for Developers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_design_doc.html">Beancount Design Doc</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="external_contributions.html">External Contributions</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Enhancement Proposals & Discussions</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Beancount 3</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_v3.html">Goals & Design</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="installing_beancount_v3.html">Installing Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_v3_dependencies.html">Dependencies</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">API reference</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/index.html">beancount</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.core.html">beancount.core</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ingest.html">beancount.ingest</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.loader.html">beancount.loader</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ops.html">beancount.ops</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.parser.html">beancount.parser</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.plugins.html">beancount.plugins</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.prices.html">beancount.prices</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.query.html">beancount.query</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.reports.html">beancount.reports</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.scripts.html">beancount.scripts</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.tools.html">beancount.tools</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.utils.html">beancount.utils</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.web.html">beancount.web</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Beancount Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Outline &raquo;</li>
+        
+      
+        
+          <li>Documentation for Users &raquo;</li>
+        
+      
+    
+    <li>The Double Entry Counting Method</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/beancount/docs/edit/master/docs/the_double_entry_counting_method.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
 </div>
-<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="index.html">Index</a>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Outline</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal current" href="#">Documentation for Users</a>
-<ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="command_line_accounting_in_context.html">Command Line Accounting in Context</a>
-</li>
-<li class="toctree-l2 current"><a class="reference internal current" href="the_double_entry_counting_method.html">The Double Entry Counting Method</a>
-<ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#basics-of-double-entry-bookkeeping">Basics of Double-Entry Bookkeeping</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#statements">Statements</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#single-entry-bookkeeping">Single-Entry Bookkeeping</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#double-entry-bookkeeping">Double-Entry Bookkeeping</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#many-accounts">Many Accounts</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#multiple-postings">Multiple Postings</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#types-of-accounts">Types of Accounts</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#trial-balance">Trial Balance</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#income-statement">Income Statement</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#clearing-income">Clearing Income</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#equity">Equity</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#balance-sheet">Balance Sheet</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#summarizing">Summarizing</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#period-reporting">Period Reporting</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#chart-of-accounts">Chart of Accounts</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#country-institution-convention">Country-Institution Convention</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#credits-debits">Credits &amp; Debits</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#accounting-equations">Accounting Equations</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#plain-text-accounting">Plain-Text Accounting</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#the-table-perspective">The Table Perspective</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="installing_beancount.html">Installing Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started_with_beancount.html">Getting Started with Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_language_syntax.html">Beancount Language Syntax</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_options_reference.html">Beancount Options Reference</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="precision_tolerances.html">Precision Tolerances</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_query_language.html">Beancount Query Language</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="how_inventories_work.html">How Inventories Work</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="exporting_your_portfolio.html">Exporting Your Portfolio</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial_example.html">Tutorial &amp; Example</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_history_and_credits.html">Beancount History and Credits</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="importing_external_data.html">Importing External Data</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#">Cookbooks &amp; Examples</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="trading_with_beancount.html">Trading with Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="how_we_share_expenses.html">How We Share Expenses</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="health_care_expenses.html">Health Care Expenses</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="calculating_portolio_returns.html">Calculating Portfolio Returns</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#">Documentation for Developers</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_design_doc.html">Beancount Design Doc</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="external_contributions.html">External Contributions</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#">Enhancement Proposals &amp; Discussions</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#">Beancount 3</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="beancount_v3.html">Goals &amp; Design</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="installing_beancount_v3.html">Installing Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_v3_dependencies.html">Dependencies</a>
-</li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">API reference</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/index.html">beancount</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.core.html">beancount.core</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ingest.html">beancount.ingest</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.loader.html">beancount.loader</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ops.html">beancount.ops</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.parser.html">beancount.parser</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.plugins.html">beancount.plugins</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.prices.html">beancount.prices</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.query.html">beancount.query</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.reports.html">beancount.reports</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.scripts.html">beancount.scripts</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.tools.html">beancount.tools</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.utils.html">beancount.utils</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.web.html">beancount.web</a>
-</li>
-</ul>
-</div>
-</div>
-</nav>
-<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
-<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
-<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
-<a href=".">Beancount Documentation</a>
-</nav>
-<div class="wy-nav-content">
-<div class="rst-content">
-<div aria-label="breadcrumbs navigation" role="navigation">
-<ul class="wy-breadcrumbs">
-<li><a href=".">Docs</a> »</li>
-<li>Documentation for Users »</li>
-<li>Outline »</li>
-<li>The Double Entry Counting Method</li>
-<li class="wy-breadcrumbs-aside">
-<a class="icon icon-github" href="https://github.com/beancount/docs/edit/master/docs/the_double_entry_counting_method.md"> Edit on GitHub</a>
-</li>
-</ul>
-<hr/>
-</div>
-<div role="main">
-<div class="section">
-<h1 id="the-double-entry-counting-method">The Double-Entry Counting Method<a id="title"></a><a class="headerlink" href="#the-double-entry-counting-method" title="Permanent link"></a></h1>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="the-double-entry-counting-method">The Double-Entry Counting Method<a id="title"></a><a class="headerlink" href="#the-double-entry-counting-method" title="Permanent link"></a></h1>
 <p>Martin Blais, December 2016</p>
 <p><a href="http://furius.ca/beancount/doc/double-entry"><span class="underline">http://furius.ca/beancount/doc/double-entry</span></a></p>
 <p><a href="#introduction"><span class="underline">Introduction</span></a></p>
@@ -272,61 +302,63 @@
 <h2 id="basics-of-double-entry-bookkeeping">Basics of Double-Entry Bookkeeping<a id="basics-of-double-entry-bookkeeping"></a><a class="headerlink" href="#basics-of-double-entry-bookkeeping" title="Permanent link"></a></h2>
 <p>The double-entry system is just a simple <em>method of counting</em>, with some simple rules.</p>
 <p>Let’s begin by defining the notion of an <strong>account</strong>. An account is something that can contain things, like a bag. It is used to count things, to accumulate things. Let’s draw a horizontal arrow to visually represent the evolving contents of an account over time:</p>
-<p><img src="the_double_entry_counting_method/media/2f37aa3938d599d4783ca9b74965026fba0a3b50.png" style="width:6.23611in;height:0.11111in"/></p>
+<p><img src="the_double_entry_counting_method/media/2f37aa3938d599d4783ca9b74965026fba0a3b50.png" style="width:6.23611in;height:0.11111in" /></p>
 <p>On the left, we have the past, and to the right, increasing time: the present, the future, etc.</p>
 <p>For now, let’s assume that accounts can contain only one kind of thing, for example, <em>dollars</em>. All accounts begin with an empty content of zero dollars. We will call the number of units in the account the <strong>balance</strong> of an account. Note that it represents its contents at a particular point in time. I will draw the balance using a number above the account’s timeline:</p>
-<p><img src="the_double_entry_counting_method/media/54633827be99c315dc937778221752b848411ca9.png" style="width:6.23611in;height:0.56944in"/></p>
+<p><img src="the_double_entry_counting_method/media/54633827be99c315dc937778221752b848411ca9.png" style="width:6.23611in;height:0.56944in" /></p>
 <p>The contents of accounts can change over time. In order to change the content of an account, we have to add something to it. We will call this addition a <strong>posting</strong> to an account, and I will draw this change as a circled number on the account’s timeline, for example, adding $100 to the account:</p>
-<p><img src="the_double_entry_counting_method/media/004bc3354eb84bf554a8e5080a21f8d16fc29d82.png" style="width:6.23611in;height:0.77778in"/></p>
+<p><img src="the_double_entry_counting_method/media/004bc3354eb84bf554a8e5080a21f8d16fc29d82.png" style="width:6.23611in;height:0.77778in" /></p>
 <p>Now, we can draw the updated balance of the account after the posting with another little number right after it:</p>
-<p><img src="the_double_entry_counting_method/media/6281f96c3465982c6bf48fccb302b40f90890311.png" style="width:6.23611in;height:0.77778in"/></p>
+<p><img src="the_double_entry_counting_method/media/6281f96c3465982c6bf48fccb302b40f90890311.png" style="width:6.23611in;height:0.77778in" /></p>
 <p>The account’s balance, after adding $100, is now $100.</p>
 <p>We can also remove from the contents of an account. For example, we could remove $25, and the resulting account balance is now $75:</p>
-<p><img src="the_double_entry_counting_method/media/1672e121ec80f8fcdb158bb497e05e6dc809dee5.png" style="width:6.23611in;height:0.77778in"/></p>
+<p><img src="the_double_entry_counting_method/media/1672e121ec80f8fcdb158bb497e05e6dc809dee5.png" style="width:6.23611in;height:0.77778in" /></p>
 <p>Account balances can also become <em>negative</em>, if we remove more dollars than there are in the account. For example, if we remove $200 from this account, the balance now becomes $-125:</p>
-<p><img src="the_double_entry_counting_method/media/862c0b57a35631a52eead2cf8cdd7b5f2a1aa106.png" style="width:6.23611in;height:0.77778in"/></p>
+<p><img src="the_double_entry_counting_method/media/862c0b57a35631a52eead2cf8cdd7b5f2a1aa106.png" style="width:6.23611in;height:0.77778in" /></p>
 <p>It’s perfectly fine for accounts to contain a negative balance number. Remember that all we’re doing is counting things. As we will see shortly, some accounts will remain with a negative balance for most of their timeline.</p>
 <h3 id="statements">Statements<a id="statements"></a><a class="headerlink" href="#statements" title="Permanent link"></a></h3>
 <p>Something worthy of notice is how the timeline notation I’ve written in the previous section is analogous to paper account statements institutions maintain for each client and which you typically receive through the mail:</p>
 <table><thead><tr class="header"><th><em><strong>Date</strong></em></th><th><em><strong>Description</strong></em></th><th><em><strong>Amount</strong></em></th><th><em><strong>Balance</strong></em></th></tr></thead><tbody><tr class="odd"><td>2016-10-02</td><td>...</td><td>100.00</td><td>1100.00</td></tr><tr class="even"><td>2016-10-05</td><td>...</td><td>-25.00</td><td>1075.00</td></tr><tr class="odd"><td>2016-10-06</td><td>...</td><td>-200.00</td><td>875.00</td></tr><tr class="even"><td><em><strong>Final Balance</strong></em></td><td>875.00</td><td></td><td></td></tr></tbody></table>
+
 <p>Sometimes the amount column is split into two, one showing the positive amounts and the other the negative ones:</p>
 <table><thead><tr class="header"><th><em><strong>Date</strong></em></th><th><em><strong>Description</strong></em></th><th><em><strong>Debit</strong></em></th><th><em><strong>Credit</strong></em></th><th><em><strong>Balance</strong></em></th></tr></thead><tbody><tr class="odd"><td>2016-10-02</td><td>...</td><td></td><td>100.00</td><td>1100.00</td></tr><tr class="even"><td>2016-10-05</td><td>...</td><td>25.00</td><td></td><td>1075.00</td></tr><tr class="odd"><td>2016-10-06</td><td>...</td><td>200.00</td><td></td><td>875.00</td></tr><tr class="even"><td><em><strong>Final Balance</strong></em></td><td>875.00</td><td></td><td></td><td></td></tr></tbody></table>
+
 <p>Here, “debit” means “removed from your account” and “credit” means “deposited in your account.” Sometimes the words “withdrawals” and “deposits” will be used. It all depends on context: for checking and savings accounts it is usual to have both types of postings, but for a credit card account typically it shows only positive numbers and then the occasional monthly payment so the single column format is used.</p>
 <p>In any case, the “balance” column always shows the resulting balance <em>after</em> the amount has been posted to the account. And sometimes the statements are rendered in decreasing order of time.</p>
 <h3 id="single-entry-bookkeeping">Single-Entry Bookkeeping<a id="single-entry-bookkeeping"></a><a class="headerlink" href="#single-entry-bookkeeping" title="Permanent link"></a></h3>
 <p>In this story, this account belongs to someone. We’ll call this person the <strong>owner</strong> of the account. The account can be used to represent a real world account, for example, imagine that we use it to represent the content of the owner’s checking account at a bank. So we’re going to label the account by giving it a name, in this case “Checking”:</p>
-<p><img src="the_double_entry_counting_method/media/a4ac6f0f3d2cf7df150fd501f0ab9a5942f79a80.png" style="width:6.23611in;height:0.98611in"/></p>
+<p><img src="the_double_entry_counting_method/media/a4ac6f0f3d2cf7df150fd501f0ab9a5942f79a80.png" style="width:6.23611in;height:0.98611in" /></p>
 <p>Imagine that at some point, this account has a balance of $1000, like I’ve drawn on the picture. Now, if the owner spends $79 of this account, we would represent it like this:</p>
-<p><img src="the_double_entry_counting_method/media/75337406afb5f23c23733fd25be8683ae151b410.png" style="width:6.23611in;height:0.98611in"/></p>
+<p><img src="the_double_entry_counting_method/media/75337406afb5f23c23733fd25be8683ae151b410.png" style="width:6.23611in;height:0.98611in" /></p>
 <p>Furthermore, if the expense was for a meal at a restaurant, we could flag the posting with a <strong>category</strong> to indicate what the change was used for. Let’s say, “Restaurant”, like this:</p>
-<p><img src="the_double_entry_counting_method/media/d7f6ec08cb13d409752000bb42495399abc85848.png" style="width:6.23611in;height:1.81944in"/></p>
+<p><img src="the_double_entry_counting_method/media/d7f6ec08cb13d409752000bb42495399abc85848.png" style="width:6.23611in;height:1.81944in" /></p>
 <p>Now, if we have a lot of these, we could write a computer program to accumulate all the changes for each category and calculate the sums for each of them. That would tell us how much we spent in restaurants in total, for example. This is called the <strong>single-entry method</strong> of accounting.</p>
 <p>But we’re not going to do it this way; we have a better way. Bear with me for a few more sections.</p>
 <h3 id="double-entry-bookkeeping">Double-Entry Bookkeeping<a id="double-entry-bookkeeping"></a><a class="headerlink" href="#double-entry-bookkeeping" title="Permanent link"></a></h3>
 <p>An owner may have multiple accounts. I will represent this by drawing many similar account timelines on the same graphic. As before, these are labeled with unique names. Let’s assume that the owner has the same “Checking” account as previously, but now also a <strong>“</strong>Restaurant<strong>”</strong> account as well, which can be used to accumulate all food expenses at restaurants. It looks like this:</p>
-<p><img src="the_double_entry_counting_method/media/3088280515ab5b6da599edd5a1b2ca30100f2b0b.png" style="width:6.23611in;height:2.01389in"/></p>
+<p><img src="the_double_entry_counting_method/media/3088280515ab5b6da599edd5a1b2ca30100f2b0b.png" style="width:6.23611in;height:2.01389in" /></p>
 <p>Now, instead of <em>categorizing</em> the posting to a “restaurant category” as we did previously, we could create a matching posting on the “Restaurant” account to record how much we spent for food, with the amount spent ($79):</p>
-<p><img src="the_double_entry_counting_method/media/2801d8aff3ccd91dcd584f58a5bcabbb57fb19d4.png" style="width:6.23611in;height:2.01389in"/></p>
+<p><img src="the_double_entry_counting_method/media/2801d8aff3ccd91dcd584f58a5bcabbb57fb19d4.png" style="width:6.23611in;height:2.01389in" /></p>
 <p>The “Restaurant” account, like all other accounts, also has an accumulated balance, so we can find out how much we spent in “Restaurant” in total. This is entirely symmetrical to counting changes in a checking account.</p>
 <p>Now, we can associate the two postings together, by creating a kind of “parent” box that refers to both of them. We will call this object a <strong>transaction</strong>:</p>
-<p><img src="the_double_entry_counting_method/media/18524adffedac5e812eb65dcbb179b66b0ae9e53.png" style="width:6.23611in;height:2.69444in"/></p>
+<p><img src="the_double_entry_counting_method/media/18524adffedac5e812eb65dcbb179b66b0ae9e53.png" style="width:6.23611in;height:2.69444in" /></p>
 <p>Notice here that we’ve also associated a description to this transaction: “Dinner at Uncle Boons”. A transaction also has a <strong>date</strong>, and all of its postings are recorded to occur on that date. We call this the transaction date.</p>
 <p>We can now introduce the fundamental rule of double-entry bookkeeping system:</p>
 <pre><code>The sum of all the postings of a transaction must equal zero.
 </code></pre>
 <p>Remember this, as this is the foundation of the double-entry method, and its most important characteristic. It has important consequences which I will discuss later in this document.</p>
 <p>In our example, we remove $79 from the “Checking” account and “give it” to the “Restaurant” account. ($79) + ($-79) = $0. To emphasize this, I could draw a little summation line under the postings of the transaction, like this:</p>
-<p><img src="the_double_entry_counting_method/media/a56ad72219b0d8a6c90c692655d1b24459add2d6.png" style="width:2.18055in;height:2.5in"/></p>
+<p><img src="the_double_entry_counting_method/media/a56ad72219b0d8a6c90c692655d1b24459add2d6.png" style="width:2.18055in;height:2.5in" /></p>
 <h3 id="many-accounts">Many Accounts<a id="many-accounts"></a><a class="headerlink" href="#many-accounts" title="Permanent link"></a></h3>
 <p>There may be many such transactions, over many different accounts. For example, if the owner of the accounts had a lunch the next day which she paid using a credit card, it could be represented by creating a “Credit Card” account dedicated to tracking the real world credit card balance, and with a corresponding transaction:</p>
-<p><img src="the_double_entry_counting_method/media/458909db06c7f38f7896205f67d60397b292e7d9.png" style="width:7.45833in;height:3.47222in"/></p>
+<p><img src="the_double_entry_counting_method/media/458909db06c7f38f7896205f67d60397b292e7d9.png" style="width:7.45833in;height:3.47222in" /></p>
 <p>In this example, the owner spent $35 at a restaurant called “Eataly.” The previous balance of the owner’s credit card was $-450; after the expense, the new balance is $-485.</p>
 <p>For each real world account, the owner can create a bookkeeping account like we did. Also, for each category of expenditure, the owner also creates a bookkeeping account. In this system, there are no limits to how many accounts can be created.</p>
 <p>Note that the balance in the example is a negative number; this is not an error. Balances for credit card accounts are normally negative: they represent an amount <em>you owe</em>, that the bank is lending you <em>on credit</em>. When your credit card company keeps track of your expenses, they write out your statement from their perspective, as positive numbers. For you, those are amounts you need to eventually pay. But here, in our accounting system, we’re representing numbers from the owner’s point-of-view, and from her perspective, this is money she owes, not something she has. What we have is a meal sitting in our stomach (a positive number of $ of “Restaurant”).</p>
 <h3 id="multiple-postings">Multiple Postings<a id="multiple-postings"></a><a class="headerlink" href="#multiple-postings" title="Permanent link"></a></h3>
 <p>Finally, transactions may have more than two postings; in fact, they may have any number of postings. The only thing that matters is that the sum of their amounts is zero (from the rule of double-entry bookkeeping above).</p>
 <p>For example, let’s look at what would happen if the owner gets her salary paid for December:</p>
-<p><img src="the_double_entry_counting_method/media/19e2cc49a057dfeea1cf5254610eab4c9a124488.png" style="width:8.22222in;height:5.05556in"/></p>
+<p><img src="the_double_entry_counting_method/media/19e2cc49a057dfeea1cf5254610eab4c9a124488.png" style="width:8.22222in;height:5.05556in" /></p>
 <p>Her gross salary received in this example is recorded as $-2,905 (I’ll explain the sign in a moment). $905 is set aside for taxes. Her “net” salary of $2,000, the remainder, is deposited in her “Checking” account and the resulting balance of that account is $2,921 (the previous balance of $921 + $2,000 = $2,921). This transaction has three postings: (+2,000) + (-2,905) + (+905) = 0. The double-entry rule is respected.</p>
 <p>Now, you may ask: Why is her salary recorded as a negative number? The reasoning here is similar to that of the credit card above, though perhaps a bit more subtle. These accounts exist to track all the amounts from the owner’s point-of-view. The owner gives out work, and receives money and taxes in exchange for it (positive amounts). The work given away is denominated in dollar units. It “leaves” the owner (imagine that the owner has <em>potential work</em> stored in her pocket and as she goes into work every day sprinkles that work potential giving it to the company). The owner <em>gave</em> $2,905’s worth of work away. We want to track how much work was given, and it’s done with the “Salary” account. That’s her gross salary.</p>
 <p>Note also that we’ve simplified this paycheck transaction a bit, for the sake of keeping things simple. A more realistic recording of one’s pay stub would have many more accounts; we would separately account for state and federal tax amounts, as well as social security and medicare payments, deductions, insurance paid through work, and vacation time accrued during the period. But it wouldn’t be much more complicated: the owner would simply translate all the amounts available from her pay stub into a single transaction with more postings. The structure remains similar.</p>
@@ -352,9 +384,10 @@
 </li>
 </ul>
 <p>This situation is summarized in the following table:</p>
-<table><thead><tr class="header"><th></th><th>Balance: Positive (+)</th><th>Balance: Negative (-)</th></tr></thead><tbody><tr class="odd"><td><p>Balance matters<br/>
-<strong>at a point</strong> in time</p><p>(Balance Sheet)</p></td><td><strong>Assets</strong></td><td><strong>Liabilities</strong></td></tr><tr class="even"><td><p><strong>Change</strong> in balance matters<br/>
+<table><thead><tr class="header"><th></th><th>Balance: Positive (+)</th><th>Balance: Negative (-)</th></tr></thead><tbody><tr class="odd"><td><p>Balance matters<br />
+<strong>at a point</strong> in time</p><p>(Balance Sheet)</p></td><td><strong>Assets</strong></td><td><strong>Liabilities</strong></td></tr><tr class="even"><td><p><strong>Change</strong> in balance matters<br />
 <strong>over a period</strong> of time</p><p>(Income Statement)</p></td><td><strong>Expenses</strong></td><td><strong>Income</strong></td></tr></tbody></table>
+
 <p>Let’s discuss each type of account and provide some examples, so that it doesn’t remain too abstract.</p>
 <ul>
 <li>
@@ -373,27 +406,27 @@
 <p>In Beancount, all account names, without exception, must be associated to one of the types of accounts described previously. Since the type of an account never changes during its lifetime, we will make its type a part of an account’s name, as a <em>prefix</em>, by convention. For example, the qualified account name for restaurant will be “Expenses:Restaurant”. For the bank checking account, the qualified account name will be “Assets:Checking”.</p>
 <p>Other than that, you can select any name you like for your accounts. You can create as many accounts as you like, and as we will see later, you can organize them in a hierarchy. As of the writing of this document, I’m using more than 700 accounts to track my personal affairs.</p>
 <p>Let us now revisit our example and add some more accounts:</p>
-<p><img src="the_double_entry_counting_method/media/281c7a6ed22a8168fc1094a1faa61f2b0fdd7ca3.png" style="width:5.5in;height:2.03125in"/></p>
+<p><img src="the_double_entry_counting_method/media/281c7a6ed22a8168fc1094a1faa61f2b0fdd7ca3.png" style="width:5.5in;height:2.03125in" /></p>
 <p>And let’s imagine there are more transactions:</p>
-<p><img src="the_double_entry_counting_method/media/e3008a34f9ce7a224e33d4cbb79bcebbb08d418e.png" style="width:6.5in;height:2.76389in"/></p>
+<p><img src="the_double_entry_counting_method/media/e3008a34f9ce7a224e33d4cbb79bcebbb08d418e.png" style="width:6.5in;height:2.76389in" /></p>
 <p>… and even more of them:</p>
-<p><img src="the_double_entry_counting_method/media/18b769f7a3cdf7fd67a983d3a39325b563d8d346.png" style="width:6.5in;height:2.98611in"/></p>
+<p><img src="the_double_entry_counting_method/media/18b769f7a3cdf7fd67a983d3a39325b563d8d346.png" style="width:6.5in;height:2.98611in" /></p>
 <p>Finally, we can label each of those accounts with one of the four types of accounts by prepending the type to their account names:</p>
-<p><img src="the_double_entry_counting_method/media/1f84bcb0ad4787659c157280f6f4ae5ea720482d.png" style="width:6.5in;height:2.98611in"/></p>
+<p><img src="the_double_entry_counting_method/media/1f84bcb0ad4787659c157280f6f4ae5ea720482d.png" style="width:6.5in;height:2.98611in" /></p>
 <p>A realistic book from someone tracking all of their personal affairs might easily contain thousands of transactions per year. But the principles remain simple and they remain the same: postings are applied to accounts over time, and must be parented to a transaction, and within this transaction the sum of all the postings is zero.</p>
 <p>When you do <strong>bookkeeping</strong> for a set of accounts, you are essentially describing all the postings that happen on all the accounts over time, subject to the constraint of the rule. You are creating a database of those postings in a <strong>book</strong>. You are “keeping the book,” that is, traditionally, the book which contains all those transactions. Some people call this “maintaining a journal.”</p>
 <p>We will now turn our attention to obtaining useful information from this data, summarizing information from the book.</p>
 <h2 id="trial-balance">Trial Balance<a id="trial-balance"></a><a class="headerlink" href="#trial-balance" title="Permanent link"></a></h2>
 <p>Take our last example: we can easily reorder all the accounts such that all the Asset accounts appear together at the top, then all the Liabilities accounts, then Income, and finally Expenses accounts. We are simply changing the order without modifying the structure of transactions, in order to group each type of accounts together:</p>
-<p><img src="the_double_entry_counting_method/media/175f3223735d9d04b2a7e3f421bc6280f3cda5eb.png" style="width:6.5in;height:3in"/></p>
+<p><img src="the_double_entry_counting_method/media/175f3223735d9d04b2a7e3f421bc6280f3cda5eb.png" style="width:6.5in;height:3in" /></p>
 <p>We’ve reordered the accounts with Assets accounts grouped at the top, then Liabilities, then some Equity accounts (which we have just introduced, more about them is discussed later), then Income and finally Expenses at the bottom.</p>
 <p>If we sum up the postings on all of the accounts and render just the account name and its final balance on the right, we obtain a report we call the “trial balance.”</p>
-<p><img src="the_double_entry_counting_method/media/71edc0da7e156b4e07cd6f4f0addded7f15cb33e.png" style="width:2.83154in;height:4.47917in"/></p>
+<p><img src="the_double_entry_counting_method/media/71edc0da7e156b4e07cd6f4f0addded7f15cb33e.png" style="width:2.83154in;height:4.47917in" /></p>
 <p>This simply reflects the balance of each account at a particular point in time. And because each of the accounts began with a zero balance, and each transaction has itself a zero balance, we know that the sum of all those balances must equal zero.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> This is a consequence of our constraining that each of the postings be part of a transaction, and that each transaction have postings that balance each other out.</p>
 <h2 id="income-statement">Income Statement<a id="income-statement"></a><a class="headerlink" href="#income-statement" title="Permanent link"></a></h2>
 <p>One kind of common information that is useful to extract from the list of transactions is a summary of changes in income statement accounts during a particular period of time. This tells us how much money was earned and spent during this period, and the difference tells us how much profit (or loss) was incurred. We call this the “net income.”</p>
 <p>In order to generate this summary, we simply turn our attention to the balances of the accounts of types Income and Expenses, summing up just the transactions for a particular period, and we draw the Income balances on the left, and Expenses balances on the right:</p>
-<p><img alt="out.png" src="the_double_entry_counting_method/media/6d57026ecb4c28873f77167eb49ea8025bbf150b.png" style="width:6.5in;height:2.29167in"/></p>
+<p><img src="the_double_entry_counting_method/media/6d57026ecb4c28873f77167eb49ea8025bbf150b.png" alt="out.png" style="width:6.5in;height:2.29167in" /></p>
 <p>It is important to take note of the signs here: Income numbers are negative, and Expenses numbers are positive. So if you earned more than you spent (a good outcome), the final sum of Income + Expenses balances will be a negative number. Like any other income, a net income that has a negative number means that there is a corresponding amount of Assets and/or Liabilities with positive numbers (this is good for you).</p>
 <p>An Income Statement tells us what changed during a particular period of time. Companies typically report this information <strong>quarterly</strong> to investors and perhaps the public (if they are a publicly traded company) in order to share how much profit they were able to make. Individuals typically report this information on their <strong>annual</strong> tax returns.</p>
 <h2 id="clearing-income">Clearing Income<a id="clearing-income"></a><a class="headerlink" href="#clearing-income" title="Permanent link"></a></h2>
@@ -408,7 +441,7 @@
 </li>
 </ol>
 <p>Those transactions inserted for all income statement accounts are pictured in green below. Now summing the entire set of transactions through the end of the ledger would yield only the changes during year 2016 because the balances were zero on that date:</p>
-<p><img src="the_double_entry_counting_method/media/7f10adb5a661d0aa0b66f5f66aafb3ff5eefa212.png" style="width:6.5in;height:2.91667in"/></p>
+<p><img src="the_double_entry_counting_method/media/7f10adb5a661d0aa0b66f5f66aafb3ff5eefa212.png" style="width:6.5in;height:2.91667in" /></p>
 <p>This is the semantics of the “CLEAR” operation of the bean-query shell.</p>
 <p>(Note that another way to achieve the same thing for income statement accounts would be to segregate and count amounts only for the transactions after the clearing date; however, jointly reporting on income statement accounts and balance sheet accounts would have incorrect balances for the balance sheet accounts.)</p>
 <h2 id="equity">Equity<a id="equity"></a><a class="headerlink" href="#equity" title="Permanent link"></a></h2>
@@ -430,17 +463,17 @@
 <p>Once again: you don’t need to define nor use these accounts yourself, as these are created for the purpose of summarizing transactions. Generally, the accounts are filled in by the clearing process described above, or filled in by Pad directives to “opening balances” equity accounts, to account for summarized balances from the past. They are created and filled in automatically by the software. We’ll see how these get used in the following sections.</p>
 <h2 id="balance-sheet">Balance Sheet<a id="balance-sheet"></a><a class="headerlink" href="#balance-sheet" title="Permanent link"></a></h2>
 <p>Another kind of summary is a listing of the owner’s assets and debts, for each of the accounts. This answers the question: “<em>Where’s the money?</em>” In theory, we could just restrict our focus to the Assets and Liabilities accounts and draw those up in a report:</p>
-<p><img alt="out.png" src="the_double_entry_counting_method/media/093cd8751f07c38e909b7621675daa80db8fb634.png" style="width:4.14583in;height:1.70833in"/></p>
+<p><img src="the_double_entry_counting_method/media/093cd8751f07c38e909b7621675daa80db8fb634.png" alt="out.png" style="width:4.14583in;height:1.70833in" /></p>
 <p>However, in practice, there is another closely related question that comes up and which is usually answered at the same time: “<em>Once all debts are paid off, how much are we left with?</em>” This is called the <strong>net worth</strong>.</p>
 <p>If the Income &amp; Expenses accounts have been cleared to zero and all their balances have been transferred to Equity accounts, the net worth should be equal to the sum of all the Equity accounts. So in building up the Balance Sheet, it it customary to clear the net income and then display the balances of the Equity accounts. The report looks like this:</p>
-<p><img alt="out.png" src="the_double_entry_counting_method/media/d495b61bc719ab90cdfc9fd379ef62531cff0627.png" style="width:6.5in;height:1.25in"/></p>
+<p><img src="the_double_entry_counting_method/media/d495b61bc719ab90cdfc9fd379ef62531cff0627.png" alt="out.png" style="width:6.5in;height:1.25in" /></p>
 <p>Note that the balance sheet can be drawn for <em>any point in time</em>, simply by truncating the list of transactions following a particular date. A balance sheet displays a snapshot of balances at one date; an income statement displays the difference of those balances between two dates.</p>
 <h2 id="summarizing">Summarizing<a id="summarizing"></a><a class="headerlink" href="#summarizing" title="Permanent link"></a></h2>
 <p>It is useful to summarize a history of past transactions into a single equivalent deposit. For example, if we’re interested in transactions for year 2016 for an account which has a balance of $450 on Jan 1, 2016, we can delete all the previous transactions and replace them with a single one that deposits $450 on Dec 31, 2015 and that takes it from somewhere else.</p>
 <p>That somewhere else will be the Equity account <strong>Opening Balances</strong>. First, we can do this for all Assets and Liabilities accounts (see transactions in blue):</p>
-<p><img src="the_double_entry_counting_method/media/035eb15afa1439450886d6ce20c60013227283b7.png" style="width:6.5in;height:3.04167in"/></p>
+<p><img src="the_double_entry_counting_method/media/035eb15afa1439450886d6ce20c60013227283b7.png" style="width:6.5in;height:3.04167in" /></p>
 <p>Then we delete all the transactions that precede the opening date, to obtain a truncated list of transactions:</p>
-<p><img src="the_double_entry_counting_method/media/2596047a5cbd9da8a925c7a7ee10fef9681ce472.png" style="width:6.5in;height:3.01389in"/></p>
+<p><img src="the_double_entry_counting_method/media/2596047a5cbd9da8a925c7a7ee10fef9681ce472.png" style="width:6.5in;height:3.01389in" /></p>
 <p>This is a useful operation when we’re focused on the transactions for a particular interval of time.</p>
 <p>(This is a bit of an implementation detail: these operations are related to how Beancount is designed. Instead of making all the reporting operations with parameters, all of its reporting routines are simplified and instead operate on the entire stream of transactions; in this way, we convert the list of transactions to include only the data we want to report on. In this case, summarization is just a transformation which accepts the full set of transactions and returns an equivalent truncated stream. Then, from this stream, a journal can be produced that excludes the transactions from the past.</p>
 <p>From a program design perspective, this is appealing because the only state of the program is a stream of transactions, and it is never modified directly. It’s simple and robust.)</p>
@@ -458,10 +491,10 @@
 </ul>
 <p>These are the meaning of the “OPEN” and “CLOSE” operations of the bean-query shell<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>. The resulting set of transactions should look like this.</p>
 <p>“Closing” involves two steps. First, we remove all transactions following the closing date:</p>
-<p><img src="the_double_entry_counting_method/media/e9bbbbdf2a94fe681fd547cf470c4d19ae1e6c0e.png" style="width:6.5in;height:3.01389in"/></p>
+<p><img src="the_double_entry_counting_method/media/e9bbbbdf2a94fe681fd547cf470c4d19ae1e6c0e.png" style="width:6.5in;height:3.01389in" /></p>
 <p>We can process this stream of transactions to produce an Income Statement for the period.</p>
 <p>Then we clear again at the <em>end</em> date of the desired report, but this time we clear the net income to “Equity:Earnings:Current”:</p>
-<p><img src="the_double_entry_counting_method/media/1dc844e93000faa184bd3e1ec3e0cd4e1a9fb5fb.png" style="width:6.5in;height:3.09722in"/></p>
+<p><img src="the_double_entry_counting_method/media/1dc844e93000faa184bd3e1ec3e0cd4e1a9fb5fb.png" style="width:6.5in;height:3.09722in" /></p>
 <p>From these transactions, we produce the Balance Sheet at the end of the period.</p>
 <p>This sums up the operations involved in preparing the streams of transactions to produce reports with Beancount, as well as a basic introduction to those types of reports.</p>
 <h2 id="chart-of-accounts">Chart of Accounts<a id="chart-of-accounts"></a><a class="headerlink" href="#chart-of-accounts" title="Permanent link"></a></h2>
@@ -563,6 +596,7 @@ Assets:AccountsReceivable
 </code></pre>
 <p>could be rendered as a table like this:</p>
 <table><thead><tr class="header"><th><em><strong>Date</strong></em></th><th><em><strong>Fl</strong></em></th><th><em><strong>Payee</strong></em></th><th><em><strong>Narration</strong></em></th><th><em><strong>Account</strong></em></th><th><em><strong>Number</strong></em></th><th><em><strong>Ccy</strong></em></th></tr></thead><tbody><tr class="odd"><td>2016-12-04</td><td>*</td><td></td><td>Christmas gift</td><td>Liabilities:CreditCard</td><td>-153.45</td><td>USD</td></tr><tr class="even"><td>2016-12-04</td><td>*</td><td></td><td>Christmas gift</td><td>Expenses:Gifts</td><td>153.45</td><td>USD</td></tr><tr class="odd"><td>2016-12-06</td><td>*</td><td>Biang!</td><td>Dinner</td><td>Liabilities:CreditCard</td><td>-47.23</td><td>USD</td></tr><tr class="even"><td>2016-12-06</td><td>*</td><td>Biang!</td><td>Dinner</td><td>Expenses:Restaurants</td><td>47.23</td><td>USD</td></tr><tr class="odd"><td>2016-12-07</td><td>*</td><td>Pouring Ribbons</td><td>Drinks with friends</td><td>Assets:Cash</td><td>-25.00</td><td>USD</td></tr><tr class="even"><td>2016-12-07</td><td>*</td><td>Pouring Ribbons</td><td>Drinks with friends</td><td>Expenses:Tips</td><td>4.00</td><td>USD</td></tr><tr class="odd"><td>2016-12-07</td><td>*</td><td>Pouring Ribbons</td><td>Drinks with friends</td><td>Expenses:Alcohol</td><td>21.00</td><td>USD</td></tr></tbody></table>
+
 <p>Notice how the values of Transaction fields are replicated for each posting. This is exactly like a regular database join operation. The posting fields begin at column “Account.” (Also note that this example table is simplified; in practice there are many more fields.)</p>
 <p>If you had a joined table just like this you could filter it and sum up amounts for arbitrary groups of postings. This is exactly what the bean-query tool allows you to do: You can run an SQL query on the data equivalent to this in-memory table and list values like this:</p>
 <pre><code>SELECT date, payee, number WHERE account = "Liabilities:CreditCard";
@@ -584,55 +618,78 @@ Assets:AccountsReceivable
 <p>This is why Beancount provides a custom tool to directly process and query its data: It provides its own implementation of an SQL client that lets you specify open and close dates and leverages a custom “Inventory” data structure to create sums of the positions of postings. This tools supports columns of Beancount’s core types: Amount, Position and Inventory objects.</p>
 <p>(In any case, if you’re not convinced, Beancount provides a <a href="https://github.com/beancount/beancount/tree/v2/bin/bean-sql"><span class="underline">tool</span></a> to export its contents to a regular SQL database system. Feel free to experiment with it if you like, knock yourself out.)</p>
 <div class="footnote">
-<hr/>
+<hr />
 <ol>
 <li id="fn:1">
-<p>Please don’t pay attention to the numbers in these large figures, they were randomly generated and don’t reflect this. We’re just interested in showing the structure, in these figures. <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+<p>Please don’t pay attention to the numbers in these large figures, they were randomly generated and don’t reflect this. We’re just interested in showing the structure, in these figures.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>Note that this is unrelated to the term “clearing transactions” which means acknowledging or marking that some transactions have been eyeballed by the bookkeeper and checked for correctness. <a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">↩</a></p>
+<p>Note that this is unrelated to the term “clearing transactions” which means acknowledging or marking that some transactions have been eyeballed by the bookkeeper and checked for correctness.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>Note that operations have nothing to do with the Open and Close directives Beancount provides. <a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">↩</a></p>
+<p>Note that operations have nothing to do with the Open and Close directives Beancount provides.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>This is not provided yet in Beancount, but would be trivial to implement. All we'd need to do is invert the signs of balances from Liabilities, Income and Equity accounts. It's on the roadmap to provide this eventually. <a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">↩</a></p>
+<p>This is not provided yet in Beancount, but would be trivial to implement. All we'd need to do is invert the signs of balances from Liabilities, Income and Equity accounts. It's on the roadmap to provide this eventually.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
-</div>
-</div>
-<footer>
-<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
-<a class="btn btn-neutral float-right" href="installing_beancount.html" title="Installing Beancount">Next <span class="icon icon-circle-arrow-right"></span></a>
-<a class="btn btn-neutral" href="command_line_accounting_in_context.html" title="Command Line Accounting in Context"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-</div>
-<hr/>
-<div role="contentinfo">
-<!-- Copyright etc -->
-</div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="installing_beancount.html" class="btn btn-neutral float-right" title="Installing Beancount">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="command_line_accounting_in_context.html" class="btn btn-neutral" title="Command Line Accounting in Context"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
 
   Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/beancount/docs/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="command_line_accounting_in_context.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="installing_beancount.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
-</div>
-</section>
-</div>
-<div aria-label="versions" class="rst-versions" role="note">
-<span class="rst-current-version" data-toggle="rst-current-version">
-<a class="fa fa-github" href="https://github.com/beancount/docs/" style="float: left; color: #fcfcfc"> GitHub</a>
-<span><a href="command_line_accounting_in_context.html" style="color: #fcfcfc;">« Previous</a></span>
-<span style="margin-left: 15px"><a href="installing_beancount.html" style="color: #fcfcfc">Next »</a></span>
-</span>
-</div>
-<script>var base_url = '.';</script>
-<script defer="" src="js/theme.js"></script>
-<script defer="" src="js/extra.js"></script>
-<script defer="" src="search/main.js"></script>
-<script defer="">
+    <script>var base_url = '.';</script>
+    <script src="js/theme_extra.js" defer></script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);
         };
     </script>
+
 </body>
 </html>

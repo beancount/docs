@@ -1,313 +1,343 @@
 <!DOCTYPE html>
-
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
-<meta charset="utf-8"/>
-<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link href="https://beancount.github.io/docs/beancount_design_doc.html" rel="canonical"/>
-<link href="img/favicon.ico" rel="shortcut icon"/>
-<title>Beancount Design Doc - Beancount Documentation</title>
-<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
-<link href="css/theme.css" rel="stylesheet">
-<link href="css/theme_extra.css" rel="stylesheet"/>
-<link href="css/custom.css" rel="stylesheet"/>
-<script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="https://beancount.github.io/docs/beancount_design_doc.html">
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Beancount Design Doc - Beancount Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/theme_extra.css" />
+  <link href="assets/_mkdocstrings.css" rel="stylesheet" />
+  <link href="css/custom.css" rel="stylesheet" />
+  
+  <script>
     // Current page data
     var mkdocs_page_name = "Beancount Design Doc";
     var mkdocs_page_input_path = "beancount_design_doc.md";
     var mkdocs_page_url = "/docs/beancount_design_doc.html";
   </script>
-<script defer="" src="js/jquery-2.1.1.min.js"></script>
-<script defer="" src="js/modernizr-2.8.3.min.js"></script>
-</link></link></head>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script> 
+</head>
+
 <body class="wy-body-for-nav" role="document">
-<div class="wy-grid-for-nav">
-<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
-<div class="wy-side-scroll">
-<div class="wy-side-nav-search">
-<a class="icon icon-home" href="."> Beancount Documentation</a>
-<div role="search">
-<form action="./search.html" class="wy-form" id="rtd-search-form" method="get">
-<input name="q" placeholder="Search docs" title="Type search term here" type="text"/>
-</form>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="icon icon-home"> Beancount Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
 </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="index.html">Index</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Outline</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="#">Documentation for Users</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="command_line_accounting_in_context.html">Command Line Accounting in Context</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="the_double_entry_counting_method.html">The Double Entry Counting Method</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="installing_beancount.html">Installing Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="getting_started_with_beancount.html">Getting Started with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_language_syntax.html">Beancount Language Syntax</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_options_reference.html">Beancount Options Reference</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="precision_tolerances.html">Precision Tolerances</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_query_language.html">Beancount Query Language</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="how_inventories_work.html">How Inventories Work</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="exporting_your_portfolio.html">Exporting Your Portfolio</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="tutorial_example.html">Tutorial & Example</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_history_and_credits.html">Beancount History and Credits</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="importing_external_data.html">Importing External Data</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Cookbooks & Examples</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="trading_with_beancount.html">Trading with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="how_we_share_expenses.html">How We Share Expenses</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="health_care_expenses.html">Health Care Expenses</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="calculating_portolio_returns.html">Calculating Portfolio Returns</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Documentation for Developers</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="beancount_design_doc.html">Beancount Design Doc</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#invariants">Invariants</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#isolation-of-inputs">Isolation of Inputs</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#order-independence">Order-Independence</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#all-transactions-must-balance">All Transactions Must Balance</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#accounts-have-types">Accounts Have Types</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#account-lifetimes-open-directives">Account Lifetimes &amp; Open Directives</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#supports-dates-only-and-no-time">Supports Dates Only (and No Time)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#metadata-is-for-user-data">Metadata is for User Data</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#overview-of-the-codebase">Overview of the Codebase</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#core-data-structures">Core Data Structures</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#number">Number</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#commodity">Commodity</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#account">Account</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#flag">Flag</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#amount">Amount</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#cost">Cost</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#position">Position</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#posting">Posting</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#inventory">Inventory</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#about-tuples-mutability">About Tuples &amp; Mutability</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#summary">Summary</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#directives">Directives</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#common-properties">Common Properties</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#transactions">Transactions</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#stream-processing">Stream Processing</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#stream-invariants">Stream Invariants</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#loader-processing-order">Loader &amp; Processing Order</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#loader-output">Loader Output</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parser-implementation">Parser Implementation</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#two-stages-of-parsing-incomplete-entries">Two Stages of Parsing: Incomplete Entries</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#the-printer">The Printer</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#uniqueness-hashing">Uniqueness &amp; Hashing</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#display-context">Display Context</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#realization">Realization</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_1"></a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-web-interface">The Web Interface</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#reports-vs-web">Reports vs. Web</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#client-side-javascript">Client-Side JavaScript</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-query-interface">The Query Interface</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#design-principles">Design Principles</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#minimize-configurability">Minimize Configurability</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#favor-code-over-dsls">Favor Code over DSLs</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#file-format-or-input-language">File Format or Input Language?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#grammar-via-parser-generator">Grammar via Parser Generator</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#future-work">Future Work</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#tagged-strings">Tagged Strings</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#errors-cleanup">Errors Cleanup</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#conclusion">Conclusion</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#references">References</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="external_contributions.html">External Contributions</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Enhancement Proposals & Discussions</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Beancount 3</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_v3.html">Goals & Design</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="installing_beancount_v3.html">Installing Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_v3_dependencies.html">Dependencies</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">API reference</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/index.html">beancount</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.core.html">beancount.core</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ingest.html">beancount.ingest</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.loader.html">beancount.loader</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ops.html">beancount.ops</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.parser.html">beancount.parser</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.plugins.html">beancount.plugins</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.prices.html">beancount.prices</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.query.html">beancount.query</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.reports.html">beancount.reports</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.scripts.html">beancount.scripts</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.tools.html">beancount.tools</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.utils.html">beancount.utils</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.web.html">beancount.web</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Beancount Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Outline &raquo;</li>
+        
+      
+        
+          <li>Documentation for Developers &raquo;</li>
+        
+      
+    
+    <li>Beancount Design Doc</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/beancount/docs/edit/master/docs/beancount_design_doc.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
 </div>
-<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="index.html">Index</a>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Outline</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="#">Documentation for Users</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="command_line_accounting_in_context.html">Command Line Accounting in Context</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="the_double_entry_counting_method.html">The Double Entry Counting Method</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="installing_beancount.html">Installing Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started_with_beancount.html">Getting Started with Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_language_syntax.html">Beancount Language Syntax</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_options_reference.html">Beancount Options Reference</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="precision_tolerances.html">Precision Tolerances</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_query_language.html">Beancount Query Language</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="how_inventories_work.html">How Inventories Work</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="exporting_your_portfolio.html">Exporting Your Portfolio</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial_example.html">Tutorial &amp; Example</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_history_and_credits.html">Beancount History and Credits</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="importing_external_data.html">Importing External Data</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#">Cookbooks &amp; Examples</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="trading_with_beancount.html">Trading with Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="how_we_share_expenses.html">How We Share Expenses</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="health_care_expenses.html">Health Care Expenses</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="calculating_portolio_returns.html">Calculating Portfolio Returns</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="reference internal current" href="#">Documentation for Developers</a>
-<ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
-</li>
-<li class="toctree-l2 current"><a class="reference internal current" href="beancount_design_doc.html">Beancount Design Doc</a>
-<ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#invariants">Invariants</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#isolation-of-inputs">Isolation of Inputs</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#order-independence">Order-Independence</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#all-transactions-must-balance">All Transactions Must Balance</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#accounts-have-types">Accounts Have Types</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#account-lifetimes-open-directives">Account Lifetimes &amp; Open Directives</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#supports-dates-only-and-no-time">Supports Dates Only (and No Time)</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#metadata-is-for-user-data">Metadata is for User Data</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#overview-of-the-codebase">Overview of the Codebase</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#core-data-structures">Core Data Structures</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#number">Number</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#commodity">Commodity</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#account">Account</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#flag">Flag</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#amount">Amount</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#cost">Cost</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#position">Position</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#posting">Posting</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#inventory">Inventory</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#about-tuples-mutability">About Tuples &amp; Mutability</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#summary">Summary</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#directives">Directives</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#common-properties">Common Properties</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#transactions">Transactions</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#stream-processing">Stream Processing</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#stream-invariants">Stream Invariants</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#loader-processing-order">Loader &amp; Processing Order</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#loader-output">Loader Output</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#parser-implementation">Parser Implementation</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#two-stages-of-parsing-incomplete-entries">Two Stages of Parsing: Incomplete Entries</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#the-printer">The Printer</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#uniqueness-hashing">Uniqueness &amp; Hashing</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#display-context">Display Context</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#realization">Realization</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#_1"></a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#the-web-interface">The Web Interface</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#reports-vs-web">Reports vs. Web</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#client-side-javascript">Client-Side JavaScript</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#the-query-interface">The Query Interface</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#design-principles">Design Principles</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#minimize-configurability">Minimize Configurability</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#favor-code-over-dsls">Favor Code over DSLs</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#file-format-or-input-language">File Format or Input Language?</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#grammar-via-parser-generator">Grammar via Parser Generator</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#future-work">Future Work</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#tagged-strings">Tagged Strings</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#errors-cleanup">Errors Cleanup</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#conclusion">Conclusion</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#references">References</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="external_contributions.html">External Contributions</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#">Enhancement Proposals &amp; Discussions</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#">Beancount 3</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="beancount_v3.html">Goals &amp; Design</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="installing_beancount_v3.html">Installing Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_v3_dependencies.html">Dependencies</a>
-</li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">API reference</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/index.html">beancount</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.core.html">beancount.core</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ingest.html">beancount.ingest</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.loader.html">beancount.loader</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ops.html">beancount.ops</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.parser.html">beancount.parser</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.plugins.html">beancount.plugins</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.prices.html">beancount.prices</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.query.html">beancount.query</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.reports.html">beancount.reports</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.scripts.html">beancount.scripts</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.tools.html">beancount.tools</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.utils.html">beancount.utils</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.web.html">beancount.web</a>
-</li>
-</ul>
-</div>
-</div>
-</nav>
-<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
-<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
-<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
-<a href=".">Beancount Documentation</a>
-</nav>
-<div class="wy-nav-content">
-<div class="rst-content">
-<div aria-label="breadcrumbs navigation" role="navigation">
-<ul class="wy-breadcrumbs">
-<li><a href=".">Docs</a> »</li>
-<li>Documentation for Developers »</li>
-<li>Outline »</li>
-<li>Beancount Design Doc</li>
-<li class="wy-breadcrumbs-aside">
-<a class="icon icon-github" href="https://github.com/beancount/docs/edit/master/docs/beancount_design_doc.md"> Edit on GitHub</a>
-</li>
-</ul>
-<hr/>
-</div>
-<div role="main">
-<div class="section">
-<h1 id="beancount-design-doc">Beancount Design Doc<a id="title"></a><a class="headerlink" href="#beancount-design-doc" title="Permanent link"></a></h1>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="beancount-design-doc">Beancount Design Doc<a id="title"></a><a class="headerlink" href="#beancount-design-doc" title="Permanent link"></a></h1>
 <p>Martin Blais (<a href="mailto:blais@furius.ca"><span class="underline">blais@furius.ca</span></a>)</p>
 <p><a href="http://furius.ca/beancount/doc/design-doc"><span class="underline">http://furius.ca/beancount/doc/design-doc</span></a></p>
 <p><em>A guide for developers to understand Beancount’s internals. I hope for this document to provide a map of the main objects used in the source code to make it easy to write scripts and plugins on top of Beancount or even extend it.</em></p>
@@ -425,7 +455,7 @@
 <p>There may be a few more produced in the future but in any case, the core should not read any metadata and affect its behavior as a consequence. (I should probably create a central registry or location where all the special values can be found in one place.)</p>
 <h2 id="overview-of-the-codebase">Overview of the Codebase<a id="overview-of-the-codebase"></a><a class="headerlink" href="#overview-of-the-codebase" title="Permanent link"></a></h2>
 <p>All source code lives under a “<a href="https://github.com/beancount/beancount/tree/master/beancount/"><span class="underline">beancount</span></a>” Python package. It consists of several packages with well-defined roles, the dependencies between which are enforced strictly.</p>
-<p><img src="beancount_design_doc/media/387889600cf8649fb88c89349dfbbdc9cb2fc7c4.png" style="width:5.80556in;height:4.94444in"/></p>
+<p><img src="beancount_design_doc/media/387889600cf8649fb88c89349dfbbdc9cb2fc7c4.png" style="width:5.80556in;height:4.94444in" /></p>
 <p><em>Beancount source code packages and approximate dependencies between them.</em></p>
 <p>At the bottom, we have a <a href="https://github.com/beancount/beancount/tree/master/beancount/core"><span class="underline">beancount.core</span></a> package which contains the data structures used to represent transactions and other directives in memory. This contains code for accounts, amounts, lots, positions, and inventories. It also contains commonly used routines for processing streams of directives.</p>
 <p>One level up, the <a href="https://github.com/beancount/beancount/tree/master/beancount/parser"><span class="underline">beancount.parser</span></a> package contains code to parse the Beancount language and a printer that can produce the corresponding text given a stream of directives. It should be possible to convert between text and data structure and round-trip this process without loss.</p>
@@ -563,7 +593,7 @@ Assets:US:TDBank:Savings
 <p><em>I credit my ability to make wide-ranging changes to a mid-size Python codebase to the adoption of these principles. I would love to have </em><em>types</em><em> in order to safeguard against another class of potential errors, and I plan to experiment with <a href="https://www.python.org/dev/peps/pep-0484/"><span class="underline">Python 3.5’s upcoming typing module</span></a>.</em></p>
 <h3 id="summary">Summary<a id="summary"></a><a class="headerlink" href="#summary" title="Permanent link"></a></h3>
 <p>The following diagram explains how these objects relate to each other, starting from a Posting.</p>
-<p><img src="beancount_design_doc/media/5babd760547ea333a338558c5688dbbadc278a67.png" style="width:4.36111in;height:6.11111in"/></p>
+<p><img src="beancount_design_doc/media/5babd760547ea333a338558c5688dbbadc278a67.png" style="width:4.36111in;height:6.11111in" /></p>
 <p>For example, to access the number of units of a postings you could use</p>
 <pre><code>posting.units.number
 </code></pre>
@@ -573,7 +603,7 @@ Assets:US:TDBank:Savings
 <p>You can print out the tuples in Python to figure out their structure.</p>
 <h4 id="previous-design">Previous Design <a id="previous-design"></a><a class="headerlink" href="#previous-design" title="Permanent link"></a></h4>
 <p>For the sake of preservation, if you go back in time in the repository, the structure of postings was deeper and more complex. The new design reflects a flatter and simpler version of it. Here is what the old design used to look like:</p>
-<p><img src="beancount_design_doc/media/458836b1e3d3fe85ff59395e3b8a4c7b19a9ed96.png" style="width:6.69444in;height:4.19444in"/></p>
+<p><img src="beancount_design_doc/media/458836b1e3d3fe85ff59395e3b8a4c7b19a9ed96.png" style="width:6.69444in;height:4.19444in" /></p>
 <h2 id="directives">Directives<a id="directives"></a><a class="headerlink" href="#directives" title="Permanent link"></a></h2>
 <p>The main production from loading a Beancount input file is a list of <strong>directives</strong>. I also call these <strong>entries</strong> interchangeably in the codebase and in the documents. There are directives of various types:</p>
 <ul>
@@ -610,6 +640,7 @@ Assets:US:TDBank:Savings
 <li><strong>Date.</strong> A datetime.date object. This is useful and consistent. For a Transaction, that’s the date at which it occurs. For an Open or Close directive, that’s the date at which the account was opened or closed. For a Pad directive, that’s the date at which to insert a transaction. For a Note or Document, it is the date at which to insert the note in the stream of postings of that account. For an Event, it is the date at which it occurs. For a Commodity directive which essentially provides a per-commodity hanging point for commodity-related metadata, the date isn’t as meaningful; I choose to date those on the day the commodity was created.</li>
 </ul>
 <!-- -->
+
 <ul>
 <li><strong>Meta</strong>. All the directives have metadata attribute (a Python dict object). The purpose of metadata is to allow the user to hang any kind of ancillary data they want and then use this in scripts or queries. Posting instances also have a metadata attribute.</li>
 </ul>
@@ -774,7 +805,7 @@ Assets:US:TDBank:Savings
 </ul>
 <h2 id="loader-processing-order">Loader &amp; Processing Order<a id="loader-processing-order"></a><a class="headerlink" href="#loader-processing-order" title="Permanent link"></a></h2>
 <p>The process of <strong>loading</strong> a list of entries from an input file is the heart of the project. It is important to understand it in order to understand how Beancount works. Refer to the diagram below.</p>
-<p><img src="beancount_design_doc/media/4117596158f0642dae7becf17be7a89f169bf4a0.png" style="width:8.66667in;height:3.23611in"/></p>
+<p><img src="beancount_design_doc/media/4117596158f0642dae7becf17be7a89f169bf4a0.png" style="width:8.66667in;height:3.23611in" /></p>
 <p>It consists of</p>
 <ol>
 <li>
@@ -808,7 +839,7 @@ Assets:US:TDBank:Savings
 <p>I chose the C language and these crufty old <a href="https://www.gnu.org/"><span class="underline">GNU</span></a> tools because they are portable and will work everywhere. There are better parser generators out there, but they would either require my users to install more compiler tools or exotic languages. The C language is a great common denominator. I want Beancount to work everywhere and to be easy to install. I want this to make it easy on others, but I also want this for myself, because at some point I’ll be working on other projects and the less dependencies I have the lighter it will be to maintain aging software. Just looking ahead. (That’s also why I chose to use Python instead of some of the other languages I’m more naturally attracted to these days (Clojure, Go, ML); I need Beancount to work... when I’m counting the beans I don’t have time to debug problems. Python is careful about its changes and it will be around for a long long time as is.)</p>
 <p>There is a lexer file lexer.l written in flex and a Bison grammar in grammar.y. These tools are used to generate the corresponding C source code (lexer.h/.c and grammar.h/.c). These, along with some hand-written C code that defines some interface functions for the module (parser.h/.c), are compiled into an extension module (_parser.so).</p>
 <p>Eventually we could consider creating a small dependency rule in setup.py to invoke flex and Bison automatically but at the moment, in order to minimize the installation burden, I check the generated source code in the repository (lexer.h/c and grammar.h/c).</p>
-<p><img src="beancount_design_doc/media/695c060c71a08a1bc93a0cc82412c4892dbfd662.png" style="width:7.70833in;height:4.01389in"/></p>
+<p><img src="beancount_design_doc/media/695c060c71a08a1bc93a0cc82412c4892dbfd662.png" style="width:7.70833in;height:4.01389in" /></p>
 <p>The interaction between the Python and C code works like this:</p>
 <ul>
 <li>
@@ -845,12 +876,12 @@ Assets:US:TDBank:Savings
 <p>A separate step for the interpolation which will have available the inventory balances of each account as inputs. This second step is where the booking algorithms (e.g., FIFO) will be invoked from.</p>
 </li>
 </ol>
-<p><img src="beancount_design_doc/media/033922268f9fe3d624c80b311804a81e4990ae07.png" style="width:6.05556in;height:3.01389in"/></p>
+<p><img src="beancount_design_doc/media/033922268f9fe3d624c80b311804a81e4990ae07.png" style="width:6.05556in;height:3.01389in" /></p>
 <p>See the diagram above for reference. Once implemented, everything else should be the same.</p>
 <h3 id="the-printer">The Printer<a id="the-printer"></a><a class="headerlink" href="#the-printer" title="Permanent link"></a></h3>
 <p>In the same package as the parser lives a printer. This isolates all the functionality that deals with the Beancount “language” in the <code>beancount.parser</code> package: the parser converts from input syntax to data structure and the printer does the reverse. No code outside this package should concern itself with the Beancount syntax.</p>
 <p>At some point I decided to make sure that the printer was able to round-trip through the parser, that is, given a stream of entries produced by the loader, you should be able to convert those to text input and parse them back in and the resulting set of entries should be the same (outputting the re-read input back to text should produce the same text), e.g.,</p>
-<p><img src="beancount_design_doc/media/159bc64bb5f5ed77127ab76c31afb5a3b0928a64.png" style="width:7.56944in;height:0.83333in"/></p>
+<p><img src="beancount_design_doc/media/159bc64bb5f5ed77127ab76c31afb5a3b0928a64.png" style="width:7.56944in;height:0.83333in" /></p>
 <p>Note that the reverse isn’t necessarily true: reading an input file and processing it through the loader potentially synthesizes a lot of entries (thanks to the plugins), so printing it back may not produce the same input file (even ignoring reordering and white space concerns).</p>
 <p>This is a nice property to have. Among other things, it allows us to use the parser to easily create tests with expected outputs. While there is a test that attempts to protect this property, some of the recent changes break it partially:</p>
 <ul>
@@ -884,6 +915,7 @@ Assets:US:TDBank:Savings
 </li>
 </ul>
 <!-- -->
+
 <ul>
 <li>
 <p>The number of digits used tends to vary with the commodity they represent. For example, US dollars will usually render with two digits of precision; the number of units of a mutual fund such as RGAGX might be recorded by your broker with 3 digits of precision. Japanese Yen will usually be specified in integer units.</p>
@@ -896,7 +928,7 @@ Assets:US:TDBank:Savings
 <p>I refer to those objects using the variable names <code>dcontext</code> and <code>dformat</code> throughout the code. The parser automatically creates a DisplayContext object and feeds it all the numbers it sees during parsing. The object is available in the options_map produced by the loader.</p>
 <h2 id="realization">Realization<a id="realization"></a><a class="headerlink" href="#realization" title="Permanent link"></a></h2>
 <p>It occurs often that one needs to compute the final balances of a list of filtered transactions, and to report on them in a hierarchical account structure. See diagram below.</p>
-<h2 id="_1"><img src="beancount_design_doc/media/b633e0570d20bca6677965dc55c7eb506255230b.png" style="width:8.66667in;height:3.06944in"/><a id="section"></a><a class="headerlink" href="#_1" title="Permanent link"></a></h2>
+<h2 id="_1"><img src="beancount_design_doc/media/b633e0570d20bca6677965dc55c7eb506255230b.png" style="width:8.66667in;height:3.06944in" /><a id="section"></a><a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <p>For the purpose of creating hierarchical renderings, I provide a process called a “<a href="https://github.com/beancount/beancount/tree/master/beancount/core/realization.py"><span class="underline">realization</span></a>.” A realization is a tree of nodes, each of which contains</p>
 <ul>
 <li>
@@ -979,52 +1011,75 @@ realization.dump_balances(real_root, file=sys.stdout)
 <li><a href="http://martin.kleppmann.com/2011/03/07/accounting-for-computer-scientists.html"><span class="underline">Accounting for Computer Scientists</span></a></li>
 </ul>
 <div class="footnote">
-<hr/>
+<hr />
 <ol>
 <li id="fn:1">
-<p>I have been considering the addition of a very constrained form of non-balancing postings that would preserve the property of transactions otherwise being balanced, whereby the extra postings would not be able to interact (or sum with) regular balancing postings. <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+<p>I have been considering the addition of a very constrained form of non-balancing postings that would preserve the property of transactions otherwise being balanced, whereby the extra postings would not be able to interact (or sum with) regular balancing postings.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>There is an option called operating_currency but it is only used to provide good defaults for building reports, never in the processing of transactions. It is used to tell the reporting code which commodities should be broken out to have their own columns of balances, for example. <a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">↩</a></p>
+<p>There is an option called operating_currency but it is only used to provide good defaults for building reports, never in the processing of transactions. It is used to tell the reporting code which commodities should be broken out to have their own columns of balances, for example.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>In previous version of Beancount this was not true, the Posting used to have a ‘position’ attribute and composed it. I prefer the flattened design, as many of the functions apply to either a Position or a Posting. Think of a Posting as <em>deriving</em> from a Position, though, technically it does not. <a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">↩</a></p>
+<p>In previous version of Beancount this was not true, the Posting used to have a ‘position’ attribute and composed it. I prefer the flattened design, as many of the functions apply to either a Position or a Posting. Think of a Posting as <em>deriving</em> from a Position, though, technically it does not.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
-</div>
-</div>
-<footer>
-<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
-<a class="btn btn-neutral float-right" href="ledgerhub_design_doc.html" title="Ledgerhub Design Doc">Next <span class="icon icon-circle-arrow-right"></span></a>
-<a class="btn btn-neutral" href="beancount_scripting_plugins.html" title="Beancount Scripting Plugins"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-</div>
-<hr/>
-<div role="contentinfo">
-<!-- Copyright etc -->
-</div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ledgerhub_design_doc.html" class="btn btn-neutral float-right" title="Ledgerhub Design Doc">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="beancount_scripting_plugins.html" class="btn btn-neutral" title="Beancount Scripting Plugins"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
 
   Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/beancount/docs/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="beancount_scripting_plugins.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="ledgerhub_design_doc.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
-</div>
-</section>
-</div>
-<div aria-label="versions" class="rst-versions" role="note">
-<span class="rst-current-version" data-toggle="rst-current-version">
-<a class="fa fa-github" href="https://github.com/beancount/docs/" style="float: left; color: #fcfcfc"> GitHub</a>
-<span><a href="beancount_scripting_plugins.html" style="color: #fcfcfc;">« Previous</a></span>
-<span style="margin-left: 15px"><a href="ledgerhub_design_doc.html" style="color: #fcfcfc">Next »</a></span>
-</span>
-</div>
-<script>var base_url = '.';</script>
-<script defer="" src="js/theme.js"></script>
-<script defer="" src="js/extra.js"></script>
-<script defer="" src="search/main.js"></script>
-<script defer="">
+    <script>var base_url = '.';</script>
+    <script src="js/theme_extra.js" defer></script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);
         };
     </script>
+
 </body>
 </html>

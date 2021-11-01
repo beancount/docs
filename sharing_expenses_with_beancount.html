@@ -1,250 +1,280 @@
 <!DOCTYPE html>
-
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
-<meta charset="utf-8"/>
-<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link href="https://beancount.github.io/docs/sharing_expenses_with_beancount.html" rel="canonical"/>
-<link href="img/favicon.ico" rel="shortcut icon"/>
-<title>Sharing Expenses with Beancount - Beancount Documentation</title>
-<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
-<link href="css/theme.css" rel="stylesheet">
-<link href="css/theme_extra.css" rel="stylesheet"/>
-<link href="css/custom.css" rel="stylesheet"/>
-<script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="https://beancount.github.io/docs/sharing_expenses_with_beancount.html">
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Sharing Expenses with Beancount - Beancount Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/theme_extra.css" />
+  <link href="assets/_mkdocstrings.css" rel="stylesheet" />
+  <link href="css/custom.css" rel="stylesheet" />
+  
+  <script>
     // Current page data
     var mkdocs_page_name = "Sharing Expenses with Beancount";
     var mkdocs_page_input_path = "sharing_expenses_with_beancount.md";
     var mkdocs_page_url = "/docs/sharing_expenses_with_beancount.html";
   </script>
-<script defer="" src="js/jquery-2.1.1.min.js"></script>
-<script defer="" src="js/modernizr-2.8.3.min.js"></script>
-</link></link></head>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script> 
+</head>
+
 <body class="wy-body-for-nav" role="document">
-<div class="wy-grid-for-nav">
-<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
-<div class="wy-side-scroll">
-<div class="wy-side-nav-search">
-<a class="icon icon-home" href="."> Beancount Documentation</a>
-<div role="search">
-<form action="./search.html" class="wy-form" id="rtd-search-form" method="get">
-<input name="q" placeholder="Search docs" title="Type search term here" type="text"/>
-</form>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="icon icon-home"> Beancount Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
 </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="index.html">Index</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Outline</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="#">Documentation for Users</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="command_line_accounting_in_context.html">Command Line Accounting in Context</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="the_double_entry_counting_method.html">The Double Entry Counting Method</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="installing_beancount.html">Installing Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="getting_started_with_beancount.html">Getting Started with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_language_syntax.html">Beancount Language Syntax</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_options_reference.html">Beancount Options Reference</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="precision_tolerances.html">Precision Tolerances</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_query_language.html">Beancount Query Language</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="how_inventories_work.html">How Inventories Work</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="exporting_your_portfolio.html">Exporting Your Portfolio</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="tutorial_example.html">Tutorial & Example</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_history_and_credits.html">Beancount History and Credits</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="importing_external_data.html">Importing External Data</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Cookbooks & Examples</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="trading_with_beancount.html">Trading with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#a-travel-example">A Travel Example</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#a-note-about-sharing">A Note About Sharing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#overview-of-the-method">Overview of the Method</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-track-expenses">How to Track Expenses</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#accounts">Accounts</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-transactions">Example Transactions</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-take-notes">How to Take Notes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#reconciling-expenses">Reconciling Expenses</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#reviewing-contributions">Reviewing Contributions</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#splitting-expenses">Splitting Expenses</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#final-transfer">Final Transfer</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#updating-your-personal-ledger">Updating your Personal Ledger</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#account-names">Account Names</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#using-a-tag">Using a Tag</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#booking-contributions">Booking Contributions</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#booking-expenses">Booking Expenses</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generating-reports">Generating Reports</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#other-examples">Other Examples</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#conclusion">Conclusion</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="how_we_share_expenses.html">How We Share Expenses</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="health_care_expenses.html">Health Care Expenses</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="calculating_portolio_returns.html">Calculating Portfolio Returns</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Documentation for Developers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_design_doc.html">Beancount Design Doc</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="external_contributions.html">External Contributions</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Enhancement Proposals & Discussions</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Beancount 3</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_v3.html">Goals & Design</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="installing_beancount_v3.html">Installing Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_v3_dependencies.html">Dependencies</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">API reference</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/index.html">beancount</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.core.html">beancount.core</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ingest.html">beancount.ingest</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.loader.html">beancount.loader</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ops.html">beancount.ops</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.parser.html">beancount.parser</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.plugins.html">beancount.plugins</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.prices.html">beancount.prices</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.query.html">beancount.query</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.reports.html">beancount.reports</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.scripts.html">beancount.scripts</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.tools.html">beancount.tools</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.utils.html">beancount.utils</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.web.html">beancount.web</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Beancount Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Outline &raquo;</li>
+        
+      
+        
+          <li>Cookbooks & Examples &raquo;</li>
+        
+      
+    
+    <li>Sharing Expenses with Beancount</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/beancount/docs/edit/master/docs/sharing_expenses_with_beancount.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
 </div>
-<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="index.html">Index</a>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Outline</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="#">Documentation for Users</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="command_line_accounting_in_context.html">Command Line Accounting in Context</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="the_double_entry_counting_method.html">The Double Entry Counting Method</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="installing_beancount.html">Installing Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started_with_beancount.html">Getting Started with Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_language_syntax.html">Beancount Language Syntax</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_options_reference.html">Beancount Options Reference</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="precision_tolerances.html">Precision Tolerances</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_query_language.html">Beancount Query Language</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="how_inventories_work.html">How Inventories Work</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="exporting_your_portfolio.html">Exporting Your Portfolio</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial_example.html">Tutorial &amp; Example</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_history_and_credits.html">Beancount History and Credits</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="importing_external_data.html">Importing External Data</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="reference internal current" href="#">Cookbooks &amp; Examples</a>
-<ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="trading_with_beancount.html">Trading with Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
-</li>
-<li class="toctree-l2 current"><a class="reference internal current" href="sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
-<ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#a-travel-example">A Travel Example</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#a-note-about-sharing">A Note About Sharing</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#overview-of-the-method">Overview of the Method</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#how-to-track-expenses">How to Track Expenses</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#accounts">Accounts</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#example-transactions">Example Transactions</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#how-to-take-notes">How to Take Notes</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#reconciling-expenses">Reconciling Expenses</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#reviewing-contributions">Reviewing Contributions</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#splitting-expenses">Splitting Expenses</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#final-transfer">Final Transfer</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#updating-your-personal-ledger">Updating your Personal Ledger</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#account-names">Account Names</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#using-a-tag">Using a Tag</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#booking-contributions">Booking Contributions</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#booking-expenses">Booking Expenses</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#generating-reports">Generating Reports</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#other-examples">Other Examples</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#conclusion">Conclusion</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="how_we_share_expenses.html">How We Share Expenses</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="health_care_expenses.html">Health Care Expenses</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="calculating_portolio_returns.html">Calculating Portfolio Returns</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#">Documentation for Developers</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_design_doc.html">Beancount Design Doc</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="external_contributions.html">External Contributions</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#">Enhancement Proposals &amp; Discussions</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#">Beancount 3</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="beancount_v3.html">Goals &amp; Design</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="installing_beancount_v3.html">Installing Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_v3_dependencies.html">Dependencies</a>
-</li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">API reference</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/index.html">beancount</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.core.html">beancount.core</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ingest.html">beancount.ingest</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.loader.html">beancount.loader</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ops.html">beancount.ops</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.parser.html">beancount.parser</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.plugins.html">beancount.plugins</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.prices.html">beancount.prices</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.query.html">beancount.query</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.reports.html">beancount.reports</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.scripts.html">beancount.scripts</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.tools.html">beancount.tools</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.utils.html">beancount.utils</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.web.html">beancount.web</a>
-</li>
-</ul>
-</div>
-</div>
-</nav>
-<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
-<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
-<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
-<a href=".">Beancount Documentation</a>
-</nav>
-<div class="wy-nav-content">
-<div class="rst-content">
-<div aria-label="breadcrumbs navigation" role="navigation">
-<ul class="wy-breadcrumbs">
-<li><a href=".">Docs</a> »</li>
-<li>Cookbooks &amp; Examples »</li>
-<li>Outline »</li>
-<li>Sharing Expenses with Beancount</li>
-<li class="wy-breadcrumbs-aside">
-<a class="icon icon-github" href="https://github.com/beancount/docs/edit/master/docs/sharing_expenses_with_beancount.md"> Edit on GitHub</a>
-</li>
-</ul>
-<hr/>
-</div>
-<div role="main">
-<div class="section">
-<h1 id="sharing-expenses-in-beancount">Sharing Expenses in Beancount<a id="title"></a><a class="headerlink" href="#sharing-expenses-in-beancount" title="Permanent link"></a></h1>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="sharing-expenses-in-beancount">Sharing Expenses in Beancount<a id="title"></a><a class="headerlink" href="#sharing-expenses-in-beancount" title="Permanent link"></a></h1>
 <p><a href="mailto:blais@furius.ca"><span class="underline">Martin Blais</span></a>, May 2015</p>
 <p><a href="http://furius.ca/beancount/doc/shared"><span class="underline">http://furius.ca/beancount/doc/shared</span></a></p>
 <h2 id="introduction">Introduction<a id="introduction"></a><a class="headerlink" href="#introduction" title="Permanent link"></a></h2>
 <p>This document presents a method for precisely and easily accounting for shared expenses in complicated group situations. For example, traveling with a group of friends where people pay for different things. We show it is possible to deal with expenses to be split evenly among the group as well as group expenses that should be allocated to specific persons.</p>
 <p>The method uses the double-entry accounting system. The essence of the method consists in separating the accounting of expenses and their associated payments. This makes it much easier to deal with shared costs, because using this method it doesn’t matter who pays for what: we reconcile the precise amounts owed for each individual at the end and automatically compute final correcting transfers for each.</p>
 <p>This article is structured around a simple trip with expenses shared equally by two people. However, the same method generalizes to any type of project with incomes and expenses to be shared among multiple participants, and splitting expenses evenly or not.</p>
-<h2 id="a-travel-example">A Travel Example<img src="sharing_expenses_with_beancount/media/72a67e4807826142ec5f6535a66dc7fca5f797a3.jpg" style="width:1.41146in;height:1.05859in"/><a id="a-travel-example"></a><a class="headerlink" href="#a-travel-example" title="Permanent link"></a></h2>
+<h2 id="a-travel-example">A Travel Example<img src="sharing_expenses_with_beancount/media/72a67e4807826142ec5f6535a66dc7fca5f797a3.jpg" style="width:1.41146in;height:1.05859in" /><a id="a-travel-example"></a><a class="headerlink" href="#a-travel-example" title="Permanent link"></a></h2>
 <p>Martin (the author) and Caroline (his girlfriend) visited Mexico in March 2015. We visited the island of Cozumel for a SCUBA diving trip for three days and then headed to Tulum for two days to relax and dive in the <a href="http://en.wikipedia.org/wiki/Cenote"><span class="underline">cenotes</span></a>.</p>
 <p>Our assumptions are:</p>
 <ul>
@@ -263,18 +293,18 @@
 </ul>
 <h2 id="a-note-about-sharing">A Note About Sharing<a id="a-note-about-sharing"></a><a class="headerlink" href="#a-note-about-sharing" title="Permanent link"></a></h2>
 <p>I feel that something should be said about the “sharing” aspect of our expenses, as this topic has come up on previous discussions on the mailing-lists involving sharing examples.</p>
-<p><strong>We are nitpicking on purpose.</strong> For the purpose of this exercise, we are accounting for every little penny spent in an incredibly detailed manner. The point of this document is specifically to show how a complex set of transactions well accounted for can be efficiently and simply disentangled to a precise accounting of expenses for each participant, regardless of who actually makes the payments. We are not cheapskates.<img src="sharing_expenses_with_beancount/media/4346d251f32f6dbd2a7738fd62b01710c74a1e2f.jpg" style="width:1.53715in;height:2.14063in"/></p>
+<p><strong>We are nitpicking on purpose.</strong> For the purpose of this exercise, we are accounting for every little penny spent in an incredibly detailed manner. The point of this document is specifically to show how a complex set of transactions well accounted for can be efficiently and simply disentangled to a precise accounting of expenses for each participant, regardless of who actually makes the payments. We are not cheapskates.<img src="sharing_expenses_with_beancount/media/4346d251f32f6dbd2a7738fd62b01710c74a1e2f.jpg" style="width:1.53715in;height:2.14063in" /></p>
 <p><strong>We will assume that we’ve decided to split expenses evenly.</strong> Our “generosity” to each other is not a topic relevant to this document. We’re both well compensated working professionals and you can assume that we’ve agreed to split the common costs for this trip evenly (50/50).</p>
 <p>One of the attributes of the method we show here is that the decision of how we choose to split expenses can be made <em>separately</em> from the actual payment of costs. For example, we may decide in the end that I pay for ⅔rd of the trip, but that can be decided precisely rather than in an ad-hoc “oh, I think I remember I paid for this” manner. This is especially useful in a larger group of people because when expenses aren’t tracked accurately, usually <em><span class="underline">everyone</span></em> is left with a feeling that they paid more than the others. The sum of the <em>perceived</em> fractions of expenses paid in a group is always greater than 100%...</p>
 <h2 id="overview-of-the-method">Overview of the Method<a id="overview-of-the-method"></a><a class="headerlink" href="#overview-of-the-method" title="Permanent link"></a></h2>
 <p>In this section we present a brief illustrated overview of the method. A set of common Assets accounts that belong to the project, and book all our individual expenses and transfer for the trip as coming from external Income accounts:</p>
-<p><img src="sharing_expenses_with_beancount/media/ffb8e59cbae992f20b0bf1ccad53f2ffa905eb74.png" style="width:3.94444in;height:2.08333in"/></p>
+<p><img src="sharing_expenses_with_beancount/media/ffb8e59cbae992f20b0bf1ccad53f2ffa905eb74.png" style="width:3.94444in;height:2.08333in" /></p>
 <p>During the trip, we use the common Assets to make expenses. Most of the expenses are attributed to both of us (and to be shared eventually), but some of the expenses are intended to be attributed to each of us individually:</p>
-<p><img src="sharing_expenses_with_beancount/media/be8e07e2facf2ca2b272fd376561bc7e8765f7eb.png" style="width:3.94444in;height:2.23611in"/></p>
+<p><img src="sharing_expenses_with_beancount/media/be8e07e2facf2ca2b272fd376561bc7e8765f7eb.png" style="width:3.94444in;height:2.23611in" /></p>
 <p>After the trip, remaining Assets (like cash we walked home with) gets distributed back to ourselves to zero out the balances of the Assets accounts and we record this through contra postings to Income accounts:</p>
-<p><img src="sharing_expenses_with_beancount/media/fd13b24fc35683de39d20328e011c1d01f1caa7b.png" style="width:3.90278in;height:2.94444in"/></p>
+<p><img src="sharing_expenses_with_beancount/media/fd13b24fc35683de39d20328e011c1d01f1caa7b.png" style="width:3.90278in;height:2.94444in" /></p>
 <p>Finally, the list of shared Expenses are split between each other—using a plugin that forks every posting that is intended to be a shared expense—and the final amount is used to make a final transfer between each other so that we’ve each paid for our respective expenses and we’re square:</p>
-<p><img src="sharing_expenses_with_beancount/media/0f6d6fb89adb1feef313fe6fbd4532a8b8decb1c.png" style="width:4.86111in;height:1.97222in"/></p>
+<p><img src="sharing_expenses_with_beancount/media/0f6d6fb89adb1feef313fe6fbd4532a8b8decb1c.png" style="width:4.86111in;height:1.97222in" /></p>
 <p>Note that the final balance of expenses for each participant may differ, and these are due to particular expenses that were attributed separately, or if we decide to split the total unevenly.</p>
 <h2 id="how-to-track-expenses">How to Track Expenses<a id="how-to-track-expenses"></a><a class="headerlink" href="#how-to-track-expenses" title="Permanent link"></a></h2>
 <p>In order to write down all expenses for this trip we will open a brand new Beancount input file. Despite the fact that the expenses will come from each person’s personal accounts, it is useful to think of the trip as a special project, as if it were a separate entity, e.g., a company that exists only for the duration of the trip. The example file we wrote for our trip <a href="https://raw.githubusercontent.com/beancount/beancount/v2/examples/sharing/cozumel2015.beancount"><span class="underline">can be found here</span></a> and should help you follow along this text.</p>
@@ -361,7 +391,7 @@
   Expenses:Scuba                            50.00 USD
   Assets:Cash:Martin
 </code></pre>
-<h4 id="cash-expenses-in-local-currency">Cash Expenses in Local Currency<img src="sharing_expenses_with_beancount/media/6c5e7a3ecdb57f82345ca38ad79cee393ec1fdba.jpg" style="width:1.55003in;height:1.63021in"/><a id="cash-expenses-in-local-currency"></a><a class="headerlink" href="#cash-expenses-in-local-currency" title="Permanent link"></a></h4>
+<h4 id="cash-expenses-in-local-currency">Cash Expenses in Local Currency<img src="sharing_expenses_with_beancount/media/6c5e7a3ecdb57f82345ca38ad79cee393ec1fdba.jpg" style="width:1.55003in;height:1.63021in" /><a id="cash-expenses-in-local-currency"></a><a class="headerlink" href="#cash-expenses-in-local-currency" title="Permanent link"></a></h4>
 <p>Paying cash using pesos from our shared stash of pesos looks like this:</p>
 <pre><code>2015-02-25 * "UltraMar Ferry across to Cozumel"
   Expenses:Transport:Bus                326 MXN
@@ -375,7 +405,7 @@
 </code></pre>
 <p>I used the unfavorable rate the restaurant was offering to accept dollars at (the market rate was 14.5 at the time).</p>
 <h4 id="individual-expenses">Individual Expenses<a id="individual-expenses"></a><a class="headerlink" href="#individual-expenses" title="Permanent link"></a></h4>
-<p>Here is an example of booking individual expenses using shared money. In order for us to have access to the reef for diving, we had to pay a “marine park” fee of $2.50 per day to the island. This was a short trip where I dove only three days there and Caroline’s fee was included in her course except for one day:<img src="sharing_expenses_with_beancount/media/e0cef7785d12af297926017d805ccad2efc51dbd.jpg" style="width:1.44375in;height:1.92188in"/></p>
+<p>Here is an example of booking individual expenses using shared money. In order for us to have access to the reef for diving, we had to pay a “marine park” fee of $2.50 per day to the island. This was a short trip where I dove only three days there and Caroline’s fee was included in her course except for one day:<img src="sharing_expenses_with_beancount/media/e0cef7785d12af297926017d805ccad2efc51dbd.jpg" style="width:1.44375in;height:1.92188in" /></p>
 <pre><code>  2015-02-25 * "Marine Park (3 days Martin, 1 day Caroline)"
     Expenses:Scuba:ParkFees:Martin             7.50 USD
     Expenses:Scuba:ParkFees:Caroline           2.50 USD
@@ -428,7 +458,7 @@
 <h2 id="how-to-take-notes">How to Take Notes<a id="how-to-take-notes"></a><a class="headerlink" href="#how-to-take-notes" title="Permanent link"></a></h2>
 <p>During this trip I did not carry a laptop—this was vacation after all. I like to disconnect. I did not carry a notebook either. Instead, I just took notes at the end of the day on a few sheets of paper at the hotel. This process took about 5-10 minutes each night, just recalling from memory and writing things down.</p>
 <p>These notes look like this:</p>
-<p><img alt="sharing-example-note-taking.png" src="sharing_expenses_with_beancount/media/6eccd752444847a6f97ae99b34a046074a39ddd8.png" style="width:6.5in;height:3.68056in"/></p>
+<p><img src="sharing_expenses_with_beancount/media/6eccd752444847a6f97ae99b34a046074a39ddd8.png" alt="sharing-example-note-taking.png" style="width:6.5in;height:3.68056in" /></p>
 <p>I made a paper spreadsheet where each line had</p>
 <ul>
 <li>
@@ -449,15 +479,15 @@
 </code></pre>
 <p>You can view the balances in the “All Transactions” view (click on “All Transactions”).</p>
 <p>The Balance Sheet should show empty balances for Assets accounts:</p>
-<p><img alt="balsheet.png" src="sharing_expenses_with_beancount/media/2b7f16e905c9fe8c22ed0ee11d3fd9199dbf139a.png" style="width:6.28646in;height:2.57906in"/></p>
+<p><img src="sharing_expenses_with_beancount/media/2b7f16e905c9fe8c22ed0ee11d3fd9199dbf139a.png" alt="balsheet.png" style="width:6.28646in;height:2.57906in" /></p>
 <p>The balances of the equity accounts should reflect the total amount of currency conversions made during the trip. You can verify this by calculating the amount-weight average rate like this: 7539.00 / 559.88 ~= 13.465 USD/MXN (which is about right).</p>
 <h3 id="reviewing-contributions">Reviewing Contributions<a id="reviewing-contributions"></a><a class="headerlink" href="#reviewing-contributions" title="Permanent link"></a></h3>
 <p>The Income Statement should show a summary of all expenses and contributions to the project:</p>
-<p><img alt="income.png" src="sharing_expenses_with_beancount/media/725237ab95f02c9bfbb8700f307d591c2ab82f95.png" style="width:6.41468in;height:4.30729in"/></p>
+<p><img src="sharing_expenses_with_beancount/media/725237ab95f02c9bfbb8700f307d591c2ab82f95.png" alt="income.png" style="width:6.41468in;height:4.30729in" /></p>
 <p>The Income account balances show the total amounts of contributions for each person. Note that in creating the Income accounts, I went through the extra step of creating some specific accounts for each source of payment, like “Caroline’s Credit Card”, etc.</p>
 <p>From this view, we can see that we contributed a total of 4254.28 USD (and were left with 65 MXN in hand) for this trip. The expenses side should match, considering the currency exchanges: 3694.40 + 7474 / 13.465 ~= 4249 USD which is approximately right (the small difference can be explained by the varying currency conversions).</p>
 <p>If you want to view the list of contribution payments and the final balance, click on a particular traveler’s root account, e.g., “Income:Caroline” (click on “Caroline”) which should take you to the Journal for that root account:</p>
-<p><img alt="caroline.png" src="sharing_expenses_with_beancount/media/064623b8b809747c335fdc4eb4a0bc9efc7dbc15.png" style="width:6.5in;height:4.63889in"/></p>
+<p><img src="sharing_expenses_with_beancount/media/064623b8b809747c335fdc4eb4a0bc9efc7dbc15.png" alt="caroline.png" style="width:6.5in;height:4.63889in" /></p>
 <p>This journal includes all the transactions in its sub-accounts. The final value at the bottom should show the total balance of those accounts, and thus, the amount of money Caroline contributed to this trip: 415 USD, and kept 5 MXN (in coin). We can do the same for Martin and find the final balance of 3839.28 USD and kept 60 MXN (in bills).</p>
 <p>You can also get the same amounts by using bean-query to achieve the same thing:</p>
 <pre><code>~/p/.../examples/sharing$ bean-query cozumel2015.beancount
@@ -710,53 +740,76 @@ poptag #trip-mexico-cozumel-2015
 <p>Finally, it will also generate a final balance for each person, which you can use to send final reconciling transfers to each other. Try it now on one of the <a href="https://raw.githubusercontent.com/beancount/beancount/v2/examples/sharing/"><span class="underline">example files</span></a> provided with Beancount.</p>
 <h2 id="other-examples">Other Examples<a id="other-examples"></a><a class="headerlink" href="#other-examples" title="Permanent link"></a></h2>
 <p>There is another example file that shows how to share expenses between three participants in <a href="https://raw.githubusercontent.com/beancount/beancount/v2/examples/sharing/duxbury2015.beancount"><span class="underline">duxbury2015.beancount</span></a>. Look to more example files to be introduced over time.</p>
-<h2 id="conclusion">Conclusion<img src="sharing_expenses_with_beancount/media/b2573bbadd485ef104e25a4b13b53f46c4b541ca.jpg" style="width:2.02604in;height:1.52427in"/><a id="conclusion"></a><a class="headerlink" href="#conclusion" title="Permanent link"></a></h2>
+<h2 id="conclusion">Conclusion<img src="sharing_expenses_with_beancount/media/b2573bbadd485ef104e25a4b13b53f46c4b541ca.jpg" style="width:2.02604in;height:1.52427in" /><a id="conclusion"></a><a class="headerlink" href="#conclusion" title="Permanent link"></a></h2>
 <p>There is more than just one way to carry out the task we describe here. However, the method we present extends nicely to a larger group of participants, allows us to account for situations where particular expenses are incurred for one individual as part of a group, and finally, allows for a non-even split between the participants. This is pretty general.</p>
 <p>It’s also a short step to accounting for an ongoing project with a longer term. The ideas presented in this document provide a nice use case for the usage of the double-entry method in a simple setting. I hope that working through this use case will help people develop the intuitions necessary in using the double-entry method.</p>
 <div class="footnote">
-<hr/>
+<hr />
 <ol>
 <li id="fn:1">
-<p>As our SQL-like query language matures, bean-web will eventually allow the user to create views from a set of transactions filtered from an expression. This will be implemented eventually. <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+<p>As our SQL-like query language matures, bean-web will eventually allow the user to create views from a set of transactions filtered from an expression. This will be implemented eventually.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>Note that we could implement a special “beancount” supported format to the bean-query tool in order to write out balances in Transaction form. I’m not sure how useful that would be but it’s an idea worth considering for the future. <a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">↩</a></p>
+<p>Note that we could implement a special “beancount” supported format to the bean-query tool in order to write out balances in Transaction form. I’m not sure how useful that would be but it’s an idea worth considering for the future.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
-</div>
-</div>
-<footer>
-<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
-<a class="btn btn-neutral float-right" href="how_we_share_expenses.html" title="How We Share Expenses">Next <span class="icon icon-circle-arrow-right"></span></a>
-<a class="btn btn-neutral" href="stock_vesting_in_beancount.html" title="Stock Vesting in Beancount"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-</div>
-<hr/>
-<div role="contentinfo">
-<!-- Copyright etc -->
-</div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="how_we_share_expenses.html" class="btn btn-neutral float-right" title="How We Share Expenses">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="stock_vesting_in_beancount.html" class="btn btn-neutral" title="Stock Vesting in Beancount"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
 
   Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/beancount/docs/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="stock_vesting_in_beancount.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="how_we_share_expenses.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
-</div>
-</section>
-</div>
-<div aria-label="versions" class="rst-versions" role="note">
-<span class="rst-current-version" data-toggle="rst-current-version">
-<a class="fa fa-github" href="https://github.com/beancount/docs/" style="float: left; color: #fcfcfc"> GitHub</a>
-<span><a href="stock_vesting_in_beancount.html" style="color: #fcfcfc;">« Previous</a></span>
-<span style="margin-left: 15px"><a href="how_we_share_expenses.html" style="color: #fcfcfc">Next »</a></span>
-</span>
-</div>
-<script>var base_url = '.';</script>
-<script defer="" src="js/theme.js"></script>
-<script defer="" src="js/extra.js"></script>
-<script defer="" src="search/main.js"></script>
-<script defer="">
+    <script>var base_url = '.';</script>
+    <script src="js/theme_extra.js" defer></script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);
         };
     </script>
+
 </body>
 </html>

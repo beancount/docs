@@ -1,237 +1,267 @@
 <!DOCTYPE html>
-
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
-<meta charset="utf-8"/>
-<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link href="https://beancount.github.io/docs/api_reference/beancount.tools.html" rel="canonical"/>
-<link href="../img/favicon.ico" rel="shortcut icon"/>
-<title>beancount.tools - Beancount Documentation</title>
-<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
-<link href="../css/theme.css" rel="stylesheet">
-<link href="../css/theme_extra.css" rel="stylesheet"/>
-<link href="../css/custom.css" rel="stylesheet"/>
-<script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="https://beancount.github.io/docs/api_reference/beancount.tools.html">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>beancount.tools - Beancount Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+  <link href="../css/custom.css" rel="stylesheet" />
+  
+  <script>
     // Current page data
     var mkdocs_page_name = "beancount.tools";
     var mkdocs_page_input_path = "api_reference/beancount.tools.md";
     var mkdocs_page_url = "/docs/api_reference/beancount.tools.html";
   </script>
-<script defer="" src="../js/jquery-2.1.1.min.js"></script>
-<script defer="" src="../js/modernizr-2.8.3.min.js"></script>
-</link></link></head>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script> 
+</head>
+
 <body class="wy-body-for-nav" role="document">
-<div class="wy-grid-for-nav">
-<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
-<div class="wy-side-scroll">
-<div class="wy-side-nav-search">
-<a class="icon icon-home" href=".."> Beancount Documentation</a>
-<div role="search">
-<form action="../search.html" class="wy-form" id="rtd-search-form" method="get">
-<input name="q" placeholder="Search docs" title="Type search term here" type="text"/>
-</form>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="icon icon-home"> Beancount Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
 </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../index.html">Index</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Outline</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Documentation for Users</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../command_line_accounting_in_context.html">Command Line Accounting in Context</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../the_double_entry_counting_method.html">The Double Entry Counting Method</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../installing_beancount.html">Installing Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../getting_started_with_beancount.html">Getting Started with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../beancount_language_syntax.html">Beancount Language Syntax</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../beancount_options_reference.html">Beancount Options Reference</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../precision_tolerances.html">Precision Tolerances</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../beancount_query_language.html">Beancount Query Language</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../how_inventories_work.html">How Inventories Work</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../exporting_your_portfolio.html">Exporting Your Portfolio</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../tutorial_example.html">Tutorial & Example</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../beancount_history_and_credits.html">Beancount History and Credits</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../importing_external_data.html">Importing External Data</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Cookbooks & Examples</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../trading_with_beancount.html">Trading with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../how_we_share_expenses.html">How We Share Expenses</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../health_care_expenses.html">Health Care Expenses</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../calculating_portolio_returns.html">Calculating Portfolio Returns</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Documentation for Developers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../beancount_design_doc.html">Beancount Design Doc</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../external_contributions.html">External Contributions</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Enhancement Proposals & Discussions</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Beancount 3</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../beancount_v3.html">Goals & Design</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../installing_beancount_v3.html">Installing Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../beancount_v3_dependencies.html">Dependencies</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">API reference</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="index.html">beancount</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="beancount.core.html">beancount.core</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="beancount.ingest.html">beancount.ingest</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="beancount.loader.html">beancount.loader</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="beancount.ops.html">beancount.ops</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="beancount.parser.html">beancount.parser</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="beancount.plugins.html">beancount.plugins</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="beancount.prices.html">beancount.prices</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="beancount.query.html">beancount.query</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="beancount.reports.html">beancount.reports</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="beancount.scripts.html">beancount.scripts</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="beancount.tools.html">beancount.tools</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#beancount.tools">beancount.tools</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#beancount.tools.treeify">treeify</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.tools.treeify.Node">Node</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#beancount.tools.treeify.Node.__repr__">__repr__()</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.tools.treeify.create_tree">create_tree()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.tools.treeify.dump_tree">dump_tree()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.tools.treeify.enum_tree_by_input_line_num">enum_tree_by_input_line_num()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.tools.treeify.find_column">find_column()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.tools.treeify.render_tree">render_tree()</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#beancount.tools.treeify_test">treeify_test</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.tools.treeify_test.TestTreeifyBase">TestTreeifyBase</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#beancount.tools.treeify_test.TestTreeifyBase.treeify">treeify()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#beancount.tools.treeify_test.TestTreeifyBase.treeify_equal">treeify_equal()</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.tools.treeify_test.treeify">treeify()</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="beancount.utils.html">beancount.utils</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="beancount.web.html">beancount.web</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Beancount Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>API reference &raquo;</li>
+        
+      
+    
+    <li>beancount.tools</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/beancount/docs/edit/master/docs/api_reference/beancount.tools.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
 </div>
-<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Index</a>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Outline</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="#">Documentation for Users</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="../command_line_accounting_in_context.html">Command Line Accounting in Context</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../the_double_entry_counting_method.html">The Double Entry Counting Method</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../installing_beancount.html">Installing Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started_with_beancount.html">Getting Started with Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../beancount_language_syntax.html">Beancount Language Syntax</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../beancount_options_reference.html">Beancount Options Reference</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../precision_tolerances.html">Precision Tolerances</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../beancount_query_language.html">Beancount Query Language</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../how_inventories_work.html">How Inventories Work</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../exporting_your_portfolio.html">Exporting Your Portfolio</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial_example.html">Tutorial &amp; Example</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../beancount_history_and_credits.html">Beancount History and Credits</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../importing_external_data.html">Importing External Data</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#">Cookbooks &amp; Examples</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="../command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../trading_with_beancount.html">Trading with Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../how_we_share_expenses.html">How We Share Expenses</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../health_care_expenses.html">Health Care Expenses</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../calculating_portolio_returns.html">Calculating Portfolio Returns</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#">Documentation for Developers</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="../beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../beancount_design_doc.html">Beancount Design Doc</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../external_contributions.html">External Contributions</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#">Enhancement Proposals &amp; Discussions</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="../a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#">Beancount 3</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="../beancount_v3.html">Goals &amp; Design</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../installing_beancount_v3.html">Installing Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../beancount_v3_dependencies.html">Dependencies</a>
-</li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">API reference</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="index.html">beancount</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="beancount.core.html">beancount.core</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="beancount.ingest.html">beancount.ingest</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="beancount.loader.html">beancount.loader</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="beancount.ops.html">beancount.ops</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="beancount.parser.html">beancount.parser</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="beancount.plugins.html">beancount.plugins</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="beancount.prices.html">beancount.prices</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="beancount.query.html">beancount.query</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="beancount.reports.html">beancount.reports</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="beancount.scripts.html">beancount.scripts</a>
-</li>
-<li class="toctree-l1 current"><a class="reference internal current" href="beancount.tools.html">beancount.tools</a>
-<ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="#beancount.tools">beancount.tools</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#beancount.tools.treeify">treeify</a>
-<ul>
-<li class="toctree-l3"><a class="reference internal" href="#beancount.tools.treeify.Node">Node</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#beancount.tools.treeify.Node.__repr__">__repr__()</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#beancount.tools.treeify.create_tree">create_tree()</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#beancount.tools.treeify.dump_tree">dump_tree()</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#beancount.tools.treeify.enum_tree_by_input_line_num">enum_tree_by_input_line_num()</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#beancount.tools.treeify.find_column">find_column()</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#beancount.tools.treeify.render_tree">render_tree()</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#beancount.tools.treeify_test">treeify_test</a>
-<ul>
-<li class="toctree-l3"><a class="reference internal" href="#beancount.tools.treeify_test.TestTreeifyBase">TestTreeifyBase</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#beancount.tools.treeify_test.TestTreeifyBase.treeify">treeify()</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#beancount.tools.treeify_test.TestTreeifyBase.treeify_equal">treeify_equal()</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#beancount.tools.treeify_test.treeify">treeify()</a>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="beancount.utils.html">beancount.utils</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="beancount.web.html">beancount.web</a>
-</li>
-</ul>
-</div>
-</div>
-</nav>
-<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
-<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
-<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
-<a href="..">Beancount Documentation</a>
-</nav>
-<div class="wy-nav-content">
-<div class="rst-content">
-<div aria-label="breadcrumbs navigation" role="navigation">
-<ul class="wy-breadcrumbs">
-<li><a href="..">Docs</a> »</li>
-<li>API reference »</li>
-<li>beancount.tools</li>
-<li class="wy-breadcrumbs-aside">
-<a class="icon icon-github" href="https://github.com/beancount/docs/edit/master/docs/api_reference/beancount.tools.md"> Edit on GitHub</a>
-</li>
-</ul>
-<hr/>
-</div>
-<div role="main">
-<div class="section">
-<h1 id="beancounttools">beancount.tools<a class="headerlink" href="#beancounttools" title="Permanent link"></a></h1>
-<div class="doc doc-object doc-module">
-<h2 class="hidden-toc" href="#beancount.tools" id="beancount.tools" style="visibility: hidden; width: 0; height: 0;">
-<a class="headerlink" href="#beancount.tools" title="Permanent link"></a></h2>
-<div class="doc doc-contents first">
-<p>Standalone tools that aren't linked to Beancount but that are useful with it.</p>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="beancounttools">beancount.tools<a class="headerlink" href="#beancounttools" title="Permanent link"></a></h1>
+
+
+  <div class="doc doc-object doc-module">
+
+<a id="beancount.tools"></a>
+    <div class="doc doc-contents first">
+
+      <p>Standalone tools that aren't linked to Beancount but that are useful with it.</p>
 <p>The beancount.scripts package contains the implementation of scripts which
 invoke the Beancount library code. This beancount.tools package implements other
 tools which aren't directly invoking Beancount library code and which could be
@@ -239,13 +269,36 @@ theoretically copied and used independently. However, these are to be
 distributed with Beancount and in order to maintain all the source code together
 they are put in this package and invokes from stubs under beancount/bin/, just
 like the other scripts.</p>
-<div class="doc doc-children">
-<div class="doc doc-object doc-module">
-<h2 class="doc doc-heading" id="beancount.tools.treeify">
-<code>beancount.tools.treeify</code>
-<a class="headerlink" href="#beancount.tools.treeify" title="Permanent link"></a></h2>
-<div class="doc doc-contents">
-<p>Identify a column of text that contains hierarchical id and treeify that column.</p>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-module">
+
+
+
+<h2 id="beancount.tools.treeify" class="doc doc-heading">
+        <code>beancount.tools.treeify</code>
+
+
+
+<a href="#beancount.tools.treeify" class="headerlink" title="Permanent link"></a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Identify a column of text that contains hierarchical id and treeify that column.</p>
 <p>This script will inspect a text file and attempt to find a vertically
 left-aligned column of text that contains identifiers with multiple components,
 such as "Assets:US:Bank:Checking", and replace those by a tree-like structure rendered
@@ -253,99 +306,155 @@ in ASCII, inserting new empty lines where necessary to create the tree.</p>
 <p>Note: If your paths have spaces in them, this will not work. Space is used as a
 delimiter to detect the end of a column. You can customize the delimiter with an
 option.</p>
-<div class="doc doc-children">
-<div class="doc doc-object doc-class">
-<h3 class="doc doc-heading" id="beancount.tools.treeify.Node">
-<code>beancount.tools.treeify.Node</code>
-<a class="headerlink" href="#beancount.tools.treeify.Node" title="Permanent link"></a></h3>
-<div class="doc doc-contents">
-<p>A node with a name attribute, a list of line numbers and a list of children
-    (from its parent class).</p>
-<div class="doc doc-children">
-<div class="doc doc-object doc-method">
-<h4 class="doc doc-heading" id="beancount.tools.treeify.Node.__repr__">
-<code class="highlight language-python">
-beancount.tools.treeify.Node.__repr__
-(self)
 
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h3 id="beancount.tools.treeify.Node" class="doc doc-heading">
+        <code>
+beancount.tools.treeify.Node            (<span title="list">list</span>)
         </code>
-<span class="doc doc-properties">
-<small class="doc doc-property doc-property-special"><code>special</code></small>
-</span>
-<a class="headerlink" href="#beancount.tools.treeify.Node.__repr__" title="Permanent link"></a></h4>
-<div class="doc doc-contents">
-<p>Return str(self).</p>
-<details class="quote">
-<summary>Source code in <code>beancount/tools/treeify.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def __str__(self):
+
+
+
+<a href="#beancount.tools.treeify.Node" class="headerlink" title="Permanent link"></a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>A node with a name attribute, a list of line numbers and a list of children
+(from its parent class).</p>
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="beancount.tools.treeify.Node.__repr__" class="doc doc-heading">
+<code class="highlight language-python">beancount.tools.treeify.Node.__repr__(self)</code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-special"><code>special</code></small>
+  </span>
+
+<a href="#beancount.tools.treeify.Node.__repr__" class="headerlink" title="Permanent link"></a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Return str(self).</p>
+
+        <details class="quote">
+          <summary>Source code in <code>beancount/tools/treeify.py</code></summary>
+          <pre class="highlight"><code class="language-python linenums">def __str__(self):
     return '&lt;Node {} {}&gt;'.format(self.name, [node.name for node in self])
 </code></pre>
-</details>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="doc doc-object doc-function">
-<h3 class="doc doc-heading" id="beancount.tools.treeify.create_tree">
-<code class="highlight language-python">
-beancount.tools.treeify.create_tree
-(column_matches, regexp_split)
+        </details>
+    </div>
 
-        </code>
-<a class="headerlink" href="#beancount.tools.treeify.create_tree" title="Permanent link"></a></h3>
-<div class="doc doc-contents">
-<p>Build up a tree from a list of matches.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>column_matches</code></td>
-<td><code></code></td>
-<td>
-<p>A list of (line-number, name) pairs.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>regexp_split</code></td>
-<td><code></code></td>
-<td>
-<p>A regular expression string, to use for splitting the names
-of components.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
+  </div>
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h3 id="beancount.tools.treeify.create_tree" class="doc doc-heading">
+<code class="highlight language-python">beancount.tools.treeify.create_tree(column_matches, regexp_split)</code>
+
+
+<a href="#beancount.tools.treeify.create_tree" class="headerlink" title="Permanent link"></a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Build up a tree from a list of matches.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>column_matches</strong> – A list of (line-number, name) pairs.</p></li>
+            <li><p><strong>regexp_split</strong> – A regular expression string, to use for splitting the names
+of components.</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code></code></td>
-<td>
-<p>An instance of Node, the root node of the created tree.</p>
-</td>
-</tr>
-</tbody>
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+        <ul class="first simple">
+          <li><p>An instance of Node, the root node of the created tree.</p></li>
+        </ul>
+    </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>beancount/tools/treeify.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def create_tree(column_matches, regexp_split):
+        <details class="quote">
+          <summary>Source code in <code>beancount/tools/treeify.py</code></summary>
+          <pre class="highlight"><code class="language-python linenums">def create_tree(column_matches, regexp_split):
     """Build up a tree from a list of matches.
 
     Args:
@@ -368,59 +477,48 @@ of components.</p>
         node.nos.append(no)
     return root
 </code></pre>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-function">
-<h3 class="doc doc-heading" id="beancount.tools.treeify.dump_tree">
-<code class="highlight language-python">
-beancount.tools.treeify.dump_tree
-(node, file=&lt;_io.StringIO object at 0x7f597c4f1310&gt;, prefix='')
+        </details>
+    </div>
 
-        </code>
-<a class="headerlink" href="#beancount.tools.treeify.dump_tree" title="Permanent link"></a></h3>
-<div class="doc doc-contents">
-<p>Render a tree as a tree.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>node</code></td>
-<td><code></code></td>
-<td>
-<p>An instance of Node.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>file</code></td>
-<td><code></code></td>
-<td>
-<p>A file object to write to.</p>
-</td>
-<td><code>&lt;_io.StringIO object at 0x7f597c4f1310&gt;</code></td>
-</tr>
-<tr>
-<td><code>prefix</code></td>
-<td><code></code></td>
-<td>
-<p>A prefix string for each of the lines of the children.</p>
-</td>
-<td><code>''</code></td>
-</tr>
-</tbody>
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h3 id="beancount.tools.treeify.dump_tree" class="doc doc-heading">
+<code class="highlight language-python">beancount.tools.treeify.dump_tree(node, file=&lt;_io.StringIO object at 0x7f36ed1a3670&gt;, prefix='')</code>
+
+
+<a href="#beancount.tools.treeify.dump_tree" class="headerlink" title="Permanent link"></a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Render a tree as a tree.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>node</strong> – An instance of Node.</p></li>
+            <li><p><strong>file</strong> – A file object to write to.</p></li>
+            <li><p><strong>prefix</strong> – A prefix string for each of the lines of the children.</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>beancount/tools/treeify.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def dump_tree(node, file=sys.stdout, prefix=''):
+        <details class="quote">
+          <summary>Source code in <code>beancount/tools/treeify.py</code></summary>
+          <pre class="highlight"><code class="language-python linenums">def dump_tree(node, file=sys.stdout, prefix=''):
     """Render a tree as a tree.
 
     Args:
@@ -434,45 +532,48 @@ beancount.tools.treeify.dump_tree
     for child in node:
         dump_tree(child, file, prefix + '... ')
 </code></pre>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-function">
-<h3 class="doc doc-heading" id="beancount.tools.treeify.enum_tree_by_input_line_num">
-<code class="highlight language-python">
-beancount.tools.treeify.enum_tree_by_input_line_num
-(tree_lines)
+        </details>
+    </div>
 
-        </code>
-<a class="headerlink" href="#beancount.tools.treeify.enum_tree_by_input_line_num" title="Permanent link"></a></h3>
-<div class="doc doc-contents">
-<p>Accumulate the lines of a tree until a line number is found.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>tree_lines</code></td>
-<td><code></code></td>
-<td>
-<p>A list of lines as returned by render_tree.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
-</table>
-<p>Yields:
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h3 id="beancount.tools.treeify.enum_tree_by_input_line_num" class="doc doc-heading">
+<code class="highlight language-python">beancount.tools.treeify.enum_tree_by_input_line_num(tree_lines)</code>
+
+
+<a href="#beancount.tools.treeify.enum_tree_by_input_line_num" class="headerlink" title="Permanent link"></a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Accumulate the lines of a tree until a line number is found.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>tree_lines</strong> – A list of lines as returned by render_tree.</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>      <p>Yields:
   Pairs of (line number, list of (line, node)).</p>
-<details class="quote">
-<summary>Source code in <code>beancount/tools/treeify.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def enum_tree_by_input_line_num(tree_lines):
+
+        <details class="quote">
+          <summary>Source code in <code>beancount/tools/treeify.py</code></summary>
+          <pre class="highlight"><code class="language-python linenums">def enum_tree_by_input_line_num(tree_lines):
     """Accumulate the lines of a tree until a line number is found.
 
     Args:
@@ -494,85 +595,73 @@ beancount.tools.treeify.enum_tree_by_input_line_num
     if pending:
         yield (None, pending)
 </code></pre>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-function">
-<h3 class="doc doc-heading" id="beancount.tools.treeify.find_column">
-<code class="highlight language-python">
-beancount.tools.treeify.find_column
-(lines, pattern, delimiter)
+        </details>
+    </div>
 
-        </code>
-<a class="headerlink" href="#beancount.tools.treeify.find_column" title="Permanent link"></a></h3>
-<div class="doc doc-contents">
-<p>Find a valid column with hierarchical data in the text lines.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>lines</code></td>
-<td><code></code></td>
-<td>
-<p>A list of strings, the contents of the input.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>pattern</code></td>
-<td><code></code></td>
-<td>
-<p>A regular expression for the hierarchical entries.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>delimiter</code></td>
-<td><code></code></td>
-<td>
-<p>A regular expression that dictates how we detect the
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h3 id="beancount.tools.treeify.find_column" class="doc doc-heading">
+<code class="highlight language-python">beancount.tools.treeify.find_column(lines, pattern, delimiter)</code>
+
+
+<a href="#beancount.tools.treeify.find_column" class="headerlink" title="Permanent link"></a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Find a valid column with hierarchical data in the text lines.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>lines</strong> – A list of strings, the contents of the input.</p></li>
+            <li><p><strong>pattern</strong> – A regular expression for the hierarchical entries.</p></li>
+            <li><p><strong>delimiter</strong> – A regular expression that dictates how we detect the
 end of a column. Normally this is a single space. If the patterns
-contain spaces, you will need to increase this.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
+contain spaces, you will need to increase this.</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>A tuple of
-  matches</code></td>
-<td>
-<p>A list of (line-number, name) tuples where 'name' is the
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+        <ul class="first simple">
+          <li><p><code>A tuple of
+  matches</code> – A list of (line-number, name) tuples where 'name' is the
     hierarchical string to treeify and line-number is an integer, the
     line number where this applies.
   left: An integer, the leftmost column.
   right: An integer, the rightmost column.
 Note that not all line numbers may be present, so you may need to
-skip some. However, they are in guaranteed in sorted order.</p>
-</td>
-</tr>
-</tbody>
+skip some. However, they are in guaranteed in sorted order.</p></li>
+        </ul>
+    </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>beancount/tools/treeify.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def find_column(lines, pattern, delimiter):
+        <details class="quote">
+          <summary>Source code in <code>beancount/tools/treeify.py</code></summary>
+          <pre class="highlight"><code class="language-python linenums">def find_column(lines, pattern, delimiter):
     """Find a valid column with hierarchical data in the text lines.
 
     Args:
@@ -627,44 +716,52 @@ skip some. However, they are in guaranteed in sorted order.</p>
                               for no, _, match in column_matches]
             return return_matches, leftmost_column, rightmost_column
 </code></pre>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-function">
-<h3 class="doc doc-heading" id="beancount.tools.treeify.render_tree">
-<code class="highlight language-python">
-beancount.tools.treeify.render_tree
-(root)
+        </details>
+    </div>
 
-        </code>
-<a class="headerlink" href="#beancount.tools.treeify.render_tree" title="Permanent link"></a></h3>
-<div class="doc doc-contents">
-<p>Render a tree of nodes.</p>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>A list of tuples of (first_line, continuation_line, node) where
-  first_line</code></td>
-<td>
-<p>A string, the first line to render, which includes the
+  </div>
+
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h3 id="beancount.tools.treeify.render_tree" class="doc doc-heading">
+<code class="highlight language-python">beancount.tools.treeify.render_tree(root)</code>
+
+
+<a href="#beancount.tools.treeify.render_tree" class="headerlink" title="Permanent link"></a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Render a tree of nodes.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+        <ul class="first simple">
+          <li><p><code>A list of tuples of (first_line, continuation_line, node) where
+  first_line</code> – A string, the first line to render, which includes the
     account name.
   continuation_line: A string, further line to render if necessary.
   node: The Node instance which corresponds to this line.
-and an integer, the width of the new columns.</p>
-</td>
-</tr>
-</tbody>
+and an integer, the width of the new columns.</p></li>
+        </ul>
+    </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>beancount/tools/treeify.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def render_tree(root):
+        <details class="quote">
+          <summary>Source code in <code>beancount/tools/treeify.py</code></summary>
+          <pre class="highlight"><code class="language-python linenums">def render_tree(root):
     """Render a tree of nodes.
 
     Returns:
@@ -740,93 +837,136 @@ and an integer, the width of the new columns.</p>
              node)
             for (first_line, cont_line, node) in lines], max_width
 </code></pre>
-</details>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="doc doc-object doc-module">
-<h2 class="doc doc-heading" id="beancount.tools.treeify_test">
-<code>beancount.tools.treeify_test</code>
-<a class="headerlink" href="#beancount.tools.treeify_test" title="Permanent link"></a></h2>
-<div class="doc doc-contents">
-<p>Unit tests for treeify tool.</p>
-<div class="doc doc-children">
-<div class="doc doc-object doc-class">
-<h3 class="doc doc-heading" id="beancount.tools.treeify_test.TestTreeifyBase">
-<code>beancount.tools.treeify_test.TestTreeifyBase</code>
-<a class="headerlink" href="#beancount.tools.treeify_test.TestTreeifyBase" title="Permanent link"></a></h3>
-<div class="doc doc-contents">
-<div class="doc doc-children">
-<div class="doc doc-object doc-method">
-<h4 class="doc doc-heading" id="beancount.tools.treeify_test.TestTreeifyBase.treeify">
-<code class="highlight language-python">
-beancount.tools.treeify_test.TestTreeifyBase.treeify
-(self, string, expect_errors=False, options=None)
+        </details>
+    </div>
 
+  </div>
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-module">
+
+
+
+<h2 id="beancount.tools.treeify_test" class="doc doc-heading">
+        <code>beancount.tools.treeify_test</code>
+
+
+
+<a href="#beancount.tools.treeify_test" class="headerlink" title="Permanent link"></a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Unit tests for treeify tool.</p>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h3 id="beancount.tools.treeify_test.TestTreeifyBase" class="doc doc-heading">
+        <code>
+beancount.tools.treeify_test.TestTreeifyBase            (<span title="unittest.case.TestCase">TestCase</span>)
         </code>
-<a class="headerlink" href="#beancount.tools.treeify_test.TestTreeifyBase.treeify" title="Permanent link"></a></h4>
-<div class="doc doc-contents">
-<p>Run treeify on the given string and assert no errors.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>string</code></td>
-<td><code></code></td>
-<td>
-<p>A string, the input contents to run on.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>expect_errors</code></td>
-<td><code></code></td>
-<td>
-<p>A boolean, true if we should expect there to be errors.</p>
-</td>
-<td><code>False</code></td>
-</tr>
-<tr>
-<td><code>options</code></td>
-<td><code></code></td>
-<td>
-<p>An optional list of options for the subprogram.</p>
-</td>
-<td><code>None</code></td>
-</tr>
-</tbody>
+
+
+
+<a href="#beancount.tools.treeify_test.TestTreeifyBase" class="headerlink" title="Permanent link"></a></h3>
+
+    <div class="doc doc-contents ">
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="beancount.tools.treeify_test.TestTreeifyBase.treeify" class="doc doc-heading">
+<code class="highlight language-python">beancount.tools.treeify_test.TestTreeifyBase.treeify(self, string, expect_errors=False, options=None)</code>
+
+
+<a href="#beancount.tools.treeify_test.TestTreeifyBase.treeify" class="headerlink" title="Permanent link"></a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Run treeify on the given string and assert no errors.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>string</strong> – A string, the input contents to run on.</p></li>
+            <li><p><strong>expect_errors</strong> – A boolean, true if we should expect there to be errors.</p></li>
+            <li><p><strong>options</strong> – An optional list of options for the subprogram.</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code></code></td>
-<td>
-<p>The converted output string. This fails the test if there were any
-errors.</p>
-</td>
-</tr>
-</tbody>
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+        <ul class="first simple">
+          <li><p>The converted output string. This fails the test if there were any
+errors.</p></li>
+        </ul>
+    </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>beancount/tools/treeify_test.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def treeify(self, string, expect_errors=False, options=None):
+        <details class="quote">
+          <summary>Source code in <code>beancount/tools/treeify_test.py</code></summary>
+          <pre class="highlight"><code class="language-python linenums">def treeify(self, string, expect_errors=False, options=None):
     """Run treeify on the given string and assert no errors.
 
     Args:
@@ -846,85 +986,66 @@ errors.</p>
             self.fail("Unexpected errors: {}".format(errors))
     return output
 </code></pre>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h4 class="doc doc-heading" id="beancount.tools.treeify_test.TestTreeifyBase.treeify_equal">
-<code class="highlight language-python">
-beancount.tools.treeify_test.TestTreeifyBase.treeify_equal
-(self, string, expected, expect_errors=False, options=None)
+        </details>
+    </div>
 
-        </code>
-<a class="headerlink" href="#beancount.tools.treeify_test.TestTreeifyBase.treeify_equal" title="Permanent link"></a></h4>
-<div class="doc doc-contents">
-<p>Assert an expected treeification result.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>string</code></td>
-<td><code></code></td>
-<td>
-<p>An expected input contents string to treeify.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>expected</code></td>
-<td><code></code></td>
-<td>
-<p>A string, the expected treeified output.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>expect_errors</code></td>
-<td><code></code></td>
-<td>
-<p>A boolean, true if we should expect there to be errors.</p>
-</td>
-<td><code>False</code></td>
-</tr>
-<tr>
-<td><code>options</code></td>
-<td><code></code></td>
-<td>
-<p>An optional list of options for the subprogram.</p>
-</td>
-<td><code>None</code></td>
-</tr>
-</tbody>
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="beancount.tools.treeify_test.TestTreeifyBase.treeify_equal" class="doc doc-heading">
+<code class="highlight language-python">beancount.tools.treeify_test.TestTreeifyBase.treeify_equal(self, string, expected, expect_errors=False, options=None)</code>
+
+
+<a href="#beancount.tools.treeify_test.TestTreeifyBase.treeify_equal" class="headerlink" title="Permanent link"></a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Assert an expected treeification result.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>string</strong> – An expected input contents string to treeify.</p></li>
+            <li><p><strong>expected</strong> – A string, the expected treeified output.</p></li>
+            <li><p><strong>expect_errors</strong> – A boolean, true if we should expect there to be errors.</p></li>
+            <li><p><strong>options</strong> – An optional list of options for the subprogram.</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code></code></td>
-<td>
-<p>The actual output string. This fails the test if there the expected
-output differed from the actual.</p>
-</td>
-</tr>
-</tbody>
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+        <ul class="first simple">
+          <li><p>The actual output string. This fails the test if there the expected
+output differed from the actual.</p></li>
+        </ul>
+    </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>beancount/tools/treeify_test.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def treeify_equal(self, string, expected, expect_errors=False, options=None):
+        <details class="quote">
+          <summary>Source code in <code>beancount/tools/treeify_test.py</code></summary>
+          <pre class="highlight"><code class="language-python linenums">def treeify_equal(self, string, expected, expect_errors=False, options=None):
     """Assert an expected treeification result.
 
     Args:
@@ -950,71 +1071,74 @@ output differed from the actual.</p>
     self.assertEqual(expected, output)
     return output
 </code></pre>
-</details>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="doc doc-object doc-function">
-<h3 class="doc doc-heading" id="beancount.tools.treeify_test.treeify">
-<code class="highlight language-python">
-beancount.tools.treeify_test.treeify
-(string, options=None)
+        </details>
+    </div>
 
-        </code>
-<a class="headerlink" href="#beancount.tools.treeify_test.treeify" title="Permanent link"></a></h3>
-<div class="doc doc-contents">
-<p>Run treeify on the string.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>string</code></td>
-<td><code></code></td>
-<td>
-<p>The input string to feed treeify.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>options</code></td>
-<td><code></code></td>
-<td>
-<p>An optional list of options for the subprogram.</p>
-</td>
-<td><code>None</code></td>
-</tr>
-</tbody>
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h3 id="beancount.tools.treeify_test.treeify" class="doc doc-heading">
+<code class="highlight language-python">beancount.tools.treeify_test.treeify(string, options=None)</code>
+
+
+<a href="#beancount.tools.treeify_test.treeify" class="headerlink" title="Permanent link"></a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Run treeify on the string.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>string</strong> – The input string to feed treeify.</p></li>
+            <li><p><strong>options</strong> – An optional list of options for the subprogram.</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code></code></td>
-<td>
-<p>The treeified string.</p>
-</td>
-</tr>
-</tbody>
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+        <ul class="first simple">
+          <li><p>The treeified string.</p></li>
+        </ul>
+    </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>beancount/tools/treeify_test.py</code></summary>
-<pre class="highlight"><code class="language-python linenums">def treeify(string, options=None):
+        <details class="quote">
+          <summary>Source code in <code>beancount/tools/treeify_test.py</code></summary>
+          <pre class="highlight"><code class="language-python linenums">def treeify(string, options=None):
     """Run treeify on the string.
 
     Args:
@@ -1033,48 +1157,86 @@ beancount.tools.treeify_test.treeify
             output.decode('utf-8') if output else '',
             errors.decode('utf-8') if errors else '')
 </code></pre>
-</details>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<footer>
-<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
-<a class="btn btn-neutral float-right" href="beancount.utils.html" title="beancount.utils">Next <span class="icon icon-circle-arrow-right"></span></a>
-<a class="btn btn-neutral" href="beancount.scripts.html" title="beancount.scripts"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-</div>
-<hr/>
-<div role="contentinfo">
-<!-- Copyright etc -->
-</div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="beancount.utils.html" class="btn btn-neutral float-right" title="beancount.utils">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="beancount.scripts.html" class="btn btn-neutral" title="beancount.scripts"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
 
   Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/beancount/docs/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="beancount.scripts.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="beancount.utils.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
-</div>
-</section>
-</div>
-<div aria-label="versions" class="rst-versions" role="note">
-<span class="rst-current-version" data-toggle="rst-current-version">
-<a class="fa fa-github" href="https://github.com/beancount/docs/" style="float: left; color: #fcfcfc"> GitHub</a>
-<span><a href="beancount.scripts.html" style="color: #fcfcfc;">« Previous</a></span>
-<span style="margin-left: 15px"><a href="beancount.utils.html" style="color: #fcfcfc">Next »</a></span>
-</span>
-</div>
-<script>var base_url = '..';</script>
-<script defer="" src="../js/theme.js"></script>
-<script defer="" src="../js/extra.js"></script>
-<script defer="" src="../search/main.js"></script>
-<script defer="">
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);
         };
     </script>
+
 </body>
 </html>

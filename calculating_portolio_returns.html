@@ -1,279 +1,309 @@
 <!DOCTYPE html>
-
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
-<meta charset="utf-8"/>
-<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link href="https://beancount.github.io/docs/calculating_portolio_returns.html" rel="canonical"/>
-<link href="img/favicon.ico" rel="shortcut icon"/>
-<title>Calculating Portfolio Returns - Beancount Documentation</title>
-<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
-<link href="css/theme.css" rel="stylesheet">
-<link href="css/theme_extra.css" rel="stylesheet"/>
-<link href="css/custom.css" rel="stylesheet"/>
-<script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="https://beancount.github.io/docs/calculating_portolio_returns.html">
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Calculating Portfolio Returns - Beancount Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/theme_extra.css" />
+  <link href="assets/_mkdocstrings.css" rel="stylesheet" />
+  <link href="css/custom.css" rel="stylesheet" />
+  
+  <script>
     // Current page data
     var mkdocs_page_name = "Calculating Portfolio Returns";
     var mkdocs_page_input_path = "calculating_portolio_returns.md";
     var mkdocs_page_url = "/docs/calculating_portolio_returns.html";
   </script>
-<script defer="" src="js/jquery-2.1.1.min.js"></script>
-<script defer="" src="js/modernizr-2.8.3.min.js"></script>
-</link></link></head>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script> 
+</head>
+
 <body class="wy-body-for-nav" role="document">
-<div class="wy-grid-for-nav">
-<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
-<div class="wy-side-scroll">
-<div class="wy-side-nav-search">
-<a class="icon icon-home" href="."> Beancount Documentation</a>
-<div role="search">
-<form action="./search.html" class="wy-form" id="rtd-search-form" method="get">
-<input name="q" placeholder="Search docs" title="Type search term here" type="text"/>
-</form>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="icon icon-home"> Beancount Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
 </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="index.html">Index</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Outline</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="#">Documentation for Users</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="command_line_accounting_in_context.html">Command Line Accounting in Context</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="the_double_entry_counting_method.html">The Double Entry Counting Method</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="installing_beancount.html">Installing Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="getting_started_with_beancount.html">Getting Started with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_language_syntax.html">Beancount Language Syntax</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_options_reference.html">Beancount Options Reference</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="precision_tolerances.html">Precision Tolerances</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_query_language.html">Beancount Query Language</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="how_inventories_work.html">How Inventories Work</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="exporting_your_portfolio.html">Exporting Your Portfolio</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="tutorial_example.html">Tutorial & Example</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_history_and_credits.html">Beancount History and Credits</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="importing_external_data.html">Importing External Data</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Cookbooks & Examples</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="trading_with_beancount.html">Trading with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="how_we_share_expenses.html">How We Share Expenses</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="health_care_expenses.html">Health Care Expenses</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="calculating_portolio_returns.html">Calculating Portfolio Returns</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#motivation">Motivation</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#history">History</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#overview-of-method">Overview of Method</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#finding-accounts">Finding Accounts</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#extracting-cash-flow-data">Extracting Cash Flow Data</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#extracting-relevant-transactions">Extracting Relevant Transactions</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#account-categorization">Account Categorization</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#handling-transactions-using-the-signature">Handling Transactions using the Signature</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#generalizing-production-of-cash-flows">Generalizing Production of Cash Flows</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#cash-flows">Cash Flows</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#computing-returns">Computing Returns</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#calculating-the-average-growth-rate">Calculating the Average Growth Rate</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#filling-in-missing-price-points">Filling in Missing Price Points</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#currency-conversion">Currency Conversion</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#reporting">Reporting</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#grouping-accounts">Grouping Accounts</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#running-the-code">Running the Code</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#results-rendered">Results Rendered</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example">Example</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#interpretation-gotchas">Interpretation Gotchas</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#other-instruments-types">Other Instruments Types</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#p2p-lending">P2P Lending</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#real-estate">Real Estate</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#options">Options</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#future-work">Future Work</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#relative-size-over-time">Relative Size over Time</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#comparison-against-a-benchmark">Comparison Against a Benchmark</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#including-uninvested-cash">Including Uninvested Cash</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#after-tax-value">After-Tax Value</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#inflation-adjustments">Inflation Adjustments</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#sales-commission">Sales Commission</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#risk-estimation-beta">Risk Estimation &amp; Beta</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#conclusion">Conclusion</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Documentation for Developers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_design_doc.html">Beancount Design Doc</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="external_contributions.html">External Contributions</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Enhancement Proposals & Discussions</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Beancount 3</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_v3.html">Goals & Design</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="installing_beancount_v3.html">Installing Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_v3_dependencies.html">Dependencies</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">API reference</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/index.html">beancount</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.core.html">beancount.core</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ingest.html">beancount.ingest</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.loader.html">beancount.loader</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ops.html">beancount.ops</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.parser.html">beancount.parser</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.plugins.html">beancount.plugins</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.prices.html">beancount.prices</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.query.html">beancount.query</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.reports.html">beancount.reports</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.scripts.html">beancount.scripts</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.tools.html">beancount.tools</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.utils.html">beancount.utils</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.web.html">beancount.web</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Beancount Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Outline &raquo;</li>
+        
+      
+        
+          <li>Cookbooks & Examples &raquo;</li>
+        
+      
+    
+    <li>Calculating Portfolio Returns</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/beancount/docs/edit/master/docs/calculating_portolio_returns.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
 </div>
-<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="index.html">Index</a>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Outline</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="#">Documentation for Users</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="command_line_accounting_in_context.html">Command Line Accounting in Context</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="the_double_entry_counting_method.html">The Double Entry Counting Method</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="installing_beancount.html">Installing Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started_with_beancount.html">Getting Started with Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_language_syntax.html">Beancount Language Syntax</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_options_reference.html">Beancount Options Reference</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="precision_tolerances.html">Precision Tolerances</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_query_language.html">Beancount Query Language</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="how_inventories_work.html">How Inventories Work</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="exporting_your_portfolio.html">Exporting Your Portfolio</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial_example.html">Tutorial &amp; Example</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_history_and_credits.html">Beancount History and Credits</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="importing_external_data.html">Importing External Data</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="reference internal current" href="#">Cookbooks &amp; Examples</a>
-<ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="trading_with_beancount.html">Trading with Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="how_we_share_expenses.html">How We Share Expenses</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="health_care_expenses.html">Health Care Expenses</a>
-</li>
-<li class="toctree-l2 current"><a class="reference internal current" href="calculating_portolio_returns.html">Calculating Portfolio Returns</a>
-<ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="#motivation">Motivation</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#history">History</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#overview-of-method">Overview of Method</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#finding-accounts">Finding Accounts</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#extracting-cash-flow-data">Extracting Cash Flow Data</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#extracting-relevant-transactions">Extracting Relevant Transactions</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#account-categorization">Account Categorization</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#handling-transactions-using-the-signature">Handling Transactions using the Signature</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#generalizing-production-of-cash-flows">Generalizing Production of Cash Flows</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#cash-flows">Cash Flows</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#computing-returns">Computing Returns</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#calculating-the-average-growth-rate">Calculating the Average Growth Rate</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#filling-in-missing-price-points">Filling in Missing Price Points</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#currency-conversion">Currency Conversion</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#reporting">Reporting</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#grouping-accounts">Grouping Accounts</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#running-the-code">Running the Code</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#results-rendered">Results Rendered</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#example">Example</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#interpretation-gotchas">Interpretation Gotchas</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#other-instruments-types">Other Instruments Types</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#p2p-lending">P2P Lending</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#real-estate">Real Estate</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#options">Options</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#future-work">Future Work</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#relative-size-over-time">Relative Size over Time</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#comparison-against-a-benchmark">Comparison Against a Benchmark</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#including-uninvested-cash">Including Uninvested Cash</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#after-tax-value">After-Tax Value</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#inflation-adjustments">Inflation Adjustments</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#sales-commission">Sales Commission</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#risk-estimation-beta">Risk Estimation &amp; Beta</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#conclusion">Conclusion</a>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#">Documentation for Developers</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_design_doc.html">Beancount Design Doc</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="external_contributions.html">External Contributions</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#">Enhancement Proposals &amp; Discussions</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#">Beancount 3</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="beancount_v3.html">Goals &amp; Design</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="installing_beancount_v3.html">Installing Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_v3_dependencies.html">Dependencies</a>
-</li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">API reference</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/index.html">beancount</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.core.html">beancount.core</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ingest.html">beancount.ingest</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.loader.html">beancount.loader</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ops.html">beancount.ops</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.parser.html">beancount.parser</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.plugins.html">beancount.plugins</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.prices.html">beancount.prices</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.query.html">beancount.query</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.reports.html">beancount.reports</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.scripts.html">beancount.scripts</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.tools.html">beancount.tools</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.utils.html">beancount.utils</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.web.html">beancount.web</a>
-</li>
-</ul>
-</div>
-</div>
-</nav>
-<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
-<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
-<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
-<a href=".">Beancount Documentation</a>
-</nav>
-<div class="wy-nav-content">
-<div class="rst-content">
-<div aria-label="breadcrumbs navigation" role="navigation">
-<ul class="wy-breadcrumbs">
-<li><a href=".">Docs</a> »</li>
-<li>Cookbooks &amp; Examples »</li>
-<li>Outline »</li>
-<li>Calculating Portfolio Returns</li>
-<li class="wy-breadcrumbs-aside">
-<a class="icon icon-github" href="https://github.com/beancount/docs/edit/master/docs/calculating_portolio_returns.md"> Edit on GitHub</a>
-</li>
-</ul>
-<hr/>
-</div>
-<div role="main">
-<div class="section">
-<h1 id="calculating-portfolio-returns">Calculating Portfolio Returns<a id="title"></a><a class="headerlink" href="#calculating-portfolio-returns" title="Permanent link"></a></h1>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="calculating-portfolio-returns">Calculating Portfolio Returns<a id="title"></a><a class="headerlink" href="#calculating-portfolio-returns" title="Permanent link"></a></h1>
 <p><a href="http://plus.google.com/+MartinBlais"><span class="underline">Martin Blais</span></a>, Sept 2020</p>
 <p><a href="http://furius.ca/beancount/doc/returns"><span class="underline">http://furius.ca/beancount/doc/returns</span></a></p>
 <p><em>This document describes how to compute portfolio returns from a Beancount ledger.</em></p>
@@ -306,7 +336,7 @@
 <p>For reporting I'll <strong>group</strong> those per-account series in logical units of "<strong>reports</strong>", for example lumping together ones for the same instrument bought in different accounts / brokers, or different instruments that represent the same underlying by merging their cash flows. Or even to group them by "strategy". Basically, by merging the cash flows of multiple accounts, I have a generic way to group any subsets of accounts and compute their returns.</p>
 <p>Using the cash flows, I will then run a <strong>simple root finding routine to calculate the average annual rate</strong> those flows would have to grow in order to result in their final market value. This provides me with overall returns. This is similar to calculating the <a href="https://en.wikipedia.org/wiki/Internal_rate_of_return"><span class="underline">Internal Rate of Return</span></a>. I will do that for the entire time series, but also for sub-intervals within the time series to compute, e.g. calendar returns (i.e., each year or quarter) or cumulative returns for trailing periods. Since cash flows are flagged as dividends or not, I can separate the returns from appreciation from the returns from dividends. Reports with plots are produced for each of the groups.</p>
 <p>Here's a diagram that shows how the "configure", "compute_returns" and "download_prices" scripts work together:</p>
-<p><img src="calculating_portolio_returns/media/5a7ab6a50f230c54b1821653b48792a8a1e3a451.png" style="width:7.18056in;height:7.09722in"/></p>
+<p><img src="calculating_portolio_returns/media/5a7ab6a50f230c54b1821653b48792a8a1e3a451.png" style="width:7.18056in;height:7.09722in" /></p>
 <p>These will be further detailed below.</p>
 <h2 id="configuration">Configuration<a id="configuration"></a><a class="headerlink" href="#configuration" title="Permanent link"></a></h2>
 <p>First, a <a href="https://github.com/beancount/beancount/blob/v2/experiments/returns/config.proto"><span class="underline">configuration</span></a> needs to be created to define a list of investments, and groups of those, for which reports will be produced. This configuration is provided as a text-formatted <a href="https://developers.google.com/protocol-buffers"><span class="underline">protocol buffer</span></a> message.</p>
@@ -512,7 +542,7 @@ ASSET_OTHERASSET           : Exchange of stock/symbol
 <pre><code>(Date, Amount, IsDividend)
 </code></pre>
 <p>Now, this is a simpler model to work from. For each account, we now have a sorted series of dated cash flows. Note that <em>Amount</em> includes its cost currency (I have both USD and CAD), <em>IsDividend</em> is a flag identifying the cash flow as being a dividend payment or not (to compute returns without the dividends). These series of cash flows can be easily merged between accounts, and truncated over time by inserting initial or final cash flows corresponding to the market value at those dates. Rendered, they might look like this (because of the scale, rendering the log brings up detail that is otherwise difficult to see; dividends are rendered in green):</p>
-<p><img src="calculating_portolio_returns/media/f0edb3b5af2d9d4208a3a8c99b4aece8ab8ae3ee.png" style="width:6.5in;height:2.59722in"/></p>
+<p><img src="calculating_portolio_returns/media/f0edb3b5af2d9d4208a3a8c99b4aece8ab8ae3ee.png" style="width:6.5in;height:2.59722in" /></p>
 <p>Note that since many transactions do not generate cash flows, the list of cash flows of an investment is insufficient by itself to compute the value of the investment over time. When truncating for a time interval, the market value of the investment is derived using the list of transactions.</p>
 <p>Finally, the list of cash flows for each group of investments reported can be trivially merged by concatenating them.</p>
 <h2 id="computing-returns">Computing Returns<a id="computing-returns"></a><a class="headerlink" href="#computing-returns" title="Permanent link"></a></h2>
@@ -619,7 +649,7 @@ ASSET_OTHERASSET           : Exchange of stock/symbol
 <p>This is going to get refined and augmented as I'm actively working on this code [September 2020].</p>
 <h3 id="example">Example<a id="example"></a><a class="headerlink" href="#example" title="Permanent link"></a></h3>
 <p>Here's an example report, for a subset of accounts with a "growth" focus, held at different brokers. I produce one of these for each reporting group. (I greyed out parts for privacy.)</p>
-<p><img src="calculating_portolio_returns/media/00ea07c3b4d79fb98da4eed821cc2d8eaea034e9.png" style="width:6.5in;height:8.52778in"/></p>
+<p><img src="calculating_portolio_returns/media/00ea07c3b4d79fb98da4eed821cc2d8eaea034e9.png" style="width:6.5in;height:8.52778in" /></p>
 <h3 id="interpretation-gotchas">Interpretation Gotchas<a id="interpretation-gotchas"></a><a class="headerlink" href="#interpretation-gotchas" title="Permanent link"></a></h3>
 <p>A few notes are in order:</p>
 <p><strong>All rates are <em>annualized</em>.</strong> This makes it easy to compare numbers to each other, but it also means that positions held for a short amount of time will produce numbers that are unrealistic for long term extrapolation. In particular, new positions entered only a few months ago may be subject to high growth or a big drop, both of which when extrapolated to an entire year may show eye-popping percentages. Do keep this in mind, especially when looking at recent positions added to your portfolio.</p>
@@ -720,39 +750,62 @@ ASSET_OTHERASSET           : Exchange of stock/symbol
 <h2 id="conclusion">Conclusion<a id="conclusion"></a><a class="headerlink" href="#conclusion" title="Permanent link"></a></h2>
 <p>I had expected it would be possible to produce a clear picture of returns from Beancount data, and having done it I'm more satisfied with the level of detail and clarity I was to produce from my ledger than I had expected. This goes well beyond plotting of net worth over time, this actually works really well, and I can use it to compare the performance of different investments fairly. I hope at least some Beancount users will be able to run it on their ledgers and I'm looking forward to hearing some feedback from those who set it up.</p>
 <p>Perhaps most importantly, I was very surprised to see results on my own portfolio returns. I'm one of those people who would normally shrug and guess an underwhelming ballpark number if asked what I thought my returns were, such as "meh, 6% or something, not super happy." Doing this work was originally driven by not having the right answer to this question. It turns out, over the last 15 years, that I've generated an almost 12% average annual return, and 14% annual return in the last 5 years. I haven't yet made the benchmark comparison, and for sure these numbers should be put side-by-side with the market for a fair assessment. Nevertheless, going through the exercise has provided me with renewed confidence and hope about the future, and I hope the clarity it will bring to other Beancount users' own investments will be similarly enlightening.</p>
-</div>
-</div>
-<footer>
-<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
-<a class="btn btn-neutral float-right" href="beancount_scripting_plugins.html" title="Beancount Scripting Plugins">Next <span class="icon icon-circle-arrow-right"></span></a>
-<a class="btn btn-neutral" href="health_care_expenses.html" title="Health Care Expenses"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-</div>
-<hr/>
-<div role="contentinfo">
-<!-- Copyright etc -->
-</div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="beancount_scripting_plugins.html" class="btn btn-neutral float-right" title="Beancount Scripting Plugins">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="health_care_expenses.html" class="btn btn-neutral" title="Health Care Expenses"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
 
   Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/beancount/docs/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="health_care_expenses.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="beancount_scripting_plugins.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
-</div>
-</section>
-</div>
-<div aria-label="versions" class="rst-versions" role="note">
-<span class="rst-current-version" data-toggle="rst-current-version">
-<a class="fa fa-github" href="https://github.com/beancount/docs/" style="float: left; color: #fcfcfc"> GitHub</a>
-<span><a href="health_care_expenses.html" style="color: #fcfcfc;">« Previous</a></span>
-<span style="margin-left: 15px"><a href="beancount_scripting_plugins.html" style="color: #fcfcfc">Next »</a></span>
-</span>
-</div>
-<script>var base_url = '.';</script>
-<script defer="" src="js/theme.js"></script>
-<script defer="" src="js/extra.js"></script>
-<script defer="" src="search/main.js"></script>
-<script defer="">
+    <script>var base_url = '.';</script>
+    <script src="js/theme_extra.js" defer></script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);
         };
     </script>
+
 </body>
 </html>

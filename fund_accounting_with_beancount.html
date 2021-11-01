@@ -1,221 +1,251 @@
 <!DOCTYPE html>
-
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
-<meta charset="utf-8"/>
-<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link href="https://beancount.github.io/docs/fund_accounting_with_beancount.html" rel="canonical"/>
-<link href="img/favicon.ico" rel="shortcut icon"/>
-<title>Fund Accounting with Beancount - Beancount Documentation</title>
-<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
-<link href="css/theme.css" rel="stylesheet">
-<link href="css/theme_extra.css" rel="stylesheet"/>
-<link href="css/custom.css" rel="stylesheet"/>
-<script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="https://beancount.github.io/docs/fund_accounting_with_beancount.html">
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Fund Accounting with Beancount - Beancount Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/theme_extra.css" />
+  <link href="assets/_mkdocstrings.css" rel="stylesheet" />
+  <link href="css/custom.css" rel="stylesheet" />
+  
+  <script>
     // Current page data
     var mkdocs_page_name = "Fund Accounting with Beancount";
     var mkdocs_page_input_path = "fund_accounting_with_beancount.md";
     var mkdocs_page_url = "/docs/fund_accounting_with_beancount.html";
   </script>
-<script defer="" src="js/jquery-2.1.1.min.js"></script>
-<script defer="" src="js/modernizr-2.8.3.min.js"></script>
-</link></link></head>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script> 
+</head>
+
 <body class="wy-body-for-nav" role="document">
-<div class="wy-grid-for-nav">
-<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
-<div class="wy-side-scroll">
-<div class="wy-side-nav-search">
-<a class="icon icon-home" href="."> Beancount Documentation</a>
-<div role="search">
-<form action="./search.html" class="wy-form" id="rtd-search-form" method="get">
-<input name="q" placeholder="Search docs" title="Type search term here" type="text"/>
-</form>
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="icon icon-home"> Beancount Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
 </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="index.html">Index</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Outline</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="#">Documentation for Users</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="command_line_accounting_in_context.html">Command Line Accounting in Context</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="the_double_entry_counting_method.html">The Double Entry Counting Method</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="installing_beancount.html">Installing Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="getting_started_with_beancount.html">Getting Started with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_language_syntax.html">Beancount Language Syntax</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_options_reference.html">Beancount Options Reference</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="precision_tolerances.html">Precision Tolerances</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_query_language.html">Beancount Query Language</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="how_inventories_work.html">How Inventories Work</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="exporting_your_portfolio.html">Exporting Your Portfolio</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="tutorial_example.html">Tutorial & Example</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_history_and_credits.html">Beancount History and Credits</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="importing_external_data.html">Importing External Data</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Cookbooks & Examples</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="trading_with_beancount.html">Trading with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="how_we_share_expenses.html">How We Share Expenses</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="health_care_expenses.html">Health Care Expenses</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="calculating_portolio_returns.html">Calculating Portfolio Returns</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Documentation for Developers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_design_doc.html">Beancount Design Doc</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="external_contributions.html">External Contributions</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Enhancement Proposals & Discussions</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#motivation">Motivation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-fund-accounting">What is Fund Accounting?</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#joint-account-management">Joint Account Management</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#handling-multiple-funds">Handling Multiple Funds</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ideas-for-implementation">Ideas for Implementation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#without-funds">Without Funds</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#using-funds">Using Funds</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#transfer-accounts-proposal">Transfer Accounts Proposal</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#account-aliases">Account Aliases</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Beancount 3</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_v3.html">Goals & Design</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="installing_beancount_v3.html">Installing Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_v3_dependencies.html">Dependencies</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">API reference</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/index.html">beancount</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.core.html">beancount.core</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ingest.html">beancount.ingest</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.loader.html">beancount.loader</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ops.html">beancount.ops</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.parser.html">beancount.parser</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.plugins.html">beancount.plugins</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.prices.html">beancount.prices</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.query.html">beancount.query</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.reports.html">beancount.reports</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.scripts.html">beancount.scripts</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.tools.html">beancount.tools</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.utils.html">beancount.utils</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.web.html">beancount.web</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Beancount Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Outline &raquo;</li>
+        
+      
+        
+          <li>Enhancement Proposals & Discussions &raquo;</li>
+        
+      
+    
+    <li>Fund Accounting with Beancount</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/beancount/docs/edit/master/docs/fund_accounting_with_beancount.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
 </div>
-<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="index.html">Index</a>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Outline</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="#">Documentation for Users</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="command_line_accounting_in_context.html">Command Line Accounting in Context</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="the_double_entry_counting_method.html">The Double Entry Counting Method</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="installing_beancount.html">Installing Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started_with_beancount.html">Getting Started with Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_language_syntax.html">Beancount Language Syntax</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_options_reference.html">Beancount Options Reference</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="precision_tolerances.html">Precision Tolerances</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_query_language.html">Beancount Query Language</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="how_inventories_work.html">How Inventories Work</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="exporting_your_portfolio.html">Exporting Your Portfolio</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial_example.html">Tutorial &amp; Example</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_history_and_credits.html">Beancount History and Credits</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="importing_external_data.html">Importing External Data</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#">Cookbooks &amp; Examples</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="trading_with_beancount.html">Trading with Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="how_we_share_expenses.html">How We Share Expenses</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="health_care_expenses.html">Health Care Expenses</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="calculating_portolio_returns.html">Calculating Portfolio Returns</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#">Documentation for Developers</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_design_doc.html">Beancount Design Doc</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="external_contributions.html">External Contributions</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="reference internal current" href="#">Enhancement Proposals &amp; Discussions</a>
-<ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
-</li>
-<li class="toctree-l2 current"><a class="reference internal current" href="fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
-<ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="#motivation">Motivation</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#what-is-fund-accounting">What is Fund Accounting?</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#joint-account-management">Joint Account Management</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#handling-multiple-funds">Handling Multiple Funds</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#ideas-for-implementation">Ideas for Implementation</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#without-funds">Without Funds</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#using-funds">Using Funds</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#transfer-accounts-proposal">Transfer Accounts Proposal</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#account-aliases">Account Aliases</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#">Beancount 3</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="beancount_v3.html">Goals &amp; Design</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="installing_beancount_v3.html">Installing Beancount</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beancount_v3_dependencies.html">Dependencies</a>
-</li>
-</ul>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">API reference</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/index.html">beancount</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.core.html">beancount.core</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ingest.html">beancount.ingest</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.loader.html">beancount.loader</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ops.html">beancount.ops</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.parser.html">beancount.parser</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.plugins.html">beancount.plugins</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.prices.html">beancount.prices</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.query.html">beancount.query</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.reports.html">beancount.reports</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.scripts.html">beancount.scripts</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.tools.html">beancount.tools</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.utils.html">beancount.utils</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.web.html">beancount.web</a>
-</li>
-</ul>
-</div>
-</div>
-</nav>
-<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
-<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
-<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
-<a href=".">Beancount Documentation</a>
-</nav>
-<div class="wy-nav-content">
-<div class="rst-content">
-<div aria-label="breadcrumbs navigation" role="navigation">
-<ul class="wy-breadcrumbs">
-<li><a href=".">Docs</a> »</li>
-<li>Enhancement Proposals &amp; Discussions »</li>
-<li>Outline »</li>
-<li>Fund Accounting with Beancount</li>
-<li class="wy-breadcrumbs-aside">
-<a class="icon icon-github" href="https://github.com/beancount/docs/edit/master/docs/fund_accounting_with_beancount.md"> Edit on GitHub</a>
-</li>
-</ul>
-<hr/>
-</div>
-<div role="main">
-<div class="section">
-<h1 id="fund-accounting-with-beancount">Fund Accounting with Beancount<a id="title"></a><a class="headerlink" href="#fund-accounting-with-beancount" title="Permanent link"></a></h1>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="fund-accounting-with-beancount">Fund Accounting with Beancount<a id="title"></a><a class="headerlink" href="#fund-accounting-with-beancount" title="Permanent link"></a></h1>
 <p><a href="http://plus.google.com/+MartinBlais"><span class="underline">Martin Blais</span></a>, Carl Hauser, August 2014</p>
 <p><a href="http://furius.ca/beancount/doc/proposal-funds"><span class="underline">http://furius.ca/beancount/doc/proposal-funds</span></a></p>
 <p><em>A discussion about how to carry out fund accounting within Beancount, various approaches, solutions and possible extensions.</em></p>
@@ -294,7 +324,7 @@ Endowment:Expenses:BuildingImprovement:...
 <p>A balance sheet report can be run on any Fund <em>or any combination of Funds</em> and it will balance. You can keep track of what is owned for each different purpose easily. Transfers between funds are booked as expenses and decreases in the assets of one fund and income and increases in assets of the other. The income and expense accounts used for transfers may be generic (<code>Operations:Income:Transfer</code>) or you can use accounts set up for a particular kind of income or expense (<code>Endowment:Expense:BuildingImprovement:Sound</code>) would be fine as one leg of a transfer transaction.</p>
 <p>The account name syntax here is just one way it might work and relies on Beancount’s use of five specifically-named top-level accounts. Anything to the left of the first of those could be treated as a fund name, or a different separator could be used between the fund part and the account name part. Similarly, I’ve only shown single-level fund names but they might be hierarchical as well. I’m not sure of the value of that, but observe that if transactions balance at the leaf-level funds they will also balance for funds higher in the hierarchy and there might be some mileage there.</p>
 <p>For John W.’s <em>Huqúqu'lláh</em> example one might set up a Fund whose liabilities were “moral obligations” rather than legal ones (that seems to be the objection to simply tracking the tithes in an ordinary liability account). As income comes in (say, direct deposited in a real bank checking account), book 19% of it to the “moral obligation” fund’s checking account with a matching liability. When needful expenses are made, take back 19% from the “moral obligation” fund’s checking account and reduce the liability. No virtual postings or transactions -- everything must balance. This would work well if for example we were to have a <code>HisRetirement</code> fund and a <code>HerRetirement</code> fund -- useful to have separate for estate planning purposes -- but more commonly we want to know about our combined retirement which could be defined to be a <em>virtual</em> fund <code>OurRetirement</code> equal to the sum of <code>HisRetirement</code> and <code>HerRetirement</code>. Note that this only matters when creating reports: there is no need to do anything except normal, double-entry booking with balanced transactions in each <em>real</em> fund. When I say the “sum” of two funds I mean a combination of taking the union of the contained account names, after stripping off the fund names, then summing the balances of the common accounts and keeping the balances of the others.</p>
-<p><em>(Balance Sheet)</em> For reporting, one wants the capability for balance by fund and balance summed over a set of funds. I also use a report that shows a subset of funds, one per column, with corresponding account names lined up horizontally and a column at the right that is the “sum”. When all funds are included in this latter report you get a complete picture of what you own and owe and what is set aside for different purposes, or restricted in different ways. Here’s a small sample of a balance sheet for a subset of the church Funds. The terminology is a little different: what Beancount calls Equity is here Net Assets. And because using large numbers of Funds in PowerChurchPlus is not so easy, the NetAssets are actually categorized for different purposes -- this is where I think the ideas we’re exploring here can really shine: if Funds are really easy to create and combine for reporting then some of the mechanisms that PCP has for divvying up assets within a fund become unnecessary. <img alt="samplebalsheet.jpg" src="fund_accounting_with_beancount/media/8c56573ed54aa0aff877dee48727a6f485015884.jpg" style="width:6.5in;height:3.76389in"/></p>
+<p><em>(Balance Sheet)</em> For reporting, one wants the capability for balance by fund and balance summed over a set of funds. I also use a report that shows a subset of funds, one per column, with corresponding account names lined up horizontally and a column at the right that is the “sum”. When all funds are included in this latter report you get a complete picture of what you own and owe and what is set aside for different purposes, or restricted in different ways. Here’s a small sample of a balance sheet for a subset of the church Funds. The terminology is a little different: what Beancount calls Equity is here Net Assets. And because using large numbers of Funds in PowerChurchPlus is not so easy, the NetAssets are actually categorized for different purposes -- this is where I think the ideas we’re exploring here can really shine: if Funds are really easy to create and combine for reporting then some of the mechanisms that PCP has for divvying up assets within a fund become unnecessary. <img src="fund_accounting_with_beancount/media/8c56573ed54aa0aff877dee48727a6f485015884.jpg" alt="samplebalsheet.jpg" style="width:6.5in;height:3.76389in" /></p>
 <p><em>(Income Statement)</em> For the Income and Expense report, usually I only care about expenses in one Fund at a time, but adding two funds together makes perfect sense if that’s what you need to do.</p>
 <p>For me, this approach to fund accounting is appealing because it relies on and preserves the fundamental principles of double-entry bookkeeping: when transactions sum to 0 the balance sheet equation is always true. Out of this we automatically get the ability to combine <em>any set of funds</em> (we don’t have to do anything special when entering transactions or organizing the deep structure of the accounts) and have it make at least arithmetical sense, and we don’t rely on any “magic” associated with renaming or tagging. I don’t see how this can be so easily or neatly achieved by pushing the idea of the “funds” down into the account hierarchy: funds belong <em>above</em> the five root accounts (Assets, Liabilities, Equity, Income and Expenses), not below them.</p>
 <h2 id="ideas-for-implementation">Ideas for Implementation<a id="ideas-for-implementation"></a><a class="headerlink" href="#ideas-for-implementation" title="Permanent link"></a></h2>
@@ -328,6 +358,7 @@ Endowment:Expenses:BuildingImprovement:...
 </li>
 </ul>
 <!-- -->
+
 <pre><code>From an implementation perspective this seems more orthogonal to the current status quo, requiring even less change to existing code. It adds a new feature -- value tags and that can then be used by plugins and new reports to do what we want for fund accounting.
 </code></pre>
 <h2 id="examples">Examples<a id="examples"></a><a class="headerlink" href="#examples" title="Permanent link"></a></h2>
@@ -506,46 +537,69 @@ Endowment:Expenses:BuildingImprovement:...
 <p>“I think this is related to the situation where you want to view entities' finances both separately and merged. Account aliases can be another way to approximate this, as in<a href="http://hledger.org/how-to-use-account-aliases"><span class="underline">http://hledger.org/how-to-use-account-aliases</span></a>.”</p>
 </blockquote>
 <div class="footnote">
-<hr/>
+<hr />
 <ol>
 <li id="fn:1">
-<p>If you find yourself culturally challenged by our modern lifestyle, perhaps you can imagine the case of roommates, although I don’t like the reductionist view this association brings to my mind. <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+<p>If you find yourself culturally challenged by our modern lifestyle, perhaps you can imagine the case of roommates, although I don’t like the reductionist view this association brings to my mind.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
-</div>
-</div>
-<footer>
-<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
-<a class="btn btn-neutral float-right" href="rounding_precision_in_beancount.html" title="Rounding Precision in Beancount">Next <span class="icon icon-circle-arrow-right"></span></a>
-<a class="btn btn-neutral" href="balance_assertions_in_beancount.html" title="Balance Assertions in Beancount"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-</div>
-<hr/>
-<div role="contentinfo">
-<!-- Copyright etc -->
-</div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="rounding_precision_in_beancount.html" class="btn btn-neutral float-right" title="Rounding Precision in Beancount">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="balance_assertions_in_beancount.html" class="btn btn-neutral" title="Balance Assertions in Beancount"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
 
   Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/beancount/docs/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="balance_assertions_in_beancount.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="rounding_precision_in_beancount.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
-</div>
-</section>
-</div>
-<div aria-label="versions" class="rst-versions" role="note">
-<span class="rst-current-version" data-toggle="rst-current-version">
-<a class="fa fa-github" href="https://github.com/beancount/docs/" style="float: left; color: #fcfcfc"> GitHub</a>
-<span><a href="balance_assertions_in_beancount.html" style="color: #fcfcfc;">« Previous</a></span>
-<span style="margin-left: 15px"><a href="rounding_precision_in_beancount.html" style="color: #fcfcfc">Next »</a></span>
-</span>
-</div>
-<script>var base_url = '.';</script>
-<script defer="" src="js/theme.js"></script>
-<script defer="" src="js/extra.js"></script>
-<script defer="" src="search/main.js"></script>
-<script defer="">
+    <script>var base_url = '.';</script>
+    <script src="js/theme_extra.js" defer></script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);
         };
     </script>
+
 </body>
 </html>
