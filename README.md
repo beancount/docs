@@ -10,7 +10,7 @@ These documents in markdown format are automatically generated from [official Be
 
 ### Installation
 
-The converter requires python 3.6 or newer.
+The converter requires python 3.6 - 3.9. Python 3.10 is not supported.
 
 Create virtualenv (recommended):
 
