@@ -354,7 +354,7 @@ This is useful in the intermediate stage of de-duping transactions (see [<span c
 
 The general format of a Transaction directive is:
 
-    YYYY-MM-DD [txn|Flag] [[Payee] Narration] [Flag] Account Amount [{Cost}] [@ Price] [Flag] Account Amount [{Cost}] [@ Price] ...
+    YYYY-MM-DD [txn|Flag] [[payee] Narration] [Flag] Account Amount [{Cost}] [@ Price] [Flag] Account Amount [{Cost}] [@ Price] ...
 
 The lines that follow the first line are for “Postings.” You can attach as many postings as you want to a transaction. For example, a salary entry might look like this:
 
@@ -415,7 +415,7 @@ You may also leave out either (but you must provide a flag):
 
 ***Note for Ledger users.*** Ledger does not have separate narration and payee fields, it has only one field, which is referred to by the “Payee” metadata tag, and the narration ends up in a saved comment (a “persistent note”). In Beancount, a Transaction object simply has two fields: payee and narration, where payee just happens to have an empty value a lot of the time.
 
-For a deeper discussion of how and when to use payees or not, see [<span class="underline">Payees, Subaccounts, and Assets</span>](http://furius.ca/beancount/doc/payees).
+For a deeper discussion of how and when to use payees or not, see [<span class="underline">Payees, Subaccounts, and Assets</span>](http://furius.ca/beancount/doc/payee).
 
 #### Costs and Prices<a id="costs-and-prices"></a>
 
