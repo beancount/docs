@@ -75,6 +75,8 @@ Tools<a id="tools"></a>
 
 [<span class="underline">PhracturedBlue/fava-encrypt</span>](https://github.com/PhracturedBlue/fava-encrypt) : A docker-base solution for keeping Fava online while keeping beancount data encrypted at rest. See [<span class="underline">this thread</span>](https://groups.google.com/d/msgid/beancount/ece6f424-a86b-4e6d-8ecc-4e05c8e74373n%40googlegroups.com?utm_medium=email&utm_source=footer) for context.
 
+[<span class="underline">polarmutex/beancount-language-server</span>](https://github.com/polarmutex/beancount-language-server) (Brian Ryall): A Language Server Protocol (LSP) for beancount.
+
 Importers<a id="importers"></a>
 -------------------------------
 
@@ -155,7 +157,7 @@ Development<a id="development"></a>
 
 [<span class="underline">Py3k type annotations</span>](https://github.com/yegle/beancount-type-stubs): Yuchen Ying is implementing python3 type annotations for Beancount.
 
-[<span class="underline">bryall/tree-sitter-beancount</span>](https://github.com/bryall/tree-sitter-beancount) (Bryan Ryall): A tree-sitter parser for the beancount syntax.
+[<span class="underline">polarmutex/tree-sitter-beancount</span>](https://github.com/polarmutex/tree-sitter-beancount) (Bryan Ryall): A tree-sitter parser for the beancount syntax.
 
 Documentation<a id="documentation"></a>
 ---------------------------------------
@@ -183,7 +185,7 @@ Interfaces / Web<a id="interfaces-web"></a>
 
 [<span class="underline">Fava Miler</span>](https://github.com/redstreet/fava_miler) (RedStreet): Airline miles and rewards points: expiration and value reporting.
 
-[<span class="underline">Fava Envelope</span>](https://github.com/bryall/fava-envelope) (Brian Ryall): A beancount fava extension to add an envelope budgeting capability to fava and beancount. It is developed as a Fava plugin and CLI.
+[<span class="underline">Fava Envelope</span>](https://github.com/polarmutex/fava-envelope) (Brian Ryall): A beancount fava extension to add an envelope budgeting capability to fava and beancount. It is developed as a Fava plugin and CLI.
 
 [<span class="underline">scauligi/refried</span>](https://github.com/scauligi/refried) (Sunjay Cauligi): An envelope budgeting plugin for Fava, inspired by YNAB: all expense accounts become individual budgeting categories, budgeting is carried out using transactions to these accounts, and the plugin automaticallyapplies a tag to all rebudget transactions so they can easily be filtered out. Provides budget and account views like YNAB.
 
