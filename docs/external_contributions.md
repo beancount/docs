@@ -21,16 +21,18 @@ Books and Articles<a id="books-and-articles"></a>
 
 [<span class="underline">Managing Personal Finances using Python</span>](https://personalfinancespython.com/) (Siddhant Goel): a 2020 book on plain-text accounting, and Beancount.
 
-[<span class="underline">The Five Minute Ledger Update</span>](https://reds-rants.netlify.app/personal-finance/the-five-minute-ledger-update/) A series of articles showing how to automate downloading data from institutions (banks, credit cards, brokerages, etc.) so that ledger updates can be done in under five minutes. [<span class="underline">Mailing list thread</span>](https://groups.google.com/g/beancount/c/_NclCTXaExs/m/EFjqkqElAQAJ). (RedStreet)
+[<span class="underline">The Five Minute Ledger Update</span>](https://reds-rants.netlify.app/personal-finance/the-five-minute-ledger-update/) (RedStreet) A series of articles showing how to automate downloading data from institutions (banks, credit cards, brokerages, etc.) so that ledger updates can be done in under five minutes. [<span class="underline">Mailing list thread</span>](https://groups.google.com/g/beancount/c/_NclCTXaExs/m/EFjqkqElAQAJ).
+
+[<span class="underline">Tax Loss Harvesting with Beancount</span>](https://reds-rants.netlify.app/personal-finance/tax-loss-harvesting-with-beancount/) (RedStreet): An article about TLH from a US perspective, includes requirements, wash sale subtleties and safe to sell/buy dates, and comparisons to robo-advisors. (Related: [<span class="underline">fava\_investor TLH module</span>](https://github.com/redstreet/fava_investor/tree/main/fava_investor/modules/tlh). for fava and plain-beancount command line version).
 
 Plugins<a id="plugins"></a>
 ---------------------------
 
 [<span class="underline">split\_transactions</span>](https://www.google.com/url?q=https%3A%2F%2Fgist.github.com%2Fkljohann%2Faebac3f0146680fd9aa5&sa=D&sntz=1&usg=AFQjCNGn2AkL35onTeXgOQzLzkjVpvLcpg): Johann Klähn [<span class="underline">wrote a plugin</span>](https://groups.google.com/d/msg/beancount/z9sPboW4U3c/1qIIzro4zFoJ) that can split a single transaction into many against a limbo account, as would be done for depreciation.
 
-[<span class="underline">zerosum</span>](https://github.com/redstreet/beancount_plugins_redstreet): RedStreet [<span class="underline">wrote a plugin</span>](https://groups.google.com/d/msg/beancount/MU6KozsmqGQ/sehD3dqZslEJ) to match up transactions that when taken together should sum up to zero and move them to a separate account.
+[<span class="underline">zerosum</span>](https://github.com/redstreet/beancount_reds_plugins): Red S [<span class="underline">wrote a plugin</span>](https://groups.google.com/d/msg/beancount/MU6KozsmqGQ/sehD3dqZslEJ) to match up transactions that when taken together should sum up to zero and move them to a separate account.
 
-[<span class="underline">effective\_dates</span>](https://github.com/redstreet/beancount_plugins_redstreet): RedStreet wrote a plugin to book different legs of a transaction to different dates
+[<span class="underline">effective\_dates</span>](https://github.com/redstreet/beancount_reds_plugins): Red S wrote a plugin to book different legs of a transaction to different dates
 
 [<span class="underline">beancount-plugins</span>](https://github.com/davidastephens/beancount-plugins): Dave Stephens created a repository to share various of his plugins related to depreciation.
 
@@ -54,6 +56,10 @@ Plugins<a id="plugins"></a>
 
 [<span class="underline">PhracturedBlue/fava-portfolio-summary</span>](https://github.com/PhracturedBlue/fava-portfolio-summary) (Phractured Blue): Fava Plugin to show portfolio summaries with rate of return.
 
+[<span class="underline">rename\_accounts</span>](https://github.com/redstreet/beancount_reds_plugins): Plugin from Red S to rename accounts. E.g.: rename “Expenses:Taxes” to “Income:Taxes” is helpful for expense analysis. [<span class="underline">More here</span>](https://github.com/redstreet/beancount_reds_plugins/tree/main/beancount_reds_plugins/rename_accounts#readme).
+
+[<span class="underline">Long\_short capital gains classifier</span>](https://github.com/redstreet/beancount_reds_plugins/tree/master/beancount_reds_plugins/capital_gains_classifier): Plugin from Red S to classify capital gains into long and short based on duration the assets were held, and into gains and losses based on value.
+
 Tools<a id="tools"></a>
 -----------------------
 
@@ -75,10 +81,16 @@ Tools<a id="tools"></a>
 
 [<span class="underline">PhracturedBlue/fava-encrypt</span>](https://github.com/PhracturedBlue/fava-encrypt) : A docker-base solution for keeping Fava online while keeping beancount data encrypted at rest. See [<span class="underline">this thread</span>](https://groups.google.com/d/msgid/beancount/ece6f424-a86b-4e6d-8ecc-4e05c8e74373n%40googlegroups.com?utm_medium=email&utm_source=footer) for context.
 
+[<span class="underline">kubauk/beancount-import-gmail</span>](https://github.com/kubauk/beancount-import-gmail) : beancount-import-gmail uses the gmail API and OAuth to log into your mailbox and download order details which are then used to augment your transactions for easier classification.
+
+[<span class="underline">sulemankm/budget\_report</span>](https://github.com/sulemankm/budget_report) : A very simple command-line budget tracking tool for beancount ledger files.
+
+[<span class="underline">dyumnin/dyu\_accounting</span>](https://github.com/dyumnin/dyu_accounting) : Accounting setup to automate generation of various financial statements for Compliance with Indian Govt.
+
 Importers<a id="importers"></a>
 -------------------------------
 
-[<span class="underline">reds importers</span>](https://github.com/redstreet/beancount_reds_importers): Simple importers and tools, mostly ofx based and built on top of \`ofxparse\`. Using ofx (over csv) minimizes data and coding errors, eliminates format breaking changes in csv, allows for automatic imports of balances to generate balance assertions, and imports prices. The goal is to factor out importer code into well maintained common libraries for banks, credit cards, and investment houses, to minimize institution specific code and make writing new importers easy. Look inside the importers/ directory to see a list of institutions supported. More investment, credit card, and banking institutions will be added in the future. Contributions welcome. See [<span class="underline">this thread</span>](https://groups.google.com/d/msg/beancount/nsRCbC6nP4I/Dx5NlTioDq0J) for information about a Yodlee importer. By RedStreet
+[<span class="underline">reds importers</span>](https://github.com/redstreet/beancount_reds_importers): Simple importers and tools for [<span class="underline">several</span>](https://github.com/redstreet/beancount_reds_importers/tree/main/beancount_reds_importers) US based institutions, and various file types. Emphasizes ease of writing your own importers by providing well maintained common libraries for banks, credit cards, and investment houses, and for various file types, which minimizes the institution specific code you need to write. This is a reference implementation of the principles expressed in **[<span class="underline">The Five Minute Ledger Update</span>](https://reds-rants.netlify.app/personal-finance/the-five-minute-ledger-update/).** Contributions welcome. By RedStreet
 
 [<span class="underline">plaid2text</span>](https://github.com/madhat2r/plaid2text): An importer from [<span class="underline">Plaid</span>](http://www.plaid.com/) which stores the transactions to a Mongo DB and is able to render it to Beancount syntax. By Micah Duke.
 
@@ -157,6 +169,8 @@ Development<a id="development"></a>
 
 [<span class="underline">bryall/tree-sitter-beancount</span>](https://github.com/bryall/tree-sitter-beancount) (Bryan Ryall): A tree-sitter parser for the beancount syntax.
 
+[<span class="underline">jmgilman/beancount-stubs</span>](https://github.com/jmgilman/beancount-stubs): Typing .pyi stubs for some of the Beancount source.
+
 Documentation<a id="documentation"></a>
 ---------------------------------------
 
@@ -186,6 +200,10 @@ Interfaces / Web<a id="interfaces-web"></a>
 [<span class="underline">Fava Envelope</span>](https://github.com/bryall/fava-envelope) (Brian Ryall): A beancount fava extension to add an envelope budgeting capability to fava and beancount. It is developed as a Fava plugin and CLI.
 
 [<span class="underline">scauligi/refried</span>](https://github.com/scauligi/refried) (Sunjay Cauligi): An envelope budgeting plugin for Fava, inspired by YNAB: all expense accounts become individual budgeting categories, budgeting is carried out using transactions to these accounts, and the plugin automaticallyapplies a tag to all rebudget transactions so they can easily be filtered out. Provides budget and account views like YNAB.
+
+[<span class="underline">BeanHub.io</span>](https://beanhub.io/): A web front-end for Beancount content.
+
+[<span class="underline">jmgilman/bdantic</span>](https://github.com/jmgilman/bdantic): A package for extending beancount with [<span class="underline">pydantic</span>](https://pydantic-docs.helpmanual.io/). With this package you can convert your ledger to JSON, and more.
 
 Mobile/Phone Data Entry<a id="mobilephone-data-entry"></a>
 ----------------------------------------------------------

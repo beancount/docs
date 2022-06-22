@@ -260,7 +260,7 @@ One kind of common information that is useful to extract from the list of transa
 
 In order to generate this summary, we simply turn our attention to the balances of the accounts of types Income and Expenses, summing up just the transactions for a particular period, and we draw the Income balances on the left, and Expenses balances on the right:
 
-<img src="the_double_entry_counting_method/media/6d57026ecb4c28873f77167eb49ea8025bbf150b.png" alt="out.png" style="width:6.5in;height:2.29167in" />
+<img src="the_double_entry_counting_method/media/6d57026ecb4c28873f77167eb49ea8025bbf150b.png" style="width:6.5in;height:2.29167in" alt="out.png" />
 
 It is important to take note of the signs here: Income numbers are negative, and Expenses numbers are positive. So if you earned more than you spent (a good outcome), the final sum of Income + Expenses balances will be a negative number. Like any other income, a net income that has a negative number means that there is a corresponding amount of Assets and/or Liabilities with positive numbers (this is good for you).
 
@@ -309,13 +309,13 @@ Balance Sheet<a id="balance-sheet"></a>
 
 Another kind of summary is a listing of the owner’s assets and debts, for each of the accounts. This answers the question: “*Where’s the money?*” In theory, we could just restrict our focus to the Assets and Liabilities accounts and draw those up in a report:
 
-<img src="the_double_entry_counting_method/media/093cd8751f07c38e909b7621675daa80db8fb634.png" alt="out.png" style="width:4.14583in;height:1.70833in" />
+<img src="the_double_entry_counting_method/media/093cd8751f07c38e909b7621675daa80db8fb634.png" style="width:4.14583in;height:1.70833in" alt="out.png" />
 
 However, in practice, there is another closely related question that comes up and which is usually answered at the same time: “*Once all debts are paid off, how much are we left with?*” This is called the **net worth**.
 
 If the Income & Expenses accounts have been cleared to zero and all their balances have been transferred to Equity accounts, the net worth should be equal to the sum of all the Equity accounts. So in building up the Balance Sheet, it it customary to clear the net income and then display the balances of the Equity accounts. The report looks like this:
 
-<img src="the_double_entry_counting_method/media/d495b61bc719ab90cdfc9fd379ef62531cff0627.png" alt="out.png" style="width:6.5in;height:1.25in" />
+<img src="the_double_entry_counting_method/media/d495b61bc719ab90cdfc9fd379ef62531cff0627.png" style="width:6.5in;height:1.25in" alt="out.png" />
 
 Note that the balance sheet can be drawn for *any point in time*, simply by truncating the list of transactions following a particular date. A balance sheet displays a snapshot of balances at one date; an income statement displays the difference of those balances between two dates.
 

@@ -6,7 +6,7 @@ How We Share Expenses<a id="title"></a>
 Context<a id="context"></a>
 ---------------------------
 
-We’re both working professionals and have decided to share all expenses roughly 60%/40%. This is what we shoot for, this is not a hard rule, but we track it as if it were rigid, and accept it as a good approximation. We have two types of shared expenses:
+We’re both working professionals and have decided to share all expenses roughly 70%/30%. This is what we shoot for, this is not a hard rule, but we track it as if it were rigid, and accept it as a good approximation. We have two types of shared expenses:
 
 -   **Shared.** Common expenses between us, e.g., rent, a dinner out with friends, etc.
 
@@ -223,7 +223,7 @@ Summary of the System<a id="summary-of-the-system"></a>
 
 Here’s a diagram that puts in perspective the entire system together:
 
-<img src="how_we_share_expenses/media/d50aced13914b2e97a3dc50ae5ddb72670a1b04f.png" style="width:8.79167in;height:6.94444in" />
+<img src="how_we_share_expenses/media/f7b43f7f027c2d46040a2011a86a8594c3491d4f.png" style="width:8.79167in;height:6.94444in" />
 
 I (“Dad”) use Beancount via Emacs, exclusively. Carolyn (“Mom”) only interacts with a single Google Sheets doc with three sheets in it. I pull in Carolyn’s shared expenses from a sheet that she fills in to a ledger which gets included in my personal ledger. I also pull in her expenses for Kyle in a similar document, and from my personal ledger I generate my own expenses for Kyle. Both of these documents are merged in a top-level ledger dedicated to Kyle’s expenses.
 

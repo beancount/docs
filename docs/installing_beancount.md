@@ -48,7 +48,7 @@ Note that in order to build a full working Python install from source, you will 
 
 This is the easiest way to install Beancount. You just install Beancount using
 
-    sudo pip3 install beancount
+    sudo -H python3 -m pip install beancount
 
 This should automatically download and install all the dependencies.
 
@@ -58,9 +58,11 @@ Note, however, that this will install the latest version that was pushed to the 
 
 You can also use pip to install Beancount from its source code repository directly:
 
-    pip install git+https://github.com/beancount/beancount#egg=beancount
+    sudo -H python3 -m pip install git+https://github.com/beancount/beancount#egg=beancount
 
-### Installing Beancount from Source<a id="installing-beancount-from-source"></a>
+### Installi<a id="installi"></a>
+
+### ng Beancount from Source<a id="ng-beancount-from-source"></a>
 
 Installing from source offers the advantage of providing you with the very latest version of the stable branch (“default”). The default branch is as stable as the released version.
 
@@ -81,13 +83,13 @@ If installing on Windows, see the Windows section below.
 You can then install all the dependencies and Beancount itself using pip:
 
     cd beancount
-    sudo pip3 install .
+    sudo -H python3 -m pip install .
 
 #### Install Beancount from source using setup.py<a id="install-beancount-from-source-using-setup.py"></a>
 
 First you’ll need to install dependent libraries. You can do this using pip:
 
-    pip3 install python-dateutil bottle ply lxml python-magic beautifulsoup4
+    sudo -H python3 -m pip install python-dateutil bottle ply lxml python-magic beautifulsoup4
 
 Or equivalently, you may be able to do that using your distribution, e.g., on Ubuntu/Debian:
 

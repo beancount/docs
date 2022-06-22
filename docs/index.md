@@ -113,6 +113,8 @@ V3 Documentation<a id="v3-documentation"></a>
 
 [<span class="underline">Beancount V3: Dependencies</span>](beancount_v3_dependencies.md): Software dependencies for building version 3.
 
+[<span class="underline">Beangulp</span>](beangulp.md): The renewed ingestion framework for v3.
+
 About this Documentation<a id="about-this-documentation"></a>
 -------------------------------------------------------------
 

@@ -45,19 +45,19 @@ Overview of the Method<a id="overview-of-the-method"></a>
 
 In this section we present a brief illustrated overview of the method. A set of common Assets accounts that belong to the project, and book all our individual expenses and transfer for the trip as coming from external Income accounts:
 
-<img src="sharing_expenses_with_beancount/media/ffb8e59cbae992f20b0bf1ccad53f2ffa905eb74.png" style="width:3.94444in;height:2.08333in" />
+<img src="sharing_expenses_with_beancount/media/905d3349c7af8500347aa0e5af656e943abe2591.png" style="width:3.94444in;height:2.08333in" />
 
 During the trip, we use the common Assets to make expenses. Most of the expenses are attributed to both of us (and to be shared eventually), but some of the expenses are intended to be attributed to each of us individually:
 
-<img src="sharing_expenses_with_beancount/media/be8e07e2facf2ca2b272fd376561bc7e8765f7eb.png" style="width:3.94444in;height:2.23611in" />
+<img src="sharing_expenses_with_beancount/media/6497688e752bd90be8d7257afa678cc1fd1d8084.png" style="width:3.94444in;height:2.23611in" />
 
 After the trip, remaining Assets (like cash we walked home with) gets distributed back to ourselves to zero out the balances of the Assets accounts and we record this through contra postings to Income accounts:
 
-<img src="sharing_expenses_with_beancount/media/fd13b24fc35683de39d20328e011c1d01f1caa7b.png" style="width:3.90278in;height:2.94444in" />
+<img src="sharing_expenses_with_beancount/media/e897ff1fb4ea70efa1164dca215811e00b4a06d0.png" style="width:3.90278in;height:2.94444in" />
 
 Finally, the list of shared Expenses are split between each other—using a plugin that forks every posting that is intended to be a shared expense—and the final amount is used to make a final transfer between each other so that we’ve each paid for our respective expenses and we’re square:
 
-<img src="sharing_expenses_with_beancount/media/0f6d6fb89adb1feef313fe6fbd4532a8b8decb1c.png" style="width:4.86111in;height:1.97222in" />
+<img src="sharing_expenses_with_beancount/media/1c45addecaf77f45c6cc5867529bfaed232e45f1.png" style="width:4.86111in;height:1.97222in" />
 
 Note that the final balance of expenses for each participant may differ, and these are due to particular expenses that were attributed separately, or if we decide to split the total unevenly.
 
@@ -267,7 +267,7 @@ During this trip I did not carry a laptop—this was vacation after all. I like 
 
 These notes look like this:
 
-<img src="sharing_expenses_with_beancount/media/6eccd752444847a6f97ae99b34a046074a39ddd8.png" alt="sharing-example-note-taking.png" style="width:6.5in;height:3.68056in" />
+<img src="sharing_expenses_with_beancount/media/6eccd752444847a6f97ae99b34a046074a39ddd8.png" style="width:6.5in;height:3.68056in" alt="sharing-example-note-taking.png" />
 
 I made a paper spreadsheet where each line had
 
@@ -292,7 +292,7 @@ You can view the balances in the “All Transactions” view (click on “All Tr
 
 The Balance Sheet should show empty balances for Assets accounts:
 
-<img src="sharing_expenses_with_beancount/media/2b7f16e905c9fe8c22ed0ee11d3fd9199dbf139a.png" alt="balsheet.png" style="width:6.28646in;height:2.57906in" />
+<img src="sharing_expenses_with_beancount/media/2b7f16e905c9fe8c22ed0ee11d3fd9199dbf139a.png" style="width:6.28646in;height:2.57906in" alt="balsheet.png" />
 
 The balances of the equity accounts should reflect the total amount of currency conversions made during the trip. You can verify this by calculating the amount-weight average rate like this: 7539.00 / 559.88 ~= 13.465 USD/MXN (which is about right).
 
@@ -300,7 +300,7 @@ The balances of the equity accounts should reflect the total amount of currency 
 
 The Income Statement should show a summary of all expenses and contributions to the project:
 
-<img src="sharing_expenses_with_beancount/media/725237ab95f02c9bfbb8700f307d591c2ab82f95.png" alt="income.png" style="width:6.41468in;height:4.30729in" />
+<img src="sharing_expenses_with_beancount/media/725237ab95f02c9bfbb8700f307d591c2ab82f95.png" style="width:6.41468in;height:4.30729in" alt="income.png" />
 
 The Income account balances show the total amounts of contributions for each person. Note that in creating the Income accounts, I went through the extra step of creating some specific accounts for each source of payment, like “Caroline’s Credit Card”, etc.
 
@@ -308,7 +308,7 @@ From this view, we can see that we contributed a total of 4254.28 USD (and were 
 
 If you want to view the list of contribution payments and the final balance, click on a particular traveler’s root account, e.g., “Income:Caroline” (click on “Caroline”) which should take you to the Journal for that root account:
 
-<img src="sharing_expenses_with_beancount/media/064623b8b809747c335fdc4eb4a0bc9efc7dbc15.png" alt="caroline.png" style="width:6.5in;height:4.63889in" />
+<img src="sharing_expenses_with_beancount/media/064623b8b809747c335fdc4eb4a0bc9efc7dbc15.png" style="width:6.5in;height:4.63889in" alt="caroline.png" />
 
 This journal includes all the transactions in its sub-accounts. The final value at the bottom should show the total balance of those accounts, and thus, the amount of money Caroline contributed to this trip: 415 USD, and kept 5 MXN (in coin). We can do the same for Martin and find the final balance of 3839.28 USD and kept 60 MXN (in bills).
 

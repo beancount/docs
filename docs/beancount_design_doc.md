@@ -668,7 +668,7 @@ There is a lexer file lexer.l written in flex and a Bison grammar in grammar.y. 
 
 Eventually we could consider creating a small dependency rule in setup.py to invoke flex and Bison automatically but at the moment, in order to minimize the installation burden, I check the generated source code in the repository (lexer.h/c and grammar.h/c).
 
-<img src="beancount_design_doc/media/695c060c71a08a1bc93a0cc82412c4892dbfd662.png" style="width:7.70833in;height:4.01389in" />
+<img src="beancount_design_doc/media/f3e3cb4fac691f4accc0aff37c8d8084c9851580.png" style="width:7.70833in;height:4.01389in" />
 
 The interaction between the Python and C code works like this:
 
@@ -716,7 +716,7 @@ In the same package as the parser lives a printer. This isolates all the functio
 
 At some point I decided to make sure that the printer was able to round-trip through the parser, that is, given a stream of entries produced by the loader, you should be able to convert those to text input and parse them back in and the resulting set of entries should be the same (outputting the re-read input back to text should produce the same text), e.g.,
 
-<img src="beancount_design_doc/media/159bc64bb5f5ed77127ab76c31afb5a3b0928a64.png" style="width:7.56944in;height:0.83333in" />
+<img src="beancount_design_doc/media/25a2c2bf3db79c90e5456c58e57d492cf11110a0.png" style="width:7.56944in;height:0.83333in" />
 
 Note that the reverse isn’t necessarily true: reading an input file and processing it through the loader potentially synthesizes a lot of entries (thanks to the plugins), so printing it back may not produce the same input file (even ignoring reordering and white space concerns).
 

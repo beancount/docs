@@ -8,7 +8,7 @@ Beancount V3: Goals & Design<a id="title"></a>
 Motivation<a id="motivation"></a>
 ---------------------------------
 
-It's time to give Beancount a refresh and to put down a concrete plan for what the next iteration of it ought to be. I've had these thoughts in the back of my mind for a long while—at least a year—and I'm putting these in writing partly to share a vision of what the product we all use to organize our finances can become, partly to solicit feedback, and partly to organize my thoughts and force myself to prioritize well on the stuff that matters.
+It's time to give Beancount a refresh and to put down a concrete plan for what the next iteration of it ought to be. I've had these thoughts in the back of my mind for a long while—at least a year—and I'm putting these in writing partly to share a vision of what the product we all use to organize our finances can become, partly to solicit feedback, and partly to organize my thoughts and to prioritize well on the stuff that matters.
 
 **Current status.** The current state of Beancount is that development has been static for a while now, for a number of reasons. The software is in a state that's far from perfect (and I'll be enumerating the main problems in this document) but I've been resisting making too many changes in order to provide myself and others a really stable base to work from. More importantly, while I used to be able to spend a significant amount of weekend time on its development, life changes and a focus on my career of late has made it difficult for me to justify or find the extra time (it has been 10 years after all). A multitude of ideas have aged [<span class="underline">to this TODO file</span>](https://raw.githubusercontent.com/beancount/beancount/master/TODO) but it's too detailed to grok and a bit of a dump, this document should be more useful.
 
@@ -147,11 +147,11 @@ Here is a detailed breakdown of the various parts of the codebase today and what
 
 > Improvements should be made to this library after it moves out of the Beancount repository: we should isolate the Beancount code to just a few modules, and turn the scope of this project to something larger than Beancount: it's three things, really:
 >
-> a) an up-to-date Python library of price fetchers with unit tests and maintained by the community (i.e., when sources break, we update the library) and a common API interface (needs to be improved from what's there TBH, the API should support fetching time series in a single call);
+> a\) an up-to-date Python library of price fetchers with unit tests and maintained by the community (i.e., when sources break, we update the library) and a common API interface (needs to be improved from what's there TBH, the API should support fetching time series in a single call);
 >
-> b) an accompanying command-line tool (currency "bean-price") for fetching those prices from the command-line. This requires the specification of "a price in a particular currency from a particular source" as a string. I'd like to improve that spec to make the USD: prefix optional, and maybe eliminate the chain of prices in the spec, which hasn't found much use in practice and move that upstream.
+> b\) an accompanying command-line tool (currency "bean-price") for fetching those prices from the command-line. This requires the specification of "a price in a particular currency from a particular source" as a string. I'd like to improve that spec to make the USD: prefix optional, and maybe eliminate the chain of prices in the spec, which hasn't found much use in practice and move that upstream.
 >
-> c) Make the interfaces to fetch ledger-related information (e.g., list of missing/required prices and lists of instruments) onto modules: beancount v2, beancount v3, ledger, hledger, and rendering output formats to any of these. In other words, this library should be able to fetch prices even if Beancount isn't installed. To turn this project into something that can run independent of beancount.
+> c\) Make the interfaces to fetch ledger-related information (e.g., list of missing/required prices and lists of instruments) onto modules: beancount v2, beancount v3, ledger, hledger, and rendering output formats to any of these. In other words, this library should be able to fetch prices even if Beancount isn't installed. To turn this project into something that can run independent of beancount.
 
 -   **Ingest.** The importers library will probably move to another repo and eventually could even find another owner. I think the most interesting part of it has been the establishment of clear phases: the identify, extract and file tasks, and a regression testing framework which works on real input files checking against expected converted outputs, which has worked well to minimize the pain of upgrading importers when they break (as they do break regularly, is a SNAFU). In the past I've had to pull some tricks to make command-line tools provided by the project support an input configuration as Python code but also possible to integrate in a script; I will remove the generic programs and users will be required to turn their configuration itself into a script that will just provide subcommands when run; the change will be very easy for existing users: it will require only a single line-of-code at the bottom of their existing files. The Bazel build may add some minor difficulties in loading a Python extension module built from within a Bazel workspace from an otherwise machine-wide Python installation, but I'm confident we'll figure it out. I'd also be happy for someone else to eventually take ownership of this framework, as long as the basic functionality and API remains stable.  
     The example csv and ofx importers should be removed from it and live in their own repos, perhaps:
@@ -168,7 +168,7 @@ Here is a detailed breakdown of the various parts of the codebase today and what
 
 -   beancount/ingest/importers: someone could revive a repository of importer implementations, like what LedgerHub once aimed to become, and swallow those codes.
 
-> See [<span class="underline">this document</span>](https://docs.google.com/document/d/1O42HgYQBQEna6YpobTqszSgTGnbRX7RdjmzR2xumfjs/) for details on what's to happen with the ingestion code.
+> See [<span class="underline">this document</span>](beangulp.md) for details on what's to happen with the ingestion code.
 
 -   **Custom reports and bean-web** should be removed: the underlying [<span class="underline">bottle</span>](https://bottlepy.org/docs/dev/) library seems unmaintained at this point, Fava subsumes bean-web, and I never liked the custom reports code anyway (they're a pain to modify). I never use them myself anymore (other than through bean-web). I really think it's possible to replace those with filters on top enhanced SQL query results. The conversion to Ledger and HLedger from Beancount now seems largely useless, I'm not sure anyone's using those. I'll probably move these to another repo, where they would eventually rot, or if someone cares, adopt them and maintain or evolve them.
 
@@ -367,7 +367,7 @@ The story around how precision and tolerances are dealt with hasn't been great, 
 
 -   **Rounding.** There is another quantity that's used during interpolation: the precision used to round calculated numbers.
 
-Moreover, there is a need to distinguish between the precision and tolerances for numbers when used as prices vs. when used as units (see [<span class="underline">here</span>](https://github.com/beancount/beancount/blob/master/TODO#complete-display-precision-work)).
+Moreover, there is a need to distinguish between the precision and tolerances for numbers when used as prices vs. when used as units (see [<span class="underline">here</span>](https://github.com/beancount/beancount/blob/master/TODO#complete-display-precision-work)). One way is to store the display context per currency PAIR, not per currency itself.
 
 The distinction between these quantities hasn't been documented well; I'll keep in mind to clearly annotate those codes in v3 and add suitable docs for this. Mostly the precision will be a rendering concern and a quantity that will be relevant for the new universal SQL query tool.
 

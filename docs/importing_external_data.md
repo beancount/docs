@@ -118,11 +118,11 @@ Tools<a id="tools"></a>
 
 There are three Beancount tools provided to orchestrate the three stages of importing:
 
-1.  [**<span class="underline">bean-identify</span>**](https://github.com/beancount/beancount/tree/master/bin/bean-identify): Given a messy list of downloaded files (e.g. in ~/Downloads), automatically identify which of your configured importers is able to handle them and print them out. This is to be used for debugging and figuring out if your configuration is properly associating a suitable importer for each of the files you downloaded;
+1.  [**<span class="underline">bean-identify</span>**](https://github.com/beancount/beancount/tree/v2/bin/bean-identify): Given a messy list of downloaded files (e.g. in ~/Downloads), automatically identify which of your configured importers is able to handle them and print them out. This is to be used for debugging and figuring out if your configuration is properly associating a suitable importer for each of the files you downloaded;
 
-2.  [**<span class="underline">bean-extract</span>**](https://github.com/beancount/beancount/tree/master/bin/bean-extract): Extracting transactions and statement date from each file, if at all possible. This produces some Beancount input text to be moved to your input file;
+2.  [**<span class="underline">bean-extract</span>**](https://github.com/beancount/beancount/tree/v2/bin/bean-extract): Extracting transactions and statement date from each file, if at all possible. This produces some Beancount input text to be moved to your input file;
 
-3.  [**<span class="underline">bean-file</span>**](https://github.com/beancount/beancount/tree/master/bin/bean-file): Filing away the downloaded files to a directory hierarchy which mirrors the chart of accounts, for preservation, e.g. in a personal git repo. The filenames are cleaned, the files are moved and an appropriate statement date is prepended to each of them so that Beancount may produce corresponding Document directives.
+3.  [**<span class="underline">bean-file</span>**](https://github.com/beancount/beancount/tree/v2/bin/bean-file): Filing away the downloaded files to a directory hierarchy which mirrors the chart of accounts, for preservation, e.g. in a personal git repo. The filenames are cleaned, the files are moved and an appropriate statement date is prepended to each of them so that Beancount may produce corresponding Document directives.
 
 ### Invocation<a id="invocation"></a>
 
@@ -173,7 +173,7 @@ An interesting idea that I haven’t tested yet is to use one’s Beancount inpu
 Writing an Importer<a id="writing-an-importer"></a>
 ---------------------------------------------------
 
-Each of the importers must comply with a particular protocol and implement at least some of its methods. The full detail of this protocol is best found in the source code itself: [<span class="underline">importer.py</span>](https://github.com/beancount/beancount/tree/master/beancount/ingest/importer.py). The tools above will take care of finding the downloads and invoking the appropriate methods on your importer objects.
+Each of the importers must comply with a particular protocol and implement at least some of its methods. The full detail of this protocol is best found in the source code itself: [<span class="underline">importer.py</span>](https://github.com/beancount/beancount/tree/v2/beancount/ingest/importer.py). The tools above will take care of finding the downloads and invoking the appropriate methods on your importer objects.
 
 Here’s a brief summary of the methods you need to, or may want to, implement:
 
@@ -187,7 +187,7 @@ Here’s a brief summary of the methods you need to, or may want to, implement:
 
 -   file_date(): If a date can be extracted from the statement’s contents, return it here. This is useful for dated PDF statements… it’s often possible using regular expressions to grep out the date from a PDF converted to text. This allows the filing script to prepend a relevant date instead of using the date when the file was downloaded (the default).
 
--   file_name(): It’s most convenient not to bother renaming downloaded files. Oftentimes, the files generated from your bank either all have a unique name and they end up getting renamed by your browser when you download multiple ones and the names collide. This function is used for the importer to provide a “nice” name to file the download under.
+-   file_name(): It’s most convenient not to bother renaming downloaded files. Oftentimes, the files generated from your bank all have a unique name and they end up getting renamed by your browser when you download multiple ones and the names collide. This function is used for the importer to provide a “nice” name to file the download under.
 
 So basically, you create some module somewhere on your PYTHONPATH—anywhere you like, somewhere private—and you implement a class, something like this:
 
@@ -208,7 +208,7 @@ I've found over time that regression testing is *key* to maintaining your import
 
 The easiest, laziest and most relevant way to test those importers is to use some **real data files** and compare what your importer extracts from them to expected outputs. For the importers to be at least somewhat reliable, you really need to be able to reproduce the extractions on a number of real inputs. And since the inputs are so unpredictable and poorly defined, it’s not practical to write exhaustive tests on what they could be. In practice, I have to make at least *some* fix to *some* of my importers every couple of months, and with this process, it only sinks about a half-hour of my time: I add the new downloaded file which causes breakage to the importer directory, I fix the code by running it there locally as a test. And I also run the tests over *all* the previously downloaded test inputs in that directory (old and new) to ensure my importer is still working as intended on the older files.
 
-There is some support for automating this process in [<span class="underline">beancount.ingest.regression</span>](https://github.com/beancount/beancount/tree/master/beancount/ingest/regression.py). What we want is some routine that will list the importer’s package directory, identify the input files which are to be used for testing, and generate a suite of unit tests which compares the output produced by importer methods to the contents of “expected files” placed next to the test file.
+There is some support for automating this process in [<span class="underline">beancount.ingest.regression</span>](https://github.com/beancount/beancount/tree/v2/beancount/ingest/regression.py). What we want is some routine that will list the importer’s package directory, identify the input files which are to be used for testing, and generate a suite of unit tests which compares the output produced by importer methods to the contents of “expected files” placed next to the test file.
 
 For example, given a package with an implementation of an importer and two sample input files:
 
@@ -345,11 +345,11 @@ Personally, I have a `Makefile` in my root directory with these targets to make 
 Example Importers<a id="example-importers"></a>
 -----------------------------------------------
 
-Beyond the documentation above, I cooked up an example importer for a made-up CSV file format for a made-up investment account. See [<span class="underline">this directory</span>](https://github.com/beancount/beancount/tree/master/examples/ingest/office/importers/utrade/).
+Beyond the documentation above, I cooked up an example importer for a made-up CSV file format for a made-up investment account. See [<span class="underline">this directory</span>](https://github.com/beancount/beancount/tree/v2/examples/ingest/office/importers/utrade/).
 
-There’s also an example of an importer which uses an external tool (PDFMiner2) to convert a PDF file to text to identify it and to extract the statement date from it. See [<span class="underline">this directory</span>](https://github.com/beancount/beancount/tree/master/examples/ingest/office/importers/acme/).
+There’s also an example of an importer which uses an external tool (PDFMiner2) to convert a PDF file to text to identify it and to extract the statement date from it. See [<span class="underline">this directory</span>](https://github.com/beancount/beancount/tree/v2/examples/ingest/office/importers/acme/).
 
-Beancount also comes with some very basic generic importers. See [<span class="underline">this directory</span>](https://github.com/beancount/beancount/tree/master/beancount/ingest/importers/).
+Beancount also comes with some very basic generic importers. See [<span class="underline">this directory</span>](https://github.com/beancount/beancount/tree/v2/beancount/ingest/importers/).
 
 -   There is a simple OFX importer that has worked for me for a long time. Though it’s pretty simple, I’ve used it for years, it’s good enough to pull info out of most credit card accounts.
 
@@ -387,7 +387,7 @@ The payees that one can find in the downloads are usually ugly names:
 
 -   They are sometimes the legal names of the business, which often does not reflect the street name of the place you went, for various reasons. For example, I recently ate at a restaurant called the “Lucky Bee” in New York, and the memo from the OFX file was “KING BEE”.
 
--   The names are sometimes abbreviation or contain some crud. In the previous example, the actual memo was “KING BEE NEW YO”, where “NEW YO” is a truncated location string.
+-   The names are sometimes abbreviated or contain some crud. In the previous example, the actual memo was “KING BEE NEW YO”, where “NEW YO” is a truncated location string.
 
 -   The amount of ugliness is inconsistent between data sources.
 
@@ -416,7 +416,7 @@ Related Discussion Threads<a id="related-discussion-threads"></a>
 Historical Note<a id="historical-note"></a>
 -------------------------------------------
 
-There once was a first implementation of the process described in this document. The project was called LedgerHub and has been decommissioned in February 2016, rewritten and the resulting code integrated in Beancount itself, into this [<span class="underline">beancount.ingest</span>](https://github.com/beancount/beancount/tree/master/beancount/ingest/) library. The original project was intended to include the implementation of various importers to share them with other people, but this sharing was not very successful, and so the rewrite includes only the scaffolding for building your own importers and invoking them, and only a very limited number of example importer implementations.
+There once was a first implementation of the process described in this document. The project was called LedgerHub and has been decommissioned in February 2016, rewritten and the resulting code integrated in Beancount itself, into this [<span class="underline">beancount.ingest</span>](https://github.com/beancount/beancount/tree/v2/beancount/ingest/) library. The original project was intended to include the implementation of various importers to share them with other people, but this sharing was not very successful, and so the rewrite includes only the scaffolding for building your own importers and invoking them, and only a very limited number of example importer implementations.
 
 Documents about LedgerHub are preserved, and can help you understand the origins and design choices for Beancount’s importer support. They can be found here:
 
