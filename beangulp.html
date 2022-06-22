@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="https://beancount.github.io/docs/beangulp.html">
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Beangulp - Beancount Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/theme_extra.css" />
+  <link href="assets/_mkdocstrings.css" rel="stylesheet" />
+  <link href="css/custom.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Beangulp";
+    var mkdocs_page_input_path = "beangulp.md";
+    var mkdocs_page_url = "/docs/beangulp.html";
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="icon icon-home"> Beancount Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="index.html">Index</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Outline</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="#">Documentation for Users</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="command_line_accounting_in_context.html">Command Line Accounting in Context</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="the_double_entry_counting_method.html">The Double Entry Counting Method</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="installing_beancount.html">Installing Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="getting_started_with_beancount.html">Getting Started with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_language_syntax.html">Beancount Language Syntax</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_options_reference.html">Beancount Options Reference</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="precision_tolerances.html">Precision Tolerances</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_query_language.html">Beancount Query Language</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="how_inventories_work.html">How Inventories Work</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="exporting_your_portfolio.html">Exporting Your Portfolio</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="tutorial_example.html">Tutorial & Example</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_history_and_credits.html">Beancount History and Credits</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="importing_external_data.html">Importing External Data</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Cookbooks & Examples</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="trading_with_beancount.html">Trading with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="how_we_share_expenses.html">How We Share Expenses</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="health_care_expenses.html">Health Care Expenses</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="calculating_portolio_returns.html">Calculating Portfolio Returns</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Documentation for Developers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_design_doc.html">Beancount Design Doc</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="external_contributions.html">External Contributions</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Enhancement Proposals & Discussions</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Beancount 3</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="beancount_v3.html">Goals & Design</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="installing_beancount_v3.html">Installing Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_v3_dependencies.html">Dependencies</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="beangulp.html">Beangulp</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#new-repo">New Repo</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#status">Status</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#changes">Changes</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#library-only">Library Only</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#one-file">One File</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#self-running">Self-Running</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#test-subcommand-generate">Test Subcommand &amp; Generate</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#one-expected-file">One Expected File</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#duplicates-identification">Duplicates Identification</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#csv-utils">CSV Utils</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#caching">Caching</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#api-changes">API Changes</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#automatic-insertion">Automatic Insertion</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">API reference</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/index.html">beancount</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.core.html">beancount.core</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ingest.html">beancount.ingest</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.loader.html">beancount.loader</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ops.html">beancount.ops</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.parser.html">beancount.parser</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.plugins.html">beancount.plugins</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.prices.html">beancount.prices</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.query.html">beancount.query</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.reports.html">beancount.reports</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.scripts.html">beancount.scripts</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.tools.html">beancount.tools</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.utils.html">beancount.utils</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.web.html">beancount.web</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Beancount Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Outline &raquo;</li>
+        
+      
+        
+          <li>Beancount 3 &raquo;</li>
+        
+      
+    
+    <li>Beangulp</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="beangulp">Beangulp<a id="title"></a><a class="headerlink" href="#beangulp" title="Permanent link"></a></h1>
+<p><a href="mailto:blais@furius.ca"><span class="underline">Martin Blais</span></a>, Jan 2021</p>
+<pre><code>Importing data for Beancount has been supported originally by the LedgerHub project along with a library of importers, then reintegrated as a pure framework library (with some examples) in the Beancount repo as beancount.ingest, and now we're splitting up that repository again and will factor out the importing framework to another repo for easier maintenance and evolution. This document lays out some of the changes desired in this new version.
+</code></pre>
+<h2 id="new-repo">New Repo<a id="new-repo"></a><a class="headerlink" href="#new-repo" title="Permanent link"></a></h2>
+<p>The new repository will be located at</p>
+<blockquote>
+<p><a href="http://github.com/beancount/beangulp"><span class="underline">http://github.com/beancount/beangulp</span></a></p>
+</blockquote>
+<p>Beangulp will target compatibility with the latest beancount release from the v3 branch only.</p>
+<p>Beancount v3 is expected to evolve rapidly at the beginning, thus, to make the life of early adopters less painful, careful use of version number increments and versioned dependencies should be employed. Ideally, Beangulp should depend on the current minor version of Beancount only, for example, if Beancount 3.0.0 is released, Beangulp should declare</p>
+<pre><code>install_requires: beancount &gt;3.0, &lt;3.1
+</code></pre>
+<p>See <a href="https://setuptools.readthedocs.io/en/latest/userguide/dependency_management.html#declaring-required-dependency"><span class="underline">setuptools doc</span></a> and <a href="https://www.python.org/dev/peps/pep-0440/#version-specifiers"><span class="underline">PEP-440</span></a>.</p>
+<h2 id="status">Status<a id="status"></a><a class="headerlink" href="#status" title="Permanent link"></a></h2>
+<p>As of Jan 2022, most of this proposal is complete and implemented. (Thanks to Daniele Nicolodi for doing most of the work.)</p>
+<h2 id="changes">Changes<a id="changes"></a><a class="headerlink" href="#changes" title="Permanent link"></a></h2>
+<h3 id="library-only">Library Only<a id="library-only"></a><a class="headerlink" href="#library-only" title="Permanent link"></a></h3>
+<p>The current implementation allows one to use</p>
+<ol>
+<li>
+<p>the bean-identify, bean-extract and bean-file tools on a "config file" which is evaluated Python, or</p>
+</li>
+<li>
+<p>create a script and call a single endpoint that will implement the subcommands.</p>
+</li>
+</ol>
+<p>In order to make this work, a really convoluted trampoline is used to bounce the evaluation to the same code. I'll admit it trumps even me who wrote it whenever I have to go in there and edit that code. It also makes it inconvenient to let users add custom before/after customizations to their import process.</p>
+<p>The next version will support only (2). The bean-identify, bean-extract, bean-file programs will all be removed. The user will be expected to write their own script.</p>
+<h3 id="one-file">One File<a id="one-file"></a><a class="headerlink" href="#one-file" title="Permanent link"></a></h3>
+<p>Right now, each importer consists of two files: the implementation file and an associated test file, e.g.</p>
+<pre><code>soandso_bank.py
+soandso_bank_test.py
+</code></pre>
+<p>The test file is small and usually calls out to a library function to find model files and expected outputs. Since there's hardly any real test code, we'd like to be able to have a single Python file that contains its test invocation.</p>
+<p>A new endpoint will be added to define the tests in the importer implementation.</p>
+<h3 id="self-running">Self-Running<a id="self-running"></a><a class="headerlink" href="#self-running" title="Permanent link"></a></h3>
+<p>Moreover, that new function should also be the same one as that which is used to put together the configuration script. In other words, an importer's main() function should be equivalent to an importer's invocation with a single configured importer, one that is configured with the configuration used for testing.</p>
+<p>This will allow users to just "run the importer" on a specific set of files without having to define a configuration, by using the test configuration, like this:</p>
+<pre><code>soandso_bank.py extract ~/Downloads/transactions.csv
+</code></pre>
+<p>Having this option makes it super convenient for people to share the one file and test it out immediately, without having to create a configuration nor a main program.</p>
+<p>I don’t think there is an easy clean way to implement this other than having something like</p>
+<p><code>if __name__ == ‘__main__’:</code></p>
+<pre><code>            main = Ingest([SoAndSoBankImporter()])
+            main()
+</code></pre>
+<p>in the importer definition file. This should work right now without changes. Although, it is often the case now that importers require a bit of configuration to work (I am not sure, I don’t use any of the importers distributed with Beancount or widely used).</p>
+<h3 id="test-subcommand-generate"><strong>Test</strong> S<strong>ubcommand &amp; Generate</strong><a id="test-subcommand-generate"></a><a class="headerlink" href="#test-subcommand-generate" title="Permanent link"></a></h3>
+<p>Since the importers are runnable and define their test cases for pytest to run over, we should also add a subcommand "test" to complete "identify", "extract" and "file". That venue is also a great place to replace the --generate option which required ugly injection of the pytestconfig, and instead, implement it ourselves and add a second subcommand: "genexpect" to generate the expected file for testing.</p>
+<p>The interface becomes:</p>
+<pre><code>soandso_bank.py identify ~/Downloads/
+soandso_bank.py extract ~/Downloads/
+soandso_bank.py file ~/Downloads/ ~/documents
+soandso_bank.py test ~/documents/testdocs
+soandso_bank.py generate ~/Downloads/transactions.csv
+</code></pre>
+<p>This way we can remove the pytestconfig dep injection and also simplify the logic of unit tests, which had to handle both the check vs. generate scenarios. This should result in simpler code.</p>
+<h3 id="one-expected-file">One Expected File<a id="one-expected-file"></a><a class="headerlink" href="#one-expected-file" title="Permanent link"></a></h3>
+<p>Expected outputs from an importer are stored in multiple files with suffixes .extract, .file_name, .file_date, etc. If we had all the output in one file, the "genexpect" subcommand could generate everything to stdout. This is convenient.</p>
+<blockquote>
+<p>myimporter.py</p>
+<p>myimporter.beancount</p>
+</blockquote>
+<p>Leverage the Beancount syntax to store the expected values for "file_name()", "file_date()" and other outputs. Store those in Event or Custom directives and have the testing code assert on them. The new contents of a test directory should be simple pairs of (a) original downloaded file and (b) expected output, containing the transactions but also all the other method outputs.</p>
+<h3 id="duplicates-identification">Duplicates Identification<a id="duplicates-identification"></a><a class="headerlink" href="#duplicates-identification" title="Permanent link"></a></h3>
+<p>This has never really worked properly. I think if this was implemented separately based on each importer — in other words, letting each importer define how to identify duplicates, e.g., if a unique transaction ID can be assumed having been inserted as a link to disambiguate — we could do this a lot cleaner.</p>
+<p>It would be ideal if each importer could specify duplicate id detection, in the importer. It could call on a more general but less reliable method, and that code should live in Beangulp.</p>
+<h3 id="csv-utils">CSV Utils<a id="csv-utils"></a><a class="headerlink" href="#csv-utils" title="Permanent link"></a></h3>
+<p>I have a lot of really convenient utilities for slicing and dicing CSV files from ugly CSV downloads. CSV downloads often are used to house multiple tables and types of data, and a higher-level of processing is often needed on top of these files.</p>
+<p>I have code like this spread all over. This deserves a nice library. What's more, I have a nice table processing library under the Baskets project, which hasn't been given the proper quality treatment yet.</p>
+<p>Clean up my little table library and merge it with all the CSV utils. Put this in beangulp, or even contemplate making this its own project, including a CSV importer. "CSV world."</p>
+<p><em>Not sure this matters as much after discovering petl. We could depend on petl.</em></p>
+<h3 id="caching">Caching<a id="caching"></a><a class="headerlink" href="#caching" title="Permanent link"></a></h3>
+<p>When running conversion jobs on large files, it would be nice to have a cache and avoid running those more than once. The (small) converted data could be cached and loaded back up in order to avoid running the expensive conversion more than once. One difficulty is that the conversions required to be run depend on the importers configuration, and each importer is unaware of the other ones.</p>
+<p>All the command-line arguments and at least the head of the file contents should be hashed in. This library could be pretty independent from Beancount.</p>
+<h3 id="api-changes">API Changes<a id="api-changes"></a><a class="headerlink" href="#api-changes" title="Permanent link"></a></h3>
+<ul>
+<li>
+<p>"file_date()" is not clear; "get_filing_date()" would be.</p>
+</li>
+<li>
+<p>The extra argument on extract() is irregular compared to all the other methods. Find a better way?</p>
+</li>
+<li>
+<p>I'm not 100% sure I like my little memoizing file wrapper ("cache") with cache. Replace it with a disk-only one.</p>
+</li>
+</ul>
+<h3 id="automatic-insertion">Automatic Insertion<a id="automatic-insertion"></a><a class="headerlink" href="#automatic-insertion" title="Permanent link"></a></h3>
+<p>A really convenient and easily built feature that the new code should have is the automatic insertions of the extracted output to an existing ledger, before the point of a special string token in the file. Make this part of the library, as an alternative for storing the output of the importer, e.g.</p>
+<p><code>$ ./myimport.py extract | bean-insert ledger.beancount Amex</code></p>
+<p>This could also be a flag to "extract"</p>
+<p><code>$ ./myimport.py extract -f ledger.beancount -F Amex</code></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api_reference/index.html" class="btn btn-neutral float-right" title="beancount">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="beancount_v3_dependencies.html" class="btn btn-neutral" title="Dependencies"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="beancount_v3_dependencies.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="api_reference/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme_extra.js" defer></script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

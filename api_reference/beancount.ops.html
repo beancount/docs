@@ -141,6 +141,8 @@
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../beancount_v3_dependencies.html">Dependencies</a>
                 </li>
+                <li class="toctree-l2"><a class="reference internal" href="../beangulp.html">Beangulp</a>
+                </li>
     </ul>
                     </li>
                 </ul>
@@ -507,7 +509,7 @@ beancount.ops.balance.BalanceError            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/ops/balance.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -561,7 +563,7 @@ beancount.ops.balance.BalanceError            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/ops/balance.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -635,7 +637,7 @@ ones with a flag that indicates failure.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/balance.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def check(entries, options_map):
+          <pre class="highlight"><code class="language-python">def check(entries, options_map):
     """Process the balance assertion directives.
 
     For each Balance directive, check that their expected balance corresponds to
@@ -817,7 +819,7 @@ ones with a flag that indicates failure.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/balance.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_balance_tolerance(balance_entry, options_map):
+          <pre class="highlight"><code class="language-python">def get_balance_tolerance(balance_entry, options_map):
     """Get the tolerance amount for a single entry.
 
     Args:
@@ -926,7 +928,7 @@ enough not to belong in core/data.py.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ops/basicops.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def filter_link(link, entries):
+          <pre class="highlight"><code class="language-python">def filter_link(link, entries):
     """Yield all the entries which have the given link.
 
     Args:
@@ -981,7 +983,7 @@ enough not to belong in core/data.py.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ops/basicops.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def filter_tag(tag, entries):
+          <pre class="highlight"><code class="language-python">def filter_tag(tag, entries):
     """Yield all the entries which have the given tag.
 
     Args:
@@ -1052,7 +1054,7 @@ entries.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/basicops.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_common_accounts(entries):
+          <pre class="highlight"><code class="language-python">def get_common_accounts(entries):
     """Compute the intersection of the accounts on the given entries.
 
     Args:
@@ -1135,7 +1137,7 @@ entries.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/basicops.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def group_entries_by_link(entries):
+          <pre class="highlight"><code class="language-python">def group_entries_by_link(entries):
     """Group the list of entries by link.
 
     Args:
@@ -1264,7 +1266,7 @@ equivalent.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/compress.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def compress(entries, predicate):
+          <pre class="highlight"><code class="language-python">def compress(entries, predicate):
     """Compress multiple transactions into single transactions.
 
     Replace consecutive sequences of Transaction entries that fulfill the given
@@ -1369,7 +1371,7 @@ entries merged together.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/compress.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def merge(entries, prototype_txn):
+          <pre class="highlight"><code class="language-python">def merge(entries, prototype_txn):
     """Merge the postings of a list of Transactions into a single one.
 
     Merge postings the given entries into a single entry with the Transaction
@@ -1518,7 +1520,7 @@ beancount.ops.documents.DocumentError            (<span title="tuple">tuple</spa
 
         <details class="quote">
           <summary>Source code in <code>beancount/ops/documents.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -1572,7 +1574,7 @@ beancount.ops.documents.DocumentError            (<span title="tuple">tuple</spa
 
         <details class="quote">
           <summary>Source code in <code>beancount/ops/documents.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -1651,7 +1653,7 @@ of new errors generated.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/documents.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def find_documents(directory, input_filename, accounts_only=None, strict=False):
+          <pre class="highlight"><code class="language-python">def find_documents(directory, input_filename, accounts_only=None, strict=False):
     """Find dated document files under the given directory.
 
     If a restricting set of accounts is provided in 'accounts_only', only return
@@ -1787,7 +1789,7 @@ generated during the process of creating document directives.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/documents.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def process_documents(entries, options_map):
+          <pre class="highlight"><code class="language-python">def process_documents(entries, options_map):
     """Check files for document directives and create documents directives automatically.
 
     Args:
@@ -1877,7 +1879,7 @@ generated during the process of creating document directives.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/documents.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def verify_document_files_exist(entries, unused_options_map):
+          <pre class="highlight"><code class="language-python">def verify_document_files_exist(entries, unused_options_map):
     """Verify that the document entries point to existing files.
 
     Args:
@@ -1991,7 +1993,7 @@ beancount.ops.holdings.Holding            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/ops/holdings.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -2045,7 +2047,7 @@ beancount.ops.holdings.Holding            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/ops/holdings.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -2119,7 +2121,7 @@ not include the cost-currency.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/holdings.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def aggregate_holdings_by(holdings, keyfun):
+          <pre class="highlight"><code class="language-python">def aggregate_holdings_by(holdings, keyfun):
     """Aggregate holdings by some key.
 
     Note that the cost-currency must always be included in the group-key (sums
@@ -2232,7 +2234,7 @@ list.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/holdings.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def aggregate_holdings_list(holdings):
+          <pre class="highlight"><code class="language-python">def aggregate_holdings_list(holdings):
     """Aggregate a list of holdings.
 
     If there are varying 'account', 'currency' or 'cost_currency' attributes,
@@ -2367,7 +2369,7 @@ list.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/holdings.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def convert_to_currency(price_map, target_currency, holdings_list):
+          <pre class="highlight"><code class="language-python">def convert_to_currency(price_map, target_currency, holdings_list):
     """Convert the given list of holdings's fields to a common currency.
 
     If the rate is not available to convert, leave the fields empty.
@@ -2513,7 +2515,7 @@ relevant holdings.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/holdings.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_commodities_at_date(entries, options_map, date=None):
+          <pre class="highlight"><code class="language-python">def get_commodities_at_date(entries, options_map, date=None):
     """Return a list of commodities present at a particular date.
 
     This routine fetches the holdings present at a particular date and returns a
@@ -2647,7 +2649,7 @@ holdings. If left unspecified, we use the latest price information.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/holdings.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_final_holdings(entries, included_account_types=None, price_map=None, date=None):
+          <pre class="highlight"><code class="language-python">def get_final_holdings(entries, included_account_types=None, price_map=None, date=None):
     """Get a dictionary of the latest holdings by account.
 
     This basically just flattens the balance sheet's final positions, including
@@ -2787,7 +2789,7 @@ holdings. If left unspecified, we use the latest price information.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/holdings.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def holding_to_position(holding):
+          <pre class="highlight"><code class="language-python">def holding_to_position(holding):
     """Convert the holding to a position.
 
     Args:
@@ -2856,7 +2858,7 @@ holdings. If left unspecified, we use the latest price information.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/holdings.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def holding_to_posting(holding):
+          <pre class="highlight"><code class="language-python">def holding_to_posting(holding):
     """Convert the holding to an instance of Posting.
 
     Args:
@@ -2927,7 +2929,7 @@ currency, and the relative fractions are also relative to that currency.</p></li
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/holdings.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def reduce_relative(holdings):
+          <pre class="highlight"><code class="language-python">def reduce_relative(holdings):
     """Convert the market and book values of the given list of holdings to relative data.
 
     Args:
@@ -3029,7 +3031,7 @@ currency, and the relative fractions are also relative to that currency.</p></li
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/holdings.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def scale_holding(holding, scale_factor):
+          <pre class="highlight"><code class="language-python">def scale_holding(holding, scale_factor):
     """Scale the values of a holding.
 
     Args:
@@ -3150,7 +3152,7 @@ to be distinct, to allow a gap.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/lifetimes.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def compress_intervals_days(intervals, num_days):
+          <pre class="highlight"><code class="language-python">def compress_intervals_days(intervals, num_days):
     """Compress a list of date pairs to ignore short stretches of unused days.
 
     Args:
@@ -3230,7 +3232,7 @@ to be distinct, to allow a gap.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/lifetimes.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def compress_lifetimes_days(lifetimes_map, num_days):
+          <pre class="highlight"><code class="language-python">def compress_lifetimes_days(lifetimes_map, num_days):
     """Compress a lifetimes map to ignore short stretches of unused days.
 
     Args:
@@ -3299,7 +3301,7 @@ was seen; the end/last dates are one day <em>after</em> the last date seen.</p><
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/lifetimes.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_commodity_lifetimes(entries):
+          <pre class="highlight"><code class="language-python">def get_commodity_lifetimes(entries):
     """Given a list of directives, figure out the life of each commodity.
 
     Args:
@@ -3417,7 +3419,7 @@ get_commodity_lifetimes().</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/lifetimes.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def required_weekly_prices(lifetimes_map, date_last):
+          <pre class="highlight"><code class="language-python">def required_weekly_prices(lifetimes_map, date_last):
     """Enumerate all the commodities and Fridays where the price is required.
 
     Given a map of lifetimes for a set of commodities, enumerate all the Fridays
@@ -3546,7 +3548,7 @@ beancount.ops.pad.PadError            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/ops/pad.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -3600,7 +3602,7 @@ beancount.ops.pad.PadError            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/ops/pad.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -3680,7 +3682,7 @@ errors produced.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/pad.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def pad(entries, options_map):
+          <pre class="highlight"><code class="language-python">def pad(entries, options_map):
     """Insert transaction entries for to fulfill a subsequent balance check.
 
     Synthesize and insert Transaction entries right after Pad entries in order
@@ -3934,7 +3936,7 @@ cutoff date, an index one beyond the last entry is returned.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def balance_by_account(entries, date=None):
+          <pre class="highlight"><code class="language-python">def balance_by_account(entries, date=None):
     """Sum up the balance per account for all entries strictly before 'date'.
 
     Args:
@@ -4036,7 +4038,7 @@ transferred.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def cap(entries,
+          <pre class="highlight"><code class="language-python">def cap(entries,
         account_types,
         conversion_currency,
         account_earnings,
@@ -4131,7 +4133,7 @@ transferred.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def cap_opt(entries, options_map):
+          <pre class="highlight"><code class="language-python">def cap_opt(entries, options_map):
     """Close by getting all the parameters from an options map.
 
     See cap() for details.
@@ -4234,7 +4236,7 @@ sheet fed with only the summarized entries.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def clamp(entries,
+          <pre class="highlight"><code class="language-python">def clamp(entries,
           begin_date, end_date,
           account_types,
           conversion_currency,
@@ -4357,7 +4359,7 @@ sheet fed with only the summarized entries.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def clamp_opt(entries, begin_date, end_date, options_map):
+          <pre class="highlight"><code class="language-python">def clamp_opt(entries, begin_date, end_date, options_map):
     """Clamp by getting all the parameters from an options map.
 
     See clamp() for details.
@@ -4443,7 +4445,7 @@ the last original transaction before the transfers.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def clear(entries,
+          <pre class="highlight"><code class="language-python">def clear(entries,
           date,
           account_types,
           account_earnings):
@@ -4498,7 +4500,7 @@ the last original transaction before the transfers.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def clear_opt(entries, date, options_map):
+          <pre class="highlight"><code class="language-python">def clear_opt(entries, date, options_map):
     """Convenience function to clear() using an options map.
     """
     account_types = options.get_account_types(options_map)
@@ -4584,7 +4586,7 @@ to zero.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def close(entries,
+          <pre class="highlight"><code class="language-python">def close(entries,
           date,
           conversion_currency,
           account_conversions):
@@ -4654,7 +4656,7 @@ to zero.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def close_opt(entries, date, options_map):
+          <pre class="highlight"><code class="language-python">def close_opt(entries, date, options_map):
     """Convenience function to close() using an options map.
     """
     conversion_currency = options_map['conversion_currency']
@@ -4722,7 +4724,7 @@ to this date.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def conversions(entries, conversion_account, conversion_currency, date=None):
+          <pre class="highlight"><code class="language-python">def conversions(entries, conversion_account, conversion_currency, date=None):
     """Insert a conversion entry at date 'date' at the given account.
 
     Args:
@@ -4845,7 +4847,7 @@ formatted with 'account' and 'date' replacement variables.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def create_entries_from_balances(balances, date, source_account, direction,
+          <pre class="highlight"><code class="language-python">def create_entries_from_balances(balances, date, source_account, direction,
                                  meta, flag, narration_template):
     """"Create a list of entries from a dict of balances.
 
@@ -4958,7 +4960,7 @@ return the entries still open at the latest date.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_open_entries(entries, date):
+          <pre class="highlight"><code class="language-python">def get_open_entries(entries, date):
     """Gather the list of active Open entries at date.
 
     This returns the list of Open entries that have not been closed at the given
@@ -5085,7 +5087,7 @@ sheet fed with only the summarized entries.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def open(entries,
+          <pre class="highlight"><code class="language-python">def open(entries,
          date,
          account_types,
          conversion_currency,
@@ -5174,7 +5176,7 @@ sheet fed with only the summarized entries.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def open_opt(entries, date, options_map):
+          <pre class="highlight"><code class="language-python">def open_opt(entries, date, options_map):
     """Convenience function to open() using an options map.
     """
     account_types = options.get_account_types(options_map)
@@ -5249,7 +5251,7 @@ the entries on or after the cutoff date begin.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def summarize(entries, date, account_opening):
+          <pre class="highlight"><code class="language-python">def summarize(entries, date, account_opening):
     """Summarize all entries before a date by replacing then with summarization entries.
 
     This function replaces the transactions up to (and not including) the given
@@ -5368,7 +5370,7 @@ the transfer entries to receive balances at the given date.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def transfer_balances(entries, date, account_pred, transfer_account):
+          <pre class="highlight"><code class="language-python">def transfer_balances(entries, date, account_pred, transfer_account):
     """Synthesize transactions to transfer balances from some accounts at a given date.
 
     For all accounts that match the 'account_pred' predicate, create new entries
@@ -5482,7 +5484,7 @@ the transfer entries to receive balances at the given date.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def truncate(entries, date):
+          <pre class="highlight"><code class="language-python">def truncate(entries, date):
     """Filter out all the entries at and after date. Returns a new list of entries.
 
     Args:
@@ -5599,7 +5601,7 @@ beancount.ops.validation.ValidationError            (<span title="tuple">tuple</
 
         <details class="quote">
           <summary>Source code in <code>beancount/ops/validation.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -5653,7 +5655,7 @@ beancount.ops.validation.ValidationError            (<span title="tuple">tuple</
 
         <details class="quote">
           <summary>Source code in <code>beancount/ops/validation.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -5728,7 +5730,7 @@ this list of entries.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/validation.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def validate(entries, options_map, log_timings=None, extra_validations=None):
+          <pre class="highlight"><code class="language-python">def validate(entries, options_map, log_timings=None, extra_validations=None):
     """Perform all the standard checks on parsed contents.
 
     Args:
@@ -5820,7 +5822,7 @@ transaction entries, given the same date.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/validation.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def validate_active_accounts(entries, unused_options_map):
+          <pre class="highlight"><code class="language-python">def validate_active_accounts(entries, unused_options_map):
     """Check that all references to accounts occurs on active accounts.
 
     We basically check that references to accounts from all directives other
@@ -5933,7 +5935,7 @@ transformed transactions.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/validation.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def validate_check_transaction_balances(entries, options_map):
+          <pre class="highlight"><code class="language-python">def validate_check_transaction_balances(entries, options_map):
     """Check again that all transaction postings balance, as users may have
     transformed transactions.
 
@@ -6028,7 +6030,7 @@ commodities.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/validation.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def validate_currency_constraints(entries, options_map):
+          <pre class="highlight"><code class="language-python">def validate_currency_constraints(entries, options_map):
     """Check the currency constraints from account open declarations.
 
     Open directives admit an optional list of currencies that specify the only
@@ -6135,7 +6137,7 @@ This routine checks all the data types and assumptions on entries.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/validation.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def validate_data_types(entries, options_map):
+          <pre class="highlight"><code class="language-python">def validate_data_types(entries, options_map):
     """Check that all the data types of the attributes of entries are as expected.
 
     Users are provided with a means to filter the list of entries. They're able to
@@ -6220,7 +6222,7 @@ make sure we don't have to do any further processing on them.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/validation.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def validate_documents_paths(entries, options_map):
+          <pre class="highlight"><code class="language-python">def validate_documents_paths(entries, options_map):
     """Check that all filenames in resolved Document entries are absolute filenames.
 
     The processing of document entries is assumed to result in absolute paths.
@@ -6298,7 +6300,7 @@ however, because this may occur during import.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/validation.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def validate_duplicate_balances(entries, unused_options_map):
+          <pre class="highlight"><code class="language-python">def validate_duplicate_balances(entries, unused_options_map):
     """Check that balance entries occur only once per day.
 
     Because we do not support time, and the declaration order of entries is
@@ -6390,7 +6392,7 @@ however, because this may occur during import.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/validation.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def validate_duplicate_commodities(entries, unused_options_map):
+          <pre class="highlight"><code class="language-python">def validate_duplicate_commodities(entries, unused_options_map):
     """Check that commodity entries are unique for each commodity.
 
     Args:
@@ -6492,7 +6494,7 @@ however, because this may occur during import.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/validation.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def validate_open_close(entries, unused_options_map):
+          <pre class="highlight"><code class="language-python">def validate_open_close(entries, unused_options_map):
     """Check constraints on open and close directives themselves.
 
     This method checks two kinds of constraints:

@@ -141,6 +141,8 @@
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../beancount_v3_dependencies.html">Dependencies</a>
                 </li>
+                <li class="toctree-l2"><a class="reference internal" href="../beangulp.html">Beangulp</a>
+                </li>
     </ul>
                     </li>
                 </ul>
@@ -328,7 +330,7 @@ beancount.loader.LoadError            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/loader.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -382,7 +384,7 @@ beancount.loader.LoadError            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/loader.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -438,7 +440,7 @@ Note: This value is mutated in-place.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/loader.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def aggregate_options_map(options_map, src_options_map):
+          <pre class="highlight"><code class="language-python">def aggregate_options_map(options_map, src_options_map):
     """Aggregate some of the attributes of options map.
 
     Args:
@@ -511,7 +513,7 @@ Note: This value is mutated in-place.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/loader.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def combine_plugins(*plugin_modules):
+          <pre class="highlight"><code class="language-python">def combine_plugins(*plugin_modules):
     """Combine the plugins from the given plugin modules.
 
     This is used to create plugins of plugins.
@@ -565,7 +567,7 @@ Note: This value is mutated in-place.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/loader.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def compute_input_hash(filenames):
+          <pre class="highlight"><code class="language-python">def compute_input_hash(filenames):
     """Compute a hash of the input data.
 
     Args:
@@ -637,7 +639,7 @@ will return the name of the corresponding cache file.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/loader.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def delete_cache_function(cache_getter, function):
+          <pre class="highlight"><code class="language-python">def delete_cache_function(cache_getter, function):
     """A wrapper that removes the cached filename.
 
     Args:
@@ -715,7 +717,7 @@ will get replaced by the top-level filename. This may be absolute or relative.</
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/loader.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_cache_filename(pattern: str, filename: str) -&gt; str:
+          <pre class="highlight"><code class="language-python">def get_cache_filename(pattern: str, filename: str) -&gt; str:
     """Compute the cache filename from a given pattern and the top-level filename.
 
     Args:
@@ -755,7 +757,7 @@ will get replaced by the top-level filename. This may be absolute or relative.</
 
         <details class="quote">
           <summary>Source code in <code>beancount/loader.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def initialize(use_cache: bool, cache_filename: Optional[str] = None):
+          <pre class="highlight"><code class="language-python">def initialize(use_cache: bool, cache_filename: Optional[str] = None):
     """Initialize the loader."""
 
     # Unless an environment variable disables it, use the pickle load cache
@@ -842,7 +844,7 @@ None: Do nothing, no check.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/loader.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def load_doc(expect_errors=False):
+          <pre class="highlight"><code class="language-python">def load_doc(expect_errors=False):
     """A factory of decorators that loads the docstring and calls the function with entries.
 
     This is an incredibly convenient tool to write lots of tests. Write a
@@ -953,7 +955,7 @@ options parsed from the file.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/loader.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def load_encrypted_file(filename, log_timings=None, log_errors=None, extra_validations=None,
+          <pre class="highlight"><code class="language-python">def load_encrypted_file(filename, log_timings=None, log_errors=None, extra_validations=None,
                         dedent=False, encoding=None):
     """Load an encrypted Beancount input file.
 
@@ -1042,7 +1044,7 @@ options parsed from the file.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/loader.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def load_file(filename, log_timings=None, log_errors=None, extra_validations=None,
+          <pre class="highlight"><code class="language-python">def load_file(filename, log_timings=None, log_errors=None, extra_validations=None,
               encoding=None):
     """Open a Beancount input file, parse it, run transformations and validate.
 
@@ -1144,7 +1146,7 @@ dict of the options parsed from the string.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/loader.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def load_string(string, log_timings=None, log_errors=None, extra_validations=None,
+          <pre class="highlight"><code class="language-python">def load_string(string, log_timings=None, log_errors=None, extra_validations=None,
                 dedent=False, encoding=None):
 
     """Open a Beancount input string, parse it, run transformations and validate.
@@ -1228,7 +1230,7 @@ dict of the options parsed from the string.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/loader.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def needs_refresh(options_map):
+          <pre class="highlight"><code class="language-python">def needs_refresh(options_map):
     """Predicate that returns true if at least one of the input files may have changed.
 
     Args:
@@ -1308,7 +1310,7 @@ it is available.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/loader.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def pickle_cache_function(cache_getter, time_threshold, function):
+          <pre class="highlight"><code class="language-python">def pickle_cache_function(cache_getter, time_threshold, function):
     """Decorate a loader function to make it loads its result from a pickle cache.
 
     This considers the first argument as a top-level filename and assumes the
@@ -1443,7 +1445,7 @@ should be quiet.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/loader.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def run_transformations(entries, parse_errors, options_map, log_timings):
+          <pre class="highlight"><code class="language-python">def run_transformations(entries, parse_errors, options_map, log_timings):
     """Run the various transformations on the entries.
 
     This is where entries are being synthesized, checked, plugins are run, etc.

@@ -141,6 +141,8 @@
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../beancount_v3_dependencies.html">Dependencies</a>
                 </li>
+                <li class="toctree-l2"><a class="reference internal" href="../beangulp.html">Beangulp</a>
+                </li>
     </ul>
                     </li>
                 </ul>
@@ -550,7 +552,7 @@ upon calling .build().</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/bottle_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __init__(self, mapper_function):
+          <pre class="highlight"><code class="language-python">def __init__(self, mapper_function):
     """Constructor for an attribute mapper.
 
     Args:
@@ -653,7 +655,7 @@ depth is 2.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/bottle_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def internal_redirect(app, path_depth):
+          <pre class="highlight"><code class="language-python">def internal_redirect(app, path_depth):
     """A version of bottle's mountpoint_wrapper() that we call explicitly.
 
     Bottle supports a mount() method that allows on to install an application on
@@ -777,7 +779,7 @@ external sites.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/scrape.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def iterlinks(html, html_path):
+          <pre class="highlight"><code class="language-python">def iterlinks(html, html_path):
     """Find links targets in HTML text.
 
     This deals with both absolute and relative links, and it external links to
@@ -861,7 +863,7 @@ This function should trigger an error on failure (via an exception).</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/scrape.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def scrape_urls(url_format, callback, ignore_regexp=None):
+          <pre class="highlight"><code class="language-python">def scrape_urls(url_format, callback, ignore_regexp=None):
     """Recursively scrape pages from a web address.
 
     Args:
@@ -994,7 +996,7 @@ does not have links to files that do not exist, that all the links are valid.</p
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/scrape.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def validate_local_links(filename):
+          <pre class="highlight"><code class="language-python">def validate_local_links(filename):
     """Open and parse the given HTML filename and verify all local targets exist.
 
     This checks that all the files pointed to by the file we're processing are
@@ -1085,7 +1087,7 @@ does not have links to files that do not exist, that all the links are valid.</p
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/scrape.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def validate_local_links_in_dir(directory):
+          <pre class="highlight"><code class="language-python">def validate_local_links_in_dir(directory):
     """Find all the files under the given directory and validate all their links.
 
     Args:
@@ -1240,7 +1242,7 @@ beancount.web.views.AllView            (<a title="beancount.web.views.View" href
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/views.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def apply_filter(self, entries, options_map):
+          <pre class="highlight"><code class="language-python">def apply_filter(self, entries, options_map):
     return (entries, None, None)
 </code></pre>
         </details>
@@ -1331,7 +1333,7 @@ clamped.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/views.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __init__(self, entries, options_map, title, component):
+          <pre class="highlight"><code class="language-python">def __init__(self, entries, options_map, title, component):
     """Create a view clamped to one year.
 
     Note: this is the only view where the entries are summarized and
@@ -1409,7 +1411,7 @@ clamped.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/views.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def apply_filter(self, entries, options_map):
+          <pre class="highlight"><code class="language-python">def apply_filter(self, entries, options_map):
     component = self.component
     component_entries = [entry
                          for entry in entries
@@ -1503,7 +1505,7 @@ beancount.web.views.EmptyView            (<a title="beancount.web.views.View" hr
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/views.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __init__(self, entries, options_map, title, *args, **kw):
+          <pre class="highlight"><code class="language-python">def __init__(self, entries, options_map, title, *args, **kw):
     """Create an empty view.
 
     Args:
@@ -1538,7 +1540,7 @@ beancount.web.views.EmptyView            (<a title="beancount.web.views.View" hr
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/views.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def apply_filter(self, _, __):
+          <pre class="highlight"><code class="language-python">def apply_filter(self, _, __):
     "Return the list of entries unmodified."
     return ([], None, None)
 </code></pre>
@@ -1671,7 +1673,7 @@ beancount.web.views.MonthView            (<a title="beancount.web.views.View" hr
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/views.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __init__(self, entries, options_map, title, year, month):
+          <pre class="highlight"><code class="language-python">def __init__(self, entries, options_map, title, year, month):
     """Create a view clamped to one month.
 
     Args:
@@ -1749,7 +1751,7 @@ beancount.web.views.MonthView            (<a title="beancount.web.views.View" hr
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/views.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def apply_filter(self, entries, options_map):
+          <pre class="highlight"><code class="language-python">def apply_filter(self, entries, options_map):
     # Clamp to the desired period.
     begin_date = datetime.date(self.year, self.month, 1)
     end_date = date_utils.next_month(begin_date)
@@ -1847,7 +1849,7 @@ clamped.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/views.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __init__(self, entries, options_map, title, payee):
+          <pre class="highlight"><code class="language-python">def __init__(self, entries, options_map, title, payee):
     """Create a view clamped to one year.
 
     Note: this is the only view where the entries are summarized and
@@ -1925,7 +1927,7 @@ clamped.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/views.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def apply_filter(self, entries, options_map):
+          <pre class="highlight"><code class="language-python">def apply_filter(self, entries, options_map):
     payee = self.payee
     payee_entries = [entry
                      for entry in entries
@@ -2021,7 +2023,7 @@ one of these tags will be included in the output.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/views.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __init__(self, entries, options_map, title, tags):
+          <pre class="highlight"><code class="language-python">def __init__(self, entries, options_map, title, tags):
     """Create a view with only entries tagged with the given tags.
 
     Note: this is the only view where the entries are summarized and
@@ -2100,7 +2102,7 @@ one of these tags will be included in the output.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/views.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def apply_filter(self, entries, options_map):
+          <pre class="highlight"><code class="language-python">def apply_filter(self, entries, options_map):
     tags = self.tags
     tagged_entries = [
         entry
@@ -2193,7 +2195,7 @@ display.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/views.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __init__(self, all_entries, options_map, title):
+          <pre class="highlight"><code class="language-python">def __init__(self, all_entries, options_map, title):
     """Build a View instance.
 
     Args:
@@ -2290,7 +2292,7 @@ display.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/views.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def apply_filter(self, entries):
+          <pre class="highlight"><code class="language-python">def apply_filter(self, entries):
     """Filter the list of entries.
 
     This is used to obtain the filtered list of entries.
@@ -2396,7 +2398,7 @@ clamped.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/views.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __init__(self, entries, options_map, title, year, first_month=1):
+          <pre class="highlight"><code class="language-python">def __init__(self, entries, options_map, title, year, first_month=1):
     """Create a view clamped to one year.
 
     Note: this is the only view where the entries are summarized and
@@ -2479,7 +2481,7 @@ clamped.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/views.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def apply_filter(self, entries, options_map):
+          <pre class="highlight"><code class="language-python">def apply_filter(self, entries, options_map):
     # Clamp to the desired period.
     begin_date = datetime.date(self.year, self.first_month, 1)
     end_date = datetime.date(self.year+1, self.first_month, 1)
@@ -2632,7 +2634,7 @@ beancount.web.web.HTMLFormatter            (<a title="beancount.reports.html_for
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def build_global(self, *args, **kwds):
+          <pre class="highlight"><code class="language-python">def build_global(self, *args, **kwds):
     "Render to global application."
     return app.router.build(*args, **kwds)
 </code></pre>
@@ -2659,7 +2661,7 @@ beancount.web.web.HTMLFormatter            (<a title="beancount.reports.html_for
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_account(self, account_name):
+          <pre class="highlight"><code class="language-python">def render_account(self, account_name):
     """See base class."""
     if self.view_links:
         if self.leaf_only:
@@ -2714,7 +2716,7 @@ beancount.web.web.HTMLFormatter            (<a title="beancount.reports.html_for
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_commodity(self, base_quote):
+          <pre class="highlight"><code class="language-python">def render_commodity(self, base_quote):
     """See base class."""
     base, quote = base_quote
     return '&lt;a href="{}"&gt;{} / {}&lt;/a&gt;'.format(
@@ -2743,7 +2745,7 @@ beancount.web.web.HTMLFormatter            (<a title="beancount.reports.html_for
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_context(self, entry):
+          <pre class="highlight"><code class="language-python">def render_context(self, entry):
     """See base class."""
     # Note: rendering to global application.
     # Note(2): we could avoid rendering links to summarizing and transfer
@@ -2773,7 +2775,7 @@ beancount.web.web.HTMLFormatter            (<a title="beancount.reports.html_for
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_doc(self, filename):
+          <pre class="highlight"><code class="language-python">def render_doc(self, filename):
     """See base class."""
     return '&lt;a href="{}" class="filename"&gt;{}&lt;/a&gt;'.format(
         self.build_url('doc', filename=filename.lstrip('/')),
@@ -2802,7 +2804,7 @@ beancount.web.web.HTMLFormatter            (<a title="beancount.reports.html_for
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_event_type(self, event):
+          <pre class="highlight"><code class="language-python">def render_event_type(self, event):
     """See base class."""
     return '&lt;a href="{}"&gt;{}&lt;/a&gt;'.format(self.build_url('event', event=event),
                                         event)
@@ -2830,7 +2832,7 @@ beancount.web.web.HTMLFormatter            (<a title="beancount.reports.html_for
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_inventory(self, inv):
+          <pre class="highlight"><code class="language-python">def render_inventory(self, inv):
     """Override this formatter to convert the inventory to units only."""
     return super().render_inventory(inv.reduce(convert.get_units))
 </code></pre>
@@ -2857,7 +2859,7 @@ beancount.web.web.HTMLFormatter            (<a title="beancount.reports.html_for
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_link(self, link):
+          <pre class="highlight"><code class="language-python">def render_link(self, link):
     """See base class."""
     # Note: rendering to global application.
     return self.build_global('link', link=link)
@@ -2885,7 +2887,7 @@ beancount.web.web.HTMLFormatter            (<a title="beancount.reports.html_for
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_source(self, source):
+          <pre class="highlight"><code class="language-python">def render_source(self, source):
     """See base class."""
     return '{}#{}'.format(app.get_url('source'), source['lineno'])
 </code></pre>
@@ -2923,7 +2925,7 @@ beancount.web.web.HTMLFormatter            (<a title="beancount.reports.html_for
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@viewapp.route('/activity', name='activity')
+          <pre class="highlight"><code class="language-python">@viewapp.route('/activity', name='activity')
 def activity():
     "Render the update activity."
     return render_global(
@@ -2961,7 +2963,7 @@ last page was loaded.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def auto_reload_input_file(callback):
+          <pre class="highlight"><code class="language-python">def auto_reload_input_file(callback):
     """A plugin that automatically reloads the input file if it changed since the
     last page was loaded."""
     def wrapper(*posargs, **kwargs):
@@ -3033,7 +3035,7 @@ last page was loaded.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@viewapp.route('/balsheet', name='balsheet')
+          <pre class="highlight"><code class="language-python">@viewapp.route('/balsheet', name='balsheet')
 def balsheet():
     "Balance sheet."
     return render_view(pagetitle="Balance Sheet",
@@ -3066,7 +3068,7 @@ def balsheet():
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@viewapp.route('/commodities', name='commodities')
+          <pre class="highlight"><code class="language-python">@viewapp.route('/commodities', name='commodities')
 def commodities():
     "Render a list commodities with list their prices page."
     html_table = render_report(price_reports.CommoditiesReport, request.view.entries,
@@ -3100,7 +3102,7 @@ def commodities():
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@app.route('/context/&lt;ehash:re:[a-fA-F0-9]*&gt;', name='context')
+          <pre class="highlight"><code class="language-python">@app.route('/context/&lt;ehash:re:[a-fA-F0-9]*&gt;', name='context')
 def context_(ehash=None):
     "Render the before &amp; after context around a transaction entry."
 
@@ -3162,7 +3164,7 @@ def context_(ehash=None):
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@viewapp.route('/conversions', name='conversions')
+          <pre class="highlight"><code class="language-python">@viewapp.route('/conversions', name='conversions')
 def conversions_():
     "Render the list of transactions with conversions."
     return render_view(
@@ -3193,7 +3195,7 @@ def conversions_():
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@app.route('/doc/&lt;filename:re:.*&gt;', name=doc_name)
+          <pre class="highlight"><code class="language-python">@app.route('/doc/&lt;filename:re:.*&gt;', name=doc_name)
 def doc(filename=None):
     "Serve static filenames for documents directives."
 
@@ -3235,7 +3237,7 @@ def doc(filename=None):
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@viewapp.route('/documents', name='documents')
+          <pre class="highlight"><code class="language-python">@viewapp.route('/documents', name='documents')
 def documents():
     "Render a tree with all the documents found."
     return render_view(
@@ -3266,7 +3268,7 @@ def documents():
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@app.route('/errors', name='errors')
+          <pre class="highlight"><code class="language-python">@app.route('/errors', name='errors')
 def errors():
     "Report error encountered during parsing, checking and realization."
     return render_global(
@@ -3296,7 +3298,7 @@ def errors():
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@viewapp.route(r'/event/&lt;event:re:([A-Za-z0-9\-_/.]+)?&gt;', name='event')
+          <pre class="highlight"><code class="language-python">@viewapp.route(r'/event/&lt;event:re:([A-Za-z0-9\-_/.]+)?&gt;', name='event')
 def event(event=None):
     "Render all values of a particular event."
     if not event:
@@ -3329,7 +3331,7 @@ def event(event=None):
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@viewapp.route('/event', name='event_index')
+          <pre class="highlight"><code class="language-python">@viewapp.route('/event', name='event_index')
 def event_index():
     "Render the latest values of all events and an index."
     return render_view(
@@ -3377,7 +3379,7 @@ def event_index():
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_all_view(app):
+          <pre class="highlight"><code class="language-python">def get_all_view(app):
     """Return a view of all transactions.
 
     Returns:
@@ -3443,7 +3445,7 @@ which is cached.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def handle_view(path_depth):
+          <pre class="highlight"><code class="language-python">def handle_view(path_depth):
     """A decorator for handlers which create views lazily.
     If you decorate a method with this, the wrapper does the redirect
     handling and your method is just a factory for a View instance,
@@ -3495,7 +3497,7 @@ which is cached.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@viewapp.route('/equity/holdings', name='holdings')
+          <pre class="highlight"><code class="language-python">@viewapp.route('/equity/holdings', name='holdings')
 def holdings_():
     "Render a detailed table of all holdings."
     html_table = render_report(holdings_reports.HoldingsReport, request.view.entries,
@@ -3529,7 +3531,7 @@ def holdings_():
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@viewapp.route('/equity/holdings_byaccount', name='holdings_byaccount')
+          <pre class="highlight"><code class="language-python">@viewapp.route('/equity/holdings_byaccount', name='holdings_byaccount')
 def holdings_byaccount():
     "Render a table of holdings by account."
 
@@ -3564,7 +3566,7 @@ def holdings_byaccount():
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@viewapp.route('/equity/holdings_bycommodity', name='holdings_bycommodity')
+          <pre class="highlight"><code class="language-python">@viewapp.route('/equity/holdings_bycommodity', name='holdings_bycommodity')
 def holdings_bycommodity():
     "Render a table of holdings by commodity."
 
@@ -3599,7 +3601,7 @@ def holdings_bycommodity():
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@viewapp.route('/equity/holdings_bycurrency', name='holdings_bycurrency')
+          <pre class="highlight"><code class="language-python">@viewapp.route('/equity/holdings_bycurrency', name='holdings_bycurrency')
 def holdings_bycurrency():
     "Render a table of holdings by currency."
 
@@ -3634,7 +3636,7 @@ def holdings_bycurrency():
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@viewapp.route('/equity/holdings_byrootaccount', name='holdings_byrootaccount')
+          <pre class="highlight"><code class="language-python">@viewapp.route('/equity/holdings_byrootaccount', name='holdings_byrootaccount')
 def holdings_byrootaccount():
     "Render a table of holdings by account."
 
@@ -3674,7 +3676,7 @@ detail that looks realistic.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def incognito(callback):
+          <pre class="highlight"><code class="language-python">def incognito(callback):
     """A plugin that converts all numbers rendered into X's, in order
     to hide the actual values in the ledger. This is used for doing
     public demos using my real ledger, where I don't necessarily
@@ -3715,7 +3717,7 @@ detail that looks realistic.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@viewapp.route('/income', name='income')
+          <pre class="highlight"><code class="language-python">@viewapp.route('/income', name='income')
 def income():
     "Income statement."
     return render_view(pagetitle="Income Statement",
@@ -3748,7 +3750,7 @@ def income():
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@viewapp.route('/index', name='index')
+          <pre class="highlight"><code class="language-python">@viewapp.route('/index', name='index')
 def index():
     "Index of all pages, so that navigation need not have all links."
 
@@ -3805,7 +3807,7 @@ def index():
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@viewapp.route('/journal/&lt;account_name:re:.*&gt;', name='journal')
+          <pre class="highlight"><code class="language-python">@viewapp.route('/journal/&lt;account_name:re:.*&gt;', name='journal')
 def journal_(account_name=None):
     "A list of all the entries for this account realization."
     account_name = app.account_xform.parse(account_name)
@@ -3864,7 +3866,7 @@ def journal_(account_name=None):
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@viewapp.route('/journal/all', name='journal_all')
+          <pre class="highlight"><code class="language-python">@viewapp.route('/journal/all', name='journal_all')
 def journal_all():
     "A list of all the entries in this realization."
     bottle.redirect(request.app.get_url('journal', account_name=''))
@@ -3892,7 +3894,7 @@ def journal_all():
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@app.route('/link/&lt;link:re:.*&gt;', name='link')
+          <pre class="highlight"><code class="language-python">@app.route('/link/&lt;link:re:.*&gt;', name='link')
 def link(link=None):
     "Serve journals for links."
 
@@ -3930,7 +3932,7 @@ def link(link=None):
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def main():
+          <pre class="highlight"><code class="language-python">def main():
     """Main web service runner. This runs the event loop and blocks indefinitely."""
 
     argparser = version.ArgumentParser(description=__doc__.strip())
@@ -3963,7 +3965,7 @@ def link(link=None):
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def month_request(year, month):
+          <pre class="highlight"><code class="language-python">def month_request(year, month):
     """Render a URL to a particular month of the context's request.
     """
     if year &lt; app.active_years[0] or year &gt; app.active_years[-1]:
@@ -3996,7 +3998,7 @@ def link(link=None):
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@viewapp.route('/equity/networth', name='networth')
+          <pre class="highlight"><code class="language-python">@viewapp.route('/equity/networth', name='networth')
 def networth():
     "Render a table of the net worth for this filter."
 
@@ -4028,7 +4030,7 @@ def networth():
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@viewapp.route('/openbal', name='openbal')
+          <pre class="highlight"><code class="language-python">@viewapp.route('/openbal', name='openbal')
 def openbal():
     "Opening balances."
     return render_view(pagetitle="Opening Balances",
@@ -4094,7 +4096,7 @@ def openbal():
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def populate_view(callback):
+          <pre class="highlight"><code class="language-python">def populate_view(callback):
     """A plugin that will populate the request with the current view instance.
 
     Args:
@@ -4130,7 +4132,7 @@ def openbal():
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@viewapp.route('/prices'
+          <pre class="highlight"><code class="language-python">@viewapp.route('/prices'
                r'/&lt;base:re:[A-Z][A-Z0-9\'\.\_\-]{0,22}[A-Z0-9]&gt;'
                r'/&lt;quote:re:[A-Z][A-Z0-9\'\.\_\-]{0,22}[A-Z0-9]&gt;', name='prices')
 def prices_values(base=None, quote=None):
@@ -4198,7 +4200,7 @@ def prices_values(base=None, quote=None):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_global(*args, **kw):
+          <pre class="highlight"><code class="language-python">def render_global(*args, **kw):
     """Render the title and contents in our standard template for a global page.
 
     Args:
@@ -4262,7 +4264,7 @@ def prices_values(base=None, quote=None):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_overlay(contents):
+          <pre class="highlight"><code class="language-python">def render_overlay(contents):
     """Render an overlay of the navigation with the current errors.
 
     This is used to bring up new errors on any page when they occur.
@@ -4343,7 +4345,7 @@ def prices_values(base=None, quote=None):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_real_report(report_class, real_root, price_map, price_date,
+          <pre class="highlight"><code class="language-python">def render_real_report(report_class, real_root, price_map, price_date,
                        args=None, leaf_only=False):
     # pylint: disable=too-many-arguments
     """Instantiate a report and rendering it to a string.
@@ -4429,7 +4431,7 @@ def prices_values(base=None, quote=None):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_report(report_class, entries, args=None,
+          <pre class="highlight"><code class="language-python">def render_report(report_class, entries, args=None,
                   css_id=None, css_class=None, center=False, leaf_only=True):
     """Instantiate a report and rendering it to a string.
 
@@ -4514,7 +4516,7 @@ def prices_values(base=None, quote=None):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_view(*args, **kw):
+          <pre class="highlight"><code class="language-python">def render_view(*args, **kw):
     """Render the title and contents in our standard template for a view page.
 
     Args:
@@ -4575,7 +4577,7 @@ def prices_values(base=None, quote=None):
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@app.route('/', name='root')
+          <pre class="highlight"><code class="language-python">@app.route('/', name='root')
 def root():
     "Redirect the root page to the home page."
     bottle.redirect(app.get_url('toc'))
@@ -4642,7 +4644,7 @@ This function should trigger an error on failure (via an exception).</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def scrape_webapp(webargs, callback, ignore_regexp):
+          <pre class="highlight"><code class="language-python">def scrape_webapp(webargs, callback, ignore_regexp):
     """Run a web server on a Beancount file and scrape it.
 
     This is the main entry point of this module.
@@ -4697,7 +4699,7 @@ This is required to initiate shutdown, unfortunately.
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def setup_monkey_patch_for_server_shutdown():
+          <pre class="highlight"><code class="language-python">def setup_monkey_patch_for_server_shutdown():
     """Setup globals to steal access to the server reference.
     This is required to initiate shutdown, unfortunately.
     (Bottle could easily remedy that.)"""
@@ -4739,7 +4741,7 @@ This is required to initiate shutdown, unfortunately.
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def shutdown():
+          <pre class="highlight"><code class="language-python">def shutdown():
     """Request for the server to shutdown."""
     server.shutdown()
 </code></pre>
@@ -4766,7 +4768,7 @@ This is required to initiate shutdown, unfortunately.
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@app.route('/source', name='source')
+          <pre class="highlight"><code class="language-python">@app.route('/source', name='source')
 def source():
     "Render the source file, allowing scrolling at a specific line."
 
@@ -4810,7 +4812,7 @@ def source():
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@viewapp.route('/stats_postings', name='stats_postings')
+          <pre class="highlight"><code class="language-python">@viewapp.route('/stats_postings', name='stats_postings')
 def stats_postings():
     "Compute and render statistics about the input file."
     return render_view(
@@ -4841,7 +4843,7 @@ def stats_postings():
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@viewapp.route('/stats_types', name='stats_types')
+          <pre class="highlight"><code class="language-python">@viewapp.route('/stats_types', name='stats_types')
 def stats_types():
     "Compute and render statistics about the input file."
     return render_view(
@@ -4872,7 +4874,7 @@ def stats_types():
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@app.route('/resources/web.css', name='style')
+          <pre class="highlight"><code class="language-python">@app.route('/resources/web.css', name='style')
 def style():
     "Stylesheet for the entire document."
     response.content_type = 'text/css'
@@ -4924,7 +4926,7 @@ This returns after waiting that the thread has stopped.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def thread_server_shutdown(thread):
+          <pre class="highlight"><code class="language-python">def thread_server_shutdown(thread):
     """Shutdown the server running in the given thread.
 
     Unfortunately, in the meantime this has a side-effect on all servers.
@@ -4994,7 +4996,7 @@ from add_web_arguments().</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def thread_server_start(web_args, **kwargs):
+          <pre class="highlight"><code class="language-python">def thread_server_start(web_args, **kwargs):
     """Start a server in a new thread.
 
     Args:
@@ -5041,7 +5043,7 @@ from add_web_arguments().</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@viewapp.route('/trial', name='trial')
+          <pre class="highlight"><code class="language-python">@viewapp.route('/trial', name='trial')
 def trial():
     "Trial balance / Chart of Accounts."
     return render_view(
@@ -5108,7 +5110,7 @@ def trial():
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def url_restrict_generator(url_prefix):
+          <pre class="highlight"><code class="language-python">def url_restrict_generator(url_prefix):
     """Restrict to only a single prefix.
 
     Args:
@@ -5166,7 +5168,7 @@ This tells us the server is running.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/web/web.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def wait_ready():
+          <pre class="highlight"><code class="language-python">def wait_ready():
     """Wait until the 'server' global has been set.
     This tells us the server is running.
     """

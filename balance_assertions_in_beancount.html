@@ -167,6 +167,8 @@
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="beancount_v3_dependencies.html">Dependencies</a>
                 </li>
+                <li class="toctree-l2"><a class="reference internal" href="beangulp.html">Beangulp</a>
+                </li>
     </ul>
                     </li>
                 </ul>
@@ -263,7 +265,7 @@
 <p>Traditional accounting principles state that a user may never change the past—correcting the past involves inserting new entries to undo past mistakes<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>—but we in the command-line accounting community take issue with that: we want to remain able to reconstruct the past and more importantly, to correct past mistakes at the site of their original data entry. Yes, we are dilettantes but we are bent on simplifying the process of bookkeeping by challenging existing concepts and think that this is perfectly reasonable, as long as it does not break known balances. These known balances are what we provide via balance assertions.</p>
 <p>Another way to look at these balance assertions, is that they are simply the bottom line amounts reported on various account statements, as exemplified in the figure below.</p>
 <p>Following <a href="https://groups.google.com/forum/#!topic/ledger-cli/vwkrPh74NFI"><span class="underline">this thread</span></a>, we established that there were differing interpretations of balance assertions in the current versions of Ledger (3.0) and Beancount (2.0b).</p>
-<p><img src="balance_assertions_in_beancount/media/e69dda32bb347765ef4a8a803a4b9e4c548190fa.png" alt="balance-statement-1.png" style="width:6.5in;height:3.20833in" /></p>
+<p><img src="balance_assertions_in_beancount/media/e69dda32bb347765ef4a8a803a4b9e4c548190fa.png" style="width:6.5in;height:3.20833in" alt="balance-statement-1.png" /></p>
 <h2 id="partial-vs-complete-assertions">Partial vs. Complete Assertions<a id="partial-vs.-complete-assertions"></a><a class="headerlink" href="#partial-vs-complete-assertions" title="Permanent link"></a></h2>
 <p>An assertion in Beancount currently looks like this:</p>
 <pre><code>2012-02-04 balance Assets:CA:Bank:Checking    417.61 CAD

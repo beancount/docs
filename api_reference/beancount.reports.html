@@ -141,6 +141,8 @@
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../beancount_v3_dependencies.html">Dependencies</a>
                 </li>
+                <li class="toctree-l2"><a class="reference internal" href="../beangulp.html">Beangulp</a>
+                </li>
     </ul>
                     </li>
                 </ul>
@@ -724,7 +726,7 @@ beancount.reports.balance_reports.BalanceSheetReport            (<a title="beanc
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/balance_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_real_html(cls, real_root, price_map, price_date, options_map, file):
+          <pre class="highlight"><code class="language-python">def render_real_html(cls, real_root, price_map, price_date, options_map, file):
     """Wrap an htmldiv into our standard HTML template.
 
     Args:
@@ -825,7 +827,7 @@ beancount.reports.balance_reports.BalancesReport            (<a title="beancount
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/balance_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@classmethod
+          <pre class="highlight"><code class="language-python">@classmethod
 def add_args(cls, parser):
     parser.add_argument('-e', '--filter-expression', '--expression', '--regexp',
                         action='store', default=None,
@@ -878,7 +880,7 @@ def add_args(cls, parser):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/balance_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_real_html(cls, real_root, price_map, price_date, options_map, file):
+          <pre class="highlight"><code class="language-python">def render_real_html(cls, real_root, price_map, price_date, options_map, file):
     """Wrap an htmldiv into our standard HTML template.
 
     Args:
@@ -983,7 +985,7 @@ beancount.reports.balance_reports.IncomeStatementReport            (<a title="be
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/balance_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_real_html(cls, real_root, price_map, price_date, options_map, file):
+          <pre class="highlight"><code class="language-python">def render_real_html(cls, real_root, price_map, price_date, options_map, file):
     """Wrap an htmldiv into our standard HTML template.
 
     Args:
@@ -1167,7 +1169,7 @@ the corresponding render_</em>() methods automatically.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/reports/base.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __new__(mcs, name, bases, namespace):
+          <pre class="highlight"><code class="language-python">def __new__(mcs, name, bases, namespace):
     new_type = super(RealizationMeta, mcs).__new__(mcs, name, bases, namespace)
 
     # Go through the methods of the new type and look for render_real() methods.
@@ -1246,7 +1248,7 @@ the corresponding render_</em>() methods automatically.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/base.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_real_html(cls, real_root, price_map, price_date, options_map, file):
+          <pre class="highlight"><code class="language-python">def render_real_html(cls, real_root, price_map, price_date, options_map, file):
     """Wrap an htmldiv into our standard HTML template.
 
     Args:
@@ -1413,7 +1415,7 @@ string.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/base.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render(self, entries, errors, options_map, output_format=None, file=None):
+          <pre class="highlight"><code class="language-python">def render(self, entries, errors, options_map, output_format=None, file=None):
     """Render a report of filtered entries to any format.
 
     This function dispatches to a specific method.
@@ -1486,7 +1488,7 @@ string.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/base.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@classmethod
+          <pre class="highlight"><code class="language-python">@classmethod
 def add_args(cls, parser):
     """Add arguments to parse for this report.
 
@@ -1557,7 +1559,7 @@ and invokes add_args() and creates an appropriate instance directly.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/base.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@classmethod
+          <pre class="highlight"><code class="language-python">@classmethod
 def from_args(cls, argv=None, **kwds):
     """A convenience method used to create an instance from arguments.
 
@@ -1617,7 +1619,7 @@ def from_args(cls, argv=None, **kwds):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/base.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@classmethod
+          <pre class="highlight"><code class="language-python">@classmethod
 def get_supported_formats(cls):
     """Enumerates the list of supported formats, by inspecting methods of this object.
 
@@ -1709,7 +1711,7 @@ string.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/base.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render(self, entries, errors, options_map, output_format=None, file=None):
+          <pre class="highlight"><code class="language-python">def render(self, entries, errors, options_map, output_format=None, file=None):
     """Render a report of filtered entries to any format.
 
     This function dispatches to a specific method.
@@ -1862,7 +1864,7 @@ beancount.reports.base.TableReport            (<a title="beancount.reports.base.
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/base.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_table(self, entries, errors, options_map):
+          <pre class="highlight"><code class="language-python">def generate_table(self, entries, errors, options_map):
     """Render the report to a Table instance.
 
     Args:
@@ -1928,7 +1930,7 @@ beancount.reports.base.TableReport            (<a title="beancount.reports.base.
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/base.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_html_template():
+          <pre class="highlight"><code class="language-python">def get_html_template():
     """Returns our vanilla HTML template for embedding an HTML div.
 
     Returns:
@@ -2040,7 +2042,7 @@ consumed by the user.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/context.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_entry_context(entries, options_map, entry):
+          <pre class="highlight"><code class="language-python">def render_entry_context(entries, options_map, entry):
     """Render the context before and after a particular transaction is applied.
 
     Args:
@@ -2198,7 +2200,7 @@ consumed by the user.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/context.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_file_context(entries, options_map, filename, lineno):
+          <pre class="highlight"><code class="language-python">def render_file_context(entries, options_map, filename, lineno):
     """Render the context before and after a particular transaction is applied.
 
     Args:
@@ -2500,7 +2502,7 @@ beancount.reports.convert_reports.LedgerReport            (<a title="beancount.r
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/convert_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def postings_by_type(entry):
+          <pre class="highlight"><code class="language-python">def postings_by_type(entry):
     """Split up the postings by simple, at-cost, at-price.
 
     Args:
@@ -2577,7 +2579,7 @@ beancount.reports.convert_reports.LedgerReport            (<a title="beancount.r
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/convert_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def quote(match):
+          <pre class="highlight"><code class="language-python">def quote(match):
     """Add quotes around a re.MatchObject.
 
     Args:
@@ -2643,7 +2645,7 @@ beancount.reports.convert_reports.LedgerReport            (<a title="beancount.r
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/convert_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def quote_currency(string):
+          <pre class="highlight"><code class="language-python">def quote_currency(string):
     """Quote all the currencies with numbers from the given string.
 
     Args:
@@ -2727,7 +2729,7 @@ details of the discussion.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/convert_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def split_currency_conversions(entry):
+          <pre class="highlight"><code class="language-python">def split_currency_conversions(entry):
     """If the transaction has a mix of conversion at cost and a
     currency conversion, split the transaction into two transactions: one
     that applies the currency conversion in the same account, and one
@@ -2883,7 +2885,7 @@ beancount.reports.export_reports.ExportEntry            (<span title="tuple">tup
 
         <details class="quote">
           <summary>Source code in <code>beancount/reports/export_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -2937,7 +2939,7 @@ beancount.reports.export_reports.ExportEntry            (<span title="tuple">tup
 
         <details class="quote">
           <summary>Source code in <code>beancount/reports/export_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -3031,7 +3033,7 @@ beancount.reports.export_reports.ExportPortfolioReport            (<a title="bea
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/export_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@classmethod
+          <pre class="highlight"><code class="language-python">@classmethod
 def add_args(cls, parser):
     parser.add_argument('-d', '--debug', action='store_true',
                         help="Output position export debugging information on stderr.")
@@ -3115,7 +3117,7 @@ def add_args(cls, parser):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/export_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def classify_holdings_for_export(holdings_list, commodities_map):
+          <pre class="highlight"><code class="language-python">def classify_holdings_for_export(holdings_list, commodities_map):
     """Figure out what to do for example with each holding.
 
     Args:
@@ -3217,7 +3219,7 @@ def add_args(cls, parser):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/export_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def export_holdings(entries, options_map, promiscuous, aggregate_by_commodity=False):
+          <pre class="highlight"><code class="language-python">def export_holdings(entries, options_map, promiscuous, aggregate_by_commodity=False):
     """Compute a list of holdings to export.
 
     Holdings that are converted to cash equivalents will receive a currency of
@@ -3411,7 +3413,7 @@ e.g. {'USD'</code> – 'VMMXX'}.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/export_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_money_instruments(commodities_map):
+          <pre class="highlight"><code class="language-python">def get_money_instruments(commodities_map):
     """Get the money-market stand-ins for cash positions.
 
     Args:
@@ -3507,7 +3509,7 @@ google source.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/export_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_symbol(sources, prefer='google'):
+          <pre class="highlight"><code class="language-python">def get_symbol(sources, prefer='google'):
     """Filter a source specification to some corresponding ticker.
 
     Args:
@@ -3592,7 +3594,7 @@ google source.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/export_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def is_mutual_fund(ticker):
+          <pre class="highlight"><code class="language-python">def is_mutual_fund(ticker):
     """Return true if the GFinance ticker is for a mutual fund.
 
     Args:
@@ -3657,7 +3659,7 @@ google source.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/export_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_ofx_date(dtime):
+          <pre class="highlight"><code class="language-python">def render_ofx_date(dtime):
     """Render a datetime to the OFX format.
 
     Args:
@@ -3767,7 +3769,7 @@ HTML page.)</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/gviz.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def gviz_timeline(time_array, data_array_map, css_id='chart'):
+          <pre class="highlight"><code class="language-python">def gviz_timeline(time_array, data_array_map, css_id='chart'):
     """Create a HTML rendering of the given arrays.
 
     Args:
@@ -3946,7 +3948,7 @@ beancount.reports.holdings_reports.CashReport            (<a title="beancount.re
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/holdings_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@classmethod
+          <pre class="highlight"><code class="language-python">@classmethod
 def add_args(cls, parser):
     parser.add_argument('-c', '--currency',
                         action='store', default=None,
@@ -4017,7 +4019,7 @@ def add_args(cls, parser):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/holdings_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_table(self, entries, errors, options_map):
+          <pre class="highlight"><code class="language-python">def generate_table(self, entries, errors, options_map):
     holdings_list, price_map = get_assets_holdings(entries, options_map)
     holdings_list_orig = holdings_list
 
@@ -4131,7 +4133,7 @@ beancount.reports.holdings_reports.HoldingsReport            (<a title="beancoun
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/holdings_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@classmethod
+          <pre class="highlight"><code class="language-python">@classmethod
 def add_args(cls, parser):
     parser.add_argument('-c', '--currency',
                         action='store', default=None,
@@ -4203,7 +4205,7 @@ def add_args(cls, parser):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/holdings_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_table(self, entries, errors, options_map):
+          <pre class="highlight"><code class="language-python">def generate_table(self, entries, errors, options_map):
     keywords = self.aggregations[self.args.groupby] if self.args.groupby else {}
     return report_holdings(self.args.currency, self.args.relative,
                            entries, options_map,
@@ -4308,7 +4310,7 @@ beancount.reports.holdings_reports.NetWorthReport            (<a title="beancoun
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/holdings_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_table(self, entries, errors, options_map):
+          <pre class="highlight"><code class="language-python">def generate_table(self, entries, errors, options_map):
     holdings_list, price_map = get_assets_holdings(entries, options_map)
 
     net_worths = []
@@ -4415,7 +4417,7 @@ holding values to.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/holdings_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_assets_holdings(entries, options_map, currency=None):
+          <pre class="highlight"><code class="language-python">def get_assets_holdings(entries, options_map, currency=None):
     """Return holdings for all assets and liabilities.
 
     Args:
@@ -4501,7 +4503,7 @@ is a way of summarizing a balance sheet in a way that filters away history.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/holdings_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_holdings_entries(entries, options_map):
+          <pre class="highlight"><code class="language-python">def get_holdings_entries(entries, options_map):
     """Summarizes the entries to list of entries representing the final holdings..
 
     This list includes the latest prices entries as well. This can be used to
@@ -4599,7 +4601,7 @@ is a way of summarizing a balance sheet in a way that filters away history.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/reports/holdings_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def load_from_csv(fileobj):
+          <pre class="highlight"><code class="language-python">def load_from_csv(fileobj):
     """Load a list of holdings from a CSV file.
 
     Args:
@@ -4707,7 +4709,7 @@ conversion is carried out.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/holdings_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def report_holdings(currency, relative, entries, options_map,
+          <pre class="highlight"><code class="language-python">def report_holdings(currency, relative, entries, options_map,
                     aggregation_key=None,
                     sort_key=None):
     """Generate a detailed list of all holdings.
@@ -4851,7 +4853,7 @@ This mainly defines an interface to implement.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/html_formatter.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __init__(self, dcontext):
+          <pre class="highlight"><code class="language-python">def __init__(self, dcontext):
     """Create an instance of HTMLFormatter.
 
     Args:
@@ -4915,7 +4917,7 @@ This mainly defines an interface to implement.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/html_formatter.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_account(self, account_name):
+          <pre class="highlight"><code class="language-python">def render_account(self, account_name):
     """Render an account name.
 
     Args:
@@ -4980,7 +4982,7 @@ This mainly defines an interface to implement.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/html_formatter.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_amount(self, amount):
+          <pre class="highlight"><code class="language-python">def render_amount(self, amount):
     """Render an amount.
 
     Args:
@@ -5046,7 +5048,7 @@ This mainly defines an interface to implement.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/html_formatter.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_commodity(self, base_quote):
+          <pre class="highlight"><code class="language-python">def render_commodity(self, base_quote):
     """Render a commodity (base currency / quote currency).
 
     This is only used when we want the commodity to link to its prices.
@@ -5113,7 +5115,7 @@ This mainly defines an interface to implement.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/html_formatter.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_context(self, entry):
+          <pre class="highlight"><code class="language-python">def render_context(self, entry):
     """Render a reference to context around a transaction (maybe as an HTML link).
 
     Args:
@@ -5178,7 +5180,7 @@ This mainly defines an interface to implement.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/html_formatter.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_doc(self, filename):
+          <pre class="highlight"><code class="language-python">def render_doc(self, filename):
     """Render a document path.
 
     Args:
@@ -5243,7 +5245,7 @@ This mainly defines an interface to implement.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/html_formatter.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_event_type(self, event):
+          <pre class="highlight"><code class="language-python">def render_event_type(self, event):
     """Render an event type.
 
     Args:
@@ -5310,7 +5312,7 @@ or whatever.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/html_formatter.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_inventory(self, inv):
+          <pre class="highlight"><code class="language-python">def render_inventory(self, inv):
     """Render an inventory.
 
     You can use this opportunity to convert the inventory to units or cost
@@ -5379,7 +5381,7 @@ or whatever.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/html_formatter.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_link(self, link):
+          <pre class="highlight"><code class="language-python">def render_link(self, link):
     """Render a transaction link (maybe as an HTML link).
 
     Args:
@@ -5445,7 +5447,7 @@ or whatever.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/html_formatter.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_number(self, number, currency):
+          <pre class="highlight"><code class="language-python">def render_number(self, number, currency):
     """Render a number for a currency using the formatter's display context.
 
     Args:
@@ -5511,7 +5513,7 @@ or whatever.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/html_formatter.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_source(self, meta):
+          <pre class="highlight"><code class="language-python">def render_source(self, meta):
     """Render a reference to the source file.
 
     Args:
@@ -5627,7 +5629,7 @@ beancount.reports.journal_html.Row            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/reports/journal_html.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -5681,7 +5683,7 @@ beancount.reports.journal_html.Row            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/reports/journal_html.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -5744,7 +5746,7 @@ main transaction row.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/journal_html.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def html_entries_table(oss, txn_postings, formatter, render_postings=True):
+          <pre class="highlight"><code class="language-python">def html_entries_table(oss, txn_postings, formatter, render_postings=True):
     """Render a list of entries into an HTML table, with no running balance.
 
     This is appropriate for rendering tables of entries for postings with
@@ -5869,7 +5871,7 @@ main transaction row.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/journal_html.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def html_entries_table_with_balance(oss, txn_postings, formatter, render_postings=True):
+          <pre class="highlight"><code class="language-python">def html_entries_table_with_balance(oss, txn_postings, formatter, render_postings=True):
     """Render a list of entries into an HTML table, with a running balance.
 
     (This function returns nothing, it write to oss as a side-effect.)
@@ -5996,7 +5998,7 @@ inventories, links and docs.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/reports/journal_html.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def iterate_html_postings(txn_postings, formatter):
+          <pre class="highlight"><code class="language-python">def iterate_html_postings(txn_postings, formatter):
     """Iterate through the list of transactions with rendered HTML strings for each cell.
 
     This pre-renders all the data for each row to HTML. This is reused by the entries
@@ -6133,7 +6135,7 @@ inventories, links and docs.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/journal_html.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_links(links):
+          <pre class="highlight"><code class="language-python">def render_links(links):
     """Render Transaction links to HTML.
 
     Args:
@@ -6344,7 +6346,7 @@ beancount.reports.journal_reports.JournalReport            (<a title="beancount.
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/journal_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@classmethod
+          <pre class="highlight"><code class="language-python">@classmethod
 def add_args(cls, parser):
     parser.add_argument('-a', '--account',
                         action='store', default=None,
@@ -6425,7 +6427,7 @@ def add_args(cls, parser):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/journal_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_postings(self, real_root):
+          <pre class="highlight"><code class="language-python">def get_postings(self, real_root):
     """Return the postings corresponding to the account filter option.
 
     Args:
@@ -6492,7 +6494,7 @@ def add_args(cls, parser):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/journal_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_real_html(cls, real_root, price_map, price_date, options_map, file):
+          <pre class="highlight"><code class="language-python">def render_real_html(cls, real_root, price_map, price_date, options_map, file):
     """Wrap an htmldiv into our standard HTML template.
 
     Args:
@@ -6652,7 +6654,7 @@ fields.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/journal_text.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_format(self, precision):
+          <pre class="highlight"><code class="language-python">def get_format(self, precision):
     """Return a format string for the column of numbers.
 
     Args:
@@ -6723,7 +6725,7 @@ fields.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/journal_text.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_generic_format(self, precision):
+          <pre class="highlight"><code class="language-python">def get_generic_format(self, precision):
     """Return a generic format string for rendering as wide as required.
     This can be used to render an empty string in-lieu of a number.
 
@@ -6776,7 +6778,7 @@ fields.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/journal_text.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_number_width(self):
+          <pre class="highlight"><code class="language-python">def get_number_width(self):
     """Return the width of the integer part of the max number.
 
     Returns:
@@ -6826,7 +6828,7 @@ fields.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/journal_text.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def update(self, number, currency):
+          <pre class="highlight"><code class="language-python">def update(self, number, currency):
     """Update the sizer with the given number and currency.
 
     Args:
@@ -6906,7 +6908,7 @@ fields.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/journal_text.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_entry_text_description(entry):
+          <pre class="highlight"><code class="language-python">def get_entry_text_description(entry):
     """Return the text of a description.
 
     Args:
@@ -6992,7 +6994,7 @@ fields.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/journal_text.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_posting(posting, number_format):
+          <pre class="highlight"><code class="language-python">def render_posting(posting, number_format):
     """Render a posting compactly, for text report rendering.
 
     Args:
@@ -7063,7 +7065,7 @@ fields.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/journal_text.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def size_and_render_amounts(postings, at_cost, render_balance):
+          <pre class="highlight"><code class="language-python">def size_and_render_amounts(postings, at_cost, render_balance):
     """Iterate through postings and compute sizers and render amounts.
 
     Args:
@@ -7178,7 +7180,7 @@ formats.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/journal_text.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def text_entries_table(oss, postings,
+          <pre class="highlight"><code class="language-python">def text_entries_table(oss, postings,
                        width, at_cost, render_balance, precision, verbosity,
                        output_format):
     """Render a table of postings or directives with an accumulated balance.
@@ -7482,7 +7484,7 @@ beancount.reports.misc_reports.ActivityReport            (<a title="beancount.re
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/misc_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@classmethod
+          <pre class="highlight"><code class="language-python">@classmethod
 def add_args(cls, parser):
     parser.add_argument('-d', '--cutoff',
                         action='store', default=None,
@@ -7533,7 +7535,7 @@ def add_args(cls, parser):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/misc_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_real_html(cls, real_root, price_map, price_date, options_map, file):
+          <pre class="highlight"><code class="language-python">def render_real_html(cls, real_root, price_map, price_date, options_map, file):
     """Wrap an htmldiv into our standard HTML template.
 
     Args:
@@ -7650,7 +7652,7 @@ beancount.reports.misc_reports.CurrentEventsReport            (<a title="beancou
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/misc_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_table(self, entries, errors, options_map):
+          <pre class="highlight"><code class="language-python">def generate_table(self, entries, errors, options_map):
     events = {}
     for entry in entries:
         if isinstance(entry, data.Event):
@@ -7786,7 +7788,7 @@ beancount.reports.misc_reports.EventsReport            (<a title="beancount.repo
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/misc_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@classmethod
+          <pre class="highlight"><code class="language-python">@classmethod
 def add_args(cls, parser):
     parser.add_argument('-e', '--expr',
                         action='store', default=None,
@@ -7849,7 +7851,7 @@ def add_args(cls, parser):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/misc_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_table(self, entries, errors, options_map):
+          <pre class="highlight"><code class="language-python">def generate_table(self, entries, errors, options_map):
     event_entries = []
     for entry in entries:
         if not isinstance(entry, data.Event):
@@ -8047,7 +8049,7 @@ beancount.reports.misc_reports.StatsDirectivesReport            (<a title="beanc
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/misc_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_table(self, entries, _, __):
+          <pre class="highlight"><code class="language-python">def generate_table(self, entries, _, __):
     entries_by_type = misc_utils.groupby(lambda entry: type(entry).__name__,
                                          entries)
     nb_entries_by_type = {name: len(entries)
@@ -8158,7 +8160,7 @@ beancount.reports.misc_reports.StatsPostingsReport            (<a title="beancou
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/misc_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_table(self, entries, _, __):
+          <pre class="highlight"><code class="language-python">def generate_table(self, entries, _, __):
     all_postings = [posting
                     for entry in entries
                     if isinstance(entry, data.Transaction)
@@ -8313,7 +8315,7 @@ beancount.reports.price_reports.CommoditiesReport            (<a title="beancoun
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/price_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_table(self, entries, errors, options_map):
+          <pre class="highlight"><code class="language-python">def generate_table(self, entries, errors, options_map):
     price_map = prices.build_price_map(entries)
     return table.create_table([(base_quote,)
                                for base_quote in sorted(price_map.forward_pairs)],
@@ -8403,7 +8405,7 @@ beancount.reports.price_reports.CommodityLifetimes            (<a title="beancou
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/price_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@classmethod
+          <pre class="highlight"><code class="language-python">@classmethod
 def add_args(cls, parser):
     parser.add_argument('-c', '--compress-days', type=int,
                         action='store', default=None,
@@ -8494,7 +8496,7 @@ beancount.reports.price_reports.CommodityPricesReport            (<a title="bean
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/price_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@classmethod
+          <pre class="highlight"><code class="language-python">@classmethod
 def add_args(cls, parser):
     parser.add_argument('-c', '--commodity', '--currency',
                         action='store', default=None,
@@ -8557,7 +8559,7 @@ def add_args(cls, parser):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/price_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_table(self, entries, errors, options_map):
+          <pre class="highlight"><code class="language-python">def generate_table(self, entries, errors, options_map):
     date_rates = self.get_date_rates(entries)
     return table.create_table(date_rates,
                               [(0, "Date", datetime.date.isoformat),
@@ -8761,7 +8763,7 @@ beancount.reports.price_reports.TickerReport            (<a title="beancount.rep
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/price_reports.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_table(self, entries, errors, options_map):
+          <pre class="highlight"><code class="language-python">def generate_table(self, entries, errors, options_map):
     commodity_map = getters.get_commodity_map(entries)
     ticker_info = getters.get_values_meta(commodity_map, 'name', 'ticker', 'quote')
 
@@ -8949,7 +8951,7 @@ beancount.reports.report.ListReportsAction            (<span title="argparse.Act
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/report.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_all_reports():
+          <pre class="highlight"><code class="language-python">def get_all_reports():
     """Return all report classes.
 
     Returns:
@@ -9022,7 +9024,7 @@ report name.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/report.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_list_report_string(only_report=None):
+          <pre class="highlight"><code class="language-python">def get_list_report_string(only_report=None):
     """Return a formatted string for the list of supported reports.
 
     Args:
@@ -9157,7 +9159,7 @@ beancount.reports.table.Table            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/reports/table.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -9211,7 +9213,7 @@ beancount.reports.table.Table            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/reports/table.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -9281,7 +9283,7 @@ beancount.reports.table.Table            (<span title="tuple">tuple</span>)
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/table.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def attribute_to_title(fieldname):
+          <pre class="highlight"><code class="language-python">def attribute_to_title(fieldname):
     """Convert programming id into readable field name.
 
     Args:
@@ -9363,7 +9365,7 @@ this table.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/table.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def compute_table_widths(rows):
+          <pre class="highlight"><code class="language-python">def compute_table_widths(rows):
     """Compute the max character widths of a list of rows.
 
     Args:
@@ -9450,7 +9452,7 @@ call str() on the field.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/table.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def create_table(rows, field_spec=None):
+          <pre class="highlight"><code class="language-python">def create_table(rows, field_spec=None):
     """Convert a list of tuples to an table report object.
 
     Args:
@@ -9577,7 +9579,7 @@ either 'csv', 'txt' or 'html'.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/table.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_table(table_, output, output_format, css_id=None, css_class=None):
+          <pre class="highlight"><code class="language-python">def render_table(table_, output, output_format, css_id=None, css_class=None):
     """Render the given table to the output file object in the requested format.
 
     The table gets written out to the 'output' file.
@@ -9674,7 +9676,7 @@ to write to.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/table.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def table_to_csv(table, file=None, **kwargs):
+          <pre class="highlight"><code class="language-python">def table_to_csv(table, file=None, **kwargs):
     """Render a Table to a CSV file.
 
     Args:
@@ -9755,7 +9757,7 @@ to write to.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/table.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def table_to_html(table, classes=None, file=None):
+          <pre class="highlight"><code class="language-python">def table_to_html(table, classes=None, file=None):
     """Render a Table to HTML.
 
     Args:
@@ -9854,7 +9856,7 @@ this, for example: (... formats={'</em>': '&gt;'}).</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/table.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def table_to_text(table,
+          <pre class="highlight"><code class="language-python">def table_to_text(table,
                   column_interspace=" ",
                   formats=None):
     """Render a Table to ASCII text.
@@ -9998,7 +10000,7 @@ at least one directive that is not an Open directive.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/tree_table.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def is_account_active(real_account):
+          <pre class="highlight"><code class="language-python">def is_account_active(real_account):
     """Return true if the account should be rendered. An active account has
     at least one directive that is not an Open directive.
 
@@ -10075,7 +10077,7 @@ top-level table object.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/tree_table.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def table_of_balances(real_root, price_map, price_date,
+          <pre class="highlight"><code class="language-python">def table_of_balances(real_root, price_map, price_date,
                       operating_currencies, formatter,
                       classes=None):
     """Render a tree table with the balance of each accounts.
@@ -10221,7 +10223,7 @@ indicate that it is meant to render the totals line: TOTALS_LINE.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/reports/tree_table.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def tree_table(oss, real_account, formatter, header=None, classes=None):
+          <pre class="highlight"><code class="language-python">def tree_table(oss, real_account, formatter, header=None, classes=None):
     """Generator to a tree of accounts as an HTML table.
 
     This yields each real_account object in turn and a list object used to

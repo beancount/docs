@@ -141,6 +141,8 @@
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../beancount_v3_dependencies.html">Dependencies</a>
                 </li>
+                <li class="toctree-l2"><a class="reference internal" href="../beangulp.html">Beangulp</a>
+                </li>
     </ul>
                     </li>
                 </ul>
@@ -571,7 +573,7 @@ beancount.prices.find_prices.DatedPrice            (<span title="tuple">tuple</s
 
         <details class="quote">
           <summary>Source code in <code>beancount/prices/find_prices.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -625,7 +627,7 @@ beancount.prices.find_prices.DatedPrice            (<span title="tuple">tuple</s
 
         <details class="quote">
           <summary>Source code in <code>beancount/prices/find_prices.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -695,7 +697,7 @@ beancount.prices.find_prices.PriceSource            (<span title="tuple">tuple</
 
         <details class="quote">
           <summary>Source code in <code>beancount/prices/find_prices.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -749,7 +751,7 @@ beancount.prices.find_prices.PriceSource            (<span title="tuple">tuple</
 
         <details class="quote">
           <summary>Source code in <code>beancount/prices/find_prices.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -826,7 +828,7 @@ at a particular date, based on previous history.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/prices/find_prices.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def find_balance_currencies(entries, date=None):
+          <pre class="highlight"><code class="language-python">def find_balance_currencies(entries, date=None):
     """Return currencies relevant for the given date.
 
     This computes the account balances as of the date, and returns the union of:
@@ -927,7 +929,7 @@ time. This code does not look at account balances.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/prices/find_prices.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def find_currencies_at_cost(entries):
+          <pre class="highlight"><code class="language-python">def find_currencies_at_cost(entries):
     """Return all currencies that were held at cost at some point.
 
     This returns all of them, even if not on the books at a particular point in
@@ -1007,7 +1009,7 @@ only postings with price conversions.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/prices/find_prices.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def find_currencies_converted(entries, date=None):
+          <pre class="highlight"><code class="language-python">def find_currencies_converted(entries, date=None):
     """Return currencies from price conversions.
 
     This function looks at all price conversions that occurred until some date
@@ -1092,7 +1094,7 @@ there-in. Otherwise, the Commodity directive is ignored.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/prices/find_prices.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def find_currencies_declared(entries, date=None):
+          <pre class="highlight"><code class="language-python">def find_currencies_declared(entries, date=None):
     """Return currencies declared in Commodity directives.
 
     If a 'price' metadata field is provided, include all the quote currencies
@@ -1197,7 +1199,7 @@ there-in. Otherwise, the Commodity directive is ignored.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/prices/find_prices.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def find_currencies_priced(entries, date=None):
+          <pre class="highlight"><code class="language-python">def find_currencies_priced(entries, date=None):
     """Return currencies seen in Price directives.
 
     Args:
@@ -1270,7 +1272,7 @@ there-in. Otherwise, the Commodity directive is ignored.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/prices/find_prices.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def format_dated_price_str(dprice):
+          <pre class="highlight"><code class="language-python">def format_dated_price_str(dprice):
     """Convert a dated price to a one-line printable string.
 
     Args:
@@ -1350,7 +1352,7 @@ Commodity directive declaration.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/prices/find_prices.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_price_jobs_at_date(entries, date=None, inactive=False, undeclared_source=None):
+          <pre class="highlight"><code class="language-python">def get_price_jobs_at_date(entries, date=None, inactive=False, undeclared_source=None):
     """Get a list of prices to fetch from a stream of entries.
 
     The active holdings held on the given date are included.
@@ -1487,7 +1489,7 @@ be within the default package or a full name.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/prices/find_prices.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def import_source(module_name):
+          <pre class="highlight"><code class="language-python">def import_source(module_name):
     """Import the source module defined by the given name.
 
     The default location is handled here.
@@ -1552,7 +1554,7 @@ be within the default package or a full name.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/prices/find_prices.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def log_currency_list(message, currencies):
+          <pre class="highlight"><code class="language-python">def log_currency_list(message, currencies):
     """Log a list of currencies to debug output.
 
     Args:
@@ -1638,7 +1640,7 @@ under the package where the default price extractors lie.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/prices/find_prices.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def parse_single_source(source):
+          <pre class="highlight"><code class="language-python">def parse_single_source(source):
     """Parse a single source string.
 
     Source specifications follow the syntax:
@@ -1746,7 +1748,7 @@ this source.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/prices/find_prices.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def parse_source_map(source_map_spec):
+          <pre class="highlight"><code class="language-python">def parse_source_map(source_map_spec):
     """Parse a source map specification string.
 
     Source map specifications allow the specification of multiple sources for
@@ -1893,7 +1895,7 @@ intra-day prices if they are fetched on the same day.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/prices/price.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def fetch_cached_price(source, symbol, date):
+          <pre class="highlight"><code class="language-python">def fetch_cached_price(source, symbol, date):
     """Call Source to fetch a price, but look and/or update the cache first.
 
     This function entirely deals with caching and correct expiration. It keeps
@@ -2023,7 +2025,7 @@ rate for an inverted price source.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/prices/price.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def fetch_price(dprice, swap_inverted=False):
+          <pre class="highlight"><code class="language-python">def fetch_price(dprice, swap_inverted=False):
     """Fetch a price for the DatedPrice job.
 
     Args:
@@ -2137,7 +2139,7 @@ at the same date.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/prices/price.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def filter_redundant_prices(price_entries, existing_entries, diffs=False):
+          <pre class="highlight"><code class="language-python">def filter_redundant_prices(price_entries, existing_entries, diffs=False):
     """Filter out new entries that are redundant from an existing set.
 
     If the price differs, we override it with the new entry only on demand. This
@@ -2198,7 +2200,7 @@ at the same date.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/prices/price.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def now():
+          <pre class="highlight"><code class="language-python">def now():
     "Indirection in order to be able to mock it out in the tests."
     return datetime.datetime.now(datetime.timezone.utc)
 </code></pre>
@@ -2243,7 +2245,7 @@ at the same date.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/prices/price.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def process_args():
+          <pre class="highlight"><code class="language-python">def process_args():
     """Process the arguments. This also initializes the logging module.
 
     Returns:
@@ -2384,7 +2386,7 @@ at the same date.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/prices/price.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def reset_cache():
+          <pre class="highlight"><code class="language-python">def reset_cache():
     """Reset the cache to its uninitialized state."""
     global _CACHE
     if _CACHE is not None:
@@ -2431,7 +2433,7 @@ at the same date.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/prices/price.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def setup_cache(cache_filename, clear_cache):
+          <pre class="highlight"><code class="language-python">def setup_cache(cache_filename, clear_cache):
     """Setup the results cache.
 
     Args:
@@ -2587,7 +2589,7 @@ time must be timezone-aware.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/prices/source.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_historical_price(self, ticker, time):
+          <pre class="highlight"><code class="language-python">def get_historical_price(self, ticker, time):
     """Return the historical price found for the symbol at the given date.
 
     This could be the price of the close of the day, for instance. We assume
@@ -2675,7 +2677,7 @@ time must be timezone-aware.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/prices/source.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_latest_price(self, ticker):
+          <pre class="highlight"><code class="language-python">def get_latest_price(self, ticker):
     """Fetch the current latest price. The date may differ.
 
     This routine attempts to fetch the most recent available price, and
@@ -2761,7 +2763,7 @@ beancount.prices.source.SourcePrice            (<span title="tuple">tuple</span>
 
         <details class="quote">
           <summary>Source code in <code>beancount/prices/source.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -2815,7 +2817,7 @@ beancount.prices.source.SourcePrice            (<span title="tuple">tuple</span>
 
         <details class="quote">
           <summary>Source code in <code>beancount/prices/source.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -2986,7 +2988,7 @@ beancount.prices.sources.coinbase.Source            (<a title="beancount.prices.
 
         <details class="quote">
           <summary>Source code in <code>beancount/prices/sources/coinbase.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_historical_price(self, ticker, time):
+          <pre class="highlight"><code class="language-python">def get_historical_price(self, ticker, time):
     """See contract in beancount.prices.source.Source."""
     raise NotImplementedError(
         "As of Feb 2019, historical prices are not supported on Coinbase. "
@@ -3016,7 +3018,7 @@ beancount.prices.sources.coinbase.Source            (<a title="beancount.prices.
 
         <details class="quote">
           <summary>Source code in <code>beancount/prices/sources/coinbase.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_latest_price(self, ticker):
+          <pre class="highlight"><code class="language-python">def get_latest_price(self, ticker):
     """See contract in beancount.prices.source.Source."""
     return fetch_quote(ticker)
 </code></pre>
@@ -3054,7 +3056,7 @@ beancount.prices.sources.coinbase.Source            (<a title="beancount.prices.
 
         <details class="quote">
           <summary>Source code in <code>beancount/prices/sources/coinbase.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def fetch_quote(ticker):
+          <pre class="highlight"><code class="language-python">def fetch_quote(ticker):
     """Fetch a quote from Coinbase."""
     url = "https://api.coinbase.com/v2/prices/{}/spot".format(ticker.lower())
     response = requests.get(url)
@@ -3188,7 +3190,7 @@ beancount.prices.sources.iex.Source            (<a title="beancount.prices.sourc
 
         <details class="quote">
           <summary>Source code in <code>beancount/prices/sources/iex.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_historical_price(self, ticker, time):
+          <pre class="highlight"><code class="language-python">def get_historical_price(self, ticker, time):
     """See contract in beancount.prices.source.Source."""
     raise NotImplementedError(
         "This is now implemented at https://iextrading.com/developers/docs/#hist and "
@@ -3217,7 +3219,7 @@ beancount.prices.sources.iex.Source            (<a title="beancount.prices.sourc
 
         <details class="quote">
           <summary>Source code in <code>beancount/prices/sources/iex.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_latest_price(self, ticker):
+          <pre class="highlight"><code class="language-python">def get_latest_price(self, ticker):
     """See contract in beancount.prices.source.Source."""
     return fetch_quote(ticker)
 </code></pre>
@@ -3255,7 +3257,7 @@ beancount.prices.sources.iex.Source            (<a title="beancount.prices.sourc
 
         <details class="quote">
           <summary>Source code in <code>beancount/prices/sources/iex.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def fetch_quote(ticker):
+          <pre class="highlight"><code class="language-python">def fetch_quote(ticker):
     """Fetch the latest price for the given ticker."""
 
     url = "https://api.iextrading.com/1.0/tops/last?symbols={}".format(ticker.upper())
@@ -3379,7 +3381,7 @@ beancount.prices.sources.oanda.Source            (<a title="beancount.prices.sou
 
         <details class="quote">
           <summary>Source code in <code>beancount/prices/sources/oanda.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_historical_price(self, ticker, time):
+          <pre class="highlight"><code class="language-python">def get_historical_price(self, ticker, time):
     """See contract in beancount.prices.source.Source."""
     time = time.astimezone(tz.tzutc())
     query_interval_begin = (time - datetime.timedelta(days=5))
@@ -3416,7 +3418,7 @@ beancount.prices.sources.oanda.Source            (<a title="beancount.prices.sou
 
         <details class="quote">
           <summary>Source code in <code>beancount/prices/sources/oanda.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_latest_price(self, ticker):
+          <pre class="highlight"><code class="language-python">def get_latest_price(self, ticker):
     """See contract in beancount.prices.source.Source."""
     time = datetime.datetime.now(tz.tzutc())
     params_dict = {
@@ -3571,7 +3573,7 @@ beancount.prices.sources.quandl.Source            (<a title="beancount.prices.so
 
         <details class="quote">
           <summary>Source code in <code>beancount/prices/sources/quandl.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_historical_price(self, ticker, time):
+          <pre class="highlight"><code class="language-python">def get_historical_price(self, ticker, time):
     """See contract in beancount.prices.source.Source."""
     return fetch_time_series(ticker, time)
 </code></pre>
@@ -3598,7 +3600,7 @@ beancount.prices.sources.quandl.Source            (<a title="beancount.prices.so
 
         <details class="quote">
           <summary>Source code in <code>beancount/prices/sources/quandl.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_latest_price(self, ticker):
+          <pre class="highlight"><code class="language-python">def get_latest_price(self, ticker):
     """See contract in beancount.prices.source.Source."""
     return fetch_time_series(ticker)
 </code></pre>
@@ -3636,7 +3638,7 @@ beancount.prices.sources.quandl.Source            (<a title="beancount.prices.so
 
         <details class="quote">
           <summary>Source code in <code>beancount/prices/sources/quandl.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def fetch_time_series(ticker, time=None):
+          <pre class="highlight"><code class="language-python">def fetch_time_series(ticker, time=None):
     """Fetch"""
     # Create request payload.
     database, dataset = parse_ticker(ticker)
@@ -3709,7 +3711,7 @@ beancount.prices.sources.quandl.Source            (<a title="beancount.prices.so
 
         <details class="quote">
           <summary>Source code in <code>beancount/prices/sources/quandl.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def parse_ticker(ticker):
+          <pre class="highlight"><code class="language-python">def parse_ticker(ticker):
     """Convert ticker to Quandl codes."""
     if not re.match(r"[A-Z0-9]+:[A-Z0-9]+$", ticker):
         raise ValueError('Invalid code. Use "&lt;DATABASE&gt;/&lt;DATASET&gt;" format.')
@@ -3816,7 +3818,7 @@ beancount.prices.sources.yahoo.Source            (<a title="beancount.prices.sou
 
         <details class="quote">
           <summary>Source code in <code>beancount/prices/sources/yahoo.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_historical_price(self, ticker, time):
+          <pre class="highlight"><code class="language-python">def get_historical_price(self, ticker, time):
     """See contract in beancount.prices.source.Source."""
     if requests is None:
         raise YahooError("You must install the 'requests' library.")
@@ -3876,7 +3878,7 @@ beancount.prices.sources.yahoo.Source            (<a title="beancount.prices.sou
 
         <details class="quote">
           <summary>Source code in <code>beancount/prices/sources/yahoo.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_latest_price(self, ticker):
+          <pre class="highlight"><code class="language-python">def get_latest_price(self, ticker):
     """See contract in beancount.prices.source.Source."""
 
     url = "https://query1.finance.yahoo.com/v7/finance/quote"
@@ -3963,7 +3965,7 @@ beancount.prices.sources.yahoo.YahooError            (<span title="ValueError">V
 
         <details class="quote">
           <summary>Source code in <code>beancount/prices/sources/yahoo.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def parse_currency(result: Dict[str, Any]) -&gt; str:
+          <pre class="highlight"><code class="language-python">def parse_currency(result: Dict[str, Any]) -&gt; str:
     """Infer the currency from the result."""
     if 'market' not in result:
         return None
@@ -4008,7 +4010,7 @@ beancount.prices.sources.yahoo.YahooError            (<span title="ValueError">V
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/prices/sources/yahoo.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def parse_response(response: requests.models.Response) -&gt; Dict:
+          <pre class="highlight"><code class="language-python">def parse_response(response: requests.models.Response) -&gt; Dict:
     """Process as response from Yahoo.
 
     Raises:

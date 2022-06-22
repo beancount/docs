@@ -141,6 +141,8 @@
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../beancount_v3_dependencies.html">Dependencies</a>
                 </li>
+                <li class="toctree-l2"><a class="reference internal" href="../beangulp.html">Beangulp</a>
+                </li>
     </ul>
                     </li>
                 </ul>
@@ -547,7 +549,7 @@ text, can be expensive.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/cache.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def contents(filename):
+          <pre class="highlight"><code class="language-python">def contents(filename):
     """A converter that just reads the entire contents of a file.
 
     Args:
@@ -626,7 +628,7 @@ calling this constructor.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/cache.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_file(filename):
+          <pre class="highlight"><code class="language-python">def get_file(filename):
     """Create or reuse a globally registered instance of a FileMemo.
 
     Note: the FileMemo objects' lifetimes are reused for the duration of the
@@ -698,7 +700,7 @@ calling this constructor.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/cache.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def head(num_bytes=8192):
+          <pre class="highlight"><code class="language-python">def head(num_bytes=8192):
     """A converter that just reads the first bytes of a file.
 
     Args:
@@ -753,7 +755,7 @@ calling this constructor.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/cache.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def mimetype(filename):
+          <pre class="highlight"><code class="language-python">def mimetype(filename):
     """A converter that computes the MIME type of the file.
 
     Returns:
@@ -828,7 +830,7 @@ downloaded files, and for each of those files, extract transactions from it.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/extract.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def add_arguments(parser):
+          <pre class="highlight"><code class="language-python">def add_arguments(parser):
     """Add arguments for the extract command."""
 
     parser.add_argument('-e', '-f', '--existing', '--previous', metavar='BEANCOUNT_FILE',
@@ -895,7 +897,7 @@ is used, automatically.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/extract.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def extract(importer_config,
+          <pre class="highlight"><code class="language-python">def extract(importer_config,
             files_or_directories,
             output,
             entries=None,
@@ -1050,7 +1052,7 @@ attributes.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/extract.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def extract_from_file(filename, importer,
+          <pre class="highlight"><code class="language-python">def extract_from_file(filename, importer,
                       existing_entries=None,
                       min_date=None,
                       allow_none_for_tags_and_links=False):
@@ -1163,7 +1165,7 @@ potentially with modified metadata to indicate those which are duplicated.</p></
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/extract.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def find_duplicate_entries(new_entries_list, existing_entries):
+          <pre class="highlight"><code class="language-python">def find_duplicate_entries(new_entries_list, existing_entries):
     """Flag potentially duplicate entries.
 
     Args:
@@ -1234,7 +1236,7 @@ potentially with modified metadata to indicate those which are duplicated.</p></
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/extract.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def print_extracted_entries(entries, file):
+          <pre class="highlight"><code class="language-python">def print_extracted_entries(entries, file):
     """Print a list of entries.
 
     Args:
@@ -1283,7 +1285,7 @@ potentially with modified metadata to indicate those which are duplicated.</p></
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/extract.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def run(args, _, importers_list, files_or_directories, hooks=None):
+          <pre class="highlight"><code class="language-python">def run(args, _, importers_list, files_or_directories, hooks=None):
     """Run the subcommand."""
 
     # Load the ledger, if one is specified.
@@ -1366,7 +1368,7 @@ corresponding to the filing directory.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/file.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def add_arguments(parser):
+          <pre class="highlight"><code class="language-python">def add_arguments(parser):
     """Add arguments for the extract command."""
 
     parser.add_argument('-o', '--output', '--output-dir', '--destination',
@@ -1440,7 +1442,7 @@ written out.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/file.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def file(importer_config,
+          <pre class="highlight"><code class="language-python">def file(importer_config,
          files_or_directories,
          destination,
          dry_run=False,
@@ -1592,7 +1594,7 @@ written out.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/file.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def file_one_file(filename, importers, destination, idify=False, logfile=None):
+          <pre class="highlight"><code class="language-python">def file_one_file(filename, importers, destination, idify=False, logfile=None):
     """Move a single filename using its matched importers.
 
     Args:
@@ -1752,7 +1754,7 @@ written out.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/file.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def move_xdev_file(src_filename, dst_filename, mkdirs=False):
+          <pre class="highlight"><code class="language-python">def move_xdev_file(src_filename, dst_filename, mkdirs=False):
     """Move a file, potentially across devices.
 
     Args:
@@ -1800,7 +1802,7 @@ written out.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/file.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def run(args, parser, importers_list, files_or_directories, hooks=None):
+          <pre class="highlight"><code class="language-python">def run(args, parser, importers_list, files_or_directories, hooks=None):
     """Run the subcommand."""
 
     # If the output directory is not specified, move the files at the root where
@@ -1893,7 +1895,7 @@ be associated with.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/identify.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def add_arguments(parser):
+          <pre class="highlight"><code class="language-python">def add_arguments(parser):
     """Add arguments for the identify command."""
 </code></pre>
         </details>
@@ -1945,7 +1947,7 @@ written out.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/identify.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def find_imports(importer_config, files_or_directories, logfile=None):
+          <pre class="highlight"><code class="language-python">def find_imports(importer_config, files_or_directories, logfile=None):
     """Given an importer configuration, search for files that can be imported in the
     list of files or directories, run the signature checks on them and return a list
     of (filename, importers), where 'importers' is a list of importers that matched
@@ -2029,7 +2031,7 @@ written out.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/identify.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def identify(importers_list, files_or_directories):
+          <pre class="highlight"><code class="language-python">def identify(importers_list, files_or_directories):
     """Run the identification loop.
 
     Args:
@@ -2069,7 +2071,7 @@ written out.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/identify.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def run(_, __, importers_list, files_or_directories, hooks=None):
+          <pre class="highlight"><code class="language-python">def run(_, __, importers_list, files_or_directories, hooks=None):
     """Run the subcommand."""
     return identify(importers_list, files_or_directories)
 </code></pre>
@@ -2203,7 +2205,7 @@ beancount.ingest.importer.ImporterProtocol        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def name(self):
+          <pre class="highlight"><code class="language-python">def name(self):
     """Return a unique id/name for this importer.
 
     Returns:
@@ -2280,7 +2282,7 @@ extracted from the file.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def extract(self, file, existing_entries=None):
+          <pre class="highlight"><code class="language-python">def extract(self, file, existing_entries=None):
     """Extract transactions from a file.
 
     If the importer would like to flag a returned transaction as a known
@@ -2363,7 +2365,7 @@ file--just of the importer--but it is provided anyhow.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def file_account(self, file):
+          <pre class="highlight"><code class="language-python">def file_account(self, file):
     """Return an account associated with the given file.
 
     Note: If you don't implement this method you won't be able to move the
@@ -2436,7 +2438,7 @@ default.)</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def file_date(self, file):
+          <pre class="highlight"><code class="language-python">def file_date(self, file):
     """Attempt to obtain a date that corresponds to the given file.
 
     Args:
@@ -2506,7 +2508,7 @@ returned, not an absolute filename.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def file_name(self, file):
+          <pre class="highlight"><code class="language-python">def file_name(self, file):
     """A filter that optionally renames a file before filing.
 
     This is used to make tidy filenames for filed/stored document files. If
@@ -2575,7 +2577,7 @@ returned, not an absolute filename.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def identify(self, file):
+          <pre class="highlight"><code class="language-python">def identify(self, file):
     """Return true if this importer matches the given file.
 
     Args:
@@ -2623,7 +2625,7 @@ returned, not an absolute filename.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def name(self):
+          <pre class="highlight"><code class="language-python">def name(self):
     """Return a unique id/name for this importer.
 
     Returns:
@@ -2789,7 +2791,7 @@ declared in the class' REQUIRED_CONFIG.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/config.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __init__(self, config):
+          <pre class="highlight"><code class="language-python">def __init__(self, config):
     """Provide a list of accounts and regexps as configuration to the importer.
 
     Args:
@@ -3002,7 +3004,7 @@ encoded in 'latin1' instead of 'utf-8' (the default).</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/csv.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __init__(self, config, account, currency,
+          <pre class="highlight"><code class="language-python">def __init__(self, config, account, currency,
              regexps=None,
              skip_lines: int = 0,
              last4_map: Optional[Dict] = None,
@@ -3140,7 +3142,7 @@ extracted from the file.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/csv.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def extract(self, file, existing_entries=None):
+          <pre class="highlight"><code class="language-python">def extract(self, file, existing_entries=None):
     account = self.file_account(file)
     entries = []
 
@@ -3298,7 +3300,7 @@ extracted from the file.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/csv.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def file_date(self, file):
+          <pre class="highlight"><code class="language-python">def file_date(self, file):
     "Get the maximum date from the file."
     iconfig, has_header = normalize_config(
         self.config, file.head(), self.csv_dialect, self.skip_lines)
@@ -3345,7 +3347,7 @@ with special cases, e.g., columns with currency symbols in them.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/csv.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_amounts(self, iconfig, row, allow_zero_amounts=False):
+          <pre class="highlight"><code class="language-python">def get_amounts(self, iconfig, row, allow_zero_amounts=False):
     """See function get_amounts() for details.
 
     This method is present to allow clients to override it in order to deal
@@ -3423,7 +3425,7 @@ instance of Decimal or None, or not available.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/csv.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_amounts(iconfig, row, allow_zero_amounts=False):
+          <pre class="highlight"><code class="language-python">def get_amounts(iconfig, row, allow_zero_amounts=False):
     """Get the amount columns of a row.
 
     Args:
@@ -3528,7 +3530,7 @@ entirely of integer indexes.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/csv.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def normalize_config(config, head, dialect='excel', skip_lines: int = 0):
+          <pre class="highlight"><code class="language-python">def normalize_config(config, head, dialect='excel', skip_lines: int = 0):
     """Using the header line, convert the configuration field name lookups to int indexes.
 
     Args:
@@ -3756,7 +3758,7 @@ beancount.ingest.importers.mixins.config.ConfigMixin            (<a title="beanc
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/mixins/config.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __init__(self, **kwds):
+          <pre class="highlight"><code class="language-python">def __init__(self, **kwds):
     """Pull 'config' from kwds."""
 
     config = kwds.pop('config', None)
@@ -3854,7 +3856,7 @@ required by the source importer.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/mixins/config.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def validate_config(config, schema, importer):
+          <pre class="highlight"><code class="language-python">def validate_config(config, schema, importer):
     """Check the configuration account provided by the user against the accounts
     required by the source importer.
 
@@ -3997,7 +3999,7 @@ beancount.ingest.importers.mixins.filing.FilingMixin            (<a title="beanc
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/mixins/filing.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __init__(self, **kwds):
+          <pre class="highlight"><code class="language-python">def __init__(self, **kwds):
     """Pull 'filing' and 'prefix' from kwds.
 
     Args:
@@ -4072,7 +4074,7 @@ file--just of the importer--but it is provided anyhow.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/mixins/filing.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def file_account(self, file):
+          <pre class="highlight"><code class="language-python">def file_account(self, file):
     return self.filing_account
 </code></pre>
         </details>
@@ -4098,7 +4100,7 @@ file--just of the importer--but it is provided anyhow.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/mixins/filing.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def file_name(self, file):
+          <pre class="highlight"><code class="language-python">def file_name(self, file):
     """Return the optional renamed account filename."""
     supername = super().file_name(file)
     if not self.prefix:
@@ -4130,7 +4132,7 @@ file--just of the importer--but it is provided anyhow.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/mixins/filing.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def name(self):
+          <pre class="highlight"><code class="language-python">def name(self):
     """Include the filing account in the name."""
     return '{}: "{}"'.format(super().name(), self.filing_account)
 </code></pre>
@@ -4237,7 +4239,7 @@ beancount.ingest.importers.mixins.identifier.IdentifyMixin            (<a title=
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/mixins/identifier.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __init__(self, **kwds):
+          <pre class="highlight"><code class="language-python">def __init__(self, **kwds):
     """Pull 'matchers' and 'converter' from kwds."""
 
     self.remap = collections.defaultdict(list)
@@ -4311,7 +4313,7 @@ beancount.ingest.importers.mixins.identifier.IdentifyMixin            (<a title=
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/mixins/identifier.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def identify(self, file):
+          <pre class="highlight"><code class="language-python">def identify(self, file):
     return identify(self.remap, self.converter, file)
 </code></pre>
         </details>
@@ -4383,7 +4385,7 @@ a specification to match against its part. The 'part' can be one of 'mime',
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/mixins/identifier.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def identify(remap, converter, file):
+          <pre class="highlight"><code class="language-python">def identify(remap, converter, file):
     """Identify the contents of a file.
 
     Args:
@@ -4592,7 +4594,7 @@ amounts parsed.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/ofx.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __init__(self, acctid_regexp, account, basename=None,
+          <pre class="highlight"><code class="language-python">def __init__(self, acctid_regexp, account, basename=None,
              balance_type=BalanceType.DECLARED):
     """Create a new importer posting to the given account.
 
@@ -4631,7 +4633,7 @@ amounts parsed.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/ofx.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def extract(self, file, existing_entries=None):
+          <pre class="highlight"><code class="language-python">def extract(self, file, existing_entries=None):
     """Extract a list of partially complete transactions from the file."""
     soup = bs4.BeautifulSoup(file.contents(), 'lxml')
     return extract(soup, file.name, self.acctid_regexp, self.account, self.FLAG,
@@ -4660,7 +4662,7 @@ amounts parsed.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/ofx.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def file_account(self, _):
+          <pre class="highlight"><code class="language-python">def file_account(self, _):
     """Return the account against which we post transactions."""
     return self.account
 </code></pre>
@@ -4687,7 +4689,7 @@ amounts parsed.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/ofx.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def file_date(self, file):
+          <pre class="highlight"><code class="language-python">def file_date(self, file):
     """Return the optional renamed account filename."""
     return find_max_date(file.contents())
 </code></pre>
@@ -4714,7 +4716,7 @@ amounts parsed.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/ofx.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def file_name(self, file):
+          <pre class="highlight"><code class="language-python">def file_name(self, file):
     """Return the optional renamed account filename."""
     if self.basename:
         return self.basename + path.splitext(file.name)[1]
@@ -4774,7 +4776,7 @@ amounts parsed.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/ofx.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def identify(self, file):
+          <pre class="highlight"><code class="language-python">def identify(self, file):
     # Match for a compatible MIME type.
     if file.mimetype() not in {'application/x-ofx',
                                'application/vnd.intu.qbo',
@@ -4808,7 +4810,7 @@ amounts parsed.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/ofx.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def name(self):
+          <pre class="highlight"><code class="language-python">def name(self):
     """Include the filing account in the name."""
     return '{}: "{}"'.format(super().name(), self.file_account(None))
 </code></pre>
@@ -4881,7 +4883,7 @@ amounts parsed.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/ofx.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def build_transaction(stmttrn, flag, account, currency):
+          <pre class="highlight"><code class="language-python">def build_transaction(stmttrn, flag, account, currency):
     """Build a single transaction.
 
     Args:
@@ -4983,7 +4985,7 @@ amounts parsed.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/ofx.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def extract(soup, filename, acctid_regexp, account, flag, balance_type):
+          <pre class="highlight"><code class="language-python">def extract(soup, filename, acctid_regexp, account, flag, balance_type):
     """Extract transactions from an OFX file.
 
     Args:
@@ -5083,7 +5085,7 @@ amounts parsed.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/ofx.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def find_acctids(contents):
+          <pre class="highlight"><code class="language-python">def find_acctids(contents):
     """Find the list of &lt;ACCTID&gt; tags.
 
     Args:
@@ -5153,7 +5155,7 @@ amounts parsed.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/ofx.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def find_child(node, name, conversion=None):
+          <pre class="highlight"><code class="language-python">def find_child(node, name, conversion=None):
     """Find a child under the given node and return its value.
 
     Args:
@@ -5227,7 +5229,7 @@ is found.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/ofx.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def find_currency(soup):
+          <pre class="highlight"><code class="language-python">def find_currency(soup):
     """Find the first currency in the XML tree.
 
     Args:
@@ -5265,7 +5267,7 @@ is found.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/ofx.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def find_max_date(contents):
+          <pre class="highlight"><code class="language-python">def find_max_date(contents):
     """Extract the report date from the file."""
     soup = bs4.BeautifulSoup(contents, 'lxml')
     dates = []
@@ -5320,7 +5322,7 @@ is found.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/ofx.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def find_statement_transactions(soup):
+          <pre class="highlight"><code class="language-python">def find_statement_transactions(soup):
     """Find the statement transaction sections in the file.
 
     Args:
@@ -5413,7 +5415,7 @@ is found.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/importers/ofx.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def parse_ofx_time(date_str):
+          <pre class="highlight"><code class="language-python">def parse_ofx_time(date_str):
     """Parse an OFX time string and return a datetime object.
 
     Args:
@@ -5574,7 +5576,7 @@ before running the tests.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/regression.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@test_utils.skipIfRaises(ToolNotInstalled)
+          <pre class="highlight"><code class="language-python">@test_utils.skipIfRaises(ToolNotInstalled)
 def test_expect_extract(self, filename, msg):
     """Extract entries from a test file and compare against expected output.
 
@@ -5664,7 +5666,7 @@ before running the tests.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/regression.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@test_utils.skipIfRaises(ToolNotInstalled)
+          <pre class="highlight"><code class="language-python">@test_utils.skipIfRaises(ToolNotInstalled)
 def test_expect_file_date(self, filename, msg):
     """Compute the imported file date and compare to an expected output.
 
@@ -5753,7 +5755,7 @@ before running the tests.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/regression.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@test_utils.skipIfRaises(ToolNotInstalled)
+          <pre class="highlight"><code class="language-python">@test_utils.skipIfRaises(ToolNotInstalled)
 def test_expect_file_name(self, filename, msg):
     """Compute the imported file name and compare to an expected output.
 
@@ -5842,7 +5844,7 @@ def test_expect_file_name(self, filename, msg):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/regression.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@test_utils.skipIfRaises(ToolNotInstalled)
+          <pre class="highlight"><code class="language-python">@test_utils.skipIfRaises(ToolNotInstalled)
 def test_expect_identify(self, filename, msg):
     """Attempt to identify a file and expect results to be true.
 
@@ -5946,7 +5948,7 @@ class.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/regression.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@deprecated("Use beancount.ingest.regression_pytest instead")
+          <pre class="highlight"><code class="language-python">@deprecated("Use beancount.ingest.regression_pytest instead")
 def compare_sample_files(importer, directory=None, ignore_cls=None):
     """Compare the sample files under a directory.
 
@@ -6030,7 +6032,7 @@ def compare_sample_files(importer, directory=None, ignore_cls=None):
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/regression.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def find_input_files(directory):
+          <pre class="highlight"><code class="language-python">def find_input_files(directory):
     """Find the input files in the module where the class is defined.
 
     Args:
@@ -6160,7 +6162,7 @@ beancount.ingest.regression_pytest.ImporterTestBase        </code>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/regression_pytest.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def test_extract(self, importer, file, pytestconfig):
+          <pre class="highlight"><code class="language-python">def test_extract(self, importer, file, pytestconfig):
     """Extract entries from a test file and compare against expected output."""
     entries = extract.extract_from_file(file.name, importer, None, None)
     oss = io.StringIO()
@@ -6192,7 +6194,7 @@ beancount.ingest.regression_pytest.ImporterTestBase        </code>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/regression_pytest.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def test_file_account(self, importer, file, pytestconfig):
+          <pre class="highlight"><code class="language-python">def test_file_account(self, importer, file, pytestconfig):
     """Compute the selected filing account and compare to an expected output."""
     account = importer.file_account(file) or ''
     compare_contents_or_generate(account, '{}.file_account'.format(file.name),
@@ -6221,7 +6223,7 @@ beancount.ingest.regression_pytest.ImporterTestBase        </code>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/regression_pytest.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def test_file_date(self, importer, file, pytestconfig):
+          <pre class="highlight"><code class="language-python">def test_file_date(self, importer, file, pytestconfig):
     """Compute the imported file date and compare to an expected output."""
     date = importer.file_date(file)
     string = date.isoformat() if date else ''
@@ -6251,7 +6253,7 @@ beancount.ingest.regression_pytest.ImporterTestBase        </code>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/regression_pytest.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def test_file_name(self, importer, file, pytestconfig):
+          <pre class="highlight"><code class="language-python">def test_file_name(self, importer, file, pytestconfig):
     """Compute the imported file name and compare to an expected output."""
     filename = importer.file_name(file) or ''
     compare_contents_or_generate(filename, '{}.file_name'.format(file.name),
@@ -6283,7 +6285,7 @@ importer should always identify the test file).</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/regression_pytest.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def test_identify(self, importer, file):
+          <pre class="highlight"><code class="language-python">def test_identify(self, importer, file):
     """Attempt to identify a file and expect results to be true.
 
     This method does not need to check against an existing expect file. It
@@ -6345,7 +6347,7 @@ importer should always identify the test file).</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/regression_pytest.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def compare_contents_or_generate(actual_string, expect_fn, generate):
+          <pre class="highlight"><code class="language-python">def compare_contents_or_generate(actual_string, expect_fn, generate):
     """Compare a string to the contents of an expect file.
 
     Assert if different; auto-generate otherwise.
@@ -6410,7 +6412,7 @@ importer should always identify the test file).</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/regression_pytest.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def find_input_files(directory):
+          <pre class="highlight"><code class="language-python">def find_input_files(directory):
     """Find the input files in the module where the class is defined.
 
     Args:
@@ -6448,7 +6450,7 @@ importer should always identify the test file).</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/regression_pytest.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def pytest_addoption(parser):
+          <pre class="highlight"><code class="language-python">def pytest_addoption(parser):
     """Add an option to generate the expected files for the tests."""
     group = parser.getgroup("beancount")
     group.addoption("--generate", "--gen", action="store_true",
@@ -6477,7 +6479,7 @@ importer should always identify the test file).</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/regression_pytest.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def with_importer(importer):
+          <pre class="highlight"><code class="language-python">def with_importer(importer):
     """Parametrizing fixture that provides the importer to test."""
     return pytest.mark.parametrize("importer", [importer])
 </code></pre>
@@ -6504,7 +6506,7 @@ importer should always identify the test file).</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/regression_pytest.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def with_testdir(directory):
+          <pre class="highlight"><code class="language-python">def with_testdir(directory):
     """Parametrizing fixture that provides files from a directory."""
     return pytest.mark.parametrize(
         "file", [cache.get_file(fn) for fn in find_input_files(directory)])
@@ -6606,7 +6608,7 @@ beancount.ingest.scripts_utils.TestScriptsBase            (<span title="beancoun
 
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/scripts_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def setUp(self):
+          <pre class="highlight"><code class="language-python">def setUp(self):
     super().setUp()
     for filename, contents in self.FILES.items():
         absname = path.join(self.tempdir, filename)
@@ -6683,7 +6685,7 @@ beancount.ingest.scripts_utils.TestScriptsBase            (<span title="beancoun
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/scripts_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def create_legacy_arguments_parser(description: str, run_func: callable):
+          <pre class="highlight"><code class="language-python">def create_legacy_arguments_parser(description: str, run_func: callable):
     """Create an arguments parser for all the ingestion bean-tools.
 
     Args:
@@ -6775,7 +6777,7 @@ the default implementation for this. Use 'filter_funcs' instead.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/scripts_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def ingest(importers_list, detect_duplicates_func=None, hooks=None):
+          <pre class="highlight"><code class="language-python">def ingest(importers_list, detect_duplicates_func=None, hooks=None):
     """Driver function that calls all the ingestion tools.
 
     Put a call to this function at the end of your importer configuration to
@@ -6933,7 +6935,7 @@ defines the importers list.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/scripts_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def run_import_script_and_ingest(parser, argv=None, importers_attr_name='CONFIG'):
+          <pre class="highlight"><code class="language-python">def run_import_script_and_ingest(parser, argv=None, importers_attr_name='CONFIG'):
     """Run the import script and optionally call ingest().
 
     This path is only called when trampolined by one of the bean-* ingestion
@@ -7037,7 +7039,7 @@ import files, which only required a CONFIG object to be defined in them.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/scripts_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def trampoline_to_ingest(module):
+          <pre class="highlight"><code class="language-python">def trampoline_to_ingest(module):
     """Parse arguments for bean tool, import config script and ingest.
 
     This function is called by the three bean-* tools to support the older
@@ -7187,7 +7189,7 @@ slightly different numbers.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/similar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __call__(self, entry1, entry2):
+          <pre class="highlight"><code class="language-python">def __call__(self, entry1, entry2):
     """Compare two entries, return true if they are deemed similar.
 
     Args:
@@ -7283,7 +7285,7 @@ distance between dates.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/similar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __init__(self, max_date_delta=None):
+          <pre class="highlight"><code class="language-python">def __init__(self, max_date_delta=None):
     """Constructor a comparator of entries.
     Args:
       max_date_delta: A datetime.timedelta instance of the max tolerated
@@ -7358,7 +7360,7 @@ distance between dates.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/similar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def amounts_map(entry):
+          <pre class="highlight"><code class="language-python">def amounts_map(entry):
     """Compute a mapping of (account, currency) -&gt; Decimal balances.
 
     Args:
@@ -7444,7 +7446,7 @@ entries to classify against.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ingest/similar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def find_similar_entries(entries, source_entries, comparator=None, window_days=2):
+          <pre class="highlight"><code class="language-python">def find_similar_entries(entries, source_entries, comparator=None, window_days=2):
     """Find which entries from a list are potential duplicates of a set.
 
     Note: If there are multiple entries from 'source_entries' matching an entry

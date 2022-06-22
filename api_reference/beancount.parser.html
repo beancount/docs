@@ -141,6 +141,8 @@
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../beancount_v3_dependencies.html">Dependencies</a>
                 </li>
+                <li class="toctree-l2"><a class="reference internal" href="../beangulp.html">Beangulp</a>
+                </li>
     </ul>
                     </li>
                 </ul>
@@ -762,7 +764,7 @@ beancount.parser.booking.BookingError            (<span title="tuple">tuple</spa
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -816,7 +818,7 @@ beancount.parser.booking.BookingError            (<span title="tuple">tuple</spa
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -890,7 +892,7 @@ with incomplete amounts as produced by the parser.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def book(incomplete_entries, options_map):
+          <pre class="highlight"><code class="language-python">def book(incomplete_entries, options_map):
     """Book inventory lots and complete all positions with incomplete numbers.
 
     Args:
@@ -982,7 +984,7 @@ in the main loop.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def validate_inventory_booking(entries, unused_options_map, booking_methods):
+          <pre class="highlight"><code class="language-python">def validate_inventory_booking(entries, unused_options_map, booking_methods):
     """Validate that no position at cost is allowed to go negative.
 
     This routine checks that when a posting reduces a position, existing or not,
@@ -1085,7 +1087,7 @@ in the main loop.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def validate_missing_eliminated(entries, unused_options_map):
+          <pre class="highlight"><code class="language-python">def validate_missing_eliminated(entries, unused_options_map):
     """Validate that all the missing bits of postings have been eliminated.
 
     Args:
@@ -1259,7 +1261,7 @@ beancount.parser.booking_full.CategorizationError            (<span title="tuple
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking_full.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -1313,7 +1315,7 @@ beancount.parser.booking_full.CategorizationError            (<span title="tuple
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking_full.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -1383,7 +1385,7 @@ beancount.parser.booking_full.InterpolationError            (<span title="tuple"
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking_full.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -1437,7 +1439,7 @@ beancount.parser.booking_full.InterpolationError            (<span title="tuple"
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking_full.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -1551,7 +1553,7 @@ beancount.parser.booking_full.ReductionError            (<span title="tuple">tup
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking_full.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -1605,7 +1607,7 @@ beancount.parser.booking_full.ReductionError            (<span title="tuple">tup
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking_full.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -1675,7 +1677,7 @@ beancount.parser.booking_full.Refer            (<span title="tuple">tuple</span>
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking_full.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -1729,7 +1731,7 @@ beancount.parser.booking_full.Refer            (<span title="tuple">tuple</span>
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking_full.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -1799,7 +1801,7 @@ beancount.parser.booking_full.SelfReduxError            (<span title="tuple">tup
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking_full.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -1853,7 +1855,7 @@ beancount.parser.booking_full.SelfReduxError            (<span title="tuple">tup
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking_full.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -1894,7 +1896,7 @@ This method only stripes some of the return values.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking_full.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def book(entries, options_map, methods):
+          <pre class="highlight"><code class="language-python">def book(entries, options_map, methods):
     """Interpolate missing data from the entries using the full historical algorithm.
     See the internal implementation _book() for details.
     This method only stripes some of the return values.
@@ -1984,7 +1986,7 @@ method enum.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking_full.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def book_reductions(entry, group_postings, balances,
+          <pre class="highlight"><code class="language-python">def book_reductions(entry, group_postings, balances,
                     methods):
     """Book inventory reductions against the ante-balances.
 
@@ -2220,7 +2222,7 @@ Each tuple in the value-list contains</code> – index: The posting index in the
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking_full.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def categorize_by_currency(entry, balances):
+          <pre class="highlight"><code class="language-python">def categorize_by_currency(entry, balances):
     """Group the postings by the currency they declare.
 
     This is used to prepare the postings for the next stages: Interpolation and
@@ -2462,7 +2464,7 @@ Otherwise, returns a Decimal instance, the per-unit cost.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking_full.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def compute_cost_number(costspec, units):
+          <pre class="highlight"><code class="language-python">def compute_cost_number(costspec, units):
     """Given a CostSpec, return the cost number, if possible to compute.
 
     Args:
@@ -2546,7 +2548,7 @@ Otherwise, returns a Decimal instance, the per-unit cost.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking_full.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def convert_costspec_to_cost(posting):
+          <pre class="highlight"><code class="language-python">def convert_costspec_to_cost(posting):
     """Convert an instance of CostSpec to Cost, if present on the posting.
 
     If the posting has no cost, it itself is just returned.
@@ -2630,7 +2632,7 @@ Otherwise, returns a Decimal instance, the per-unit cost.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking_full.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_bucket_currency(refer):
+          <pre class="highlight"><code class="language-python">def get_bucket_currency(refer):
     """Given currency references for a posting, return the bucket currency.
 
     Args:
@@ -2706,7 +2708,7 @@ method.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking_full.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def has_self_reduction(postings, methods):
+          <pre class="highlight"><code class="language-python">def has_self_reduction(postings, methods):
     """Return true if the postings potentially reduce each other at cost.
 
     Args:
@@ -2797,7 +2799,7 @@ way by choice.)</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking_full.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def interpolate_group(postings, balances, currency, tolerances):
+          <pre class="highlight"><code class="language-python">def interpolate_group(postings, balances, currency, tolerances):
     """Interpolate missing numbers in the set of postings.
 
     Args:
@@ -3078,7 +3080,7 @@ currencies have been replaced by their interpolated currency values.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking_full.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def replace_currencies(postings, refer_groups):
+          <pre class="highlight"><code class="language-python">def replace_currencies(postings, refer_groups):
     """Replace resolved currencies in the entry's Postings.
 
     This essentially applies the findings of categorize_by_currency() to produce
@@ -3142,7 +3144,7 @@ currencies have been replaced by their interpolated currency values.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking_full.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def unique_label() -&gt; Text:
+          <pre class="highlight"><code class="language-python">def unique_label() -&gt; Text:
     "Return a globally unique label for cost entries."
     return str(uuid.uuid4())
 </code></pre>
@@ -3241,7 +3243,7 @@ beancount.parser.booking_method.AmbiguousMatchError            (<span title="tup
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking_method.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -3295,7 +3297,7 @@ beancount.parser.booking_method.AmbiguousMatchError            (<span title="tup
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking_method.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -3333,7 +3335,7 @@ beancount.parser.booking_method.AmbiguousMatchError            (<span title="tup
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking_method.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def booking_method_AVERAGE(entry, posting, matches):
+          <pre class="highlight"><code class="language-python">def booking_method_AVERAGE(entry, posting, matches):
     """AVERAGE booking method implementation."""
     booked_reductions = []
     booked_matches = []
@@ -3428,7 +3430,7 @@ beancount.parser.booking_method.AmbiguousMatchError            (<span title="tup
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking_method.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def booking_method_FIFO(entry, posting, matches):
+          <pre class="highlight"><code class="language-python">def booking_method_FIFO(entry, posting, matches):
     """FIFO booking method implementation."""
     return _booking_method_xifo(entry, posting, matches, False)
 </code></pre>
@@ -3455,7 +3457,7 @@ beancount.parser.booking_method.AmbiguousMatchError            (<span title="tup
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking_method.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def booking_method_LIFO(entry, posting, matches):
+          <pre class="highlight"><code class="language-python">def booking_method_LIFO(entry, posting, matches):
     """LIFO booking method implementation."""
     return _booking_method_xifo(entry, posting, matches, True)
 </code></pre>
@@ -3482,7 +3484,7 @@ beancount.parser.booking_method.AmbiguousMatchError            (<span title="tup
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking_method.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def booking_method_NONE(entry, posting, matches):
+          <pre class="highlight"><code class="language-python">def booking_method_NONE(entry, posting, matches):
     """NONE booking method implementation."""
 
     # This never needs to match against any existing positions... we
@@ -3563,7 +3565,7 @@ Those positions are known to already match the 'posting' spec.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking_method.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def booking_method_STRICT(entry, posting, matches):
+          <pre class="highlight"><code class="language-python">def booking_method_STRICT(entry, posting, matches):
     """Strict booking method.
 
     Args:
@@ -3677,7 +3679,7 @@ method.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/booking_method.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def handle_ambiguous_matches(entry, posting, matches, method):
+          <pre class="highlight"><code class="language-python">def handle_ambiguous_matches(entry, posting, matches, method):
     """Handle ambiguous matches by dispatching to a particular method.
 
     Args:
@@ -3791,7 +3793,7 @@ beancount.parser.cmptest.TestError            (<span title="Exception">Exception
 
 
 <h3 id="beancount.parser.cmptest.assertEqualEntries" class="doc doc-heading">
-<code class="highlight language-python">beancount.parser.cmptest.assertEqualEntries(expected_entries, actual_entries, failfunc=&lt;function fail at 0x7f67b4d1f670&gt;, allow_incomplete=False)</code>
+<code class="highlight language-python">beancount.parser.cmptest.assertEqualEntries(expected_entries, actual_entries, failfunc=&lt;function fail at 0x7fad11781480&gt;, allow_incomplete=False)</code>
 
 
 <a href="#beancount.parser.cmptest.assertEqualEntries" class="headerlink" title="Permanent link"></a></h3>
@@ -3842,7 +3844,7 @@ light-weight booking.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/cmptest.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def assertEqualEntries(expected_entries, actual_entries,
+          <pre class="highlight"><code class="language-python">def assertEqualEntries(expected_entries, actual_entries,
                        failfunc=DEFAULT_FAILFUNC, allow_incomplete=False):
     """Compare two lists of entries exactly and print missing entries verbosely if
     they occur.
@@ -3892,7 +3894,7 @@ light-weight booking.</p></li>
 
 
 <h3 id="beancount.parser.cmptest.assertExcludesEntries" class="doc doc-heading">
-<code class="highlight language-python">beancount.parser.cmptest.assertExcludesEntries(subset_entries, entries, failfunc=&lt;function fail at 0x7f67b4d1f670&gt;, allow_incomplete=False)</code>
+<code class="highlight language-python">beancount.parser.cmptest.assertExcludesEntries(subset_entries, entries, failfunc=&lt;function fail at 0x7fad11781480&gt;, allow_incomplete=False)</code>
 
 
 <a href="#beancount.parser.cmptest.assertExcludesEntries" class="headerlink" title="Permanent link"></a></h3>
@@ -3942,7 +3944,7 @@ light-weight booking.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/cmptest.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def assertExcludesEntries(subset_entries, entries,
+          <pre class="highlight"><code class="language-python">def assertExcludesEntries(subset_entries, entries,
                           failfunc=DEFAULT_FAILFUNC, allow_incomplete=False):
     """Check that subset_entries is not included in entries and print extra entries.
 
@@ -3984,7 +3986,7 @@ light-weight booking.</p></li>
 
 
 <h3 id="beancount.parser.cmptest.assertIncludesEntries" class="doc doc-heading">
-<code class="highlight language-python">beancount.parser.cmptest.assertIncludesEntries(subset_entries, entries, failfunc=&lt;function fail at 0x7f67b4d1f670&gt;, allow_incomplete=False)</code>
+<code class="highlight language-python">beancount.parser.cmptest.assertIncludesEntries(subset_entries, entries, failfunc=&lt;function fail at 0x7fad11781480&gt;, allow_incomplete=False)</code>
 
 
 <a href="#beancount.parser.cmptest.assertIncludesEntries" class="headerlink" title="Permanent link"></a></h3>
@@ -4034,7 +4036,7 @@ light-weight booking.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/cmptest.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def assertIncludesEntries(subset_entries, entries,
+          <pre class="highlight"><code class="language-python">def assertIncludesEntries(subset_entries, entries,
                           failfunc=DEFAULT_FAILFUNC, allow_incomplete=False):
     """Check that subset_entries is included in entries and print missing entries.
 
@@ -4121,7 +4123,7 @@ light-weight booking.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/cmptest.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def read_string_or_entries(entries_or_str, allow_incomplete=False):
+          <pre class="highlight"><code class="language-python">def read_string_or_entries(entries_or_str, allow_incomplete=False):
     """Read a string of entries or just entries.
 
     Args:
@@ -4285,7 +4287,7 @@ the data objects corresponding to rules parsed from the input file.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def amount(self, number, currency):
+          <pre class="highlight"><code class="language-python">def amount(self, number, currency):
     """Process an amount grammar rule.
 
     Args:
@@ -4363,7 +4365,7 @@ or failed.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def balance(self, filename, lineno, date, account, amount, tolerance, kvlist):
+          <pre class="highlight"><code class="language-python">def balance(self, filename, lineno, date, account, amount, tolerance, kvlist):
     """Process an assertion directive.
 
     We produce no errors here by default. We replace the failing ones in the
@@ -4428,7 +4430,7 @@ or failed.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def build_grammar_error(self, filename, lineno, exc_value,
+          <pre class="highlight"><code class="language-python">def build_grammar_error(self, filename, lineno, exc_value,
                         exc_type=None, exc_traceback=None):
     """Build a grammar error and appends it to the list of pending errors.
 
@@ -4510,7 +4512,7 @@ or failed.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def close(self, filename, lineno, date, account, kvlist):
+          <pre class="highlight"><code class="language-python">def close(self, filename, lineno, date, account, kvlist):
     """Process a close directive.
 
     Args:
@@ -4584,7 +4586,7 @@ or failed.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def commodity(self, filename, lineno, date, currency, kvlist):
+          <pre class="highlight"><code class="language-python">def commodity(self, filename, lineno, date, currency, kvlist):
     """Process a close directive.
 
     Args:
@@ -4657,7 +4659,7 @@ creating the final per-unit cost number.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def compound_amount(self, number_per, number_total, currency):
+          <pre class="highlight"><code class="language-python">def compound_amount(self, number_per, number_total, currency):
     """Process an amount grammar rule.
 
     Args:
@@ -4700,7 +4702,7 @@ creating the final per-unit cost number.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def cost_merge(self, _):
+          <pre class="highlight"><code class="language-python">def cost_merge(self, _):
     """Create a 'merge cost' token."""
     return MERGE_COST
 </code></pre>
@@ -4764,7 +4766,7 @@ may be set to a sentinel indicating "unset".</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def cost_spec(self, cost_comp_list, is_total):
+          <pre class="highlight"><code class="language-python">def cost_spec(self, cost_comp_list, is_total):
     """Process a cost_spec grammar rule.
 
     Args:
@@ -4911,7 +4913,7 @@ may be set to a sentinel indicating "unset".</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def custom(self, filename, lineno, date, dir_type, custom_values, kvlist):
+          <pre class="highlight"><code class="language-python">def custom(self, filename, lineno, date, dir_type, custom_values, kvlist):
     """Process a custom directive.
 
     Args:
@@ -4983,7 +4985,7 @@ value.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def custom_value(self, value, dtype=None):
+          <pre class="highlight"><code class="language-python">def custom_value(self, value, dtype=None):
     """Create a custom value object, along with its type.
 
     Args:
@@ -5019,7 +5021,7 @@ value.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def dcupdate(self, number, currency):
+          <pre class="highlight"><code class="language-python">def dcupdate(self, number, currency):
     """Update the display context."""
     if isinstance(number, Decimal) and currency and currency is not MISSING:
         self._dcupdate(number, currency)
@@ -5085,7 +5087,7 @@ value.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def document(self, filename, lineno, date, account, document_filename, tags_links,
+          <pre class="highlight"><code class="language-python">def document(self, filename, lineno, date, account, document_filename, tags_links,
              kvlist):
     """Process a document directive.
 
@@ -5167,7 +5169,7 @@ value.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def event(self, filename, lineno, date, event_type, description, kvlist):
+          <pre class="highlight"><code class="language-python">def event(self, filename, lineno, date, event_type, description, kvlist):
     """Process an event directive.
 
     Args:
@@ -5225,7 +5227,7 @@ value.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def finalize(self):
+          <pre class="highlight"><code class="language-python">def finalize(self):
     """Finalize the parser, check for final errors and return the triple.
 
     Returns:
@@ -5310,7 +5312,7 @@ value.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def finalize_tags_links(self, tags, links):
+          <pre class="highlight"><code class="language-python">def finalize_tags_links(self, tags, links):
     """Finally amend tags and links and return final objects to be inserted.
 
     Args:
@@ -5363,7 +5365,7 @@ value.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_entries(self):
+          <pre class="highlight"><code class="language-python">def get_entries(self):
     """Return the accumulated entries.
 
     Returns:
@@ -5394,7 +5396,7 @@ value.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_invalid_account(self):
+          <pre class="highlight"><code class="language-python">def get_invalid_account(self):
     """See base class."""
     return account.join(self.options['name_equity'], 'InvalidAccountName')
 </code></pre>
@@ -5421,7 +5423,7 @@ value.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_long_string_maxlines(self):
+          <pre class="highlight"><code class="language-python">def get_long_string_maxlines(self):
     """See base class."""
     return self.options['long_string_maxlines']
 </code></pre>
@@ -5464,7 +5466,7 @@ value.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_options(self):
+          <pre class="highlight"><code class="language-python">def get_options(self):
     """Return the final options map.
 
     Returns:
@@ -5543,7 +5545,7 @@ value.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def handle_list(self, object_list, new_object):
+          <pre class="highlight"><code class="language-python">def handle_list(self, object_list, new_object):
     """Handle a recursive list grammar rule, generically.
 
     Args:
@@ -5599,7 +5601,7 @@ value.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def include(self, filename, lineno, include_filename):
+          <pre class="highlight"><code class="language-python">def include(self, filename, lineno, include_filename):
     """Process an include directive.
 
     Args:
@@ -5668,7 +5670,7 @@ value.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def key_value(self, key, value):
+          <pre class="highlight"><code class="language-python">def key_value(self, key, value):
     """Process a document directive.
 
     Args:
@@ -5742,7 +5744,7 @@ value.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def note(self, filename, lineno, date, account, comment, kvlist):
+          <pre class="highlight"><code class="language-python">def note(self, filename, lineno, date, account, comment, kvlist):
     """Process a note directive.
 
     Args:
@@ -5819,7 +5821,7 @@ value.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def open(self, filename, lineno, date, account, currencies, booking_str, kvlist):
+          <pre class="highlight"><code class="language-python">def open(self, filename, lineno, date, account, currencies, booking_str, kvlist):
     """Process an open directive.
 
     Args:
@@ -5896,7 +5898,7 @@ value.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def option(self, filename, lineno, key, value):
+          <pre class="highlight"><code class="language-python">def option(self, filename, lineno, key, value):
     """Process an option directive.
 
     Args:
@@ -6036,7 +6038,7 @@ value.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def pad(self, filename, lineno, date, account, source_account, kvlist):
+          <pre class="highlight"><code class="language-python">def pad(self, filename, lineno, date, account, source_account, kvlist):
     """Process a pad directive.
 
     Args:
@@ -6092,7 +6094,7 @@ value.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def pipe_deprecated_error(self, filename, lineno):
+          <pre class="highlight"><code class="language-python">def pipe_deprecated_error(self, filename, lineno):
     """Issue a 'Pipe deprecated' error.
 
     Args:
@@ -6148,7 +6150,7 @@ pass in to the plugin module.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def plugin(self, filename, lineno, plugin_name, plugin_config):
+          <pre class="highlight"><code class="language-python">def plugin(self, filename, lineno, plugin_name, plugin_config):
     """Process a plugin directive.
 
     Args:
@@ -6199,7 +6201,7 @@ pass in to the plugin module.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def popmeta(self, key):
+          <pre class="highlight"><code class="language-python">def popmeta(self, key):
     """Removed a key off the current set of stacks.
 
     Args:
@@ -6258,7 +6260,7 @@ pass in to the plugin module.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def poptag(self, tag):
+          <pre class="highlight"><code class="language-python">def poptag(self, tag):
     """Pop a tag off the current set of stacks.
 
     Args:
@@ -6334,7 +6336,7 @@ pass in to the plugin module.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def posting(self, filename, lineno, account, units, cost, price, istotal, flag):
+          <pre class="highlight"><code class="language-python">def posting(self, filename, lineno, account, units, cost, price, istotal, flag):
     """Process a posting grammar rule.
 
     Args:
@@ -6455,7 +6457,7 @@ pass in to the plugin module.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def price(self, filename, lineno, date, currency, amount, kvlist):
+          <pre class="highlight"><code class="language-python">def price(self, filename, lineno, date, currency, amount, kvlist):
     """Process a price directive.
 
     Args:
@@ -6510,7 +6512,7 @@ pass in to the plugin module.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def pushmeta(self, key, value):
+          <pre class="highlight"><code class="language-python">def pushmeta(self, key, value):
     """Set a metadata field on the current key-value pairs to be added to transactions.
 
     Args:
@@ -6558,7 +6560,7 @@ pass in to the plugin module.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def pushtag(self, tag):
+          <pre class="highlight"><code class="language-python">def pushtag(self, tag):
     """Push a tag on the current set of tags.
 
     Note that this does not need to be stack ordered.
@@ -6628,7 +6630,7 @@ pass in to the plugin module.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def query(self, filename, lineno, date, query_name, query_string, kvlist):
+          <pre class="highlight"><code class="language-python">def query(self, filename, lineno, date, query_name, query_string, kvlist):
     """Process a document directive.
 
     Args:
@@ -6683,7 +6685,7 @@ pass in to the plugin module.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def store_result(self, entries):
+          <pre class="highlight"><code class="language-python">def store_result(self, entries):
     """Start rule stores the final result here.
 
     Args:
@@ -6748,7 +6750,7 @@ pass in to the plugin module.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def tag_link_LINK(self, tags_links, link):
+          <pre class="highlight"><code class="language-python">def tag_link_LINK(self, tags_links, link):
     """Add a link to the TagsLinks accumulator.
 
     Args:
@@ -6816,7 +6818,7 @@ pass in to the plugin module.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def tag_link_STRING(self, tags_links, string):
+          <pre class="highlight"><code class="language-python">def tag_link_STRING(self, tags_links, string):
     """Add a string to the TagsLinks accumulator.
 
     Args:
@@ -6884,7 +6886,7 @@ pass in to the plugin module.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def tag_link_TAG(self, tags_links, tag):
+          <pre class="highlight"><code class="language-python">def tag_link_TAG(self, tags_links, tag):
     """Add a tag to the TagsLinks accumulator.
 
     Args:
@@ -6935,7 +6937,7 @@ pass in to the plugin module.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def tag_link_new(self, _):
+          <pre class="highlight"><code class="language-python">def tag_link_new(self, _):
     """Create a new TagsLinks instance.
 
     Returns:
@@ -7011,7 +7013,7 @@ this transaction, or None, if no postings have been declared.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def transaction(self, filename, lineno, date, flag, txn_strings, tags_links,
+          <pre class="highlight"><code class="language-python">def transaction(self, filename, lineno, date, flag, txn_strings, tags_links,
                 posting_or_kv_list):
     """Process a transaction directive.
 
@@ -7172,7 +7174,7 @@ there was an error.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def unpack_txn_strings(self, txn_strings, meta):
+          <pre class="highlight"><code class="language-python">def unpack_txn_strings(self, txn_strings, meta):
     """Unpack a tags_links accumulator to its payee and narration fields.
 
     Args:
@@ -7263,7 +7265,7 @@ beancount.parser.grammar.CompoundAmount            (<span title="tuple">tuple</s
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -7317,7 +7319,7 @@ beancount.parser.grammar.CompoundAmount            (<span title="tuple">tuple</s
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -7387,7 +7389,7 @@ beancount.parser.grammar.DeprecatedError            (<span title="tuple">tuple</
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -7441,7 +7443,7 @@ beancount.parser.grammar.DeprecatedError            (<span title="tuple">tuple</
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -7511,7 +7513,7 @@ beancount.parser.grammar.KeyValue            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -7565,7 +7567,7 @@ beancount.parser.grammar.KeyValue            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -7635,7 +7637,7 @@ beancount.parser.grammar.ParserError            (<span title="tuple">tuple</span
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -7689,7 +7691,7 @@ beancount.parser.grammar.ParserError            (<span title="tuple">tuple</span
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -7759,7 +7761,7 @@ beancount.parser.grammar.ParserSyntaxError            (<span title="tuple">tuple
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -7813,7 +7815,7 @@ beancount.parser.grammar.ParserSyntaxError            (<span title="tuple">tuple
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -7883,7 +7885,7 @@ beancount.parser.grammar.TagsLinks            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -7937,7 +7939,7 @@ beancount.parser.grammar.TagsLinks            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -8007,7 +8009,7 @@ beancount.parser.grammar.ValueType            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -8061,7 +8063,7 @@ beancount.parser.grammar.ValueType            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -8131,7 +8133,7 @@ beancount.parser.grammar.ValueType            (<span title="tuple">tuple</span>)
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/grammar.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def valid_account_regexp(options):
+          <pre class="highlight"><code class="language-python">def valid_account_regexp(options):
     """Build a regexp to validate account names from the options.
 
     Args:
@@ -8220,7 +8222,7 @@ running directly from source).</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/hashsrc.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def check_parser_source_files():
+          <pre class="highlight"><code class="language-python">def check_parser_source_files():
     """Check the extension module's source hash and issue a warning if the
     current source differs from that of the module.
 
@@ -8282,7 +8284,7 @@ trigger a recompilation.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/hashsrc.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def hash_parser_source_files():
+          <pre class="highlight"><code class="language-python">def hash_parser_source_files():
     """Compute a unique hash of the parser's Python code in order to bake that into
     the extension module. This is used at load-time to verify that the extension
     module and the corresponding Python codes match each other. If not, it
@@ -8447,7 +8449,7 @@ otherwise creates one on-demand.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/lexer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def ACCOUNT(self, account_name):
+          <pre class="highlight"><code class="language-python">def ACCOUNT(self, account_name):
     """Process an ACCOUNT token.
 
     This function attempts to reuse an existing account if one exists,
@@ -8523,7 +8525,7 @@ as the currency name.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/lexer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def CURRENCY(self, currency_name):
+          <pre class="highlight"><code class="language-python">def CURRENCY(self, currency_name):
     """Process a CURRENCY token.
 
     Args:
@@ -8592,7 +8594,7 @@ as the currency name.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/lexer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def DATE(self, year, month, day):
+          <pre class="highlight"><code class="language-python">def DATE(self, year, month, day):
     """Process a DATE token.
 
     Args:
@@ -8660,7 +8662,7 @@ an object.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/lexer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def KEY(self, ident):
+          <pre class="highlight"><code class="language-python">def KEY(self, ident):
     """Process an identifier token.
 
     Args:
@@ -8727,7 +8729,7 @@ an object.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/lexer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def LINK(self, link):
+          <pre class="highlight"><code class="language-python">def LINK(self, link):
     """Process a LINK token.
 
     Args:
@@ -8793,7 +8795,7 @@ an object.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/lexer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def NUMBER(self, number):
+          <pre class="highlight"><code class="language-python">def NUMBER(self, number):
     """Process a NUMBER token. Convert into Decimal.
 
     Args:
@@ -8881,7 +8883,7 @@ do some decoding here.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/lexer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def STRING(self, string):
+          <pre class="highlight"><code class="language-python">def STRING(self, string):
     """Process a STRING token.
 
     Args:
@@ -8958,7 +8960,7 @@ those; keeping it simple.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/lexer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def TAG(self, tag):
+          <pre class="highlight"><code class="language-python">def TAG(self, tag):
     """Process a TAG token.
 
     Args:
@@ -9010,7 +9012,7 @@ those; keeping it simple.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/lexer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def build_lexer_error(self, message, exc_type=None): # {0e31aeca3363}
+          <pre class="highlight"><code class="language-python">def build_lexer_error(self, message, exc_type=None): # {0e31aeca3363}
     """Build a lexer error and appends it to the list of pending errors.
 
     Args:
@@ -9066,7 +9068,7 @@ take into account the options.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/lexer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_invalid_account(self):
+          <pre class="highlight"><code class="language-python">def get_invalid_account(self):
     """Return the name of an invalid account placeholder.
 
     When an account name is not deemed a valid one, replace it by
@@ -9145,7 +9147,7 @@ beancount.parser.lexer.LexerError            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/lexer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -9199,7 +9201,7 @@ beancount.parser.lexer.LexerError            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/lexer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -9259,7 +9261,7 @@ used and discarded (along with its errors).</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/lexer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def lex_iter(file, builder=None, encoding=None):
+          <pre class="highlight"><code class="language-python">def lex_iter(file, builder=None, encoding=None):
     """An iterator that yields all the tokens in the given file.
 
     Args:
@@ -9345,7 +9347,7 @@ used and discarded (along with its errors).</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/lexer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def lex_iter_string(string, builder=None, encoding=None):
+          <pre class="highlight"><code class="language-python">def lex_iter_string(string, builder=None, encoding=None):
     """Parse an input string and print the tokens to an output file.
 
     Args:
@@ -9463,7 +9465,7 @@ beancount.parser.options.OptDesc            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/options.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -9517,7 +9519,7 @@ beancount.parser.options.OptDesc            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/options.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -9587,7 +9589,7 @@ beancount.parser.options.OptGroup            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/options.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -9641,7 +9643,7 @@ beancount.parser.options.OptGroup            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/parser/options.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -9668,7 +9670,7 @@ beancount.parser.options.OptGroup            (<span title="tuple">tuple</span>)
 
 
 <h3 id="beancount.parser.options.Opt" class="doc doc-heading">
-<code class="highlight language-python">beancount.parser.options.Opt(name, default_value, example_value=&lt;object object at 0x7f67b44d4970&gt;, converter=None, deprecated=False, alias=None)</code>
+<code class="highlight language-python">beancount.parser.options.Opt(name, default_value, example_value=&lt;object object at 0x7fad12985f70&gt;, converter=None, deprecated=False, alias=None)</code>
 
 
 <a href="#beancount.parser.options.Opt" class="headerlink" title="Permanent link"></a></h3>
@@ -9716,7 +9718,7 @@ beancount.parser.options.OptGroup            (<span title="tuple">tuple</span>)
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/options.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def Opt(name, default_value,
+          <pre class="highlight"><code class="language-python">def Opt(name, default_value,
         example_value=UNSET,
         converter=None,
         deprecated=False,
@@ -9792,7 +9794,7 @@ beancount.parser.options.OptGroup            (<span title="tuple">tuple</span>)
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/options.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_account_types(options):
+          <pre class="highlight"><code class="language-python">def get_account_types(options):
     """Extract the account type names from the parser's options.
 
     Args:
@@ -9864,7 +9866,7 @@ for current conversions.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/options.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_current_accounts(options):
+          <pre class="highlight"><code class="language-python">def get_current_accounts(options):
     """Return account names for the current earnings and conversion accounts.
 
     Args:
@@ -9937,7 +9939,7 @@ previous balances, and previous conversions.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/options.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_previous_accounts(options):
+          <pre class="highlight"><code class="language-python">def get_previous_accounts(options):
     """Return account names for the previous earnings, balances and conversion accounts.
 
     Args:
@@ -9996,7 +9998,7 @@ previous balances, and previous conversions.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/options.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def list_options():
+          <pre class="highlight"><code class="language-python">def list_options():
     """Produce a formatted text of the available options and their description.
 
     Returns:
@@ -10098,7 +10100,7 @@ previous balances, and previous conversions.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/options.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def options_validate_booking_method(value):
+          <pre class="highlight"><code class="language-python">def options_validate_booking_method(value):
     """Validate a booking method name.
 
     Args:
@@ -10184,7 +10186,7 @@ previous balances, and previous conversions.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/options.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def options_validate_boolean(value):
+          <pre class="highlight"><code class="language-python">def options_validate_boolean(value):
     """Validate a boolean option.
 
     Args:
@@ -10267,7 +10269,7 @@ previous balances, and previous conversions.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/options.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def options_validate_plugin(value):
+          <pre class="highlight"><code class="language-python">def options_validate_plugin(value):
     """Validate the plugin option.
 
     Args:
@@ -10358,7 +10360,7 @@ previous balances, and previous conversions.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/options.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def options_validate_processing_mode(value):
+          <pre class="highlight"><code class="language-python">def options_validate_processing_mode(value):
     """Validate the options processing mode.
 
     Args:
@@ -10443,7 +10445,7 @@ previous balances, and previous conversions.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/options.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def options_validate_tolerance(value):
+          <pre class="highlight"><code class="language-python">def options_validate_tolerance(value):
     """Validate the tolerance option.
 
     Args:
@@ -10526,7 +10528,7 @@ previous balances, and previous conversions.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/options.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def options_validate_tolerance_map(value):
+          <pre class="highlight"><code class="language-python">def options_validate_tolerance_map(value):
     """Validate an option with a map of currency/tolerance pairs in a string.
 
     Args:
@@ -10713,7 +10715,7 @@ corresponding expected values.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def is_entry_incomplete(entry):
+          <pre class="highlight"><code class="language-python">def is_entry_incomplete(entry):
     """Detect the presence of elided amounts in Transactions.
 
     Args:
@@ -10782,7 +10784,7 @@ corresponding expected values.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def is_posting_incomplete(posting):
+          <pre class="highlight"><code class="language-python">def is_posting_incomplete(posting):
     """Detect the presence of any elided amounts in a Posting.
 
     If any of the possible amounts are missing, this returns True.
@@ -10873,7 +10875,7 @@ not to allow it because we want to minimize the features tests depend on.</p></l
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def parse_doc(expect_errors=False, allow_incomplete=False):
+          <pre class="highlight"><code class="language-python">def parse_doc(expect_errors=False, allow_incomplete=False):
     """Factory of decorators that parse the function's docstring as an argument.
 
     Note that the decorators thus generated only run the parser on the tests,
@@ -10996,7 +10998,7 @@ transactions and tree of accounts.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def parse_file(filename, **kw):
+          <pre class="highlight"><code class="language-python">def parse_file(filename, **kw):
     """Parse a beancount input file and return Ledger with the list of
     transactions and tree of accounts.
 
@@ -11086,7 +11088,7 @@ transactions and tree of accounts.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def parse_many(string, level=0):
+          <pre class="highlight"><code class="language-python">def parse_many(string, level=0):
     """Parse a string with a snippet of Beancount input and replace vars from caller.
 
     Args:
@@ -11180,7 +11182,7 @@ transactions and tree of accounts.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def parse_one(string):
+          <pre class="highlight"><code class="language-python">def parse_one(string):
     """Parse a string with single Beancount directive and replace vars from caller.
 
     Args:
@@ -11256,7 +11258,7 @@ whitespace from the front of the text (default is False).</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def parse_string(string, report_filename=None, **kw):
+          <pre class="highlight"><code class="language-python">def parse_string(string, report_filename=None, **kw):
     """Parse a beancount input file and return Ledger with the list of
     transactions and tree of accounts.
 
@@ -11443,7 +11445,7 @@ as a comment, for debugging.</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/printer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __call__(self, obj):
+          <pre class="highlight"><code class="language-python">def __call__(self, obj):
     """Render a directive.
 
     Args:
@@ -11517,7 +11519,7 @@ purpose is to align these in the caller.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/printer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_posting_strings(self, posting):
+          <pre class="highlight"><code class="language-python">def render_posting_strings(self, posting):
     """This renders the three components of a posting: the account and its optional
     posting flag, the position, and finally, the weight of the position. The
     purpose is to align these in the caller.
@@ -11591,7 +11593,7 @@ purpose is to align these in the caller.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/printer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def write_metadata(self, meta, oss, prefix=None):
+          <pre class="highlight"><code class="language-python">def write_metadata(self, meta, oss, prefix=None):
     """Write metadata to the file object, excluding filename and line number.
 
     Args:
@@ -11699,7 +11701,7 @@ be aligned around the column marked with '^':</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/printer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def align_position_strings(strings):
+          <pre class="highlight"><code class="language-python">def align_position_strings(strings):
     """A helper used to align rendered amounts positions to their first currency
     character (an uppercase letter). This class accepts a list of rendered
     positions and calculates the necessary width to render them stacked in a
@@ -11818,7 +11820,7 @@ be aligned around the column marked with '^':</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/printer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def format_entry(entry, dcontext=None, render_weights=False, prefix=None):
+          <pre class="highlight"><code class="language-python">def format_entry(entry, dcontext=None, render_weights=False, prefix=None):
     """Format an entry into a string in the same input syntax the parser accepts.
 
     Args:
@@ -11887,7 +11889,7 @@ list of directive objects.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/printer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def format_error(error):
+          <pre class="highlight"><code class="language-python">def format_error(error):
     """Given an error objects, return a formatted string for it.
 
     Args:
@@ -11949,7 +11951,7 @@ list of directive objects.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/printer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def print_entries(entries, dcontext=None, render_weights=False, file=None, prefix=None):
+          <pre class="highlight"><code class="language-python">def print_entries(entries, dcontext=None, render_weights=False, file=None, prefix=None):
     """A convenience function that prints a list of entries to a file.
 
     Args:
@@ -12021,7 +12023,7 @@ list of directive objects.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/printer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def print_entry(entry, dcontext=None, render_weights=False, file=None):
+          <pre class="highlight"><code class="language-python">def print_entry(entry, dcontext=None, render_weights=False, file=None):
     """A convenience function that prints a single entry to a file.
 
     Args:
@@ -12076,7 +12078,7 @@ list of directive objects.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/printer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def print_error(error, file=None):
+          <pre class="highlight"><code class="language-python">def print_error(error, file=None):
     """A convenience function that prints a single error to a file.
 
     Args:
@@ -12127,7 +12129,7 @@ list of directive objects.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/printer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def print_errors(errors, file=None, prefix=None):
+          <pre class="highlight"><code class="language-python">def print_errors(errors, file=None, prefix=None):
     """A convenience function that prints a list of errors to a file.
 
     Args:
@@ -12198,7 +12200,7 @@ other editors.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/parser/printer.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_source(meta):
+          <pre class="highlight"><code class="language-python">def render_source(meta):
     """Render the source for errors in a way that it will be both detected by
     Emacs and align and rendered nicely.
 

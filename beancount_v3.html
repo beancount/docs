@@ -219,6 +219,8 @@
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="beancount_v3_dependencies.html">Dependencies</a>
                 </li>
+                <li class="toctree-l2"><a class="reference internal" href="beangulp.html">Beangulp</a>
+                </li>
     </ul>
                     </li>
                 </ul>
@@ -298,7 +300,7 @@
 <p><a href="mailto:blais@furius.ca"><span class="underline">Martin Blais</span></a>, July 2020</p>
 <p><a href="http://furius.ca/beancount/doc/v3"><span class="underline">http://furius.ca/beancount/doc/v3</span></a></p>
 <h2 id="motivation">Motivation<a id="motivation"></a><a class="headerlink" href="#motivation" title="Permanent link"></a></h2>
-<p>It's time to give Beancount a refresh and to put down a concrete plan for what the next iteration of it ought to be. I've had these thoughts in the back of my mind for a long while—at least a year—and I'm putting these in writing partly to share a vision of what the product we all use to organize our finances can become, partly to solicit feedback, and partly to organize my thoughts and force myself to prioritize well on the stuff that matters.</p>
+<p>It's time to give Beancount a refresh and to put down a concrete plan for what the next iteration of it ought to be. I've had these thoughts in the back of my mind for a long while—at least a year—and I'm putting these in writing partly to share a vision of what the product we all use to organize our finances can become, partly to solicit feedback, and partly to organize my thoughts and to prioritize well on the stuff that matters.</p>
 <p><strong>Current status.</strong> The current state of Beancount is that development has been static for a while now, for a number of reasons. The software is in a state that's far from perfect (and I'll be enumerating the main problems in this document) but I've been resisting making too many changes in order to provide myself and others a really stable base to work from. More importantly, while I used to be able to spend a significant amount of weekend time on its development, life changes and a focus on my career of late has made it difficult for me to justify or find the extra time (it has been 10 years after all). A multitude of ideas have aged <a href="https://raw.githubusercontent.com/beancount/beancount/master/TODO"><span class="underline">to this TODO file</span></a> but it's too detailed to grok and a bit of a dump, this document should be more useful.</p>
 <p><strong>Why rewrites happen.</strong> When I wrote version 2 of Beancount (a full rewrite of the first version), it was because of a confluence of ideas for improving my first draft; I resisted for a while, but eventually it made so much sense to me that it became simply impossible not to write it. Many of the ideas driving the redesign at the time are still axioms in today's design: removing order dependence, normalizing the syntax to be well-defined with a BNF grammar, converting custom processing to a sequence of plugins off of a simple stream of directives, the current design of booking selection and how cost basis works, and all the directives beyond "Transaction". These ideas largely shape what a lot of people like about using Beancount today.</p>
 <p><strong>Goals.</strong> Now is the time for yet another wave of evolution for Beancount, and similarly, a set of new ideas I'm going to lay down in this document form as potent a change as the v1 to v2 transition. The vision I have for v3 will <em>simplify</em> Beancount, by factoring into simpler, more isolated, more reusable, better defined parts, and not merely by adding new features on top of what's there. In many ways, v3 will be a <em>distillation</em> of the current system. It will also make space to finally implement some of the core features most often desired by users. And those changes will enhance some organizational aspects: allow for more contributions, and also trim down the part that I'm handling myself to less code, so I can more effectively focus on just the core features.</p>
@@ -479,7 +481,7 @@
 </li>
 </ul>
 <blockquote>
-<p>See <a href="https://docs.google.com/document/d/1O42HgYQBQEna6YpobTqszSgTGnbRX7RdjmzR2xumfjs/"><span class="underline">this document</span></a> for details on what's to happen with the ingestion code.</p>
+<p>See <a href="beangulp.html"><span class="underline">this document</span></a> for details on what's to happen with the ingestion code.</p>
 </blockquote>
 <ul>
 <li>
@@ -747,7 +749,7 @@ bn.Transaction(...)
 <p><strong>Rounding.</strong> There is another quantity that's used during interpolation: the precision used to round calculated numbers.</p>
 </li>
 </ul>
-<p>Moreover, there is a need to distinguish between the precision and tolerances for numbers when used as prices vs. when used as units (see <a href="https://github.com/beancount/beancount/blob/master/TODO#complete-display-precision-work"><span class="underline">here</span></a>).</p>
+<p>Moreover, there is a need to distinguish between the precision and tolerances for numbers when used as prices vs. when used as units (see <a href="https://github.com/beancount/beancount/blob/master/TODO#complete-display-precision-work"><span class="underline">here</span></a>). One way is to store the display context per currency PAIR, not per currency itself.</p>
 <p>The distinction between these quantities hasn't been documented well; I'll keep in mind to clearly annotate those codes in v3 and add suitable docs for this. Mostly the precision will be a rendering concern and a quantity that will be relevant for the new universal SQL query tool.</p>
 <p>Some prior design documentation exists <a href="rounding_precision_in_beancount.html"><span class="underline">here</span></a>.</p>
 <h2 id="core-improvements">Core Improvements<a id="core-improvements"></a><a class="headerlink" href="#core-improvements" title="Permanent link"></a></h2>

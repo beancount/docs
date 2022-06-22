@@ -141,6 +141,8 @@
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../beancount_v3_dependencies.html">Dependencies</a>
                 </li>
+                <li class="toctree-l2"><a class="reference internal" href="../beangulp.html">Beangulp</a>
+                </li>
     </ul>
                     </li>
                 </ul>
@@ -727,7 +729,7 @@ list of errors.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/auto_accounts.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def auto_insert_open(entries, unused_options_map):
+          <pre class="highlight"><code class="language-python">def auto_insert_open(entries, unused_options_map):
     """Insert implicitly defined prices from Transactions.
 
     Explicit price entries are simply maintained in the output list. Prices from
@@ -931,7 +933,7 @@ beancount.plugins.book_conversions.BookConversionError            (<span title="
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/book_conversions.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -985,7 +987,7 @@ beancount.plugins.book_conversions.BookConversionError            (<span title="
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/book_conversions.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -1055,7 +1057,7 @@ beancount.plugins.book_conversions.ConfigError            (<span title="tuple">t
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/book_conversions.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -1109,7 +1111,7 @@ beancount.plugins.book_conversions.ConfigError            (<span title="tuple">t
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/book_conversions.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -1183,7 +1185,7 @@ The number is modified in-place, destructively.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/book_conversions.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def augment_inventory(pending_lots, posting, entry, eindex):
+          <pre class="highlight"><code class="language-python">def augment_inventory(pending_lots, posting, entry, eindex):
     """Add the lots from the given posting to the running inventory.
 
     Args:
@@ -1268,7 +1270,7 @@ realized profit/loss.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/book_conversions.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def book_price_conversions(entries, assets_account, income_account):
+          <pre class="highlight"><code class="language-python">def book_price_conversions(entries, assets_account, income_account):
     """Rewrite transactions to insert cost basis according to a booking method.
 
     See module docstring for full details.
@@ -1421,7 +1423,7 @@ realized profit/loss.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/book_conversions.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def book_price_conversions_plugin(entries, options_map, config):
+          <pre class="highlight"><code class="language-python">def book_price_conversions_plugin(entries, options_map, config):
     """Plugin that rewrites transactions to insert cost basis according to a booking method.
 
     See book_price_conversions() for details.
@@ -1510,7 +1512,7 @@ pairs of those postings.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/book_conversions.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def extract_trades(entries):
+          <pre class="highlight"><code class="language-python">def extract_trades(entries):
     """Find all the matching trades from the metadata attached to postings.
 
     This inspects all the postings and pairs them up using the special metadata
@@ -1601,7 +1603,7 @@ pairs of those postings.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/book_conversions.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def is_matching(posting, account):
+          <pre class="highlight"><code class="language-python">def is_matching(posting, account):
     """"Identify if the given posting is one to be booked.
 
     Args:
@@ -1671,7 +1673,7 @@ annotated postings.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/book_conversions.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def link_entries_with_metadata(entries, all_matches):
+          <pre class="highlight"><code class="language-python">def link_entries_with_metadata(entries, all_matches):
     """Modify the entries in-place to add matching links to postings.
 
     Args:
@@ -1732,7 +1734,7 @@ annotated postings.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/book_conversions.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def main():
+          <pre class="highlight"><code class="language-python">def main():
     """Extract trades from metadata-annotated postings and report on them.
     """
     logging.basicConfig(level=logging.INFO, format='%(levelname)-8s: %(message)s')
@@ -1843,7 +1845,7 @@ The number is modified in-place, destructively.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/book_conversions.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def reduce_inventory(pending_lots, posting, eindex):
+          <pre class="highlight"><code class="language-python">def reduce_inventory(pending_lots, posting, eindex):
     """Match a reducing posting against a list of lots (using FIFO order).
 
     Args:
@@ -2010,7 +2012,7 @@ beancount.plugins.check_average_cost.MatchBasisError            (<span title="tu
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/check_average_cost.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -2064,7 +2066,7 @@ beancount.plugins.check_average_cost.MatchBasisError            (<span title="tu
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/check_average_cost.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -2136,7 +2138,7 @@ beancount.plugins.check_average_cost.MatchBasisError            (<span title="tu
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/check_average_cost.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def validate_average_cost(entries, options_map, config_str=None):
+          <pre class="highlight"><code class="language-python">def validate_average_cost(entries, options_map, config_str=None):
     """Check that reducing legs on unbooked postings are near the average cost basis.
 
     Args:
@@ -2311,7 +2313,7 @@ example, this transaction:</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/check_closing.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def check_closing(entries, options_map):
+          <pre class="highlight"><code class="language-python">def check_closing(entries, options_map):
     """Expand 'closing' metadata to a zero balance check.
 
     Args:
@@ -2438,7 +2440,7 @@ beancount.plugins.check_commodity.CheckCommodityError            (<span title="t
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/check_commodity.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -2492,7 +2494,7 @@ beancount.plugins.check_commodity.CheckCommodityError            (<span title="t
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/check_commodity.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -2563,7 +2565,7 @@ beancount.plugins.check_commodity.CheckCommodityError            (<span title="t
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/check_commodity.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def validate_commodity_directives(entries, options_map):
+          <pre class="highlight"><code class="language-python">def validate_commodity_directives(entries, options_map):
     """Find all commodities used and ensure they have a corresponding Commodity directive.
 
     Args:
@@ -2687,7 +2689,7 @@ beancount.plugins.coherent_cost.CoherentCostError            (<span title="tuple
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/coherent_cost.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -2741,7 +2743,7 @@ beancount.plugins.coherent_cost.CoherentCostError            (<span title="tuple
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/coherent_cost.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -2812,7 +2814,7 @@ beancount.plugins.coherent_cost.CoherentCostError            (<span title="tuple
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/coherent_cost.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def validate_coherent_cost(entries, unused_options_map):
+          <pre class="highlight"><code class="language-python">def validate_coherent_cost(entries, unused_options_map):
     """Check that all currencies are either used at cost or not at all, but never both.
 
     Args:
@@ -2948,7 +2950,7 @@ beancount.plugins.commodity_attr.CommodityError            (<span title="tuple">
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/commodity_attr.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -3002,7 +3004,7 @@ beancount.plugins.commodity_attr.CommodityError            (<span title="tuple">
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/commodity_attr.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -3072,7 +3074,7 @@ beancount.plugins.commodity_attr.ConfigError            (<span title="tuple">tup
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/commodity_attr.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -3126,7 +3128,7 @@ beancount.plugins.commodity_attr.ConfigError            (<span title="tuple">tup
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/commodity_attr.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -3198,7 +3200,7 @@ beancount.plugins.commodity_attr.ConfigError            (<span title="tuple">tup
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/commodity_attr.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def validate_commodity_attr(entries, unused_options_map, config_str):
+          <pre class="highlight"><code class="language-python">def validate_commodity_attr(entries, unused_options_map, config_str):
     """Check that all Commodity directives have a valid attribute.
 
     Args:
@@ -3361,7 +3363,7 @@ accounts.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/currency_accounts.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_neutralizing_postings(curmap, base_account, new_accounts):
+          <pre class="highlight"><code class="language-python">def get_neutralizing_postings(curmap, base_account, new_accounts):
     """Process an entry.
 
     Args:
@@ -3434,7 +3436,7 @@ accounts.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/currency_accounts.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def group_postings_by_weight_currency(entry: Transaction):
+          <pre class="highlight"><code class="language-python">def group_postings_by_weight_currency(entry: Transaction):
     """Return where this entry might require adjustment."""
     curmap = collections.defaultdict(list)
     has_price = False
@@ -3509,7 +3511,7 @@ accounts.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/currency_accounts.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def insert_currency_trading_postings(entries, options_map, config):
+          <pre class="highlight"><code class="language-python">def insert_currency_trading_postings(entries, options_map, config):
     """Insert currency trading postings.
 
     Args:
@@ -3668,7 +3670,7 @@ a tag, and an account to replace expenses with.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/divert_expenses.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def divert_expenses(entries, options_map, config_str):
+          <pre class="highlight"><code class="language-python">def divert_expenses(entries, options_map, config_str):
     """Divert expenses.
 
     Explicit price entries are simply maintained in the output list. Prices from
@@ -3758,7 +3760,7 @@ a tag, and an account to replace expenses with.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/divert_expenses.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def replace_diverted_accounts(entry, replacement_account, acctypes):
+          <pre class="highlight"><code class="language-python">def replace_diverted_accounts(entry, replacement_account, acctypes):
     """Replace the Expenses accounts from the entry.
 
     Args:
@@ -3882,7 +3884,7 @@ https://groups.google.com/d/msg/ledger-cli/N8Slh2t45K0/aAz0i3Be4LYJ</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/exclude_tag.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def exclude_tag(entries, options_map):
+          <pre class="highlight"><code class="language-python">def exclude_tag(entries, options_map):
     """Select all transactions that do not have a #virtual tag.
 
     Args:
@@ -3995,7 +3997,7 @@ beancount.plugins.fill_account.FillAccountError            (<span title="tuple">
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/fill_account.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -4049,7 +4051,7 @@ beancount.plugins.fill_account.FillAccountError            (<span title="tuple">
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/fill_account.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -4122,7 +4124,7 @@ list of errors.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/fill_account.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def fill_account(entries, unused_options_map, insert_account):
+          <pre class="highlight"><code class="language-python">def fill_account(entries, unused_options_map, insert_account):
     """Insert an posting with a default account when there is only a single posting.
 
     Args:
@@ -4283,7 +4285,7 @@ beancount.plugins.fix_payees.FixPayeesError            (<span title="tuple">tupl
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/fix_payees.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -4337,7 +4339,7 @@ beancount.plugins.fix_payees.FixPayeesError            (<span title="tuple">tupl
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/fix_payees.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -4410,7 +4412,7 @@ beancount.plugins.fix_payees.FixPayeesError            (<span title="tuple">tupl
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/fix_payees.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def fix_payees(entries, options_map, config):
+          <pre class="highlight"><code class="language-python">def fix_payees(entries, options_map, config):
     """Rename payees based on a set of rules. See module docstring for details.
 
     Args:
@@ -4625,7 +4627,7 @@ value of beancount.loader.load_file() and must return the same type of output.</
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/forecast.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def forecast_plugin(entries, options_map):
+          <pre class="highlight"><code class="language-python">def forecast_plugin(entries, options_map):
     """An example filter that piggybacks on top of the Beancount input syntax to
     insert forecast entries automatically. This functions accepts the return
     value of beancount.loader.load_file() and must return the same type of output.
@@ -4790,7 +4792,7 @@ beancount.plugins.implicit_prices.ImplicitPriceError            (<span title="tu
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/implicit_prices.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -4844,7 +4846,7 @@ beancount.plugins.implicit_prices.ImplicitPriceError            (<span title="tu
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/implicit_prices.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -4919,7 +4921,7 @@ list of errors.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/implicit_prices.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def add_implicit_prices(entries, unused_options_map):
+          <pre class="highlight"><code class="language-python">def add_implicit_prices(entries, unused_options_map):
     """Insert implicitly defined prices from Transactions.
 
     Explicit price entries are simply maintained in the output list. Prices from
@@ -5186,7 +5188,7 @@ account names.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/ira_contribs.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def add_ira_contribs(entries, options_map, config_str):
+          <pre class="highlight"><code class="language-python">def add_ira_contribs(entries, options_map, config_str):
     """Add legs for 401k employer match contributions.
 
     See module docstring for an example configuration.
@@ -5324,7 +5326,7 @@ account names.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/ira_contribs.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def add_postings(entry, amount_, neg_account, pos_account, flag):
+          <pre class="highlight"><code class="language-python">def add_postings(entry, amount_, neg_account, pos_account, flag):
     """Insert positive and negative postings of a position in an entry.
 
     Args:
@@ -5441,7 +5443,7 @@ beancount.plugins.leafonly.LeafOnlyError            (<span title="tuple">tuple</
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/leafonly.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -5495,7 +5497,7 @@ beancount.plugins.leafonly.LeafOnlyError            (<span title="tuple">tuple</
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/leafonly.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -5566,7 +5568,7 @@ beancount.plugins.leafonly.LeafOnlyError            (<span title="tuple">tuple</
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/leafonly.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def validate_leaf_only(entries, unused_options_map):
+          <pre class="highlight"><code class="language-python">def validate_leaf_only(entries, unused_options_map):
     """Check for non-leaf accounts that have postings on them.
 
     Args:
@@ -5706,7 +5708,7 @@ at the end, and a list of errors. The new list of entries is still sorted.</p></
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/mark_unverified.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def mark_unverified(entries, options_map):
+          <pre class="highlight"><code class="language-python">def mark_unverified(entries, options_map):
     """Add metadata to postings after the last Balance entry. See module doc.
 
     Args:
@@ -5853,7 +5855,7 @@ in the main file overwrites it (external data wins).</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/merge_meta.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def merge_meta(entries, options_map, config):
+          <pre class="highlight"><code class="language-python">def merge_meta(entries, options_map, config):
     """Load a secondary file and merge its metadata in our given set of entries.
 
     Args:
@@ -5991,7 +5993,7 @@ in the main file overwrites it (external data wins).</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/noduplicates.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def validate_no_duplicates(entries, unused_options_map):
+          <pre class="highlight"><code class="language-python">def validate_no_duplicates(entries, unused_options_map):
     """Check that the entries are unique, by computing hashes.
 
     Args:
@@ -6098,7 +6100,7 @@ beancount.plugins.nounused.UnusedAccountError            (<span title="tuple">tu
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/nounused.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -6152,7 +6154,7 @@ beancount.plugins.nounused.UnusedAccountError            (<span title="tuple">tu
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/nounused.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -6232,7 +6234,7 @@ plugin.)</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/nounused.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def validate_unused_accounts(entries, unused_options_map):
+          <pre class="highlight"><code class="language-python">def validate_unused_accounts(entries, unused_options_map):
     """Check that all accounts declared open are actually used.
 
     We check that all of the accounts that are open are at least referred to by
@@ -6384,7 +6386,7 @@ beancount.plugins.onecommodity.OneCommodityError            (<span title="tuple"
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/onecommodity.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -6438,7 +6440,7 @@ beancount.plugins.onecommodity.OneCommodityError            (<span title="tuple"
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/onecommodity.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -6515,7 +6517,7 @@ against the subset of accounts to check.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/onecommodity.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def validate_one_commodity(entries, unused_options_map, config=None):
+          <pre class="highlight"><code class="language-python">def validate_one_commodity(entries, unused_options_map, config=None):
     """Check that each account has units in only a single commodity.
 
     This is an extra constraint that you may want to apply optionally, despite
@@ -6789,7 +6791,7 @@ beancount.plugins.sellgains.SellGainsError            (<span title="tuple">tuple
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/sellgains.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -6843,7 +6845,7 @@ beancount.plugins.sellgains.SellGainsError            (<span title="tuple">tuple
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/sellgains.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -6914,7 +6916,7 @@ beancount.plugins.sellgains.SellGainsError            (<span title="tuple">tuple
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/sellgains.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def validate_sell_gains(entries, options_map):
+          <pre class="highlight"><code class="language-python">def validate_sell_gains(entries, options_map):
     """Check the sum of asset account totals for lots sold with a price on them.
 
     Args:
@@ -7118,7 +7120,7 @@ account names.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/split_expenses.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_participants(filename, options_map):
+          <pre class="highlight"><code class="language-python">def get_participants(filename, options_map):
     """Get the list of participants from the plugin configuration in the input file.
 
     Args:
@@ -7163,7 +7165,7 @@ between each other.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/split_expenses.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def main():
+          <pre class="highlight"><code class="language-python">def main():
     """Generate final reports for a shared expenses on a trip or project.
 
     For each of many participants, generate a detailed list of expenses,
@@ -7302,7 +7304,7 @@ currency: An optional currency (a string). If you use this, you should
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/split_expenses.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def save_query(title, participant, entries, options_map, sql_query, *format_args,
+          <pre class="highlight"><code class="language-python">def save_query(title, participant, entries, options_map, sql_query, *format_args,
                boxed=True, spaced=False, args=None):
     """Save the multiple files for this query.
 
@@ -7432,7 +7434,7 @@ postings with smaller amounts.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/split_expenses.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def split_expenses(entries, options_map, config):
+          <pre class="highlight"><code class="language-python">def split_expenses(entries, options_map, config):
     """Split postings according to expenses (see module docstring for details).
 
     Args:
@@ -7633,7 +7635,7 @@ produce a listing of them.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/tag_pending.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def tag_pending_plugin(entries, options_map):
+          <pre class="highlight"><code class="language-python">def tag_pending_plugin(entries, options_map):
     """A plugin that finds and tags pending transactions.
 
     Args:
@@ -7704,7 +7706,7 @@ of entries is found not to match</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/tag_pending.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def tag_pending_transactions(entries, tag_name='PENDING'):
+          <pre class="highlight"><code class="language-python">def tag_pending_transactions(entries, tag_name='PENDING'):
     """Filter out incomplete linked transactions to a transfer account.
 
     Given a list of entries, group the entries by their link and compute the
@@ -7852,7 +7854,7 @@ beancount.plugins.unique_prices.UniquePricesError            (<span title="tuple
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/unique_prices.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -7906,7 +7908,7 @@ beancount.plugins.unique_prices.UniquePricesError            (<span title="tuple
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/unique_prices.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -7977,7 +7979,7 @@ beancount.plugins.unique_prices.UniquePricesError            (<span title="tuple
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/unique_prices.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def validate_unique_prices(entries, unused_options_map):
+          <pre class="highlight"><code class="language-python">def validate_unique_prices(entries, unused_options_map):
     """Check that there is only a single price per day for a particular base/quote.
 
     Args:
@@ -8113,7 +8115,7 @@ beancount.plugins.unrealized.UnrealizedError            (<span title="tuple">tup
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/unrealized.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -8167,7 +8169,7 @@ beancount.plugins.unrealized.UnrealizedError            (<span title="tuple">tup
 
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/unrealized.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -8247,7 +8249,7 @@ at the end, and a list of errors. The new list of entries is still sorted.</p></
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/unrealized.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def add_unrealized_gains(entries, options_map, subaccount=None):
+          <pre class="highlight"><code class="language-python">def add_unrealized_gains(entries, options_map, subaccount=None):
     """Insert entries for unrealized capital gains.
 
     This function inserts entries that represent unrealized gains, at the end of
@@ -8447,7 +8449,7 @@ at the end, and a list of errors. The new list of entries is still sorted.</p></
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/plugins/unrealized.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_unrealized_entries(entries):
+          <pre class="highlight"><code class="language-python">def get_unrealized_entries(entries):
     """Return entries automatically created for unrealized gains.
 
     Args:

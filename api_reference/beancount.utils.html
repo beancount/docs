@@ -141,6 +141,8 @@
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../beancount_v3_dependencies.html">Dependencies</a>
                 </li>
+                <li class="toctree-l2"><a class="reference internal" href="../beangulp.html">Beangulp</a>
+                </li>
     </ul>
                     </li>
                 </ul>
@@ -620,7 +622,7 @@ sequence.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/bisect_key.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def bisect_left_with_key(sequence, value, key=None):
+          <pre class="highlight"><code class="language-python">def bisect_left_with_key(sequence, value, key=None):
     """Find the last element before the given value in a sorted list.
 
     Args:
@@ -705,7 +707,7 @@ sequence.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/bisect_key.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def bisect_right_with_key(a, x, key, lo=0, hi=None):
+          <pre class="highlight"><code class="language-python">def bisect_right_with_key(a, x, key, lo=0, hi=None):
     """Like bisect.bisect_right, but with a key lookup parameter.
 
     Args:
@@ -824,7 +826,7 @@ sequence.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/csv_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def as_rows(string):
+          <pre class="highlight"><code class="language-python">def as_rows(string):
     """Split a string as rows of a CSV file.
 
     Args:
@@ -891,7 +893,7 @@ same lengths.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/csv_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def csv_clean_header(header_row):
+          <pre class="highlight"><code class="language-python">def csv_clean_header(header_row):
     """Create a new class for the following rows from the header line.
     This both normalizes the header line and assign
 
@@ -972,7 +974,7 @@ normalized the field names.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/csv_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def csv_dict_reader(fileobj, **kw):
+          <pre class="highlight"><code class="language-python">def csv_dict_reader(fileobj, **kw):
     """Read a CSV file yielding normalized dictionary fields.
 
     This is basically an alternative constructor for csv.DictReader that
@@ -1044,7 +1046,7 @@ This is useful for structured CSV files with multiple sections.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/csv_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def csv_split_sections(rows):
+          <pre class="highlight"><code class="language-python">def csv_split_sections(rows):
     """Given rows, split them in at empty lines.
     This is useful for structured CSV files with multiple sections.
 
@@ -1124,7 +1126,7 @@ a title. We use this to separate the multiple tables within the CSV files.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/csv_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def csv_split_sections_with_titles(rows):
+          <pre class="highlight"><code class="language-python">def csv_split_sections_with_titles(rows):
     """Given a list of rows, split their sections. If the sections have single
     column titles, consume those lines as their names and return a mapping of
     section names.
@@ -1194,7 +1196,7 @@ header line.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/csv_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def csv_tuple_reader(fileobj, **kw):
+          <pre class="highlight"><code class="language-python">def csv_tuple_reader(fileobj, **kw):
     """Read a CSV file yielding namedtuple instances. The CSV file must have a
     header line.
 
@@ -1262,7 +1264,7 @@ section to be begun.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/csv_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def iter_sections(fileobj, separating_predicate=None):
+          <pre class="highlight"><code class="language-python">def iter_sections(fileobj, separating_predicate=None):
     """For a given file object, yield file-like objects for each of the sections
     contained therein. A section is defined as a list of lines that don't match
     the predicate. For example, if you want to split by empty lines, provide a
@@ -1330,7 +1332,7 @@ section to be begun.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/csv_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def iter_until_empty(iterator, separating_predicate=None):
+          <pre class="highlight"><code class="language-python">def iter_until_empty(iterator, separating_predicate=None):
     """An iterator of lines that will stop at the first empty line.
 
     Args:
@@ -1442,7 +1444,7 @@ section to be begun.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/date_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@contextlib.contextmanager
+          <pre class="highlight"><code class="language-python">@contextlib.contextmanager
 def intimezone(tz_value: str):
     """Temporarily reset the value of TZ.
 
@@ -1507,7 +1509,7 @@ def intimezone(tz_value: str):
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/date_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def iter_dates(start_date, end_date):
+          <pre class="highlight"><code class="language-python">def iter_dates(start_date, end_date):
     """Yield all the dates between 'start_date' and 'end_date'.
 
     Args:
@@ -1577,7 +1579,7 @@ def intimezone(tz_value: str):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/date_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def next_month(date):
+          <pre class="highlight"><code class="language-python">def next_month(date):
     """Compute the date at the beginning of the following month from the given date.
 
     Args:
@@ -1651,7 +1653,7 @@ in accepting user-specified dates on command-line scripts.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/date_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def parse_date_liberally(string, parse_kwargs_dict=None):
+          <pre class="highlight"><code class="language-python">def parse_date_liberally(string, parse_kwargs_dict=None):
     """Parse arbitrary strings to dates.
 
     This function is intended to support liberal inputs, so that we can use it
@@ -1723,7 +1725,7 @@ in accepting user-specified dates on command-line scripts.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/date_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render_ofx_date(dtime):
+          <pre class="highlight"><code class="language-python">def render_ofx_date(dtime):
     """Render a datetime to the OFX format.
 
     Args:
@@ -1881,7 +1883,7 @@ set method is make unavailable to prevent mutation beyond construction.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/defdict.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __setitem__(self, key, value):
+          <pre class="highlight"><code class="language-python">def __setitem__(self, key, value):
     """Disallow mutating the dict in the usual way."""
     raise NotImplementedError
 </code></pre>
@@ -1909,7 +1911,7 @@ set method is make unavailable to prevent mutation beyond construction.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/defdict.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get(self, key, _=None):
+          <pre class="highlight"><code class="language-python">def get(self, key, _=None):
     return self.__getitem__(key)
 </code></pre>
         </details>
@@ -2017,7 +2019,7 @@ set method is make unavailable to prevent mutation beyond construction.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/encryption.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def is_encrypted_file(filename):
+          <pre class="highlight"><code class="language-python">def is_encrypted_file(filename):
     """Return true if the given filename contains an encrypted file.
 
     Args:
@@ -2058,7 +2060,7 @@ set method is make unavailable to prevent mutation beyond construction.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/encryption.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def is_gpg_installed():
+          <pre class="highlight"><code class="language-python">def is_gpg_installed():
     """Return true if GPG 1.4.x or 2.x are installed, which is what we use and support."""
     try:
         pipe = subprocess.Popen(['gpg', '--version'], shell=0,
@@ -2140,7 +2142,7 @@ set method is make unavailable to prevent mutation beyond construction.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/encryption.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def read_encrypted_file(filename):
+          <pre class="highlight"><code class="language-python">def read_encrypted_file(filename):
     """Decrypt and read an encrypted file without temporary storage.
 
     Args:
@@ -2264,7 +2266,7 @@ set method is make unavailable to prevent mutation beyond construction.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/file_type.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def guess_file_type(filename):
+          <pre class="highlight"><code class="language-python">def guess_file_type(filename):
     """Attempt to guess the type of the input file.
 
     Args:
@@ -2387,7 +2389,7 @@ set method is make unavailable to prevent mutation beyond construction.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/file_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@contextlib.contextmanager
+          <pre class="highlight"><code class="language-python">@contextlib.contextmanager
 def chdir(directory):
     """Temporarily chdir to the given directory.
 
@@ -2446,7 +2448,7 @@ def chdir(directory):
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/file_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def find_files(fords,
+          <pre class="highlight"><code class="language-python">def find_files(fords,
                ignore_dirs=('.hg', '.svn', '.git'),
                ignore_files=('.DS_Store',)):
     """Enumerate the files under the given directories, stably.
@@ -2530,7 +2532,7 @@ def chdir(directory):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/file_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def guess_file_format(filename, default=None):
+          <pre class="highlight"><code class="language-python">def guess_file_format(filename, default=None):
     """Guess the file format from the filename.
 
     Args:
@@ -2606,7 +2608,7 @@ def chdir(directory):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/file_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def path_greedy_split(filename):
+          <pre class="highlight"><code class="language-python">def path_greedy_split(filename):
     """Split a path, returning the longest possible extension.
 
     Args:
@@ -2663,7 +2665,7 @@ def chdir(directory):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/file_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def touch_file(filename, *otherfiles):
+          <pre class="highlight"><code class="language-python">def touch_file(filename, *otherfiles):
     """Touch a file and wait until its timestamp has been changed.
 
     Args:
@@ -2795,7 +2797,7 @@ def chdir(directory):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/import_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def import_symbol(dotted_name):
+          <pre class="highlight"><code class="language-python">def import_symbol(dotted_name):
     """Import a symbol in an arbitrary module.
 
     Args:
@@ -2905,7 +2907,7 @@ checker functions.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/invariants.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def instrument_invariants(klass, prefun, postfun):
+          <pre class="highlight"><code class="language-python">def instrument_invariants(klass, prefun, postfun):
     """Instrument the class 'klass' with pre/post invariant
     checker functions.
 
@@ -2982,7 +2984,7 @@ checker functions.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/invariants.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def invariant_check(method, prefun, postfun):
+          <pre class="highlight"><code class="language-python">def invariant_check(method, prefun, postfun):
     """Decorate a method with the pre/post invariant checkers.
 
     Args:
@@ -3043,7 +3045,7 @@ checker functions.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/invariants.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def uninstrument_invariants(klass):
+          <pre class="highlight"><code class="language-python">def uninstrument_invariants(klass):
     """Undo the instrumentation for invariants.
 
     Args:
@@ -3153,7 +3155,7 @@ checker functions.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/memo.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def memoize_recent_fileobj(function, cache_filename, expiration=None):
+          <pre class="highlight"><code class="language-python">def memoize_recent_fileobj(function, cache_filename, expiration=None):
     """Memoize recent calls to the given function which returns a file object.
 
     The results of the cache expire after some time.
@@ -3218,7 +3220,7 @@ checker functions.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/memo.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def now():
+          <pre class="highlight"><code class="language-python">def now():
     "Indirection on datetime.datetime.now() for testing."
     return datetime.datetime.now()
 </code></pre>
@@ -3336,7 +3338,7 @@ lines.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __init__(self, line_writer, prefix=None, write_newlines=False):
+          <pre class="highlight"><code class="language-python">def __init__(self, line_writer, prefix=None, write_newlines=False):
     """Construct a new line delegator file object proxy.
 
     Args:
@@ -3372,7 +3374,7 @@ lines.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def close(self):
+          <pre class="highlight"><code class="language-python">def close(self):
     """Close the line delegator."""
     self.flush()
 </code></pre>
@@ -3399,7 +3401,7 @@ lines.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def flush(self):
+          <pre class="highlight"><code class="language-python">def flush(self):
     """Flush the data to the line writer."""
     data = ''.join(self.data)
     if data:
@@ -3451,7 +3453,7 @@ lines.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def write(self, data):
+          <pre class="highlight"><code class="language-python">def write(self, data):
     """Write some string data to the output.
 
     Args:
@@ -3558,7 +3560,7 @@ This is useful for printing out stuff from tests in a way that is readable.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@contextlib.contextmanager
+          <pre class="highlight"><code class="language-python">@contextlib.contextmanager
 def box(name=None, file=None):
     """A context manager that prints out a box around a block.
     This is useful for printing out stuff from tests in a way that is readable.
@@ -3645,7 +3647,7 @@ tuples with same contents.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def cmptuple(name, attributes):
+          <pre class="highlight"><code class="language-python">def cmptuple(name, attributes):
     """Manufacture a comparable namedtuple class, similar to collections.namedtuple.
 
     A comparable named tuple is a tuple which compares to False if contents are
@@ -3721,7 +3723,7 @@ of (id, string) for the result.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def compute_unique_clean_ids(strings):
+          <pre class="highlight"><code class="language-python">def compute_unique_clean_ids(strings):
     """Given a sequence of strings, reduce them to corresponding ids without any
     funny characters and insure that the list of ids is unique. Yields pairs
     of (id, string) for the result.
@@ -3775,7 +3777,7 @@ of (id, string) for the result.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def deprecated(message):
+          <pre class="highlight"><code class="language-python">def deprecated(message):
     """A decorator generator to mark functions as deprecated and log a warning."""
     def decorator(func):
         @functools.wraps(func)
@@ -3829,7 +3831,7 @@ of (id, string) for the result.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def dictmap(mdict, keyfun=None, valfun=None):
+          <pre class="highlight"><code class="language-python">def dictmap(mdict, keyfun=None, valfun=None):
     """Map a dictionary's value.
 
     Args:
@@ -3884,7 +3886,7 @@ of (id, string) for the result.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def escape_string(string):
+          <pre class="highlight"><code class="language-python">def escape_string(string):
     """Escape quotes and backslashes in payee and narration.
 
     Args:
@@ -3937,7 +3939,7 @@ of (id, string) for the result.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def filter_type(elist, types):
+          <pre class="highlight"><code class="language-python">def filter_type(elist, types):
     """Filter the given list to yield only instances of the given types.
 
     Args:
@@ -4007,7 +4009,7 @@ The sentence has to be delimited by an empty line.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def first_paragraph(docstring):
+          <pre class="highlight"><code class="language-python">def first_paragraph(docstring):
     """Return the first sentence of a docstring.
     The sentence has to be delimited by an empty line.
 
@@ -4063,7 +4065,7 @@ Return 0 if the terminal cannot be initialized.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_screen_height():
+          <pre class="highlight"><code class="language-python">def get_screen_height():
     """Return the height of the terminal that runs this program.
 
     Returns:
@@ -4112,7 +4114,7 @@ Return 0 if the terminal cannot be initialized.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_screen_width():
+          <pre class="highlight"><code class="language-python">def get_screen_width():
     """Return the width of the terminal that runs this program.
 
     Returns:
@@ -4168,7 +4170,7 @@ recursion will be avoided.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_tuple_values(ntuple, predicate, memo=None):
+          <pre class="highlight"><code class="language-python">def get_tuple_values(ntuple, predicate, memo=None):
     """Return all members referred to by this namedtuple instance that satisfy the
     given predicate. This function also works recursively on its members which
     are lists or tuples, and so it can be used for Transaction instances.
@@ -4255,7 +4257,7 @@ function 'keyfun'.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def groupby(keyfun, elements):
+          <pre class="highlight"><code class="language-python">def groupby(keyfun, elements):
     """Group the elements as a dict of lists, where the key is computed using the
     function 'keyfun'.
 
@@ -4328,7 +4330,7 @@ function 'keyfun'.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def idify(string):
+          <pre class="highlight"><code class="language-python">def idify(string):
     """Replace characters objectionable for a filename with underscores.
 
     Args:
@@ -4398,7 +4400,7 @@ function 'keyfun'.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def import_curses():
+          <pre class="highlight"><code class="language-python">def import_curses():
     """Try to import the 'curses' module.
     (This is used here in order to override for tests.)
 
@@ -4428,7 +4430,7 @@ function 'keyfun'.</p>
 
 
 <h3 id="beancount.utils.misc_utils.is_sorted" class="doc doc-heading">
-<code class="highlight language-python">beancount.utils.misc_utils.is_sorted(iterable, key=&lt;function &lt;lambda&gt; at 0x7f67b46ae310&gt;, cmp=&lt;function &lt;lambda&gt; at 0x7f67b46ae3a0&gt;)</code>
+<code class="highlight language-python">beancount.utils.misc_utils.is_sorted(iterable, key=&lt;function &lt;lambda&gt; at 0x7fad11ec0550&gt;, cmp=&lt;function &lt;lambda&gt; at 0x7fad11ec05e0&gt;)</code>
 
 
 <a href="#beancount.utils.misc_utils.is_sorted" class="headerlink" title="Permanent link"></a></h3>
@@ -4473,7 +4475,7 @@ function 'keyfun'.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def is_sorted(iterable, key=lambda x: x, cmp=lambda x, y: x &lt;= y):
+          <pre class="highlight"><code class="language-python">def is_sorted(iterable, key=lambda x: x, cmp=lambda x, y: x &lt;= y):
     """Return true if the sequence is sorted.
 
     Args:
@@ -4537,7 +4539,7 @@ operations.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@contextlib.contextmanager
+          <pre class="highlight"><code class="language-python">@contextlib.contextmanager
 def log_time(operation_name, log_timings, indent=0):
     """A context manager that times the block and logs it to info level.
 
@@ -4613,7 +4615,7 @@ def log_time(operation_name, log_timings, indent=0):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def longest(seq):
+          <pre class="highlight"><code class="language-python">def longest(seq):
     """Return the longest of the given subsequences.
 
     Args:
@@ -4687,7 +4689,7 @@ mapper.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def map_namedtuple_attributes(attributes, mapper, object_):
+          <pre class="highlight"><code class="language-python">def map_namedtuple_attributes(attributes, mapper, object_):
     """Map the value of the named attributes of object by mapper.
 
     Args:
@@ -4750,7 +4752,7 @@ recursion will be avoided.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def replace_namedtuple_values(ntuple, predicate, mapper, memo=None):
+          <pre class="highlight"><code class="language-python">def replace_namedtuple_values(ntuple, predicate, mapper, memo=None):
     """Recurse through all the members of namedtuples and lists, and for
     members that match the given predicate, run them through the given mapper.
 
@@ -4831,7 +4833,7 @@ recursion will be avoided.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def skipiter(iterable, num_skip):
+          <pre class="highlight"><code class="language-python">def skipiter(iterable, num_skip):
     """Skip some elements from an iterator.
 
     Args:
@@ -4904,7 +4906,7 @@ Otherwise keep the first.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def sorted_uniquify(iterable, keyfunc=None, last=False):
+          <pre class="highlight"><code class="language-python">def sorted_uniquify(iterable, keyfunc=None, last=False):
     """Given a sequence of elements, sort and remove duplicates of the given key.
     Keep either the first or the last (by key) element of a sequence of
     key-identical elements. This does _not_ maintain the ordering of the
@@ -4998,7 +5000,7 @@ Otherwise keep the first.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def staticvar(varname, initial_value):
+          <pre class="highlight"><code class="language-python">def staticvar(varname, initial_value):
     """Returns a decorator that defines a Python function attribute.
 
     This is used to simulate a static function variable in Python.
@@ -5055,7 +5057,7 @@ Otherwise keep the first.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@contextlib.contextmanager
+          <pre class="highlight"><code class="language-python">@contextlib.contextmanager
 def swallow(*exception_types):
     """Catch and ignore certain exceptions.
 
@@ -5120,7 +5122,7 @@ Otherwise keep the first.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/misc_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def uniquify(iterable, keyfunc=None, last=False):
+          <pre class="highlight"><code class="language-python">def uniquify(iterable, keyfunc=None, last=False):
     """Given a sequence of elements, remove duplicates of the given key. Keep either
     the first or the last element of a sequence of key-identical elements. Order
     is maintained as much as possible. This does maintain the ordering of the
@@ -5252,7 +5254,7 @@ error.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/net_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def retrying_urlopen(url, timeout=5, max_retry=5):
+          <pre class="highlight"><code class="language-python">def retrying_urlopen(url, timeout=5, max_retry=5):
     """Open and download the given URL, retrying if it times out.
 
     Args:
@@ -5381,7 +5383,7 @@ lines has been printed to it.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/pager.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __enter__(self):
+          <pre class="highlight"><code class="language-python">def __enter__(self):
     """Initialize the context manager and return this instance as it."""
 
     # The file and pipe object we're writing to. This gets set after the
@@ -5443,7 +5445,7 @@ lines has been printed to it.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/pager.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __exit__(self, type, value, unused_traceback):
+          <pre class="highlight"><code class="language-python">def __exit__(self, type, value, unused_traceback):
     """Context manager exit. This flushes the output to our output file.
 
     Args:
@@ -5521,7 +5523,7 @@ fine behavior too).</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/pager.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __init__(self, command, minlines=None):
+          <pre class="highlight"><code class="language-python">def __init__(self, command, minlines=None):
     """Create a conditional pager.
 
     Args:
@@ -5577,7 +5579,7 @@ This also disabled the accumulator.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/pager.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def flush_accumulated(self, file):
+          <pre class="highlight"><code class="language-python">def flush_accumulated(self, file):
     """Flush the existing lines to the newly created pager.
     This also disabled the accumulator.
 
@@ -5630,7 +5632,7 @@ This also disabled the accumulator.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/pager.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def write(self, data):
+          <pre class="highlight"><code class="language-python">def write(self, data):
     """Write the data out. Overridden from the file object interface.
 
     Args:
@@ -5723,7 +5725,7 @@ to wait on. The pipe instance may be set to None if we failed to create a subpro
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/pager.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def create_pager(command, file):
+          <pre class="highlight"><code class="language-python">def create_pager(command, file):
     """Try to create and return a pager subprocess.
 
     Args:
@@ -5806,7 +5808,7 @@ pager class as above.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/pager.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@contextlib.contextmanager
+          <pre class="highlight"><code class="language-python">@contextlib.contextmanager
 def flush_only(fileobj):
     """A contextmanager around a file object that does not close the file.
 
@@ -5920,7 +5922,7 @@ corresponding expanded ranges.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/regexp_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def re_replace_unicode(regexp):
+          <pre class="highlight"><code class="language-python">def re_replace_unicode(regexp):
     """Substitute Unicode Properties in regular expressions with their
     corresponding expanded ranges.
 
@@ -6090,7 +6092,7 @@ a function call.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/snoop.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __call__(self, value):
+          <pre class="highlight"><code class="language-python">def __call__(self, value):
     """Save a value to the snooper. This is meant to wrap
     a function call.
 
@@ -6162,7 +6164,7 @@ a function call.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/snoop.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getattr__(self, attr):
+          <pre class="highlight"><code class="language-python">def __getattr__(self, attr):
     """Forward the attribute to the value.
 
     Args:
@@ -6214,7 +6216,7 @@ a function call.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/snoop.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __init__(self, maxlen=None):
+          <pre class="highlight"><code class="language-python">def __init__(self, maxlen=None):
     """Create a new snooper.
 
     Args:
@@ -6266,7 +6268,7 @@ decorate it like this:</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/snoop.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def snoopify(function):
+          <pre class="highlight"><code class="language-python">def snoopify(function):
     """Decorate a function as snoopable.
 
     This is meant to reassign existing functions to a snoopable version of them.
@@ -6381,7 +6383,7 @@ beancount.utils.test_utils.RCall            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/test_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -6435,7 +6437,7 @@ beancount.utils.test_utils.RCall            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/test_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -6535,7 +6537,7 @@ beancount.utils.test_utils.TestCase            (<span title="unittest.case.TestC
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/test_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def assertLines(self, text1, text2, message=None):
+          <pre class="highlight"><code class="language-python">def assertLines(self, text1, text2, message=None):
     """Compare the lines of text1 and text2, ignoring whitespace.
 
     Args:
@@ -6611,7 +6613,7 @@ beancount.utils.test_utils.TestCase            (<span title="unittest.case.TestC
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/test_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@contextlib.contextmanager
+          <pre class="highlight"><code class="language-python">@contextlib.contextmanager
 def assertOutput(self, expected_text):
     """Expect text printed to stdout.
 
@@ -6692,7 +6694,7 @@ including the script name.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/test_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def call_command(command):
+          <pre class="highlight"><code class="language-python">def call_command(command):
     """Run the script with a subprocess.
 
     Args:
@@ -6750,7 +6752,7 @@ with StringIO instances.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/test_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def capture(*attributes):
+          <pre class="highlight"><code class="language-python">def capture(*attributes):
     """A context manager that captures what's printed to stdout.
 
     Args:
@@ -6810,7 +6812,7 @@ directory name.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/test_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def create_temporary_files(root, contents_map):
+          <pre class="highlight"><code class="language-python">def create_temporary_files(root, contents_map):
     """Create a number of temporary files under 'root'.
 
     This routine is used to initialize the contents of multiple files under a
@@ -6890,7 +6892,7 @@ useful for writing tests.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/test_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def docfile(function, **kwargs):
+          <pre class="highlight"><code class="language-python">def docfile(function, **kwargs):
     """A decorator that write the function's docstring to a temporary file
     and calls the decorated function with the temporary filename.  This is
     useful for writing tests.
@@ -6955,7 +6957,7 @@ Kwargs:
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/test_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def docfile_extra(**kwargs):
+          <pre class="highlight"><code class="language-python">def docfile_extra(**kwargs):
     """
     A decorator identical to @docfile,
     but it also takes kwargs for the temporary file,
@@ -7006,7 +7008,7 @@ Kwargs:
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/test_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@contextlib.contextmanager
+          <pre class="highlight"><code class="language-python">@contextlib.contextmanager
 def environ(varname, newvalue):
     """A context manager which pushes varname's value and restores it later.
 
@@ -7061,7 +7063,7 @@ def environ(varname, newvalue):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/test_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def find_python_lib():
+          <pre class="highlight"><code class="language-python">def find_python_lib():
     """Return the path to the root of the Python libraries.
 
     Returns:
@@ -7124,7 +7126,7 @@ def environ(varname, newvalue):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/test_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def find_repository_root(filename=None):
+          <pre class="highlight"><code class="language-python">def find_repository_root(filename=None):
     """Return the path to the repository root.
 
     Args:
@@ -7206,7 +7208,7 @@ def environ(varname, newvalue):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/test_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def make_failing_importer(*removed_module_names):
+          <pre class="highlight"><code class="language-python">def make_failing_importer(*removed_module_names):
     """Make an importer that raise an ImportError for some modules.
 
     Use it like this:
@@ -7248,7 +7250,7 @@ def environ(varname, newvalue):
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/test_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def nottest(func):
+          <pre class="highlight"><code class="language-python">def nottest(func):
     "Make the given function not testable."
     func.__test__ = False
     return func
@@ -7298,7 +7300,7 @@ of type 'replacement_type'.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/test_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@contextlib.contextmanager
+          <pre class="highlight"><code class="language-python">@contextlib.contextmanager
 def patch(obj, attributes, replacement_type):
     """A context manager that temporarily patches an object's attributes.
 
@@ -7384,7 +7386,7 @@ def patch(obj, attributes, replacement_type):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/test_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def record(fun):
+          <pre class="highlight"><code class="language-python">def record(fun):
     """Decorates the function to intercept and record all calls and return values.
 
     Args:
@@ -7459,7 +7461,7 @@ set on sys.argv.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/test_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def run_with_args(function, args):
+          <pre class="highlight"><code class="language-python">def run_with_args(function, args):
     """Run the given function with sys.argv set to argv. The first argument is
     automatically inferred to be where the function object was defined. sys.argv
     is restored after the function is called.
@@ -7538,7 +7540,7 @@ set on sys.argv.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/test_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def search_words(words, line):
+          <pre class="highlight"><code class="language-python">def search_words(words, line):
     """Search for a sequence of words in a line.
 
     Args:
@@ -7592,7 +7594,7 @@ set on sys.argv.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/test_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@contextlib.contextmanager
+          <pre class="highlight"><code class="language-python">@contextlib.contextmanager
 def skipIfRaises(*exc_types):
     """A context manager (or decorator) that skips a test if an exception is raised.
 
@@ -7647,7 +7649,7 @@ def skipIfRaises(*exc_types):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/test_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def subprocess_env():
+          <pre class="highlight"><code class="language-python">def subprocess_env():
     """Return a dict to use as environment for running subprocesses.
 
     Returns:
@@ -7705,7 +7707,7 @@ contents unconditionally once done.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/utils/test_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@contextlib.contextmanager
+          <pre class="highlight"><code class="language-python">@contextlib.contextmanager
 def tempdir(delete=True, **kw):
     """A context manager that creates a temporary directory and deletes its
     contents unconditionally once done.
@@ -7821,7 +7823,7 @@ which you may read to obtain the fixed contents.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/text_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def entitize_ampersand(filename):
+          <pre class="highlight"><code class="language-python">def entitize_ampersand(filename):
     """Convert unescaped ampersand characters (&amp;) to XML entities.
 
     This is used to fix code that has been programmed by bad developers who
@@ -7898,7 +7900,7 @@ which you may read to obtain the fixed contents.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/text_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def replace_number(match):
+          <pre class="highlight"><code class="language-python">def replace_number(match):
     """Replace a single number matched from text into X'es.
     'match' is a MatchObject from a regular expressions match.
     (Use this with re.sub()).
@@ -7968,7 +7970,7 @@ numbers which are part of URLs.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/text_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def replace_numbers(text):
+          <pre class="highlight"><code class="language-python">def replace_numbers(text):
     """Replace all numbers found within text.
 
     Note that this is a heuristic used to filter out private numbers from web
@@ -8078,7 +8080,7 @@ numbers which are part of URLs.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/version.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def ArgumentParser(*args, **kwargs):
+          <pre class="highlight"><code class="language-python">def ArgumentParser(*args, **kwargs):
     """Add a standard --version option to an ArgumentParser.
 
     Args:
@@ -8154,7 +8156,7 @@ numbers which are part of URLs.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/version.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def compute_version_string(version, changeset, timestamp):
+          <pre class="highlight"><code class="language-python">def compute_version_string(version, changeset, timestamp):
     """Compute a version string from the changeset and timestamp baked in the parser.
 
     Args:

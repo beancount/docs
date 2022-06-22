@@ -141,6 +141,8 @@
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../beancount_v3_dependencies.html">Dependencies</a>
                 </li>
+                <li class="toctree-l2"><a class="reference internal" href="../beangulp.html">Beangulp</a>
+                </li>
     </ul>
                     </li>
                 </ul>
@@ -602,7 +604,7 @@ to compute the command to run.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/bake.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def archive(command_template, directory, archive, quiet=False):
+          <pre class="highlight"><code class="language-python">def archive(command_template, directory, archive, quiet=False):
     """Archive the directory to the given tar/gz archive filename.
 
     Args:
@@ -679,7 +681,7 @@ to compute the command to run.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/bake.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def archive_zip(directory, archive):
+          <pre class="highlight"><code class="language-python">def archive_zip(directory, archive):
     """Archive the directory to the given tar/gz archive filename.
 
     Args:
@@ -765,7 +767,7 @@ is palatable.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/bake.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def bake_to_directory(webargs, output_dir, render_all_pages=True):
+          <pre class="highlight"><code class="language-python">def bake_to_directory(webargs, output_dir, render_all_pages=True):
     """Serve and bake a Beancount's web to a directory.
 
     Args:
@@ -854,7 +856,7 @@ is palatable.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/bake.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def normalize_filename(url):
+          <pre class="highlight"><code class="language-python">def normalize_filename(url):
     """Convert URL paths to filenames. Add .html extension if needed.
 
     Args:
@@ -911,7 +913,7 @@ path ends with a /.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/bake.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def relativize_links(html, current_url):
+          <pre class="highlight"><code class="language-python">def relativize_links(html, current_url):
     """Make all the links in the contents string relative to an URL.
 
     Args:
@@ -966,7 +968,7 @@ path ends with a /.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/bake.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def remove_links(html, targets):
+          <pre class="highlight"><code class="language-python">def remove_links(html, targets):
     """Convert a list of anchors (&lt;a&gt;) from an HTML tree to spans (&lt;span&gt;).
 
     Args:
@@ -1026,7 +1028,7 @@ this avoid you having to reprocess it (for performance reasons).</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/bake.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def save_scraped_document(output_dir, url, response, contents, html_root, skipped_urls):
+          <pre class="highlight"><code class="language-python">def save_scraped_document(output_dir, url, response, contents, html_root, skipped_urls):
     """Callback function to process a document being scraped.
 
     This converts the document to have relative links and writes out the file to
@@ -1186,7 +1188,7 @@ check_dependencies().</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/deps.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def check_cdecimal():
+          <pre class="highlight"><code class="language-python">def check_cdecimal():
     """Check that Python 3.3 or above is installed.
 
     Returns:
@@ -1255,7 +1257,7 @@ Beancount.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/deps.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def check_dependencies():
+          <pre class="highlight"><code class="language-python">def check_dependencies():
     """Check the runtime dependencies and report their version numbers.
 
     Returns:
@@ -1351,7 +1353,7 @@ check_dependencies().</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/deps.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def check_import(package_name, min_version=None, module_name=None):
+          <pre class="highlight"><code class="language-python">def check_import(package_name, min_version=None, module_name=None):
     """Check that a particular module name is installed.
 
     Args:
@@ -1422,7 +1424,7 @@ check_dependencies().</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/deps.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def check_python():
+          <pre class="highlight"><code class="language-python">def check_python():
     """Check that Python 3.3 or above is installed.
 
     Returns:
@@ -1477,7 +1479,7 @@ check_dependencies().</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/deps.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def check_python_magic():
+          <pre class="highlight"><code class="language-python">def check_python_magic():
     """Check that a recent-enough version of python-magic is installed.
 
     python-magic is an interface to libmagic, which is used by the 'file' tool
@@ -1522,7 +1524,7 @@ check_dependencies().</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/deps.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def is_fast_decimal(decimal_module):
+          <pre class="highlight"><code class="language-python">def is_fast_decimal(decimal_module):
     "Return true if a fast C decimal implementation is installed."
     return isinstance(decimal_module.Decimal().sqrt, types.BuiltinFunctionType)
 </code></pre>
@@ -1565,7 +1567,7 @@ check_dependencies().</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/deps.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def list_dependencies(file=sys.stderr):
+          <pre class="highlight"><code class="language-python">def list_dependencies(file=sys.stderr):
     """Check the dependencies and produce a listing on the given file.
 
     Args:
@@ -1602,7 +1604,7 @@ check_dependencies().</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/deps.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def parse_version(version_str: str) -&gt; str:
+          <pre class="highlight"><code class="language-python">def parse_version(version_str: str) -&gt; str:
     """Parse the version string into a comparable tuple."""
     return [int(v) for v in version_str.split('.')]
 </code></pre>
@@ -1712,7 +1714,7 @@ subdirectory names under the given roots match the account names.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/directories.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def validate_directories(entries, document_dirs):
+          <pre class="highlight"><code class="language-python">def validate_directories(entries, document_dirs):
     """Validate a directory hierarchy against a ledger's account names.
 
     Read a ledger's list of account names and check that all the capitalized
@@ -1791,7 +1793,7 @@ account name declared in the given list.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/directories.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def validate_directory(accounts, document_dir):
+          <pre class="highlight"><code class="language-python">def validate_directory(accounts, document_dir):
     """Check a directory hierarchy against a list of valid accounts.
 
     Walk the directory hierarchy, and for all directories with names matching
@@ -1921,7 +1923,7 @@ beancount.scripts.doctor.RenderError            (<span title="tuple">tuple</span
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -1975,7 +1977,7 @@ beancount.scripts.doctor.RenderError            (<span title="tuple">tuple</span
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -2029,7 +2031,7 @@ beancount.scripts.doctor.RenderError            (<span title="tuple">tuple</span
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def do_deps(*unused_args):
+          <pre class="highlight"><code class="language-python">def do_deps(*unused_args):
     """Report on the runtime dependencies.
 
     Args:
@@ -2082,7 +2084,7 @@ combination (which can be used if the location is not in the top-level file).</p
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def do_context(filename, args):
+          <pre class="highlight"><code class="language-python">def do_context(filename, args):
     """Describe the context that a particular transaction is applied to.
 
     Args:
@@ -2157,7 +2159,7 @@ combination (which can be used if the location is not in the top-level file).</p
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def do_deps(*unused_args):
+          <pre class="highlight"><code class="language-python">def do_deps(*unused_args):
     """Report on the runtime dependencies.
 
     Args:
@@ -2212,7 +2214,7 @@ the accounts in the given ledger.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def do_directories(filename, args):
+          <pre class="highlight"><code class="language-python">def do_directories(filename, args):
     """Validate a directory hierarchy against a ledger's account names.
 
     Read a ledger's list of account names and check that all the capitalized
@@ -2270,7 +2272,7 @@ to be an integer as a string.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def do_display_context(filename, args):
+          <pre class="highlight"><code class="language-python">def do_display_context(filename, args):
     """Print out the precision inferred from the parsed numbers in the input file.
 
     Args:
@@ -2322,7 +2324,7 @@ to be an integer as a string.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def do_lex(filename, unused_args):
+          <pre class="highlight"><code class="language-python">def do_lex(filename, unused_args):
     """Dump the lexer output for a Beancount syntax file.
 
     Args:
@@ -2372,7 +2374,7 @@ to be an integer as a string.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def do_lex(filename, unused_args):
+          <pre class="highlight"><code class="language-python">def do_lex(filename, unused_args):
     """Dump the lexer output for a Beancount syntax file.
 
     Args:
@@ -2424,7 +2426,7 @@ to be an integer as a string.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def do_linked(filename, args):
+          <pre class="highlight"><code class="language-python">def do_linked(filename, args):
     """Print out a list of transactions linked to the one at the given line.
 
     Args:
@@ -2550,7 +2552,7 @@ to be an integer as a string.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def do_list_options(*unused_args):
+          <pre class="highlight"><code class="language-python">def do_list_options(*unused_args):
     """Print out a list of the available options.
 
     Args:
@@ -2602,7 +2604,7 @@ to be an integer as a string.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def do_missing_open(filename, args):
+          <pre class="highlight"><code class="language-python">def do_missing_open(filename, args):
     """Print out Open directives that are missing for the given input file.
 
     This can be useful during demos in order to quickly generate all the
@@ -2673,7 +2675,7 @@ to be an integer as a string.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def do_parse(filename, unused_args):
+          <pre class="highlight"><code class="language-python">def do_parse(filename, unused_args):
     """Run the parser in debug mode.
 
     Args:
@@ -2721,7 +2723,7 @@ to be an integer as a string.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def do_print_options(filename, *args):
+          <pre class="highlight"><code class="language-python">def do_print_options(filename, *args):
     """Print out the actual options parsed from a file.
 
     Args:
@@ -2774,7 +2776,7 @@ output to disk, so you can also run diff on them yourself afterwards.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def do_roundtrip(filename, unused_args):
+          <pre class="highlight"><code class="language-python">def do_roundtrip(filename, unused_args):
     """Round-trip test on arbitrary Ledger.
 
     Read a Ledger's transactions, print them out, re-read them again and compare
@@ -2887,7 +2889,7 @@ output to disk, so you can also run diff on them yourself afterwards.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def do_validate_html(directory, args):
+          <pre class="highlight"><code class="language-python">def do_validate_html(directory, args):
     """Validate all the HTML files under a directory hierarchy.
 
     Args:
@@ -2941,7 +2943,7 @@ output to disk, so you can also run diff on them yourself afterwards.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_commands():
+          <pre class="highlight"><code class="language-python">def get_commands():
     """Return a list of available commands in this file.
 
     Returns:
@@ -3069,7 +3071,7 @@ evaluation.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def check_non_negative(entries, account, currency):
+          <pre class="highlight"><code class="language-python">def check_non_negative(entries, account, currency):
     """Check that the balance of the given account never goes negative.
 
     Args:
@@ -3130,7 +3132,7 @@ evaluation.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def compute_trip_dates(date_begin, date_end):
+          <pre class="highlight"><code class="language-python">def compute_trip_dates(date_begin, date_end):
     """Generate dates at reasonable intervals for trips during the given time period.
 
     Args:
@@ -3217,7 +3219,7 @@ evaluation.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def contextualize_file(contents, employer):
+          <pre class="highlight"><code class="language-python">def contextualize_file(contents, employer):
     """Replace generic strings in the generated file with realistic strings.
 
     Args:
@@ -3296,7 +3298,7 @@ evaluation.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def date_iter(date_begin, date_end):
+          <pre class="highlight"><code class="language-python">def date_iter(date_begin, date_end):
     """Generate a sequence of dates.
 
     Args:
@@ -3356,7 +3358,7 @@ evaluation.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def date_random_seq(date_begin, date_end, days_min, days_max):
+          <pre class="highlight"><code class="language-python">def date_random_seq(date_begin, date_end, days_min, days_max):
     """Generate a sequence of dates with some random increase in days.
 
     Args:
@@ -3420,7 +3422,7 @@ evaluation.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def delay_dates(date_iter, delay_days_min, delay_days_max):
+          <pre class="highlight"><code class="language-python">def delay_dates(date_iter, delay_days_min, delay_days_max):
     """Delay the dates from the given iterator by some uniformly drawn number of days.
 
     Args:
@@ -3498,7 +3500,7 @@ accounts.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_balance_checks(entries, account, date_iter):
+          <pre class="highlight"><code class="language-python">def generate_balance_checks(entries, account, date_iter):
     """Generate balance check entries to the given frequency.
 
     Args:
@@ -3582,7 +3584,7 @@ account with.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_banking(entries, date_begin, date_end, amount_initial):
+          <pre class="highlight"><code class="language-python">def generate_banking(entries, date_begin, date_end, amount_initial):
     """Generate a checking account opening.
 
     Args:
@@ -3686,7 +3688,7 @@ account with.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_banking_expenses(date_begin, date_end, account, rent_amount):
+          <pre class="highlight"><code class="language-python">def generate_banking_expenses(date_begin, date_end, account, rent_amount):
     """Generate expenses paid out of a checking account, typically living expenses.
 
     Args:
@@ -3793,7 +3795,7 @@ account with.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_clearing_entries(date_iter,
+          <pre class="highlight"><code class="language-python">def generate_clearing_entries(date_iter,
                               payee, narration,
                               entries, account_clear, account_from):
     """Generate entries to clear the value of an account.
@@ -3890,7 +3892,7 @@ account with.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_commodity_entries(date_birth):
+          <pre class="highlight"><code class="language-python">def generate_commodity_entries(date_birth):
     """Create a list of Commodity entries for all the currencies we're using.
 
     Args:
@@ -4009,7 +4011,7 @@ contributions to.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_employment_income(employer_name,
+          <pre class="highlight"><code class="language-python">def generate_employment_income(employer_name,
                                employer_address,
                                annual_salary,
                                account_deposit,
@@ -4193,7 +4195,7 @@ contributions to.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_expense_accounts(date_birth):
+          <pre class="highlight"><code class="language-python">def generate_expense_accounts(date_birth):
     """Generate directives for expense accounts.
 
     Args:
@@ -4277,7 +4279,7 @@ contributions to.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_open_entries(date, accounts, currency=None):
+          <pre class="highlight"><code class="language-python">def generate_open_entries(date, accounts, currency=None):
     """Generate a list of Open entries for the given accounts:
 
     Args:
@@ -4359,7 +4361,7 @@ breaking the minimum.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_outgoing_transfers(entries,
+          <pre class="highlight"><code class="language-python">def generate_outgoing_transfers(entries,
                                 account,
                                 account_out,
                                 transfer_minimum,
@@ -4484,7 +4486,7 @@ to randomly choose from</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_periodic_expenses(date_iter,
+          <pre class="highlight"><code class="language-python">def generate_periodic_expenses(date_iter,
                                payee, narration,
                                account_from, account_to,
                                amount_generator):
@@ -4578,7 +4580,7 @@ to randomly choose from</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_prices(date_begin, date_end, currencies, cost_currency):
+          <pre class="highlight"><code class="language-python">def generate_prices(date_begin, date_end, currencies, cost_currency):
     """Generate weekly or monthly price entries for the given currencies.
 
     Args:
@@ -4668,7 +4670,7 @@ credit card.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_regular_credit_expenses(date_birth, date_begin, date_end,
+          <pre class="highlight"><code class="language-python">def generate_regular_credit_expenses(date_birth, date_begin, date_end,
                                      account_credit,
                                      account_checking):
     """Generate expenses paid out of a credit card account, including payments to the
@@ -4769,7 +4771,7 @@ credit card.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_retirement_employer_match(entries, account_invest, account_income):
+          <pre class="highlight"><code class="language-python">def generate_retirement_employer_match(entries, account_invest, account_income):
     """Generate employer matching contributions into a retirement account.
 
     Args:
@@ -4860,7 +4862,7 @@ opening directives for the desired investment commodities.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_retirement_investments(entries, account, commodities_items, price_map):
+          <pre class="highlight"><code class="language-python">def generate_retirement_investments(entries, account, commodities_items, price_map):
     """Invest money deposited to the given retirement account.
 
     Args:
@@ -4979,7 +4981,7 @@ opening directives for the desired investment commodities.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_tax_accounts(year, date_max):
+          <pre class="highlight"><code class="language-python">def generate_tax_accounts(year, date_max):
     """Generate accounts and contribution directives for a particular tax year.
 
     Args:
@@ -5095,7 +5097,7 @@ opening directives for the desired investment commodities.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_tax_preamble(date_birth):
+          <pre class="highlight"><code class="language-python">def generate_tax_preamble(date_birth):
     """Generate tax declarations not specific to any particular year.
 
     Args:
@@ -5170,7 +5172,7 @@ account's cash account.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_taxable_investment(date_begin, date_end, entries, price_map, stocks):
+          <pre class="highlight"><code class="language-python">def generate_taxable_investment(date_begin, date_end, entries, price_map, stocks):
     """Generate opening directives and transactions for an investment account.
 
     Args:
@@ -5399,7 +5401,7 @@ the expenses from.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_trip_entries(date_begin, date_end,
+          <pre class="highlight"><code class="language-python">def generate_trip_entries(date_begin, date_end,
                           tag, config,
                           trip_city, home_city,
                           account_credit):
@@ -5506,7 +5508,7 @@ the expenses from.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_minimum_balance(entries, account, currency):
+          <pre class="highlight"><code class="language-python">def get_minimum_balance(entries, account, currency):
     """Compute the minimum balance of the given account according to the entries history.
 
     Args:
@@ -5571,7 +5573,7 @@ the expenses from.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def iter_dates_with_balance(date_begin, date_end, entries, accounts):
+          <pre class="highlight"><code class="language-python">def iter_dates_with_balance(date_begin, date_end, entries, accounts):
     """Iterate over dates, including the balances of the postings iterator.
 
     Args:
@@ -5638,7 +5640,7 @@ the expenses from.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def iter_quarters(date_begin, date_end):
+          <pre class="highlight"><code class="language-python">def iter_quarters(date_begin, date_end):
     """Iterate over all quarters between begin and end dates.
 
     Args:
@@ -5704,7 +5706,7 @@ the expenses from.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def merge_postings(entries, accounts):
+          <pre class="highlight"><code class="language-python">def merge_postings(entries, accounts):
     """Merge all the postings from the given account names.
 
     Args:
@@ -5783,7 +5785,7 @@ interpolation to fill in the missing amounts.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def parse(input_string, **replacements):
+          <pre class="highlight"><code class="language-python">def parse(input_string, **replacements):
     """Parse some input string and assert no errors.
 
     This parse function does not just create the object, it also triggers local
@@ -5863,7 +5865,7 @@ The default is to yield the balance after applying the position.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def postings_for(entries, accounts, before=False):
+          <pre class="highlight"><code class="language-python">def postings_for(entries, accounts, before=False):
     """Realize the entries and get the list of postings for the given accounts.
 
     All the non-Posting directives are already filtered out.
@@ -5934,7 +5936,7 @@ The default is to yield the balance after applying the position.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def price_series(start, mu, sigma):
+          <pre class="highlight"><code class="language-python">def price_series(start, mu, sigma):
     """Generate a price series based on a simple stochastic model.
 
     Args:
@@ -6006,7 +6008,7 @@ The default is to yield the balance after applying the position.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def replace(string, replacements, strip=False):
+          <pre class="highlight"><code class="language-python">def replace(string, replacements, strip=False):
     """Apply word-boundaried regular expression replacements to an indented string.
 
     Args:
@@ -6083,7 +6085,7 @@ non-negative balances.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def validate_output(contents, positive_accounts, currency):
+          <pre class="highlight"><code class="language-python">def validate_output(contents, positive_accounts, currency):
     """Check that the output file validates.
 
     Args:
@@ -6148,7 +6150,7 @@ transactions.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def write_example_file(date_birth, date_begin, date_end, reformat, file):
+          <pre class="highlight"><code class="language-python">def write_example_file(date_birth, date_begin, date_end, reformat, file):
     """Generate the example file.
 
     Args:
@@ -6487,7 +6489,7 @@ return value and the input contents.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/format.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def align_beancount(contents, prefix_width=None, num_width=None, currency_column=None):
+          <pre class="highlight"><code class="language-python">def align_beancount(contents, prefix_width=None, num_width=None, currency_column=None):
     """Reformat Beancount input to align all the numbers at the same column.
 
     Args:
@@ -6635,7 +6637,7 @@ return None.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/format.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def compute_most_frequent(iterable):
+          <pre class="highlight"><code class="language-python">def compute_most_frequent(iterable):
     """Compute the frequencies of the given elements and return the most frequent.
 
     Args:
@@ -6710,7 +6712,7 @@ adjusted with a different whitespace prefix.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/format.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def normalize_indent_whitespace(match_pairs):
+          <pre class="highlight"><code class="language-python">def normalize_indent_whitespace(match_pairs):
     """Normalize whitespace before lines that has some indent and an account name.
 
     Args:
@@ -6860,7 +6862,7 @@ beancount.scripts.sql.BalanceWriter.type            (<span title="tuple">tuple</
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -6914,7 +6916,7 @@ beancount.scripts.sql.BalanceWriter.type            (<span title="tuple">tuple</
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -6986,7 +6988,7 @@ beancount.scripts.sql.BalanceWriter.type            (<span title="tuple">tuple</
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_detail(self, entry):
+          <pre class="highlight"><code class="language-python">def get_detail(self, entry):
     return (entry.account,
             entry.amount.number,
             entry.amount.currency,
@@ -7087,7 +7089,7 @@ beancount.scripts.sql.CloseWriter.type            (<span title="tuple">tuple</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -7141,7 +7143,7 @@ beancount.scripts.sql.CloseWriter.type            (<span title="tuple">tuple</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -7213,7 +7215,7 @@ beancount.scripts.sql.CloseWriter.type            (<span title="tuple">tuple</sp
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_detail(self, entry):
+          <pre class="highlight"><code class="language-python">def get_detail(self, entry):
     return (entry.account,)
 </code></pre>
         </details>
@@ -7302,7 +7304,7 @@ This is used to factor out code for all the simple directives types
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __call__(self, connection, entries):
+          <pre class="highlight"><code class="language-python">def __call__(self, connection, entries):
     """Create a table for a directives.
 
     Args:
@@ -7401,7 +7403,7 @@ This is used to factor out code for all the simple directives types
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_detail(self, entry):
+          <pre class="highlight"><code class="language-python">def get_detail(self, entry):
     """Provide data to store for details table.
 
     Args:
@@ -7506,7 +7508,7 @@ beancount.scripts.sql.DocumentWriter.type            (<span title="tuple">tuple<
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -7560,7 +7562,7 @@ beancount.scripts.sql.DocumentWriter.type            (<span title="tuple">tuple<
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -7632,7 +7634,7 @@ beancount.scripts.sql.DocumentWriter.type            (<span title="tuple">tuple<
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_detail(self, entry):
+          <pre class="highlight"><code class="language-python">def get_detail(self, entry):
     return (entry.account,
             entry.filename)
 </code></pre>
@@ -7730,7 +7732,7 @@ beancount.scripts.sql.EventWriter.type            (<span title="tuple">tuple</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -7784,7 +7786,7 @@ beancount.scripts.sql.EventWriter.type            (<span title="tuple">tuple</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -7856,7 +7858,7 @@ beancount.scripts.sql.EventWriter.type            (<span title="tuple">tuple</sp
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_detail(self, entry):
+          <pre class="highlight"><code class="language-python">def get_detail(self, entry):
     return (entry.type,
             entry.description)
 </code></pre>
@@ -7954,7 +7956,7 @@ beancount.scripts.sql.NoteWriter.type            (<span title="tuple">tuple</spa
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -8008,7 +8010,7 @@ beancount.scripts.sql.NoteWriter.type            (<span title="tuple">tuple</spa
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -8080,7 +8082,7 @@ beancount.scripts.sql.NoteWriter.type            (<span title="tuple">tuple</spa
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_detail(self, entry):
+          <pre class="highlight"><code class="language-python">def get_detail(self, entry):
     return (entry.account,
             entry.comment)
 </code></pre>
@@ -8178,7 +8180,7 @@ beancount.scripts.sql.OpenWriter.type            (<span title="tuple">tuple</spa
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -8232,7 +8234,7 @@ beancount.scripts.sql.OpenWriter.type            (<span title="tuple">tuple</spa
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -8304,7 +8306,7 @@ beancount.scripts.sql.OpenWriter.type            (<span title="tuple">tuple</spa
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_detail(self, entry):
+          <pre class="highlight"><code class="language-python">def get_detail(self, entry):
     return (entry.account,
             ','.join(entry.currencies or []))
 </code></pre>
@@ -8402,7 +8404,7 @@ beancount.scripts.sql.PadWriter.type            (<span title="tuple">tuple</span
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -8456,7 +8458,7 @@ beancount.scripts.sql.PadWriter.type            (<span title="tuple">tuple</span
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -8528,7 +8530,7 @@ beancount.scripts.sql.PadWriter.type            (<span title="tuple">tuple</span
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_detail(self, entry):
+          <pre class="highlight"><code class="language-python">def get_detail(self, entry):
     return (entry.account, entry.source_account)
 </code></pre>
         </details>
@@ -8625,7 +8627,7 @@ beancount.scripts.sql.PriceWriter.type            (<span title="tuple">tuple</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -8679,7 +8681,7 @@ beancount.scripts.sql.PriceWriter.type            (<span title="tuple">tuple</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -8751,7 +8753,7 @@ beancount.scripts.sql.PriceWriter.type            (<span title="tuple">tuple</sp
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_detail(self, entry):
+          <pre class="highlight"><code class="language-python">def get_detail(self, entry):
     return (entry.currency,
             entry.amount.number,
             entry.amount.currency)
@@ -8850,7 +8852,7 @@ beancount.scripts.sql.QueryWriter.type            (<span title="tuple">tuple</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -8904,7 +8906,7 @@ beancount.scripts.sql.QueryWriter.type            (<span title="tuple">tuple</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -8976,7 +8978,7 @@ beancount.scripts.sql.QueryWriter.type            (<span title="tuple">tuple</sp
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_detail(self, entry):
+          <pre class="highlight"><code class="language-python">def get_detail(self, entry):
     return (entry.name,
             entry.query_string)
 </code></pre>
@@ -9046,7 +9048,7 @@ beancount.scripts.sql.QueryWriter.type            (<span title="tuple">tuple</sp
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def adapt_decimal(number):
+          <pre class="highlight"><code class="language-python">def adapt_decimal(number):
     """Adapt a Decimal instance to a string for creating queries.
 
     Args:
@@ -9111,7 +9113,7 @@ beancount.scripts.sql.QueryWriter.type            (<span title="tuple">tuple</sp
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def convert_decimal(string):
+          <pre class="highlight"><code class="language-python">def convert_decimal(string):
     """Convert a Decimal string to a Decimal instance.
 
     Args:
@@ -9162,7 +9164,7 @@ beancount.scripts.sql.QueryWriter.type            (<span title="tuple">tuple</sp
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def output_common(connection, unused_entries):
+          <pre class="highlight"><code class="language-python">def output_common(connection, unused_entries):
     """Create a table of common data for all entries.
 
     Args:
@@ -9220,7 +9222,7 @@ beancount.scripts.sql.QueryWriter.type            (<span title="tuple">tuple</sp
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def output_transactions(connection, entries):
+          <pre class="highlight"><code class="language-python">def output_transactions(connection, entries):
     """Create a table for transactions and fill in the data.
 
     Args:
@@ -9318,7 +9320,7 @@ beancount.scripts.sql.QueryWriter.type            (<span title="tuple">tuple</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def setup_decimal_support():
+          <pre class="highlight"><code class="language-python">def setup_decimal_support():
     """Setup sqlite3 to support conversions to/from Decimal numbers.
     """
     dbapi.register_adapter(Decimal, adapt_decimal)

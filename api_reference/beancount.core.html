@@ -141,6 +141,8 @@
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../beancount_v3_dependencies.html">Dependencies</a>
                 </li>
+                <li class="toctree-l2"><a class="reference internal" href="../beangulp.html">Beangulp</a>
+                </li>
     </ul>
                     </li>
                 </ul>
@@ -1031,7 +1033,7 @@ support colon characters.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/account.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def parse(self, transformed_name):
+          <pre class="highlight"><code class="language-python">def parse(self, transformed_name):
     "Convert the transform account name to an account name."
     return (transformed_name
             if self.rsep is None
@@ -1060,7 +1062,7 @@ support colon characters.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/account.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def render(self, account_name):
+          <pre class="highlight"><code class="language-python">def render(self, account_name):
     "Convert the account name to a transformed account name."
     return (account_name
             if self.rsep is None
@@ -1132,7 +1134,7 @@ support colon characters.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/account.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def commonprefix(accounts):
+          <pre class="highlight"><code class="language-python">def commonprefix(accounts):
     """Return the common prefix of a list of account names.
 
     Args:
@@ -1206,7 +1208,7 @@ name must be whole, that is <code>NY</code> is not in <code>Expenses:Taxes:State
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/account.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def has_component(account_name, component):
+          <pre class="highlight"><code class="language-python">def has_component(account_name, component):
     """Return true if one of the account contains a given component.
 
     Args:
@@ -1275,7 +1277,7 @@ This does not check for the root account types, just the general syntax.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/account.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def is_valid(string):
+          <pre class="highlight"><code class="language-python">def is_valid(string):
     """Return true if the given string is a valid account name.
     This does not check for the root account types, just the general syntax.
 
@@ -1342,7 +1344,7 @@ This does not check for the root account types, just the general syntax.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/account.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def join(*components):
+          <pre class="highlight"><code class="language-python">def join(*components):
     """Join the names with the account separator.
 
     Args:
@@ -1407,7 +1409,7 @@ This does not check for the root account types, just the general syntax.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/account.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def leaf(account_name):
+          <pre class="highlight"><code class="language-python">def leaf(account_name):
     """Get the name of the leaf of this account.
 
     Args:
@@ -1473,7 +1475,7 @@ This does not check for the root account types, just the general syntax.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/account.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def parent(account_name):
+          <pre class="highlight"><code class="language-python">def parent(account_name):
     """Return the name of the parent account of the given account.
 
     Args:
@@ -1544,7 +1546,7 @@ child of <code>account_name</code>.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/account.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def parent_matcher(account_name):
+          <pre class="highlight"><code class="language-python">def parent_matcher(account_name):
     """Build a predicate that returns whether an account is under the given one.
 
     Args:
@@ -1610,7 +1612,7 @@ child of <code>account_name</code>.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/account.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def parents(account_name):
+          <pre class="highlight"><code class="language-python">def parents(account_name):
     """A generator of the names of the parents of this account, including this account.
 
     Args:
@@ -1678,7 +1680,7 @@ child of <code>account_name</code>.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/account.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def root(num_components, account_name):
+          <pre class="highlight"><code class="language-python">def root(num_components, account_name):
     """Return the first few components of an account's name.
 
     Args:
@@ -1745,7 +1747,7 @@ child of <code>account_name</code>.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/account.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def sans_root(account_name):
+          <pre class="highlight"><code class="language-python">def sans_root(account_name):
     """Get the name of the account without the root.
 
     For example, an input of 'Assets:BofA:Checking' will produce 'BofA:Checking'.
@@ -1814,7 +1816,7 @@ child of <code>account_name</code>.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/account.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def split(account_name):
+          <pre class="highlight"><code class="language-python">def split(account_name):
     """Split an account's name into its components.
 
     Args:
@@ -1867,7 +1869,7 @@ For convenience, it also yields you the account's name.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/account.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def walk(root_directory):
+          <pre class="highlight"><code class="language-python">def walk(root_directory):
     """A version of os.walk() which yields directories that are valid account names.
 
     This only yields directories that are accounts... it skips the other ones.
@@ -1986,7 +1988,7 @@ beancount.core.account_types.AccountTypes            (<span title="tuple">tuple<
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/account_types.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -2040,7 +2042,7 @@ beancount.core.account_types.AccountTypes            (<span title="tuple">tuple<
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/account_types.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -2111,7 +2113,7 @@ beancount.core.account_types.AccountTypes            (<span title="tuple">tuple<
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/account_types.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_account_sign(account_name, account_types=None):
+          <pre class="highlight"><code class="language-python">def get_account_sign(account_name, account_types=None):
     """Return the sign of the normal balance of a particular account.
 
     Args:
@@ -2186,7 +2188,7 @@ produces a sortable key.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/account_types.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_account_sort_key(account_types, account_name):
+          <pre class="highlight"><code class="language-python">def get_account_sort_key(account_types, account_name):
     """Return a tuple that can be used to order/sort account names.
 
     Args:
@@ -2255,7 +2257,7 @@ returns the root account of the corresponding account name.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/account_types.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_account_type(account_name):
+          <pre class="highlight"><code class="language-python">def get_account_type(account_name):
     """Return the type of this account's name.
 
     Warning: No check is made on the validity of the account type. This merely
@@ -2328,7 +2330,7 @@ returns the root account of the corresponding account name.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/account_types.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def is_account_type(account_type, account_name):
+          <pre class="highlight"><code class="language-python">def is_account_type(account_type, account_name):
     """Return the type of this account's name.
 
     Warning: No check is made on the validity of the account type. This merely
@@ -2399,7 +2401,7 @@ Assets, liabilities and equity accounts are balance sheet accounts.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/account_types.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def is_balance_sheet_account(account_name, account_types):
+          <pre class="highlight"><code class="language-python">def is_balance_sheet_account(account_name, account_types):
     """Return true if the given account is a balance sheet account.
     Assets, liabilities and equity accounts are balance sheet accounts.
 
@@ -2473,7 +2475,7 @@ Assets, liabilities and equity accounts are balance sheet accounts.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/account_types.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def is_equity_account(account_name, account_types):
+          <pre class="highlight"><code class="language-python">def is_equity_account(account_name, account_types):
     """Return true if the given account is an equity account.
 
     Args:
@@ -2545,7 +2547,7 @@ Income and expense accounts are income statement accounts.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/account_types.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def is_income_statement_account(account_name, account_types):
+          <pre class="highlight"><code class="language-python">def is_income_statement_account(account_name, account_types):
     """Return true if the given account is an income statement account.
     Income and expense accounts are income statement accounts.
 
@@ -2623,7 +2625,7 @@ no separator.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/account_types.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def is_root_account(account_name, account_types=None):
+          <pre class="highlight"><code class="language-python">def is_root_account(account_name, account_types=None):
     """Return true if the account name is a root account.
     This function does not verify whether the account root is a valid
     one, just that it is a root account or not.
@@ -2766,7 +2768,7 @@ defined on it.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/amount.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __bool__(self):
+          <pre class="highlight"><code class="language-python">def __bool__(self):
     """Boolean predicate returns true if the number is non-zero.
     Returns:
       A boolean, true if non-zero number.
@@ -2815,7 +2817,7 @@ defined on it.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/amount.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __eq__(self, other):
+          <pre class="highlight"><code class="language-python">def __eq__(self, other):
     """Equality predicate. Returns true if both number and currency are equal.
     Returns:
       A boolean.
@@ -2866,7 +2868,7 @@ defined on it.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/amount.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __hash__(self):
+          <pre class="highlight"><code class="language-python">def __hash__(self):
     """A hashing function for amounts. The hash includes the currency.
     Returns:
       An integer, the hash for this amount.
@@ -2931,7 +2933,7 @@ defined on it.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/amount.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __lt__(self, other):
+          <pre class="highlight"><code class="language-python">def __lt__(self, other):
     """Ordering comparison. This is used in the sorting key of positions.
     Args:
       other: An instance of Amount.
@@ -2982,7 +2984,7 @@ defined on it.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/amount.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __neg__(self):
+          <pre class="highlight"><code class="language-python">def __neg__(self):
     """Return the negative of this amount.
     Returns:
       A new instance of Amount, with the negative number of units.
@@ -3033,7 +3035,7 @@ defined on it.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/amount.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __new__(cls, number, currency):
+          <pre class="highlight"><code class="language-python">def __new__(cls, number, currency):
     """Constructor from a number and currency.
 
     Args:
@@ -3086,7 +3088,7 @@ defined on it.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/amount.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __str__(self):
+          <pre class="highlight"><code class="language-python">def __str__(self):
     """Convert an Amount instance to a printable string with the defaults.
 
     Returns:
@@ -3136,7 +3138,7 @@ defined on it.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/amount.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __str__(self):
+          <pre class="highlight"><code class="language-python">def __str__(self):
     """Convert an Amount instance to a printable string with the defaults.
 
     Returns:
@@ -3203,7 +3205,7 @@ defined on it.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/amount.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@staticmethod
+          <pre class="highlight"><code class="language-python">@staticmethod
 def from_string(string):
     """Create an amount from a string.
 
@@ -3233,7 +3235,7 @@ def from_string(string):
 
 
 <h4 id="beancount.core.amount.Amount.to_string" class="doc doc-heading">
-<code class="highlight language-python">beancount.core.amount.Amount.to_string(self, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7f67b4a95a90&gt;)</code>
+<code class="highlight language-python">beancount.core.amount.Amount.to_string(self, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7fad11febaf0&gt;)</code>
 
 
 <a href="#beancount.core.amount.Amount.to_string" class="headerlink" title="Permanent link"></a></h4>
@@ -3276,7 +3278,7 @@ def from_string(string):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/amount.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def to_string(self, dformat=DEFAULT_FORMATTER):
+          <pre class="highlight"><code class="language-python">def to_string(self, dformat=DEFAULT_FORMATTER):
     """Convert an Amount instance to a printable string.
 
     Args:
@@ -3356,7 +3358,7 @@ def from_string(string):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/amount.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@staticmethod
+          <pre class="highlight"><code class="language-python">@staticmethod
 def from_string(string):
     """Create an amount from a string.
 
@@ -3429,7 +3431,7 @@ def from_string(string):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/amount.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def abs(amount):
+          <pre class="highlight"><code class="language-python">def abs(amount):
     """Return the absolute value of the given amount.
 
     Args:
@@ -3498,7 +3500,7 @@ currency.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/amount.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def add(amount1, amount2):
+          <pre class="highlight"><code class="language-python">def add(amount1, amount2):
     """Add the given amounts with the same currency.
 
     Args:
@@ -3574,7 +3576,7 @@ currency.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/amount.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def div(amount, number):
+          <pre class="highlight"><code class="language-python">def div(amount, number):
     """Divide the given amount by a number.
 
     Args:
@@ -3645,7 +3647,7 @@ currency.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/amount.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@staticmethod
+          <pre class="highlight"><code class="language-python">@staticmethod
 def from_string(string):
     """Create an amount from a string.
 
@@ -3719,7 +3721,7 @@ def from_string(string):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/amount.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def mul(amount, number):
+          <pre class="highlight"><code class="language-python">def mul(amount, number):
     """Multiply the given amount by a number.
 
     Args:
@@ -3789,7 +3791,7 @@ def from_string(string):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/amount.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def sortkey(amount):
+          <pre class="highlight"><code class="language-python">def sortkey(amount):
     """A comparison function that sorts by currency first.
 
     Args:
@@ -3856,7 +3858,7 @@ numbers, in the same currency.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/amount.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def sub(amount1, amount2):
+          <pre class="highlight"><code class="language-python">def sub(amount1, amount2):
     """Subtract the given amounts with the same currency.
 
     Args:
@@ -3971,7 +3973,7 @@ beancount.core.compare.CompareError            (<span title="tuple">tuple</span>
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/compare.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -4025,7 +4027,7 @@ beancount.core.compare.CompareError            (<span title="tuple">tuple</span>
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/compare.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -4117,7 +4119,7 @@ beancount.core.compare.CompareError            (<span title="tuple">tuple</span>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/compare.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def compare_entries(entries1, entries2):
+          <pre class="highlight"><code class="language-python">def compare_entries(entries1, entries2):
     """Compare two lists of entries. This is used for testing.
 
     The entries are compared with disregard for their file location.
@@ -4221,7 +4223,7 @@ beancount.core.compare.CompareError            (<span title="tuple">tuple</span>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/compare.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def excludes_entries(subset_entries, entries):
+          <pre class="highlight"><code class="language-python">def excludes_entries(subset_entries, entries):
     """Check that a list of entries does not appear in another list.
 
     Args:
@@ -4308,7 +4310,7 @@ Errors are created when duplicate entries are found.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/compare.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def hash_entries(entries, exclude_meta=False):
+          <pre class="highlight"><code class="language-python">def hash_entries(entries, exclude_meta=False):
     """Compute unique hashes of each of the entries and return a map of them.
 
     This is used for comparisons between sets of entries.
@@ -4410,7 +4412,7 @@ filenames and line numbers (the default).</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/compare.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def hash_entry(entry, exclude_meta=False):
+          <pre class="highlight"><code class="language-python">def hash_entry(entry, exclude_meta=False):
     """Compute the stable hash of a single entry.
 
     Args:
@@ -4499,7 +4501,7 @@ filenames and line numbers (the default).</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/compare.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def includes_entries(subset_entries, entries):
+          <pre class="highlight"><code class="language-python">def includes_entries(subset_entries, entries):
     """Check if a list of entries is included in another list.
 
     Args:
@@ -4568,7 +4570,7 @@ or irrelevant data.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/compare.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def stable_hash_namedtuple(objtuple, ignore=frozenset()):
+          <pre class="highlight"><code class="language-python">def stable_hash_namedtuple(objtuple, ignore=frozenset()):
     """Hash the given namedtuple and its child fields.
 
     This iterates over all the members of objtuple, skipping the attributes from
@@ -4720,7 +4722,7 @@ could not convert the value, the amount itself, unmodified.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/convert.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def convert_amount(amt, target_currency, price_map, date=None, via=None):
+          <pre class="highlight"><code class="language-python">def convert_amount(amt, target_currency, price_map, date=None, via=None):
     """Return the market value of an Amount in a particular currency.
 
     In addition, if a conversion rate isn't available, you can provide a list of
@@ -4827,7 +4829,7 @@ above for details.)</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/convert.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def convert_position(pos, target_currency, price_map, date=None):
+          <pre class="highlight"><code class="language-python">def convert_position(pos, target_currency, price_map, date=None):
     """Return the market value of a Position or Posting in a particular currency.
 
     In addition, if the rate from the position's currency to target_currency
@@ -4907,7 +4909,7 @@ above for details.)</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/convert.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_cost(pos):
+          <pre class="highlight"><code class="language-python">def get_cost(pos):
     """Return the total cost of a Position or Posting.
 
     Args:
@@ -4976,7 +4978,7 @@ above for details.)</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/convert.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_units(pos):
+          <pre class="highlight"><code class="language-python">def get_units(pos):
     """Return the units of a Position or Posting.
 
     Args:
@@ -5053,7 +5055,7 @@ position if you need to check for success.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/convert.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_value(pos, price_map, date=None):
+          <pre class="highlight"><code class="language-python">def get_value(pos, price_map, date=None):
     """Return the market value of a Position or Posting.
 
     Note that if the position is not held at cost, this does not convert
@@ -5159,7 +5161,7 @@ Assets:Account       10 HOOL {523.45 USD} @ 545.60 CAD  -&amp;gt;  5234.50 USD
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/convert.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_weight(pos):
+          <pre class="highlight"><code class="language-python">def get_weight(pos):
     """Return the weight of a Position or Posting.
 
     This is the amount that will need to be balanced from a posting of a
@@ -5308,7 +5310,7 @@ beancount.core.data.Balance            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -5362,7 +5364,7 @@ beancount.core.data.Balance            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -5477,7 +5479,7 @@ beancount.core.data.Close            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -5531,7 +5533,7 @@ beancount.core.data.Close            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -5601,7 +5603,7 @@ beancount.core.data.Commodity            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -5655,7 +5657,7 @@ beancount.core.data.Commodity            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -5725,7 +5727,7 @@ beancount.core.data.Custom            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -5779,7 +5781,7 @@ beancount.core.data.Custom            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -5849,7 +5851,7 @@ beancount.core.data.Document            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -5903,7 +5905,7 @@ beancount.core.data.Document            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -5973,7 +5975,7 @@ beancount.core.data.Event            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -6027,7 +6029,7 @@ beancount.core.data.Event            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -6097,7 +6099,7 @@ beancount.core.data.Note            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -6151,7 +6153,7 @@ beancount.core.data.Note            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -6221,7 +6223,7 @@ beancount.core.data.Open            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -6275,7 +6277,7 @@ beancount.core.data.Open            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -6345,7 +6347,7 @@ beancount.core.data.Pad            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -6399,7 +6401,7 @@ beancount.core.data.Pad            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -6469,7 +6471,7 @@ beancount.core.data.Posting            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -6523,7 +6525,7 @@ beancount.core.data.Posting            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -6593,7 +6595,7 @@ beancount.core.data.Price            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -6647,7 +6649,7 @@ beancount.core.data.Price            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -6717,7 +6719,7 @@ beancount.core.data.Query            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -6771,7 +6773,7 @@ beancount.core.data.Query            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -6841,7 +6843,7 @@ beancount.core.data.Transaction            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -6895,7 +6897,7 @@ beancount.core.data.Transaction            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -6965,7 +6967,7 @@ beancount.core.data.TxnPosting            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -7019,7 +7021,7 @@ beancount.core.data.TxnPosting            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -7093,7 +7095,7 @@ postings modified with the new Posting instance.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def create_simple_posting(entry, account, number, currency):
+          <pre class="highlight"><code class="language-python">def create_simple_posting(entry, account, number, currency):
     """Create a simple posting on the entry, with just a number and currency (no cost).
 
     Args:
@@ -7179,7 +7181,7 @@ postings modified with the new Posting instance.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def create_simple_posting_with_cost(entry, account,
+          <pre class="highlight"><code class="language-python">def create_simple_posting_with_cost(entry, account,
                                     number, currency,
                                     cost_number, cost_currency):
     """Create a simple posting on the entry, with just a number and currency (no cost).
@@ -7266,7 +7268,7 @@ entry.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def entry_sortkey(entry):
+          <pre class="highlight"><code class="language-python">def entry_sortkey(entry):
     """Sort-key for entries. We sort by date, except that checks
     should be placed in front of every list of entries of that same day,
     in order to balance linearly.
@@ -7322,7 +7324,7 @@ filtering mechanism.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def filter_txns(entries):
+          <pre class="highlight"><code class="language-python">def filter_txns(entries):
     """A generator that yields only the Transaction instances.
 
     This is such an incredibly common operation that it deserves a terse
@@ -7398,7 +7400,7 @@ None, if none could be found.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def find_closest(entries, filename, lineno):
+          <pre class="highlight"><code class="language-python">def find_closest(entries, filename, lineno):
     """Find the closest entry from entries to (filename, lineno).
 
     Args:
@@ -7478,7 +7480,7 @@ None, if none could be found.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_entry(posting_or_entry):
+          <pre class="highlight"><code class="language-python">def get_entry(posting_or_entry):
     """Return the entry associated with the posting or entry.
 
     Args:
@@ -7548,7 +7550,7 @@ name must be whole, that is <code>NY</code> is not in <code>Expenses:Taxes:State
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def has_entry_account_component(entry, component):
+          <pre class="highlight"><code class="language-python">def has_entry_account_component(entry, component):
     """Return true if one of the entry's postings has an account component.
 
     Args:
@@ -7607,7 +7609,7 @@ name must be whole, that is <code>NY</code> is not in <code>Expenses:Taxes:State
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def iter_entry_dates(entries, date_begin, date_end):
+          <pre class="highlight"><code class="language-python">def iter_entry_dates(entries, date_begin, date_end):
     """Iterate over the entries in a date window.
 
     Args:
@@ -7674,7 +7676,7 @@ to add to the base tuple.</p></li>
     <th class="field-name">Returns:</th>
     <td class="field-body">
         <ul class="first simple">
-          <li><p><code>&lt;function NamedTuple at 0x7f67b4e0bc10&gt;</code> – A type object for the new directive type.</p></li>
+          <li><p><code>&lt;function NamedTuple at 0x7fad1217cca0&gt;</code> – A type object for the new directive type.</p></li>
         </ul>
     </td>
     </tr>
@@ -7682,7 +7684,7 @@ to add to the base tuple.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def new_directive(clsname, fields: List[Tuple]) -&gt; NamedTuple:
+          <pre class="highlight"><code class="language-python">def new_directive(clsname, fields: List[Tuple]) -&gt; NamedTuple:
     """Create a directive class. Do not include default fields.
     This should probably be carried out through inheritance.
 
@@ -7754,7 +7756,7 @@ to add to the base tuple.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def new_metadata(filename, lineno, kvlist=None):
+          <pre class="highlight"><code class="language-python">def new_metadata(filename, lineno, kvlist=None):
     """Create a new metadata container from the filename and line number.
 
     Args:
@@ -7827,7 +7829,7 @@ This is used on transactions to convert between units.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def posting_has_conversion(posting):
+          <pre class="highlight"><code class="language-python">def posting_has_conversion(posting):
     """Return true if this position involves a conversion.
 
     A conversion is when there is a price attached to the amount but no cost.
@@ -7899,7 +7901,7 @@ posting or entry.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def posting_sortkey(entry):
+          <pre class="highlight"><code class="language-python">def posting_sortkey(entry):
     """Sort-key for entries or postings. We sort by date, except that checks
     should be placed in front of every list of entries of that same day,
     in order to balance linearly.
@@ -7969,7 +7971,7 @@ posting or entry.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def remove_account_postings(account, entries):
+          <pre class="highlight"><code class="language-python">def remove_account_postings(account, entries):
     """Remove all postings with the given account.
 
     Args:
@@ -8045,7 +8047,7 @@ attributes.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def sanity_check_types(entry, allow_none_for_tags_and_links=False):
+          <pre class="highlight"><code class="language-python">def sanity_check_types(entry, allow_none_for_tags_and_links=False):
     """Check that the entry and its postings has all correct data types.
 
     Args:
@@ -8136,7 +8138,7 @@ attributes.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def sorted(entries):
+          <pre class="highlight"><code class="language-python">def sorted(entries):
     """A convenience to sort a list of entries, using entry_sortkey().
 
     Args:
@@ -8204,7 +8206,7 @@ price conversion.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/data.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def transaction_has_conversion(transaction):
+          <pre class="highlight"><code class="language-python">def transaction_has_conversion(transaction):
     """Given a Transaction entry, return true if at least one of
     the postings has a price conversion (without an associated
     cost). These are the source of non-zero conversion balances.
@@ -8455,7 +8457,7 @@ the maximum width calculations.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/display_context.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def build(self,
+          <pre class="highlight"><code class="language-python">def build(self,
           alignment=Align.NATURAL,
           precision=Precision.MOST_COMMON,
           commas=None,
@@ -8541,7 +8543,7 @@ the maximum width calculations.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/display_context.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def quantize(self, number, currency, precision=Precision.MOST_COMMON):
+          <pre class="highlight"><code class="language-python">def quantize(self, number, currency, precision=Precision.MOST_COMMON):
     """Quantize the given number to the given precision.
 
     Args:
@@ -8583,7 +8585,7 @@ the maximum width calculations.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/display_context.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def set_commas(self, commas):
+          <pre class="highlight"><code class="language-python">def set_commas(self, commas):
     """Set the default value for rendering commas."""
     self.commas = commas
 </code></pre>
@@ -8627,7 +8629,7 @@ the maximum width calculations.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/display_context.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def update(self, number, currency='__default__'):
+          <pre class="highlight"><code class="language-python">def update(self, number, currency='__default__'):
     """Update the builder with the given number for the given currency.
 
     Args:
@@ -8876,7 +8878,7 @@ a length that will cover at least some decent fraction of the samples.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/distribution.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def empty(self):
+          <pre class="highlight"><code class="language-python">def empty(self):
     """Return true if the distribution is empty.
 
     Returns:
@@ -8923,7 +8925,7 @@ a length that will cover at least some decent fraction of the samples.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/distribution.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def max(self):
+          <pre class="highlight"><code class="language-python">def max(self):
     """Return the minimum value seen in the distribution.
 
     Returns:
@@ -8973,7 +8975,7 @@ a length that will cover at least some decent fraction of the samples.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/distribution.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def min(self):
+          <pre class="highlight"><code class="language-python">def min(self):
     """Return the minimum value seen in the distribution.
 
     Returns:
@@ -9023,7 +9025,7 @@ a length that will cover at least some decent fraction of the samples.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/distribution.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def mode(self):
+          <pre class="highlight"><code class="language-python">def mode(self):
     """Return the mode of the distribution.
 
     Returns:
@@ -9078,7 +9080,7 @@ a length that will cover at least some decent fraction of the samples.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/distribution.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def update(self, value):
+          <pre class="highlight"><code class="language-python">def update(self, value):
     """Add a sample to the distribution.
 
     Args:
@@ -9268,7 +9270,7 @@ beancount.core.getters.GetAccounts        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/getters.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _one(_, entry):
+          <pre class="highlight"><code class="language-python">def _one(_, entry):
     """Process directives with a single account attribute.
 
     Args:
@@ -9333,7 +9335,7 @@ beancount.core.getters.GetAccounts        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/getters.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _one(_, entry):
+          <pre class="highlight"><code class="language-python">def _one(_, entry):
     """Process directives with a single account attribute.
 
     Args:
@@ -9398,7 +9400,7 @@ beancount.core.getters.GetAccounts        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/getters.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _zero(_, entry):
+          <pre class="highlight"><code class="language-python">def _zero(_, entry):
     """Process directives with no accounts.
 
     Args:
@@ -9463,7 +9465,7 @@ beancount.core.getters.GetAccounts        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/getters.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _zero(_, entry):
+          <pre class="highlight"><code class="language-python">def _zero(_, entry):
     """Process directives with no accounts.
 
     Args:
@@ -9528,7 +9530,7 @@ beancount.core.getters.GetAccounts        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/getters.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _one(_, entry):
+          <pre class="highlight"><code class="language-python">def _one(_, entry):
     """Process directives with a single account attribute.
 
     Args:
@@ -9593,7 +9595,7 @@ beancount.core.getters.GetAccounts        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/getters.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _zero(_, entry):
+          <pre class="highlight"><code class="language-python">def _zero(_, entry):
     """Process directives with no accounts.
 
     Args:
@@ -9658,7 +9660,7 @@ beancount.core.getters.GetAccounts        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/getters.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _one(_, entry):
+          <pre class="highlight"><code class="language-python">def _one(_, entry):
     """Process directives with a single account attribute.
 
     Args:
@@ -9723,7 +9725,7 @@ beancount.core.getters.GetAccounts        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/getters.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _one(_, entry):
+          <pre class="highlight"><code class="language-python">def _one(_, entry):
     """Process directives with a single account attribute.
 
     Args:
@@ -9788,7 +9790,7 @@ beancount.core.getters.GetAccounts        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/getters.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def Pad(_, entry):
+          <pre class="highlight"><code class="language-python">def Pad(_, entry):
     """Process a Pad directive.
 
     Args:
@@ -9853,7 +9855,7 @@ beancount.core.getters.GetAccounts        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/getters.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _zero(_, entry):
+          <pre class="highlight"><code class="language-python">def _zero(_, entry):
     """Process directives with no accounts.
 
     Args:
@@ -9918,7 +9920,7 @@ beancount.core.getters.GetAccounts        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/getters.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _zero(_, entry):
+          <pre class="highlight"><code class="language-python">def _zero(_, entry):
     """Process directives with no accounts.
 
     Args:
@@ -9969,7 +9971,7 @@ beancount.core.getters.GetAccounts        </code>
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/getters.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def Transaction(_, entry):
+          <pre class="highlight"><code class="language-python">def Transaction(_, entry):
     """Process a Transaction directive.
 
     Args:
@@ -10036,7 +10038,7 @@ used and one for last date used. The keys should be identical.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/getters.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_accounts_use_map(self, entries):
+          <pre class="highlight"><code class="language-python">def get_accounts_use_map(self, entries):
     """Gather the list of accounts from the list of entries.
 
     Args:
@@ -10112,7 +10114,7 @@ that would be the clean way to do this.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/getters.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_entry_accounts(self, entry):
+          <pre class="highlight"><code class="language-python">def get_entry_accounts(self, entry):
     """Gather all the accounts references by a single directive.
 
     Note: This should get replaced by a method on each directive eventually,
@@ -10193,7 +10195,7 @@ account names.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/getters.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_account_components(entries):
+          <pre class="highlight"><code class="language-python">def get_account_components(entries):
     """Gather all the account components available in the given directives.
 
     Args:
@@ -10266,7 +10268,7 @@ tuples.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/getters.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_account_open_close(entries):
+          <pre class="highlight"><code class="language-python">def get_account_open_close(entries):
     """Fetch the open/close entries for each of the accounts.
 
     If an open or close entry happens to be duplicated, accept the earliest
@@ -10348,7 +10350,7 @@ tuples.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/getters.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_accounts(entries):
+          <pre class="highlight"><code class="language-python">def get_accounts(entries):
     """Gather all the accounts references by a list of directives.
 
     Args:
@@ -10415,7 +10417,7 @@ used and one for last date used. The keys should be identical.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/getters.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_accounts_use_map(entries):
+          <pre class="highlight"><code class="language-python">def get_accounts_use_map(entries):
     """Gather all the accounts references by a list of directives.
 
     Args:
@@ -10467,7 +10469,7 @@ used and one for last date used. The keys should be identical.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/getters.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_active_years(entries):
+          <pre class="highlight"><code class="language-python">def get_active_years(entries):
     """Yield all the years that have at least one entry in them.
 
     Args:
@@ -10540,7 +10542,7 @@ used and one for last date used. The keys should be identical.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/getters.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_all_links(entries):
+          <pre class="highlight"><code class="language-python">def get_all_links(entries):
     """Return a list of all the links seen in the given entries.
 
     Args:
@@ -10611,7 +10613,7 @@ used and one for last date used. The keys should be identical.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/getters.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_all_payees(entries):
+          <pre class="highlight"><code class="language-python">def get_all_payees(entries):
     """Return a list of all the unique payees seen in the given entries.
 
     Args:
@@ -10682,7 +10684,7 @@ used and one for last date used. The keys should be identical.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/getters.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_all_tags(entries):
+          <pre class="highlight"><code class="language-python">def get_all_tags(entries):
     """Return a list of all the tags seen in the given entries.
 
     Args:
@@ -10755,7 +10757,7 @@ missing commodity directives if not present in the output map.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/getters.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_commodity_map(entries, create_missing=True):
+          <pre class="highlight"><code class="language-python">def get_commodity_map(entries, create_missing=True):
     """Create map of commodity names to Commodity entries.
 
     Args:
@@ -10865,7 +10867,7 @@ account names are labelled with LABEL=True</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/getters.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_dict_accounts(account_names):
+          <pre class="highlight"><code class="language-python">def get_dict_accounts(account_names):
     """Return a nested dict of all the unique leaf names.
     account names are labelled with LABEL=True
 
@@ -10939,7 +10941,7 @@ that would be the clean way to do this.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/getters.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_entry_accounts(entry):
+          <pre class="highlight"><code class="language-python">def get_entry_accounts(entry):
     """Gather all the accounts references by a single directive.
 
     Note: This should get replaced by a method on each directive eventually,
@@ -11010,7 +11012,7 @@ the list of unique account names in order to be returned by this function.</p></
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/getters.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_leveln_parent_accounts(account_names, level, nrepeats=0):
+          <pre class="highlight"><code class="language-python">def get_leveln_parent_accounts(account_names, level, nrepeats=0):
     """Return a list of all the unique leaf names at level N in an account hierarchy.
 
     Args:
@@ -11088,7 +11090,7 @@ directives.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/getters.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_min_max_dates(entries, types=None):
+          <pre class="highlight"><code class="language-python">def get_min_max_dates(entries, types=None):
     """Return the minimum and maximum dates in the list of entries.
 
     Args:
@@ -11178,7 +11180,7 @@ On the other hand, if there is only a single one, the value itself is returned.<
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/getters.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_values_meta(name_to_entries_map, *meta_keys, default=None):
+          <pre class="highlight"><code class="language-python">def get_values_meta(name_to_entries_map, *meta_keys, default=None):
     """Get a map of the metadata from a map of entries values.
 
     Given a dict of some key to a directive instance (or None), return a mapping
@@ -11307,7 +11309,7 @@ beancount.core.interpolate.BalanceError            (<span title="tuple">tuple</s
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/interpolate.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -11361,7 +11363,7 @@ beancount.core.interpolate.BalanceError            (<span title="tuple">tuple</s
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/interpolate.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -11437,7 +11439,7 @@ The date is exclusive.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/interpolate.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def compute_entries_balance(entries, prefix=None, date=None):
+          <pre class="highlight"><code class="language-python">def compute_entries_balance(entries, prefix=None, date=None):
     """Compute the balance of all postings of a list of entries.
 
     Sum up all the positions in all the postings of all the transactions in the
@@ -11523,7 +11525,7 @@ after it has been applied.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/interpolate.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def compute_entry_context(entries, context_entry):
+          <pre class="highlight"><code class="language-python">def compute_entry_context(entries, context_entry):
     """Compute the balances of all accounts referenced by entry up to entry.
 
     This provides the inventory of the accounts to which the entry is to be
@@ -11626,7 +11628,7 @@ contributing to the determination of precision.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/interpolate.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def compute_residual(postings):
+          <pre class="highlight"><code class="language-python">def compute_residual(postings):
     """Compute the residual of a set of complete postings, and the per-currency precision.
 
     This is used to cross-check a balanced transaction.
@@ -11714,7 +11716,7 @@ leg is inserted.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/interpolate.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def fill_residual_posting(entry, account_rounding):
+          <pre class="highlight"><code class="language-python">def fill_residual_posting(entry, account_rounding):
     """If necessary, insert a posting to absorb the residual.
     This makes the transaction balance exactly.
 
@@ -11797,7 +11799,7 @@ absorbs residuals / rounding errors.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/interpolate.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_residual_postings(residual, account_rounding):
+          <pre class="highlight"><code class="language-python">def get_residual_postings(residual, account_rounding):
     """Create postings to book the given residuals.
 
     Args:
@@ -11868,7 +11870,7 @@ absorbs residuals / rounding errors.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/interpolate.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def has_nontrivial_balance(posting):
+          <pre class="highlight"><code class="language-python">def has_nontrivial_balance(posting):
     """Return True if a Posting has a balance amount that would have to be calculated.
 
     Args:
@@ -11964,7 +11966,7 @@ e.g. 0.005.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/interpolate.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def infer_tolerances(postings, options_map, use_cost=None):
+          <pre class="highlight"><code class="language-python">def infer_tolerances(postings, options_map, use_cost=None):
     """Infer tolerances from a list of postings.
 
     The tolerance is the maximum fraction that is being used for each currency
@@ -12126,7 +12128,7 @@ user and not inferred automatically.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/interpolate.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def is_tolerance_user_specified(tolerance):
+          <pre class="highlight"><code class="language-python">def is_tolerance_user_specified(tolerance):
     """Return true if the given tolerance number was user-specified.
 
     This would allow the user to provide a tolerance like # 0.1234 but not
@@ -12197,7 +12199,7 @@ user and not inferred automatically.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/interpolate.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def quantize_with_tolerance(tolerances, currency, number):
+          <pre class="highlight"><code class="language-python">def quantize_with_tolerance(tolerances, currency, number):
     """Quantize the units using the tolerance dict.
 
     Args:
@@ -12411,7 +12413,7 @@ beancount.core.inventory.Inventory            (<span title="dict">dict</span>)
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __abs__(self):
+          <pre class="highlight"><code class="language-python">def __abs__(self):
     """Return an inventory with the absolute value of each position.
 
     Returns:
@@ -12477,7 +12479,7 @@ beancount.core.inventory.Inventory            (<span title="dict">dict</span>)
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __add__(self, other):
+          <pre class="highlight"><code class="language-python">def __add__(self, other):
     """Add another inventory to this one. This inventory is not modified.
 
     Args:
@@ -12532,7 +12534,7 @@ beancount.core.inventory.Inventory            (<span title="dict">dict</span>)
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __copy__(self):
+          <pre class="highlight"><code class="language-python">def __copy__(self):
     """A shallow copy of this inventory object.
 
     Returns:
@@ -12598,7 +12600,7 @@ beancount.core.inventory.Inventory            (<span title="dict">dict</span>)
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def add_inventory(self, other):
+          <pre class="highlight"><code class="language-python">def add_inventory(self, other):
     """Add all the positions of another Inventory instance to this one.
 
     Args:
@@ -12660,7 +12662,7 @@ Inventory instance.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __init__(self, positions=None):
+          <pre class="highlight"><code class="language-python">def __init__(self, positions=None):
     """Create a new inventory using a list of existing positions.
 
     Args:
@@ -12702,7 +12704,7 @@ Inventory instance.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __iter__(self):
+          <pre class="highlight"><code class="language-python">def __iter__(self):
     """Iterate over the positions. Note that there is no guaranteed order."""
     return iter(self.values())
 </code></pre>
@@ -12732,7 +12734,7 @@ Inventory instance.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __lt__(self, other):
+          <pre class="highlight"><code class="language-python">def __lt__(self, other):
     """Inequality comparison operator."""
     return sorted(self) &lt; sorted(other)
 </code></pre>
@@ -12794,7 +12796,7 @@ Inventory instance.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __mul__(self, scalar):
+          <pre class="highlight"><code class="language-python">def __mul__(self, scalar):
     """Scale/multiply the contents of the inventory.
 
     Args:
@@ -12846,7 +12848,7 @@ Inventory instance.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __neg__(self):
+          <pre class="highlight"><code class="language-python">def __neg__(self):
     """Return an inventory with the negative of values of this one.
 
     Returns:
@@ -12896,7 +12898,7 @@ Inventory instance.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __str__(self):
+          <pre class="highlight"><code class="language-python">def __str__(self):
     """Render as a human-readable string.
 
     Returns:
@@ -12946,7 +12948,7 @@ Inventory instance.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __str__(self):
+          <pre class="highlight"><code class="language-python">def __str__(self):
     """Render as a human-readable string.
 
     Returns:
@@ -13016,7 +13018,7 @@ e.g. the position was deleted.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def add_amount(self, units, cost=None):
+          <pre class="highlight"><code class="language-python">def add_amount(self, units, cost=None):
     """Add to this inventory using amount and cost. This adds with strict lot
     matching, that is, no partial matches are done on the arguments to the
     keys of the inventory.
@@ -13122,7 +13124,7 @@ e.g. the position was deleted.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def add_inventory(self, other):
+          <pre class="highlight"><code class="language-python">def add_inventory(self, other):
     """Add all the positions of another Inventory instance to this one.
 
     Args:
@@ -13199,7 +13201,7 @@ how the lot was booked to this inventory.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def add_position(self, position):
+          <pre class="highlight"><code class="language-python">def add_position(self, position):
     """Add using a position (with strict lot matching).
     Return True if this position was booked against and reduced another.
 
@@ -13257,7 +13259,7 @@ how the lot was booked to this inventory.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def average(self):
+          <pre class="highlight"><code class="language-python">def average(self):
     """Average all lots of the same currency together.
 
     Use the minimum date from each aggregated set of lots.
@@ -13340,7 +13342,7 @@ how the lot was booked to this inventory.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def cost_currencies(self):
+          <pre class="highlight"><code class="language-python">def cost_currencies(self):
     """Return the list of unit currencies held in this inventory.
 
     Returns:
@@ -13389,7 +13391,7 @@ how the lot was booked to this inventory.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def currencies(self):
+          <pre class="highlight"><code class="language-python">def currencies(self):
     """Return the list of unit currencies held in this inventory.
 
     Returns:
@@ -13436,7 +13438,7 @@ how the lot was booked to this inventory.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def currency_pairs(self):
+          <pre class="highlight"><code class="language-python">def currency_pairs(self):
     """Return the commodities held in this inventory.
 
     Returns:
@@ -13503,7 +13505,7 @@ optional {&lt;number&gt; &lt;currency&gt;} for the cost.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@staticmethod
+          <pre class="highlight"><code class="language-python">@staticmethod
 def from_string(string):
     """Create an Inventory from a string. This is useful for writing tests.
 
@@ -13578,7 +13580,7 @@ This may sum multiple lots in the same currency denomination.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_currency_units(self, currency):
+          <pre class="highlight"><code class="language-python">def get_currency_units(self, currency):
     """Fetch the total amount across all the position in the given currency.
     This may sum multiple lots in the same currency denomination.
 
@@ -13617,7 +13619,7 @@ If the inventory is empty, return None.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_only_position(self):
+          <pre class="highlight"><code class="language-python">def get_only_position(self):
     """Return the first position and assert there are no more.
     If the inventory is empty, return None.
     """
@@ -13666,7 +13668,7 @@ If the inventory is empty, return None.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_positions(self):
+          <pre class="highlight"><code class="language-python">def get_positions(self):
     """Return the positions in this inventory.
 
     Returns:
@@ -13713,7 +13715,7 @@ If the inventory is empty, return None.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def is_empty(self):
+          <pre class="highlight"><code class="language-python">def is_empty(self):
     """Return true if the inventory is empty, that is, has no positions.
 
     Returns:
@@ -13761,7 +13763,7 @@ at least one instrument.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def is_mixed(self):
+          <pre class="highlight"><code class="language-python">def is_mixed(self):
     """Return true if the inventory contains a mix of positive and negative lots for
     at least one instrument.
 
@@ -13831,7 +13833,7 @@ at least one instrument.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def is_reduced_by(self, ramount):
+          <pre class="highlight"><code class="language-python">def is_reduced_by(self, ramount):
     """Return true if the amount could reduce this inventory.
 
     Args:
@@ -13904,7 +13906,7 @@ is considered small, or a dict of currency to such epsilon precision.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def is_small(self, tolerances):
+          <pre class="highlight"><code class="language-python">def is_small(self, tolerances):
     """Return true if all the positions in the inventory are small.
 
     Args:
@@ -13964,7 +13966,7 @@ is considered small, or a dict of currency to such epsilon precision.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def reduce(self, reducer, *args):
+          <pre class="highlight"><code class="language-python">def reduce(self, reducer, *args):
     """Reduce an inventory using one of the conversion functions.
 
     See functions in beancount.core.convert.
@@ -14032,7 +14034,7 @@ is considered small, or a dict of currency to such epsilon precision.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def segregate_units(self, currencies):
+          <pre class="highlight"><code class="language-python">def segregate_units(self, currencies):
     """Split up the list of positions to the given currencies.
 
     Args:
@@ -14061,7 +14063,7 @@ is considered small, or a dict of currency to such epsilon precision.</p></li>
 
 
 <h4 id="beancount.core.inventory.Inventory.to_string" class="doc doc-heading">
-<code class="highlight language-python">beancount.core.inventory.Inventory.to_string(self, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7f67b4a95a90&gt;, parens=True)</code>
+<code class="highlight language-python">beancount.core.inventory.Inventory.to_string(self, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7fad11febaf0&gt;, parens=True)</code>
 
 
 <a href="#beancount.core.inventory.Inventory.to_string" class="headerlink" title="Permanent link"></a></h4>
@@ -14105,7 +14107,7 @@ is considered small, or a dict of currency to such epsilon precision.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def to_string(self, dformat=DEFAULT_FORMATTER, parens=True):
+          <pre class="highlight"><code class="language-python">def to_string(self, dformat=DEFAULT_FORMATTER, parens=True):
     """Convert an Inventory instance to a printable string.
 
     Args:
@@ -14184,7 +14186,7 @@ is considered small, or a dict of currency to such epsilon precision.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def check_invariants(inv):
+          <pre class="highlight"><code class="language-python">def check_invariants(inv):
     """Check the invariants of the Inventory.
 
     Args:
@@ -14255,7 +14257,7 @@ optional {&lt;number&gt; &lt;currency&gt;} for the cost.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/inventory.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@staticmethod
+          <pre class="highlight"><code class="language-python">@staticmethod
 def from_string(string):
     """Create an Inventory from a string. This is useful for writing tests.
 
@@ -14391,7 +14393,7 @@ argument if it is already a Decimal object, for convenience.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/number.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def D(strord=None):
+          <pre class="highlight"><code class="language-python">def D(strord=None):
     """Convert a string into a Decimal object.
 
     This is used in parsing amounts from files in the importers. This is the
@@ -14445,7 +14447,7 @@ argument if it is already a Decimal object, for convenience.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/number.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def is_fast_decimal(decimal_module):
+          <pre class="highlight"><code class="language-python">def is_fast_decimal(decimal_module):
     "Return true if a fast C decimal implementation is installed."
     return isinstance(decimal_module.Decimal().sqrt, types.BuiltinFunctionType)
 </code></pre>
@@ -14505,7 +14507,7 @@ argument if it is already a Decimal object, for convenience.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/number.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def round_to(number, increment):
+          <pre class="highlight"><code class="language-python">def round_to(number, increment):
     """Round a number *down* to a particular increment.
 
     Args:
@@ -14572,7 +14574,7 @@ argument if it is already a Decimal object, for convenience.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/number.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def same_sign(number1, number2):
+          <pre class="highlight"><code class="language-python">def same_sign(number1, number2):
     """Return true if both numbers have the same sign.
 
     Args:
@@ -14680,7 +14682,7 @@ beancount.core.position.Cost            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/position.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -14734,7 +14736,7 @@ beancount.core.position.Cost            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/position.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -14804,7 +14806,7 @@ beancount.core.position.CostSpec            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/position.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -14858,7 +14860,7 @@ beancount.core.position.CostSpec            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/position.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -14969,7 +14971,7 @@ This is used to track inventories.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/position.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __abs__(self):
+          <pre class="highlight"><code class="language-python">def __abs__(self):
     """Return the absolute value of the position.
 
     Returns:
@@ -15020,7 +15022,7 @@ performance reasons; a lot of time is spent here during balancing.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/position.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __copy__(self):
+          <pre class="highlight"><code class="language-python">def __copy__(self):
     """Shallow copy, except for the lot, which can be shared. This is important for
     performance reasons; a lot of time is spent here during balancing.
 
@@ -15090,7 +15092,7 @@ and the other position is None, that is also okay.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/position.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __eq__(self, other):
+          <pre class="highlight"><code class="language-python">def __eq__(self, other):
     """Equality comparison with another Position. The objects are considered equal
     if both number and lot are matching, and if the number of units is zero
     and the other position is None, that is also okay.
@@ -15146,7 +15148,7 @@ and the other position is None, that is also okay.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/position.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __hash__(self):
+          <pre class="highlight"><code class="language-python">def __hash__(self):
     """Compute a hash for this position.
 
     Returns:
@@ -15212,7 +15214,7 @@ and the other position is None, that is also okay.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/position.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __lt__(self, other):
+          <pre class="highlight"><code class="language-python">def __lt__(self, other):
     """A less-than comparison operator for positions.
 
     Args:
@@ -15280,7 +15282,7 @@ and the other position is None, that is also okay.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/position.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __mul__(self, scalar):
+          <pre class="highlight"><code class="language-python">def __mul__(self, scalar):
     """Scale/multiply the contents of the position.
 
     Args:
@@ -15332,7 +15334,7 @@ and the other position is None, that is also okay.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/position.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_negative(self):
+          <pre class="highlight"><code class="language-python">def get_negative(self):
     """Get a copy of this position but with a negative number.
 
     Returns:
@@ -15368,7 +15370,7 @@ and the other position is None, that is also okay.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/position.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __new__(cls, units, cost=None):
+          <pre class="highlight"><code class="language-python">def __new__(cls, units, cost=None):
     assert isinstance(units, Amount), (
         "Expected an Amount for units; received '{}'".format(units))
     assert cost is None or isinstance(cost, Position.cost_types), (
@@ -15417,7 +15419,7 @@ and the other position is None, that is also okay.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/position.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __str__(self):
+          <pre class="highlight"><code class="language-python">def __str__(self):
     """Return a string representation of the position.
 
     Returns:
@@ -15467,7 +15469,7 @@ and the other position is None, that is also okay.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/position.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __str__(self):
+          <pre class="highlight"><code class="language-python">def __str__(self):
     """Return a string representation of the position.
 
     Returns:
@@ -15514,7 +15516,7 @@ and the other position is None, that is also okay.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/position.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def currency_pair(self):
+          <pre class="highlight"><code class="language-python">def currency_pair(self):
     """Return the currency pair associated with this position.
 
     Returns:
@@ -15581,7 +15583,7 @@ and the other position is None, that is also okay.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/position.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@staticmethod
+          <pre class="highlight"><code class="language-python">@staticmethod
 def from_amounts(units, cost_amount=None):
     """Create a position from an amount and a cost.
 
@@ -15658,7 +15660,7 @@ def from_amounts(units, cost_amount=None):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/position.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@staticmethod
+          <pre class="highlight"><code class="language-python">@staticmethod
 def from_string(string):
     """Create a position from a string specification.
 
@@ -15771,7 +15773,7 @@ def from_string(string):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/position.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_negative(self):
+          <pre class="highlight"><code class="language-python">def get_negative(self):
     """Get a copy of this position but with a negative number.
 
     Returns:
@@ -15819,7 +15821,7 @@ def from_string(string):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/position.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def is_negative_at_cost(self):
+          <pre class="highlight"><code class="language-python">def is_negative_at_cost(self):
     """Return true if the position is held at cost and negative.
 
     Returns:
@@ -15868,7 +15870,7 @@ number of units.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/position.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def sortkey(self):
+          <pre class="highlight"><code class="language-python">def sortkey(self):
     """Return a key to sort positions by. This key depends on the order of the
     currency of the lot (we want to order common currencies first) and the
     number of units.
@@ -15899,7 +15901,7 @@ number of units.</p>
 
 
 <h4 id="beancount.core.position.Position.to_string" class="doc doc-heading">
-<code class="highlight language-python">beancount.core.position.Position.to_string(self, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7f67b4a95a90&gt;, detail=True)</code>
+<code class="highlight language-python">beancount.core.position.Position.to_string(self, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7fad11febaf0&gt;, detail=True)</code>
 
 
 <a href="#beancount.core.position.Position.to_string" class="headerlink" title="Permanent link"></a></h4>
@@ -15910,7 +15912,7 @@ number of units.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/position.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def to_string(self, dformat=DEFAULT_FORMATTER, detail=True):
+          <pre class="highlight"><code class="language-python">def to_string(self, dformat=DEFAULT_FORMATTER, detail=True):
     """Render the position to a string.See to_string() for details.
     """
     return to_string(self, dformat, detail)
@@ -15983,7 +15985,7 @@ number of units.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/position.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def cost_to_str(cost, dformat, detail=True):
+          <pre class="highlight"><code class="language-python">def cost_to_str(cost, dformat, detail=True):
     """Format an instance of Cost or a CostSpec to a string.
 
     Args:
@@ -16081,7 +16083,7 @@ number of units.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/position.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@staticmethod
+          <pre class="highlight"><code class="language-python">@staticmethod
 def from_amounts(units, cost_amount=None):
     """Create a position from an amount and a cost.
 
@@ -16155,7 +16157,7 @@ def from_amounts(units, cost_amount=None):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/position.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@staticmethod
+          <pre class="highlight"><code class="language-python">@staticmethod
 def from_string(string):
     """Create a position from a string specification.
 
@@ -16284,7 +16286,7 @@ def from_string(string):
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/position.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_position(posting):
+          <pre class="highlight"><code class="language-python">def get_position(posting):
     """Build a Position instance from a Posting instance.
 
     Args:
@@ -16306,7 +16308,7 @@ def from_string(string):
 
 
 <h3 id="beancount.core.position.to_string" class="doc doc-heading">
-<code class="highlight language-python">beancount.core.position.to_string(pos, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7f67b4a95a90&gt;, detail=True)</code>
+<code class="highlight language-python">beancount.core.position.to_string(pos, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7fad11febaf0&gt;, detail=True)</code>
 
 
 <a href="#beancount.core.position.to_string" class="headerlink" title="Permanent link"></a></h3>
@@ -16353,7 +16355,7 @@ the cost, if present.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/position.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def to_string(pos, dformat=DEFAULT_FORMATTER, detail=True):
+          <pre class="highlight"><code class="language-python">def to_string(pos, dformat=DEFAULT_FORMATTER, detail=True):
     """Render the Position or Posting instance to a string.
 
     Args:
@@ -16542,7 +16544,7 @@ generated in the price map.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/prices.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def build_price_map(entries):
+          <pre class="highlight"><code class="language-python">def build_price_map(entries):
     """Build a price map from a list of arbitrary entries.
 
     If multiple prices are found for the same (currency, cost-currency) pair at
@@ -16695,7 +16697,7 @@ denominated in. This may also just be a string, with a '/' separator.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/prices.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_all_prices(price_map, base_quote):
+          <pre class="highlight"><code class="language-python">def get_all_prices(price_map, base_quote):
     """Return a sorted list of all (date, number) price pairs.
 
     Args:
@@ -16770,7 +16772,7 @@ is returned.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/prices.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_last_price_entries(entries, date):
+          <pre class="highlight"><code class="language-python">def get_last_price_entries(entries, date):
     """Run through the entries until the given date and return the last
     Price entry encountered for each (currency, cost-currency) pair.
 
@@ -16850,7 +16852,7 @@ latest date which we have an available price for in the price map.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/prices.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_latest_price(price_map, base_quote):
+          <pre class="highlight"><code class="language-python">def get_latest_price(price_map, base_quote):
     """Return the latest price/rate from a price map for the given base/quote pair.
     This is often used to just get the 'current' price if you're looking at the
     entire set of entries.
@@ -16944,7 +16946,7 @@ be found, return (None, None).</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/prices.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_price(price_map, base_quote, date=None):
+          <pre class="highlight"><code class="language-python">def get_price(price_map, base_quote, date=None):
     """Return the price as of the given date.
 
     If the date is unspecified, return the latest price.
@@ -17038,7 +17040,7 @@ denominated in. This may also just be a string, with a '/' separator.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/prices.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def normalize_base_quote(base_quote):
+          <pre class="highlight"><code class="language-python">def normalize_base_quote(base_quote):
     """Convert a slash-separated string to a pair of strings.
 
     Args:
@@ -17226,7 +17228,7 @@ include the postings of children accounts).</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/realization.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __eq__(self, other):
+          <pre class="highlight"><code class="language-python">def __eq__(self, other):
     """Equality predicate. All attributes are compared.
 
     Args:
@@ -17281,7 +17283,7 @@ include the postings of children accounts).</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/realization.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __init__(self, account_name, *args, **kwargs):
+          <pre class="highlight"><code class="language-python">def __init__(self, account_name, *args, **kwargs):
     """Create a RealAccount instance.
 
     Args:
@@ -17351,7 +17353,7 @@ include the postings of children accounts).</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/realization.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __ne__(self, other):
+          <pre class="highlight"><code class="language-python">def __ne__(self, other):
     """Not-equality predicate. See __eq__.
 
     Args:
@@ -17421,7 +17423,7 @@ include the postings of children accounts).</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/realization.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __setitem__(self, key, value):
+          <pre class="highlight"><code class="language-python">def __setitem__(self, key, value):
     """Prevent the setting of non-string or non-empty keys on this dict.
 
     Args:
@@ -17482,7 +17484,7 @@ class' method, which return just a dict.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/realization.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def copy(self):
+          <pre class="highlight"><code class="language-python">def copy(self):
     """Override dict.copy() to clone a RealAccount.
 
     This is only necessary to correctly implement the copy method.
@@ -17561,7 +17563,7 @@ class' method, which return just a dict.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/realization.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def compute_balance(real_account, leaf_only=False):
+          <pre class="highlight"><code class="language-python">def compute_balance(real_account, leaf_only=False):
     """Compute the total balance of this account and all its subaccounts.
 
     Args:
@@ -17629,7 +17631,7 @@ skipped).</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/realization.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def compute_postings_balance(txn_postings):
+          <pre class="highlight"><code class="language-python">def compute_postings_balance(txn_postings):
     """Compute the balance of a list of Postings's or TxnPosting's positions.
 
     Args:
@@ -17702,7 +17704,7 @@ this node.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/realization.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def contains(real_account, account_name):
+          <pre class="highlight"><code class="language-python">def contains(real_account, account_name):
     """True if the given account node contains the subaccount name.
 
     Args:
@@ -17778,7 +17780,7 @@ debugging purposes.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/realization.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def dump(root_account):
+          <pre class="highlight"><code class="language-python">def dump(root_account):
     """Convert a RealAccount node to a line of lines.
 
     Note: this is not meant to be used to produce text reports; the reporting
@@ -17923,7 +17925,7 @@ return the output as a string.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/realization.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def dump_balances(real_root, dformat, at_cost=False, fullnames=False, file=None):
+          <pre class="highlight"><code class="language-python">def dump_balances(real_root, dformat, at_cost=False, fullnames=False, file=None):
     """Dump a realization tree with balances.
 
     Args:
@@ -18034,7 +18036,7 @@ a boolean. If the function returns True, the node is kept.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/realization.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def filter(real_account, predicate):
+          <pre class="highlight"><code class="language-python">def filter(real_account, predicate):
     """Filter a RealAccount tree of nodes by the predicate.
 
     This function visits the tree and applies the predicate on each node. It
@@ -18123,7 +18125,7 @@ and checks without errors.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/realization.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def find_last_active_posting(txn_postings):
+          <pre class="highlight"><code class="language-python">def find_last_active_posting(txn_postings):
     """Look at the end of the list of postings, and find the last
     posting or entry that is not an automatically added directive.
     Note that if the account is closed, the last posting is assumed
@@ -18208,7 +18210,7 @@ is not found.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/realization.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get(real_account, account_name, default=None):
+          <pre class="highlight"><code class="language-python">def get(real_account, account_name, default=None):
     """Fetch the subaccount name from the real_account node.
 
     Args:
@@ -18291,7 +18293,7 @@ is not found.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/realization.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_or_create(real_account, account_name):
+          <pre class="highlight"><code class="language-python">def get_or_create(real_account, account_name):
     """Fetch the subaccount name from the real_account node.
 
     Args:
@@ -18371,7 +18373,7 @@ is not found.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/realization.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_postings(real_account):
+          <pre class="highlight"><code class="language-python">def get_postings(real_account):
     """Return a sorted list a RealAccount's postings and children.
 
     Args:
@@ -18447,7 +18449,7 @@ function. If the value is not found, return None.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/realization.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def index_key(sequence, value, key, cmp):
+          <pre class="highlight"><code class="language-python">def index_key(sequence, value, key, cmp):
     """Find the index of the first element in 'sequence' which is equal to 'value'.
     If 'key' is specified, the value compared to the value returned by this
     function. If the value is not found, return None.
@@ -18508,7 +18510,7 @@ function. If the value is not found, return None.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/realization.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def iter_children(real_account, leaf_only=False):
+          <pre class="highlight"><code class="language-python">def iter_children(real_account, leaf_only=False):
     """Iterate this account node and all its children, depth-first.
 
     Args:
@@ -18600,7 +18602,7 @@ Postings affect the balance; other entries do not.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/core/realization.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def iterate_with_balance(txn_postings):
+          <pre class="highlight"><code class="language-python">def iterate_with_balance(txn_postings):
     """Iterate over the entries, accumulating the running balance.
 
     For each entry, this yields tuples of the form:
@@ -18766,7 +18768,7 @@ non-Transaction directives, sorted in the same order as the entries.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/realization.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def postings_by_account(entries):
+          <pre class="highlight"><code class="language-python">def postings_by_account(entries):
     """Create lists of postings and balances by account.
 
     This routine aggregates postings and entries grouping them by account name.
@@ -18899,7 +18901,7 @@ balance on the realization.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/core/realization.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def realize(entries, min_accounts=None, compute_balance=True):
+          <pre class="highlight"><code class="language-python">def realize(entries, min_accounts=None, compute_balance=True):
     r"""Group entries by account, into a "tree" of realized accounts. RealAccount's
     are essentially containers for lists of postings and the final balance of
     each account, and may be non-leaf accounts (used strictly for organizing

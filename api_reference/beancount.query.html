@@ -141,6 +141,8 @@
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../beancount_v3_dependencies.html">Dependencies</a>
                 </li>
+                <li class="toctree-l2"><a class="reference internal" href="../beangulp.html">Beangulp</a>
+                </li>
     </ul>
                     </li>
                 </ul>
@@ -1590,7 +1592,7 @@ the InvalidOperation trap is active.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/numberify.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def convert_col_Amount(name, drows, index):
+          <pre class="highlight"><code class="language-python">def convert_col_Amount(name, drows, index):
     """Create converters for a column of type Amount.
 
     Args:
@@ -1667,7 +1669,7 @@ the InvalidOperation trap is active.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/numberify.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def convert_col_Inventory(name, drows, index):
+          <pre class="highlight"><code class="language-python">def convert_col_Inventory(name, drows, index):
     """Create converters for a column of type Inventory.
 
     Args:
@@ -1744,7 +1746,7 @@ the InvalidOperation trap is active.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/numberify.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def convert_col_Position(name, drows, index):
+          <pre class="highlight"><code class="language-python">def convert_col_Position(name, drows, index):
     """Create converters for a column of type Position.
 
     Args:
@@ -1824,7 +1826,7 @@ Position's or Inventory'es..</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/numberify.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def numberify_results(dtypes, drows, dformat=None):
+          <pre class="highlight"><code class="language-python">def numberify_results(dtypes, drows, dformat=None):
     """Number rows containing Amount, Position or Inventory types.
 
     Args:
@@ -1980,7 +1982,7 @@ just provided as a convenience.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def run_query(entries, options_map, query, *format_args, numberify=False):
+          <pre class="highlight"><code class="language-python">def run_query(entries, options_map, query, *format_args, numberify=False):
     """Compile and execute a query, return the result types and rows.
 
     Args:
@@ -2141,7 +2143,7 @@ column accessors specific to the particular row objects that we will access.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_column(self, name):
+          <pre class="highlight"><code class="language-python">def get_column(self, name):
     """Return a column accessor for the given named column.
     Args:
       name: A string, the name of the column to access.
@@ -2191,7 +2193,7 @@ column accessors specific to the particular row objects that we will access.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_function(self, name, operands):
+          <pre class="highlight"><code class="language-python">def get_function(self, name, operands):
     """Return a function accessor for the given named function.
     Args:
       name: A string, the name of the function to access.
@@ -2337,7 +2339,7 @@ data.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __call__(self, context):
+          <pre class="highlight"><code class="language-python">def __call__(self, context):
     """Return the value on evaluation.
 
     Args:
@@ -2393,7 +2395,7 @@ obtain a handle for a slot to store data on store objects later on.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def allocate(self, allocator):
+          <pre class="highlight"><code class="language-python">def allocate(self, allocator):
     """Allocate handles to store data for a node's aggregate storage.
 
     This is called once before beginning aggregations. If you need any
@@ -2447,7 +2449,7 @@ value. The context node will be the alloc instead of the context object.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def finalize(self, store):
+          <pre class="highlight"><code class="language-python">def finalize(self, store):
     """Finalize this node's aggregate data and return it.
 
     For aggregate methods, this finalizes the node and returns the final
@@ -2499,7 +2501,7 @@ if you need data for storage.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def initialize(self, store):
+          <pre class="highlight"><code class="language-python">def initialize(self, store):
     """Initialize this node's aggregate data. If the node is not an aggregate,
     simply initialize the subnodes. Override this method in the aggregator
     if you need data for storage.
@@ -2549,7 +2551,7 @@ if you need data for storage.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def update(self, store, context):
+          <pre class="highlight"><code class="language-python">def update(self, store, context):
     """Evaluate this node. This is designed to recurse on its children.
 
     Args:
@@ -2655,7 +2657,7 @@ beancount.query.query_compile.EvalFrom            (<span title="tuple">tuple</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -2709,7 +2711,7 @@ beancount.query.query_compile.EvalFrom            (<span title="tuple">tuple</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -2739,7 +2741,7 @@ beancount.query.query_compile.EvalFrom            (<span title="tuple">tuple</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _asdict(self):
+          <pre class="highlight"><code class="language-python">def _asdict(self):
     'Return a new dict which maps field names to their values.'
     return _dict(_zip(self._fields, self))
 </code></pre>
@@ -2770,7 +2772,7 @@ beancount.query.query_compile.EvalFrom            (<span title="tuple">tuple</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@classmethod
+          <pre class="highlight"><code class="language-python">@classmethod
 def _make(cls, iterable):
     result = tuple_new(cls, iterable)
     if _len(result) != num_fields:
@@ -2803,7 +2805,7 @@ def _make(cls, iterable):
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _replace(self, /, **kwds):
+          <pre class="highlight"><code class="language-python">def _replace(self, /, **kwds):
     result = self._make(_map(kwds.pop, field_names, self))
     if kwds:
         raise ValueError(f'Got unexpected field names: {list(kwds)!r}')
@@ -2960,7 +2962,7 @@ data.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __call__(self, context):
+          <pre class="highlight"><code class="language-python">def __call__(self, context):
     """Evaluate this node. This is designed to recurse on its children.
     All subclasses must override and implement this method.
 
@@ -3001,7 +3003,7 @@ of this node. This is used by tests for comparing nodes.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __eq__(self, other):
+          <pre class="highlight"><code class="language-python">def __eq__(self, other):
     """Override the equality operator to compare the data type and a all attributes
     of this node. This is used by tests for comparing nodes.
     """
@@ -3037,7 +3039,7 @@ of this node. This is used by tests for comparing nodes.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __str__(self):
+          <pre class="highlight"><code class="language-python">def __str__(self):
     return "{}({})".format(type(self).__name__,
                            ', '.join(repr(getattr(self, child))
                                      for child in self.__slots__))
@@ -3068,7 +3070,7 @@ Yields:
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def childnodes(self):
+          <pre class="highlight"><code class="language-python">def childnodes(self):
     """Returns the child nodes of this node.
     Yields:
       A list of EvalNode instances.
@@ -3150,7 +3152,7 @@ beancount.query.query_compile.EvalPrint            (<span title="tuple">tuple</s
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -3204,7 +3206,7 @@ beancount.query.query_compile.EvalPrint            (<span title="tuple">tuple</s
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -3234,7 +3236,7 @@ beancount.query.query_compile.EvalPrint            (<span title="tuple">tuple</s
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _asdict(self):
+          <pre class="highlight"><code class="language-python">def _asdict(self):
     'Return a new dict which maps field names to their values.'
     return _dict(_zip(self._fields, self))
 </code></pre>
@@ -3265,7 +3267,7 @@ beancount.query.query_compile.EvalPrint            (<span title="tuple">tuple</s
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@classmethod
+          <pre class="highlight"><code class="language-python">@classmethod
 def _make(cls, iterable):
     result = tuple_new(cls, iterable)
     if _len(result) != num_fields:
@@ -3298,7 +3300,7 @@ def _make(cls, iterable):
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _replace(self, /, **kwds):
+          <pre class="highlight"><code class="language-python">def _replace(self, /, **kwds):
     result = self._make(_map(kwds.pop, field_names, self))
     if kwds:
         raise ValueError(f'Got unexpected field names: {list(kwds)!r}')
@@ -3370,7 +3372,7 @@ beancount.query.query_compile.EvalQuery            (<span title="tuple">tuple</s
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -3424,7 +3426,7 @@ beancount.query.query_compile.EvalQuery            (<span title="tuple">tuple</s
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -3454,7 +3456,7 @@ beancount.query.query_compile.EvalQuery            (<span title="tuple">tuple</s
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _asdict(self):
+          <pre class="highlight"><code class="language-python">def _asdict(self):
     'Return a new dict which maps field names to their values.'
     return _dict(_zip(self._fields, self))
 </code></pre>
@@ -3485,7 +3487,7 @@ beancount.query.query_compile.EvalQuery            (<span title="tuple">tuple</s
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@classmethod
+          <pre class="highlight"><code class="language-python">@classmethod
 def _make(cls, iterable):
     result = tuple_new(cls, iterable)
     if _len(result) != num_fields:
@@ -3518,7 +3520,7 @@ def _make(cls, iterable):
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _replace(self, /, **kwds):
+          <pre class="highlight"><code class="language-python">def _replace(self, /, **kwds):
     result = self._make(_map(kwds.pop, field_names, self))
     if kwds:
         raise ValueError(f'Got unexpected field names: {list(kwds)!r}')
@@ -3591,7 +3593,7 @@ beancount.query.query_compile.EvalTarget            (<span title="tuple">tuple</
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -3645,7 +3647,7 @@ beancount.query.query_compile.EvalTarget            (<span title="tuple">tuple</
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -3675,7 +3677,7 @@ beancount.query.query_compile.EvalTarget            (<span title="tuple">tuple</
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _asdict(self):
+          <pre class="highlight"><code class="language-python">def _asdict(self):
     'Return a new dict which maps field names to their values.'
     return _dict(_zip(self._fields, self))
 </code></pre>
@@ -3706,7 +3708,7 @@ beancount.query.query_compile.EvalTarget            (<span title="tuple">tuple</
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@classmethod
+          <pre class="highlight"><code class="language-python">@classmethod
 def _make(cls, iterable):
     result = tuple_new(cls, iterable)
     if _len(result) != num_fields:
@@ -3739,7 +3741,7 @@ def _make(cls, iterable):
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _replace(self, /, **kwds):
+          <pre class="highlight"><code class="language-python">def _replace(self, /, **kwds):
     result = self._make(_map(kwds.pop, field_names, self))
     if kwds:
         raise ValueError(f'Got unexpected field names: {list(kwds)!r}')
@@ -3810,7 +3812,7 @@ beancount.query.query_compile.ResultSetEnvironment            (<a title="beancou
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_column(self, name):
+          <pre class="highlight"><code class="language-python">def get_column(self, name):
     """Override the column getter to provide a single attribute getter.
     """
     # FIXME: How do we figure out the data type here? We need the context.
@@ -3872,7 +3874,7 @@ beancount.query.query_compile.ResultSetEnvironment            (<a title="beancou
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _get_columns_and_aggregates(node, columns, aggregates):
+          <pre class="highlight"><code class="language-python">def _get_columns_and_aggregates(node, columns, aggregates):
     """Walk down a tree of nodes and fetch the column accessors and aggregates.
 
     This function ignores all nodes under aggregate nodes.
@@ -3965,7 +3967,7 @@ supported statements.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def compile(statement, targets_environ, postings_environ, entries_environ):
+          <pre class="highlight"><code class="language-python">def compile(statement, targets_environ, postings_environ, entries_environ):
     """Prepare an AST any of the statement into an executable statement.
 
     Args:
@@ -4051,7 +4053,7 @@ supported statements.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def compile_expression(expr, environ):
+          <pre class="highlight"><code class="language-python">def compile_expression(expr, environ):
     """Bind an expression to its execution context.
 
     Args:
@@ -4142,7 +4144,7 @@ supported statements.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def compile_from(from_clause, environ):
+          <pre class="highlight"><code class="language-python">def compile_from(from_clause, environ):
     """Compiled a From clause as provided by the parser, in the given environment.
 
     Args:
@@ -4237,7 +4239,7 @@ supported statements.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def compile_group_by(group_by, c_targets, environ):
+          <pre class="highlight"><code class="language-python">def compile_group_by(group_by, c_targets, environ):
     """Process a group-by clause.
 
     Args:
@@ -4419,7 +4421,7 @@ supported statements.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def compile_order_by(order_by, c_targets, environ):
+          <pre class="highlight"><code class="language-python">def compile_order_by(order_by, c_targets, environ):
     """Process an order-by clause.
 
     Args:
@@ -4541,7 +4543,7 @@ supported statements.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def compile_print(print_stmt, env_entries):
+          <pre class="highlight"><code class="language-python">def compile_print(print_stmt, env_entries):
     """Compile a Print statement.
 
     Args:
@@ -4614,7 +4616,7 @@ basic optimizations.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def compile_select(select, targets_environ, postings_environ, entries_environ):
+          <pre class="highlight"><code class="language-python">def compile_select(select, targets_environ, postings_environ, entries_environ):
     """Prepare an AST for a Select statement into a very rudimentary execution tree.
     The execution tree mostly looks much like an AST, but with some nodes
     replaced with knowledge specific to an execution context and eventually some
@@ -4769,7 +4771,7 @@ basic optimizations.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def compile_targets(targets, environ):
+          <pre class="highlight"><code class="language-python">def compile_targets(targets, environ):
     """Compile the targets and check for their validity. Process wildcard.
 
     Args:
@@ -4871,7 +4873,7 @@ basic optimizations.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def find_unique_name(name, allocated_set):
+          <pre class="highlight"><code class="language-python">def find_unique_name(name, allocated_set):
     """Come up with a unique name for 'name' amongst 'allocated_set'.
 
     Args:
@@ -4946,7 +4948,7 @@ basic optimizations.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_columns_and_aggregates(node):
+          <pre class="highlight"><code class="language-python">def get_columns_and_aggregates(node):
     """Find the columns and aggregate nodes below this tree.
 
     All nodes under aggregate nodes are ignored.
@@ -5018,7 +5020,7 @@ basic optimizations.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def is_aggregate(node):
+          <pre class="highlight"><code class="language-python">def is_aggregate(node):
     """Return true if the node is an aggregate.
 
     Args:
@@ -5086,7 +5088,7 @@ basic optimizations.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def is_hashable_type(node):
+          <pre class="highlight"><code class="language-python">def is_hashable_type(node):
     """Return true if the node is of a hashable type.
 
     Args:
@@ -5151,7 +5153,7 @@ basic optimizations.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def transform_balances(balances):
+          <pre class="highlight"><code class="language-python">def transform_balances(balances):
     """Translate a Balances entry into an uncompiled Select statement.
 
     Args:
@@ -5235,7 +5237,7 @@ basic optimizations.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def transform_journal(journal):
+          <pre class="highlight"><code class="language-python">def transform_journal(journal):
     """Translate a Journal entry into an uncompiled Select statement.
 
     Args:
@@ -5392,7 +5394,7 @@ beancount.query.query_compile_test.CompileSelectBase            (<span title="un
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile_test.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def assertCompile(self, expected, query, debug=False):
+          <pre class="highlight"><code class="language-python">def assertCompile(self, expected, query, debug=False):
     """Assert parsed and compiled contents from 'query' is 'expected'.
 
     Args:
@@ -5476,7 +5478,7 @@ beancount.query.query_compile_test.CompileSelectBase            (<span title="un
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile_test.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def assertIndexes(self,
+          <pre class="highlight"><code class="language-python">def assertIndexes(self,
                   query,
                   expected_simple_indexes,
                   expected_aggregate_indexes,
@@ -5568,7 +5570,7 @@ beancount.query.query_compile_test.CompileSelectBase            (<span title="un
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile_test.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def assertSelectInvariants(self, query):
+          <pre class="highlight"><code class="language-python">def assertSelectInvariants(self, query):
     """Assert the invariants on the query.
 
     Args:
@@ -5640,7 +5642,7 @@ beancount.query.query_compile_test.CompileSelectBase            (<span title="un
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile_test.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def compile(self, query):
+          <pre class="highlight"><code class="language-python">def compile(self, query):
     """Parse one query and compile it.
 
     Args:
@@ -5681,7 +5683,7 @@ beancount.query.query_compile_test.CompileSelectBase            (<span title="un
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_compile_test.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def setUp(self):
+          <pre class="highlight"><code class="language-python">def setUp(self):
     self.parser = qp.Parser()
 </code></pre>
         </details>
@@ -6735,7 +6737,7 @@ obtain a handle for a slot to store data on store objects later on.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def allocate(self, allocator):
+          <pre class="highlight"><code class="language-python">def allocate(self, allocator):
     self.handle = allocator.allocate()
 </code></pre>
         </details>
@@ -6779,7 +6781,7 @@ if you need data for storage.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def initialize(self, store):
+          <pre class="highlight"><code class="language-python">def initialize(self, store):
     store[self.handle] = 0
 </code></pre>
         </details>
@@ -6822,7 +6824,7 @@ if you need data for storage.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def update(self, store, unused_ontext):
+          <pre class="highlight"><code class="language-python">def update(self, store, unused_ontext):
     store[self.handle] += 1
 </code></pre>
         </details>
@@ -7868,7 +7870,7 @@ obtain a handle for a slot to store data on store objects later on.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def allocate(self, allocator):
+          <pre class="highlight"><code class="language-python">def allocate(self, allocator):
     self.handle = allocator.allocate()
 </code></pre>
         </details>
@@ -7912,7 +7914,7 @@ if you need data for storage.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def initialize(self, store):
+          <pre class="highlight"><code class="language-python">def initialize(self, store):
     store[self.handle] = None
 </code></pre>
         </details>
@@ -7955,7 +7957,7 @@ if you need data for storage.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def update(self, store, context):
+          <pre class="highlight"><code class="language-python">def update(self, store, context):
     if store[self.handle] is None:
         value = self.eval_args(context)[0]
         store[self.handle] = value
@@ -8392,7 +8394,7 @@ obtain a handle for a slot to store data on store objects later on.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def allocate(self, allocator):
+          <pre class="highlight"><code class="language-python">def allocate(self, allocator):
     self.handle = allocator.allocate()
 </code></pre>
         </details>
@@ -8436,7 +8438,7 @@ if you need data for storage.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def initialize(self, store):
+          <pre class="highlight"><code class="language-python">def initialize(self, store):
     store[self.handle] = None
 </code></pre>
         </details>
@@ -8479,7 +8481,7 @@ if you need data for storage.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def update(self, store, context):
+          <pre class="highlight"><code class="language-python">def update(self, store, context):
     value = self.eval_args(context)[0]
     store[self.handle] = value
 </code></pre>
@@ -8875,7 +8877,7 @@ obtain a handle for a slot to store data on store objects later on.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def allocate(self, allocator):
+          <pre class="highlight"><code class="language-python">def allocate(self, allocator):
     self.handle = allocator.allocate()
 </code></pre>
         </details>
@@ -8919,7 +8921,7 @@ if you need data for storage.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def initialize(self, store):
+          <pre class="highlight"><code class="language-python">def initialize(self, store):
     store[self.handle] = self.dtype()
 </code></pre>
         </details>
@@ -8962,7 +8964,7 @@ if you need data for storage.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def update(self, store, context):
+          <pre class="highlight"><code class="language-python">def update(self, store, context):
     value = self.eval_args(context)[0]
     if value &gt; store[self.handle]:
         store[self.handle] = value
@@ -9139,7 +9141,7 @@ obtain a handle for a slot to store data on store objects later on.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def allocate(self, allocator):
+          <pre class="highlight"><code class="language-python">def allocate(self, allocator):
     self.handle = allocator.allocate()
 </code></pre>
         </details>
@@ -9183,7 +9185,7 @@ if you need data for storage.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def initialize(self, store):
+          <pre class="highlight"><code class="language-python">def initialize(self, store):
     store[self.handle] = self.dtype()
 </code></pre>
         </details>
@@ -9226,7 +9228,7 @@ if you need data for storage.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def update(self, store, context):
+          <pre class="highlight"><code class="language-python">def update(self, store, context):
     value = self.eval_args(context)[0]
     if value &lt; store[self.handle]:
         store[self.handle] = value
@@ -10579,7 +10581,7 @@ obtain a handle for a slot to store data on store objects later on.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def allocate(self, allocator):
+          <pre class="highlight"><code class="language-python">def allocate(self, allocator):
     self.handle = allocator.allocate()
 </code></pre>
         </details>
@@ -10623,7 +10625,7 @@ if you need data for storage.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def initialize(self, store):
+          <pre class="highlight"><code class="language-python">def initialize(self, store):
     store[self.handle] = self.dtype()
 </code></pre>
         </details>
@@ -10666,7 +10668,7 @@ if you need data for storage.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def update(self, store, context):
+          <pre class="highlight"><code class="language-python">def update(self, store, context):
     value = self.eval_args(context)[0]
     if value is not None:
         store[self.handle] += value
@@ -10752,7 +10754,7 @@ beancount.query.query_env.SumAmount            (<a title="beancount.query.query_
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def update(self, store, context):
+          <pre class="highlight"><code class="language-python">def update(self, store, context):
     value = self.eval_args(context)[0]
     store[self.handle].add_amount(value)
 </code></pre>
@@ -10840,7 +10842,7 @@ obtain a handle for a slot to store data on store objects later on.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def allocate(self, allocator):
+          <pre class="highlight"><code class="language-python">def allocate(self, allocator):
     self.handle = allocator.allocate()
 </code></pre>
         </details>
@@ -10884,7 +10886,7 @@ if you need data for storage.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def initialize(self, store):
+          <pre class="highlight"><code class="language-python">def initialize(self, store):
     store[self.handle] = inventory.Inventory()
 </code></pre>
         </details>
@@ -10968,7 +10970,7 @@ beancount.query.query_env.SumInventory            (<a title="beancount.query.que
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def update(self, store, context):
+          <pre class="highlight"><code class="language-python">def update(self, store, context):
     value = self.eval_args(context)[0]
     store[self.handle].add_inventory(value)
 </code></pre>
@@ -11053,7 +11055,7 @@ beancount.query.query_env.SumPosition            (<a title="beancount.query.quer
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def update(self, store, context):
+          <pre class="highlight"><code class="language-python">def update(self, store, context):
     value = self.eval_args(context)[0]
     store[self.handle].add_position(value)
 </code></pre>
@@ -11989,7 +11991,7 @@ beancount.query.query_env_test.TestEnv            (<span title="unittest.case.Te
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env_test.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@parser.parse_doc()
+          <pre class="highlight"><code class="language-python">@parser.parse_doc()
 def test_AnyMeta(self, entries, _, options_map):
     """
     2016-11-20 *
@@ -12041,7 +12043,7 @@ def test_AnyMeta(self, entries, _, options_map):
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env_test.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@parser.parse_doc()
+          <pre class="highlight"><code class="language-python">@parser.parse_doc()
 def test_Coalesce(self, entries, _, options_map):
     """
     2016-11-20 *
@@ -12087,7 +12089,7 @@ def test_Coalesce(self, entries, _, options_map):
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env_test.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@parser.parse_doc()
+          <pre class="highlight"><code class="language-python">@parser.parse_doc()
 def test_Date(self, entries, _, options_map):
     """
     2016-11-20 * "ok"
@@ -12137,7 +12139,7 @@ def test_Date(self, entries, _, options_map):
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env_test.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@parser.parse_doc()
+          <pre class="highlight"><code class="language-python">@parser.parse_doc()
 def test_DateDiffAdjust(self, entries, _, options_map):
     """
     2016-11-20 * "ok"
@@ -12183,7 +12185,7 @@ def test_DateDiffAdjust(self, entries, _, options_map):
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env_test.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@parser.parse_doc()
+          <pre class="highlight"><code class="language-python">@parser.parse_doc()
 def test_GrepN(self, entries, _, options_map):
     """
     2016-11-20 * "prev match in context next"
@@ -12235,7 +12237,7 @@ def test_GrepN(self, entries, _, options_map):
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_env_test.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@parser.parse_doc()
+          <pre class="highlight"><code class="language-python">@parser.parse_doc()
 def test_Subst(self, entries, _, options_map):
     """
     2016-11-20 * "I love candy"
@@ -12388,7 +12390,7 @@ beancount.query.query_execute.Allocator        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_execute.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def allocate(self):
+          <pre class="highlight"><code class="language-python">def allocate(self):
     """Allocate a new slot to store row aggregation information.
 
     Returns:
@@ -12437,7 +12439,7 @@ beancount.query.query_execute.Allocator        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_execute.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def create_store(self):
+          <pre class="highlight"><code class="language-python">def create_store(self):
     """Create a new row-aggregation store suitable to contain all the node allocations.
 
     Returns:
@@ -12526,7 +12528,7 @@ beancount.query.query_execute.RowContext        </code>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_execute.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def create_row_context(entries, options_map):
+          <pre class="highlight"><code class="language-python">def create_row_context(entries, options_map):
     """Create the context container which we will use to evaluate rows."""
     context = RowContext()
     context.balance = inventory.Inventory()
@@ -12582,7 +12584,7 @@ beancount.query.query_execute.RowContext        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_execute.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def execute_print(c_print, entries, options_map, file):
+          <pre class="highlight"><code class="language-python">def execute_print(c_print, entries, options_map, file):
     """Print entries from a print statement specification.
 
     Args:
@@ -12661,7 +12663,7 @@ beancount.query.query_execute.RowContext        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_execute.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def execute_query(query, entries, options_map):
+          <pre class="highlight"><code class="language-python">def execute_query(query, entries, options_map):
     """Given a compiled select statement, execute the query.
 
     Args:
@@ -12892,7 +12894,7 @@ beancount.query.query_execute.RowContext        </code>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_execute.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def filter_entries(c_from, entries, options_map, context):
+          <pre class="highlight"><code class="language-python">def filter_entries(c_from, entries, options_map, context):
     """Filter the entries by the given compiled FROM clause.
 
     Args:
@@ -13006,7 +13008,7 @@ result_rows: A list of ResultRow tuples of length and types described by
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_execute.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def flatten_results(result_types, result_rows):
+          <pre class="highlight"><code class="language-python">def flatten_results(result_types, result_rows):
     """Convert inventories in result types to have a row for each.
 
     This routine will expand all result lines with an inventory into a new line
@@ -13111,7 +13113,7 @@ result_rows: A list of ResultRow tuples of length and types described by
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_execute.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def row_sortkey(order_indexes, values, c_exprs):
+          <pre class="highlight"><code class="language-python">def row_sortkey(order_indexes, values, c_exprs):
     """Generate a sortkey for the given values.
 
     Args:
@@ -13186,7 +13188,7 @@ result_rows: A list of ResultRow tuples of length and types described by
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_execute.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def uses_balance_column(c_expr):
+          <pre class="highlight"><code class="language-python">def uses_balance_column(c_expr):
     """Return true if the expression accesses the special 'balance' column.
 
     Args:
@@ -13325,7 +13327,7 @@ beancount.query.query_execute_test.QueryBase            (<span title="beancount.
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_execute_test.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def compile(self, bql_string):
+          <pre class="highlight"><code class="language-python">def compile(self, bql_string):
     """Parse a query and compile it.
 
     Args:
@@ -13393,7 +13395,7 @@ beancount.query.query_execute_test.QueryBase            (<span title="beancount.
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_execute_test.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def parse(self, bql_string):
+          <pre class="highlight"><code class="language-python">def parse(self, bql_string):
     """Parse a query.
 
     Args:
@@ -13426,7 +13428,7 @@ beancount.query.query_execute_test.QueryBase            (<span title="beancount.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_execute_test.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def setUp(self):
+          <pre class="highlight"><code class="language-python">def setUp(self):
     super().setUp()
     self.parser = query_parser.Parser()
 </code></pre>
@@ -13557,7 +13559,7 @@ beancount.query.query_parser.Balances            (<span title="tuple">tuple</spa
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -13611,7 +13613,7 @@ beancount.query.query_parser.Balances            (<span title="tuple">tuple</spa
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -13641,7 +13643,7 @@ beancount.query.query_parser.Balances            (<span title="tuple">tuple</spa
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _asdict(self):
+          <pre class="highlight"><code class="language-python">def _asdict(self):
     'Return a new dict which maps field names to their values.'
     return _dict(_zip(self._fields, self))
 </code></pre>
@@ -13672,7 +13674,7 @@ beancount.query.query_parser.Balances            (<span title="tuple">tuple</spa
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@classmethod
+          <pre class="highlight"><code class="language-python">@classmethod
 def _make(cls, iterable):
     result = tuple_new(cls, iterable)
     if _len(result) != num_fields:
@@ -13705,7 +13707,7 @@ def _make(cls, iterable):
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _replace(self, /, **kwds):
+          <pre class="highlight"><code class="language-python">def _replace(self, /, **kwds):
     result = self._make(_map(kwds.pop, field_names, self))
     if kwds:
         raise ValueError(f'Got unexpected field names: {list(kwds)!r}')
@@ -13780,7 +13782,7 @@ beancount.query.query_parser.Errors            (<span title="tuple">tuple</span>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -13834,7 +13836,7 @@ beancount.query.query_parser.Errors            (<span title="tuple">tuple</span>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -13864,7 +13866,7 @@ beancount.query.query_parser.Errors            (<span title="tuple">tuple</span>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _asdict(self):
+          <pre class="highlight"><code class="language-python">def _asdict(self):
     'Return a new dict which maps field names to their values.'
     return _dict(_zip(self._fields, self))
 </code></pre>
@@ -13895,7 +13897,7 @@ beancount.query.query_parser.Errors            (<span title="tuple">tuple</span>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@classmethod
+          <pre class="highlight"><code class="language-python">@classmethod
 def _make(cls, iterable):
     result = tuple_new(cls, iterable)
     if _len(result) != num_fields:
@@ -13928,7 +13930,7 @@ def _make(cls, iterable):
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _replace(self, /, **kwds):
+          <pre class="highlight"><code class="language-python">def _replace(self, /, **kwds):
     result = self._make(_map(kwds.pop, field_names, self))
     if kwds:
         raise ValueError(f'Got unexpected field names: {list(kwds)!r}')
@@ -14000,7 +14002,7 @@ beancount.query.query_parser.Explain            (<span title="tuple">tuple</span
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -14054,7 +14056,7 @@ beancount.query.query_parser.Explain            (<span title="tuple">tuple</span
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -14084,7 +14086,7 @@ beancount.query.query_parser.Explain            (<span title="tuple">tuple</span
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _asdict(self):
+          <pre class="highlight"><code class="language-python">def _asdict(self):
     'Return a new dict which maps field names to their values.'
     return _dict(_zip(self._fields, self))
 </code></pre>
@@ -14115,7 +14117,7 @@ beancount.query.query_parser.Explain            (<span title="tuple">tuple</span
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@classmethod
+          <pre class="highlight"><code class="language-python">@classmethod
 def _make(cls, iterable):
     result = tuple_new(cls, iterable)
     if _len(result) != num_fields:
@@ -14148,7 +14150,7 @@ def _make(cls, iterable):
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _replace(self, /, **kwds):
+          <pre class="highlight"><code class="language-python">def _replace(self, /, **kwds):
     result = self._make(_map(kwds.pop, field_names, self))
     if kwds:
         raise ValueError(f'Got unexpected field names: {list(kwds)!r}')
@@ -14222,7 +14224,7 @@ beancount.query.query_parser.Journal            (<span title="tuple">tuple</span
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -14276,7 +14278,7 @@ beancount.query.query_parser.Journal            (<span title="tuple">tuple</span
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -14306,7 +14308,7 @@ beancount.query.query_parser.Journal            (<span title="tuple">tuple</span
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _asdict(self):
+          <pre class="highlight"><code class="language-python">def _asdict(self):
     'Return a new dict which maps field names to their values.'
     return _dict(_zip(self._fields, self))
 </code></pre>
@@ -14337,7 +14339,7 @@ beancount.query.query_parser.Journal            (<span title="tuple">tuple</span
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@classmethod
+          <pre class="highlight"><code class="language-python">@classmethod
 def _make(cls, iterable):
     result = tuple_new(cls, iterable)
     if _len(result) != num_fields:
@@ -14370,7 +14372,7 @@ def _make(cls, iterable):
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _replace(self, /, **kwds):
+          <pre class="highlight"><code class="language-python">def _replace(self, /, **kwds):
     result = self._make(_map(kwds.pop, field_names, self))
     if kwds:
         raise ValueError(f'Got unexpected field names: {list(kwds)!r}')
@@ -14458,7 +14460,7 @@ beancount.query.query_parser.Lexer        </code>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def t_DATE(self, token):
+          <pre class="highlight"><code class="language-python">def t_DATE(self, token):
     r"(\#(\"[^\"]*\"|\'[^\']*\')|\d\d\d\d-\d\d-\d\d)"
     if token.value[0] == '#':
         token.value = dateutil.parser.parse(token.value[2:-1]).date()
@@ -14489,7 +14491,7 @@ beancount.query.query_parser.Lexer        </code>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def t_DECIMAL(self, token):
+          <pre class="highlight"><code class="language-python">def t_DECIMAL(self, token):
     r"[-+]?([0-9]+\.[0-9]*|[0-9]*\.[0-9]+)"
     token.value = D(token.value)
     return token
@@ -14517,7 +14519,7 @@ beancount.query.query_parser.Lexer        </code>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def t_ID(self, token):
+          <pre class="highlight"><code class="language-python">def t_ID(self, token):
     "[a-zA-Z][a-zA-Z_]*"
     utoken = token.value.upper()
     if utoken in self.keywords:
@@ -14550,7 +14552,7 @@ beancount.query.query_parser.Lexer        </code>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def t_INTEGER(self, token):
+          <pre class="highlight"><code class="language-python">def t_INTEGER(self, token):
     r"[-+]?[0-9]+"
     token.value = int(token.value)
     return token
@@ -14578,7 +14580,7 @@ beancount.query.query_parser.Lexer        </code>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def t_STRING(self, token):
+          <pre class="highlight"><code class="language-python">def t_STRING(self, token):
     "(\"[^\"]*\"|\'[^\']*\')"
     token.value = token.value[1:-1]
     return token
@@ -14677,7 +14679,7 @@ beancount.query.query_parser.Parser            (<a title="beancount.query.query_
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_balances_statement(self, p):
+          <pre class="highlight"><code class="language-python">def p_balances_statement(self, p):
     """
     balances_statement : BALANCES summary_func from where
     """
@@ -14707,7 +14709,7 @@ beancount.query.query_parser.Parser            (<a title="beancount.query.query_
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_delimiter(self, p):
+          <pre class="highlight"><code class="language-python">def p_delimiter(self, p):
     """
     delimiter : SEMI
               | empty
@@ -14736,7 +14738,7 @@ beancount.query.query_parser.Parser            (<a title="beancount.query.query_
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_errors_statement(self, p):
+          <pre class="highlight"><code class="language-python">def p_errors_statement(self, p):
     """
     errors_statement : ERRORS
     """
@@ -14765,7 +14767,7 @@ beancount.query.query_parser.Parser            (<a title="beancount.query.query_
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_explain_statement(self, p):
+          <pre class="highlight"><code class="language-python">def p_explain_statement(self, p):
     "top_statement : EXPLAIN statement delimiter"
     p[0] = Explain(p[2])
 </code></pre>
@@ -14793,7 +14795,7 @@ beancount.query.query_parser.Parser            (<a title="beancount.query.query_
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_journal_statement(self, p):
+          <pre class="highlight"><code class="language-python">def p_journal_statement(self, p):
     """
     journal_statement : JOURNAL summary_func from
                       | JOURNAL account summary_func from
@@ -14823,7 +14825,7 @@ beancount.query.query_parser.Parser            (<a title="beancount.query.query_
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_print_statement(self, p):
+          <pre class="highlight"><code class="language-python">def p_print_statement(self, p):
     """
     print_statement : PRINT from
     """
@@ -14852,7 +14854,7 @@ beancount.query.query_parser.Parser            (<a title="beancount.query.query_
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_regular_statement(self, p):
+          <pre class="highlight"><code class="language-python">def p_regular_statement(self, p):
     "top_statement : statement delimiter"
     p[0] = p[1]
 </code></pre>
@@ -14879,7 +14881,7 @@ beancount.query.query_parser.Parser            (<a title="beancount.query.query_
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_reload_statement(self, p):
+          <pre class="highlight"><code class="language-python">def p_reload_statement(self, p):
     """
     reload_statement : RELOAD
     """
@@ -14911,7 +14913,7 @@ beancount.query.query_parser.Parser            (<a title="beancount.query.query_
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_run_statement(self, p):
+          <pre class="highlight"><code class="language-python">def p_run_statement(self, p):
     """
     run_statement : RUN ID
                   | RUN STRING
@@ -14949,7 +14951,7 @@ beancount.query.query_parser.Parser            (<a title="beancount.query.query_
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_statement(self, p):
+          <pre class="highlight"><code class="language-python">def p_statement(self, p):
     """
     statement : select_statement
               | balances_statement
@@ -14985,7 +14987,7 @@ beancount.query.query_parser.Parser            (<a title="beancount.query.query_
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_summary_func(self, p):
+          <pre class="highlight"><code class="language-python">def p_summary_func(self, p):
     """
     summary_func : empty
                  | AT ID
@@ -15058,7 +15060,7 @@ beancount.query.query_parser.Print            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -15112,7 +15114,7 @@ beancount.query.query_parser.Print            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -15142,7 +15144,7 @@ beancount.query.query_parser.Print            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _asdict(self):
+          <pre class="highlight"><code class="language-python">def _asdict(self):
     'Return a new dict which maps field names to their values.'
     return _dict(_zip(self._fields, self))
 </code></pre>
@@ -15173,7 +15175,7 @@ beancount.query.query_parser.Print            (<span title="tuple">tuple</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@classmethod
+          <pre class="highlight"><code class="language-python">@classmethod
 def _make(cls, iterable):
     result = tuple_new(cls, iterable)
     if _len(result) != num_fields:
@@ -15206,7 +15208,7 @@ def _make(cls, iterable):
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _replace(self, /, **kwds):
+          <pre class="highlight"><code class="language-python">def _replace(self, /, **kwds):
     result = self._make(_map(kwds.pop, field_names, self))
     if kwds:
         raise ValueError(f'Got unexpected field names: {list(kwds)!r}')
@@ -15278,7 +15280,7 @@ beancount.query.query_parser.Reload            (<span title="tuple">tuple</span>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -15332,7 +15334,7 @@ beancount.query.query_parser.Reload            (<span title="tuple">tuple</span>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -15362,7 +15364,7 @@ beancount.query.query_parser.Reload            (<span title="tuple">tuple</span>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _asdict(self):
+          <pre class="highlight"><code class="language-python">def _asdict(self):
     'Return a new dict which maps field names to their values.'
     return _dict(_zip(self._fields, self))
 </code></pre>
@@ -15393,7 +15395,7 @@ beancount.query.query_parser.Reload            (<span title="tuple">tuple</span>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@classmethod
+          <pre class="highlight"><code class="language-python">@classmethod
 def _make(cls, iterable):
     result = tuple_new(cls, iterable)
     if _len(result) != num_fields:
@@ -15426,7 +15428,7 @@ def _make(cls, iterable):
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _replace(self, /, **kwds):
+          <pre class="highlight"><code class="language-python">def _replace(self, /, **kwds):
     result = self._make(_map(kwds.pop, field_names, self))
     if kwds:
         raise ValueError(f'Got unexpected field names: {list(kwds)!r}')
@@ -15498,7 +15500,7 @@ beancount.query.query_parser.RunCustom            (<span title="tuple">tuple</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -15552,7 +15554,7 @@ beancount.query.query_parser.RunCustom            (<span title="tuple">tuple</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -15582,7 +15584,7 @@ beancount.query.query_parser.RunCustom            (<span title="tuple">tuple</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _asdict(self):
+          <pre class="highlight"><code class="language-python">def _asdict(self):
     'Return a new dict which maps field names to their values.'
     return _dict(_zip(self._fields, self))
 </code></pre>
@@ -15613,7 +15615,7 @@ beancount.query.query_parser.RunCustom            (<span title="tuple">tuple</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@classmethod
+          <pre class="highlight"><code class="language-python">@classmethod
 def _make(cls, iterable):
     result = tuple_new(cls, iterable)
     if _len(result) != num_fields:
@@ -15646,7 +15648,7 @@ def _make(cls, iterable):
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _replace(self, /, **kwds):
+          <pre class="highlight"><code class="language-python">def _replace(self, /, **kwds):
     result = self._make(_map(kwds.pop, field_names, self))
     if kwds:
         raise ValueError(f'Got unexpected field names: {list(kwds)!r}')
@@ -15718,7 +15720,7 @@ beancount.query.query_parser.Select            (<span title="tuple">tuple</span>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __getnewargs__(self):
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
     'Return self as a plain tuple.  Used by copy and pickle.'
     return _tuple(self)
 </code></pre>
@@ -15772,7 +15774,7 @@ beancount.query.query_parser.Select            (<span title="tuple">tuple</span>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __repr__(self):
+          <pre class="highlight"><code class="language-python">def __repr__(self):
     'Return a nicely formatted representation string'
     return self.__class__.__name__ + repr_fmt % self
 </code></pre>
@@ -15802,7 +15804,7 @@ beancount.query.query_parser.Select            (<span title="tuple">tuple</span>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _asdict(self):
+          <pre class="highlight"><code class="language-python">def _asdict(self):
     'Return a new dict which maps field names to their values.'
     return _dict(_zip(self._fields, self))
 </code></pre>
@@ -15833,7 +15835,7 @@ beancount.query.query_parser.Select            (<span title="tuple">tuple</span>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@classmethod
+          <pre class="highlight"><code class="language-python">@classmethod
 def _make(cls, iterable):
     result = tuple_new(cls, iterable)
     if _len(result) != num_fields:
@@ -15866,7 +15868,7 @@ def _make(cls, iterable):
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def _replace(self, /, **kwds):
+          <pre class="highlight"><code class="language-python">def _replace(self, /, **kwds):
     result = self._make(_map(kwds.pop, field_names, self))
     if kwds:
         raise ValueError(f'Got unexpected field names: {list(kwds)!r}')
@@ -15954,7 +15956,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def handle_comma_separated_list(self, p):
+          <pre class="highlight"><code class="language-python">def handle_comma_separated_list(self, p):
     """Handle a list of 0, 1 or more comma-separated values.
     Args:
       p: A grammar object.
@@ -15987,7 +15989,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_account(self, p):
+          <pre class="highlight"><code class="language-python">def p_account(self, p):
     """
     account : STRING
     """
@@ -16017,7 +16019,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_boolean(self, p):
+          <pre class="highlight"><code class="language-python">def p_boolean(self, p):
     """
     boolean : TRUE
             | FALSE
@@ -16047,7 +16049,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_column(self, p):
+          <pre class="highlight"><code class="language-python">def p_column(self, p):
     """
     column : ID
     """
@@ -16077,7 +16079,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_column_list(self, p):
+          <pre class="highlight"><code class="language-python">def p_column_list(self, p):
     """
     column_list : column
                 | column_list COMMA column
@@ -16112,7 +16114,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_constant(self, p):
+          <pre class="highlight"><code class="language-python">def p_constant(self, p):
     """
     constant : NULL
              | boolean
@@ -16147,7 +16149,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_distinct(self, p):
+          <pre class="highlight"><code class="language-python">def p_distinct(self, p):
     """
     distinct : empty
              | DISTINCT
@@ -16177,7 +16179,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_empty(self, _):
+          <pre class="highlight"><code class="language-python">def p_empty(self, _):
     """
     empty :
     """
@@ -16207,7 +16209,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_expr_index(self, p):
+          <pre class="highlight"><code class="language-python">def p_expr_index(self, p):
     """
     expr_index : expression
                | INTEGER
@@ -16238,7 +16240,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_expr_index_list(self, p):
+          <pre class="highlight"><code class="language-python">def p_expr_index_list(self, p):
     """
     expr_index_list : expr_index
                     | expr_index_list COMMA expr_index
@@ -16268,7 +16270,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_expression_add(self, p):
+          <pre class="highlight"><code class="language-python">def p_expression_add(self, p):
     "expression : expression PLUS expression"
     p[0] = Add(p[1], p[3])
 </code></pre>
@@ -16295,7 +16297,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_expression_and(self, p):
+          <pre class="highlight"><code class="language-python">def p_expression_and(self, p):
     "expression : expression AND expression"
     p[0] = And(p[1], p[3])
 </code></pre>
@@ -16322,7 +16324,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_expression_column(self, p):
+          <pre class="highlight"><code class="language-python">def p_expression_column(self, p):
     "expression : column"
     p[0] = p[1]
 </code></pre>
@@ -16349,7 +16351,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_expression_constant(self, p):
+          <pre class="highlight"><code class="language-python">def p_expression_constant(self, p):
     "expression : constant"
     p[0] = p[1]
 </code></pre>
@@ -16376,7 +16378,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_expression_contains(self, p):
+          <pre class="highlight"><code class="language-python">def p_expression_contains(self, p):
     "expression : expression IN expression"
     p[0] = Contains(p[1], p[3])
 </code></pre>
@@ -16403,7 +16405,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_expression_div(self, p):
+          <pre class="highlight"><code class="language-python">def p_expression_div(self, p):
     "expression : expression SLASH expression"
     p[0] = Div(p[1], p[3])
 </code></pre>
@@ -16430,7 +16432,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_expression_eq(self, p):
+          <pre class="highlight"><code class="language-python">def p_expression_eq(self, p):
     "expression : expression EQ expression"
     p[0] = Equal(p[1], p[3])
 </code></pre>
@@ -16457,7 +16459,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_expression_function(self, p):
+          <pre class="highlight"><code class="language-python">def p_expression_function(self, p):
     "expression : ID LPAREN expression_list_opt RPAREN"
     p[0] = Function(p[1], p[3])
 </code></pre>
@@ -16484,7 +16486,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_expression_gt(self, p):
+          <pre class="highlight"><code class="language-python">def p_expression_gt(self, p):
     "expression : expression GT expression"
     p[0] = Greater(p[1], p[3])
 </code></pre>
@@ -16511,7 +16513,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_expression_gte(self, p):
+          <pre class="highlight"><code class="language-python">def p_expression_gte(self, p):
     "expression : expression GTE expression"
     p[0] = GreaterEq(p[1], p[3])
 </code></pre>
@@ -16539,7 +16541,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_expression_list(self, p):
+          <pre class="highlight"><code class="language-python">def p_expression_list(self, p):
     """
     expression_list : expression
                     | expression_list COMMA expression
@@ -16571,7 +16573,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_expression_list_opt(self, p):
+          <pre class="highlight"><code class="language-python">def p_expression_list_opt(self, p):
     """
     expression_list_opt : empty
                         | expression
@@ -16602,7 +16604,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_expression_lt(self, p):
+          <pre class="highlight"><code class="language-python">def p_expression_lt(self, p):
     "expression : expression LT expression"
     p[0] = Less(p[1], p[3])
 </code></pre>
@@ -16629,7 +16631,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_expression_lte(self, p):
+          <pre class="highlight"><code class="language-python">def p_expression_lte(self, p):
     "expression : expression LTE expression"
     p[0] = LessEq(p[1], p[3])
 </code></pre>
@@ -16656,7 +16658,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_expression_match(self, p):
+          <pre class="highlight"><code class="language-python">def p_expression_match(self, p):
     "expression : expression TILDE expression"
     p[0] = Match(p[1], p[3])
 </code></pre>
@@ -16683,7 +16685,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_expression_mul(self, p):
+          <pre class="highlight"><code class="language-python">def p_expression_mul(self, p):
     "expression : expression ASTERISK expression"
     p[0] = Mul(p[1], p[3])
 </code></pre>
@@ -16710,7 +16712,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_expression_ne(self, p):
+          <pre class="highlight"><code class="language-python">def p_expression_ne(self, p):
     "expression : expression NE expression"
     p[0] = Not(Equal(p[1], p[3]))
 </code></pre>
@@ -16737,7 +16739,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_expression_not(self, p):
+          <pre class="highlight"><code class="language-python">def p_expression_not(self, p):
     "expression : NOT expression"
     p[0] = Not(p[2])
 </code></pre>
@@ -16764,7 +16766,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_expression_or(self, p):
+          <pre class="highlight"><code class="language-python">def p_expression_or(self, p):
     "expression : expression OR expression"
     p[0] = Or(p[1], p[3])
 </code></pre>
@@ -16791,7 +16793,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_expression_paren(self, p):
+          <pre class="highlight"><code class="language-python">def p_expression_paren(self, p):
     "expression : LPAREN expression RPAREN"
     p[0] = p[2]
 </code></pre>
@@ -16818,7 +16820,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_expression_sub(self, p):
+          <pre class="highlight"><code class="language-python">def p_expression_sub(self, p):
     "expression : expression MINUS expression"
     p[0] = Sub(p[1], p[3])
 </code></pre>
@@ -16846,7 +16848,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_flatten(self, p):
+          <pre class="highlight"><code class="language-python">def p_flatten(self, p):
     """
     flatten : empty
             | FLATTEN
@@ -16877,7 +16879,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_from(self, p):
+          <pre class="highlight"><code class="language-python">def p_from(self, p):
     """
     from : empty
          | FROM opt_expression opt_open opt_close opt_clear
@@ -16913,7 +16915,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_from_subselect(self, p):
+          <pre class="highlight"><code class="language-python">def p_from_subselect(self, p):
     """
     from_subselect : from
                    | FROM LPAREN select_statement RPAREN
@@ -16947,7 +16949,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_group_by(self, p):
+          <pre class="highlight"><code class="language-python">def p_group_by(self, p):
     """
     group_by : empty
              | GROUP BY expr_index_list having
@@ -16978,7 +16980,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_having(self, p):
+          <pre class="highlight"><code class="language-python">def p_having(self, p):
     """
     having : empty
            | HAVING expression
@@ -17009,7 +17011,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_limit(self, p):
+          <pre class="highlight"><code class="language-python">def p_limit(self, p):
     """
     limit : empty
           | LIMIT INTEGER
@@ -17040,7 +17042,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_opt_clear(self, p):
+          <pre class="highlight"><code class="language-python">def p_opt_clear(self, p):
     """
     opt_clear : empty
               | CLEAR
@@ -17072,7 +17074,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_opt_close(self, p):
+          <pre class="highlight"><code class="language-python">def p_opt_close(self, p):
     """
     opt_close : empty
               | CLOSE
@@ -17106,7 +17108,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_opt_expression(self, p):
+          <pre class="highlight"><code class="language-python">def p_opt_expression(self, p):
     """
     opt_expression : empty
                    | expression
@@ -17137,7 +17139,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_opt_open(self, p):
+          <pre class="highlight"><code class="language-python">def p_opt_open(self, p):
     """
     opt_open : empty
              | OPEN ON DATE
@@ -17168,7 +17170,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_order_by(self, p):
+          <pre class="highlight"><code class="language-python">def p_order_by(self, p):
     """
     order_by : empty
              | ORDER BY expr_index_list ordering
@@ -17200,7 +17202,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_ordering(self, p):
+          <pre class="highlight"><code class="language-python">def p_ordering(self, p):
     """
     ordering : empty
              | ASC
@@ -17232,7 +17234,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_pivot_by(self, p):
+          <pre class="highlight"><code class="language-python">def p_pivot_by(self, p):
     """
     pivot_by : empty
              | PIVOT BY column_list
@@ -17262,7 +17264,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_select_statement(self, p):
+          <pre class="highlight"><code class="language-python">def p_select_statement(self, p):
     """
     select_statement : SELECT distinct target_spec from_subselect where \
                        group_by order_by pivot_by limit flatten
@@ -17293,7 +17295,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_target(self, p):
+          <pre class="highlight"><code class="language-python">def p_target(self, p):
     """
     target : expression AS ID
            | expression
@@ -17324,7 +17326,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_target_list(self, p):
+          <pre class="highlight"><code class="language-python">def p_target_list(self, p):
     """
     target_list : target
                 | target_list COMMA target
@@ -17355,7 +17357,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_target_spec(self, p):
+          <pre class="highlight"><code class="language-python">def p_target_spec(self, p):
     """
     target_spec : ASTERISK
                 | target_list
@@ -17386,7 +17388,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def p_where(self, p):
+          <pre class="highlight"><code class="language-python">def p_where(self, p):
     """
     where : empty
           | WHERE expression
@@ -17448,7 +17450,7 @@ beancount.query.query_parser.SelectParser            (<a title="beancount.query.
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_expression_name(expr):
+          <pre class="highlight"><code class="language-python">def get_expression_name(expr):
     """Come up with a reasonable identifier for an expression.
 
     Args:
@@ -17602,7 +17604,7 @@ beancount.query.query_parser_test.QueryParserTestBase            (<span title="u
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser_test.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def assertParse(self, expected, query, debug=False):
+          <pre class="highlight"><code class="language-python">def assertParse(self, expected, query, debug=False):
     """Assert parsed contents from 'query' is 'expected'.
 
     Args:
@@ -17676,7 +17678,7 @@ beancount.query.query_parser_test.QueryParserTestBase            (<span title="u
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser_test.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def parse(self, query):
+          <pre class="highlight"><code class="language-python">def parse(self, query):
     """Parse one query.
 
     Args:
@@ -17709,7 +17711,7 @@ beancount.query.query_parser_test.QueryParserTestBase            (<span title="u
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser_test.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def setUp(self):
+          <pre class="highlight"><code class="language-python">def setUp(self):
     self.parser = qp.Parser()
 </code></pre>
         </details>
@@ -17782,7 +17784,7 @@ beancount.query.query_parser_test.TestSelectFromBase            (<a title="beanc
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser_test.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def setUp(self):
+          <pre class="highlight"><code class="language-python">def setUp(self):
     super().setUp()
     self.targets = [qp.Target(qp.Column('a'), None),
                     qp.Target(qp.Column('b'), None)]
@@ -17833,7 +17835,7 @@ beancount.query.query_parser_test.TestSelectFromBase            (<a title="beanc
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/query_parser_test.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def qSelect(target_spec=None,
+          <pre class="highlight"><code class="language-python">def qSelect(target_spec=None,
             from_clause=None, where_clause=None,
             group_by=None, order_by=None, pivot_by=None,
             limit=None, distinct=None, flatten=None):
@@ -17949,7 +17951,7 @@ of entries as a table.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def on_Balances(self, balance):
+          <pre class="highlight"><code class="language-python">def on_Balances(self, balance):
     """
     Select balances of some subset of postings. This command is a
     convenience and converts into an equivalent Select statement, designed
@@ -17987,7 +17989,7 @@ of entries as a table.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def on_Errors(self, errors_statement):
+          <pre class="highlight"><code class="language-python">def on_Errors(self, errors_statement):
     """
     Print the errors that occurred during parsing.
     """
@@ -18019,7 +18021,7 @@ of entries as a table.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def on_Explain(self, explain):
+          <pre class="highlight"><code class="language-python">def on_Explain(self, explain):
     """
     Compile and print a compiled statement for debugging.
     """
@@ -18079,7 +18081,7 @@ of entries as a table.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def on_Journal(self, journal):
+          <pre class="highlight"><code class="language-python">def on_Journal(self, journal):
     """
     Select a journal of some subset of postings. This command is a
     convenience and converts into an equivalent Select statement, designed
@@ -18125,7 +18127,7 @@ selector:</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def on_Print(self, print_stmt):
+          <pre class="highlight"><code class="language-python">def on_Print(self, print_stmt):
     """
     Print entries in Beancount format.
 
@@ -18182,7 +18184,7 @@ selector:</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def on_Reload(self, unused_statement=None):
+          <pre class="highlight"><code class="language-python">def on_Reload(self, unused_statement=None):
     """
     Reload the input file without restarting the shell.
     """
@@ -18217,7 +18219,7 @@ selector:</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def on_RunCustom(self, run_stmt):
+          <pre class="highlight"><code class="language-python">def on_RunCustom(self, run_stmt):
     """
     Run a custom query instead of a SQL command.
 
@@ -18309,7 +18311,7 @@ some mild and idiomatic extensions:</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def on_Select(self, statement):
+          <pre class="highlight"><code class="language-python">def on_Select(self, statement):
     """
     Extract data from a query on the postings.
 
@@ -18493,7 +18495,7 @@ beancount.query.shell.DispatchingShell            (<span title="cmd.Cmd">Cmd</sp
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def __init__(self, is_interactive, parser, outfile, default_format, do_numberify):
+          <pre class="highlight"><code class="language-python">def __init__(self, is_interactive, parser, outfile, default_format, do_numberify):
     """Create a shell with history.
 
     Args:
@@ -18534,7 +18536,7 @@ beancount.query.shell.DispatchingShell            (<span title="cmd.Cmd">Cmd</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def add_help(self):
+          <pre class="highlight"><code class="language-python">def add_help(self):
     "Attach help functions for each of the parsed token handlers."
     for attrname, func in list(self.__class__.__dict__.items()):
         match = re.match('on_(.*)', attrname)
@@ -18568,7 +18570,7 @@ beancount.query.shell.DispatchingShell            (<span title="cmd.Cmd">Cmd</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def cmdloop(self):
+          <pre class="highlight"><code class="language-python">def cmdloop(self):
     """Override cmdloop to handle keyboard interrupts."""
     while True:
         try:
@@ -18616,7 +18618,7 @@ beancount.query.shell.DispatchingShell            (<span title="cmd.Cmd">Cmd</sp
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def default(self, line):
+          <pre class="highlight"><code class="language-python">def default(self, line):
     """Default handling of lines which aren't recognized as native shell commands.
 
     Args:
@@ -18679,7 +18681,7 @@ beancount.query.shell.DispatchingShell            (<span title="cmd.Cmd">Cmd</sp
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def dispatch(self, statement):
+          <pre class="highlight"><code class="language-python">def dispatch(self, statement):
     """Dispatch the given statement to a suitable method.
 
     Args:
@@ -18718,7 +18720,7 @@ beancount.query.shell.DispatchingShell            (<span title="cmd.Cmd">Cmd</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def exit(self, _):
+          <pre class="highlight"><code class="language-python">def exit(self, _):
     """Exit the parser."""
     print('exit', file=self.outfile)
     return 1
@@ -18746,7 +18748,7 @@ beancount.query.shell.DispatchingShell            (<span title="cmd.Cmd">Cmd</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def do_clear(self, _):
+          <pre class="highlight"><code class="language-python">def do_clear(self, _):
     "Clear the history."
     readline.clear_history()
 </code></pre>
@@ -18773,7 +18775,7 @@ beancount.query.shell.DispatchingShell            (<span title="cmd.Cmd">Cmd</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def exit(self, _):
+          <pre class="highlight"><code class="language-python">def exit(self, _):
     """Exit the parser."""
     print('exit', file=self.outfile)
     return 1
@@ -18801,7 +18803,7 @@ beancount.query.shell.DispatchingShell            (<span title="cmd.Cmd">Cmd</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def do_help(self, command):
+          <pre class="highlight"><code class="language-python">def do_help(self, command):
     """Strip superfluous semicolon."""
     super().do_help(command.rstrip('; \t'))
 </code></pre>
@@ -18828,7 +18830,7 @@ beancount.query.shell.DispatchingShell            (<span title="cmd.Cmd">Cmd</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def do_history(self, _):
+          <pre class="highlight"><code class="language-python">def do_history(self, _):
     "Print the command-line history statement."
     if readline is not None:
         for index, line in enumerate(get_history(self.max_entries)):
@@ -18857,7 +18859,7 @@ beancount.query.shell.DispatchingShell            (<span title="cmd.Cmd">Cmd</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def do_lex(self, line):
+          <pre class="highlight"><code class="language-python">def do_lex(self, line):
     "Just run the lexer on the following command and print the output."
     try:
         self.parser.tokenize(line)
@@ -18887,7 +18889,7 @@ beancount.query.shell.DispatchingShell            (<span title="cmd.Cmd">Cmd</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def do_parse(self, line):
+          <pre class="highlight"><code class="language-python">def do_parse(self, line):
     "Just run the parser on the following command and print the output."
     print("INPUT: {}".format(repr(line)), file=self.outfile)
     try:
@@ -18922,7 +18924,7 @@ beancount.query.shell.DispatchingShell            (<span title="cmd.Cmd">Cmd</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def exit(self, _):
+          <pre class="highlight"><code class="language-python">def exit(self, _):
     """Exit the parser."""
     print('exit', file=self.outfile)
     return 1
@@ -18950,7 +18952,7 @@ beancount.query.shell.DispatchingShell            (<span title="cmd.Cmd">Cmd</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def do_set(self, line):
+          <pre class="highlight"><code class="language-python">def do_set(self, line):
     "Get/set shell settings variables."
     if not line:
         for varname, value in sorted(self.vars.items()):
@@ -19000,7 +19002,7 @@ beancount.query.shell.DispatchingShell            (<span title="cmd.Cmd">Cmd</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def do_lex(self, line):
+          <pre class="highlight"><code class="language-python">def do_lex(self, line):
     "Just run the lexer on the following command and print the output."
     try:
         self.parser.tokenize(line)
@@ -19030,7 +19032,7 @@ beancount.query.shell.DispatchingShell            (<span title="cmd.Cmd">Cmd</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def emptyline(self):
+          <pre class="highlight"><code class="language-python">def emptyline(self):
     """Do nothing on an empty line."""
 </code></pre>
         </details>
@@ -19056,7 +19058,7 @@ beancount.query.shell.DispatchingShell            (<span title="cmd.Cmd">Cmd</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def exit(self, _):
+          <pre class="highlight"><code class="language-python">def exit(self, _):
     """Exit the parser."""
     print('exit', file=self.outfile)
     return 1
@@ -19101,7 +19103,7 @@ beancount.query.shell.DispatchingShell            (<span title="cmd.Cmd">Cmd</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_pager(self):
+          <pre class="highlight"><code class="language-python">def get_pager(self):
     """Create and return a context manager to write to, a pager subprocess if required.
 
     Returns:
@@ -19140,7 +19142,7 @@ beancount.query.shell.DispatchingShell            (<span title="cmd.Cmd">Cmd</sp
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def initialize_vars(self, default_format, do_numberify):
+          <pre class="highlight"><code class="language-python">def initialize_vars(self, default_format, do_numberify):
     """Initialize the setting variables of the interactive shell."""
     self.vars_types = {
         'pager': str,
@@ -19199,7 +19201,7 @@ beancount.query.shell.DispatchingShell            (<span title="cmd.Cmd">Cmd</sp
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def run_parser(self, line, default_close_date=None):
+          <pre class="highlight"><code class="language-python">def run_parser(self, line, default_close_date=None):
     """Handle statements via our parser instance and dispatch to appropriate methods.
 
     Args:
@@ -19281,7 +19283,7 @@ beancount.query.shell.DispatchingShell            (<span title="cmd.Cmd">Cmd</sp
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def convert_bool(string):
+          <pre class="highlight"><code class="language-python">def convert_bool(string):
     """Convert a string to a boolean.
 
     Args:
@@ -19346,7 +19348,7 @@ beancount.query.shell.DispatchingShell            (<span title="cmd.Cmd">Cmd</sp
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def create_custom_query_map(entries):
+          <pre class="highlight"><code class="language-python">def create_custom_query_map(entries):
     """Extract a mapping of the custom queries from the list of entries.
 
     Args:
@@ -19419,7 +19421,7 @@ and formatted strings.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_env_attribute_list(env):
+          <pre class="highlight"><code class="language-python">def generate_env_attribute_list(env):
     """Generate a dictionary of rendered attribute lists for help.
 
     Args:
@@ -19505,7 +19507,7 @@ the evaluator node instances.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def generate_env_attributes(wrapper, field_dict, filter_pred=None):
+          <pre class="highlight"><code class="language-python">def generate_env_attributes(wrapper, field_dict, filter_pred=None):
     """Generate a string of all the help functions of the attributes.
 
     Args:
@@ -19611,7 +19613,7 @@ the evaluator node instances.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def get_history(max_entries):
+          <pre class="highlight"><code class="language-python">def get_history(max_entries):
     """Return the history in the readline buffer.
 
     Args:
@@ -19664,7 +19666,7 @@ the evaluator node instances.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def load_history(filename):
+          <pre class="highlight"><code class="language-python">def load_history(filename):
     """Load the shell's past history.
 
     Args:
@@ -19721,7 +19723,7 @@ the evaluator node instances.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def print_statistics(entries, options_map, outfile):
+          <pre class="highlight"><code class="language-python">def print_statistics(entries, options_map, outfile):
     """Print summary statistics to stdout.
 
     Args:
@@ -19775,7 +19777,7 @@ the evaluator node instances.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def save_history(filename):
+          <pre class="highlight"><code class="language-python">def save_history(filename):
     """Save the shell history. This should be invoked on exit.
 
     Args:
@@ -19839,7 +19841,7 @@ of transactions and the total number of postings there in.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def summary_statistics(entries):
+          <pre class="highlight"><code class="language-python">def summary_statistics(entries):
     """Calculate basic summary statistics to output a brief welcome message.
 
     Args:
@@ -19963,7 +19965,7 @@ beancount.query.shell_test.TestShell            (<a title="beancount.utils.test_
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell_test.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">@test_utils.docfile
+          <pre class="highlight"><code class="language-python">@test_utils.docfile
 def test_success(self, filename):
     """
     2013-01-01 open Assets:Account1
@@ -20075,7 +20077,7 @@ I'm hoping to replace reports by these queries instead.</p>
 
         <details class="quote">
           <summary>Source code in <code>beancount/query/shell_test.py</code></summary>
-          <pre class="highlight"><code class="language-python linenums">def runshell(function):
+          <pre class="highlight"><code class="language-python">def runshell(function):
     """Decorate a function to run the shell and return the output."""
     def test_function(self):
         def loadfun():
