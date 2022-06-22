@@ -11,6 +11,10 @@ from docx import Document
 from docx.enum.style import WD_STYLE_TYPE
 from docx.opc.packuri import PackURI
 from docx.parts.image import ImagePart
+from pypandoc.pandoc_download import download_pandoc
+
+# Downloads to ~/bin
+download_pandoc(version='2.8')
 
 INTERMEDIATE_FMT = 'docx'
 
@@ -53,7 +57,7 @@ def prepare_docx(file_name: str, drawing_dir: str = None) -> bytes:
     * Replace vector graphics with raster
     """
     doc = Document(file_name)
-    doc.styles.add_style('SourceCode', WD_STYLE_TYPE.PARAGRAPH)
+    doc.styles.add_style('Source Code', WD_STYLE_TYPE.PARAGRAPH)
     drawing_idx = 0
 
     for para in doc.paragraphs:
@@ -65,9 +69,11 @@ def prepare_docx(file_name: str, drawing_dir: str = None) -> bytes:
                 continue  # Ignore leading tabs
             if run_idx == 0 and run.font.name in ['Consolas', 'Courier New']:
                 # If paragraph starts with a snippet in monospace font,
-                # consider it a code block and mark it with SourceCode style
+                # consider it a code block and mark it with "SourceCode" style
                 # https://groups.google.com/d/msg/pandoc-discuss/SIwE9dhGF4U/Wjy8zmQ1CQAJ
-                para.style = doc.styles['SourceCode']
+                # Pandoc 2.7.3 and later requires "Source Code" instead.
+                # https://github.com/jgm/pandoc/issues/5971#issuecomment-1162238592
+                para.style = doc.styles['Source Code']
                 break
             if run.font.name in ['Consolas', 'Courier New']:
                 # Mark with striketrough style to convert to inline code later
