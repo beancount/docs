@@ -87,6 +87,11 @@ Tools<a id="tools"></a>
 
 [<span class="underline">dyumnin/dyu\_accounting</span>](https://github.com/dyumnin/dyu_accounting) : Accounting setup to automate generation of various financial statements for Compliance with Indian Govt.
 
+Alternative Parsers<a id="alternative-parsers"></a>
+---------------------------------------------------
+
+[<span class="underline">jord1e/jbeancount</span>](https://github.com/jord1e/jbeancount) (Jordie Biemold): An alternative parser for Beancount input syntax in Java (using the Antlr4 parser generator). This provides access to parsed Beancount data - without the effect of plugins - from JVM languages. See [<span class="underline">this post</span>](https://groups.google.com/d/msgid/beancount/72ee8adb-a376-4e30-b6d4-ea8749f5f666n%40googlegroups.com?utm_medium=email&utm_source=footer) for details.
+
 Importers<a id="importers"></a>
 -------------------------------
 
