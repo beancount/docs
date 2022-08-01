@@ -577,7 +577,7 @@ AIRMILE
    …
 </code></pre>
 <p><strong><em>Note for Ledger users.</em></strong> Ledger does not have separate narration and payee fields, it has only one field, which is referred to by the “Payee” metadata tag, and the narration ends up in a saved comment (a “persistent note”). In Beancount, a Transaction object simply has two fields: payee and narration, where payee just happens to have an empty value a lot of the time.</p>
-<p>For a deeper discussion of how and when to use payees or not, see <a href="http://furius.ca/beancount/doc/payees"><span class="underline">Payees, Subaccounts, and Assets</span></a>.</p>
+<p>For a deeper discussion of how and when to use payees or not, see <a href="http://furius.ca/beancount/doc/payee"><span class="underline">Payees, Subaccounts, and Assets</span></a>.</p>
 <h4 id="costs-and-prices">Costs and Prices<a id="costs-and-prices"></a><a class="headerlink" href="#costs-and-prices" title="Permanent link"></a></h4>
 <p>Postings represent a single amount being deposited to or withdrawn from an account. The simplest type of posting includes only its amount:</p>
 <pre><code>2012-11-03 * "Transfer to pay credit card"
