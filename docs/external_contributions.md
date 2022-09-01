@@ -60,6 +60,8 @@ Plugins<a id="plugins"></a>
 
 [<span class="underline">Long\_short capital gains classifier</span>](https://github.com/redstreet/beancount_reds_plugins/tree/master/beancount_reds_plugins/capital_gains_classifier): Plugin from Red S to classify capital gains into long and short based on duration the assets were held, and into gains and losses based on value.
 
+[<span class="underline">Autoclose\_tree</span>](https://github.com/redstreet/beancount_reds_plugins/tree/main/beancount_reds_plugins/autoclose_tree): Automatically closes all of an account's descendants when an account is closed.
+
 Tools<a id="tools"></a>
 -----------------------
 
@@ -86,6 +88,8 @@ Tools<a id="tools"></a>
 [<span class="underline">sulemankm/budget\_report</span>](https://github.com/sulemankm/budget_report) : A very simple command-line budget tracking tool for beancount ledger files.
 
 [<span class="underline">dyumnin/dyu\_accounting</span>](https://github.com/dyumnin/dyu_accounting) : Accounting setup to automate generation of various financial statements for Compliance with Indian Govt.
+
+[<span class="underline">Gains Minimizer</span>](https://github.com/redstreet/fava_investor/tree/main/fava_investor/modules/minimizegains) (RedStreet): Automatically determine lots to sell to minimize capital gains taxes. [<span class="underline">Live example.</span>](http://favainvestor.pythonanywhere.com/example-beancount-file/extension/Investor/?module=minimizegains)
 
 Alternative Parsers<a id="alternative-parsers"></a>
 ---------------------------------------------------
@@ -145,6 +149,13 @@ Converters<a id="converters"></a>
 [<span class="underline">alensiljak/pta-converters</span>](https://gitlab.com/alensiljak/pta-converters) (Alen Šiljak): GnuCash -&gt; Beancount converter (2019).
 
 [<span class="underline">grostim/Beancount-myTools</span>](https://github.com/grostim/Beancount-myTools) (Timothee Gros): Personal importer tools of the author for French banks.
+
+Downloaders<a id="downloaders"></a>
+-----------------------------------
+
+[<span class="underline">bean-download</span>](https://github.com/redstreet/beancount_reds_importers) (RedStreet): bean-download is a tool to conveniently download your transactions from supporting institutions. You configure it with a list of your institutions and arbitrary commands to download them, typically via [<span class="underline">ofxget</span>](https://ofxtools.readthedocs.io/en/latest/). It downloads all of them in parallel, names them appropriately and puts them in the directory of your choice, from which you can then import. The tool is installed as a part of [<span class="underline">beancount-reds-importers</span>](https://github.com/redstreet/beancount_reds_importers). See [<span class="underline">accompanying article</span>](https://reds-rants.netlify.app/personal-finance/direct-downloads/).
+
+[<span class="underline">ofx-summarize</span>](https://github.com/redstreet/beancount_reds_importers) (RedStreet): When building importers, it helps to be able to peek into a .ofx or a .qfx file that you are trying to import. The ofx-summarize command does just that. It ships with [<span class="underline">beancount-reds-importers</span>](https://github.com/redstreet/beancount_reds_importers), and should be available by simply invoking the command. Running the command on a file shows you a few transactions in the file. What is very useful is to be able to explore your .ofx file via the python debugger or interpreter.
 
 Price Sources<a id="price-sources"></a>
 ---------------------------------------
