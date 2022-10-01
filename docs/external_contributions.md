@@ -25,6 +25,8 @@ Books and Articles<a id="books-and-articles"></a>
 
 [<span class="underline">Tax Loss Harvesting with Beancount</span>](https://reds-rants.netlify.app/personal-finance/tax-loss-harvesting-with-beancount/) (RedStreet): An article about TLH from a US perspective, includes requirements, wash sale subtleties and safe to sell/buy dates, and comparisons to robo-advisors. (Related: [<span class="underline">fava\_investor TLH module</span>](https://github.com/redstreet/fava_investor/tree/main/fava_investor/modules/tlh). for fava and plain-beancount command line version).
 
+[<span class="underline">Scaled Estimates of Mutual Fund NAVs</span>](https://reds-rants.netlify.app/personal-finance/scaled-estimates-of-mutual-fund-navs/) (RedStreet) : Problem: Mutual fund NAVs (at least in the US) are updated exactly once per day, at the end of the day. When needing to make financial decisions when the trading window is still open (eg: when tax loss harvesting), and the end-of-day NAV is not yet available, it is sometimes useful to make a trivial estimate of that NAV, especially on days when there are huge changes in the market.
+
 Plugins<a id="plugins"></a>
 ---------------------------
 
