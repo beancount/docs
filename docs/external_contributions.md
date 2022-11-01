@@ -223,6 +223,8 @@ Interfaces / Web<a id="interfaces-web"></a>
 
 [<span class="underline">jmgilman/bdantic</span>](https://github.com/jmgilman/bdantic): A package for extending beancount with [<span class="underline">pydantic</span>](https://pydantic-docs.helpmanual.io/). With this package you can convert your ledger to JSON, and more.
 
+[<span class="underline">autobean/refactor</span>](https://github.com/SEIAROTg/autobean/tree/master/autobean/refactor) (SEIAROTg): Tooling to programmatically edit one's ledger, including formatting, sorting, refactoring, rearranging accounts, optimizing via plugins, migration from v2, inserting transactions in a ledger on import, and more.
+
 Mobile/Phone Data Entry<a id="mobilephone-data-entry"></a>
 ----------------------------------------------------------
 
