@@ -60,9 +60,7 @@ You can also use pip to install Beancount from its source code repository direct
 
     sudo -H python3 -m pip install git+https://github.com/beancount/beancount#egg=beancount
 
-### Installi<a id="installi"></a>
-
-### ng Beancount from Source<a id="ng-beancount-from-source"></a>
+### Installing Beancount from Source<a id="installing-beancount-from-source"></a>
 
 Installing from source offers the advantage of providing you with the very latest version of the stable branch (“default”). The default branch is as stable as the released version.
 

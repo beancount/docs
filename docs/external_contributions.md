@@ -93,6 +93,8 @@ Tools<a id="tools"></a>
 
 [<span class="underline">Gains Minimizer</span>](https://github.com/redstreet/fava_investor/tree/main/fava_investor/modules/minimizegains) (RedStreet): Automatically determine lots to sell to minimize capital gains taxes. [<span class="underline">Live example.</span>](http://favainvestor.pythonanywhere.com/example-beancount-file/extension/Investor/?module=minimizegains)
 
+[<span class="underline">beanahead</span>](https://github.com/maread99/beanahead) (Marcus Read): Adds the ability to include future transactions (automatically generates regular transactions, provides for ad hoc expected transactions, expected transactions are reconciled against imported transactions; all functionality accessible via cli).
+
 Alternative Parsers<a id="alternative-parsers"></a>
 ---------------------------------------------------
 
@@ -224,6 +226,8 @@ Interfaces / Web<a id="interfaces-web"></a>
 [<span class="underline">jmgilman/bdantic</span>](https://github.com/jmgilman/bdantic): A package for extending beancount with [<span class="underline">pydantic</span>](https://pydantic-docs.helpmanual.io/). With this package you can convert your ledger to JSON, and more.
 
 [<span class="underline">autobean/refactor</span>](https://github.com/SEIAROTg/autobean/tree/master/autobean/refactor) (SEIAROTg): Tooling to programmatically edit one's ledger, including formatting, sorting, refactoring, rearranging accounts, optimizing via plugins, migration from v2, inserting transactions in a ledger on import, and more.
+
+[<span class="underline">seltzered/beancolage</span>](https://github.com/seltzered/beancolage) (Vivek Gani): An Eclipse Theia (vendor-agnostic vscode) app that tries to bundle existing beancount-based packages such as vscode-beancount and Fava.
 
 Mobile/Phone Data Entry<a id="mobilephone-data-entry"></a>
 ----------------------------------------------------------
