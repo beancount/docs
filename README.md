@@ -6,6 +6,8 @@ Source files are in [docs](docs/) directory.
 
 These documents in markdown format are automatically generated from [official Beancount documentation](http://furius.ca/beancount/doc/index).
 
+You [can contribute](CONTRIBUTING.md).
+
 ## Beancount Google Doc converter
 
 ### Installation
