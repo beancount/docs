@@ -277,8 +277,8 @@
             <div class="section">
               
                 <h1 id="how-inventories-work">How Inventories Work<a id="title"></a><a class="headerlink" href="#how-inventories-work" title="Permanent link"></a></h1>
-<p><a href="mailto:blais@furius.ca"><span class="underline">Martin Blais</span></a>, December 2016</p>
-<p><a href="http://furius.ca/beancount/doc/booking"><span class="underline">http://furius.ca/beancount/doc/booking</span></a></p>
+<p><a href="mailto:blais@furius.ca"><u>Martin Blais</u></a>, December 2016</p>
+<p><a href="http://furius.ca/beancount/doc/booking"><u>http://furius.ca/beancount/doc/booking</u></a></p>
 <p><em>This document explains how we accumulate commodities and<br />
 match sales (reductions) against accumulated inventory contents.</em></p>
 <h2 id="introduction">Introduction<a id="introduction"></a><a class="headerlink" href="#introduction" title="Permanent link"></a></h2>
@@ -317,7 +317,7 @@ match sales (reductions) against accumulated inventory contents.</em></p>
   …
 </code></pre>
 <p>brings the balance of that account to 34.58 USD and 86.02 CAD. The number of units USD hasn’t changed.</p>
-<p>Note that accounts may contain any number of commodities, and this is also true for commodities held at cost, which we’ll see shortly. While this is made possible, I recommend that you define enough accounts to keep a single commodity in each; this can be enforced with the “<a href="http://github.com/beancount/beancount/tree/master/beancount/plugins/onecommodity.py"><span class="underline">onecommodity</span></a>” plugin.</p>
+<p>Note that accounts may contain any number of commodities, and this is also true for commodities held at cost, which we’ll see shortly. While this is made possible, I recommend that you define enough accounts to keep a single commodity in each; this can be enforced with the “<a href="http://github.com/beancount/beancount/tree/master/beancount/plugins/onecommodity.py"><u>onecommodity</u></a>” plugin.</p>
 <h3 id="cost-basis">Cost Basis<a id="cost-basis"></a><a class="headerlink" href="#cost-basis" title="Permanent link"></a></h3>
 <p>Things get a little more hairy when we consider the tracking of investments with a cost basis. Beancount allows you to associate a cost basis and an optional label with a particular lot acquired. Consider these two purchases to an investment account:</p>
 <pre><code>2015-04-01 * "Buy some shares of Hooli in April"
@@ -515,13 +515,13 @@ match sales (reductions) against accumulated inventory contents.</em></p>
 <p>The price is an annotation for your records. It remains attached to the Posting objects and if you want to make use of it somehow, you can always do that by writing some Python code. There are already two plugins which make use of this annotation:</p>
 <ul>
 <li>
-<p><a href="http://github.com/beancount/beancount/tree/master/beancount/plugins/implicit_prices.py"><strong><span class="underline">beancount.plugins.implicit_prices</span></strong></a>: This plugin takes the prices attached to the postings and automatically creates and inserts Price directives for each of them, in order to feed the global price database.</p>
+<p><a href="http://github.com/beancount/beancount/tree/master/beancount/plugins/implicit_prices.py"><strong><u>beancount.plugins.implicit_prices</u></strong></a>: This plugin takes the prices attached to the postings and automatically creates and inserts Price directives for each of them, in order to feed the global price database.</p>
 </li>
 <li>
-<p><a href="http://github.com/beancount/beancount/tree/master/beancount/plugins/sellgains.py"><strong><span class="underline">beancount.plugins.sellgains</span></strong></a>: This plugin implements an additional balancing check: it uses the prices to compute the expected proceeds and weighs them against all the other postings of the transaction <em>excluding</em> any postings to Income accounts. In our example, it would check that (-12 x 24.70 + 296.40) = 0. This provides yet another means of verifying the correctness of your input.</p>
+<p><a href="http://github.com/beancount/beancount/tree/master/beancount/plugins/sellgains.py"><strong><u>beancount.plugins.sellgains</u></strong></a>: This plugin implements an additional balancing check: it uses the prices to compute the expected proceeds and weighs them against all the other postings of the transaction <em>excluding</em> any postings to Income accounts. In our example, it would check that (-12 x 24.70 + 296.40) = 0. This provides yet another means of verifying the correctness of your input.</p>
 </li>
 </ul>
-<p>See the <a href="trading_with_beancount.html"><span class="underline">Trading with Beancount</span></a> document for more details on this topic.</p>
+<p>See the <a href="trading_with_beancount.html"><u>Trading with Beancount</u></a> document for more details on this topic.</p>
 <h2 id="trades">Trades<a id="trades"></a><a class="headerlink" href="#trades" title="Permanent link"></a></h2>
 <p>The combination of acquiring some asset and selling it back is what we call a “trade.” In Beancount we consider only assets with a cost basis to be the subject of trades. Since booking reductions against accumulated inventory contents happens during the booking process, this is where trades should be identified and recorded.</p>
 <table><tbody><tr class="odd"><td><p>As of now [Dec 2016], trade recording has not been implemented.</p><p>Some prototypes for it have been tested previously and I believe it will be very easy to add in the near future. This will be documented here. Watch this space.</p></td></tr></tbody></table>
@@ -562,7 +562,7 @@ match sales (reductions) against accumulated inventory contents.</em></p>
 </ul>
 <p>An <em>Inventory</em> is simply an accumulation of such positions, represented as a list. We sometimes talk of the <em>ante-inventory</em> to refer to the contents of the inventory before a transaction’s postings have been applied to it, and the <em>ex-inventory</em> to the resulting inventory after they have been applied.</p>
 <p>A <em>Posting</em> is an object which is a superset of a position: in addition to units and cost, it has an associated account and an optional price attributes. If present, the price has the same type as units. It represents one of the legs of a transaction in the input. Postings imply positions, and these positions are added to inventories. We can say that a position is <em>posted</em> to an account.</p>
-<p>For more details on the internal data structures used in Beancount, please refer to the <a href="beancount_design_doc.html"><span class="underline">Design Doc</span></a> which expands on this topic further.</p>
+<p>For more details on the internal data structures used in Beancount, please refer to the <a href="beancount_design_doc.html"><u>Design Doc</u></a> which expands on this topic further.</p>
 <h3 id="why-booking-is-not-simple">Why Booking is Not Simple<a id="why-booking-is-not-simple"></a><a class="headerlink" href="#why-booking-is-not-simple" title="Permanent link"></a></h3>
 <p>The complexity of the reduction process shows itself when we consider how to keep track of the cost basis of various lots. To demonstrate how this works, let us consider a simple example that we shall reuse in the different sections below:</p>
 <ul>
@@ -665,7 +665,7 @@ match sales (reductions) against accumulated inventory contents.</em></p>
 </code></pre>
 <p>As you may intuit, the notion of “augmenting” or “reducing” only makes sense for homogeneous inventories.</p>
 <h3 id="original-proposal">Original Proposal<a id="original-proposal"></a><a class="headerlink" href="#original-proposal" title="Permanent link"></a></h3>
-<p>If you’re interested in the design doc that led to this implementation, you can find the document <a href="a_proposal_for_an_improvement_on_inventory_booking.html"><span class="underline">here</span></a>. I hope the resulting implementation is simple enough yet general.</p>
+<p>If you’re interested in the design doc that led to this implementation, you can find the document <a href="a_proposal_for_an_improvement_on_inventory_booking.html"><u>here</u></a>. I hope the resulting implementation is simple enough yet general.</p>
               
             </div>
           </div>

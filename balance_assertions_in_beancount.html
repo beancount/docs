@@ -246,25 +246,25 @@
               
                 <h1 id="balance-assertions-in-beancount">Balance Assertions in Beancount<a id="title"></a><a class="headerlink" href="#balance-assertions-in-beancount" title="Permanent link"></a></h1>
 <p>Martin Blais, July 2014</p>
-<p><a href="http://furius.ca/beancount/doc/proposal-balance"><span class="underline">http://furius.ca/beancount/doc/proposal-balance</span></a></p>
+<p><a href="http://furius.ca/beancount/doc/proposal-balance"><u>http://furius.ca/beancount/doc/proposal-balance</u></a></p>
 <p><em>This document summarizes the different kinds of semantics for balance assertions in all command-line accounting systems and proposes new syntax for total and file-order running assertions in Beancount.</em></p>
 <blockquote>
-<p><a href="#motivation"><span class="underline">Motivation</span></a></p>
-<p><a href="#partial-vs.-complete-assertions"><span class="underline">Partial vs. Complete Assertions</span></a></p>
-<p><a href="#file-vs.-date-assertions"><span class="underline">File vs. Date Assertions</span></a></p>
-<p><a href="#ordering-ambiguity"><span class="underline">Ordering &amp; Ambiguity</span></a></p>
-<p><a href="#intra-day-assertions"><span class="underline">Intra-Day Assertions</span></a></p>
-<p><a href="#beginning-vs.-end-of-day"><span class="underline">Beginning vs. End of Day</span></a></p>
-<p><a href="#status"><span class="underline">Status</span></a></p>
-<p><a href="#proposal"><span class="underline">Proposal</span></a></p>
-<p><a href="#file-assertions"><span class="underline">File Assertions</span></a></p>
-<p><a href="#complete-assertions"><span class="underline">Complete Assertions</span></a></p>
+<p><a href="#motivation"><u>Motivation</u></a></p>
+<p><a href="#partial-vs.-complete-assertions"><u>Partial vs. Complete Assertions</u></a></p>
+<p><a href="#file-vs.-date-assertions"><u>File vs. Date Assertions</u></a></p>
+<p><a href="#ordering-ambiguity"><u>Ordering &amp; Ambiguity</u></a></p>
+<p><a href="#intra-day-assertions"><u>Intra-Day Assertions</u></a></p>
+<p><a href="#beginning-vs.-end-of-day"><u>Beginning vs. End of Day</u></a></p>
+<p><a href="#status"><u>Status</u></a></p>
+<p><a href="#proposal"><u>Proposal</u></a></p>
+<p><a href="#file-assertions"><u>File Assertions</u></a></p>
+<p><a href="#complete-assertions"><u>Complete Assertions</u></a></p>
 </blockquote>
 <h2 id="motivation">Motivation<a id="motivation"></a><a class="headerlink" href="#motivation" title="Permanent link"></a></h2>
 <p>Both Beancount and Ledger implement <em>balance assertions.</em> These provide the system with checkpoints it can use to verify the integrity of the data entry<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
 <p>Traditional accounting principles state that a user may never change the past—correcting the past involves inserting new entries to undo past mistakes<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>—but we in the command-line accounting community take issue with that: we want to remain able to reconstruct the past and more importantly, to correct past mistakes at the site of their original data entry. Yes, we are dilettantes but we are bent on simplifying the process of bookkeeping by challenging existing concepts and think that this is perfectly reasonable, as long as it does not break known balances. These known balances are what we provide via balance assertions.</p>
 <p>Another way to look at these balance assertions, is that they are simply the bottom line amounts reported on various account statements, as exemplified in the figure below.</p>
-<p>Following <a href="https://groups.google.com/forum/#!topic/ledger-cli/vwkrPh74NFI"><span class="underline">this thread</span></a>, we established that there were differing interpretations of balance assertions in the current versions of Ledger (3.0) and Beancount (2.0b).</p>
+<p>Following <a href="https://groups.google.com/forum/#!topic/ledger-cli/vwkrPh74NFI"><u>this thread</u></a>, we established that there were differing interpretations of balance assertions in the current versions of Ledger (3.0) and Beancount (2.0b).</p>
 <p><img src="balance_assertions_in_beancount/media/e69dda32bb347765ef4a8a803a4b9e4c548190fa.png" style="width:6.5in;height:3.20833in" alt="balance-statement-1.png" /></p>
 <h2 id="partial-vs-complete-assertions">Partial vs. Complete Assertions<a id="partial-vs.-complete-assertions"></a><a class="headerlink" href="#partial-vs-complete-assertions" title="Permanent link"></a></h2>
 <p>An assertion in Beancount currently looks like this:</p>
@@ -349,8 +349,8 @@
 <p>Finally, just for completeness, it is worth mentioning that date assertions have to have well-defined semantics regarding <em>when</em> they apply during the day. In Beancount, they currently apply at the beginning of the day.</p>
 <p>It might be worthwhile to provide an alternate version of date-based assertions that applies at the end of the day, e.g. “balance_end”. Beancount v1 used to have this (“check_end”) but it was removed in the v2 rewrite, as it wasn’t clear it would be really needed. The simplicity of a single meaning for balance assertions is nice too.</p>
 <h2 id="status">Status<a id="status"></a><a class="headerlink" href="#status" title="Permanent link"></a></h2>
-<p><a href="http://ledger-cli.org"><span class="underline">Ledger</span></a> 3.0 currently supports only partial file-order assertions, on transactions.</p>
-<p><a href="http://furius.ca/beancount/"><span class="underline">Beancount</span></a> 2.0 currently supports only partial date-based assertions at the beginning of the day.</p>
+<p><a href="http://ledger-cli.org"><u>Ledger</u></a> 3.0 currently supports only partial file-order assertions, on transactions.</p>
+<p><a href="http://furius.ca/beancount/"><u>Beancount</u></a> 2.0 currently supports only partial date-based assertions at the beginning of the day.</p>
 <h2 id="proposal">Proposal<a id="proposal"></a><a class="headerlink" href="#proposal" title="Permanent link"></a></h2>
 <p>I propose the following improvements to Beancount’s balance assertions.</p>
 <h3 id="file-assertions">File Assertions<a id="file-assertions"></a><a class="headerlink" href="#file-assertions" title="Permanent link"></a></h3>

@@ -250,14 +250,14 @@
               
                 <h1 id="settlement-dates-transfer-accounts-in-beancount">Settlement Dates &amp; Transfer Accounts in Beancount<a id="title"></a><a class="headerlink" href="#settlement-dates-transfer-accounts-in-beancount" title="Permanent link"></a></h1>
 <p>Martin Blais, July 2014</p>
-<p><a href="http://furius.ca/beancount/doc/proposal-dates"><span class="underline">http://furius.ca/beancount/doc/proposal-dates</span></a></p>
+<p><a href="http://furius.ca/beancount/doc/proposal-dates"><u>http://furius.ca/beancount/doc/proposal-dates</u></a></p>
 <blockquote>
-<p><a href="#motivation"><span class="underline">Motivation</span></a></p>
-<p><a href="#_1t2cyy3ee86k"><span class="underline">Proposal Description</span></a></p>
-<p><a href="#remaining-questions"><span class="underline">Remaining Questions</span></a></p>
-<p><a href="#_svp0j511dy5a"><span class="underline">Previous Work</span></a></p>
-<p><a href="#ledger-effective-and-auxiliary-dates"><span class="underline">Ledger Effective and Auxiliary Dates</span></a></p>
-<p><a href="#references"><span class="underline">References</span></a></p>
+<p><a href="#motivation"><u>Motivation</u></a></p>
+<p><a href="#_1t2cyy3ee86k"><u>Proposal Description</u></a></p>
+<p><a href="#remaining-questions"><u>Remaining Questions</u></a></p>
+<p><a href="#_svp0j511dy5a"><u>Previous Work</u></a></p>
+<p><a href="#ledger-effective-and-auxiliary-dates"><u>Ledger Effective and Auxiliary Dates</u></a></p>
+<p><a href="#references"><u>References</u></a></p>
 </blockquote>
 <h2 id="motivation">Motivation<a id="motivation"></a><a class="headerlink" href="#motivation" title="Permanent link"></a></h2>
 <p>When a trade executes in an investment account, there is most often a delay between the date that the transaction is carried out (the “transaction date”) and the date that the funds are deposited in an associated cash account (the “settlement date”). This makes imported balance assertions sometimes requiring the fudging of their dates, and sometimes they can even be impossible. This document proposes the addition of an optional “settlement date” to be attached to a transaction or a posting, and associated semantics for how to deal with the problem.</p>
@@ -288,15 +288,15 @@
 <p>So far, I’ve been getting away with fudging the dates on balance assertions where necessary. I have relatively few sales, so this hasn’t been a big problem so far. I’m not convinced it needs a solution yet, maybe the best thing to do is just to document how to deal with the issue when it occurs.</p>
 <p>Maybe someone can convince me otherwise.</p>
 <h3 id="transfer-accounts">Transfer Accounts<a id="transfer-accounts"></a><a class="headerlink" href="#transfer-accounts" title="Permanent link"></a></h3>
-<p>In the previous section, we discuss a style whereby a single entry moving money between two accounts contains two dates and results in two separate entries. An auxiliary problem, which is related in its solution, is how to carry out the reverse operation, that is, how to <em>merge</em> two separate entries posting to a common transfer account (sometimes called a “<a href="https://en.wikipedia.org/wiki/Suspense_account"><span class="underline">suspense account</span></a>”).</p>
+<p>In the previous section, we discuss a style whereby a single entry moving money between two accounts contains two dates and results in two separate entries. An auxiliary problem, which is related in its solution, is how to carry out the reverse operation, that is, how to <em>merge</em> two separate entries posting to a common transfer account (sometimes called a “<a href="https://en.wikipedia.org/wiki/Suspense_account"><u>suspense account</u></a>”).</p>
 <p>For example, a user may want to input the two sides of a transaction separately, e.g. by running import scripts on separate input files, and instead of having to reconcile and merge those by hand, we would want to explicitly support this by identifying matching transactions to these transfer accounts and creating a common link between them.</p>
 <p>Most importantly, we want to be able to easily identify which of the transactions is not matched on the other side, which indicates missing data.</p>
 <ul>
 <li>
-<p>There is a prototype of this under <a href="https://github.com/beancount/beancount/tree/v2/beancount/plugins/tag_pending.py"><span class="underline">beancount.plugins.tag_pending</span></a>.</p>
+<p>There is a prototype of this under <a href="https://github.com/beancount/beancount/tree/v2/beancount/plugins/tag_pending.py"><u>beancount.plugins.tag_pending</u></a>.</p>
 </li>
 <li>
-<p>Also see redstreet0’s “<a href="https://groups.google.com/d/msgid/beancount/8adbb83d-a7c7-476a-97ca-d600d110db20%40googlegroups.com?utm_medium=email&amp;utm_source=footer"><span class="underline">zerosum</span></a>” plugin from <a href="https://groups.google.com/d/msgid/beancount/8adbb83d-a7c7-476a-97ca-d600d110db20%40googlegroups.com?utm_medium=email&amp;utm_source=footer"><span class="underline">this thread</span></a>.</p>
+<p>Also see redstreet0’s “<a href="https://groups.google.com/d/msgid/beancount/8adbb83d-a7c7-476a-97ca-d600d110db20%40googlegroups.com?utm_medium=email&amp;utm_source=footer"><u>zerosum</u></a>” plugin from <a href="https://groups.google.com/d/msgid/beancount/8adbb83d-a7c7-476a-97ca-d600d110db20%40googlegroups.com?utm_medium=email&amp;utm_source=footer"><u>this thread</u></a>.</p>
 </li>
 </ul>
 <h2 id="remaining-questions">Remaining Questions<a id="remaining-questions"></a><a class="headerlink" href="#remaining-questions" title="Permanent link"></a></h2>
@@ -317,10 +317,10 @@
 <p>That would be a much more demanding change on the schema and on the Beancount design but would allow to natively support partial transactions, keeping their individual dates, descriptions, etc. Maybe that's a better model? Consider the advantages.</p>
 <h2 id="previous-work">Previous Work<a id="previous-work"></a><a class="headerlink" href="#previous-work" title="Permanent link"></a></h2>
 <h3 id="ledger-effective-and-auxiliary-dates">Ledger Effective and Auxiliary Dates<a id="ledger-effective-and-auxiliary-dates"></a><a class="headerlink" href="#ledger-effective-and-auxiliary-dates" title="Permanent link"></a></h3>
-<p>Ledger has the concept of “<a href="http://ledger-cli.org/3.0/doc/ledger3.html#Auxiliary-dates"><span class="underline">auxiliary dates</span></a>”. The way these work is straightforward: any transaction may have a second date, and the user can select at runtime (with <code>--aux-date</code>) whether the main date or the auxiliary dates are meant to be used.</p>
+<p>Ledger has the concept of “<a href="http://ledger-cli.org/3.0/doc/ledger3.html#Auxiliary-dates"><u>auxiliary dates</u></a>”. The way these work is straightforward: any transaction may have a second date, and the user can select at runtime (with <code>--aux-date</code>) whether the main date or the auxiliary dates are meant to be used.</p>
 <p>It is unclear to me how this is meant to be used in practice, in the presence of balance assertions. Without balance assertions, I can see how it would just work: you’d render everything with settlement dates only. This would probably only make sense for specific reports.</p>
 <p>I would much rather keep a single semantic for the set of transactions that gets parsed in; the idea that the meaning of the transactions varies depending on the invocation conditions would set a precedent in Beancount, I’d prefer not to break this nice property, so by default I’d prefer to avoid implementing this solution.</p>
-<p>Auxiliary dates are also known as “<a href="http://ledger-cli.org/3.0/doc/ledger3.html#Effective-Dates"><span class="underline">effective dates</span></a>” and can be associated with each individual posting. Auxiliary dates are secondary to the the “primary date” or the “actual date”, being the posting date of the record):</p>
+<p>Auxiliary dates are also known as “<a href="http://ledger-cli.org/3.0/doc/ledger3.html#Effective-Dates"><u>effective dates</u></a>” and can be associated with each individual posting. Auxiliary dates are secondary to the the “primary date” or the “actual date”, being the posting date of the record):</p>
 <pre><code>2008/10/16 * (2090) Bountiful Blessings Farm
     Expenses:Food:Groceries                  $ 37.50  ; [=2008/10/01]
     Expenses:Food:Groceries                  $ 37.50  ; [=2008/11/01]
@@ -340,7 +340,7 @@
 <h3 id="gnucash">GnuCash<a id="gnucash"></a><a class="headerlink" href="#gnucash" title="Permanent link"></a></h3>
 <p><em>TODO(blais) - How is this handled in GnuCash and other GUI systems? Is there a standard account method?</em></p>
 <h2 id="references">References<a id="references"></a><a class="headerlink" href="#references" title="Permanent link"></a></h2>
-<p>The IRS <a href="http://www.irs.gov/publications/p17/ch14.html"><span class="underline">requires you to use the trade date and NOT the settlement date</span></a> for tax reporting; from the IRS Publication 17:</p>
+<p>The IRS <a href="http://www.irs.gov/publications/p17/ch14.html"><u>requires you to use the trade date and NOT the settlement date</u></a> for tax reporting; from the IRS Publication 17:</p>
 <blockquote>
 <p><strong>Securities traded on established market.</strong> For securities traded on an established securities market, your holding period begins the day after the trade date you bought the securities, and ends on the trade date you sold them.</p>
 <p><img src="settlement_dates_in_beancount/media/1336b54a60f8aa4b92957260378207d6479e7c39.gif" style="width:0.5625in;height:0.5625in" />Do not confuse the trade date with the settlement date, which is the date by which the stock must be delivered and payment must be made.</p>
@@ -350,10 +350,10 @@
 <h3 id="threads">Threads<a id="threads"></a><a class="headerlink" href="#threads" title="Permanent link"></a></h3>
 <ul>
 <li>
-<p><a href="https://groups.google.com/d/msg/ledger-cli/ooxbPVRinSs/ymkRCerhxjcJ"><span class="underline">An interesting "feature by coincidence"</span></a></p>
+<p><a href="https://groups.google.com/d/msg/ledger-cli/ooxbPVRinSs/ymkRCerhxjcJ"><u>An interesting "feature by coincidence"</u></a></p>
 </li>
 <li>
-<p><a href="https://groups.google.com/d/msg/beancount/z9sPboW4U3c/UfJbIVzwmpMJ"><span class="underline">First Opinions, Coming from Ledger</span></a></p>
+<p><a href="https://groups.google.com/d/msg/beancount/z9sPboW4U3c/UfJbIVzwmpMJ"><u>First Opinions, Coming from Ledger</u></a></p>
 </li>
 </ul>
               

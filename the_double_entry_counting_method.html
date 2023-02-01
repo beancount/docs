@@ -268,34 +268,34 @@
               
                 <h1 id="the-double-entry-counting-method">The Double-Entry Counting Method<a id="title"></a><a class="headerlink" href="#the-double-entry-counting-method" title="Permanent link"></a></h1>
 <p>Martin Blais, December 2016</p>
-<p><a href="http://furius.ca/beancount/doc/double-entry"><span class="underline">http://furius.ca/beancount/doc/double-entry</span></a></p>
-<p><a href="#introduction"><span class="underline">Introduction</span></a></p>
-<p><a href="#basics-of-double-entry-bookkeeping"><span class="underline">Basics of Double-Entry Bookkeeping</span></a></p>
+<p><a href="http://furius.ca/beancount/doc/double-entry"><u>http://furius.ca/beancount/doc/double-entry</u></a></p>
+<p><a href="#introduction"><u>Introduction</u></a></p>
+<p><a href="#basics-of-double-entry-bookkeeping"><u>Basics of Double-Entry Bookkeeping</u></a></p>
 <blockquote>
-<p><a href="#statements"><span class="underline">Statements</span></a></p>
-<p><a href="#single-entry-bookkeeping"><span class="underline">Single-Entry Bookkeeping</span></a></p>
-<p><a href="#double-entry-bookkeeping"><span class="underline">Double-Entry Bookkeeping</span></a></p>
-<p><a href="#many-accounts"><span class="underline">Many Accounts</span></a></p>
-<p><a href="#multiple-postings"><span class="underline">Multiple Postings</span></a></p>
+<p><a href="#statements"><u>Statements</u></a></p>
+<p><a href="#single-entry-bookkeeping"><u>Single-Entry Bookkeeping</u></a></p>
+<p><a href="#double-entry-bookkeeping"><u>Double-Entry Bookkeeping</u></a></p>
+<p><a href="#many-accounts"><u>Many Accounts</u></a></p>
+<p><a href="#multiple-postings"><u>Multiple Postings</u></a></p>
 </blockquote>
-<p><a href="#types-of-accounts"><span class="underline">Types of Accounts</span></a></p>
-<p><a href="#trial-balance"><span class="underline">Trial Balance</span></a></p>
-<p><a href="#income-statement"><span class="underline">Income Statement</span></a></p>
-<p><a href="#clearing-income"><span class="underline">Clearing Income</span></a></p>
-<p><a href="#equity"><span class="underline">Equity</span></a></p>
-<p><a href="#balance-sheet"><span class="underline">Balance Sheet</span></a></p>
-<p><a href="#summarizing"><span class="underline">Summarizing</span></a></p>
-<p><a href="#period-reporting"><span class="underline">Period Reporting</span></a></p>
-<p><a href="#chart-of-accounts"><span class="underline">Chart of Accounts</span></a></p>
+<p><a href="#types-of-accounts"><u>Types of Accounts</u></a></p>
+<p><a href="#trial-balance"><u>Trial Balance</u></a></p>
+<p><a href="#income-statement"><u>Income Statement</u></a></p>
+<p><a href="#clearing-income"><u>Clearing Income</u></a></p>
+<p><a href="#equity"><u>Equity</u></a></p>
+<p><a href="#balance-sheet"><u>Balance Sheet</u></a></p>
+<p><a href="#summarizing"><u>Summarizing</u></a></p>
+<p><a href="#period-reporting"><u>Period Reporting</u></a></p>
+<p><a href="#chart-of-accounts"><u>Chart of Accounts</u></a></p>
 <blockquote>
-<p><a href="#country-institution-convention"><span class="underline">Country-Institution Convention</span></a></p>
+<p><a href="#country-institution-convention"><u>Country-Institution Convention</u></a></p>
 </blockquote>
-<p><a href="#credits-debits"><span class="underline">Credits &amp; Debits</span></a></p>
-<p><a href="#accounting-equations"><span class="underline">Accounting Equations</span></a></p>
-<p><a href="#plain-text-accounting"><span class="underline">Plain-Text Accounting</span></a></p>
-<p><a href="#the-table-perspective"><span class="underline">The Table Perspective</span></a></p>
+<p><a href="#credits-debits"><u>Credits &amp; Debits</u></a></p>
+<p><a href="#accounting-equations"><u>Accounting Equations</u></a></p>
+<p><a href="#plain-text-accounting"><u>Plain-Text Accounting</u></a></p>
+<p><a href="#the-table-perspective"><u>The Table Perspective</u></a></p>
 <h2 id="introduction">Introduction<a id="introduction"></a><a class="headerlink" href="#introduction" title="Permanent link"></a></h2>
-<p>This document is a gentle introduction to the double-entry counting method, as written from the perspective of a computer scientist. It is an attempt to explain basic bookkeeping using as simple an approach as possible, doing away with some of the idiosyncrasies normally involved in accounting. It is also representative of how <a href="http://furius.ca/beancount/"><span class="underline">Beancount</span></a> works, and it should be useful to all users of <a href="http://plaintextaccounting.org/"><span class="underline">plain-text accounting</span></a>.</p>
+<p>This document is a gentle introduction to the double-entry counting method, as written from the perspective of a computer scientist. It is an attempt to explain basic bookkeeping using as simple an approach as possible, doing away with some of the idiosyncrasies normally involved in accounting. It is also representative of how <a href="http://furius.ca/beancount/"><u>Beancount</u></a> works, and it should be useful to all users of <a href="http://plaintextaccounting.org/"><u>plain-text accounting</u></a>.</p>
 <p>Note that I am not an accountant, and in the process of writing this document I may have used terminology that is slightly different or unusual to that which is taught in perhaps more traditional training in accounting. I granted myself license to create something new and perhaps even unusual in order to explain those ideas as simply and clearly as possible to someone unfamiliar with them.</p>
 <p>I believe that the method of double-entry counting should be taught to everyone at the high school level everywhere as it is a tremendously useful organizational skill, and I hope that this text can help spread its knowledge beyond professional circles.</p>
 <h2 id="basics-of-double-entry-bookkeeping">Basics of Double-Entry Bookkeeping<a id="basics-of-double-entry-bookkeeping"></a><a class="headerlink" href="#basics-of-double-entry-bookkeeping" title="Permanent link"></a></h2>
@@ -513,11 +513,11 @@ Assets:AccountsReceivable
 </code></pre>
 <p>For example, a checking account could be chosen to be “<code>Assets:US:BofA:Checking</code>”, where “BofA” stands for “Bank of America.” A credit card account could include the name of the particular type of card as the account name, like “<code>Liabilities:US:Amex:Platinum</code>”, which can be useful if you have multiple cards.</p>
 <p>I’ve found it doesn’t make sense for me to use this scheme for expense accounts, since those tend to represent generic categories. For those, it seems to make more sense to group them by category, as in using “<code>Expenses:Food:Restaurant</code>” instead of just “<code>Expenses:Restaurant</code>”.</p>
-<p>In any case, Beancount doesn’t enforce anything other than the root accounts; this is just a suggestion and this convention is not coded anywhere in the software. You have great freedom to experiment, and you can easily change all the names later by processing the text file. See the <a href="command_line_accounting_cookbook.html"><span class="underline">Cookbook</span></a> for more practical guidance.</p>
+<p>In any case, Beancount doesn’t enforce anything other than the root accounts; this is just a suggestion and this convention is not coded anywhere in the software. You have great freedom to experiment, and you can easily change all the names later by processing the text file. See the <a href="command_line_accounting_cookbook.html"><u>Cookbook</u></a> for more practical guidance.</p>
 <h2 id="credits-debits">Credits &amp; Debits<a id="credits-debits"></a><a class="headerlink" href="#credits-debits" title="Permanent link"></a></h2>
 <p>At this point, we haven’t discussed the concepts of “credits” and “debits.” This is on purpose: Beancount largely does away with these concepts because it makes everything else simpler. I believe that it is simpler to just learn that the signs of Income, Liabilities and Equity accounts are normally negative and to treat all accounts the same way than to deal with the debits and credits terminology and to treat different account categories differently. In any case, this section explains what these are.</p>
 <p>As I have pointed out in previous sections, we consider “Income”, “Liabilities” and “Equity” accounts to normally have a negative balance. This may sound odd; after all, nobody thinks of their gross salary as a negative amount, and certainly your credit-card bill or mortgage loan statements report positive numbers. This is because in our double-entry accounting system we consider all accounts to be held <em>from the perspective of the owner of the account</em>. We use signs consistent from this perspective, because it makes all operations on account contents straightforward: they’re all just simple additions and all the accounts are treated the same.</p>
-<p>In contrast, accountants traditionally keep all the balances of their accounts as positive numbers and then handle postings to those accounts differently depending on the account type upon which they are applied. The sign to apply to each account is entirely dictated by its type: Assets and Expenses accounts are debit accounts and Liabilities, Equity and Income accounts are credit accounts and require a sign adjustment. Moreover, posting a positive amount on an account is called “debiting” and removing from an account is called “crediting.” See <a href="http://www.accountingtools.com/debits-and-credits"><span class="underline">this external document</span></a>, for example, which nearly makes my head explode, and <a href="https://groups.google.com/d/msgid/beancount/CAPD_o%2B8W2BpTA9qtmMvaTdqdW51v%2Bt5uFrMRbZ93aPqoWokzQw%40mail.gmail.com"><span class="underline">this recent thread</span></a> has more detail. This way of handling postings makes everything much more complicated than it needs to be.</p>
+<p>In contrast, accountants traditionally keep all the balances of their accounts as positive numbers and then handle postings to those accounts differently depending on the account type upon which they are applied. The sign to apply to each account is entirely dictated by its type: Assets and Expenses accounts are debit accounts and Liabilities, Equity and Income accounts are credit accounts and require a sign adjustment. Moreover, posting a positive amount on an account is called “debiting” and removing from an account is called “crediting.” See <a href="http://www.accountingtools.com/debits-and-credits"><u>this external document</u></a>, for example, which nearly makes my head explode, and <a href="https://groups.google.com/d/msgid/beancount/CAPD_o%2B8W2BpTA9qtmMvaTdqdW51v%2Bt5uFrMRbZ93aPqoWokzQw%40mail.gmail.com"><u>this recent thread</u></a> has more detail. This way of handling postings makes everything much more complicated than it needs to be.</p>
 <p>The problem with this approach is that summing of amounts over the postings of a transaction is not a straightforward sum anymore. For example, let’s say you’re creating a new transaction with postings to two Asset accounts, an Expenses account and an Income account and the system tells you there is a $9.95 imbalance error somewhere. You’re staring at the entry intently; which of the postings is too small? Or is one of the postings too large? Also, maybe a new posting needs to be added, but is it to a debit account or to a credit account? The mental gymnastics required to do this are taxing. Some double-entry accounting software tries to deal with this by creating separate columns for debits and credits and allowing the user enter an amount only in the column that corresponds to each posting account’s type. This helps visually, but why not just use signs instead?</p>
 <p>Moreover, when you look at the accounting equations, you have to consider their signs as well. This makes it awkward to do transformations on them and make what is essentially a simple summation over postings into a convoluted mess that is difficult to understand.</p>
 <p>In plain-text accounting, we would rather just do away with this inconvenient baggage. We just use additions everywhere and learn to keep in mind that Liabilities, Equity and Income accounts normally have a negative balance. While this is unconventional, it’s much easier to grok. And If there is a need to view a conventional report with positive numbers only, we will be able to trigger that in reporting code<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>, inverting the signs just to render them in the output.</p>
@@ -611,11 +611,11 @@ Assets:AccountsReceivable
 <p><strong>Reporting Operations.</strong> In order to generate income statements and balance sheets, the list of transactions needs to be preprocessed using the clear, open and close operations described previously. These operations are not trivial to implement in database queries and are dependent on just the report and ideally don’t need to modify the input data. We’d have to load up the posting data into memory and then run some code. We’re already doing that by parsing the input file; the database step would be superfluous.</p>
 </li>
 <li>
-<p><strong>Aggregating Positions.</strong> Though we haven’t discussed it in this document so far, the contents of accounts may contain different types of commodities, as well as positions with an attached cost basis. The way that these positions are aggregated together requires the implementation of a custom data type because it obeys some rules about how positions are able to cancel each other out (see <a href="how_inventories_work.html"><span class="underline">How Inventories Work</span></a> for details). It would be very difficult to build these operations with an SQL database beyond the context of using just a single currency and ignoring cost basis.</p>
+<p><strong>Aggregating Positions.</strong> Though we haven’t discussed it in this document so far, the contents of accounts may contain different types of commodities, as well as positions with an attached cost basis. The way that these positions are aggregated together requires the implementation of a custom data type because it obeys some rules about how positions are able to cancel each other out (see <a href="how_inventories_work.html"><u>How Inventories Work</u></a> for details). It would be very difficult to build these operations with an SQL database beyond the context of using just a single currency and ignoring cost basis.</p>
 </li>
 </ul>
 <p>This is why Beancount provides a custom tool to directly process and query its data: It provides its own implementation of an SQL client that lets you specify open and close dates and leverages a custom “Inventory” data structure to create sums of the positions of postings. This tools supports columns of Beancount’s core types: Amount, Position and Inventory objects.</p>
-<p>(In any case, if you’re not convinced, Beancount provides a <a href="https://github.com/beancount/beancount/tree/v2/bin/bean-sql"><span class="underline">tool</span></a> to export its contents to a regular SQL database system. Feel free to experiment with it if you like, knock yourself out.)</p>
+<p>(In any case, if you’re not convinced, Beancount provides a <a href="https://github.com/beancount/beancount/tree/v2/bin/bean-sql"><u>tool</u></a> to export its contents to a regular SQL database system. Feel free to experiment with it if you like, knock yourself out.)</p>
 <div class="footnote">
 <hr />
 <ol>

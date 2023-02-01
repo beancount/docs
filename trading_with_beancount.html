@@ -247,27 +247,27 @@
             <div class="section">
               
                 <h1 id="trading-with-beancount">Trading with Beancount<a id="title"></a><a class="headerlink" href="#trading-with-beancount" title="Permanent link"></a></h1>
-<p><a href="mailto:blais@furius.ca"><span class="underline">Martin Blais</span></a>, July 2014</p>
-<p><a href="http://furius.ca/beancount/doc/trading"><span class="underline">http://furius.ca/beancount/doc/trading</span></a></p>
+<p><a href="mailto:blais@furius.ca"><u>Martin Blais</u></a>, July 2014</p>
+<p><a href="http://furius.ca/beancount/doc/trading"><u>http://furius.ca/beancount/doc/trading</u></a></p>
 <blockquote>
-<p><a href="#introduction"><span class="underline">Introduction</span></a></p>
-<p><a href="#what-is-profit-and-loss"><span class="underline">What is Profit and Loss?</span></a></p>
-<p><a href="#realized-and-unrealized-pl"><span class="underline">Realized and Unrealized P/L</span></a></p>
-<p><a href="#trade-lots"><span class="underline">Trade Lots</span></a></p>
-<p><a href="#booking-methods"><span class="underline">Booking Methods</span></a></p>
-<p><a href="#dated-lots"><span class="underline">Dated lots</span></a></p>
-<p><a href="#reporting-unrealized-pl"><span class="underline">Reporting Unrealized P/L</span></a></p>
-<p><a href="#commissions"><span class="underline">Commissions</span></a></p>
-<p><a href="#stock-splits"><span class="underline">Stock Splits</span></a></p>
-<p><a href="#cost-basis-adjustment-and-return-of-capital"><span class="underline">Cost Basis Adjustments</span></a></p>
-<p><a href="#dividends"><span class="underline">Dividends</span></a></p>
-<p><a href="#average-cost-booking"><span class="underline">Average Cost Booking</span></a></p>
-<p><a href="#future-topics"><span class="underline">Future Topics</span></a></p>
+<p><a href="#introduction"><u>Introduction</u></a></p>
+<p><a href="#what-is-profit-and-loss"><u>What is Profit and Loss?</u></a></p>
+<p><a href="#realized-and-unrealized-pl"><u>Realized and Unrealized P/L</u></a></p>
+<p><a href="#trade-lots"><u>Trade Lots</u></a></p>
+<p><a href="#booking-methods"><u>Booking Methods</u></a></p>
+<p><a href="#dated-lots"><u>Dated lots</u></a></p>
+<p><a href="#reporting-unrealized-pl"><u>Reporting Unrealized P/L</u></a></p>
+<p><a href="#commissions"><u>Commissions</u></a></p>
+<p><a href="#stock-splits"><u>Stock Splits</u></a></p>
+<p><a href="#cost-basis-adjustment-and-return-of-capital"><u>Cost Basis Adjustments</u></a></p>
+<p><a href="#dividends"><u>Dividends</u></a></p>
+<p><a href="#average-cost-booking"><u>Average Cost Booking</u></a></p>
+<p><a href="#future-topics"><u>Future Topics</u></a></p>
 </blockquote>
 <h2 id="introduction">Introduction<a id="introduction"></a><a class="headerlink" href="#introduction" title="Permanent link"></a></h2>
-<p>This is a companion document for the <a href="command_line_accounting_cookbook.html"><span class="underline">Command-Line Accounting Cookbook</span></a> that deals exclusively with the subject of trading and investments in Beancount. You probably should have read an <a href="the_double_entry_counting_method.html"><span class="underline">introduction to the double-entry method</span></a> before reading this document.</p>
+<p>This is a companion document for the <a href="command_line_accounting_cookbook.html"><u>Command-Line Accounting Cookbook</u></a> that deals exclusively with the subject of trading and investments in Beancount. You probably should have read an <a href="the_double_entry_counting_method.html"><u>introduction to the double-entry method</u></a> before reading this document.</p>
 <p>The subject of stock trading needs to be preceded by a discussion of “profit and loss,” or P/L, for short (pronounce: “P and L”), also called capital gains or losses. The notion of P/L against multiple trades can be difficult for a novice to understand, and I’ve even seen professional traders lack sophistication in their understanding of P/L over varying time periods. It is worth spending a bit of time to explain this, and necessary to understand how to book your trades in a double-entry system.</p>
-<p>This discussion will be weaved with detailed examples of how to book these trades in Beancount, wherever possible. There is a related, active <a href="a_proposal_for_an_improvement_on_inventory_booking.html"><span class="underline">proposal for improving the booking methods</span></a> in Beancount that you might also be interested in. Discussions of basis for tax-deferred accounts will not be treated here, but in the more general cookbook.</p>
+<p>This discussion will be weaved with detailed examples of how to book these trades in Beancount, wherever possible. There is a related, active <a href="a_proposal_for_an_improvement_on_inventory_booking.html"><u>proposal for improving the booking methods</u></a> in Beancount that you might also be interested in. Discussions of basis for tax-deferred accounts will not be treated here, but in the more general cookbook.</p>
 <h2 id="what-is-profit-and-loss">What is Profit and Loss?<a id="what-is-profit-and-loss"></a><a class="headerlink" href="#what-is-profit-and-loss" title="Permanent link"></a></h2>
 <p>Let’s imagine you have an account at the E*Trade discount broker and you buy some shares of a company, say IBM. If you buy 10 shares of IBM when its price is 160$/share, it will cost you 1600$. That value is what we will call the “book value”, or equivalently, “the cost.” This is how much money you had to spend in order to acquire the shares, also called “the position.” This is how you would enter this transaction in Beancount:</p>
 <pre><code>2014-02-16 * "Buying some IBM"
@@ -399,7 +399,7 @@
 <p>If you have a choice, the various lots you’re holding may have different taxation characteristics because you’ve held them for a different period of time. In the USA, for example, positions held for more than one year benefit from a lower taxation rate (the “long-term” capital gains rate).</p>
 </li>
 <li>
-<p>You may have other gains or losses that you want to offset in order to minimize your cash flow requirements on your tax liability. This is sometimes called “<a href="https://www.bogleheads.org/wiki/Tax_loss_harvesting"><span class="underline">tax loss harvesting</span></a>.”</p>
+<p>You may have other gains or losses that you want to offset in order to minimize your cash flow requirements on your tax liability. This is sometimes called “<a href="https://www.bogleheads.org/wiki/Tax_loss_harvesting"><u>tax loss</u> <u>harvesting</u></a>.”</p>
 </li>
 </ul>
 <p>There are more… but I’m not going to elaborate on them here. My goal is to show you how to book these things with the double-entry method.</p>
@@ -479,7 +479,7 @@ Expenses:Financial:Commissions        39.80 USD
 <p>2014: P/L of 60 x ($83.8333 - $80.10) = $224</p>
 </blockquote>
 <p>This may seem overkill, but imagine that those costs were much higher, as is the case on large commercial transactions; the details do begin to matter to the tax man. Accurate accounting is important, and we need to develop a method to do this more precisely.</p>
-<table><tbody><tr class="odd"><td><em><strong>We don’t currently have a good method of doing this with our input syntax. A suitable method is currently being developed and a <a href="a_proposal_for_an_improvement_on_inventory_booking.md"><span class="underline">proposal</span></a> is on the table. Also see mailing-list for details. [June 2014]</strong></em></td></tr></tbody></table>
+<table><tbody><tr class="odd"><td><em><strong>We don’t currently have a good method of doing this with our input syntax. A suitable method is currently being developed and a <a href="a_proposal_for_an_improvement_on_inventory_booking.md"><u>proposal</u></a> is on the table. Also see mailing-list for details. [June 2014]</strong></em></td></tr></tbody></table>
 
 <h2 id="stock-splits">Stock Splits<a id="stock-splits"></a><a class="headerlink" href="#stock-splits" title="Permanent link"></a></h2>
 <p>Stock splits are currently dealt with by emptying an account’s positions and recreating the positions at a different price:</p>
@@ -496,8 +496,8 @@ Expenses:Financial:Commissions        39.80 USD
 <p>Ultimately, maybe a plug-in module should be provided to more easily create such stock split transactions, as there is some amount of redundancy involved. We need to figure out the most general way to do this. But the above will work for now.</p>
 <p>One problem with this approach is that the <em>continuity</em> of the trade lots is lost, that is, the purchase date of each lot has now been reset as a result of the transaction above, and it becomes impossible to automatically figure out the duration of the trade and its associated impact on taxation, i.e. long-term vs. short-term trade. Even without this the profit is still calculated correctly, but it is an annoying detail nonetheless.</p>
 <p>One way to handle this is by using the Dated Lots (see the appropriate section of this doc). That way, the original trade date can be preserved on the new lots. This provides accurate timing information in addition to the capital gain/loss based on the price.</p>
-<p>Another method for solving this and for easily propagating the lot trade date <a href="a_proposal_for_an_improvement_on_inventory_booking.html"><span class="underline">has been proposed</span></a> and will be implemented in Beancount later on.</p>
-<p>A more important problem with the current implementation is that the meaning of a unit of ADSK before and after the stock split is different. The price graph for this commodity unit will show a radical discontinuity! This is a more general problem that has yet to be addressed in both Beancount and Ledger. The <a href="https://docs.google.com/document/d/1Y_h5sjUTJzdK1riRh-mrVQm9KCzqFlU65KMsMsrQgXk/"><span class="underline">Commodity Definition Changes</span></a> document has a discussion to address this topic.</p>
+<p>Another method for solving this and for easily propagating the lot trade date <a href="a_proposal_for_an_improvement_on_inventory_booking.html"><u>has been proposed</u></a> and will be implemented in Beancount later on.</p>
+<p>A more important problem with the current implementation is that the meaning of a unit of ADSK before and after the stock split is different. The price graph for this commodity unit will show a radical discontinuity! This is a more general problem that has yet to be addressed in both Beancount and Ledger. The <a href="https://docs.google.com/document/d/1Y_h5sjUTJzdK1riRh-mrVQm9KCzqFlU65KMsMsrQgXk/"><u>Commodity Definition Changes</u></a> document has a discussion to address this topic.</p>
 <h2 id="cost-basis-adjustment-and-return-of-capital">Cost Basis Adjustment and Return of Capital<a id="cost-basis-adjustment-and-return-of-capital"></a><a class="headerlink" href="#cost-basis-adjustment-and-return-of-capital" title="Permanent link"></a></h2>
 <p>Readjustment in cost basis may occur in managed funds, due to the fund’s internal trading activities. This will typically occur in tax-sheltered accounts where the gain that occurs from such an adjustment has no impact on taxes, and where the cost basis is held at the average cost of all shares in each position.</p>
 <p>If we have the specific lot prices being adjusted, it is doable to book these in the same manner as we dealt with stock splits:</p>
@@ -506,7 +506,7 @@ Expenses:Financial:Commissions        39.80 USD
   Assets:CA:RRSP:XSP            100 ADSK {23.40 CAD}
   Income:CA:RRSP:Gains      -230.00 CAD
 </code></pre>
-<p>However, this is really uncommon. The more common case of this is of an account using the average cost booking method, we don’t currently have a way to deal with this. There is an <a href="a_proposal_for_an_improvement_on_inventory_booking.html"><span class="underline">active proposal</span></a> in place to make this possible.</p>
+<p>However, this is really uncommon. The more common case of this is of an account using the average cost booking method, we don’t currently have a way to deal with this. There is an <a href="a_proposal_for_an_improvement_on_inventory_booking.html"><u>active proposal</u></a> in place to make this possible.</p>
 <p>The cost basis adjustment is commonly found in Return of Capital events. These happen, for example, when funds are returning capital to the shareholders. This can be caused by winding down the operation. From the taxation point of view, these are non-taxable events and affect the cost basis of the equity in the fund. The number of shares might stay the same, but their cost basis needs to be adjusted for potential Gain/Loss calculation at the point of sale in the future.</p>
 <h2 id="dividends">Dividends<a id="dividends"></a><a class="headerlink" href="#dividends" title="Permanent link"></a></h2>
 <p>Dividends don’t pose a particular problem. They are just income. They can be received as cash:</p>
@@ -521,7 +521,7 @@ Expenses:Financial:Commissions        39.80 USD
 </code></pre>
 <p>In the case of dividends received as stock, as for stock purchases, you provide the cost basis at which the dividend was received (this should be available in your statements). If the account is held at average cost, this posting will simply merge with the other legs at the time an average cost booking is needed to be performed.</p>
 <h2 id="average-cost-booking">Average Cost Booking<a id="average-cost-booking"></a><a class="headerlink" href="#average-cost-booking" title="Permanent link"></a></h2>
-<p>At the moment, the only way to perform booking at average cost is painful: you would have to use the method outlined in the Stock Split section in order to revalue your inventory. This is impractical, however. There is an <a href="a_proposal_for_an_improvement_on_inventory_booking.html"><span class="underline">active proposal</span></a> with an associated syntax to fully solve this problem.</p>
+<p>At the moment, the only way to perform booking at average cost is painful: you would have to use the method outlined in the Stock Split section in order to revalue your inventory. This is impractical, however. There is an <a href="a_proposal_for_an_improvement_on_inventory_booking.html"><u>active proposal</u></a> with an associated syntax to fully solve this problem.</p>
 <p>Once the proposal is implemented, it will look like this:</p>
 <pre><code>2014-02-01 * "Selling 5 shares at market price 550 USD"
   Assets:Investments:Stock               -5 GOOG {*}
@@ -565,7 +565,7 @@ Expenses:Financial:Commissions        39.80 USD
 <hr />
 <ol>
 <li id="fn:1">
-<p>This is a misleading notion, however. In reality, <em>there is no price</em>, there exist only markets where you get a “hint” of how much someone else might be willing to exchange your shares for (for different amounts to buy or to sell them, and for some limited number of them, we call this “a market”), but until you’ve actually completed selling your shares, you don’t really know precisely how much you will be able to execute that trade at, only an estimate. If you’re not intimately familiar with trading, this should give you pause, and hopefully a big “ah-ha! “moment about how the world works - there really does not exist a price for anything in the world - but in the context of this discussion, let’s make abstraction of this and assume that you can buy or sell as many shares as you have instantly on the markets at the middle price, such as <a href="https://www.google.com/finance?&amp;q=ibm"><span class="underline">Google Finance</span></a> or <a href="http://finance.yahoo.com/q?s=ibm"><span class="underline">Yahoo Finance</span></a> or your broker would report it. The process of deciding that we would be able to sell the shares at 170$ each is called “marking”, that is, under reasonable assumptions, we believe that we would be able to actually sell those shares at that price (the term of art “marking to market” refers to the fact that we use the market price as the best indicator to our knowledge of our capability to realize the trade). For an individual buying and selling small amounts of shares that don’t move the market and with an honest broker, this is mostly true in practice.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>This is a misleading notion, however. In reality, <em>there is no price</em>, there exist only markets where you get a “hint” of how much someone else might be willing to exchange your shares for (for different amounts to buy or to sell them, and for some limited number of them, we call this “a market”), but until you’ve actually completed selling your shares, you don’t really know precisely how much you will be able to execute that trade at, only an estimate. If you’re not intimately familiar with trading, this should give you pause, and hopefully a big “ah-ha! “moment about how the world works - there really does not exist a price for anything in the world - but in the context of this discussion, let’s make abstraction of this and assume that you can buy or sell as many shares as you have instantly on the markets at the middle price, such as <a href="https://www.google.com/finance?&amp;q=ibm"><u>Google Finance</u></a> or <a href="http://finance.yahoo.com/q?s=ibm"><u>Yahoo Finance</u></a> or your broker would report it. The process of deciding that we would be able to sell the shares at 170$ each is called “marking”, that is, under reasonable assumptions, we believe that we would be able to actually sell those shares at that price (the term of art “marking to market” refers to the fact that we use the market price as the best indicator to our knowledge of our capability to realize the trade). For an individual buying and selling small amounts of shares that don’t move the market and with an honest broker, this is mostly true in practice.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
 <p>As an aside, putting regular currencies in an account is just the degenerate case of a thing with an empty label. This is an implementation detail that works great in practice.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>

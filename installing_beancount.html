@@ -259,19 +259,19 @@
             <div class="section">
               
                 <h1 id="installing-beancount-v2">Installing Beancount (v2)<a id="title"></a><a class="headerlink" href="#installing-beancount-v2" title="Permanent link"></a></h1>
-<p><a href="mailto:blais@furius.ca"><span class="underline">Martin Blais</span></a> - Updated: June 2015</p>
-<p><a href="http://furius.ca/beancount/doc/install"><span class="underline">http://furius.ca/beancount/doc/install</span></a></p>
+<p><a href="mailto:blais@furius.ca"><u>Martin Blais</u></a> - Updated: June 2015</p>
+<p><a href="http://furius.ca/beancount/doc/install"><u>http://furius.ca/beancount/doc/install</u></a></p>
 <p><em>Instructions for downloading and installing Beancount on your computer.</em></p>
-<table><tbody><tr class="odd"><td><em>This document is about Beancount v2; Beancount v3 is in development and uses a completely different build and installation system. For instructions on building v3, see <a href="installing_beancount_v3.md"><span class="underline">this document</span></a>.</em></td></tr></tbody></table>
+<table><tbody><tr class="odd"><td><em>This document is about Beancount v2; Beancount v3 is in development and uses a completely different build and installation system. For instructions on building v3, see <a href="installing_beancount_v3.md"><u>this document</u></a>.</em></td></tr></tbody></table>
 
 <h2 id="releases">Releases<a id="releases"></a><a class="headerlink" href="#releases" title="Permanent link"></a></h2>
 <p>Beancount is a mature project: the first version was written in 2008. The current rewrite of Beancount is stable. (Technically, this is what I call version 2.x beta).</p>
-<p>I’m still working on this Beancount code every weekend these days, so it is very much in active development and evolving, though the great majority of the basic features are basically unchanging. I’ve built an extensive suite of tests so you can consider the “default” branch of the repository as stable. New features are developed in branches and only merged in the “default” branch when fully stable (the entire battery of tests passes without failures). Changes to “default” are posted to the <a href="https://github.com/beancount/beancount/tree/v2/CHANGES"><span class="underline">CHANGES</span></a> file and a corresponding email is sent to the <a href="https://groups.google.com/forum/#!forum/beancount"><span class="underline">mailing-list</span></a>.</p>
-<p>There's a <a href="https://pypi.python.org/pypi/beancount"><span class="underline">PyPI</span></a> page.</p>
+<p>I’m still working on this Beancount code every weekend these days, so it is very much in active development and evolving, though the great majority of the basic features are basically unchanging. I’ve built an extensive suite of tests so you can consider the “default” branch of the repository as stable. New features are developed in branches and only merged in the “default” branch when fully stable (the entire battery of tests passes without failures). Changes to “default” are posted to the <a href="https://github.com/beancount/beancount/tree/v2/CHANGES"><u>CHANGES</u></a> file and a corresponding email is sent to the <a href="https://groups.google.com/forum/#!forum/beancount"><u>mailing-list</u></a>.</p>
+<p>There's a <a href="https://pypi.python.org/pypi/beancount"><u>PyPI</u></a> page.</p>
 <h2 id="where-to-get-it">Where to Get It<a id="where-to-get-it"></a><a class="headerlink" href="#where-to-get-it" title="Permanent link"></a></h2>
 <p>This is the official location for the source code:</p>
 <blockquote>
-<p><a href="https://github.com/beancount/beancount"><span class="underline">https://github.com/beancount/beancount</span></a></p>
+<p><a href="https://github.com/beancount/beancount"><u>https://github.com/beancount/beancount</u></a></p>
 </blockquote>
 <p>Download it like this, by using Git to make a clone on your machine:</p>
 <pre><code>git clone https://github.com/beancount/beancount
@@ -279,7 +279,7 @@
 <h2 id="how-to-install">How to Install<a id="how-to-install"></a><a class="headerlink" href="#how-to-install" title="Permanent link"></a></h2>
 <h3 id="installing-python">Installing Python<a id="installing-python"></a><a class="headerlink" href="#installing-python" title="Permanent link"></a></h3>
 <p>Beancount uses Python 3.5<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> or above, which is a pretty recent version of Python (as of this writing), and a few common library dependencies. I try to minimize dependencies, but you do have to install a few. This is very easy.</p>
-<p>First, you should have a working Python install. Install the latest stable version &gt;=3.5 using the download from <a href="http://python.org"><span class="underline">python.org</span></a>. Make sure you have the development headers and libraries installed as well (e.g., the “Python.h” header file). For example, on a Debian/Ubuntu system you would install the <strong><code>python3-dev</code></strong> package.</p>
+<p>First, you should have a working Python install. Install the latest stable version &gt;=3.5 using the download from <a href="http://python.org"><u>python.org</u></a>. Make sure you have the development headers and libraries installed as well (e.g., the “Python.h” header file). For example, on a Debian/Ubuntu system you would install the <strong><code>python3-dev</code></strong> package.</p>
 <p>Beancount supports setuptools since Feb 2016, and you will need to install dependencies. You will want to have the “pip3” tool installed. It’s probably installed by default along with Python3—test this out by invoking “pip3” command. In any case, under a Debian/Ubuntu system you would simply install the <strong><code>python3-pip</code></strong> package.</p>
 <h4 id="python-dependencies">Python Dependencies<a id="python-dependencies"></a><a class="headerlink" href="#python-dependencies" title="Permanent link"></a></h4>
 <p>Note that in order to build a full working Python install from source, you will probably need to install a host of other development libraries and their corresponding header files, e.g., libxml2, libxslt1, libgdbm, libmp, libssl, etc. Installing those is dependent on your particular distribution and/or OS. Just make sure that your Python installation has all the basic modules compiled for its default configuration.</p>
@@ -288,7 +288,7 @@
 <pre><code>sudo -H python3 -m pip install beancount
 </code></pre>
 <p>This should automatically download and install all the dependencies.</p>
-<p>Note, however, that this will install the latest version that was pushed to the <a href="https://pypi.python.org/pypi/beancount/"><span class="underline">PyPI repository</span></a> and not the very latest version available from source. Releases to PyPI are made sporadically but frequently enough not to be too far behind. Consult the <a href="https://github.com/beancount/beancount/tree/v2/CHANGES"><span class="underline">CHANGES file</span></a> if you’d like to find out what is not included since the release date.</p>
+<p>Note, however, that this will install the latest version that was pushed to the <a href="https://pypi.python.org/pypi/beancount/"><u>PyPI repository</u></a> and not the very latest version available from source. Releases to PyPI are made sporadically but frequently enough not to be too far behind. Consult the <a href="https://github.com/beancount/beancount/tree/v2/CHANGES"><u>CHANGES file</u></a> if you’d like to find out what is not included since the release date.</p>
 <h3 id="installing-beancount-using-pip-from-repository">Installing Beancount using pip from Repository<a id="installing-beancount-using-pip-from-repository"></a><a class="headerlink" href="#installing-beancount-using-pip-from-repository" title="Permanent link"></a></h3>
 <p>You can also use pip to install Beancount from its source code repository directly:</p>
 <pre><code>sudo -H python3 -m pip install git+https://github.com/beancount/beancount#egg=beancount
@@ -339,20 +339,20 @@ export PYTHONPATH=$PYTHONPATH:/path/to/beancount
 <h3 id="installing-from-packages">Installing from Packages<a id="installing-from-packages"></a><a class="headerlink" href="#installing-from-packages" title="Permanent link"></a></h3>
 <p>Various distributions may package Beancount. Here are links to those known to exist:</p>
 <ul>
-<li>Arch: <a href="https://aur.archlinux.org/packages/beancount/"><span class="underline">https://aur.archlinux.org/packages/beancount/</span></a></li>
+<li>Arch: <a href="https://aur.archlinux.org/packages/beancount/"><u>https://aur.archlinux.org/packages/beancount/</u></a></li>
 </ul>
 <h3 id="windows-installation">Windows Installation<a id="windows-installation"></a><a class="headerlink" href="#windows-installation" title="Permanent link"></a></h3>
 <h4 id="native">Native<a id="native"></a><a class="headerlink" href="#native" title="Permanent link"></a></h4>
 <p>Installing this package by pip requires compiling some C++ code during the installation procedure which is only possible if an appropriate compiler is available on the computer, otherwise you will receive an error message about missing <em>vsvarsall.bat</em> or <em>cl.exe</em>.</p>
 <p>To be able to compile C++ code for Python you will need to install the same major version of the C++ compiler as your Python installation was compiled with. By running <em>python</em> in a console and looking for a text similar to <em>[MSC v.1900 64 bit (AMD64)]</em> you can determine which compiler was used for your particular Python distribution. In this example it is <em>v.1900</em>.</p>
-<p>Using this number find the required Visual C++ version <a href="https://stackoverflow.com/questions/2676763/what-version-of-visual-studio-is-python-on-my-computer-compiled-with"><span class="underline">here</span></a>. Since different versions seem to be compatible as long as the first two digits are the same you can in theory use any Visual C++ compiler between 1900 and 1999.</p>
+<p>Using this number find the required Visual C++ version <a href="https://stackoverflow.com/questions/2676763/what-version-of-visual-studio-is-python-on-my-computer-compiled-with"><u>here</u></a>. Since different versions seem to be compatible as long as the first two digits are the same you can in theory use any Visual C++ compiler between 1900 and 1999.</p>
 <p>According to my experience both Python 3.5 and 3.6 was compiled with MSC v.1900 so you can do either of the following to satisfy this requirement:</p>
 <ul>
 <li>
-<p>Install the standalone <a href="https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&amp;rel=15"><span class="underline">Build Tools for Visual Studio 2017</span></a> or</p>
+<p>Install the standalone <a href="https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&amp;rel=15"><u>Build Tools for Visual Studio 2017</u></a> or</p>
 </li>
 <li>
-<p>Install the standalone <a href="http://go.microsoft.com/fwlink/?LinkId=691126"><span class="underline">Visual C++ Build Tools 2015</span></a> or</p>
+<p>Install the standalone <a href="http://go.microsoft.com/fwlink/?LinkId=691126"><u>Visual C++ Build Tools 2015</u></a> or</p>
 </li>
 <li>
 <p>Modify an existing Visual Studio 2017 installation</p>
@@ -383,7 +383,7 @@ export PYTHONPATH=$PYTHONPATH:/path/to/beancount
 <p>Windows installation is, of course, a bit different. It’s a breeze if you use Cygwin. You just have to prep your machine first. Here’s how.</p>
 <ul>
 <li>
-<p>Install the latest <a href="https://www.cygwin.com/"><span class="underline">Cygwin</span></a>. This may take a while (it downloads a lot of stuff), but it is well worth it in any case. But before you kick off the install, make sure the following packages are all manually enabled in the interface provided by setup.exe (they’re not selected by default):</p>
+<p>Install the latest <a href="https://www.cygwin.com/"><u>Cygwin</u></a>. This may take a while (it downloads a lot of stuff), but it is well worth it in any case. But before you kick off the install, make sure the following packages are all manually enabled in the interface provided by setup.exe (they’re not selected by default):</p>
 <ul>
 <li>
 <p>python3</p>
@@ -425,7 +425,7 @@ export PYTHONPATH=$PYTHONPATH:/path/to/beancount
 </ul>
 <p>At this point, you should be able to follow the instructions from the previous sections as is, starting from “Install Beancount using pip”.</p>
 <h4 id="with-wsl">With WSL<a id="with-wsl"></a><a class="headerlink" href="#with-wsl" title="Permanent link"></a></h4>
-<p>The newly released Windows 10 Anniversary Update brings WSL 'Windows Subsystem for Linux' with <a href="https://blogs.msdn.microsoft.com/wsl/2016/07/08/bash-on-ubuntu-on-windows-10-anniversary-update/"><span class="underline">bash on Ubuntu on Windows</span></a> (installation instructions and more at <a href="https://msdn.microsoft.com/commandline/wsl/about"><span class="underline">https://msdn.microsoft.com/commandline/wsl/about</span></a>).</p>
+<p>The newly released Windows 10 Anniversary Update brings WSL 'Windows Subsystem for Linux' with <a href="https://blogs.msdn.microsoft.com/wsl/2016/07/08/bash-on-ubuntu-on-windows-10-anniversary-update/"><u>bash on Ubuntu on Windows</u></a> (installation instructions and more at <a href="https://msdn.microsoft.com/commandline/wsl/about"><u>https://msdn.microsoft.com/commandline/wsl/about</u></a>).</p>
 <p>This makes beancount installation easy, from bash:</p>
 <pre><code>sudo apt-get install python3-pip
 sudo apt-get install python3-lxml
@@ -438,52 +438,52 @@ sudo pip3 install beancount --pre
 <pre><code>STATIC_DEPS=true pip install lxml
 </code></pre>
 <h3 id="checking-your-install">Checking your Install<a id="checking-your-install"></a><a class="headerlink" href="#checking-your-install" title="Permanent link"></a></h3>
-<p>You should be able to run the binaries from <a href="running_beancount_and_generating_reports.html"><span class="underline">this document</span></a>. For example, running bean-check should produce something like this:</p>
+<p>You should be able to run the binaries from <a href="running_beancount_and_generating_reports.html"><u>this document</u></a>. For example, running bean-check should produce something like this:</p>
 <pre><code>$ bean-check
 
 usage: bean-check [-h] [-v] filename
 bean-check: error: the following arguments are required: filename
 </code></pre>
-<p>If this works, you can now go to the <a href="tutorial_example.html"><span class="underline">tutorial</span></a> and begin learning how Beancount works.</p>
+<p>If this works, you can now go to the <a href="tutorial_example.html"><u>tutorial</u></a> and begin learning how Beancount works.</p>
 <h3 id="reporting-problems">Reporting Problems<a id="reporting-problems"></a><a class="headerlink" href="#reporting-problems" title="Permanent link"></a></h3>
-<p>If you need to report a problem, either send email on the mailing-list or <a href="https://github.com/beancount/beancount/issues"><span class="underline">file a ticket</span></a> on Github. Running the following command lists the presence and versions of dependencies installed on your computer and it might be useful to include the output of this command in your bug report:</p>
+<p>If you need to report a problem, either send email on the mailing-list or <a href="https://github.com/beancount/beancount/issues"><u>file a ticket</u></a> on Github. Running the following command lists the presence and versions of dependencies installed on your computer and it might be useful to include the output of this command in your bug report:</p>
 <pre><code>python3 -m beancount.scripts.deps
 </code></pre>
 <h2 id="editor-support">Editor Support<a id="editor-support"></a><a class="headerlink" href="#editor-support" title="Permanent link"></a></h2>
 <p>There is support for some editors available:</p>
 <ul>
 <li>
-<p>Emacs support is provided <a href="https://github.com/beancount/beancount-mode"><span class="underline">in a separate repo</span></a>. See the <a href="getting_started_with_beancount.html"><span class="underline">Getting Started</span></a> text for installation instruction.</p>
+<p>Emacs support is provided <a href="https://github.com/beancount/beancount-mode"><u>in a separate repo</u></a>. See the <a href="getting_started_with_beancount.html"><u>Getting Started</u></a> text for installation instruction.</p>
 </li>
 <li>
-<p>Support for <a href="https://sublime.wbond.net/packages/Beancount"><span class="underline">editing with Sublime</span></a> has been contributed by <a href="https://groups.google.com/d/msg/beancount/WvlhcCjNl-Q/s4wOBQnRVxYJ"><span class="underline">Martin Andreas Andersen</span></a>. See <a href="https://github.com/draug3n/sublime-beancount"><span class="underline">his github repo</span></a>.</p>
+<p>Support for <a href="https://sublime.wbond.net/packages/Beancount"><u>editing with Sublime</u></a> has been contributed by <a href="https://groups.google.com/d/msg/beancount/WvlhcCjNl-Q/s4wOBQnRVxYJ"><u>Martin Andreas Andersen</u></a>. See <a href="https://github.com/draug3n/sublime-beancount"><u>his github repo</u></a>.</p>
 </li>
 <li>
-<p>Support for editing with Vim has been contributed by <a href="https://github.com/nathangrigg"><span class="underline">Nathan Grigg</span></a>. See <a href="https://github.com/nathangrigg/vim-beancount"><span class="underline">his GitHub repo</span></a>.</p>
+<p>Support for editing with Vim has been contributed by <a href="https://github.com/nathangrigg"><u>Nathan Grigg</u></a>. See <a href="https://github.com/nathangrigg/vim-beancount"><u>his GitHub repo</u></a>.</p>
 </li>
 <li>
 <p>Visual Studio Code currently has two extensions available. Both have been tested on Linux.</p>
 <ul>
 <li>
-<p><a href="https://marketplace.visualstudio.com/items?itemName=Lencerf.beancount"><span class="underline">Beancount</span></a>, with syntax checking (bean-check) and support for accounts, currencies, etc. It not only allows selecting existing open accounts but also displays their balance and other metadata. Quite helpful!</p>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=Lencerf.beancount"><u>Beancount</u></a>, with syntax checking (bean-check) and support for accounts, currencies, etc. It not only allows selecting existing open accounts but also displays their balance and other metadata. Quite helpful!</p>
 </li>
 <li>
-<p><a href="https://marketplace.visualstudio.com/items?itemName=dongfg.vscode-beancount-formatter"><span class="underline">Beancount Formatter</span></a>, which can format the whole document, aligning the numbers, etc. using bean-format.</p>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=dongfg.vscode-beancount-formatter"><u>Beancount Formatter</u></a>, which can format the whole document, aligning the numbers, etc. using bean-format.</p>
 </li>
 </ul>
 </li>
 </ul>
 <h2 id="if-you-have-problems">If You Have Problems<a id="if-you-have-problems"></a><a class="headerlink" href="#if-you-have-problems" title="Permanent link"></a></h2>
-<p>If you run into any installation problems, <a href="https://github.com/beancount/beancount/issues/"><span class="underline">file a ticket</span></a>, <a href="mailto:blais@furius.ca"><span class="underline">email me</span></a>, or hit the <a href="https://groups.google.com/forum/#!forum/beancount"><span class="underline">mailing-list</span></a>.</p>
+<p>If you run into any installation problems, <a href="https://github.com/beancount/beancount/issues/"><u>file a ticket</u></a>, <a href="mailto:blais@furius.ca"><u>email me</u></a>, or hit the <a href="https://groups.google.com/forum/#!forum/beancount"><u>mailing-list</u></a>.</p>
 <h2 id="post-installation-usage">Post-Installation Usage<a id="post-installation-usage"></a><a class="headerlink" href="#post-installation-usage" title="Permanent link"></a></h2>
-<p>Normally the <a href="https://github.com/beancount/beancount/tree/v2/bin"><span class="underline">scripts located under beancount/bin</span></a> should be automatically installed somewhere in your executable path. For example, you should be able to just run “bean-check” on the command-line.</p>
+<p>Normally the <a href="https://github.com/beancount/beancount/tree/v2/bin"><u>scripts located under beancount/bin</u></a> should be automatically installed somewhere in your executable path. For example, you should be able to just run “bean-check” on the command-line.</p>
 <h2 id="appendix">Appendix<a id="appendix"></a><a class="headerlink" href="#appendix" title="Permanent link"></a></h2>
 <p><strong>If everything works, you can stop reading here.</strong> Here I just discuss the various dependencies and why you need them (or why you don’t, some of them are optional). This is of interest to developers and some of this info might help troubleshoot problems if you encounter any.</p>
 <h3 id="notes-on-dependencies">Notes on Dependencies<a id="notes-on-dependencies"></a><a class="headerlink" href="#notes-on-dependencies" title="Permanent link"></a></h3>
 <h4 id="python-35-or-greater">Python 3.5 or greater<a id="python-3.5-or-greater"></a><a class="headerlink" href="#python-35-or-greater" title="Permanent link"></a></h4>
 <p>Python 3.5 is widely available at this point, released more than a year ago. However, my experience with open source distribution tells me that a lot of users are running on old machines that won’t be upgraded for a while. So for those users, you might have to install your own Python… don’t worry, installing Python manually is pretty straightforward.</p>
 <p>On Mac, it can also be installed with one of the various package management suits, like Brew, e.g., with “<code>brew install python3</code>”.</p>
-<p>On an old Linux, download the source from <a href="https://www.python.org/downloads/"><span class="underline">python.org</span></a>, and then build it like this:</p>
+<p>On an old Linux, download the source from <a href="https://www.python.org/downloads/"><u>python.org</u></a>, and then build it like this:</p>
 <pre><code>tar zxcf Python-3.5.2.tgz
 cd Python-3.5.2
 ./configure
@@ -508,9 +508,9 @@ sudo make install
 <h5 id="python-dateutil">python-dateutil<a id="python-dateutil"></a><a class="headerlink" href="#python-dateutil" title="Permanent link"></a></h5>
 <p>This library provides Beancount with the ability to parse dates in various formats, it is very convenient for users to have flexible options on the command-line and in the SQL shell.</p>
 <h5 id="bottle">bottle<a id="bottle"></a><a class="headerlink" href="#bottle" title="Permanent link"></a></h5>
-<p>The Beancount web interface (invoked via <code>bean-web</code>) runs a little self-contained web server accessible locally on your machine. This is implemented using a tiny library that makes it easy to implement such web applications: <a href="http://bottlepy.org/"><span class="underline">bottle.py</span></a>.</p>
+<p>The Beancount web interface (invoked via <code>bean-web</code>) runs a little self-contained web server accessible locally on your machine. This is implemented using a tiny library that makes it easy to implement such web applications: <a href="http://bottlepy.org/"><u>bottle.py</u></a>.</p>
 <h5 id="ply">ply<a id="ply"></a><a class="headerlink" href="#ply" title="Permanent link"></a></h5>
-<p>The query client (<code>bean-query</code>) which is used to extract data tables from a ledger file depends on a parser generator: I use Dave Beazley’s popular <a href="http://www.dabeaz.com/ply/"><span class="underline">PLY</span></a> library (version 3.4 or above) because it makes it really easy to implement a custom SQL language parser.</p>
+<p>The query client (<code>bean-query</code>) which is used to extract data tables from a ledger file depends on a parser generator: I use Dave Beazley’s popular <a href="http://www.dabeaz.com/ply/"><u>PLY</u></a> library (version 3.4 or above) because it makes it really easy to implement a custom SQL language parser.</p>
 <h5 id="lxml">lxml<a id="lxml"></a><a class="headerlink" href="#lxml" title="Permanent link"></a></h5>
 <p>A tool is provided to bake a static HTML version of the web interface to a zip file (<code>bean-bake</code>). This is convenient to share files with an accountant who may not have your software installed. The web scraping code that is used to do that used the lxml HTML parsing library.</p>
 <h4 id="python-libraries-for-export-optional">Python Libraries for Export (optional)<a id="python-libraries-for-export-optional"></a><a class="headerlink" href="#python-libraries-for-export-optional" title="Permanent link"></a></h4>
@@ -519,13 +519,13 @@ sudo make install
 <p>If you do install this library, it require recent (as of June 2015) installs of</p>
 <ul>
 <li>
-<p><a href="https://github.com/google/google-api-python-client"><span class="underline">google-api-python-client</span></a>: A Python client library for Google's discovery based APIs.</p>
+<p><a href="https://github.com/google/google-api-python-client"><u>google-api-python-client</u></a>: A Python client library for Google's discovery based APIs.</p>
 </li>
 <li>
-<p><a href="https://github.com/google/oauth2client"><span class="underline">oauth2client</span></a>: This is a client library for accessing resources protected by OAuth 2.0, used by the Google API Python client library.</p>
+<p><a href="https://github.com/google/oauth2client"><u>oauth2client</u></a>: This is a client library for accessing resources protected by OAuth 2.0, used by the Google API Python client library.</p>
 </li>
 <li>
-<p><a href="https://github.com/jcgregorio/httplib2"><span class="underline">httplib2</span></a>: A comprehensive HTTP client library. This is used by oauth2client.</p>
+<p><a href="https://github.com/jcgregorio/httplib2"><u>httplib2</u></a>: A comprehensive HTTP client library. This is used by oauth2client.</p>
 </li>
 </ul>
 <p>These are best installed using the pip3 tool.</p>
@@ -575,34 +575,34 @@ pip install beancount
 <p>Beancount needs a few more tools for development. If you’re reading this, you’re a developer, so I’ll assume you can figure out how to install packages, skip the detail, and just list what you might need:</p>
 <ul>
 <li>
-<p><a href="https://pypi.python.org/pypi/nose/"><strong><span class="underline">nosetests</span></strong></a> (<strong>nose</strong>, or <strong>python3-nose</strong>): This is the test driver to use for running all the unit tests. You definitely need this.</p>
+<p><a href="https://pypi.python.org/pypi/nose/"><strong><u>nosetests</u></strong></a> (<strong>nose</strong>, or <strong>python3-nose</strong>): This is the test driver to use for running all the unit tests. You definitely need this.</p>
 </li>
 <li>
-<p><a href="https://www.gnu.org/software/flex/"><strong><span class="underline">GNU flex</span></strong></a>: This lexer generator is needed if you intend to modify the lexer. It generated C code that chops up the input files into tokens for the parser to consume.</p>
+<p><a href="https://www.gnu.org/software/flex/"><strong><u>GNU flex</u></strong></a>: This lexer generator is needed if you intend to modify the lexer. It generated C code that chops up the input files into tokens for the parser to consume.</p>
 </li>
 <li>
-<p><a href="http://www.gnu.org/software/bison/"><strong><span class="underline">GNU bison</span></strong></a>: This old-school parser generator is needed if you intend to modify the grammar. It generates C code that parses the tokens generated by flex. (I like using old tools like this because they are pretty low on dependencies, just C code. It should work everywhere.)</p>
+<p><a href="http://www.gnu.org/software/bison/"><strong><u>GNU bison</u></strong></a>: This old-school parser generator is needed if you intend to modify the grammar. It generates C code that parses the tokens generated by flex. (I like using old tools like this because they are pretty low on dependencies, just C code. It should work everywhere.)</p>
 </li>
 <li>
-<p><a href="http://www.gnu.org/software/tar/"><strong><span class="underline">GNU tar</span></strong></a>: You need this to test the archival capabilities of bean-bake.</p>
+<p><a href="http://www.gnu.org/software/tar/"><strong><u>GNU tar</u></strong></a>: You need this to test the archival capabilities of bean-bake.</p>
 </li>
 <li>
-<p><a href="http://www.info-zip.org/"><strong><span class="underline">InfoZIP zip</span></strong></a> (comes with Ubuntu): You need this to test the archival capabilities of bean-bake.</p>
+<p><a href="http://www.info-zip.org/"><strong><u>InfoZIP zip</u></strong></a> (comes with Ubuntu): You need this to test the archival capabilities of bean-bake.</p>
 </li>
 <li>
-<p><a href="http://lxml.de"><strong><span class="underline">lxml</span></strong></a>: This XML parsing library is used in the web tests. (Unfortunately, the built-in one fails to parse large XML files.)</p>
+<p><a href="http://lxml.de"><strong><u>lxml</u></strong></a>: This XML parsing library is used in the web tests. (Unfortunately, the built-in one fails to parse large XML files.)</p>
 </li>
 <li>
-<p><a href="http://www.pylint.org/"><strong><span class="underline">pylint</span></strong></a> &gt;= 1.2: I’m running all the source code through this linter. If you contribute code with the intent of it being integrated and released, it has to pass the linter tests (or I’ll have to make it pass myself).</p>
+<p><a href="http://www.pylint.org/"><strong><u>pylint</u></strong></a> &gt;= 1.2: I’m running all the source code through this linter. If you contribute code with the intent of it being integrated and released, it has to pass the linter tests (or I’ll have to make it pass myself).</p>
 </li>
 <li>
-<p><a href="https://github.com/pyflakes/pyflakes"><strong><span class="underline">pyflakes</span></strong></a>: I’m running all the source code through this logical error detector. If you contribute code with the intent of it being integrated and released, it has to pass those tests (or I’ll have to make it pass myself).</p>
+<p><a href="https://github.com/pyflakes/pyflakes"><strong><u>pyflakes</u></strong></a>: I’m running all the source code through this logical error detector. If you contribute code with the intent of it being integrated and released, it has to pass those tests (or I’ll have to make it pass myself).</p>
 </li>
 <li>
-<p><a href="http://furius.ca/snakefood/"><strong><span class="underline">snakefood</span></strong></a>: I use snakefood to analyze the dependencies between the modules and enforce some ordering, e.g. core cannot import from plugins, for example. There’s a target to run it from the root Makefile.</p>
+<p><a href="http://furius.ca/snakefood/"><strong><u>snakefood</u></strong></a>: I use snakefood to analyze the dependencies between the modules and enforce some ordering, e.g. core cannot import from plugins, for example. There’s a target to run it from the root Makefile.</p>
 </li>
 <li>
-<p><a href="http://www.graphviz.org/"><strong><span class="underline">graphviz</span></strong></a>: The dependency tree of all the modules is generated by snakefood but graphed by the graphviz tool. You need to install it if you want to look at dependencies.</p>
+<p><a href="http://www.graphviz.org/"><strong><u>graphviz</u></strong></a>: The dependency tree of all the modules is generated by snakefood but graphed by the graphviz tool. You need to install it if you want to look at dependencies.</p>
 </li>
 </ul>
 <p>I think that’s about it. You certainly don’t need <em>everything</em> above, but that’s the list of tools I use. If you find anything missing, please leave a comment, I may have missed something.</p>
@@ -610,7 +610,7 @@ pip install beancount
 <hr />
 <ol>
 <li id="fn:1">
-<p>Some people have <a href="https://www.google.com/url?q=https://groups.google.com/d/msgid/beancount/51fec791-1c38-46e8-b152-08c49e7686c3%2540googlegroups.com?utm_medium%3Demail%26utm_source%3Dfooter&amp;sa=D&amp;ust=1461188801128000&amp;usg=AFQjCNH8StkxqPYKLKMhir6YAz6rXCOKsQ"><span class="underline">reported</span></a> bugs with the cdecimal library in 3.4. I would recommend actually installing 3.5, which appears to have fixed the problem. Technically, 3.3 will still run, but I’ll deprecate it for 3.5 at some point, probably when the Ubuntu and Mac OS X distributions have it installed by default.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>Some people have <a href="https://www.google.com/url?q=https://groups.google.com/d/msgid/beancount/51fec791-1c38-46e8-b152-08c49e7686c3%2540googlegroups.com?utm_medium%3Demail%26utm_source%3Dfooter&amp;sa=D&amp;ust=1461188801128000&amp;usg=AFQjCNH8StkxqPYKLKMhir6YAz6rXCOKsQ"><u>reported</u></a> bugs with the cdecimal library in 3.4. I would recommend actually installing 3.5, which appears to have fixed the problem. Technically, 3.3 will still run, but I’ll deprecate it for 3.5 at some point, probably when the Ubuntu and Mac OS X distributions have it installed by default.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
 <p>Installing py3.5: <a href="http://www.jianshu.com/p/4f4b2ed568f4">http://www.jianshu.com/p/4f4b2ed568f4</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>

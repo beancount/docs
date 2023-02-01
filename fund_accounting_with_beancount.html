@@ -245,13 +245,13 @@
             <div class="section">
               
                 <h1 id="fund-accounting-with-beancount">Fund Accounting with Beancount<a id="title"></a><a class="headerlink" href="#fund-accounting-with-beancount" title="Permanent link"></a></h1>
-<p><a href="http://plus.google.com/+MartinBlais"><span class="underline">Martin Blais</span></a>, Carl Hauser, August 2014</p>
-<p><a href="http://furius.ca/beancount/doc/proposal-funds"><span class="underline">http://furius.ca/beancount/doc/proposal-funds</span></a></p>
+<p><a href="http://plus.google.com/+MartinBlais"><u>Martin Blais</u></a>, Carl Hauser, August 2014</p>
+<p><a href="http://furius.ca/beancount/doc/proposal-funds"><u>http://furius.ca/beancount/doc/proposal-funds</u></a></p>
 <p><em>A discussion about how to carry out fund accounting within Beancount, various approaches, solutions and possible extensions.</em></p>
 <h2 id="motivation">Motivation<a id="motivation"></a><a class="headerlink" href="#motivation" title="Permanent link"></a></h2>
 <p>Multiple users are attempting to solve the problem of fund accounting using command-line accounting systems, partially because this type of accounting occurs in the context of non-profit organizations that have small budgets and would prefer to use free software, and partially because the flexibility and customization required appear to be a good fit for command-line bookkeeping systems.</p>
 <h2 id="what-is-fund-accounting">What is Fund Accounting?<a id="what-is-fund-accounting"></a><a class="headerlink" href="#what-is-fund-accounting" title="Permanent link"></a></h2>
-<p>For example, see <a href="https://groups.google.com/d/msg/ledger-cli/N8Slh2t45K0/nu1ZACCueQYJ"><span class="underline">this thread</span></a>:</p>
+<p>For example, see <a href="https://groups.google.com/d/msg/ledger-cli/N8Slh2t45K0/nu1ZACCueQYJ"><u>this thread</u></a>:</p>
 <blockquote>
 <p><em>“Another religious duty I compute is effectively tithing (we call it Huqúqu'lláh, and it's computed differently, but that's another story). In order to compute the tithe owed, I accrue 19% of every deposit to a virtual account, and then subtract from that account 19% of every needful expenditure.</em></p>
 <p><em>The total remaining at the end of the year is what I owe in tithe. This tithing account is not a real account, as it exists in no financial institution; but it is real enough as a personal duty. By using virtual account, I can track this "side-band" Liability, and then pay it off from an assets account when the time comes. If I report with --real I will simply see how much I've paid to this Liability; and if I report without --real I see how much Huqúqu'lláh is presently owed.”</em></p>
@@ -330,7 +330,7 @@ Endowment:Expenses:BuildingImprovement:...
 <p><strong><em>Some random ideas for now. This needs a bit more work.</em></strong></p>
 <ul>
 <li>
-<p>If multiple redundant postings are required, the generation of these can be <strong>automated using a <a href="beancount_scripting_plugins.html"><span class="underline">plugin</span></a></strong>. For instance, if a technique similar to <a href="http://furius.ca/beancount/doc/mirror"><span class="underline">mirror accounting</span></a> is used in order to “send the same dollars to multiple accounts”, at least the user should not have to do this manually, which would be both tedious and prone to errors.</p>
+<p>If multiple redundant postings are required, the generation of these can be <strong>automated using a <a href="beancount_scripting_plugins.html"><u>plugin</u></a></strong>. For instance, if a technique similar to <a href="http://furius.ca/beancount/doc/mirror"><u>mirror accounting</u></a> is used in order to “send the same dollars to multiple accounts”, at least the user should not have to do this manually, which would be both tedious and prone to errors.</p>
 </li>
 <li>
 <p>A procedure to <strong>rename accounts</strong> upon parsing could be used, in order to merge multiple files into one. (Allowing the user to install such a mapping is an idea I’ve had for a while but never implemented, though it could be implemented by a plugin filter.)</p>
@@ -531,9 +531,9 @@ Endowment:Expenses:BuildingImprovement:...
 </code></pre>
 <p>Some might think that this is too complicated. Without changing the Transfer accounts idea or rule, you can simplify booking to just a single account per fund, <code>Fund:Transfer</code>, losing some ability for precision in reporting but without losing the ability to check correctness of transfer transactions.</p>
 <h2 id="account-aliases">Account Aliases<a id="account-aliases"></a><a class="headerlink" href="#account-aliases" title="Permanent link"></a></h2>
-<p>Simon Michael mentions that this is related to HLedger <a href="http://hledger.org/how-to-use-account-aliases"><span class="underline">account aliases</span></a>:</p>
+<p>Simon Michael mentions that this is related to HLedger <a href="http://hledger.org/how-to-use-account-aliases"><u>account aliases</u></a>:</p>
 <blockquote>
-<p>“I think this is related to the situation where you want to view entities' finances both separately and merged. Account aliases can be another way to approximate this, as in<a href="http://hledger.org/how-to-use-account-aliases"><span class="underline">http://hledger.org/how-to-use-account-aliases</span></a>.”</p>
+<p>“I think this is related to the situation where you want to view entities' finances both separately and merged. Account aliases can be another way to approximate this, as in<a href="http://hledger.org/how-to-use-account-aliases"><u>http://hledger.org/how-to-use-account-aliases</u></a>.”</p>
 </blockquote>
 <div class="footnote">
 <hr />

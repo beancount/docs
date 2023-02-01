@@ -249,19 +249,19 @@
             <div class="section">
               
                 <h1 id="beangulp">Beangulp<a id="title"></a><a class="headerlink" href="#beangulp" title="Permanent link"></a></h1>
-<p><a href="mailto:blais@furius.ca"><span class="underline">Martin Blais</span></a>, Jan 2021</p>
+<p><a href="mailto:blais@furius.ca"><u>Martin Blais</u></a>, Jan 2021</p>
 <pre><code>Importing data for Beancount has been supported originally by the LedgerHub project along with a library of importers, then reintegrated as a pure framework library (with some examples) in the Beancount repo as beancount.ingest, and now we're splitting up that repository again and will factor out the importing framework to another repo for easier maintenance and evolution. This document lays out some of the changes desired in this new version.
 </code></pre>
 <h2 id="new-repo">New Repo<a id="new-repo"></a><a class="headerlink" href="#new-repo" title="Permanent link"></a></h2>
 <p>The new repository will be located at</p>
 <blockquote>
-<p><a href="http://github.com/beancount/beangulp"><span class="underline">http://github.com/beancount/beangulp</span></a></p>
+<p><a href="http://github.com/beancount/beangulp"><u>http://github.com/beancount/beangulp</u></a></p>
 </blockquote>
 <p>Beangulp will target compatibility with the latest beancount release from the v3 branch only.</p>
 <p>Beancount v3 is expected to evolve rapidly at the beginning, thus, to make the life of early adopters less painful, careful use of version number increments and versioned dependencies should be employed. Ideally, Beangulp should depend on the current minor version of Beancount only, for example, if Beancount 3.0.0 is released, Beangulp should declare</p>
 <pre><code>install_requires: beancount &gt;3.0, &lt;3.1
 </code></pre>
-<p>See <a href="https://setuptools.readthedocs.io/en/latest/userguide/dependency_management.html#declaring-required-dependency"><span class="underline">setuptools doc</span></a> and <a href="https://www.python.org/dev/peps/pep-0440/#version-specifiers"><span class="underline">PEP-440</span></a>.</p>
+<p>See <a href="https://setuptools.readthedocs.io/en/latest/userguide/dependency_management.html#declaring-required-dependency"><u>setuptools doc</u></a> and <a href="https://www.python.org/dev/peps/pep-0440/#version-specifiers"><u>PEP-440</u></a>.</p>
 <h2 id="status">Status<a id="status"></a><a class="headerlink" href="#status" title="Permanent link"></a></h2>
 <p>As of Jan 2022, most of this proposal is complete and implemented. (Thanks to Daniele Nicolodi for doing most of the work.)</p>
 <h2 id="changes">Changes<a id="changes"></a><a class="headerlink" href="#changes" title="Permanent link"></a></h2>

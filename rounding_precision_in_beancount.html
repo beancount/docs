@@ -131,11 +131,35 @@
                 </li>
                 <li class="toctree-l2 current"><a class="reference internal current" href="rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
     <ul class="current">
-    <li class="toctree-l3"><a class="reference internal" href="#balancing-precision">Balancing Precision</a>
+    <li class="toctree-l3"><a class="reference internal" href="#motivation">Motivation</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#balancing-precision">Balancing Precision</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#automatic-rounding">Automatic Rounding</a>
+    <li class="toctree-l4"><a class="reference internal" href="#automatic-rounding">Automatic Rounding</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#precision-of-balance-assertions">Precision of Balance Assertions</a>
+    <li class="toctree-l4"><a class="reference internal" href="#precision-of-balance-assertions">Precision of Balance Assertions</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#other-systems">Other Systems</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#proposal">Proposal</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#automatically-inferring-tolerance">Automatically Inferring Tolerance</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#inference-on-amounts-held-at-cost">Inference on Amounts Held at Cost</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#automated-rounding">Automated Rounding</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#fixing-balance-assertions">Fixing Balance Assertions</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#approximate-assertions">Approximate Assertions</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#accumulating-reporting-residuals">Accumulating &amp; Reporting Residuals</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#implementation">Implementation</a>
     </li>
     </ul>
                 </li>
@@ -226,14 +250,14 @@
           <div role="main">
             <div class="section">
               
-                <p>=============================================================</p>
-<p><a href="http://plus.google.com/+MartinBlais"><span class="underline">Martin Blais</span></a>, October 2014</p>
+                <h1 id="proposal-rounding-precision-in-beancount">Proposal: Rounding &amp; Precision in Beancount<a id="title"></a><a class="headerlink" href="#proposal-rounding-precision-in-beancount" title="Permanent link"></a></h1>
+<p><a href="http://plus.google.com/+MartinBlais"><u>Martin Blais</u></a>, October 2014</p>
 <p><em>This document describes the problem of rounding errors on<br />
 Beancount transactions and how they are handled. It also includes</em></p>
 <p><em>a proposal for better handling precision issues in Beancount.</em></p>
 <h2 id="motivation">Motivation<a id="motivation"></a><a class="headerlink" href="#motivation" title="Permanent link"></a></h2>
 <h3 id="balancing-precision">Balancing Precision<a id="balancing-precision"></a><a class="headerlink" href="#balancing-precision" title="Permanent link"></a></h3>
-<p>Balancing transactions cannot be done precisely. This has been <a href="https://groups.google.com/d/msg/ledger-cli/m-TgILbfrwA/YjkmOM3LHXIJ"><span class="underline">discussed on the Ledger mailing-list before</span></a>. It is necessary to allow for some tolerance on the amounts used to balance a transaction.</p>
+<p>Balancing transactions cannot be done precisely. This has been <a href="https://groups.google.com/d/msg/ledger-cli/m-TgILbfrwA/YjkmOM3LHXIJ"><u>discussed on the Ledger mailing-list before</u></a>. It is necessary to allow for some tolerance on the amounts used to balance a transaction.</p>
 <p>This need is clear when you consider that inputting numbers in a text file implies a limited decimal representation. For example, if you’re going to multiply a number of units and a cost, say both written down with 2 fractional digits, you might end up with a number that has 4 fractional digits, and then you need to compare that result with a cash amount that would typically be entered with only 2 fractional digits, something like this example:</p>
 <pre><code>2014-05-06 * “Buy mutual fund”
   Assets:Investments:RGXGX       4.27 RGAGX {53.21 USD} 
@@ -260,18 +284,18 @@ Beancount transactions and how they are handled. It also includes</em></p>
 <pre><code>2014-04-01 balance Assets:Investments:Cash   4526.77 USD
 </code></pre>
 <p>The user does not intend for this balance check to precisely sum up to 4526.77000000… USD. However, it this cash account previously received a deposit with a greater precision as in the previous section’s example, then we have a problem. Now the cash amount contains some of the crumbs deposited from the interpolation (0.0067 USD). If we were able to find a good solution for the automatic rounding of postings in the previous section, this would not be a problem. But in the meantime, we must find a solution.</p>
-<p>Beancount’s current approach is a kludge: it uses a <a href="http://github.com/beancount/beancount/tree/master/beancount/ops/balance.py#L23"><span class="underline">user-configurable tolerance</span></a> of 0.0150 (in any unit). We’d like to change this so that the tolerance used is able to depend on the commodity, the account, or even the particular directive in use.</p>
+<p>Beancount’s current approach is a kludge: it uses a <a href="http://github.com/beancount/beancount/tree/master/beancount/ops/balance.py#L23"><u>user-configurable tolerance</u></a> of 0.0150 (in any unit). We’d like to change this so that the tolerance used is able to depend on the commodity, the account, or even the particular directive in use.</p>
 <h2 id="other-systems">Other Systems<a id="other-systems"></a><a class="headerlink" href="#other-systems" title="Permanent link"></a></h2>
 <p>Other command-line accounting systems differ in how they choose that tolerance:</p>
 <ul>
 <li>
-<p>Ledger attempts to automatically derive the precision to use for its balance checks by using recently parsed context (in file order). The precision to be used is that of the last value parsed for the particular commodity under consideration. This can be problematic: it can lead to <a href="https://groups.google.com/d/msg/ledger-cli/m-TgILbfrwA/cTHg2juqEJgJ"><span class="underline">unnecessary side-effects between transactions which can be difficult to debug</span></a>.</p>
+<p>Ledger attempts to automatically derive the precision to use for its balance checks by using recently parsed context (in file order). The precision to be used is that of the last value parsed for the particular commodity under consideration. This can be problematic: it can lead to <a href="https://groups.google.com/d/msg/ledger-cli/m-TgILbfrwA/cTHg2juqEJgJ"><u>unnecessary side-effects between transactions which can be difficult to debug</u></a>.</p>
 </li>
 <li>
-<p>HLedger, on the other hand, uses global precision settings. <a href="https://groups.google.com/d/msg/ledger-cli/m-TgILbfrwA/SoGZDNhlDOkJ"><span class="underline">The whole file is processed first, then the precisions are derived from the most precise numbers seen in the entire input file.</span></a></p>
+<p>HLedger, on the other hand, uses global precision settings. <a href="https://groups.google.com/d/msg/ledger-cli/m-TgILbfrwA/SoGZDNhlDOkJ"><u>The whole file is processed first, then the precisions are derived from the most precise numbers seen in the entire input file.</u></a></p>
 </li>
 <li>
-<p>At the moment, Beancount uses a constant value for the tolerance used in its <a href="http://github.com/beancount/beancount/tree/master/beancount/ops/validation.py"><span class="underline">balance checking algorithm</span></a> (0.005 of any unit). This is weak and should, at the very least, be commodity-dependent, if not also dependent on the particular account in which the commodity is used.</p>
+<p>At the moment, Beancount uses a constant value for the tolerance used in its <a href="http://github.com/beancount/beancount/tree/master/beancount/ops/validation.py"><u>balance checking algorithm</u></a> (0.005 of any unit). This is weak and should, at the very least, be commodity-dependent, if not also dependent on the particular account in which the commodity is used.</p>
 </li>
 </ul>
 <h2 id="proposal">Proposal<a id="proposal"></a><a class="headerlink" href="#proposal" title="Permanent link"></a></h2>
@@ -296,7 +320,7 @@ Beancount transactions and how they are handled. It also includes</em></p>
 <p>Or better, use 1000.00 USD. This has the disadvantage that is prevents the user from specifying the simpler integer amount. I’m not sure if this is a big deal.</p>
 <p>Finally, no global effect implied by transactions will be applied. No transaction should ever affect any other transaction’s balancing context.</p>
 <h3 id="inference-on-amounts-held-at-cost">Inference on Amounts Held at Cost<a id="inference-on-amounts-held-at-cost"></a><a class="headerlink" href="#inference-on-amounts-held-at-cost" title="Permanent link"></a></h3>
-<p>An idea from by Matthew Harris (<a href="https://groups.google.com/d/msg/beancount/5u-xgR-ttjg/sXfU32ItRscJ"><span class="underline">here</span></a>) is that we could also use the value of the to the smallest decimal of the number of units times the cost as a number to use in establishing the tolerance for balancing transactions. For example, in the following transaction:</p>
+<p>An idea from by Matthew Harris (<a href="https://groups.google.com/d/msg/beancount/5u-xgR-ttjg/sXfU32ItRscJ"><u>here</u></a>) is that we could also use the value of the to the smallest decimal of the number of units times the cost as a number to use in establishing the tolerance for balancing transactions. For example, in the following transaction:</p>
 <pre><code>2014-05-06 * “Buy mutual fund”
   Assets:Investments:RGXGX       23.45 RGAGX {42.6439 USD} 
   ...
@@ -324,15 +348,15 @@ Beancount transactions and how they are handled. It also includes</em></p>
 </code></pre>
 <p>This balance check implies a precision of 0.50 USD.</p>
 <h3 id="approximate-assertions">Approximate Assertions<a id="approximate-assertions"></a><a class="headerlink" href="#approximate-assertions" title="Permanent link"></a></h3>
-<p>Another idea, proposed in <a href="https://github.com/ledger/ledger/pull/329"><span class="underline">this ticket on Ledger</span></a>, proposes an explicitly approximate assertion.</p>
+<p>Another idea, proposed in <a href="https://github.com/ledger/ledger/pull/329"><u>this ticket on Ledger</u></a>, proposes an explicitly approximate assertion.</p>
 <p>We could implement it this way (just an idea):</p>
 <pre><code>2014-04-01 balance Assets:Investments:Cash   4526.00 +/- 0.05 USD
 </code></pre>
 <h2 id="accumulating-reporting-residuals">Accumulating &amp; Reporting Residuals<a id="accumulating-reporting-residuals"></a><a class="headerlink" href="#accumulating-reporting-residuals" title="Permanent link"></a></h2>
-<p>In order to explicitly render and monitor the amount of rounding errors that occur in a Ledger, we should <a href="https://groups.google.com/d/msg/ledger-cli/m-TgILbfrwA/YjkmOM3LHXIJ"><span class="underline">accumulate it to an Equity account</span></a>, such as “Equity:Rounding”. This should be turned on optionally. It should be possible for the user to specify an account to be used to accumulate the error. Whenever a transaction does not balance exactly, the residual, or rounding error, will be inserted as a posting of the transaction to the equity account.</p>
+<p>In order to explicitly render and monitor the amount of rounding errors that occur in a Ledger, we should <a href="https://groups.google.com/d/msg/ledger-cli/m-TgILbfrwA/YjkmOM3LHXIJ"><u>accumulate it to an Equity account</u></a>, such as “Equity:Rounding”. This should be turned on optionally. It should be possible for the user to specify an account to be used to accumulate the error. Whenever a transaction does not balance exactly, the residual, or rounding error, will be inserted as a posting of the transaction to the equity account.</p>
 <p>By default, this accumulation should be turned off. It’s not clear whether the extra postings will be disruptive yet (if they’re not, maybe this should be turned on by default; practice will inform us).</p>
 <h2 id="implementation">Implementation<a id="implementation"></a><a class="headerlink" href="#implementation" title="Permanent link"></a></h2>
-<p>The implementation of this proposal is <a href="precision_tolerances.html"><span class="underline">documented here</span></a>.</p>
+<p>The implementation of this proposal is <a href="precision_tolerances.html"><u>documented here</u></a>.</p>
               
             </div>
           </div>

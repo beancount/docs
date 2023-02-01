@@ -247,33 +247,33 @@
             <div class="section">
               
                 <h1 id="design-doc-for-ledgerhub">Design Doc for Ledgerhub<a id="title"></a><a class="headerlink" href="#design-doc-for-ledgerhub" title="Permanent link"></a></h1>
-<p><a href="mailto:blais@furius.ca"><span class="underline">Martin Blais</span></a>, February 2014</p>
-<p><a href="http://furius.ca/beancount/doc/ledgerhub-design-doc"><span class="underline">http://furius.ca/beancount/doc/ledgerhub-design-doc</span></a></p>
+<p><a href="mailto:blais@furius.ca"><u>Martin Blais</u></a>, February 2014</p>
+<p><a href="http://furius.ca/beancount/doc/ledgerhub-design-doc"><u>http://furius.ca/beancount/doc/ledgerhub-design-doc</u></a></p>
 <blockquote>
-<p><a href="#motivation"><span class="underline">Motivation</span></a></p>
-<p><a href="#goals-stages"><span class="underline">Goals &amp; Stages</span></a></p>
-<p><a href="#details-of-stages"><span class="underline">Details of Stages</span></a></p>
-<p><a href="#fetching"><span class="underline">Fetching</span></a></p>
-<p><a href="#identification"><span class="underline">Identification</span></a></p>
-<p><a href="#extraction"><span class="underline">Extraction</span></a></p>
-<p><a href="#transform"><span class="underline">Transform</span></a></p>
-<p><a href="#rendering"><span class="underline">Rendering</span></a></p>
-<p><a href="#filing"><span class="underline">Filing</span></a></p>
-<p><a href="#implementation-details"><span class="underline">Implementation Details</span></a></p>
-<p><a href="#importers-interface"><span class="underline">Importers Interface</span></a></p>
-<p><a href="#references"><span class="underline">References</span></a></p>
+<p><a href="#motivation"><u>Motivation</u></a></p>
+<p><a href="#goals-stages"><u>Goals &amp; Stages</u></a></p>
+<p><a href="#details-of-stages"><u>Details of Stages</u></a></p>
+<p><a href="#fetching"><u>Fetching</u></a></p>
+<p><a href="#identification"><u>Identification</u></a></p>
+<p><a href="#extraction"><u>Extraction</u></a></p>
+<p><a href="#transform"><u>Transform</u></a></p>
+<p><a href="#rendering"><u>Rendering</u></a></p>
+<p><a href="#filing"><u>Filing</u></a></p>
+<p><a href="#implementation-details"><u>Implementation Details</u></a></p>
+<p><a href="#importers-interface"><u>Importers Interface</u></a></p>
+<p><a href="#references"><u>References</u></a></p>
 </blockquote>
-<p><strong><em>Please note that this document is the original design doc for LedgerHub. LedgerHub is being transitioned back to Beancount. See <a href="https://docs.google.com/document/d/1Bln8Zo11Cvez2rdEgpnM-oBHC1B6uPC18Qm7ulobolM/"><span class="underline">this postmortem document</span></a> for details [blais, 2015-12].</em></strong></p>
+<p><strong><em>Please note that this document is the original design doc for LedgerHub. LedgerHub is being transitioned back to Beancount. See <a href="https://docs.google.com/document/d/1Bln8Zo11Cvez2rdEgpnM-oBHC1B6uPC18Qm7ulobolM/"><u>this postmortem document</u></a> for details [blais, 2015-12].</em></strong></p>
 <h2 id="motivation">Motivation<a id="motivation"></a><a class="headerlink" href="#motivation" title="Permanent link"></a></h2>
-<p>Several open source projects currently exist that provide the capability to create double-entry transactions for bookkeeping from a text file input. These various double-entry bookkeeping projects include <a href="http://furius.ca/beancount/"><span class="underline">Beancount</span></a>, <a href="http://ledger-cli.org/"><span class="underline">Ledger</span></a>, <a href="http://hledger.org/"><span class="underline">HLedger</span></a>, <a href="https://github.com/hrj/abandon"><span class="underline">Abandon</span></a>, and they are independent implementations of a similar goal: the creation of an in-memory representation for double-entry accounting transactions from a text file, and the production of various reports from it, such as balance sheets, income statements, journals, and others. Each implementation explores slightly different feature sets, but essentially all work by reading their input from a file whose format is custom declarative language that describe the transactions, a language which is meant to be written by humans and whose syntax is designed with that goal in mind. While the languages do vary somewhat, the underlying data structures that they define are fairly similar.</p>
+<p>Several open source projects currently exist that provide the capability to create double-entry transactions for bookkeeping from a text file input. These various double-entry bookkeeping projects include <a href="http://furius.ca/beancount/"><u>Beancount</u></a>, <a href="http://ledger-cli.org/"><u>Ledger</u></a>, <a href="http://hledger.org/"><u>HLedger</u></a>, <a href="https://github.com/hrj/abandon"><u>Abandon</u></a>, and they are independent implementations of a similar goal: the creation of an in-memory representation for double-entry accounting transactions from a text file, and the production of various reports from it, such as balance sheets, income statements, journals, and others. Each implementation explores slightly different feature sets, but essentially all work by reading their input from a file whose format is custom declarative language that describe the transactions, a language which is meant to be written by humans and whose syntax is designed with that goal in mind. While the languages do vary somewhat, the underlying data structures that they define are fairly similar.</p>
 <p>An essential part of the process of regularly updating one’s journal files is the replication of a real-world account’s transaction detail to a single input file in a consistent data format. This is essentially a translation step, meant to bring the transaction details of many institutions’ accounts into a single system. Various banks and credit card companies provide downloadable transaction data in either Quicken or Microsoft Money (OFX) formats, and many institutions provide custom CSV files with transaction detail. Moreover, many of these institutions also make regular statements available for download as PDF files, and these can be associated with one’s ledger accounts.</p>
-<p>The process of translating these external data formats can be automated to some extent. These various files can be translated to output text that can then be massaged by the user to be integrated into input file formats accepted by a double-entry bookkeeping package. Several projects have begun to make inroads in that domain: <a href="https://pypi.python.org/pypi/ledger-autosync/"><span class="underline">Ledger-autosync</span></a> aims at fetching transactions automatically from OFX servers for and translating them for Ledger and HLedger, and <a href="https://github.com/cantino/reckon"><span class="underline">Reckon</span></a> converts CSV files for Ledger. <a href="http://furius.ca/beancount/"><span class="underline">Beancount</span></a> includes code that can automate the identification of downloaded files to the accounts from a ledger, extract their transaction detail, and automatically file them to a directory hierarchy that mirrors the ledger’s chart of accounts. This code should probably live outside of Beancount. <a href="http://ledger-cli.org/"><span class="underline">Ledger</span></a> also sports a “convert” command that attempts to do similar things and a <a href="https://github.com/jwiegley/CSV2Ledger"><span class="underline">CSV2Ledger</span></a> Perl script is available that can convert CSV files. HLedger also had a convert command which translated CSV files with optional conversion hints defined in a separate file; HLedger now <a href="http://hledger.org/manual#csv-files"><span class="underline">does the same conversion on-the-fly when the input file is CSV</span></a> (i.e., CSV is considered a first-class input format).</p>
+<p>The process of translating these external data formats can be automated to some extent. These various files can be translated to output text that can then be massaged by the user to be integrated into input file formats accepted by a double-entry bookkeeping package. Several projects have begun to make inroads in that domain: <a href="https://pypi.python.org/pypi/ledger-autosync/"><u>Ledger-autosync</u></a> aims at fetching transactions automatically from OFX servers for and translating them for Ledger and HLedger, and <a href="https://github.com/cantino/reckon"><u>Reckon</u></a> converts CSV files for Ledger. <a href="http://furius.ca/beancount/"><u>Beancount</u></a> includes code that can automate the identification of downloaded files to the accounts from a ledger, extract their transaction detail, and automatically file them to a directory hierarchy that mirrors the ledger’s chart of accounts. This code should probably live outside of Beancount. <a href="http://ledger-cli.org/"><u>Ledger</u></a> also sports a “convert” command that attempts to do similar things and a <a href="https://github.com/jwiegley/CSV2Ledger"><u>CSV2Ledger</u></a> Perl script is available that can convert CSV files. HLedger also had a convert command which translated CSV files with optional conversion hints defined in a separate file; HLedger now <a href="http://hledger.org/manual#csv-files"><u>does the same conversion on-the-fly when the input file is CSV</u></a> (i.e., CSV is considered a first-class input format).</p>
 <p>The programs that fetch and convert external data files do not have to be tied to a single system. Moreover, this is often cumbersome code that would benefit greatly from having a large number of contributors, which could each benefit each other from having common parsers ready and working for the various institutions that they’re using or likely to use in the future. I - the author of Beancount - have decided to move Beancount’s importing and filing source code outside of its home project and to decouple it from the Beancount source code, so that others can contribute to it, with the intent of providing project-agnostic functionality. This document describes the goals and design of this project.</p>
 <h2 id="goals-stages">Goals &amp; Stages<a id="goals-stages"></a><a class="headerlink" href="#goals-stages" title="Permanent link"></a></h2>
 <p>This new project should address the following aspects in a project-agnostic manner:</p>
 <ul>
 <li>
-<p><strong>Fetching</strong>: Automate <em>obtaining</em> the external data files by connecting to the data sources directly. External tools and libraries such as <a href="https://github.com/captin411/ofxclient"><span class="underline">ofxclient</span></a> for OFX sources can be leveraged for this purpose. Web scraping could be used to fetch downloadable files where possible. The output of this stage is a list of institution-specific files downloaded to a directory.<br />
+<p><strong>Fetching</strong>: Automate <em>obtaining</em> the external data files by connecting to the data sources directly. External tools and libraries such as <a href="https://github.com/captin411/ofxclient"><u>ofxclient</u></a> for OFX sources can be leveraged for this purpose. Web scraping could be used to fetch downloadable files where possible. The output of this stage is a list of institution-specific files downloaded to a directory.<br />
     Note that fetching does not just apply to transaction data here; we will also support fetching <em>prices</em>. A list of (date, price) entries may be created from this data. We will likely want to support an intermediate format for expressing a list of positions (and appropriate support in the ledgerhub-Ledger/Beancount/HLedger interface to obtain it).</p>
 </li>
 <li>
@@ -303,7 +303,7 @@
 <p>By default, a user should be able to click their way to their institution’s website and download documents to their ~/Downloads directory. A directory with some files in it should be the reasonable default input to the identification stage. This directory should be allowed to have other/garbage files in it, the identification step should be able to skip those automatically.</p>
 <p>A module that can automatically fetch the data needs to be implemented. Ideally this would not require an external tool. The data extracted should also have a copy saved in some Downloads directory.</p>
 <p>This is the domain of the ledger-autosync project. Perhaps we should coordinate input/outputs or even integrate call some of its library code at this stage. The author notes that fetching data from OFX servers is pretty easy, though the begin/end dates will have to get processed and filtered.</p>
-<p>Automatic fetching support will vary widely depending on where the institutions are located. Some places have solid support, some less. Use the data from <a href="http://ofxhome.com"><span class="underline">ofxhome.com</span></a> to configure.</p>
+<p>Automatic fetching support will vary widely depending on where the institutions are located. Some places have solid support, some less. Use the data from <a href="http://ofxhome.com"><u>ofxhome.com</u></a> to configure.</p>
 <h4 id="fetching-prices">Fetching Prices<a id="fetching-prices"></a><a class="headerlink" href="#fetching-prices" title="Permanent link"></a></h4>
 <p>For fetching prices, there are many libraries out there. Initially we will port Beancount’s bean-prices to ledgerhub.</p>
 <h3 id="identification">Identification<a id="identification"></a><a class="headerlink" href="#identification" title="Permanent link"></a></h3>
@@ -464,28 +464,28 @@ raise NotImplementedError</p>
 <p>Other projects with the same goal as importing account data into Ledger are listed here.</p>
 <ul>
 <li>
-<p><a href="http://ledger-cli.org/3.0/doc/ledger3.html#The-convert-command"><span class="underline">Ledger’s “convert” command</span></a></p>
+<p><a href="http://ledger-cli.org/3.0/doc/ledger3.html#The-convert-command"><u>Ledger’s “convert” command</u></a></p>
 </li>
 <li>
-<p>HLedger with its <a href="http://hledger.org/manual#csv-files"><span class="underline">built-in</span></a> <a href="http://hledger.org/manual#timelog-files"><span class="underline">readers</span></a></p>
+<p>HLedger with its <a href="http://hledger.org/manual#csv-files"><u>built-in</u></a> <a href="http://hledger.org/manual#timelog-files"><u>readers</u></a></p>
 </li>
 <li>
-<p><span class="underline">Reckon</span></p>
+<p><u>Reckon</u></p>
 </li>
 <li>
-<p><a href="https://github.com/captin411/ofxmate"><span class="underline">OFXmate</span></a> (GUI for ledger-autosync)</p>
+<p><a href="https://github.com/captin411/ofxmate"><u>OFXmate</u></a> (GUI for ledger-autosync)</p>
 </li>
 <li>
-<p><a href="https://github.com/jwiegley/CSV2Ledger"><span class="underline">CSV2Ledger</span></a></p>
+<p><a href="https://github.com/jwiegley/CSV2Ledger"><u>CSV2Ledger</u></a></p>
 </li>
 <li>
-<p><a href="https://github.com/quentinsf/icsv2ledger"><span class="underline">icsv2ledger</span></a></p>
+<p><a href="https://github.com/quentinsf/icsv2ledger"><u>icsv2ledger</u></a></p>
 </li>
 <li>
-<p><a href="http://www.khjk.org/log/2009/oct/csv2ledger.hs"><span class="underline">csv2ledger</span></a> (seems to lack active maintainers)</p>
+<p><a href="http://www.khjk.org/log/2009/oct/csv2ledger.hs"><u>csv2ledger</u></a> (seems to lack active maintainers)</p>
 </li>
 </ul>
-<p>Update (Nov 2015): This design doc has been implemented and the project is being transitioned back to Beancount. Read the details <a href="https://docs.google.com/document/d/1Bln8Zo11Cvez2rdEgpnM-oBHC1B6uPC18Qm7ulobolM/"><span class="underline">here</span></a>.</p>
+<p>Update (Nov 2015): This design doc has been implemented and the project is being transitioned back to Beancount. Read the details <a href="https://docs.google.com/document/d/1Bln8Zo11Cvez2rdEgpnM-oBHC1B6uPC18Qm7ulobolM/"><u>here</u></a>.</p>
               
             </div>
           </div>

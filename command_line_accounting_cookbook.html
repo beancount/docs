@@ -277,43 +277,43 @@
             <div class="section">
               
                 <h1 id="command-line-accounting-cookbook">Command-line Accounting Cookbook<a id="title"></a><a class="headerlink" href="#command-line-accounting-cookbook" title="Permanent link"></a></h1>
-<p><a href="mailto:blais@furius.ca"><span class="underline">Martin Blais</span></a>, July 2014</p>
-<p><a href="http://furius.ca/beancount/doc/cookbook"><span class="underline">http://furius.ca/beancount/doc/cookbook</span></a></p>
+<p><a href="mailto:blais@furius.ca"><u>Martin Blais</u></a>, July 2014</p>
+<p><a href="http://furius.ca/beancount/doc/cookbook"><u>http://furius.ca/beancount/doc/cookbook</u></a></p>
 <blockquote>
-<p><a href="#introduction"><span class="underline">Introduction</span></a></p>
-<p><a href="#a-note-of-caution"><span class="underline">A Note of Caution</span></a></p>
-<p><a href="#account-naming-conventions"><span class="underline">Account Naming Conventions</span></a></p>
-<p><a href="#choosing-an-account-type"><span class="underline">Choosing an Account Type</span></a></p>
-<p><a href="#choosing-opening-dates"><span class="underline">Choosing Opening Dates</span></a></p>
-<p><a href="#how-to-deal-with-cash"><span class="underline">How to Deal with Cash</span></a></p>
-<p><a href="#cash-withdrawals"><span class="underline">Cash Withdrawals</span></a></p>
-<p><a href="#tracking-cash-expenses"><span class="underline">Tracking Cash Expenses</span></a></p>
-<p><a href="#salary-income"><span class="underline">Salary Income</span></a></p>
-<p><a href="#employment-income-accounts"><span class="underline">Employment Income Accounts</span></a></p>
-<p><a href="#booking-salary-deposits"><span class="underline">Booking Salary Deposits</span></a></p>
-<p><a href="#vacation-hours"><span class="underline">Vacation Hours</span></a></p>
-<p><a href="#k-contributions"><span class="underline">401k Contributions</span></a></p>
-<p><a href="#vesting-stock-grants"><span class="underline">Vesting Stock Grants</span></a></p>
-<p><a href="#other-benefits"><span class="underline">Other Benefits</span></a></p>
-<p><a href="#points"><span class="underline">Points</span></a></p>
-<p><a href="#food-benefits"><span class="underline">Food Benefits</span></a></p>
-<p><a href="#currency-transfers-conversions"><span class="underline">Currency Transfers &amp; Conversions</span></a></p>
-<p><a href="#investing-and-trading"><span class="underline">Investing and Trading</span></a></p>
-<p><a href="#accounts-setup"><span class="underline">Accounts Setup</span></a></p>
-<p><a href="#funds-transfers"><span class="underline">Funds Transfers</span></a></p>
-<p><a href="#making-a-trade"><span class="underline">Making a Trade</span></a></p>
-<p><a href="#receiving-dividends"><span class="underline">Receiving Dividends</span></a></p>
-<p><a href="#conclusion"><span class="underline">Conclusion</span></a></p>
+<p><a href="#introduction"><u>Introduction</u></a></p>
+<p><a href="#a-note-of-caution"><u>A Note of Caution</u></a></p>
+<p><a href="#account-naming-conventions"><u>Account Naming Conventions</u></a></p>
+<p><a href="#choosing-an-account-type"><u>Choosing an Account Type</u></a></p>
+<p><a href="#choosing-opening-dates"><u>Choosing Opening Dates</u></a></p>
+<p><a href="#how-to-deal-with-cash"><u>How to Deal with Cash</u></a></p>
+<p><a href="#cash-withdrawals"><u>Cash Withdrawals</u></a></p>
+<p><a href="#tracking-cash-expenses"><u>Tracking Cash Expenses</u></a></p>
+<p><a href="#salary-income"><u>Salary Income</u></a></p>
+<p><a href="#employment-income-accounts"><u>Employment Income Accounts</u></a></p>
+<p><a href="#booking-salary-deposits"><u>Booking Salary Deposits</u></a></p>
+<p><a href="#vacation-hours"><u>Vacation Hours</u></a></p>
+<p><a href="#k-contributions"><u>401k Contributions</u></a></p>
+<p><a href="#vesting-stock-grants"><u>Vesting Stock Grants</u></a></p>
+<p><a href="#other-benefits"><u>Other Benefits</u></a></p>
+<p><a href="#points"><u>Points</u></a></p>
+<p><a href="#food-benefits"><u>Food Benefits</u></a></p>
+<p><a href="#currency-transfers-conversions"><u>Currency Transfers &amp; Conversions</u></a></p>
+<p><a href="#investing-and-trading"><u>Investing and Trading</u></a></p>
+<p><a href="#accounts-setup"><u>Accounts Setup</u></a></p>
+<p><a href="#funds-transfers"><u>Funds Transfers</u></a></p>
+<p><a href="#making-a-trade"><u>Making a Trade</u></a></p>
+<p><a href="#receiving-dividends"><u>Receiving Dividends</u></a></p>
+<p><a href="#conclusion"><u>Conclusion</u></a></p>
 </blockquote>
 <h2 id="introduction">Introduction<a id="introduction"></a><a class="headerlink" href="#introduction" title="Permanent link"></a></h2>
 <p>The best way to learn the double-entry method is to look at real-world examples. The method is elegant, but it can seem unintuitive to the newcomer how transactions have to be posted in order to perform the various operations that one needs to do in counting for different types financial events. This is why I wrote this cookbook. It is not meant to be a comprehensive description of all the features supported, but rather a set of practical guidelines to help you solve problems. I think this will likely be the most useful document in the Beancount documentation set!</p>
-<p>All the examples here apply to any double-entry accounting system: Ledger, GnuCash, or even commercial systems. Some of the details may differ only slightly. This cookbook is written using the syntax and calculation method of the Beancount software. This document also assumes that you are already familiar with the <a href="the_double_entry_counting_method.html"><span class="underline">general balancing concepts of the double-entry method</span></a> and with at least some of the syntax of Beancount which is available from its <a href="beancount_language_syntax.html"><span class="underline">user’s manual</span></a> or its <a href="beancount_cheat_sheet.html"><span class="underline">cheat sheet</span></a>. If you haven’t begun writing down your first file, you will want to read <a href="getting_started_with_beancount.html"><span class="underline">Getting Started with Beancount</span></a> and do that first.</p>
+<p>All the examples here apply to any double-entry accounting system: Ledger, GnuCash, or even commercial systems. Some of the details may differ only slightly. This cookbook is written using the syntax and calculation method of the Beancount software. This document also assumes that you are already familiar with the <a href="the_double_entry_counting_method.html"><u>general balancing concepts of the double-entry method</u></a> and with at least some of the syntax of Beancount which is available from its <a href="beancount_language_syntax.html"><u>user’s manual</u></a> or its <a href="beancount_cheat_sheet.html"><u>cheat sheet</u></a>. If you haven’t begun writing down your first file, you will want to read <a href="getting_started_with_beancount.html"><u>Getting Started with Beancount</u></a> and do that first.</p>
 <p>Command-line accounting systems are agnostic about the types of things they can count and allow you to get creative with the kinds of units that you can invent to track various kinds of things. For instance, you can count “IRA contribution dollars,” which are not real dollars, but which correspond to “possible contributions in real dollars,” and you obtain accounts of assets, income and expenses types for them - it works. Please do realize that some of those clever tricks may not be possible in more traditional accounting systems. In addition, some of the operations that would normally require a manual process in these systems can be automated away for us, e.g., “closing a year” is entirely done by the software at any point in time, and balance assertions provide a safeguard that allow us to change the details of past transactions with little risk, so there is no need to “reconcile” by baking the past into a frozen state. More flexibility is at hand.</p>
-<p>Finally, if you have a transaction entry problem that is not covered in this document, please do leave a comment in the margin, or write up your problem to the <a href="https://groups.google.com/forum/#!forum/ledger-cli"><span class="underline">Ledger mailing-list</span></a>. I would like for this document to cover as many realistic scenarios as possible.</p>
+<p>Finally, if you have a transaction entry problem that is not covered in this document, please do leave a comment in the margin, or write up your problem to the <a href="https://groups.google.com/forum/#!forum/ledger-cli"><u>Ledger mailing-list</u></a>. I would like for this document to cover as many realistic scenarios as possible.</p>
 <h3 id="a-note-of-caution">A Note of Caution<a id="a-note-of-caution"></a><a class="headerlink" href="#a-note-of-caution" title="Permanent link"></a></h3>
 <p>While reading this, please take note that the author is a dilettante: I am a computer scientist, not an accountant. In fact, apart from a general course I took in college and having completed the first year of a CFA program, I have no real training in accounting. Despite this, I do have some practical experience in maintaining three set of books using this software: my personal ledger (8 years worth of full financial data for all accounts), a joint ledger with my spouse, and the books of a contracting and consulting company I used to own. I also used my double-entry system to communicate with my accountant for many years and he made suggestions. Nevertheless… I may be making fundamental mistakes here and there, and I would appreciate you leaving a comment in the margin if you find anything dubious.</p>
 <h2 id="account-naming-conventions">Account Naming Conventions<a id="account-naming-conventions"></a><a class="headerlink" href="#account-naming-conventions" title="Permanent link"></a></h2>
-<p>You can define any account name you like, as long as it begins with one of the five categories: Assets, Liabilities, Income, Expenses, or Equity (note that you can customize those names with options - see the <a href="beancount_language_syntax.html"><span class="underline">Language Syntax document</span></a> for details). The accounts names are generally defined to have multiple name <em>components,</em> separated by a colon (:), which imply an accounts hierarchy, or “<a href="http://en.wikipedia.org/wiki/Chart_of_accounts"><span class="underline">chart of accounts</span></a>”:</p>
+<p>You can define any account name you like, as long as it begins with one of the five categories: Assets, Liabilities, Income, Expenses, or Equity (note that you can customize those names with options - see the <a href="beancount_language_syntax.html"><u>Language Syntax document</u></a> for details). The accounts names are generally defined to have multiple name <em>components,</em> separated by a colon (:), which imply an accounts hierarchy, or “<a href="http://en.wikipedia.org/wiki/Chart_of_accounts"><u>chart of accounts</u></a>”:</p>
 <pre><code>Assets:Component1:Component2:Component3:...
 </code></pre>
 <p>Over time, I’ve iterated over many ways of defining my account names and I have converged to the following convention for Assets, Liabilities, and Income accounts:</p>
@@ -551,7 +551,7 @@ Expenses:Loft4530:Taxes:School
 </code></pre>
 <p>It is common for them to do this in order to track each source of contribution separately, because there are several constraints on rollovers to other accounts that depend on it.</p>
 <h3 id="vesting-stock-grants">Vesting Stock Grants<a id="vesting-stock-grants"></a><a class="headerlink" href="#vesting-stock-grants" title="Permanent link"></a></h3>
-<p>See the <a href="stock_vesting_in_beancount.html"><span class="underline">dedicated document</span></a> on this topic for more details.</p>
+<p>See the <a href="stock_vesting_in_beancount.html"><u>dedicated document</u></a> on this topic for more details.</p>
 <h3 id="other-benefits">Other Benefits<a id="other-benefits"></a><a class="headerlink" href="#other-benefits" title="Permanent link"></a></h3>
 <p>You can go crazy with tracking benefits if you want. Here are a few wild ideas.</p>
 <h4 id="points">Points<a id="points"></a><a class="headerlink" href="#points" title="Permanent link"></a></h4>
@@ -604,9 +604,9 @@ Expenses:Loft4530:Taxes:School
   Assets:US:BofA:Checking      10000.00 USD {0.90 CHF}  ; &lt;-bad!
 </code></pre>
 <p>If you did that by mistake, you would incur errors when you attempted to use the newly USD deposited: Beancount would require that you specify the cost of these “USD” in CHF, e.g., “debit from my USD that I changed at 0.90 USD/CHF”. Nobody does this in the real world, and neither should you when you represent your transactions: <em>once the money has converted, it’s just money in a different currency, with no associated cost.</em></p>
-<p>Finally, a rather subtle problem is that using these price conversions back and forth at different rates over time breaks the accounting equation to some extent: changes in exchange rate may create small amounts of money out of thin air and all the balances don’t end up summing up to zero. However, this is not a problem, because Beancount implements an elegant solution to automatically correct for this problem, so you can use these conversions freely without having to worry about this: it inserts a special conversions entry on the balance sheet to invert the cumulative effect of conversions for the report and obtain a clean balance of zero. (A discussion of the conversions problem is beyond the scope of this cookbook; please refer to <a href="http://furius.ca/beancount/doc/conversions"><span class="underline">Solving the Conversions Problem</span></a> if you’d like to know more.)</p>
+<p>Finally, a rather subtle problem is that using these price conversions back and forth at different rates over time breaks the accounting equation to some extent: changes in exchange rate may create small amounts of money out of thin air and all the balances don’t end up summing up to zero. However, this is not a problem, because Beancount implements an elegant solution to automatically correct for this problem, so you can use these conversions freely without having to worry about this: it inserts a special conversions entry on the balance sheet to invert the cumulative effect of conversions for the report and obtain a clean balance of zero. (A discussion of the conversions problem is beyond the scope of this cookbook; please refer to <a href="http://furius.ca/beancount/doc/conversions"><u>Solving the Conversions Problem</u></a> if you’d like to know more.)</p>
 <h2 id="investing-and-trading">Investing and Trading<a id="investing-and-trading"></a><a class="headerlink" href="#investing-and-trading" title="Permanent link"></a></h2>
-<p>Tracking trades and associated gains is a fairly involved topic. You will find a more complete introduction to profit and loss and a detailed discussion of various scenarios in the <a href="trading_with_beancount.html"><span class="underline">Trading with Beancount</span></a> document, which is dedicated to this topic. Here we will discuss how to setup your account and provide simple example transactions to get you started.</p>
+<p>Tracking trades and associated gains is a fairly involved topic. You will find a more complete introduction to profit and loss and a detailed discussion of various scenarios in the <a href="trading_with_beancount.html"><u>Trading with Beancount</u></a> document, which is dedicated to this topic. Here we will discuss how to setup your account and provide simple example transactions to get you started.</p>
 <h3 id="accounts-setup">Accounts Setup<a id="accounts-setup"></a><a class="headerlink" href="#accounts-setup" title="Permanent link"></a></h3>
 <p>You should create an account prefix to root various sub-accounts associated with your investment account. Say you have an account at ETrade, this could be “<code>Assets:US:ETrade</code>”. Choose an appropriate institution name.</p>
 <p>Your investment account will have a cash component. You should create a dedicated sub-account will represent uninvested cash deposits:</p>
@@ -663,7 +663,7 @@ Expenses:Loft4530:Taxes:School
   Income:US:Vanguard:Dividends   -19.21 USD
 </code></pre>
 <p>This is booked similarly to a stock purchase, and you also have to provide the cost basis of the received units. This would typically happen in a non-taxable retirement account.</p>
-<p>Refer to the <a href="trading_with_beancount.html"><span class="underline">Trading with Beancount</span></a> document for a more thorough discussion and numerous and more complex examples.</p>
+<p>Refer to the <a href="trading_with_beancount.html"><u>Trading with Beancount</u></a> document for a more thorough discussion and numerous and more complex examples.</p>
 <h3 id="choosing-a-date">Choosing a Date<a id="choosing-a-date"></a><a class="headerlink" href="#choosing-a-date" title="Permanent link"></a></h3>
 <p>Buying or selling a single lot of stock typically involves multiple events over time: the trade is placed, the trade is filled (usually on the same day), the trade is settled. Settlement usually occurs 2 or 3 business days after the trade is filled.</p>
 <p>For simplicity, I recommend using the trade date as the date of your transaction. In the US, this is the date that is recognized for tax purposes, and settlement has no impact on your account (brokers typically won’t allow you to trade without the corresponding cash or margin anyhow). So normally I don’t bother creating separate entries for settlement, it’s not very useful.</p>
@@ -700,7 +700,7 @@ Expenses:Loft4530:Taxes:School
 <p>Yet another extension to Beancount involves support multiple Pad directives between two balance assertions and automatically support this spreading out of padding directives.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>If you’re concerned about the issue of precision or rounding in balancing, see <a href="precision_tolerances.html"><span class="underline">this document</span></a>.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>If you’re concerned about the issue of precision or rounding in balancing, see <a href="precision_tolerances.html"><u>this document</u></a>.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
 <p>Note that if the price database needs to invert the date its calculation may result in a price with a large number of digits. Beancount uses IEEE decimal objects and the default context of the Python implementation is 28 digits, so inverting 0.9 will result in 1.111111….111 with 28 digits.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>

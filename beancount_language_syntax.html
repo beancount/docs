@@ -279,64 +279,64 @@
             <div class="section">
               
                 <h1 id="beancount-language-syntax">Beancount Language Syntax<a id="title"></a><a class="headerlink" href="#beancount-language-syntax" title="Permanent link"></a></h1>
-<p><a href="mailto:blais@furius.ca"><span class="underline">Martin Blais</span></a>, Updated: April 2016</p>
-<p><a href="http://furius.ca/beancount/doc/syntax"><span class="underline">http://furius.ca/beancount/doc/syntax</span></a></p>
-<p><a href="#introduction"><span class="underline">Introduction</span></a></p>
-<p><a href="#syntax-overview"><span class="underline">Syntax Overview</span></a></p>
+<p><a href="mailto:blais@furius.ca"><u>Martin Blais</u></a>, Updated: April 2016</p>
+<p><a href="http://furius.ca/beancount/doc/syntax"><u>http://furius.ca/beancount/doc/syntax</u></a></p>
+<p><a href="#introduction"><u>Introduction</u></a></p>
+<p><a href="#syntax-overview"><u>Syntax Overview</u></a></p>
 <blockquote>
-<p><a href="#directives"><span class="underline">Directives</span></a></p>
-<p><a href="#ordering-of-directives"><span class="underline">Ordering of Directives</span></a></p>
-<p><a href="#accounts"><span class="underline">Accounts</span></a></p>
-<p><a href="#commodities-currencies"><span class="underline">Commodities / Currencies</span></a></p>
-<p><a href="#strings"><span class="underline">Strings</span></a></p>
-<p><a href="#comments"><span class="underline">Comments</span></a></p>
+<p><a href="#directives"><u>Directives</u></a></p>
+<p><a href="#ordering-of-directives"><u>Ordering of Directives</u></a></p>
+<p><a href="#accounts"><u>Accounts</u></a></p>
+<p><a href="#commodities-currencies"><u>Commodities / Currencies</u></a></p>
+<p><a href="#strings"><u>Strings</u></a></p>
+<p><a href="#comments"><u>Comments</u></a></p>
 </blockquote>
-<p><a href="#directives-1"><span class="underline">Directives</span></a></p>
+<p><a href="#directives-1"><u>Directives</u></a></p>
 <blockquote>
-<p><a href="#open"><span class="underline">Open</span></a></p>
-<p><a href="#close"><span class="underline">Close</span></a></p>
-<p><a href="#commodity"><span class="underline">Commodity</span></a></p>
-<p><a href="#transactions"><span class="underline">Transactions</span></a></p>
-<p><a href="#metadata"><span class="underline">Metadata</span></a></p>
-<p><a href="#payee-narration"><span class="underline">Payee &amp; Narration</span></a></p>
-<p><a href="#costs-and-prices"><span class="underline">Costs and Prices</span></a></p>
-<p><a href="#balancing-rule---the-weight-of-postings"><span class="underline">Balancing Rule - The “weight” of postings</span></a></p>
-<p><a href="#reducing-positions"><span class="underline">Reducing Positions</span></a></p>
-<p><a href="#amount-interpolation"><span class="underline">Amount Interpolation</span></a></p>
-<p><a href="#tags"><span class="underline">Tags</span></a></p>
-<p><a href="#the-tag-stack"><span class="underline">The Tag Stack</span></a></p>
-<p><a href="#links"><span class="underline">Links</span></a></p>
-<p><a href="#balance-assertions"><span class="underline">Balance Assertions</span></a></p>
-<p><a href="#multiple-commodities"><span class="underline">Multiple Commodities</span></a></p>
-<p><a href="#lots-are-aggregated"><span class="underline">Lots Are Aggregated</span></a></p>
-<p><a href="#checks-on-parent-accounts"><span class="underline">Checks on Parent Accounts</span></a></p>
-<p><a href="#before-close"><span class="underline">Before Close</span></a></p>
-<p><a href="#pad"><span class="underline">Pad</span></a></p>
-<p><a href="#unused-pad-directives"><span class="underline">Unused Pad Directives</span></a></p>
-<p><a href="#commodities"><span class="underline">Commodities</span></a></p>
-<p><a href="#cost-basis"><span class="underline">Cost Basis</span></a></p>
-<p><a href="#multiple-paddings"><span class="underline">Multiple Paddings</span></a></p>
-<p><a href="#notes"><span class="underline">Notes</span></a></p>
-<p><a href="#documents"><span class="underline">Documents</span></a></p>
-<p><a href="#documents-from-a-directory"><span class="underline">Documents from a Directory</span></a></p>
-<p><a href="#prices"><span class="underline">Prices</span></a></p>
-<p><a href="#prices-from-postings"><span class="underline">Prices from Postings</span></a></p>
-<p><a href="#prices-on-the-same-day"><span class="underline">Prices on the Same Day</span></a></p>
-<p><a href="#events"><span class="underline">Events</span></a></p>
-<p><a href="#query"><span class="underline">Query</span></a></p>
-<p><a href="#custom"><span class="underline">Custom</span></a></p>
+<p><a href="#open"><u>Open</u></a></p>
+<p><a href="#close"><u>Close</u></a></p>
+<p><a href="#commodity"><u>Commodity</u></a></p>
+<p><a href="#transactions"><u>Transactions</u></a></p>
+<p><a href="#metadata"><u>Metadata</u></a></p>
+<p><a href="#payee-narration"><u>Payee &amp; Narration</u></a></p>
+<p><a href="#costs-and-prices"><u>Costs and Prices</u></a></p>
+<p><a href="#balancing-rule---the-weight-of-postings"><u>Balancing Rule - The “weight” of postings</u></a></p>
+<p><a href="#reducing-positions"><u>Reducing Positions</u></a></p>
+<p><a href="#amount-interpolation"><u>Amount Interpolation</u></a></p>
+<p><a href="#tags"><u>Tags</u></a></p>
+<p><a href="#the-tag-stack"><u>The Tag Stack</u></a></p>
+<p><a href="#links"><u>Links</u></a></p>
+<p><a href="#balance-assertions"><u>Balance Assertions</u></a></p>
+<p><a href="#multiple-commodities"><u>Multiple Commodities</u></a></p>
+<p><a href="#lots-are-aggregated"><u>Lots Are Aggregated</u></a></p>
+<p><a href="#checks-on-parent-accounts"><u>Checks on Parent Accounts</u></a></p>
+<p><a href="#before-close"><u>Before Close</u></a></p>
+<p><a href="#pad"><u>Pad</u></a></p>
+<p><a href="#unused-pad-directives"><u>Unused Pad Directives</u></a></p>
+<p><a href="#commodities"><u>Commodities</u></a></p>
+<p><a href="#cost-basis"><u>Cost Basis</u></a></p>
+<p><a href="#multiple-paddings"><u>Multiple Paddings</u></a></p>
+<p><a href="#notes"><u>Notes</u></a></p>
+<p><a href="#documents"><u>Documents</u></a></p>
+<p><a href="#documents-from-a-directory"><u>Documents from a Directory</u></a></p>
+<p><a href="#prices"><u>Prices</u></a></p>
+<p><a href="#prices-from-postings"><u>Prices from Postings</u></a></p>
+<p><a href="#prices-on-the-same-day"><u>Prices on the Same Day</u></a></p>
+<p><a href="#events"><u>Events</u></a></p>
+<p><a href="#query"><u>Query</u></a></p>
+<p><a href="#custom"><u>Custom</u></a></p>
 </blockquote>
-<p><a href="#metadata-1"><span class="underline">Metadata</span></a></p>
-<p><a href="#options"><span class="underline">Options</span></a></p>
+<p><a href="#metadata-1"><u>Metadata</u></a></p>
+<p><a href="#options"><u>Options</u></a></p>
 <blockquote>
-<p><a href="#operating-currencies"><span class="underline">Operating Currencies</span></a></p>
+<p><a href="#operating-currencies"><u>Operating Currencies</u></a></p>
 </blockquote>
-<p><a href="#plugins"><span class="underline">Plugins</span></a></p>
-<p><a href="#includes"><span class="underline">Includes</span></a></p>
-<p><a href="#whats-next"><span class="underline">What’s Next?</span></a></p>
+<p><a href="#plugins"><u>Plugins</u></a></p>
+<p><a href="#includes"><u>Includes</u></a></p>
+<p><a href="#whats-next"><u>What’s Next?</u></a></p>
 <h2 id="introduction">Introduction<a id="introduction"></a><a class="headerlink" href="#introduction" title="Permanent link"></a></h2>
 <p>This is a user's manual to the language of Beancount, the command-line double-entry bookkeeping system. Beancount defines a computer language that allows you to enter financial transactions in a text file and extract various reports from it. It is a generic counting tool that works with multiple currencies, commodities held at cost (e.g., stocks), and even allows you to track unusual things, like vacation hours, air miles and rewards points, and anything else you might want to count, even beans.</p>
-<p>This document provides an introduction to Beancount’s syntax and some of the technical details needed for one to understand how it carries out its calculations. This document does <em>not</em> provide an <a href="the_double_entry_counting_method.html"><span class="underline">introduction to the double-entry method</span></a>, a <a href="command_line_accounting_in_context.html"><span class="underline">motivation</span></a>, nor <a href="command_line_accounting_cookbook.html"><span class="underline">examples and guidelines for entering transactions</span></a> in your input file, nor how to <a href="running_beancount_and_generating_reports.html"><span class="underline">run the tools</span></a>. These subjects have their <a href="index.html"><span class="underline">own dedicated documents</span></a>, and it is recommended that you have had a look at those before diving into this user’s manual. This manual covers the technical details for using Beancount.</p>
+<p>This document provides an introduction to Beancount’s syntax and some of the technical details needed for one to understand how it carries out its calculations. This document does <em>not</em> provide an <a href="the_double_entry_counting_method.html"><u>introduction to the double-entry method</u></a>, a <a href="command_line_accounting_in_context.html"><u>motivation</u></a>, nor <a href="command_line_accounting_cookbook.html"><u>examples and guidelines for entering transactions</u></a> in your input file, nor how to <a href="running_beancount_and_generating_reports.html"><u>run the tools</u></a>. These subjects have their <a href="index.html"><u>own dedicated documents</u></a>, and it is recommended that you have had a look at those before diving into this user’s manual. This manual covers the technical details for using Beancount.</p>
 <h2 id="syntax-overview">Syntax Overview<a id="syntax-overview"></a><a class="headerlink" href="#syntax-overview" title="Permanent link"></a></h2>
 <h3 id="directives">Directives<a id="directives"></a><a class="headerlink" href="#directives" title="Permanent link"></a></h3>
 <p>Beancount is a declarative language. The input consists of a text file containing mainly a list of <strong>directives</strong>, or <strong>entries</strong> (we use these terms interchangeably in the code and documentation); there is also syntax for defining various <strong>options</strong>. Each directive begins with an associated <em>date</em>, which determines the point in time at which the directive will apply, and its <em>type</em>, which defines which kind of event this directive represents. All the directives begin with a syntax that looks like this:</p>
@@ -407,8 +407,8 @@ AIRMILE
 </code></pre>
 <p>(Technically, a currency name may be up to 24 characters long, and it must start with a capital letter, must end with with a capital letter or number, and its other characters must only be capital letters, numbers, or punctuation limited to these characters: “'._-” (apostrophe, period, underscore, dash.) The first three might evoke real world currencies to you (US dollars, Canadian dollars, Euros); the next two, stock ticker names (Microsoft and IBM). And the last: rewards points (airmiles). Beancount knows of no such thing; from its perspective all of these instruments are treated similarly. There is no built-in notion of any previously existing currency. These currency names are just names of “things” that can be put in accounts and accumulated in inventories associated with these accounts.</p>
 <p>There is something elegant about the fact that there is no “special” currency unit, that all commodities are treated equally the same: Beancount is inherently a multi-currency system. You will appreciate this if, like many of us, you are an expat and your life is divided between two or three continents. You can handle an international ledger of accounts without any problems.</p>
-<p>And your use of currencies can get quite creative: you can create a currency for your home, for example (e.g. <code>MYLOFT</code>), a currency to count accumulated vacation hours (<code>VACHR</code>), or a currency to count potential contributions to your retirement accounts allowed annually (<code>IRAUSD</code>). You can actually solve many problems this way. The <a href="command_line_accounting_cookbook.html"><span class="underline">cookbook</span></a> describes many such concrete examples.</p>
-<p>Beancount does not support the dollar sign syntax, e.g., “$120.00”. You should always use names for currencies in your input file. This makes the input more regular and is a design choice. For monetary units, I suggest that you use the standard <a href="http://en.wikipedia.org/wiki/ISO_4217#Active_codes"><span class="underline">ISO 4217 currency code</span></a> as a guideline; these quickly become familiar. However, as detailed above, you may include some other characters in currency names, like underscores (_), dashes (-), periods (.), or apostrophes (‘), but no spaces.</p>
+<p>And your use of currencies can get quite creative: you can create a currency for your home, for example (e.g. <code>MYLOFT</code>), a currency to count accumulated vacation hours (<code>VACHR</code>), or a currency to count potential contributions to your retirement accounts allowed annually (<code>IRAUSD</code>). You can actually solve many problems this way. The <a href="command_line_accounting_cookbook.html"><u>cookbook</u></a> describes many such concrete examples.</p>
+<p>Beancount does not support the dollar sign syntax, e.g., “$120.00”. You should always use names for currencies in your input file. This makes the input more regular and is a design choice. For monetary units, I suggest that you use the standard <a href="http://en.wikipedia.org/wiki/ISO_4217#Active_codes"><u>ISO 4217 currency code</u></a> as a guideline; these quickly become familiar. However, as detailed above, you may include some other characters in currency names, like underscores (_), dashes (-), periods (.), or apostrophes (‘), but no spaces.</p>
 <p>Finally, you will notice that there exists a “<code>commodity</code>” directive that can be used to declare currencies. It is entirely optional: currencies come into being as you use them. The purpose of the directive is simply to attach metadata to it.</p>
 <h3 id="strings">Strings<a id="strings"></a><a class="headerlink" href="#strings" title="Permanent link"></a></h3>
 <p>Whenever we need to insert some free text as part of an entry, it should be surrounded by double-quotes. This applies to the payee and narration fields, mainly; basically anything that’s not a date, a number, a currency, an account name.</p>
@@ -421,7 +421,7 @@ AIRMILE
   Expenses:Taxi
 </code></pre>
 <p>You can use one or more “;” characters if you like. Prepend on all lines if you want to enter a larger comment text. If you prefer to have the comment text parsed in and rendered in your journals, see the Note directive elsewhere in this document.</p>
-<p>Any line that does not begin as a valid Beancount syntax directive (e.g. with a date) is silently ignored. This way you can insert markup to organize your file for various outline modes, such as <a href="http://orgmode.org/"><span class="underline">org-mode</span></a> in Emacs. For example, you could organize your input file by institution like this and fold &amp; unfold each of the sections independently,:</p>
+<p>Any line that does not begin as a valid Beancount syntax directive (e.g. with a date) is silently ignored. This way you can insert markup to organize your file for various outline modes, such as <a href="http://orgmode.org/"><u>org-mode</u></a> in Emacs. For example, you could organize your input file by institution like this and fold &amp; unfold each of the sections independently,:</p>
 <pre><code>* Banking
 ** Bank of America
 
@@ -439,7 +439,7 @@ AIRMILE
 <p>The unmatching lines are simply ignored.</p>
 <p>Note to visiting Ledger users: In Ledger, “;” is used both for marking comments and for attaching “Ledger tags” (Beancount metadata) to postings. This is not the case in Beancount. In Beancount comments are always just comments. Metadata has its own separate syntax.</p>
 <h2 id="directives_1">Directives<a id="directives-1"></a><a class="headerlink" href="#directives_1" title="Permanent link"></a></h2>
-<p>For a quick reference &amp; overview of directive syntax, please consult the <a href="beancount_cheat_sheet.html"><span class="underline">Syntax Cheat Sheet</span></a>.</p>
+<p>For a quick reference &amp; overview of directive syntax, please consult the <a href="beancount_cheat_sheet.html"><u>Syntax Cheat Sheet</u></a>.</p>
 <h3 id="open">Open<a id="open"></a><a class="headerlink" href="#open" title="Permanent link"></a></h3>
 <p>All accounts need to be declared “open” in order to accept amounts posted to them. You do this by writing a directive that looks like this:</p>
 <pre><code>2014-05-01 open Liabilities:CreditCard:CapitalOne     USD
@@ -529,7 +529,7 @@ AIRMILE
   Assets:MyBank:Checking            -400.00 USD
   ! Assets:MyBank:Savings
 </code></pre>
-<p>This is useful in the intermediate stage of de-duping transactions (see <a href="getting_started_with_beancount.html"><span class="underline">Getting Started</span></a> document for more details).</p>
+<p>This is useful in the intermediate stage of de-duping transactions (see <a href="getting_started_with_beancount.html"><u>Getting Started</u></a> document for more details).</p>
 <p>The general format of a Transaction directive is:</p>
 <pre><code>YYYY-MM-DD [txn|Flag] [[Payee] Narration] [Flag] Account Amount [{Cost}] [@ Price] [Flag] Account Amount [{Cost}] [@ Price] ...
 </code></pre>
@@ -577,7 +577,7 @@ AIRMILE
    …
 </code></pre>
 <p><strong><em>Note for Ledger users.</em></strong> Ledger does not have separate narration and payee fields, it has only one field, which is referred to by the “Payee” metadata tag, and the narration ends up in a saved comment (a “persistent note”). In Beancount, a Transaction object simply has two fields: payee and narration, where payee just happens to have an empty value a lot of the time.</p>
-<p>For a deeper discussion of how and when to use payees or not, see <a href="http://furius.ca/beancount/doc/payee"><span class="underline">Payees, Subaccounts, and Assets</span></a>.</p>
+<p>For a deeper discussion of how and when to use payees or not, see <a href="http://furius.ca/beancount/doc/payee"><u>Payees, Subaccounts, and Assets</u></a>.</p>
 <h4 id="costs-and-prices">Costs and Prices<a id="costs-and-prices"></a><a class="headerlink" href="#costs-and-prices" title="Permanent link"></a></h4>
 <p>Postings represent a single amount being deposited to or withdrawn from an account. The simplest type of posting includes only its amount:</p>
 <pre><code>2012-11-03 * "Transfer to pay credit card"
@@ -602,7 +602,7 @@ AIRMILE
   Assets:ETrade:IVV                10 IVV {183.07 USD}
   Assets:ETrade:Cash         -1830.70 USD
 </code></pre>
-<p>This is the subject of a deeper discussion. Refer to “<a href="how_inventories_work.html"><span class="underline">How Inventories Work</span></a>” and “<a href="trading_with_beancount.html"><span class="underline">Trading with Beancount</span></a>” documents for an in-depth discussion of these topics.</p>
+<p>This is the subject of a deeper discussion. Refer to “<a href="how_inventories_work.html"><u>How Inventories Work</u></a>” and “<a href="trading_with_beancount.html"><u>Trading with Beancount</u></a>” documents for an in-depth discussion of these topics.</p>
 <p>Finally, you can include both a cost and a price on a posting:</p>
 <pre><code>2014-07-11 * "Sold shares of S&amp;P 500"
   Assets:ETrade:IVV               -10 IVV {183.07 USD} @ 197.90 USD
@@ -636,7 +636,7 @@ AIRMILE
 <p>Finally, if a posting <strong>has both a cost and a price</strong>, we simply ignore the price. This optional price is used later on to generate an entry in the in-memory prices database, but it is not used in balancing at all.</p>
 </li>
 </ol>
-<p>With this rule, you should be able to easily balance all your transactions. Moreover, this rule makes it possible to let Beancount automatically calculate capital gains for you (see <a href="trading_with_beancount.html"><span class="underline">Trading with Beancount</span></a> for details).</p>
+<p>With this rule, you should be able to easily balance all your transactions. Moreover, this rule makes it possible to let Beancount automatically calculate capital gains for you (see <a href="trading_with_beancount.html"><u>Trading with Beancount</u></a> for details).</p>
 <h4 id="reducing-positions">Reducing Positions<a id="reducing-positions"></a><a class="headerlink" href="#reducing-positions" title="Permanent link"></a></h4>
 <p>When you post a <em>reduction</em> to a position in an account, the reduction must always match an existing lot. For example, if an account holds 3200 USD and a transaction posts a -1200 USD change to that account, the 1200 USD match against the existing 3200 USD, and the result is a single position of 2000 USD. This also works for negative values. For example, if an account has a -1300 USD balance and you post a +2000 USD change to it, you obtain a 700 USD balance.</p>
 <p>A change posted to an account, regardless of the account type, can result in a positive or negative balance; there are no limitations on the balances of simple commodity amounts (that is, those with no cost associated to them). For example, while Assets accounts <em>normally</em> have a positive balance and Liabilities accounts <em>usually</em> a negative one, you can legally credit an Assets account to a negative balance, or debit a Liabilities account to a positive balance. This is because in the real world these things do happen: you might write a check too many and obtain temporary credit from your bank’s checking account (usually along with an outrageous “overdraft” fee), or pay that credit card balance twice by mistake.</p>
@@ -675,7 +675,7 @@ AIRMILE
 </code></pre>
 <p>If multiple lots match against the reducing posting and their number is not the total number, we are in a situation of <em>ambiguous matches</em>. What happens then, is that the account’s <em>booking method</em> is invoked. There are multiple booking methods, but by default, all accounts are set to use the “STRICT” booking method. This method simply issues an error in an ambiguous situation.</p>
 <p>You may set the account’s booking method to “FIFO” to instruct Beancount to select the oldest of the lots. Or “LIFO” for the latest (youngest) of the lots. This will automatically select all the necessary matching lots to fulfill the reduction.</p>
-<table><tbody><tr class="odd"><td><em><strong>PLEASE NOTE!</strong></em> Requiring the dates to match will be dealt with more sensibly in the near future. See <a href="a_proposal_for_an_improvement_on_inventory_booking.md"><span class="underline">A Proposal for an Improvement on Inventory Booking</span></a> for details of this upcoming change.</td></tr></tbody></table>
+<table><tbody><tr class="odd"><td><em><strong>PLEASE NOTE!</strong></em> Requiring the dates to match will be dealt with more sensibly in the near future. See <a href="a_proposal_for_an_improvement_on_inventory_booking.md"><u>A Proposal for an Improvement on Inventory Booking</u></a> for details of this upcoming change.</td></tr></tbody></table>
 
 <p>For such postings, a change that results in a negative number of units is usually impossible. Beancount does not currently allow holding a negative number of a commodity held at cost. For example, an input with just this transaction will fail:</p>
 <pre><code>2014-05-23 *
@@ -695,7 +695,7 @@ AIRMILE
 <p>This is why this check is enabled by default.</p>
 <table><tbody><tr class="odd"><td><em><strong>PLEASE NOTE!</strong></em> In a future version of Beancount, we will relax this constraint somewhat. We will allow an account to hold a negative number of units of a commodity if and only if there are no other units of that commodity held in the account. Either that, or we will allow you to mark an account as having no such constraints at all. The purpose is to allow the account of short positions in commodities. The only blocking factor is this constraint.</td></tr></tbody></table>
 
-<p>For more details of the inventory booking algorithm, see the <a href="how_inventories_work.html"><span class="underline">How Inventories Work</span></a> document.</p>
+<p>For more details of the inventory booking algorithm, see the <a href="how_inventories_work.html"><u>How Inventories Work</u></a> document.</p>
 <h4 id="amount-interpolation">Amount Interpolation<a id="amount-interpolation"></a><a class="headerlink" href="#amount-interpolation" title="Permanent link"></a></h4>
 <p>Beancount is able to fill in some of the details of a transaction automatically. You can currently elide the amount of <em>at most</em> one posting within a transaction:</p>
 <pre><code>2012-11-03 * "Transfer to pay credit card"
@@ -782,7 +782,7 @@ poptag #berlin-trip-2014
 <pre><code>2014-12-26 balance Liabilities:US:CreditCard   -3492.02 USD
 </code></pre>
 <p>says “Check that the number of USD units in account “<code>Liabilities:US:CreditCard</code>” on the <em>morning</em> of December 26th, 2014 is -3492.02 USD.” When processing the list of entries, if Beancount encounters a different balance than this for USD it will report an error.</p>
-<p>If no error is reported, you should have some confidence that the list of transactions that precedes it in this account is highly likely to be correct. This is useful in practice, because in many cases some transactions can get imported separately from the accounts of each of their postings (see <a href="getting_started_with_beancount.html"><span class="underline">the de-duping problem</span></a>). This can result in you booking the same transaction twice without noticing, and regularly inserting a balance assertion will catch that problem every time.</p>
+<p>If no error is reported, you should have some confidence that the list of transactions that precedes it in this account is highly likely to be correct. This is useful in practice, because in many cases some transactions can get imported separately from the accounts of each of their postings (see <a href="getting_started_with_beancount.html"><u>the de-duping problem</u></a>). This can result in you booking the same transaction twice without noticing, and regularly inserting a balance assertion will catch that problem every time.</p>
 <p>The general format of the Balance directive is:</p>
 <pre><code>YYYY-MM-DD balance Account Amount
 </code></pre>
@@ -796,7 +796,7 @@ poptag #berlin-trip-2014
 2014-08-09 balance Assets:Cash     210.00 CAD
 2014-08-09 balance Assets:Cash      60.00 EUR
 </code></pre>
-<p>There is currently no way to exhaustively check the full list of commodities in an account (<a href="balance_assertions_in_beancount.html"><span class="underline">a proposal is underway</span></a>).</p>
+<p>There is currently no way to exhaustively check the full list of commodities in an account (<a href="balance_assertions_in_beancount.html"><u>a proposal is underway</u></a>).</p>
 <p>Note that in this example if an exhaustive check really matters to you, you could circumvent by defining a subaccount of the cash account to segregate each commodity separately, like this <code>Assets:Cash:USD</code>, <code>Assets:Cash:CAD</code>.</p>
 <h4 id="lots-are-aggregated">Lots Are Aggregated<a id="lots-are-aggregated"></a><a class="headerlink" href="#lots-are-aggregated" title="Permanent link"></a></h4>
 <p>The balance assertion applies to the sum of units of a particular commody, irrespective of their cost. For example, if you hold three lots of the same commodity in an account, for example, 5 HOOL {500 USD} and 6 HOOL {510 USD}, the following balance check should succeed:</p>
@@ -897,7 +897,7 @@ poptag #berlin-trip-2014
 
 2014-04-19 balance Assets:Cash    987.34 USD
 </code></pre>
-<p>(There is a <a href="http://furius.ca/beancount/doc/proposal-padding"><span class="underline">proposal</span></a> pending to allow this and spread the padding amount evenly among all the intervening Pad directives, but it is as of yet unimplemented.)</p>
+<p>(There is a <a href="http://furius.ca/beancount/doc/proposal-padding"><u>proposal</u></a> pending to allow this and spread the padding amount evenly among all the intervening Pad directives, but it is as of yet unimplemented.)</p>
 <h3 id="notes">Notes<a id="notes"></a><a class="headerlink" href="#notes" title="Permanent link"></a></h3>
 <p>A Note directive is simply used to attach a dated comment to the journal of a particular account, like this:</p>
 <pre><code>2013-11-03 note Liabilities:CreditCard "Called about fraudulent card."
@@ -981,8 +981,8 @@ poptag #berlin-trip-2014
 <p><strong>Trading window</strong>: If you’re an employee of a public company, you can record the dates that you’re allowed to trade its stock. This can then be used to ensure you did not trade that stock when the window is closed.</p>
 </li>
 </ul>
-<p>Events are often used to report on numbers of days. For example, in the province of Quebec (Canada) you are insured for free health care coverage if “<a href="http://www.ramq.gouv.qc.ca/en/citizens/health-insurance/registration/Pages/eligibility.aspx"><span class="underline">you spend 183 days of the calendar year or more, excluding trips of 21 days or less</span></a>.” If you travel abroad a lot, you could easily write a script to warn you of remaining day allocations to avoid losing your coverage. Many expats are in similar situations.</p>
-<p>In the same vein, the IRS recognizes US immigrants as “resident alien”—and thus subject to filing taxes, yay!—if you pass the <a href="http://www.irs.gov/Individuals/International-Taxpayers/Substantial-Presence-Test"><span class="underline">Substantial Presence Test</span></a>, which is defined as “being physically present in the US on at least 31 days during the current year, and 193 days during the 3 year period that includes the current year and the 2 years immediately before that, counting: all the days you were present in the current year, and ⅓ of the days of the year before that, and ⅙ of the year preceding that one.” Ouch… my head hurts. This gets complicated. Armed with your location over time, you could report it automatically.</p>
+<p>Events are often used to report on numbers of days. For example, in the province of Quebec (Canada) you are insured for free health care coverage if “<a href="http://www.ramq.gouv.qc.ca/en/citizens/health-insurance/registration/Pages/eligibility.aspx"><u>you spend 183 days of the calendar year or more, excluding trips of 21 days or less</u></a>.” If you travel abroad a lot, you could easily write a script to warn you of remaining day allocations to avoid losing your coverage. Many expats are in similar situations.</p>
+<p>In the same vein, the IRS recognizes US immigrants as “resident alien”—and thus subject to filing taxes, yay!—if you pass the <a href="http://www.irs.gov/Individuals/International-Taxpayers/Substantial-Presence-Test"><u>Substantial Presence Test</u></a>, which is defined as “being physically present in the US on at least 31 days during the current year, and 193 days during the 3 year period that includes the current year and the 2 years immediately before that, counting: all the days you were present in the current year, and ⅓ of the days of the year before that, and ⅙ of the year preceding that one.” Ouch… my head hurts. This gets complicated. Armed with your location over time, you could report it automatically.</p>
 <p>Events will also be usable in the filtering language, to specify non-contiguous periods of time. For example, if you are tracking your location using Event directives, you could produce reports for transactions that occur only when you are in a specific location, e.g., “Show me my expenses on all my trips to Germany,” or “Give me a list of payees for restaurant transactions when I’m in Montreal.”</p>
 <table><tbody><tr class="odd"><td><em><strong>PLEASE NOTE!</strong></em> Filters haven’t been implemented yet. Also, reports on events have not yet been re-implemented in Beancount 2.0. They will be reintroduced again soon, as well as filtering.</td></tr></tbody></table>
 
@@ -1004,7 +1004,7 @@ poptag #berlin-trip-2014
 <pre><code>YYYY-MM-DD custom TypeName Value1 ...
 </code></pre>
 <p>The first argument is a string and is intended to be unique to your directive. Think of this as the type of your directive. Following it, you can put an arbitrary list of strings, dates, booleans, amounts, and numbers. Note that there is no validation that checks that the number and types of arguments following the <em>TypeName</em> is consistent for a particular type.</p>
-<p>(See <a href="https://groups.google.com/d/msg/beancount/R9wWrdP6mVU/yfCaD3XaDgAJ"><span class="underline">this thread</span></a> for the origin story around this feature.)</p>
+<p>(See <a href="https://groups.google.com/d/msg/beancount/R9wWrdP6mVU/yfCaD3XaDgAJ"><u>this thread</u></a> for the origin story around this feature.)</p>
 <h2 id="metadata_1">Metadata<a id="metadata-1"></a><a class="headerlink" href="#metadata_1" title="Permanent link"></a></h2>
 <p>You may attach arbitrary data to each of your entries and postings. The syntax for it looks like this:</p>
 <pre><code>2013-03-14 open Assets:BTrade:HOOLI
@@ -1064,13 +1064,13 @@ poptag #berlin-trip-2014
 <p>There are three ways to view the list of options:</p>
 <ul>
 <li>
-<p>In <a href="beancount_options_reference.html"><span class="underline">this document</span></a>, which I update regularly.</p>
+<p>In <a href="beancount_options_reference.html"><u>this document</u></a>, which I update regularly.</p>
 </li>
 <li>
 <p>To view the definitive list of options supported by your installed version, use the following command: <code>bean-doctor list-options</code></p>
 </li>
 <li>
-<p>Finally, you can <a href="http://github.com/beancount/beancount/tree/master/beancount/parser/options.py"><span class="underline">peek at the source code</span></a> as well.</p>
+<p>Finally, you can <a href="http://github.com/beancount/beancount/tree/master/beancount/parser/options.py"><u>peek at the source code</u></a> as well.</p>
 </li>
 </ul>
 <h3 id="operating-currencies">Operating Currencies<a id="operating-currencies"></a><a class="headerlink" href="#operating-currencies" title="Permanent link"></a></h3>
@@ -1085,7 +1085,7 @@ poptag #berlin-trip-2014
 <p>In order to load plugin Python modules, use the dedicated “plugin” directive:</p>
 <pre><code>plugin "beancount.plugins.module_name"
 </code></pre>
-<p>The name of a plugin should be the name of a Python module in your PYTHONPATH. Those modules will be imported by the Beancount loader and run on the list of parsed entries in order for the plugins to transform the entries or output errors. This allows you to integrate some of your code within Beancount, making arbitrary transformations on the entries. See <a href="beancount_scripting_plugins.html"><span class="underline">Scripting &amp; Plugins</span></a> for details.</p>
+<p>The name of a plugin should be the name of a Python module in your PYTHONPATH. Those modules will be imported by the Beancount loader and run on the list of parsed entries in order for the plugins to transform the entries or output errors. This allows you to integrate some of your code within Beancount, making arbitrary transformations on the entries. See <a href="beancount_scripting_plugins.html"><u>Scripting &amp; Plugins</u></a> for details.</p>
 <p>Plugins also optionally accept some configuration parameters. These can be provided by an optional final string argument, like this:</p>
 <pre><code>plugin "beancount.plugins.module_name" "configuration data"
 </code></pre>
@@ -1105,7 +1105,7 @@ poptag #berlin-trip-2014
 <p>Include directives are not processed strictly (as in C, for example). The include directives are accumulated by the Beancount parser and processed separately by the loader. This is possible because the order of declarations of a Beancount input file is not relevant.</p>
 <p>However, for the moment, options are parsed per-file. The options-map that is kept for post-parse processing is the options-map returned for the top-level file. This is probably subject to review in the future.</p>
 <h2 id="whats-next">What’s Next?<a id="whats-next"></a><a class="headerlink" href="#whats-next" title="Permanent link"></a></h2>
-<p>This document described all the possible syntax of the Beancount language. If you haven’t written any Beancount input yet, you can head to the <a href="getting_started_with_beancount.html"><span class="underline">Getting Started</span></a> guide, or browse through a list of practical use cases in the <a href="command_line_accounting_cookbook.html"><span class="underline">Command-line Accounting Cookbook</span></a>.</p>
+<p>This document described all the possible syntax of the Beancount language. If you haven’t written any Beancount input yet, you can head to the <a href="getting_started_with_beancount.html"><u>Getting Started</u></a> guide, or browse through a list of practical use cases in the <a href="command_line_accounting_cookbook.html"><u>Command-line Accounting Cookbook</u></a>.</p>
 <div class="footnote">
 <hr />
 <ol>

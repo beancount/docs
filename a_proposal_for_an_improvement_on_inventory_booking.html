@@ -316,46 +316,46 @@
           <div role="main">
             <div class="section">
               
-                <p>Inventory Booking </p>
+                <h1 id="inventory-booking">Inventory Booking<a class="headerlink" href="#inventory-booking" title="Permanent link"></a></h1>
 <p>A Proposal for an Improvement on Command-Line Bookkeeping</p>
-<h1 id="_1"><a id="title"></a><a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p><a id="title"></a></p>
 <p>Martin Blais, June 2014</p>
-<p><a href="http://furius.ca/beancount/doc/proposal-booking"><span class="underline">http://furius.ca/beancount/doc/proposal-booking</span></a></p>
+<p><a href="http://furius.ca/beancount/doc/proposal-booking"><u>http://furius.ca/beancount/doc/proposal-booking</u></a></p>
 <blockquote>
-<p><a href="#motivation"><span class="underline">Motivation</span></a></p>
-<p><a href="#problem-description"><span class="underline">Problem Description</span></a></p>
-<p><a href="#lot-date"><span class="underline">Lot Date</span></a></p>
-<p><a href="#average-cost-basis"><span class="underline">Average Cost Basis</span></a></p>
-<p><a href="#capital-gains-sans-commissions"><span class="underline">Capital Gains Sans Commissions</span></a></p>
-<p><a href="#cost-basis-adjustments"><span class="underline">Cost Basis Adjustments</span></a></p>
-<p><a href="#dealing-with-stock-splits"><span class="underline">Dealing with Stock Splits</span></a></p>
-<p><a href="#previous-solutions"><span class="underline">Previous Solutions</span></a></p>
-<p><a href="#shortcomings-in-ledger"><span class="underline">Shortcomings in Ledger</span></a></p>
-<p><a href="#shortcomings-in-beancount"><span class="underline">Shortcomings in Beancount</span></a></p>
-<p><a href="#requirements"><span class="underline">Requirements</span></a></p>
-<p><a href="#debugging-tools"><span class="underline">Debugging Tools</span></a></p>
-<p><a href="#explicit-vs.-implicit-booking-reduction"><span class="underline">Explicit vs. Implicit Booking Reduction</span></a></p>
-<p><a href="#design-proposal"><span class="underline">Design Proposal</span></a></p>
-<p><a href="#inventory"><span class="underline">Inventory</span></a></p>
-<p><a href="#input-syntax-filtering"><span class="underline">Input Syntax &amp; Filtering</span></a></p>
-<p><a href="#algorithm"><span class="underline">Algorithm</span></a></p>
-<p><a href="#implicit-booking-methods"><span class="underline">Implicit Booking Methods</span></a></p>
-<p><a href="#dates-inserted-by-default"><span class="underline">Dates Inserted by Default</span></a></p>
-<p><a href="#matching-with-no-information"><span class="underline">Matching with No Information</span></a></p>
-<p><a href="#reducing-multiple-lots"><span class="underline">Reducing Multiple Lots</span></a></p>
-<p><a href="#examples"><span class="underline">Examples</span></a></p>
-<p><a href="#no-conflict"><span class="underline">No Conflict</span></a></p>
-<p><a href="#explicit-selection-by-cost"><span class="underline">Explicit Selection By Cost</span></a></p>
-<p><a href="#explicit-selection-by-date"><span class="underline">Explicit Selection By Date</span></a></p>
-<p><a href="#explicit-selection-by-label"><span class="underline">Explicit Selection By Label</span></a></p>
-<p><a href="#explicit-selection-by-combination"><span class="underline">Explicit Selection By Combination</span></a></p>
-<p><a href="#not-enough-units"><span class="underline">Not Enough Units</span></a></p>
-<p><a href="#redundant-selection-of-same-lot"><span class="underline">Redundant Selection of Same Lot</span></a></p>
-<p><a href="#automatic-price-extrapolation"><span class="underline">Automatic Price Extrapolation</span></a></p>
-<p><a href="#average-cost-booking"><span class="underline">Average Cost Booking</span></a></p>
-<p><a href="#future-work"><span class="underline">Future Work</span></a></p>
-<p><a href="#implementation-notes"><span class="underline">Implementation Note</span></a></p>
-<p><a href="#conclusion"><span class="underline">Conclusion</span></a></p>
+<p><a href="#motivation"><u>Motivation</u></a></p>
+<p><a href="#problem-description"><u>Problem Description</u></a></p>
+<p><a href="#lot-date"><u>Lot Date</u></a></p>
+<p><a href="#average-cost-basis"><u>Average Cost Basis</u></a></p>
+<p><a href="#capital-gains-sans-commissions"><u>Capital Gains Sans Commissions</u></a></p>
+<p><a href="#cost-basis-adjustments"><u>Cost Basis Adjustments</u></a></p>
+<p><a href="#dealing-with-stock-splits"><u>Dealing with Stock Splits</u></a></p>
+<p><a href="#previous-solutions"><u>Previous Solutions</u></a></p>
+<p><a href="#shortcomings-in-ledger"><u>Shortcomings in Ledger</u></a></p>
+<p><a href="#shortcomings-in-beancount"><u>Shortcomings in Beancount</u></a></p>
+<p><a href="#requirements"><u>Requirements</u></a></p>
+<p><a href="#debugging-tools"><u>Debugging Tools</u></a></p>
+<p><a href="#explicit-vs.-implicit-booking-reduction"><u>Explicit vs. Implicit Booking Reduction</u></a></p>
+<p><a href="#design-proposal"><u>Design Proposal</u></a></p>
+<p><a href="#inventory"><u>Inventory</u></a></p>
+<p><a href="#input-syntax-filtering"><u>Input Syntax &amp; Filtering</u></a></p>
+<p><a href="#algorithm"><u>Algorithm</u></a></p>
+<p><a href="#implicit-booking-methods"><u>Implicit Booking Methods</u></a></p>
+<p><a href="#dates-inserted-by-default"><u>Dates Inserted by Default</u></a></p>
+<p><a href="#matching-with-no-information"><u>Matching with No Information</u></a></p>
+<p><a href="#reducing-multiple-lots"><u>Reducing Multiple Lots</u></a></p>
+<p><a href="#examples"><u>Examples</u></a></p>
+<p><a href="#no-conflict"><u>No Conflict</u></a></p>
+<p><a href="#explicit-selection-by-cost"><u>Explicit Selection By Cost</u></a></p>
+<p><a href="#explicit-selection-by-date"><u>Explicit Selection By Date</u></a></p>
+<p><a href="#explicit-selection-by-label"><u>Explicit Selection By Label</u></a></p>
+<p><a href="#explicit-selection-by-combination"><u>Explicit Selection By Combination</u></a></p>
+<p><a href="#not-enough-units"><u>Not Enough Units</u></a></p>
+<p><a href="#redundant-selection-of-same-lot"><u>Redundant Selection of Same Lot</u></a></p>
+<p><a href="#automatic-price-extrapolation"><u>Automatic Price Extrapolation</u></a></p>
+<p><a href="#average-cost-booking"><u>Average Cost Booking</u></a></p>
+<p><a href="#future-work"><u>Future Work</u></a></p>
+<p><a href="#implementation-notes"><u>Implementation Note</u></a></p>
+<p><a href="#conclusion"><u>Conclusion</u></a></p>
 </blockquote>
 <h2 id="motivation">Motivation<a id="motivation"></a><a class="headerlink" href="#motivation" title="Permanent link"></a></h2>
 <p>The problem of “inventory booking,” that is, selecting which of an inventory’s trade lots to reduce when closing a position, is a tricky one. So far, in the command-line accounting community, relatively little progress has been made in supporting the flexibility to deal with many common real-life cases. This document offers a discussion of the current state of affairs, describes the common use cases we would like to be able to solve, identifies a set of requirements for a better booking method, and proposes a syntax and implementation design to support these requirements, along with clearly defined semantics for the booking method.</p>
@@ -373,7 +373,7 @@
   Expenses:Commissions          9.95 USD
 </code></pre>
 <p>We will call the two sets of shares “trade lots” and assume that the underlying system that counts them is keeping track of each of their cost and date of acquisition separately.</p>
-<p>The question here is, if we were to sell some of this stock, <em>which of the shares should we select?</em> Those from the first trade, or those from the second? This is an important decision, because it has an impact on capital gains, and thus on taxes. (The account of capital gains is described in more detail in the <a href="trading_with_beancount.html"><span class="underline">“Stock Trading” section of the Beancount cookbook</span></a> if you need an explanation of this.) Depending on our financial situation, this year’s trading history, and the unrealized gains that a trade would realize, sometimes we may want to select one lot over another. By now, most discount brokers even let you select your specific lot when you place a trade that reduces or closes a position.</p>
+<p>The question here is, if we were to sell some of this stock, <em>which of the shares should we select?</em> Those from the first trade, or those from the second? This is an important decision, because it has an impact on capital gains, and thus on taxes. (The account of capital gains is described in more detail in the <a href="trading_with_beancount.html"><u>“Stock Trading” section of the Beancount cookbook</u></a> if you need an explanation of this.) Depending on our financial situation, this year’s trading history, and the unrealized gains that a trade would realize, sometimes we may want to select one lot over another. By now, most discount brokers even let you select your specific lot when you place a trade that reduces or closes a position.</p>
 <p>It is important to emphasize here the two directions of inventory booking:</p>
 <ol>
 <li>
@@ -440,7 +440,7 @@
 </ol>
 <p>After the transaction, we would end up with a single position of 13 HOOL {504.44 USD). Adding to this position at a different price would create a new lot, and those would get merged again the next time a reduction occurs at average cost. We do not need to merge lots until there is a reduction. Apart from concerns of accumulating rounding error, this solution is correct mathematically, and maintains the property that accounts aren’t coerced into any specific booking method—a mix of methods could be used on every reduction. This is a nice property, even if not strictly necessary, and even if we want to be able to just specify a “default” booking method to use per account and just stick with it throughout. It’s always nice to have the flexibility to support exceptions, because in real life, they sometimes occur.</p>
 <h3 id="capital-gains-sans-commissions">Capital Gains Sans Commissions<a id="capital-gains-sans-commissions"></a><a class="headerlink" href="#capital-gains-sans-commissions" title="Permanent link"></a></h3>
-<p>We would like to be able to support the automatic calculation of capital gains without the commissions. This problem is described in much detail in the <a href="trading_with_beancount.html"><span class="underline">Commissions section of the trading documentation</span></a> and in a <a href="https://groups.google.com/d/msg/ledger-cli/zRSMle5AV3Q/ySUgsMVNg-kJ"><span class="underline">thread on the mailing-list</span></a>. The essence of the complication that occurs is that one cannot simply subtract the commissions incurred during the reporting period from the gains that include commissions, because the commissions that were incurred to acquire the position must be pro-rated to the shares of the position that are sold. The simplest and most common way to implement this is to include the costs of acquiring the position into the cost basis of the position itself, and deduct the selling costs from the market value when a position is reduced.</p>
+<p>We would like to be able to support the automatic calculation of capital gains without the commissions. This problem is described in much detail in the <a href="trading_with_beancount.html"><u>Commissions section of the trading documentation</u></a> and in a <a href="https://groups.google.com/d/msg/ledger-cli/zRSMle5AV3Q/ySUgsMVNg-kJ"><u>thread on the mailing-list</u></a>. The essence of the complication that occurs is that one cannot simply subtract the commissions incurred during the reporting period from the gains that include commissions, because the commissions that were incurred to acquire the position must be pro-rated to the shares of the position that are sold. The simplest and most common way to implement this is to include the costs of acquiring the position into the cost basis of the position itself, and deduct the selling costs from the market value when a position is reduced.</p>
 <p>Whatever new design we come up with must allow us to count these adjusted gains as this is essential to various individuals' situations. In Beancount, I have figured out a solution for this problem, which luckily enough involves only an automated transformation of a transaction flagged by the presence of a special flag on its postings... if and only if I can find a way to specify which lot to book against without having to specify its cost, because once the cost of commissions gets folded into the cost of the position, the adjusted cost does not show up anywhere in the input file, the user would have to calculate it manually, which is unreasonable. In the solution I’m proposing, the following transactions would be transformed automatically, triggered by the presence of the “C” flag:</p>
 <pre><code>2014-02-10 * "Buy"
   Assets:US:Invest:Cash    -5009.95 USD
@@ -511,19 +511,19 @@
   Assets:Investments:Stock        10 HOOL  {500.00 USD}
   Assets:Investments:Stock        10 HOOLL {500.00 USD}
 </code></pre>
-<p>One problem with splitting lots this way is that the price and meaning of a HOOL unit before and after the split differs, but let’s just assume we’re okay with that for now (this can be solved by <em>relabeling</em> the commodity by using another name, ideally in a way that is not visible to the user - we have a <a href="https://docs.google.com/document/d/1Y_h5sjUTJzdK1riRh-mrVQm9KCzqFlU65KMsMsrQgXk/"><span class="underline">pending discussion elsewhere</span></a>).</p>
+<p>One problem with splitting lots this way is that the price and meaning of a HOOL unit before and after the split differs, but let’s just assume we’re okay with that for now (this can be solved by <em>relabeling</em> the commodity by using another name, ideally in a way that is not visible to the user - we have a <a href="https://docs.google.com/document/d/1Y_h5sjUTJzdK1riRh-mrVQm9KCzqFlU65KMsMsrQgXk/"><u>pending discussion elsewhere</u></a>).</p>
 <p>The issue that concerns booking is, when you sell that position, which cost do you use? The inventory will contain positions at 500 USD, so that’s what you should be using, but is it obvious to the user? We can assume this can be learned with a recipe .</p>
 <p>Now, what if we automatically attach the transaction date? Does it get reset on the split and now you would have to use 2014-04-17? If so, we could not automatically inspect the list of trades to determine whether this is a long-term vs. short-term trade. We need to somehow preserve some of the attributes of the original event that augmented this position, which includes the original trade date (not the split date) and the original user-specified label on the position, if one was provided.</p>
 <h3 id="forcing-a-single-method-per-account">Forcing a Single Method per Account<a id="forcing-a-single-method-per-account"></a><a class="headerlink" href="#forcing-a-single-method-per-account" title="Permanent link"></a></h3>
-<p>For accounts that will use the average booking method, it may be useful to <a href="https://groups.google.com/d/msg/ledger-cli/aQvbjTZa7HE/55mx1LSM0sIJ"><span class="underline">allow specifying that an account should only use this booking method</span></a>. The idea is to avoid data entry errors when we know that an account is only able to use this method.</p>
+<p>For accounts that will use the average booking method, it may be useful to <a href="https://groups.google.com/d/msg/ledger-cli/aQvbjTZa7HE/55mx1LSM0sIJ"><u>allow specifying that an account should only use this booking method</u></a>. The idea is to avoid data entry errors when we know that an account is only able to use this method.</p>
 <p>One way to ensure this is to automatically aggregate inventory lots when augmenting a position. This ensures that at any point in time, there is only a single lot for each commodity. If we associated an inventory booking type to each account, we could define a special one that also triggers aggregation upon the addition of a position.</p>
 <p>Another approach would be to not enforce these aggregations, but to provide a plugin that would check that for those accounts that are marked as using the average cost inventory booking method by default, that only such bookings actually take place.</p>
 <h2 id="previous-solutions">Previous Solutions<a id="previous-solutions"></a><a class="headerlink" href="#previous-solutions" title="Permanent link"></a></h2>
 <p>This section reviews existing implementations of booking methods in command-line bookkeeping systems and highlights specific shortcomings that motivate why we need to define a new method.</p>
 <h3 id="shortcomings-in-ledger">Shortcomings in Ledger<a id="shortcomings-in-ledger"></a><a class="headerlink" href="#shortcomings-in-ledger" title="Permanent link"></a></h3>
 <p><em>(Please note: I’m not deeply familiar with the finer details of the inner workings of Ledger; I inferred its behavior from building test examples and reading the docs. If I got any of this wrong, please do let me know by leaving a comment.)</em></p>
-<p>Ledger’s approach to booking is quite liberal. Internally, <a href="http://www.google.com/url?q=http%3A%2F%2Fledger-cli.org%2F3.0%2Fdoc%2Fledger3.html%23Prices-versus-costs&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGAZPEtX3TjQysbqsDnF48d5a29Hw"><span class="underline">Ledger does not distinguish between conversions held at cost and regular price conversions</span></a>: all conversions are assumed held at cost, and the only place trading lots appear is at reporting time (using its <code>--lots</code> option).</p>
-<p>Its “<code>{}</code>” cost syntax is <a href="http://ledger-cli.org/3.0/doc/ledger3.html#Explicit-posting-costs"><span class="underline">meant to be used to disambiguate lots on a position reduction</span></a>, not to be used when acquiring a position. The cost of acquiring a position is specified using the “<code>@</code>” price notation:</p>
+<p>Ledger’s approach to booking is quite liberal. Internally, <a href="http://www.google.com/url?q=http%3A%2F%2Fledger-cli.org%2F3.0%2Fdoc%2Fledger3.html%23Prices-versus-costs&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGAZPEtX3TjQysbqsDnF48d5a29Hw"><u>Ledger does not distinguish between conversions held at cost and regular price conversions</u></a>: all conversions are assumed held at cost, and the only place trading lots appear is at reporting time (using its <code>--lots</code> option).</p>
+<p>Its “<code>{}</code>” cost syntax is <a href="http://ledger-cli.org/3.0/doc/ledger3.html#Explicit-posting-costs"><u>meant to be used to disambiguate lots on a position reduction</u></a>, not to be used when acquiring a position. The cost of acquiring a position is specified using the “<code>@</code>” price notation:</p>
 <pre><code>2014/05/01 * Buy some stock (Ledger syntax)
   Assets:Investments:Stock        10 HOOL @ 500 USD
   Assets:Investments:Cash
@@ -558,7 +558,7 @@
 133.33 USD {0.75 EUR} [2014/05/21]
 400.00 USD {1.25 CAD} [2014/05/01]  Assets:US:Checking
 </code></pre>
-<p>The currencies are treated like stock. But <a href="https://groups.google.com/d/msg/ledger-cli/zRSMle5AV3Q/kBCYjVEB-gsJ"><span class="underline">nobody thinks of their currency balances like this</span></a>, one normally thinks of currencies held in an account as units in and of themselves, not in terms of their price related to some other currency. In my view, this is confusing. After these conversions, I just think of the balance of that account as 1033.33 USD.</p>
+<p>The currencies are treated like stock. But <a href="https://groups.google.com/d/msg/ledger-cli/zRSMle5AV3Q/kBCYjVEB-gsJ"><u>nobody thinks of their currency balances like this</u></a>, one normally thinks of currencies held in an account as units in and of themselves, not in terms of their price related to some other currency. In my view, this is confusing. After these conversions, I just think of the balance of that account as 1033.33 USD.</p>
 <p>A possible rebuttal to this observation is that most of the time a user does not care about inventory lots for accounts with just currencies, so they just happen not print them out. Out of sight, out of mind. But there is no way to distinguish when the rendering routine should render lots or not. If instructed to produce a report, a balance routine should ideally only render lots only for some accounts (e.g., investing accounts, where the cost of units matters) and not for others (e.g. accounts with currencies that were deposited sometimes as a result of conversions). Moreover, when I render a balance sheet, for units held at cost we need to report the book values rather than the number of shares. But for currencies, the currency units themselves need to get reported, always. If you don’t distinguish between the two cases, how do you know which to render? I think the answer is to select which view you want to render using the options. The problem is that neither provides a single unified view that does the correct thing for both types of commodities. The user should not have to specify options to view partially incorrect views in one style or the other, this should be automatic and depend on whether we care about the cost of those units. This gets handled correctly if you distinguish between the two kinds of conversions.</p>
 <p>But perhaps most importantly, this method does not particularly address the <em>conversion problem</em>: it is still possible to create money out of thin air by making conversions back and forth at different rates:</p>
 <pre><code>2014/05/01 Transfer to Canada
@@ -603,7 +603,7 @@
 <pre><code>$ ledger -f l5.lgr bal --lots 
               USD100  Equity:Capital Gains
 </code></pre>
-<p>As you see, the HOOL position has been eliminated. (Don’t mind the auto-inserted equity entry in the output, I believe this will be fixed in a <a href="http://bugs.ledger-cli.org/show_bug.cgi?id=712"><span class="underline">pending patch</span></a>.) However, both the date and the cost must be specified for this to work. The following transactions results in a similar problematic long + short position inventory as mentioned above:</p>
+<p>As you see, the HOOL position has been eliminated. (Don’t mind the auto-inserted equity entry in the output, I believe this will be fixed in a <a href="http://bugs.ledger-cli.org/show_bug.cgi?id=712"><u>pending patch</u></a>.) However, both the date and the cost must be specified for this to work. The following transactions results in a similar problematic long + short position inventory as mentioned above:</p>
 <pre><code>2014/05/01 Enter a position
   Assets:Investments:Stock      10 HOOL @ 500 USD
   Assets:Investments:Cash
@@ -623,7 +623,7 @@
               USD100
 </code></pre>
 <p>This is a bit surprising, I expected the lots to book against each other. I suspect this may be an unreported bug, and not intended behaviour.</p>
-<p>Finally, the “<code>{}</code>” cost syntax is allowed be used on augmenting legs as well. The documentation <a href="http://ledger-cli.org/3.0/doc/ledger3.html#Prices-versus-costs"><span class="underline">points to these methods being equivalent</span></a>. It results in an inventory lot that does not have a date associated with it, but the other leg is not converted to cost:</p>
+<p>Finally, the “<code>{}</code>” cost syntax is allowed be used on augmenting legs as well. The documentation <a href="http://ledger-cli.org/3.0/doc/ledger3.html#Prices-versus-costs"><u>points to these methods being equivalent</u></a>. It results in an inventory lot that does not have a date associated with it, but the other leg is not converted to cost:</p>
 <pre><code>2014/05/01 Enter a position
   Assets:Investments:Stock      10 HOOL {500 USD}
   Assets:Investments:Cash
@@ -653,7 +653,7 @@
 <p>(If this is correct, I believe that to be a problem with its design: the mechanism by which an inventory reduction is booked to an existing set of lots should definitely not be a reporting feature. It needs to occur before processing reports, so that a single and definitive history of inventory bookings can be realized. If variants in bookings are supported - and I don’t think this is a good idea - they should be supported before the reporting phase. In my view, altering inventory booking strategies from command-line options is a bad idea, the strategies in place should be fully defined by the language itself.)</p>
 <h3 id="shortcomings-in-beancount">Shortcomings in Beancount<a id="shortcomings-in-beancount"></a><a class="headerlink" href="#shortcomings-in-beancount" title="Permanent link"></a></h3>
 <p>Beancount also has various shortcomings, though different ones.</p>
-<p>In contrast to Ledger, Beancount <a href="https://groups.google.com/d/msg/ledger-cli/zRSMle5AV3Q/kBCYjVEB-gsJ"><span class="underline">disambiguates</span></a> between currency conversions and conversions “held at cost”:</p>
+<p>In contrast to Ledger, Beancount <a href="https://groups.google.com/d/msg/ledger-cli/zRSMle5AV3Q/kBCYjVEB-gsJ"><u>disambiguates</u></a> between currency conversions and conversions “held at cost”:</p>
 <pre><code>2014-05-01 * "Convert some Loonies to Franklins"
   Assets:CA:Checking          -6000 CAD
   Assets:Investments:Cash      5000 USD @ 1.2 CAD   ; Currency conversion
@@ -740,7 +740,7 @@
 <p>We want to change this in order to make the code clearer: there should be a separate “booking” stage, provided by a <strong>plugin</strong>, which resolves the partially specific lot reduction using the algorithm outlined in this document, and a separate method for inventory aggregation should not bother with any of those details. In fact, the inventory aggregation could potentially simply become an accumulated list of lots, and the summarization of them could take place a posteriori, with some conceptual similarly to when Ledger applies its aggregation. Just using a simple aggregation becomes more relevant once we begin entering more specific data about lots, such as always having an acquisition date, a label, and possibly even a link to the entry that created the lot. In order to trigger summarization sensibly, functions to convert and summarize accumulated inventories could be provided in the shell, such as “UNITS(inventory)”.</p>
 <h2 id="precision-for-interpolation">Precision for Interpolation<a id="precision-for-interpolation"></a><a class="headerlink" href="#precision-for-interpolation" title="Permanent link"></a></h2>
 <p>The interpolation capabilities will be extended to cover eliding a single number, any number, in any subset of postings whose “weights” resolve to a particular currency (e.g., “all postings with weights in USD”). The interpolation needs to occur at a particular precision. The interpolated number should be quantized automatically, and the number of fractional digits to quantize it to should be automatically inferred from the DisplayContext which is itself derived from the input file. Either the most common or the maximum number of digits witnessed in the file should be used.</p>
-<p>For a use case, see <a href="https://groups.google.com/d/msg/beancount/2fUcidr7oEs/Z-Fpzo0VYZMJ"><span class="underline">this thread</span></a>:</p>
+<p>For a use case, see <a href="https://groups.google.com/d/msg/beancount/2fUcidr7oEs/Z-Fpzo0VYZMJ"><u>this thread</u></a>:</p>
 <p><em>On Mon, Nov 24, 2014 at 12:33 PM, ELI &lt;eliptus@gmail.com&gt; wrote:</em></p>
 <p><em>Regarding the last piece on which there seems to be a misunderstanding between you and I, let me provide an standalone example, outside the context of the plugin. Since Vanguard only makes three decimal places of precision available me, I need to have the actual share count calculated from the price and transaction amount.</em></p>
 <p><em>For example, I have a transaction on my activities page with these details:</em></p>
@@ -759,7 +759,7 @@
 <p>The "*" will be required to merge all the lots into a single one (average cost booking) because the 48.62 USD they declare is _not_ one of your lots, but rather just the price of the asset that happened to be there on the day they took the fee. In other words, they take their fee in terms of units of each asset, priced at the current price, deducting against the cost basis of all your lots together (it doesn't matter which because this is a pre-tax account, so no capital gains are reported).</p>
 <p>Now you're asking, how could I avoid calculating 0.00041 myself?</p>
 <p>My first answer would be: let's first see if the OFX download from Vanguard includes the precision. That would solve it. I believe it does (I checked my own history of downloads and I have some numbers in there with 4 fractional digits).</p>
-<p>My second answer would be that - if you don't have the number of shares from the file - after I implement the much needed new inventory booking proposal (<a href="http://furius.ca/beancount/doc/proposal-booking"><span class="underline">http://furius.ca/beancount/doc/proposal-booking</span></a>), the interpolation capabilities will be vastly extended, such that eliding the number of shares would even be possible, like this:</p>
+<p>My second answer would be that - if you don't have the number of shares from the file - after I implement the much needed new inventory booking proposal (<a href="http://furius.ca/beancount/doc/proposal-booking"><u>http://furius.ca/beancount/doc/proposal-booking</u></a>), the interpolation capabilities will be vastly extended, such that eliding the number of shares would even be possible, like this:</p>
 <pre><code>  2014-11-23 * "Quarterly fee"
     Assets:US:Vanguard:VIIPX      VIIPX {* 48.62 USD}
     Expenses:Financial:Fees    0.02 USD
@@ -1208,7 +1208,7 @@
 </code></pre>
 <p>See the Smarter Elision document for more details on a proposal.</p>
 <h3 id="inter-account-booking">Inter-Account Booking<a id="inter-account-booking"></a><a class="headerlink" href="#inter-account-booking" title="Permanent link"></a></h3>
-<p>Some tax laws require a user to book according to a specific method, and this might apply between all accounts. This means that some sort of transfer needs to be applied in order to handle this correctly. See the <a href="http://furius.ca/beancount/doc/inter-account"><span class="underline">separate document</span></a> for detail.</p>
+<p>Some tax laws require a user to book according to a specific method, and this might apply between all accounts. This means that some sort of transfer needs to be applied in order to handle this correctly. See the <a href="http://furius.ca/beancount/doc/inter-account"><u>separate document</u></a> for detail.</p>
 <p><strong><em>TODO - complete this with more tests for average cost booking!</em></strong></p>
 <h2 id="implementation-notes">Implementation Notes<a id="implementation-notes"></a><a class="headerlink" href="#implementation-notes" title="Permanent link"></a></h2>
 <h3 id="separate-parsing-interpolation">Separate Parsing &amp; Interpolation<a id="separate-parsing-interpolation"></a><a class="headerlink" href="#separate-parsing-interpolation" title="Permanent link"></a></h3>
