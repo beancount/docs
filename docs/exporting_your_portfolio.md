@@ -1,28 +1,24 @@
-Exporting Your Portfolio<a id="title"></a>
-==========================================
+# Exporting Your Portfolio<a id="title"></a>
 
-[<span class="underline">Martin Blais</span>](mailto:blais@furius.ca), December 2015 (v2)
+[<u>Martin Blais</u>](mailto:blais@furius.ca), December 2015 (v2)
 
-[<span class="underline">http://furius.ca/beancount/doc/export</span>](http://furius.ca/beancount/doc/export)
+[<u>http://furius.ca/beancount/doc/export</u>](http://furius.ca/beancount/doc/export)
 
-Overview<a id="overview"></a>
------------------------------
+## Overview<a id="overview"></a>
 
 This document explains how to export your portfolio of holdings from Beancount to a Google Finance portfolio (and eventually to other portfolio tracking websites).
 
-*Note: This is the second version of this document, rewritten in Dec 2015, after greatly simplifying the process of exporting portfolios and completely separating the specification of stock tickers for price downloads. This new, simplified version only uses a single metadata field name: “export”. The previous document can be found [<span class="underline">here</span>](https://docs.google.com/document/d/1eZIDRmQZxR6cmDyOJf7U3BnCm4PDMah2twxYFfKPJtM/).*
+*Note: This is the second version of this document, rewritten in Dec 2015, after greatly simplifying the process of exporting portfolios and completely separating the specification of stock tickers for price downloads. This new, simplified version only uses a single metadata field name: “export”. The previous document can be found [<u>here</u>](https://docs.google.com/document/d/1eZIDRmQZxR6cmDyOJf7U3BnCm4PDMah2twxYFfKPJtM/).*
 
-Portfolio Tracking Tools<a id="portfolio-tracking-tools"></a>
--------------------------------------------------------------
+## Portfolio Tracking Tools<a id="portfolio-tracking-tools"></a>
 
-There are multiple websites on the internet that allow someone to create a portfolio of investments (or upload a list of transactions to create such a portfolio) and that reports on the changes in the portfolio due to price movements, shows you unrealized capital gains, etc. One such website is the [<span class="underline">Google Finance</span>](http://finance.google.com) portal. Another example is the [<span class="underline">Yahoo Finance</span>](http://finance.yahoo.com) one. These are convenient because they allow you to monitor the impact of price changes on your entire portfolio of assets, across all accounts, during the day or otherwise.
+There are multiple websites on the internet that allow someone to create a portfolio of investments (or upload a list of transactions to create such a portfolio) and that reports on the changes in the portfolio due to price movements, shows you unrealized capital gains, etc. One such website is the [<u>Google Finance</u>](http://finance.google.com) portal. Another example is the [<u>Yahoo Finance</u>](http://finance.yahoo.com) one. These are convenient because they allow you to monitor the impact of price changes on your entire portfolio of assets, across all accounts, during the day or otherwise.
 
 However, each of these sites expects their users to use their interfaces and workflows to painfully enter each of the positions one-by-one. A great advantage of using Beancount is that you should never have to enter this type of information manually; instead, you should be able to extract it and upload it to one of these sites. You can be independent of the particular portfolio tracking service you use and should be able to switch between them without losing any data; Beancount can serve as your pristine source for your list of holdings as your needs evolve.
 
 Google Finance supports an “import” feature to create portfolio data which supports the Microsoft OFX financial interchange data format. In this document, we show how we built a Beancount report that exports the portfolio of holdings to OFX for creating a Google Finance portfolio.
 
-Exporting to Google Finance<a id="exporting-to-google-finance"></a>
--------------------------------------------------------------------
+## Exporting to Google Finance<a id="exporting-to-google-finance"></a>
 
 ### Exporting your Holdings to OFX<a id="exporting-your-holdings-to-ofx"></a>
 
@@ -38,7 +34,7 @@ See the report’s own help for options:
 
 Then we have to import that OFX file in a web-based portfolio.
 
-1.  Visit [<span class="underline">http://finance.google.com</span>](http://finance.google.com) and click on “Portfolios” on the left (or simply visit [<span class="underline">https://www.google.com/finance/portfolio</span>](https://www.google.com/finance/portfolio), this works as of Jan 2015)
+1.  Visit [<u>http://finance.google.com</u>](http://finance.google.com) and click on “Portfolios” on the left (or simply visit [<u>https://www.google.com/finance/portfolio</u>](https://www.google.com/finance/portfolio), this works as of Jan 2015)
 
 2.  If you have an existing, previously imported portfolio, click on “Delete Portfolio” to get rid of it.
 
@@ -50,8 +46,7 @@ Then we have to import that OFX file in a web-based portfolio.
 
 You should never bother updating this portfolio directly using the website… instead, update your Beancount ledger file, re-export to a new OFX file, **delete** the previous portfolio and re-import a brand new one over it. Your pristine source is always your Beancount file, ideally you should never have to be worried about corrupting or deleting the portfolio data in any external website.
 
-Controlling Exported Commodities<a id="controlling-exported-commodities"></a>
------------------------------------------------------------------------------
+## Controlling Exported Commodities<a id="controlling-exported-commodities"></a>
 
 ### Declaring Your Commodities<a id="declaring-your-commodities"></a>
 
@@ -73,9 +68,9 @@ You can use any date for that Commodity directive. I recommend using the date of
 
 By default, all holdings are exported as positions with a ticker symbol named the same as the Beancount commodity that you used to define them. If you have a holding of “AAPL” units, it will create an export entry for “AAPL”. The export code attempts to export all holdings by default.
 
-However, in any but the simplest unambiguous cases, this is probably not good enough to produce a working Google Finance portfolio. The name for each commodity that you use in your Beancount input file may or may not correspond to a financial instrument in the Google Finance database; due to the very large number of symbols supported in its database, just specifying the ticker symbol is often ambiguous. Google Finance attempts to resolve an ambiguous symbol string to the most likely instrument in its database. It is possible that it resolves it to a different financial instrument from the one you intended. So even if you use the same basic symbol that is used by the exchange, you often still need to disambiguate the symbol by specifying which exchange or symbology it lives in. Google provides a [<span class="underline">list of these symbol spaces</span>](http://www.google.com/googlefinance/disclaimer/).
+However, in any but the simplest unambiguous cases, this is probably not good enough to produce a working Google Finance portfolio. The name for each commodity that you use in your Beancount input file may or may not correspond to a financial instrument in the Google Finance database; due to the very large number of symbols supported in its database, just specifying the ticker symbol is often ambiguous. Google Finance attempts to resolve an ambiguous symbol string to the most likely instrument in its database. It is possible that it resolves it to a different financial instrument from the one you intended. So even if you use the same basic symbol that is used by the exchange, you often still need to disambiguate the symbol by specifying which exchange or symbology it lives in. Google provides a [<u>list of these symbol spaces</u>](http://www.google.com/googlefinance/disclaimer/).
 
-Here is a real-life example. The symbol for the “[<span class="underline">CAD-Hedged MSCI EAFE Index</span>](http://www.blackrock.com/ca/individual/en/products/239624/ishares-msci-eafe-index-etf-cadhedged-fund)” ETF product issued by iShares/Blackrock is “`XIN`” on the Toronto Stock Exchange (`TSE`). If you just [<span class="underline">looked up “XIN” on Google Finance</span>](https://www.google.com/finance?q=xin), it would choose to resolve it by default to the more likely “`NYSE:XIN`” symbol ([<span class="underline">Xinyuan Real Estate Co. on the New York Stock Exchange</span>](https://www.google.com/finance?q=NYSE%3AXIN)). So you need to disambiguate it by specifying that the desired ETF ticker for this instrument is “`TSE:XIN`”.
+Here is a real-life example. The symbol for the “[<u>CAD-Hedged MSCI EAFE Index</u>](http://www.blackrock.com/ca/individual/en/products/239624/ishares-msci-eafe-index-etf-cadhedged-fund)” ETF product issued by iShares/Blackrock is “`XIN`” on the Toronto Stock Exchange (`TSE`). If you just [<u>looked up “XIN” on Google Finance</u>](https://www.google.com/finance?q=xin), it would choose to resolve it by default to the more likely “`NYSE:XIN`” symbol ([<u>Xinyuan Real Estate Co. on the New York Stock Exchange</u>](https://www.google.com/finance?q=NYSE%3AXIN)). So you need to disambiguate it by specifying that the desired ETF ticker for this instrument is “`TSE:XIN`”.
 
 ### Explicitly Specifying Exported Symbols<a id="explicitly-specifying-exported-symbols"></a>
 
@@ -91,7 +86,7 @@ The symbology used by Google Finance appears to follow the following syntax:
 
 ### *Exchange:Symbol*<a id="exchangesymbol"></a>
 
-where *Exchange* is a code either for the exchange where the stock trades, or for another source of financial data, e.g. “`MUTF`” for “mutual funds in the US”, [<span class="underline">and more</span>](http://www.google.com/googlefinance/disclaimer/). *Symbol* is a name that is unique within that exchange. I recommend searching for each of your financial instruments in Google Finance, confirming that the instrument corresponds to your instrument (by inspecting the full name, description and price), and inserting the corresponding code like this.
+where *Exchange* is a code either for the exchange where the stock trades, or for another source of financial data, e.g. “`MUTF`” for “mutual funds in the US”, [<u>and more</u>](http://www.google.com/googlefinance/disclaimer/). *Symbol* is a name that is unique within that exchange. I recommend searching for each of your financial instruments in Google Finance, confirming that the instrument corresponds to your instrument (by inspecting the full name, description and price), and inserting the corresponding code like this.
 
 ### Exporting to a Cash Equivalent<a id="exporting-to-a-cash-equivalent"></a>
 
@@ -118,7 +113,7 @@ Finally, all converted holdings are agglomerated into a single cash position. Th
 
 There is a small hiccup in this cash conversion story: the Google Finance importer does not appear to correctly grok an OFX position in “cash” amounts in the importer; I think this is probably just a bug in Google Finance’s import code (or perhaps I haven’t found the correct OFX field values to make this work).
 
-Instead, in order to insert a cash position the exporter uses a cash-equivalent commodity which always prices at 1 unit of the currency, e.g. $1.00 for US dollars. For example, for US dollars I I use [<span class="underline">VMMXX</span>](https://www.google.com/finance?q=MUTF:VMMXX) which is a Vanguard Prime Money Market Fund, and for Canadian dollars I use [<span class="underline">IGI806</span>](https://www.google.com/finance?q=MUTF_CA:IGI806). A good type of commodity for this is some sort of Money Market fund. It doesn’t matter so much which one you use, as long as it prices very close to 1. Find one.
+Instead, in order to insert a cash position the exporter uses a cash-equivalent commodity which always prices at 1 unit of the currency, e.g. $1.00 for US dollars. For example, for US dollars I I use [<u>VMMXX</u>](https://www.google.com/finance?q=MUTF:VMMXX) which is a Vanguard Prime Money Market Fund, and for Canadian dollars I use [<u>IGI806</u>](https://www.google.com/finance?q=MUTF_CA:IGI806). A good type of commodity for this is some sort of Money Market fund. It doesn’t matter so much which one you use, as long as it prices very close to 1. Find one.
 
 If you want to include cash commodities, you need to find such a commodity for each of the cash currencies you have on your books and tell Beancount about them. Typically that will be only one or two currencies.
 
@@ -147,8 +142,7 @@ All holdings in units of `RSPCAD` will thus not be exported.
 
 The question of whether some commodities should be exported or not sometimes presents interesting choices. Here is an example: I track my accumulated vacation hours in an asset account. The units are “`VACHR`”. I associate with this commodity a price that is roughly equivalent to my net hourly salary. This gives me a rough idea how much vacation time money is accumulated on the books, e.g. if I quit my job, how much I’d get paid. Do I want to them included in my total net worth? Should the value from those hours be reflected in the value of my exported portfolio? I think that largely depends on whether I plan to use up those vacations before I leave this job or not, whether I want to have this accumulated value show up on my balance sheet.
 
-Comparing with Net Worth<a id="comparing-with-net-worth"></a>
--------------------------------------------------------------
+## Comparing with Net Worth<a id="comparing-with-net-worth"></a>
 
 The end result is that the sum total of all your exported positions plus the cash position should approximate the value of all your assets, and the total value calculated by the Google Finance website should be very close to the one reported by this report:
 
@@ -156,8 +150,7 @@ The end result is that the sum total of all your exported positions plus the cas
 
 As a point of comparison, the value of my own portfolio is usually close to within a few hundred US dollars.
 
-Details of the OFX Export<a id="details-of-the-ofx-export"></a>
----------------------------------------------------------------
+## Details of the OFX Export<a id="details-of-the-ofx-export"></a>
 
 ### Import Failures<a id="import-failures"></a>
 
@@ -183,7 +176,7 @@ The script should print the list of exported positions and their corresponding h
 
 Beancount does not currently have all the lot purchase dates, so the purchase dates are exported as if purchased the day before the export.
 
-Eventually, when the purchase date is available in Beancount (pending the [<span class="underline">inventory booking changes</span>](http://furius.ca/beancount/doc/booking-proposal)) the actual lot purchase date will probably be used in the export format. However, it’s not yet clear that using the correct date is the right thing to do, because Google Finance might insist on inserting cash for dividends since the reported purchase date… but Beancount already takes care of inserting a special lot for cash that should already include this. We shall see when we get there.
+Eventually, when the purchase date is available in Beancount (pending the [<u>inventory booking changes</u>](http://furius.ca/beancount/doc/booking-proposal)) the actual lot purchase date will probably be used in the export format. However, it’s not yet clear that using the correct date is the right thing to do, because Google Finance might insist on inserting cash for dividends since the reported purchase date… but Beancount already takes care of inserting a special lot for cash that should already include this. We shall see when we get there.
 
 ### Disable Dividends<a id="disable-dividends"></a>
 
@@ -193,8 +186,7 @@ Under the “Edit Portfolio” option there is a checkbox that appears to disabl
 
 It would be nice to automate the replacement of the portfolio with a Python script. Unfortunately, the Google Finance API has been deprecated. Maybe someone can write a screen-scraping routine to do this.
 
-Summary<a id="summary"></a>
----------------------------
+## Summary<a id="summary"></a>
 
 Each holding’s export can be controlled by how its commodity is treated, in one of the following ways:
 

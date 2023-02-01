@@ -1,20 +1,17 @@
-How Inventories Work<a id="title"></a>
-======================================
+# How Inventories Work<a id="title"></a>
 
-[<span class="underline">Martin Blais</span>](mailto:blais@furius.ca), December 2016
+[<u>Martin Blais</u>](mailto:blais@furius.ca), December 2016
 
-[<span class="underline">http://furius.ca/beancount/doc/booking</span>](http://furius.ca/beancount/doc/booking)
+[<u>http://furius.ca/beancount/doc/booking</u>](http://furius.ca/beancount/doc/booking)
 
 *This document explains how we accumulate commodities and  
 match sales (reductions) against accumulated inventory contents.*
 
-Introduction<a id="introduction"></a>
--------------------------------------
+## Introduction<a id="introduction"></a>
 
 Beyond the ability to track and list the postings made to each of the accounts (an operation that produces a *journal* of entries), one of the most common and useful operations of Beancount is to sum up the positions of arbitrary sets of postings. These aggregations are at the heart of how Beancount works, and are implemented in an object called “inventory.” This document explains how this aggregation process works. If you’re going to track investments, it’s necessary to understand what follows.
 
-Matches & Booking Methods<a id="matches-booking-methods"></a>
--------------------------------------------------------------
+## Matches & Booking Methods<a id="matches-booking-methods"></a>
 
 In order to get the big picture, let’s walk through the various booking features by way of a simple examples. This should expose you to all the main ideas in one go.
 
@@ -58,7 +55,7 @@ After those two transactions, the Restaurants account contains 34.58 USD and 62.
 
 brings the balance of that account to 34.58 USD and 86.02 CAD. The number of units USD hasn’t changed.
 
-Note that accounts may contain any number of commodities, and this is also true for commodities held at cost, which we’ll see shortly. While this is made possible, I recommend that you define enough accounts to keep a single commodity in each; this can be enforced with the “[<span class="underline">onecommodity</span>](http://github.com/beancount/beancount/tree/master/beancount/plugins/onecommodity.py)” plugin.
+Note that accounts may contain any number of commodities, and this is also true for commodities held at cost, which we’ll see shortly. While this is made possible, I recommend that you define enough accounts to keep a single commodity in each; this can be enforced with the “[<u>onecommodity</u>](http://github.com/beancount/beancount/tree/master/beancount/plugins/onecommodity.py)” plugin.
 
 ### Cost Basis<a id="cost-basis"></a>
 
@@ -235,8 +232,7 @@ Observe how the resulting inventory has a mix of signs; normally this is not all
 
 Note: If you are familiar with Ledger, this is the default and only booking method that it supports.
 
-Summary<a id="summary"></a>
----------------------------
+## Summary<a id="summary"></a>
 
 In summary, here’s what we presented in the walkthrough. *Augmentations* are never problematic; they always add a new position to an existing inventory. On the other hand, *reductions* may result in a few outcomes:
 
@@ -272,8 +268,7 @@ The method can be specified for each account by adding a string to its Open dire
 
     2016-05-01 open Assets:Vanguard:RGAGX  "AVERAGE"
 
-How Prices are Used<a id="how-prices-are-used"></a>
----------------------------------------------------
+## How Prices are Used<a id="how-prices-are-used"></a>
 
 The short answer is that prices aren’t used nor affect the booking algorithm at all. However, it is relevant to discuss what they do in this context because users invariably get confused about their interpretation.
 
@@ -304,14 +299,13 @@ In general, the way that profits on sales are calculated is by weighing the proc
 
 The price is an annotation for your records. It remains attached to the Posting objects and if you want to make use of it somehow, you can always do that by writing some Python code. There are already two plugins which make use of this annotation:
 
--   [**<span class="underline">beancount.plugins.implicit\_prices</span>**](http://github.com/beancount/beancount/tree/master/beancount/plugins/implicit_prices.py): This plugin takes the prices attached to the postings and automatically creates and inserts Price directives for each of them, in order to feed the global price database.
+-   [**<u>beancount.plugins.implicit\_prices</u>**](http://github.com/beancount/beancount/tree/master/beancount/plugins/implicit_prices.py): This plugin takes the prices attached to the postings and automatically creates and inserts Price directives for each of them, in order to feed the global price database.
 
--   [**<span class="underline">beancount.plugins.sellgains</span>**](http://github.com/beancount/beancount/tree/master/beancount/plugins/sellgains.py): This plugin implements an additional balancing check: it uses the prices to compute the expected proceeds and weighs them against all the other postings of the transaction *excluding* any postings to Income accounts. In our example, it would check that (-12 x 24.70 + 296.40) = 0. This provides yet another means of verifying the correctness of your input.
+-   [**<u>beancount.plugins.sellgains</u>**](http://github.com/beancount/beancount/tree/master/beancount/plugins/sellgains.py): This plugin implements an additional balancing check: it uses the prices to compute the expected proceeds and weighs them against all the other postings of the transaction *excluding* any postings to Income accounts. In our example, it would check that (-12 x 24.70 + 296.40) = 0. This provides yet another means of verifying the correctness of your input.
 
-See the [<span class="underline">Trading with Beancount</span>](trading_with_beancount.md) document for more details on this topic.
+See the [<u>Trading with Beancount</u>](trading_with_beancount.md) document for more details on this topic.
 
-Trades<a id="trades"></a>
--------------------------
+## Trades<a id="trades"></a>
 
 The combination of acquiring some asset and selling it back is what we call a “trade.” In Beancount we consider only assets with a cost basis to be the subject of trades. Since booking reductions against accumulated inventory contents happens during the booking process, this is where trades should be identified and recorded.
 
@@ -319,8 +313,7 @@ The combination of acquiring some asset and selling it back is what we call a �
 
 The way trades will be implemented is by allowing the booking process to insert matching metadata with unique UUIDs on both the augmenting and reducing postings, in the stream of transactions. Functions and reports will be provided that are able to easily extract the pairs of postings for each reducing postings and filter those out in different ways. Ultimately, one should be able to extract a list of all trades to a table, with the acquisition and sale price, as well as other fees.
 
-Debugging Booking Issues<a id="debugging-booking-issues"></a>
--------------------------------------------------------------
+## Debugging Booking Issues<a id="debugging-booking-issues"></a>
 
 If you’re experiencing difficulties in recording your sales due to the matching process, there are tools you can use to view an account’s detailed inventory contents before and after applying a Transaction to it. To do this, you can use the bean-doctor command. You invoke the program providing it with the file and line number close to the Transaction you want to select, like this:
 
@@ -330,8 +323,7 @@ The resulting output will show the list of inventory contents of all affected ac
 
 From Emacs or VI, placing the cursor near a transaction and invoking the corresponding command is the easiest way to invoke the command, as it inserts the line number automatically.
 
-Appendix<a id="appendix"></a>
------------------------------
+## Appendix<a id="appendix"></a>
 
 The rest of this document delves into more technical details. You should feel free to ignore this entirely, it’s not necessary reading to understand how Beancount works. Only bother if you’re interested in the details.
 
@@ -361,7 +353,7 @@ An *Inventory* is simply an accumulation of such positions, represented as a lis
 
 A *Posting* is an object which is a superset of a position: in addition to units and cost, it has an associated account and an optional price attributes. If present, the price has the same type as units. It represents one of the legs of a transaction in the input. Postings imply positions, and these positions are added to inventories. We can say that a position is *posted* to an account.
 
-For more details on the internal data structures used in Beancount, please refer to the [<span class="underline">Design Doc</span>](beancount_design_doc.md) which expands on this topic further.
+For more details on the internal data structures used in Beancount, please refer to the [<u>Design Doc</u>](beancount_design_doc.md) which expands on this topic further.
 
 ### Why Booking is Not Simple<a id="why-booking-is-not-simple"></a>
 
@@ -477,4 +469,4 @@ As you may intuit, the notion of “augmenting” or “reducing” only makes s
 
 ### Original Proposal<a id="original-proposal"></a>
 
-If you’re interested in the design doc that led to this implementation, you can find the document [<span class="underline">here</span>](a_proposal_for_an_improvement_on_inventory_booking.md). I hope the resulting implementation is simple enough yet general.
+If you’re interested in the design doc that led to this implementation, you can find the document [<u>here</u>](a_proposal_for_an_improvement_on_inventory_booking.md). I hope the resulting implementation is simple enough yet general.

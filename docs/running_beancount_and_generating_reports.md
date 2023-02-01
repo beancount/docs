@@ -1,95 +1,92 @@
-Running Beancount & Generating Reports<a id="title"></a>
-========================================================
+# Running Beancount & Generating Reports<a id="title"></a>
 
-[<span class="underline">Martin Blais</span>](mailto:blais@furius.ca), July-Sep 2014
+[<u>Martin Blais</u>](mailto:blais@furius.ca), July-Sep 2014
 
-[<span class="underline">http://furius.ca/beancount/doc/tools</span>](http://furius.ca/beancount/doc/tools)
+[<u>http://furius.ca/beancount/doc/tools</u>](http://furius.ca/beancount/doc/tools)
 
-[<span class="underline">Introduction</span>](#introduction)
+[<u>Introduction</u>](#introduction)
 
-[<span class="underline">Tools</span>](#tools)
+[<u>Tools</u>](#tools)
 
-> [<span class="underline">bean-check</span>](#bean-check)
+> [<u>bean-check</u>](#bean-check)
 >
-> [<span class="underline">bean-report</span>](#bean-report)
+> [<u>bean-report</u>](#bean-report)
 >
-> [<span class="underline">bean-query</span>](#bean-query)
+> [<u>bean-query</u>](#bean-query)
 >
-> [<span class="underline">bean-web</span>](#bean-web)
+> [<u>bean-web</u>](#bean-web)
 >
-> [<span class="underline">Global Pages</span>](#global-pages)
+> [<u>Global Pages</u>](#global-pages)
 >
-> [<span class="underline">View Reports Pages</span>](#view-reports-pages)
+> [<u>View Reports Pages</u>](#view-reports-pages)
 >
-> [<span class="underline">bean-bake</span>](#bean-bake)
+> [<u>bean-bake</u>](#bean-bake)
 >
-> [<span class="underline">bean-doctor</span>](#bean-doctor)
+> [<u>bean-doctor</u>](#bean-doctor)
 >
-> [<span class="underline">Context</span>](#context)
+> [<u>Context</u>](#context)
 >
-> [<span class="underline">bean-format</span>](#bean-format)
+> [<u>bean-format</u>](#bean-format)
 >
-> [<span class="underline">bean-example</span>](#bean-example)
+> [<u>bean-example</u>](#bean-example)
 
-[<span class="underline">Filtering Transactions</span>](#filtering-transactions)
+[<u>Filtering Transactions</u>](#filtering-transactions)
 
-[<span class="underline">Reports</span>](#reports)
+[<u>Reports</u>](#reports)
 
-> [<span class="underline">Balance Reports</span>](#balance-reports)
+> [<u>Balance Reports</u>](#balance-reports)
 >
-> [<span class="underline">Trial Balance (balances)</span>](#trial-balance-balances)
+> [<u>Trial Balance (balances)</u>](#trial-balance-balances)
 >
-> [<span class="underline">Balance Sheet (balsheet)</span>](#balance-sheet-balsheet)
+> [<u>Balance Sheet (balsheet)</u>](#balance-sheet-balsheet)
 >
-> [<span class="underline">Opening Balances (openbal)</span>](#opening-balances-openbal)
+> [<u>Opening Balances (openbal)</u>](#opening-balances-openbal)
 >
-> [<span class="underline">Income Statement (income)</span>](#income-statement-income)
+> [<u>Income Statement (income)</u>](#income-statement-income)
 >
-> [<span class="underline">Journal Reports</span>](#journal-reports)
+> [<u>Journal Reports</u>](#journal-reports)
 >
-> [<span class="underline">Journal (journal)</span>](#journal-journal)
+> [<u>Journal (journal)</u>](#journal-journal)
 >
-> [<span class="underline">Rendering at Cost</span>](#rendering-at-cost)
+> [<u>Rendering at Cost</u>](#rendering-at-cost)
 >
-> [<span class="underline">Adding a Balance Column</span>](#adding-a-balance-column)
+> [<u>Adding a Balance Column</u>](#adding-a-balance-column)
 >
-> [<span class="underline">Character Width</span>](#character-width)
+> [<u>Character Width</u>](#character-width)
 >
-> [<span class="underline">Precision</span>](#precision)
+> [<u>Precision</u>](#precision)
 >
-> [<span class="underline">Compact, Normal or Verbose</span>](#compact-normal-or-verbose)
+> [<u>Compact, Normal or Verbose</u>](#compact-normal-or-verbose)
 >
-> [<span class="underline">Summary</span>](#summary)
+> [<u>Summary</u>](#summary)
 >
-> [<span class="underline">Equivalent SQL Query</span>](#equivalent-sql-query)
+> [<u>Equivalent SQL Query</u>](#equivalent-sql-query)
 >
-> [<span class="underline">Conversions (conversions)</span>](#conversions-conversions)
+> [<u>Conversions (conversions)</u>](#conversions-conversions)
 >
-> [<span class="underline">Documents (documents)</span>](#documents-documents)
+> [<u>Documents (documents)</u>](#documents-documents)
 >
-> [<span class="underline">Holdings Reports</span>](#holdings-reports)
+> [<u>Holdings Reports</u>](#holdings-reports)
 >
-> [<span class="underline">Holdings & Aggregations (holdings\*)</span>](#holdings-aggregations-holdings)
+> [<u>Holdings & Aggregations (holdings\*)</u>](#holdings-aggregations-holdings)
 >
-> [<span class="underline">Net Worth (networth)</span>](#net-worth-networth)
+> [<u>Net Worth (networth)</u>](#net-worth-networth)
 >
-> [<span class="underline">Other Report Types</span>](#other-report-types)
+> [<u>Other Report Types</u>](#other-report-types)
 >
-> [<span class="underline">Cash</span>](#cash)
+> [<u>Cash</u>](#cash)
 >
-> [<span class="underline">Prices (prices)</span>](#prices-prices)
+> [<u>Prices (prices)</u>](#prices-prices)
 >
-> [<span class="underline">Statistics (stats)</span>](#statistics-stats)
+> [<u>Statistics (stats)</u>](#statistics-stats)
 >
-> [<span class="underline">Update Activity (activity)</span>](#update-activity-activity)
+> [<u>Update Activity (activity)</u>](#update-activity-activity)
 
-Introduction<a id="introduction"></a>
--------------------------------------
+## Introduction<a id="introduction"></a>
 
-This document describes the tools you use to process Beancount input files, and many of the reports available from it. The syntax of the language is described in the [<span class="underline">Beancount Language Syntax</span>](beancount_language_syntax.md) document. This manual only covers the technical details for using Beancount from the command-line.
+This document describes the tools you use to process Beancount input files, and many of the reports available from it. The syntax of the language is described in the [<u>Beancount Language Syntax</u>](beancount_language_syntax.md) document. This manual only covers the technical details for using Beancount from the command-line.
 
-Tools<a id="tools"></a>
------------------------
+## Tools<a id="tools"></a>
 
 ### bean-check<a id="bean-check"></a>
 
@@ -144,7 +141,7 @@ Beancount’s parsed list of transactions and postings is like an in-memory data
     Ready with 14212 directives (21284 postings in 8879 transactions).
     beancount> _
 
-More details are available [<span class="underline">in its own document</span>](beancount_query_language.md).
+More details are available [<u>in its own document</u>](beancount_query_language.md).
 
 ### bean-web<a id="bean-web"></a>
 
@@ -152,7 +149,7 @@ More details are available [<span class="underline">in its own document</span>](
 
     bean-web /path/to/my/file.beancount
 
-It will serve all pages on port 8080 on your machine. Navigate to [<span class="underline">http://localhost:8080</span>](http://localhost:8080) with a web browser. You should be able to click your way through all the reports easily.
+It will serve all pages on port 8080 on your machine. Navigate to [<u>http://localhost:8080</u>](http://localhost:8080) with a web browser. You should be able to click your way through all the reports easily.
 
 The web interface provides a set of global pages and a set of report pages for each “view.”
 
@@ -249,10 +246,9 @@ This pure text processing tool will reformat Beancount input to right-align all 
 
 ### bean-example<a id="bean-example"></a>
 
-This program generates an example Beancount input file. See the [<span class="underline">Tutorial</span>](tutorial_example.md) for more details about the contents of this example file.
+This program generates an example Beancount input file. See the [<u>Tutorial</u>](tutorial_example.md) for more details about the contents of this example file.
 
-Filtering Transactions<a id="filtering-transactions"></a>
----------------------------------------------------------
+## Filtering Transactions<a id="filtering-transactions"></a>
 
 In order to produce different views of your financial transactions, we select a subset of full list of parsed transactions, for example, “all the transactions that occurred in year 2013”, and then use that to produce the various available reports that Beancount provides.
 
@@ -270,8 +266,7 @@ At the moment, only a preset list of filters are available as “views” from t
 
 At the moment, in order to access reports from these subsets of transactions, you need to use the **bean-web** web interface, and click on the related keyword in the root global page, which enters you into a set of reports for that view.
 
-Reports<a id="reports"></a>
----------------------------
+## Reports<a id="reports"></a>
 
 The whole point of entering your transactions in a single input file in the first place is that it allows you to sum, filter, aggregate and arrange various subsets of your data into well-known reports. There are three distinct ways to produce reports from Beancount: by using **bean-web** and browsing to a view and then to a specific report (this is the easy way), by using **bean-report** and providing the name of a desired report (and possibly some report-specific arguments), and by using **bean-query** and requesting data by specifying an SQL statement.
 
@@ -285,7 +280,7 @@ There are many types of reports available, and there will be many more in the fu
 
 ### Balance Reports<a id="balance-reports"></a>
 
-All the balance reports are similar in that they produce tables of some set of accounts and their associated balances: [<span class="underline">\[output\]</span>](http://furius.ca/beancount/examples/tutorial/balances.output)
+All the balance reports are similar in that they produce tables of some set of accounts and their associated balances: [<u>\[output\]</u>](http://furius.ca/beancount/examples/tutorial/balances.output)
 
     |-- Assets                               
     |   `-- US                               
@@ -317,7 +312,7 @@ Finally, some accounts are deemed “active” if they have not been closed. A c
 
 #### Trial Balance (`balances`)<a id="trial-balance-balances"></a>
 
-A [<span class="underline">trial balance</span>](http://en.wikipedia.org/wiki/Trial_balance) report simply produces a table of final balances of all the active accounts, with all the accounts rendered vertically.
+A [<u>trial balance</u>](http://en.wikipedia.org/wiki/Trial_balance) report simply produces a table of final balances of all the active accounts, with all the accounts rendered vertically.
 
 The sum total of all balances is reported at the bottom. Unlike a balance sheet, it may not always balance to zero because of currency conversions. (This is the equivalent of Ledger’s `bal` report.)
 
@@ -329,7 +324,7 @@ The equivalent bean-query command is:
 
 #### Balance Sheet (`balsheet`)<a id="balance-sheet-balsheet"></a>
 
-A [<span class="underline">balance sheet</span>](http://en.wikipedia.org/wiki/Balance_sheet) is a snapshot of the balances of the Assets, Liabilities and Equity accounts at a particular point in time. In order to build such a report, we have to move balances from the other accounts to it:
+A [<u>balance sheet</u>](http://en.wikipedia.org/wiki/Balance_sheet) is a snapshot of the balances of the Assets, Liabilities and Equity accounts at a particular point in time. In order to build such a report, we have to move balances from the other accounts to it:
 
 1.  compute the balances of the Income and Expenses account at that point in time,
 
@@ -341,11 +336,11 @@ A [<span class="underline">balance sheet</span>](http://en.wikipedia.org/wiki/Ba
 
 5.  render a tree of the Equity accounts below the Liabilities accounts.
 
-See the [<span class="underline">introduction document</span>](the_double_entry_counting_method.md) for an example.
+See the [<u>introduction document</u>](the_double_entry_counting_method.md) for an example.
 
 Note that the Equity accounts include the amounts reported from the Income and Expenses accounts, also often called “Net Income.”
 
-Also, in practice, we make *two* transfers because we’re typically looking at a reporting period, and we want to differentiate between Net Income amounts transferred before the beginning of the period (`Equity:Earnings:Previous`) and during the period itself (`Equity:Earnings:Current`). And similar pair of transfers is carried out in order to handle currency conversions (this is a bit of a hairy topic, but one with a great solution; refer to the [<span class="underline">dedicated document</span>](http://furius.ca/beancount/doc/conversions) if you want all the details).
+Also, in practice, we make *two* transfers because we’re typically looking at a reporting period, and we want to differentiate between Net Income amounts transferred before the beginning of the period (`Equity:Earnings:Previous`) and during the period itself (`Equity:Earnings:Current`). And similar pair of transfers is carried out in order to handle currency conversions (this is a bit of a hairy topic, but one with a great solution; refer to the [<u>dedicated document</u>](http://furius.ca/beancount/doc/conversions) if you want all the details).
 
 The equivalent bean-query command is:
 
@@ -355,11 +350,11 @@ The equivalent bean-query command is:
 
 #### Opening Balances (`openbal`)<a id="opening-balances-openbal"></a>
 
-The opening balances report is simply a balance sheet drawn at the beginning of the reporting period. This report only makes sense for a list of filtered entries that represents a period of time, such as “year 2014.” The balance sheet is generated using only the summarization entries that were synthesized when the transactions were filtered (see the [<span class="underline">double-entry method document</span>](the_double_entry_counting_method.md)).
+The opening balances report is simply a balance sheet drawn at the beginning of the reporting period. This report only makes sense for a list of filtered entries that represents a period of time, such as “year 2014.” The balance sheet is generated using only the summarization entries that were synthesized when the transactions were filtered (see the [<u>double-entry method document</u>](the_double_entry_counting_method.md)).
 
 #### Income Statement (`income`)<a id="income-statement-income"></a>
 
-An [<span class="underline">income statement</span>](http://en.wikipedia.org/wiki/Income_statement) lists the final balances of the Income and Expenses accounts. It represents a summary of the transient activity within these accounts. If the balance sheet is the snapshot at a particular point in time, this is the difference between the beginning and the end of a period (in our case: of a filtered set of transactions). The balances of the active Income accounts are rendered on the left, and those of the active Expenses accounts on the right. See the [<span class="underline">introduction document</span>](the_double_entry_counting_method.md) for an example.
+An [<u>income statement</u>](http://en.wikipedia.org/wiki/Income_statement) lists the final balances of the Income and Expenses accounts. It represents a summary of the transient activity within these accounts. If the balance sheet is the snapshot at a particular point in time, this is the difference between the beginning and the end of a period (in our case: of a filtered set of transactions). The balances of the active Income accounts are rendered on the left, and those of the active Expenses accounts on the right. See the [<u>introduction document</u>](the_double_entry_counting_method.md) for an example.
 
 The difference between the total of Income and Expenses balances is the Net Income.
 

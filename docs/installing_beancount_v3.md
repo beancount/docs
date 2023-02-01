@@ -1,16 +1,14 @@
-Installing Beancount (v3)<a id="title"></a>
-===========================================
+# Installing Beancount (v3)<a id="title"></a>
 
-[<span class="underline">Martin Blais</span>](mailto:blais@furius.ca) - July 2020
+[<u>Martin Blais</u>](mailto:blais@furius.ca) - July 2020
 
-[<span class="underline">http://furius.ca/beancount/doc/v3-install</span>](http://furius.ca/beancount/doc/v3-install)
+[<u>http://furius.ca/beancount/doc/v3-install</u>](http://furius.ca/beancount/doc/v3-install)
 
 *Instructions for downloading and running Beancount v3 (in development) on your computer. For v2, see this document instead: [Beancount - Install (v2)](installing_beancount.md)*
 
-<table><tbody><tr class="odd"><td><em><strong>This document is about Beancount v3, an experimental in-development version (as of July 2020); Instructions for building the stable version (Beancount v2) can be found in <a href="installing_beancount.md"><span class="underline">this other document</span></a>.</strong></em></td></tr></tbody></table>
+<table><tbody><tr class="odd"><td><em><strong>This document is about Beancount v3, an experimental in-development version (as of July 2020); Instructions for building the stable version (Beancount v2) can be found in <a href="installing_beancount.md"><u>this other document</u></a>.</strong></em></td></tr></tbody></table>
 
-Building with Bazel<a id="building-with-bazel"></a>
----------------------------------------------------
+## Building with Bazel<a id="building-with-bazel"></a>
 
 *Warning: This is an experimental development branch. Do not expect everything to be polished perfectly.*
 
@@ -20,7 +18,7 @@ Beancount v3 uses the Bazel build system, which for the most part insulates you 
 
 The dependencies to install are:
 
--   **Bazel itself.** Follow instructions on [<span class="underline">https://bazel.build/</span>](https://bazel.build/)
+-   **Bazel itself.** Follow instructions on [<u>https://bazel.build/</u>](https://bazel.build/)
 
 -   **A C++ compiler.** Either g++ or clang works. I'm using clang-11.
 

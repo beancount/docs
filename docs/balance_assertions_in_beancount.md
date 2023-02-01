@@ -1,34 +1,32 @@
-Balance Assertions in Beancount<a id="title"></a>
-=================================================
+# Balance Assertions in Beancount<a id="title"></a>
 
 Martin Blais, July 2014
 
-[<span class="underline">http://furius.ca/beancount/doc/proposal-balance</span>](http://furius.ca/beancount/doc/proposal-balance)
+[<u>http://furius.ca/beancount/doc/proposal-balance</u>](http://furius.ca/beancount/doc/proposal-balance)
 
 *This document summarizes the different kinds of semantics for balance assertions in all command-line accounting systems and proposes new syntax for total and file-order running assertions in Beancount.*
 
-> [<span class="underline">Motivation</span>](#motivation)
+> [<u>Motivation</u>](#motivation)
 >
-> [<span class="underline">Partial vs. Complete Assertions</span>](#partial-vs.-complete-assertions)
+> [<u>Partial vs. Complete Assertions</u>](#partial-vs.-complete-assertions)
 >
-> [<span class="underline">File vs. Date Assertions</span>](#file-vs.-date-assertions)
+> [<u>File vs. Date Assertions</u>](#file-vs.-date-assertions)
 >
-> [<span class="underline">Ordering & Ambiguity</span>](#ordering-ambiguity)
+> [<u>Ordering & Ambiguity</u>](#ordering-ambiguity)
 >
-> [<span class="underline">Intra-Day Assertions</span>](#intra-day-assertions)
+> [<u>Intra-Day Assertions</u>](#intra-day-assertions)
 >
-> [<span class="underline">Beginning vs. End of Day</span>](#beginning-vs.-end-of-day)
+> [<u>Beginning vs. End of Day</u>](#beginning-vs.-end-of-day)
 >
-> [<span class="underline">Status</span>](#status)
+> [<u>Status</u>](#status)
 >
-> [<span class="underline">Proposal</span>](#proposal)
+> [<u>Proposal</u>](#proposal)
 >
-> [<span class="underline">File Assertions</span>](#file-assertions)
+> [<u>File Assertions</u>](#file-assertions)
 >
-> [<span class="underline">Complete Assertions</span>](#complete-assertions)
+> [<u>Complete Assertions</u>](#complete-assertions)
 
-Motivation<a id="motivation"></a>
----------------------------------
+## Motivation<a id="motivation"></a>
 
 Both Beancount and Ledger implement *balance assertions.* These provide the system with checkpoints it can use to verify the integrity of the data entry[^1].
 
@@ -36,12 +34,11 @@ Traditional accounting principles state that a user may never change the past—
 
 Another way to look at these balance assertions, is that they are simply the bottom line amounts reported on various account statements, as exemplified in the figure below.
 
-Following [<span class="underline">this thread</span>](https://groups.google.com/forum/#!topic/ledger-cli/vwkrPh74NFI), we established that there were differing interpretations of balance assertions in the current versions of Ledger (3.0) and Beancount (2.0b).
+Following [<u>this thread</u>](https://groups.google.com/forum/#!topic/ledger-cli/vwkrPh74NFI), we established that there were differing interpretations of balance assertions in the current versions of Ledger (3.0) and Beancount (2.0b).
 
 <img src="balance_assertions_in_beancount/media/e69dda32bb347765ef4a8a803a4b9e4c548190fa.png" style="width:6.5in;height:3.20833in" alt="balance-statement-1.png" />
 
-Partial vs. Complete Assertions<a id="partial-vs.-complete-assertions"></a>
----------------------------------------------------------------------------
+## Partial vs. Complete Assertions<a id="partial-vs.-complete-assertions"></a>
 
 An assertion in Beancount currently looks like this:
 
@@ -53,8 +50,7 @@ An alternative assertion would be exhaustive: “please assert that the inventor
 
 Further note that we are not asserting the cost basis of an inventory, just the number of units.
 
-File vs. Date Assertions<a id="file-vs.-date-assertions"></a>
--------------------------------------------------------------
+## File vs. Date Assertions<a id="file-vs.-date-assertions"></a>
 
 There are two differing interpretations and implementations of the running balances for assertions:
 
@@ -142,15 +138,13 @@ Finally, just for completeness, it is worth mentioning that date assertions have
 
 It might be worthwhile to provide an alternate version of date-based assertions that applies at the end of the day, e.g. “balance\_end”. Beancount v1 used to have this (“check\_end”) but it was removed in the v2 rewrite, as it wasn’t clear it would be really needed. The simplicity of a single meaning for balance assertions is nice too.
 
-Status<a id="status"></a>
--------------------------
+## Status<a id="status"></a>
 
-[<span class="underline">Ledger</span>](http://ledger-cli.org) 3.0 currently supports only partial file-order assertions, on transactions.
+[<u>Ledger</u>](http://ledger-cli.org) 3.0 currently supports only partial file-order assertions, on transactions.
 
-[<span class="underline">Beancount</span>](http://furius.ca/beancount/) 2.0 currently supports only partial date-based assertions at the beginning of the day.
+[<u>Beancount</u>](http://furius.ca/beancount/) 2.0 currently supports only partial date-based assertions at the beginning of the day.
 
-Proposal<a id="proposal"></a>
------------------------------
+## Proposal<a id="proposal"></a>
 
 I propose the following improvements to Beancount’s balance assertions.
 

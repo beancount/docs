@@ -1,19 +1,17 @@
-Proposal: Rounding & Precision in Beancount<a id="title"></a>
-=============================================================
+# Proposal: Rounding & Precision in Beancount<a id="title"></a>
 
-[<span class="underline">Martin Blais</span>](http://plus.google.com/+MartinBlais), October 2014
+[<u>Martin Blais</u>](http://plus.google.com/+MartinBlais), October 2014
 
 *This document describes the problem of rounding errors on  
 Beancount transactions and how they are handled. It also includes*
 
 *a proposal for better handling precision issues in Beancount.*
 
-Motivation<a id="motivation"></a>
----------------------------------
+## Motivation<a id="motivation"></a>
 
 ### Balancing Precision<a id="balancing-precision"></a>
 
-Balancing transactions cannot be done precisely. This has been [<span class="underline">discussed on the Ledger mailing-list before</span>](https://groups.google.com/d/msg/ledger-cli/m-TgILbfrwA/YjkmOM3LHXIJ). It is necessary to allow for some tolerance on the amounts used to balance a transaction.
+Balancing transactions cannot be done precisely. This has been [<u>discussed on the Ledger mailing-list before</u>](https://groups.google.com/d/msg/ledger-cli/m-TgILbfrwA/YjkmOM3LHXIJ). It is necessary to allow for some tolerance on the amounts used to balance a transaction.
 
 This need is clear when you consider that inputting numbers in a text file implies a limited decimal representation. For example, if you’re going to multiply a number of units and a cost, say both written down with 2 fractional digits, you might end up with a number that has 4 fractional digits, and then you need to compare that result with a cash amount that would typically be entered with only 2 fractional digits, something like this example:
 
@@ -53,21 +51,19 @@ The precision of a balance assertions is also subject to this problem, assertion
 
 The user does not intend for this balance check to precisely sum up to 4526.77000000… USD. However, it this cash account previously received a deposit with a greater precision as in the previous section’s example, then we have a problem. Now the cash amount contains some of the crumbs deposited from the interpolation (0.0067 USD). If we were able to find a good solution for the automatic rounding of postings in the previous section, this would not be a problem. But in the meantime, we must find a solution.
 
-Beancount’s current approach is a kludge: it uses a [<span class="underline">user-configurable tolerance</span>](http://github.com/beancount/beancount/tree/master/beancount/ops/balance.py#L23) of 0.0150 (in any unit). We’d like to change this so that the tolerance used is able to depend on the commodity, the account, or even the particular directive in use.
+Beancount’s current approach is a kludge: it uses a [<u>user-configurable tolerance</u>](http://github.com/beancount/beancount/tree/master/beancount/ops/balance.py#L23) of 0.0150 (in any unit). We’d like to change this so that the tolerance used is able to depend on the commodity, the account, or even the particular directive in use.
 
-Other Systems<a id="other-systems"></a>
----------------------------------------
+## Other Systems<a id="other-systems"></a>
 
 Other command-line accounting systems differ in how they choose that tolerance:
 
--   Ledger attempts to automatically derive the precision to use for its balance checks by using recently parsed context (in file order). The precision to be used is that of the last value parsed for the particular commodity under consideration. This can be problematic: it can lead to [<span class="underline">unnecessary side-effects between transactions which can be difficult to debug</span>](https://groups.google.com/d/msg/ledger-cli/m-TgILbfrwA/cTHg2juqEJgJ).
+-   Ledger attempts to automatically derive the precision to use for its balance checks by using recently parsed context (in file order). The precision to be used is that of the last value parsed for the particular commodity under consideration. This can be problematic: it can lead to [<u>unnecessary side-effects between transactions which can be difficult to debug</u>](https://groups.google.com/d/msg/ledger-cli/m-TgILbfrwA/cTHg2juqEJgJ).
 
--   HLedger, on the other hand, uses global precision settings. [<span class="underline">The whole file is processed first, then the precisions are derived from the most precise numbers seen in the entire input file.</span>](https://groups.google.com/d/msg/ledger-cli/m-TgILbfrwA/SoGZDNhlDOkJ)
+-   HLedger, on the other hand, uses global precision settings. [<u>The whole file is processed first, then the precisions are derived from the most precise numbers seen in the entire input file.</u>](https://groups.google.com/d/msg/ledger-cli/m-TgILbfrwA/SoGZDNhlDOkJ)
 
--   At the moment, Beancount uses a constant value for the tolerance used in its [<span class="underline">balance checking algorithm</span>](http://github.com/beancount/beancount/tree/master/beancount/ops/validation.py) (0.005 of any unit). This is weak and should, at the very least, be commodity-dependent, if not also dependent on the particular account in which the commodity is used.
+-   At the moment, Beancount uses a constant value for the tolerance used in its [<u>balance checking algorithm</u>](http://github.com/beancount/beancount/tree/master/beancount/ops/validation.py) (0.005 of any unit). This is weak and should, at the very least, be commodity-dependent, if not also dependent on the particular account in which the commodity is used.
 
-Proposal<a id="proposal"></a>
------------------------------
+## Proposal<a id="proposal"></a>
 
 ### Automatically Inferring Tolerance<a id="automatically-inferring-tolerance"></a>
 
@@ -98,7 +94,7 @@ Finally, no global effect implied by transactions will be applied. No transactio
 
 ### Inference on Amounts Held at Cost<a id="inference-on-amounts-held-at-cost"></a>
 
-An idea from by Matthew Harris ([<span class="underline">here</span>](https://groups.google.com/d/msg/beancount/5u-xgR-ttjg/sXfU32ItRscJ)) is that we could also use the value of the to the smallest decimal of the number of units times the cost as a number to use in establishing the tolerance for balancing transactions. For example, in the following transaction:
+An idea from by Matthew Harris ([<u>here</u>](https://groups.google.com/d/msg/beancount/5u-xgR-ttjg/sXfU32ItRscJ)) is that we could also use the value of the to the smallest decimal of the number of units times the cost as a number to use in establishing the tolerance for balancing transactions. For example, in the following transaction:
 
     2014-05-06 * “Buy mutual fund”
       Assets:Investments:RGXGX       23.45 RGAGX {42.6439 USD} 
@@ -140,20 +136,18 @@ This balance check implies a precision of 0.50 USD.
 
 ### Approximate Assertions<a id="approximate-assertions"></a>
 
-Another idea, proposed in [<span class="underline">this ticket on Ledger</span>](https://github.com/ledger/ledger/pull/329), proposes an explicitly approximate assertion.
+Another idea, proposed in [<u>this ticket on Ledger</u>](https://github.com/ledger/ledger/pull/329), proposes an explicitly approximate assertion.
 
 We could implement it this way (just an idea):
 
     2014-04-01 balance Assets:Investments:Cash   4526.00 +/- 0.05 USD 
 
-Accumulating & Reporting Residuals<a id="accumulating-reporting-residuals"></a>
--------------------------------------------------------------------------------
+## Accumulating & Reporting Residuals<a id="accumulating-reporting-residuals"></a>
 
-In order to explicitly render and monitor the amount of rounding errors that occur in a Ledger, we should [<span class="underline">accumulate it to an Equity account</span>](https://groups.google.com/d/msg/ledger-cli/m-TgILbfrwA/YjkmOM3LHXIJ), such as “Equity:Rounding”. This should be turned on optionally. It should be possible for the user to specify an account to be used to accumulate the error. Whenever a transaction does not balance exactly, the residual, or rounding error, will be inserted as a posting of the transaction to the equity account.
+In order to explicitly render and monitor the amount of rounding errors that occur in a Ledger, we should [<u>accumulate it to an Equity account</u>](https://groups.google.com/d/msg/ledger-cli/m-TgILbfrwA/YjkmOM3LHXIJ), such as “Equity:Rounding”. This should be turned on optionally. It should be possible for the user to specify an account to be used to accumulate the error. Whenever a transaction does not balance exactly, the residual, or rounding error, will be inserted as a posting of the transaction to the equity account.
 
 By default, this accumulation should be turned off. It’s not clear whether the extra postings will be disruptive yet (if they’re not, maybe this should be turned on by default; practice will inform us).
 
-Implementation<a id="implementation"></a>
------------------------------------------
+## Implementation<a id="implementation"></a>
 
-The implementation of this proposal is [<span class="underline">documented here</span>](precision_tolerances.md).
+The implementation of this proposal is [<u>documented here</u>](precision_tolerances.md).

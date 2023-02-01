@@ -1,47 +1,44 @@
-Trading with Beancount<a id="title"></a>
-========================================
+# Trading with Beancount<a id="title"></a>
 
-[<span class="underline">Martin Blais</span>](mailto:blais@furius.ca), July 2014
+[<u>Martin Blais</u>](mailto:blais@furius.ca), July 2014
 
-[<span class="underline">http://furius.ca/beancount/doc/trading</span>](http://furius.ca/beancount/doc/trading)
+[<u>http://furius.ca/beancount/doc/trading</u>](http://furius.ca/beancount/doc/trading)
 
-> [<span class="underline">Introduction</span>](#introduction)
+> [<u>Introduction</u>](#introduction)
 >
-> [<span class="underline">What is Profit and Loss?</span>](#what-is-profit-and-loss)
+> [<u>What is Profit and Loss?</u>](#what-is-profit-and-loss)
 >
-> [<span class="underline">Realized and Unrealized P/L</span>](#realized-and-unrealized-pl)
+> [<u>Realized and Unrealized P/L</u>](#realized-and-unrealized-pl)
 >
-> [<span class="underline">Trade Lots</span>](#trade-lots)
+> [<u>Trade Lots</u>](#trade-lots)
 >
-> [<span class="underline">Booking Methods</span>](#booking-methods)
+> [<u>Booking Methods</u>](#booking-methods)
 >
-> [<span class="underline">Dated lots</span>](#dated-lots)
+> [<u>Dated lots</u>](#dated-lots)
 >
-> [<span class="underline">Reporting Unrealized P/L</span>](#reporting-unrealized-pl)
+> [<u>Reporting Unrealized P/L</u>](#reporting-unrealized-pl)
 >
-> [<span class="underline">Commissions</span>](#commissions)
+> [<u>Commissions</u>](#commissions)
 >
-> [<span class="underline">Stock Splits</span>](#stock-splits)
+> [<u>Stock Splits</u>](#stock-splits)
 >
-> [<span class="underline">Cost Basis Adjustments</span>](#cost-basis-adjustment-and-return-of-capital)
+> [<u>Cost Basis Adjustments</u>](#cost-basis-adjustment-and-return-of-capital)
 >
-> [<span class="underline">Dividends</span>](#dividends)
+> [<u>Dividends</u>](#dividends)
 >
-> [<span class="underline">Average Cost Booking</span>](#average-cost-booking)
+> [<u>Average Cost Booking</u>](#average-cost-booking)
 >
-> [<span class="underline">Future Topics</span>](#future-topics)
+> [<u>Future Topics</u>](#future-topics)
 
-Introduction<a id="introduction"></a>
--------------------------------------
+## Introduction<a id="introduction"></a>
 
-This is a companion document for the [<span class="underline">Command-Line Accounting Cookbook</span>](command_line_accounting_cookbook.md) that deals exclusively with the subject of trading and investments in Beancount. You probably should have read an [<span class="underline">introduction to the double-entry method</span>](the_double_entry_counting_method.md) before reading this document.
+This is a companion document for the [<u>Command-Line Accounting Cookbook</u>](command_line_accounting_cookbook.md) that deals exclusively with the subject of trading and investments in Beancount. You probably should have read an [<u>introduction to the double-entry method</u>](the_double_entry_counting_method.md) before reading this document.
 
 The subject of stock trading needs to be preceded by a discussion of “profit and loss,” or P/L, for short (pronounce: “P and L”), also called capital gains or losses. The notion of P/L against multiple trades can be difficult for a novice to understand, and I’ve even seen professional traders lack sophistication in their understanding of P/L over varying time periods. It is worth spending a bit of time to explain this, and necessary to understand how to book your trades in a double-entry system.
 
-This discussion will be weaved with detailed examples of how to book these trades in Beancount, wherever possible. There is a related, active [<span class="underline">proposal for improving the booking methods</span>](a_proposal_for_an_improvement_on_inventory_booking.md) in Beancount that you might also be interested in. Discussions of basis for tax-deferred accounts will not be treated here, but in the more general cookbook.
+This discussion will be weaved with detailed examples of how to book these trades in Beancount, wherever possible. There is a related, active [<u>proposal for improving the booking methods</u>](a_proposal_for_an_improvement_on_inventory_booking.md) in Beancount that you might also be interested in. Discussions of basis for tax-deferred accounts will not be treated here, but in the more general cookbook.
 
-What is Profit and Loss?<a id="what-is-profit-and-loss"></a>
-------------------------------------------------------------
+## What is Profit and Loss?<a id="what-is-profit-and-loss"></a>
 
 Let’s imagine you have an account at the E\*Trade discount broker and you buy some shares of a company, say IBM. If you buy 10 shares of IBM when its price is 160$/share, it will cost you 1600$. That value is what we will call the “book value”, or equivalently, “the cost.” This is how much money you had to spend in order to acquire the shares, also called “the position.” This is how you would enter this transaction in Beancount:
 
@@ -68,8 +65,7 @@ The difference between these two amounts is what we will call the P/L:
 
 We will call a positive amount “a profit” and if the amount is negative, “a loss.”
 
-Realized and Unrealized P/L<a id="realized-and-unrealized-pl"></a>
-------------------------------------------------------------------
+## Realized and Unrealized P/L<a id="realized-and-unrealized-pl"></a>
 
 The profit from the previous section is called an “unrealized profit.” That is because the shares have not actually been sold yet - this is a hypothetical profit: *if* I can sell those shares at the market value, this is how much I *would* pocket. The 100$ I mentioned in the previous section is actually an “unrealized P/L.”
 
@@ -138,8 +134,7 @@ So the complete and final transaction for selling those shares should be:
       Expenses:Financial:Commissions   9.95 USD
       Income:US:ETrade:PnL
 
-Trade Lots<a id="trade-lots"></a>
----------------------------------
+## Trade Lots<a id="trade-lots"></a>
 
 In practice, the reality of trading gets a tiny bit more complicated than this. You might decide to buy some IBM multiple times, and each time, it is likely that you would buy them at a different price. Let’s see how this works with another example trade. Given your previous position of 7 shares held at 160$ cost, the following day you see that the price went up some more, you change your mind on IBM and decide to “go long” and buy 5 more shares. The price you get is 180$/share this time:
 
@@ -177,8 +172,7 @@ Alternatively, since you’re selling the entire position, Beancount should be a
 
 Note that this won’t work if the total amount of shares doesn’t match all the lots (this would be ambiguous… which subset of the lots should be chosen isn’t obvious).
 
-Booking Methods<a id="booking-methods"></a>
--------------------------------------------
+## Booking Methods<a id="booking-methods"></a>
 
 But what if you decided to sell only some of those shares? Say you need some cash to buy a gift to your loved one and you want to sell 4 shares this time. Say the price is now 175$/share.
 
@@ -206,12 +200,11 @@ Note that in practice this choice will depend on a number of factors:
 
 -   If you have a choice, the various lots you’re holding may have different taxation characteristics because you’ve held them for a different period of time. In the USA, for example, positions held for more than one year benefit from a lower taxation rate (the “long-term” capital gains rate).
 
--   You may have other gains or losses that you want to offset in order to minimize your cash flow requirements on your tax liability. This is sometimes called “[<span class="underline">tax loss harvesting</span>](https://www.bogleheads.org/wiki/Tax_loss_harvesting).”
+-   You may have other gains or losses that you want to offset in order to minimize your cash flow requirements on your tax liability. This is sometimes called “[<u>tax loss</u> <u>harvesting</u>](https://www.bogleheads.org/wiki/Tax_loss_harvesting).”
 
 There are more… but I’m not going to elaborate on them here. My goal is to show you how to book these things with the double-entry method.
 
-Dated lots<a id="dated-lots"></a>
----------------------------------
+## Dated lots<a id="dated-lots"></a>
 
 We’ve almost completed the whole picture of how this works. There is one more rather technical detail to add and it begins with a question: What if I bought multiple lots of share at the same price?
 
@@ -241,8 +234,7 @@ Note that it’s really unlikely that your broker will provide the information i
 
 (*Technical Detail*: that we’re working on bettering the mechanism for lot selection so that you never have to insert the lot-date yourself, and so that you could disambiguate lot selection by supplying a name instead. See upcoming changes.)
 
-Reporting Unrealized P/L<a id="reporting-unrealized-pl"></a>
-------------------------------------------------------------
+## Reporting Unrealized P/L<a id="reporting-unrealized-pl"></a>
 
 Okay, so our account balances are holding the cost of each unit, and that provides us with the book value of these positions. Nice. But what about viewing the market value?
 
@@ -268,8 +260,7 @@ This will create a synthetic transaction at the date of the last of directives, 
 
 Note that I used an option in this example to specify a sub-account to book the unrealized gains to. The unrealized P/L shows up on a separate line in the balance sheet and the parent account should show the market value on its balance (which includes that of its sub-accounts).
 
-Commissions<a id="commissions"></a>
------------------------------------
+## Commissions<a id="commissions"></a>
 
 So far we have not discussed trading commissions. Depending on the tax law that applies to you, the costs associated with trading may be deductible from the raw capital gain as we’ve calculated it in the previous examples. These are considered expenses by the government, and it is often the case that you can deduct those trading commissions (it’s entirely reasonable from their part, you did not pocket that money after all).
 
@@ -316,10 +307,9 @@ You could even go one step further and fold the commission on *sale* into the pr
 
 This may seem overkill, but imagine that those costs were much higher, as is the case on large commercial transactions; the details do begin to matter to the tax man. Accurate accounting is important, and we need to develop a method to do this more precisely.
 
-<table><tbody><tr class="odd"><td><em><strong>We don’t currently have a good method of doing this with our input syntax. A suitable method is currently being developed and a <a href="a_proposal_for_an_improvement_on_inventory_booking.md"><span class="underline">proposal</span></a> is on the table. Also see mailing-list for details. [June 2014]</strong></em></td></tr></tbody></table>
+<table><tbody><tr class="odd"><td><em><strong>We don’t currently have a good method of doing this with our input syntax. A suitable method is currently being developed and a <a href="a_proposal_for_an_improvement_on_inventory_booking.md"><u>proposal</u></a> is on the table. Also see mailing-list for details. [June 2014]</strong></em></td></tr></tbody></table>
 
-Stock Splits<a id="stock-splits"></a>
--------------------------------------
+## Stock Splits<a id="stock-splits"></a>
 
 Stock splits are currently dealt with by emptying an account’s positions and recreating the positions at a different price:
 
@@ -340,12 +330,11 @@ One problem with this approach is that the *continuity* of the trade lots is los
 
 One way to handle this is by using the Dated Lots (see the appropriate section of this doc). That way, the original trade date can be preserved on the new lots. This provides accurate timing information in addition to the capital gain/loss based on the price.
 
-Another method for solving this and for easily propagating the lot trade date [<span class="underline">has been proposed</span>](a_proposal_for_an_improvement_on_inventory_booking.md) and will be implemented in Beancount later on.
+Another method for solving this and for easily propagating the lot trade date [<u>has been proposed</u>](a_proposal_for_an_improvement_on_inventory_booking.md) and will be implemented in Beancount later on.
 
-A more important problem with the current implementation is that the meaning of a unit of ADSK before and after the stock split is different. The price graph for this commodity unit will show a radical discontinuity! This is a more general problem that has yet to be addressed in both Beancount and Ledger. The [<span class="underline">Commodity Definition Changes</span>](https://docs.google.com/document/d/1Y_h5sjUTJzdK1riRh-mrVQm9KCzqFlU65KMsMsrQgXk/) document has a discussion to address this topic.
+A more important problem with the current implementation is that the meaning of a unit of ADSK before and after the stock split is different. The price graph for this commodity unit will show a radical discontinuity! This is a more general problem that has yet to be addressed in both Beancount and Ledger. The [<u>Commodity Definition Changes</u>](https://docs.google.com/document/d/1Y_h5sjUTJzdK1riRh-mrVQm9KCzqFlU65KMsMsrQgXk/) document has a discussion to address this topic.
 
-Cost Basis Adjustment and Return of Capital<a id="cost-basis-adjustment-and-return-of-capital"></a>
----------------------------------------------------------------------------------------------------
+## Cost Basis Adjustment and Return of Capital<a id="cost-basis-adjustment-and-return-of-capital"></a>
 
 Readjustment in cost basis may occur in managed funds, due to the fund’s internal trading activities. This will typically occur in tax-sheltered accounts where the gain that occurs from such an adjustment has no impact on taxes, and where the cost basis is held at the average cost of all shares in each position.
 
@@ -356,12 +345,11 @@ If we have the specific lot prices being adjusted, it is doable to book these in
       Assets:CA:RRSP:XSP            100 ADSK {23.40 CAD}
       Income:CA:RRSP:Gains      -230.00 CAD
 
-However, this is really uncommon. The more common case of this is of an account using the average cost booking method, we don’t currently have a way to deal with this. There is an [<span class="underline">active proposal</span>](a_proposal_for_an_improvement_on_inventory_booking.md) in place to make this possible.
+However, this is really uncommon. The more common case of this is of an account using the average cost booking method, we don’t currently have a way to deal with this. There is an [<u>active proposal</u>](a_proposal_for_an_improvement_on_inventory_booking.md) in place to make this possible.
 
 The cost basis adjustment is commonly found in Return of Capital events. These happen, for example, when funds are returning capital to the shareholders. This can be caused by winding down the operation. From the taxation point of view, these are non-taxable events and affect the cost basis of the equity in the fund. The number of shares might stay the same, but their cost basis needs to be adjusted for potential Gain/Loss calculation at the point of sale in the future.
 
-Dividends<a id="dividends"></a>
--------------------------------
+## Dividends<a id="dividends"></a>
 
 Dividends don’t pose a particular problem. They are just income. They can be received as cash:
 
@@ -377,10 +365,9 @@ Or they can be received as stock itself:
 
 In the case of dividends received as stock, as for stock purchases, you provide the cost basis at which the dividend was received (this should be available in your statements). If the account is held at average cost, this posting will simply merge with the other legs at the time an average cost booking is needed to be performed.
 
-Average Cost Booking<a id="average-cost-booking"></a>
------------------------------------------------------
+## Average Cost Booking<a id="average-cost-booking"></a>
 
-At the moment, the only way to perform booking at average cost is painful: you would have to use the method outlined in the Stock Split section in order to revalue your inventory. This is impractical, however. There is an [<span class="underline">active proposal</span>](a_proposal_for_an_improvement_on_inventory_booking.md) with an associated syntax to fully solve this problem.
+At the moment, the only way to perform booking at average cost is painful: you would have to use the method outlined in the Stock Split section in order to revalue your inventory. This is impractical, however. There is an [<u>active proposal</u>](a_proposal_for_an_improvement_on_inventory_booking.md) with an associated syntax to fully solve this problem.
 
 Once the proposal is implemented, it will look like this:
 
@@ -392,8 +379,7 @@ Once the proposal is implemented, it will look like this:
 
 Any posting with a cost of “\*” acting on an inventory will select all the shares of that currency (GOOG), merge them into a single one at the average cost, and then reduce that position at this new average cost.
 
-Future Topics<a id="future-topics"></a>
----------------------------------------
+## Future Topics<a id="future-topics"></a>
 
 I’ll be handling the following topics later on:
 
@@ -415,6 +401,6 @@ I’ll be handling the following topics later on:
 
 Some of these involve new features in Beancount, but some not. Ideas welcome.
 
-[^1]: This is a misleading notion, however. In reality, *there is no price*, there exist only markets where you get a “hint” of how much someone else might be willing to exchange your shares for (for different amounts to buy or to sell them, and for some limited number of them, we call this “a market”), but until you’ve actually completed selling your shares, you don’t really know precisely how much you will be able to execute that trade at, only an estimate. If you’re not intimately familiar with trading, this should give you pause, and hopefully a big “ah-ha! “moment about how the world works - there really does not exist a price for anything in the world - but in the context of this discussion, let’s make abstraction of this and assume that you can buy or sell as many shares as you have instantly on the markets at the middle price, such as [<span class="underline">Google Finance</span>](https://www.google.com/finance?&q=ibm) or [<span class="underline">Yahoo Finance</span>](http://finance.yahoo.com/q?s=ibm) or your broker would report it. The process of deciding that we would be able to sell the shares at 170$ each is called “marking”, that is, under reasonable assumptions, we believe that we would be able to actually sell those shares at that price (the term of art “marking to market” refers to the fact that we use the market price as the best indicator to our knowledge of our capability to realize the trade). For an individual buying and selling small amounts of shares that don’t move the market and with an honest broker, this is mostly true in practice.
+[^1]: This is a misleading notion, however. In reality, *there is no price*, there exist only markets where you get a “hint” of how much someone else might be willing to exchange your shares for (for different amounts to buy or to sell them, and for some limited number of them, we call this “a market”), but until you’ve actually completed selling your shares, you don’t really know precisely how much you will be able to execute that trade at, only an estimate. If you’re not intimately familiar with trading, this should give you pause, and hopefully a big “ah-ha! “moment about how the world works - there really does not exist a price for anything in the world - but in the context of this discussion, let’s make abstraction of this and assume that you can buy or sell as many shares as you have instantly on the markets at the middle price, such as [<u>Google Finance</u>](https://www.google.com/finance?&q=ibm) or [<u>Yahoo Finance</u>](http://finance.yahoo.com/q?s=ibm) or your broker would report it. The process of deciding that we would be able to sell the shares at 170$ each is called “marking”, that is, under reasonable assumptions, we believe that we would be able to actually sell those shares at that price (the term of art “marking to market” refers to the fact that we use the market price as the best indicator to our knowledge of our capability to realize the trade). For an individual buying and selling small amounts of shares that don’t move the market and with an honest broker, this is mostly true in practice.
 
 [^2]: As an aside, putting regular currencies in an account is just the degenerate case of a thing with an empty label. This is an implementation detail that works great in practice.

@@ -1,21 +1,18 @@
-Fund Accounting with Beancount<a id="title"></a>
-================================================
+# Fund Accounting with Beancount<a id="title"></a>
 
-[<span class="underline">Martin Blais</span>](http://plus.google.com/+MartinBlais), Carl Hauser, August 2014
+[<u>Martin Blais</u>](http://plus.google.com/+MartinBlais), Carl Hauser, August 2014
 
-[<span class="underline">http://furius.ca/beancount/doc/proposal-funds</span>](http://furius.ca/beancount/doc/proposal-funds)
+[<u>http://furius.ca/beancount/doc/proposal-funds</u>](http://furius.ca/beancount/doc/proposal-funds)
 
 *A discussion about how to carry out fund accounting within Beancount, various approaches, solutions and possible extensions.*
 
-Motivation<a id="motivation"></a>
----------------------------------
+## Motivation<a id="motivation"></a>
 
 Multiple users are attempting to solve the problem of fund accounting using command-line accounting systems, partially because this type of accounting occurs in the context of non-profit organizations that have small budgets and would prefer to use free software, and partially because the flexibility and customization required appear to be a good fit for command-line bookkeeping systems.
 
-What is Fund Accounting?<a id="what-is-fund-accounting"></a>
-------------------------------------------------------------
+## What is Fund Accounting?<a id="what-is-fund-accounting"></a>
 
-For example, see [<span class="underline">this thread</span>](https://groups.google.com/d/msg/ledger-cli/N8Slh2t45K0/nu1ZACCueQYJ):
+For example, see [<u>this thread</u>](https://groups.google.com/d/msg/ledger-cli/N8Slh2t45K0/nu1ZACCueQYJ):
 
 > *“Another religious duty I compute is effectively tithing (we call it Huqúqu'lláh, and it's computed differently, but that's another story). In order to compute the tithe owed, I accrue 19% of every deposit to a virtual account, and then subtract from that account 19% of every needful expenditure.*
 >
@@ -116,12 +113,11 @@ For John W.’s *Huqúqu'lláh* example one might set up a Fund whose liabilitie
 
 For me, this approach to fund accounting is appealing because it relies on and preserves the fundamental principles of double-entry bookkeeping: when transactions sum to 0 the balance sheet equation is always true. Out of this we automatically get the ability to combine *any set of funds* (we don’t have to do anything special when entering transactions or organizing the deep structure of the accounts) and have it make at least arithmetical sense, and we don’t rely on any “magic” associated with renaming or tagging. I don’t see how this can be so easily or neatly achieved by pushing the idea of the “funds” down into the account hierarchy: funds belong *above* the five root accounts (Assets, Liabilities, Equity, Income and Expenses), not below them.
 
-Ideas for Implementation<a id="ideas-for-implementation"></a>
--------------------------------------------------------------
+## Ideas for Implementation<a id="ideas-for-implementation"></a>
 
 ***Some random ideas for now. This needs a bit more work.***
 
--   If multiple redundant postings are required, the generation of these can be **automated using a [<span class="underline">plugin</span>](beancount_scripting_plugins.md)**. For instance, if a technique similar to [<span class="underline">mirror accounting</span>](http://furius.ca/beancount/doc/mirror) is used in order to “send the same dollars to multiple accounts”, at least the user should not have to do this manually, which would be both tedious and prone to errors.
+-   If multiple redundant postings are required, the generation of these can be **automated using a [<u>plugin</u>](beancount_scripting_plugins.md)**. For instance, if a technique similar to [<u>mirror accounting</u>](http://furius.ca/beancount/doc/mirror) is used in order to “send the same dollars to multiple accounts”, at least the user should not have to do this manually, which would be both tedious and prone to errors.
 
 -   A procedure to **rename accounts** upon parsing could be used, in order to merge multiple files into one. (Allowing the user to install such a mapping is an idea I’ve had for a while but never implemented, though it could be implemented by a plugin filter.)
 
@@ -141,8 +137,7 @@ Ideas for Implementation<a id="ideas-for-implementation"></a>
 
     From an implementation perspective this seems more orthogonal to the current status quo, requiring even less change to existing code. It adds a new feature -- value tags and that can then be used by plugins and new reports to do what we want for fund accounting.
 
-Examples<a id="examples"></a>
------------------------------
+## Examples<a id="examples"></a>
 
 *(Carl)* Here is an example of how I might try to handle things associated with my paycheck, which involves deferred compensation (403(b) -- extremely similar to a 401(k)) and a Flexible Spending Account (somewhat similar to an HSA which has been discussed previously on the ledger-cli group).
 
@@ -286,8 +281,7 @@ I've used the convention that the Fund name precedes the root account name. Note
       FSA:Assets                                                   -25 USD
       FSA:Expenses:ReimburseMedical
 
-Transfer Accounts Proposal<a id="transfer-accounts-proposal"></a>
------------------------------------------------------------------
+## Transfer Accounts Proposal<a id="transfer-accounts-proposal"></a>
 
 *By Carl Hauser*
 
@@ -336,11 +330,10 @@ The paycheck transaction using transfer accounts for the FSA and the retirement 
 
 Some might think that this is too complicated. Without changing the Transfer accounts idea or rule, you can simplify booking to just a single account per fund, `Fund:Transfer`, losing some ability for precision in reporting but without losing the ability to check correctness of transfer transactions.
 
-Account Aliases<a id="account-aliases"></a>
--------------------------------------------
+## Account Aliases<a id="account-aliases"></a>
 
-Simon Michael mentions that this is related to HLedger [<span class="underline">account aliases</span>](http://hledger.org/how-to-use-account-aliases):
+Simon Michael mentions that this is related to HLedger [<u>account aliases</u>](http://hledger.org/how-to-use-account-aliases):
 
-> “I think this is related to the situation where you want to view entities' finances both separately and merged. Account aliases can be another way to approximate this, as in[<span class="underline">http://hledger.org/how-to-use-account-aliases</span>](http://hledger.org/how-to-use-account-aliases).”
+> “I think this is related to the situation where you want to view entities' finances both separately and merged. Account aliases can be another way to approximate this, as in[<u>http://hledger.org/how-to-use-account-aliases</u>](http://hledger.org/how-to-use-account-aliases).”
 
 [^1]: If you find yourself culturally challenged by our modern lifestyle, perhaps you can imagine the case of roommates, although I don’t like the reductionist view this association brings to my mind.

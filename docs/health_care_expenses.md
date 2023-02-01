@@ -1,7 +1,6 @@
-Health Care Expenses<a id="title"></a>
-======================================
+# Health Care Expenses<a id="title"></a>
 
-[<span class="underline">Martin Blais</span>](mailto:blais@furius.ca), July 2014
+[<u>Martin Blais</u>](mailto:blais@furius.ca), July 2014
 
 *This is incomplete, work-in-progress, not released yet.*
 

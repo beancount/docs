@@ -1,12 +1,10 @@
-Prices in Beancount<a id="title"></a>
-=====================================
+# Prices in Beancount<a id="title"></a>
 
 [Martin](mailto:blais@furius.ca) [Blais](mailto:blais@furius.ca), December 2015
 
-[<span class="underline">http://furius.ca/beancount/doc/prices</span>](http://furius.ca/beancount/doc/prices)
+[<u>http://furius.ca/beancount/doc/prices</u>](http://furius.ca/beancount/doc/prices)
 
-Introduction<a id="introduction"></a>
--------------------------------------
+## Introduction<a id="introduction"></a>
 
 Processing a Beancount file is, by definition, constrained to the contents of the file itself. In particular, the latest prices of commodities are *never* fetched automatically from the internet. This is by design, so that any run of a report is deterministic and can also be run offline. No surprises.
 
@@ -21,8 +19,7 @@ Of course, you could do this manually, looking up the prices online and writing 
 
 Beancount comes with some tools to help you do this. This document describes these tools.
 
-The Problem<a id="the-problem"></a>
------------------------------------
+## The Problem<a id="the-problem"></a>
 
 In the context of maintaining a Beancount file, we have a few particular needs to address.
 
@@ -34,8 +31,7 @@ Third, we don't want to fetch the same price if it already appears in the input 
 
 Finally, while we provide some basic implementations of price sources, we cannot provide such codes for all possible online sources and websites. The problem is analogous to that of importing and extracting data from various institutions. In order to address that, we provide a mechanism for **extensibility**, a way that you can implement your own price source fetcher in a Python module and point to it from your input file by specifying the module's name as the source for that commodity.
 
-The “bean-price” Tool<a id="the-bean-price-tool"></a>
------------------------------------------------------
+## The “bean-price” Tool<a id="the-bean-price-tool"></a>
 
 Beancount comes with a “bean-price” command-line tool that integrates the ideas above. By default, this script accepts a list of Beancount input filenames, and fetches prices required to compute latest market values for current positions held in accounts:
 
@@ -111,8 +107,7 @@ You can also instruct the script to clear the cache before fetching its prices:
 
     bean-price --clear-cache
 
-Prices from a Beancount Input File<a id="prices-from-a-beancount-input-file"></a>
----------------------------------------------------------------------------------
+## Prices from a Beancount Input File<a id="prices-from-a-beancount-input-file"></a>
 
 Generally, one uses a Beancount input file to specify the list of currencies to fetch. In order to do that, you should have Commodity directives in your input file for each of the currencies you mean to fetch prices for, like this:
 
@@ -154,8 +149,7 @@ Finally, you can use “--all” to include inactive and undeclared commodities 
 
 If you'd like to do some troubleshooting and print out the list of seen commodities, use the “`--verbose`” option twice, i.e., “`-vv`”. You can also just print the list of prices to be fetched with the “`--dry-run`” option, which stops short of actually fetching the missing prices.
 
-Conclusion<a id="conclusion"></a>
----------------------------------
+## Conclusion<a id="conclusion"></a>
 
 ### Writing Your Own Script<a id="writing-your-own-script"></a>
 

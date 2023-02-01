@@ -1,12 +1,10 @@
-Sharing Expenses in Beancount<a id="title"></a>
-===============================================
+# Sharing Expenses in Beancount<a id="title"></a>
 
-[<span class="underline">Martin Blais</span>](mailto:blais@furius.ca), May 2015
+[<u>Martin Blais</u>](mailto:blais@furius.ca), May 2015
 
-[<span class="underline">http://furius.ca/beancount/doc/shared</span>](http://furius.ca/beancount/doc/shared)
+[<u>http://furius.ca/beancount/doc/shared</u>](http://furius.ca/beancount/doc/shared)
 
-Introduction<a id="introduction"></a>
--------------------------------------
+## Introduction<a id="introduction"></a>
 
 This document presents a method for precisely and easily accounting for shared expenses in complicated group situations. For example, traveling with a group of friends where people pay for different things. We show it is possible to deal with expenses to be split evenly among the group as well as group expenses that should be allocated to specific persons.
 
@@ -14,10 +12,9 @@ The method uses the double-entry accounting system. The essence of the method co
 
 This article is structured around a simple trip with expenses shared equally by two people. However, the same method generalizes to any type of project with incomes and expenses to be shared among multiple participants, and splitting expenses evenly or not.
 
-A Travel Example<img src="sharing_expenses_with_beancount/media/72a67e4807826142ec5f6535a66dc7fca5f797a3.jpg" style="width:1.41146in;height:1.05859in" /><a id="a-travel-example"></a>
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## A Travel Example<img src="sharing_expenses_with_beancount/media/72a67e4807826142ec5f6535a66dc7fca5f797a3.jpg" style="width:1.41146in;height:1.05859in" /><a id="a-travel-example"></a>
 
-Martin (the author) and Caroline (his girlfriend) visited Mexico in March 2015. We visited the island of Cozumel for a SCUBA diving trip for three days and then headed to Tulum for two days to relax and dive in the [<span class="underline">cenotes</span>](http://en.wikipedia.org/wiki/Cenote).
+Martin (the author) and Caroline (his girlfriend) visited Mexico in March 2015. We visited the island of Cozumel for a SCUBA diving trip for three days and then headed to Tulum for two days to relax and dive in the [<u>cenotes</u>](http://en.wikipedia.org/wiki/Cenote).
 
 Our assumptions are:
 
@@ -27,10 +24,9 @@ Our assumptions are:
 
 -   **Multiple currencies.** Some of our expenses will be denominated in US dollars and some in Mexican pesos. For example, flights were paid in US dollars, local meals and the accommodation were paid in pesos, but the local dive shop charged us dollars. Converted amounts will come from both cash and credit cards sources.
 
--   **Individual expenses in a shared pool.** While most of the expenses are to be shared equally, some of the expenses will apply to only one of us, and we want to account for those explicitly. For example, Caroline took a SCUBA certification course ([<span class="underline">PADI Open Water</span>](http://www.padi.com/scuba-diving/padi-courses/course-catalog/open-water-diver/)) and will pay for that on her own; similarly, she should not be paying for Martin’s expensive boat diving costs. To complicate matters, the dive shop issued us a single joint bill for everything at the end of our stay.
+-   **Individual expenses in a shared pool.** While most of the expenses are to be shared equally, some of the expenses will apply to only one of us, and we want to account for those explicitly. For example, Caroline took a SCUBA certification course ([<u>PADI Open Water</u>](http://www.padi.com/scuba-diving/padi-courses/course-catalog/open-water-diver/)) and will pay for that on her own; similarly, she should not be paying for Martin’s expensive boat diving costs. To complicate matters, the dive shop issued us a single joint bill for everything at the end of our stay.
 
-A Note About Sharing<a id="a-note-about-sharing"></a>
------------------------------------------------------
+## A Note About Sharing<a id="a-note-about-sharing"></a>
 
 I feel that something should be said about the “sharing” aspect of our expenses, as this topic has come up on previous discussions on the mailing-lists involving sharing examples.
 
@@ -38,10 +34,9 @@ I feel that something should be said about the “sharing” aspect of our expen
 
 **We will assume that we’ve decided to split expenses evenly.** Our “generosity” to each other is not a topic relevant to this document. We’re both well compensated working professionals and you can assume that we’ve agreed to split the common costs for this trip evenly (50/50).
 
-One of the attributes of the method we show here is that the decision of how we choose to split expenses can be made *separately* from the actual payment of costs. For example, we may decide in the end that I pay for ⅔rd of the trip, but that can be decided precisely rather than in an ad-hoc “oh, I think I remember I paid for this” manner. This is especially useful in a larger group of people because when expenses aren’t tracked accurately, usually *<span class="underline">everyone</span>* is left with a feeling that they paid more than the others. The sum of the *perceived* fractions of expenses paid in a group is always greater than 100%...
+One of the attributes of the method we show here is that the decision of how we choose to split expenses can be made *separately* from the actual payment of costs. For example, we may decide in the end that I pay for ⅔rd of the trip, but that can be decided precisely rather than in an ad-hoc “oh, I think I remember I paid for this” manner. This is especially useful in a larger group of people because when expenses aren’t tracked accurately, usually *<u>everyone</u>* is left with a feeling that they paid more than the others. The sum of the *perceived* fractions of expenses paid in a group is always greater than 100%...
 
-Overview of the Method<a id="overview-of-the-method"></a>
----------------------------------------------------------
+## Overview of the Method<a id="overview-of-the-method"></a>
 
 In this section we present a brief illustrated overview of the method. A set of common Assets accounts that belong to the project, and book all our individual expenses and transfer for the trip as coming from external Income accounts:
 
@@ -61,10 +56,9 @@ Finally, the list of shared Expenses are split between each other—using a plug
 
 Note that the final balance of expenses for each participant may differ, and these are due to particular expenses that were attributed separately, or if we decide to split the total unevenly.
 
-How to Track Expenses<a id="how-to-track-expenses"></a>
--------------------------------------------------------
+## How to Track Expenses<a id="how-to-track-expenses"></a>
 
-In order to write down all expenses for this trip we will open a brand new Beancount input file. Despite the fact that the expenses will come from each person’s personal accounts, it is useful to think of the trip as a special project, as if it were a separate entity, e.g., a company that exists only for the duration of the trip. The example file we wrote for our trip [<span class="underline">can be found here</span>](https://raw.githubusercontent.com/beancount/beancount/v2/examples/sharing/cozumel2015.beancount) and should help you follow along this text.
+In order to write down all expenses for this trip we will open a brand new Beancount input file. Despite the fact that the expenses will come from each person’s personal accounts, it is useful to think of the trip as a special project, as if it were a separate entity, e.g., a company that exists only for the duration of the trip. The example file we wrote for our trip [<u>can be found here</u>](https://raw.githubusercontent.com/beancount/beancount/v2/examples/sharing/cozumel2015.beancount) and should help you follow along this text.
 
 ### Accounts<a id="accounts"></a>
 
@@ -260,8 +254,7 @@ Our clearing transaction looked like this:
 
 We had three 20 peso bills, and I kept the bills for future travels. Caroline kept the 5 peso coin (forgot to hand it over as a tip). We transferred out the respective cash amounts we had been carrying together during the trip.
 
-How to Take Notes<a id="how-to-take-notes"></a>
------------------------------------------------
+## How to Take Notes<a id="how-to-take-notes"></a>
 
 During this trip I did not carry a laptop—this was vacation after all. I like to disconnect. I did not carry a notebook either. Instead, I just took notes at the end of the day on a few sheets of paper at the hotel. This process took about 5-10 minutes each night, just recalling from memory and writing things down.
 
@@ -277,12 +270,11 @@ I made a paper spreadsheet where each line had
 
 -   The amount (either in USD or MXN)
 
-After our trip, I sat down at the computer and typed [<span class="underline">the corresponding Beancount file</span>](https://github.com/beancount/beancount/blob/master/examples/sharing/cozumel2015.beancount). If I had a computer during my vacation I probably would have typed it as we went along. Of course, I had to do a few adjustments here and there because of mistakes.
+After our trip, I sat down at the computer and typed [<u>the corresponding Beancount file</u>](https://github.com/beancount/beancount/blob/master/examples/sharing/cozumel2015.beancount). If I had a computer during my vacation I probably would have typed it as we went along. Of course, I had to do a few adjustments here and there because of mistakes.
 
 The bottom line is: if you’re organized well, the overhead of doing this is minimal.
 
-Reconciling Expenses<a id="reconciling-expenses"></a>
------------------------------------------------------
+## Reconciling Expenses<a id="reconciling-expenses"></a>
 
 Running bean-web on the trip’s file:
 
@@ -402,8 +394,7 @@ Similarly, you can generate the list of payments made by each person, e.g.:
 
     beancount> SELECT sum(position) WHERE account ~ '^Income:.*Caroline'
 
-Final Transfer<a id="final-transfer"></a>
------------------------------------------
+## Final Transfer<a id="final-transfer"></a>
 
 In order to figure out the total amount owed by each member, the process is similar: Simply sum up the balances of all the accounts attributed to that particular member:
 
@@ -441,8 +432,7 @@ If you uncomment this transaction from the input file (near the end), you will f
     --------------------------------
     38.7831868131868131868131868 USD
 
-Updating your Personal Ledger<a id="updating-your-personal-ledger"></a>
------------------------------------------------------------------------
+## Updating your Personal Ledger<a id="updating-your-personal-ledger"></a>
 
 So great! Now we’ve reconciled each other for the trip. But you still need to reflect these expenses in your personal ledger (if you have one). In this section, I will explain how you should reflect these transactions in that file.
 
@@ -568,8 +558,7 @@ Observations:
 
 I found the missing amounts by running `bean-check` or using `bean-doctor context` on an incomplete transaction from Emacs.
 
-Generating Reports<a id="generating-reports"></a>
--------------------------------------------------
+## Generating Reports<a id="generating-reports"></a>
 
 If you want to automate the generation of reports for each of the participants in a trip, there is a script that generates text (and eventually CSV) reports for the queries mentioned in the previous sections. You can use this script to provide expenses status after or even during the trip or project, for each of the participants.
 
@@ -585,15 +574,13 @@ For each person, it will generate the following reports:
 
 -   A breakdown of expenses for each category (account type)
 
-Finally, it will also generate a final balance for each person, which you can use to send final reconciling transfers to each other. Try it now on one of the [<span class="underline">example files</span>](https://raw.githubusercontent.com/beancount/beancount/v2/examples/sharing/) provided with Beancount.
+Finally, it will also generate a final balance for each person, which you can use to send final reconciling transfers to each other. Try it now on one of the [<u>example files</u>](https://raw.githubusercontent.com/beancount/beancount/v2/examples/sharing/) provided with Beancount.
 
-Other Examples<a id="other-examples"></a>
------------------------------------------
+## Other Examples<a id="other-examples"></a>
 
-There is another example file that shows how to share expenses between three participants in [<span class="underline">duxbury2015.beancount</span>](https://raw.githubusercontent.com/beancount/beancount/v2/examples/sharing/duxbury2015.beancount). Look to more example files to be introduced over time.
+There is another example file that shows how to share expenses between three participants in [<u>duxbury2015.beancount</u>](https://raw.githubusercontent.com/beancount/beancount/v2/examples/sharing/duxbury2015.beancount). Look to more example files to be introduced over time.
 
-Conclusion<img src="sharing_expenses_with_beancount/media/b2573bbadd485ef104e25a4b13b53f46c4b541ca.jpg" style="width:2.02604in;height:1.52427in" /><a id="conclusion"></a>
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Conclusion<img src="sharing_expenses_with_beancount/media/b2573bbadd485ef104e25a4b13b53f46c4b541ca.jpg" style="width:2.02604in;height:1.52427in" /><a id="conclusion"></a>
 
 There is more than just one way to carry out the task we describe here. However, the method we present extends nicely to a larger group of participants, allows us to account for situations where particular expenses are incurred for one individual as part of a group, and finally, allows for a non-even split between the participants. This is pretty general.
 

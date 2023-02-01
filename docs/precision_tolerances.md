@@ -1,14 +1,12 @@
-Beancount Precision & Tolerances<a id="title"></a>
-==================================================
+# Beancount Precision & Tolerances<a id="title"></a>
 
-[<span class="underline">Martin Blais</span>](http://plus.google.com/+MartinBlais), May 2015
+[<u>Martin Blais</u>](http://plus.google.com/+MartinBlais), May 2015
 
-[<span class="underline">http://furius.ca/beancount/doc/tolerances</span>](http://furius.ca/beancount/doc/tolerances)
+[<u>http://furius.ca/beancount/doc/tolerances</u>](http://furius.ca/beancount/doc/tolerances)
 
 *This document describes how Beancount handles the limited precision of numbers in transaction balance checks and balance assertions. It also documents rounding that may occur in inferring numbers automatically.*
 
-Motivation<a id="motivation"></a>
----------------------------------
+## Motivation<a id="motivation"></a>
 
 Beancount automatically enforces that the amounts on the Postings of Transactions entered in an input file sum up to zero. In order for Beancount to verify this in a realistic way, it must tolerate a small amount of imprecision. This is because Beancount lets you **replicate what happens in real world account transactions**, and in the real world, institutions round amounts up or down for practical reasons.
 
@@ -30,8 +28,7 @@ Once again, rounding occurs in this transaction: not only the Net Asset Value of
 
 From Beancount’s point-of-view, both of the examples above are balancing transactions. Clearly, if we are to try to represent and reproduce the transactions of external accounts to our input file, there needs to be some tolerance in the balance verification algorithm.
 
-How Precision is Determined<a id="how-precision-is-determined"></a>
--------------------------------------------------------------------
+## How Precision is Determined<a id="how-precision-is-determined"></a>
 
 Beancount attempts to derive the precision from each transaction **automatically**, from the input, for each Transaction **in isolation**[^1]. Let us inspect our last example again:
 
@@ -144,8 +141,7 @@ You turn on the feature like this:
 
 Enabling this flag only makes the tolerances potentially wider, never smaller.
 
-Balance Assertions & Padding<a id="balance-assertions-padding"></a>
--------------------------------------------------------------------
+## Balance Assertions & Padding<a id="balance-assertions-padding"></a>
 
 There are a few other places where approximate comparisons are needed. Balance assertions also compare two numbers:
 
@@ -173,8 +169,7 @@ Beancount supports the specification of an explicit tolerance amount, like this:
 
 This feature was added because of some observed peculiarities in Vanguard investment accounts whereby rounding appears to follow odd rules and balances don’t match.
 
-Saving Rounding Error<a id="saving-rounding-error"></a>
--------------------------------------------------------
+## Saving Rounding Error<a id="saving-rounding-error"></a>
 
 As we saw previously, transactions don’t have to balance exactly, they allow for a small amount of imprecision. This bothers some people. If you would like to track and measure the residual amounts allowed by the tolerances, Beancount offers an option to automatically insert postings that will make each transaction balance exactly.
 
@@ -201,8 +196,7 @@ Finally, if you require that all accounts be opened explicitly, you should remem
 
     2000-01-01 open Equity:RoundingError
 
-Precision of Inferred Numbers<a id="precision-of-inferred-numbers"></a>
------------------------------------------------------------------------
+## Precision of Inferred Numbers<a id="precision-of-inferred-numbers"></a>
 
 Beancount is able to infer some missing numbers in the input. For example, the second posting in this transaction is “interpolated” automatically by Beancount:
 
@@ -245,8 +239,7 @@ Finally, if you enabled the accumulation of rounding error, the posting’s amou
       Assets:Investments:Cash     -227.207 USD
       Equity:RoundingError          0.0003 USD
 
-Porting Existing Input<a id="porting-existing-input"></a>
----------------------------------------------------------
+## Porting Existing Input<a id="porting-existing-input"></a>
 
 The inference of tolerance values from the transaction’s numbers is generally good enough to keep existing files working without changes. There may be new errors appearing in older files once we process them with the method described in this document, but they should either point to previously undetected errors in the input, or be fixable with simple addition of a suitable number of digits.
 
@@ -272,24 +265,21 @@ by inserting zero’s to provide a locally inferred value like this:
 
 is sufficient to silence the balance check.
 
-Representational Issues<a id="representational-issues"></a>
------------------------------------------------------------
+## Representational Issues<a id="representational-issues"></a>
 
 Internally, Beancount uses a decimal number representation (not a binary/float representation, neither rational numbers). Calculations that result in a large number of fractional digits are carried out to 28 decimal places (the default precision from the context of Python’s IEEE decimal implementation). This is plenty sufficient, because the method we propose above rarely trickles these types of numbers throughout the system: the tolerances allows us to post the precise amounts declared by users, and only automatically derived prices and costs will possibly result in precisions calculated to an unrealistic number of digits that could creep into aggregations in the rest of the system.
 
-References<a id="references"></a>
----------------------------------
+## References<a id="references"></a>
 
-The [<span class="underline">original proposal</span>](rounding_precision_in_beancount.md) that led to this implementation can be [<span class="underline">found here</span>](rounding_precision_in_beancount.md). In particular, the proposal highlights on the other systems have attempted to deal with this issue. There are also [<span class="underline">some discussions</span>](https://groups.google.com/forum/#!msg/ledger-cli/m-TgILbfrwA/YjkmOM3LHXIJ) on the mailing-list dedicated to this topic.
+The [<u>original proposal</u>](rounding_precision_in_beancount.md) that led to this implementation can be [<u>found here</u>](rounding_precision_in_beancount.md). In particular, the proposal highlights on the other systems have attempted to deal with this issue. There are also [<u>some discussions</u>](https://groups.google.com/forum/#!msg/ledger-cli/m-TgILbfrwA/YjkmOM3LHXIJ) on the mailing-list dedicated to this topic.
 
 Note that for the longest time, Beancount used a fixed precision of 0.005 across all currencies. This was eliminated once the method described in this document was implemented.
 
 Also, for Balance and Pad directives, there used to be a “tolerance” option that was set by default to 0.015 of any units. This option has been deprecated with the merging of the changes described in this document.
 
-Historical Notes<a id="historical-notes"></a>
----------------------------------------------
+## Historical Notes<a id="historical-notes"></a>
 
-Here’s an overview of the status of numbers rendering in Beancount as of March 2016, [<span class="underline">from the mailing-list</span>](https://groups.google.com/d/msg/beancount/frfN1zc6TEc/d5OjuDnREgAJ):
+Here’s an overview of the status of numbers rendering in Beancount as of March 2016, [<u>from the mailing-list</u>](https://groups.google.com/d/msg/beancount/frfN1zc6TEc/d5OjuDnREgAJ):
 
 > First, it's important to realize how these numbers are represented in memory. They are using the Decimal representation which beyond being able to accurately representing decimal numbers (as opposed to the approximation that binary floats provides) also contains a specific precision. That is, the number 2.00 is represented differently than the numbers 2.0 and 2.000. The numbers "remember" which precision they are represented up to. This is important. When I say rendering the numbers to their "natural precision" I mean the precision with which they are represented, i.e., 2.0 renders as "2.0", 2.000 renders as "2.000".
 >
@@ -299,9 +289,9 @@ Here’s an overview of the status of numbers rendering in Beancount as of March
 
 -   "Precision" is perhaps a bit of a misnomer: By that I'm referring to is how many digits the numbers are to be rendered with.
 
-> Once upon a time - after the shell was already written - these concepts weren't well defined in Beancount and I wasn't dealing with these things consistently. At some point it became clear what I needed to do and I created a class called "DisplayContext" which could contain appropriate settings for rendering the precision of numbers for each currency (each currency tends to have its own most common rendering precision, e.g. two digits for USD, one digit for MXN, no digits for JPY and in reports we're typically fine rounding the actual numbers to that precision). So an instance of this DisplayContext is automatically instantiated in the parser and in order to avoid the user having to set these values manually - for Beancount to "do the right thing" by default - [<span class="underline">it is able to accumulate</span>](https://github.com/beancount/beancount/blob/master/beancount/core/display_context.py) the numbers seen and to deduce the most common and maximum number of digits used from the input, and to use that as the default number of digits for rendering numbers. The most common format/number of digits is used to render the number of units, and the maximum number of digits seen is used to render costs and prices. In addition, this class also has capabilities for aligning to the decimal dot and to insert commas on thousands as well. It separates the control of the formatting from the numbers themselves.
+> Once upon a time - after the shell was already written - these concepts weren't well defined in Beancount and I wasn't dealing with these things consistently. At some point it became clear what I needed to do and I created a class called "DisplayContext" which could contain appropriate settings for rendering the precision of numbers for each currency (each currency tends to have its own most common rendering precision, e.g. two digits for USD, one digit for MXN, no digits for JPY and in reports we're typically fine rounding the actual numbers to that precision). So an instance of this DisplayContext is automatically instantiated in the parser and in order to avoid the user having to set these values manually - for Beancount to "do the right thing" by default - [<u>it is able to accumulate</u>](https://github.com/beancount/beancount/blob/master/beancount/core/display_context.py) the numbers seen and to deduce the most common and maximum number of digits used from the input, and to use that as the default number of digits for rendering numbers. The most common format/number of digits is used to render the number of units, and the maximum number of digits seen is used to render costs and prices. In addition, this class also has capabilities for aligning to the decimal dot and to insert commas on thousands as well. It separates the control of the formatting from the numbers themselves.
 >
-> MOST of the code that renders numbers uses the DisplayContext (via the to\_string() methods) to convert the numbers into strings, such as the web interface and explicit text reports. But NOT ALL... there's a bit of HISTORY here... the SQL shell uses [<span class="underline">some old special-purpose code</span>](https://github.com/beancount/beancount/blob/master/beancount/query/query_render.py) to render numbers that I never bothered to convert to the DisplayContext class. There's a [<span class="underline">TODO item</span>](https://github.com/beancount/beancount/blob/master/TODO) for it. It needs to get converted at some point, but I've neglected doing this so far because I have much bigger plans for the SQL query engine that involve a full rewrite of it with many improvements and I figured I'd do that then. If you recall, the SQL query engine was a prototype, and actually it works, but it is not well covered by unit tests. My purpose with it was to discover through usage what would be useful and to then write a v2 of it that would be much better.
+> MOST of the code that renders numbers uses the DisplayContext (via the to\_string() methods) to convert the numbers into strings, such as the web interface and explicit text reports. But NOT ALL... there's a bit of HISTORY here... the SQL shell uses [<u>some old special-purpose code</u>](https://github.com/beancount/beancount/blob/master/beancount/query/query_render.py) to render numbers that I never bothered to convert to the DisplayContext class. There's a [<u>TODO item</u>](https://github.com/beancount/beancount/blob/master/TODO) for it. It needs to get converted at some point, but I've neglected doing this so far because I have much bigger plans for the SQL query engine that involve a full rewrite of it with many improvements and I figured I'd do that then. If you recall, the SQL query engine was a prototype, and actually it works, but it is not well covered by unit tests. My purpose with it was to discover through usage what would be useful and to then write a v2 of it that would be much better.
 >
 > Now, about that PRINT command... this is not intended as a reporting tool. The printer's purpose is to print input that accurately represents the content of the transactions. In order to do this, it needs to render the numbers at their "natural" precision, so that when they get read back in, they parse into the very same number, that is, with the same number of digits (even if zeros). For this reason, the PRINT command does not attempt to render using the DisplayContext instance derived from the input file - this is on purpose. I could change that, but then round-trip would break: the rounding resulting from formatting using the display context may output transactions which don't balance anymore.
 >
@@ -311,14 +301,13 @@ Here’s an overview of the status of numbers rendering in Beancount as of March
 >
 > I just noticed from your comments and some grepping around that the "render\_commas" option is not used anymore. I'm not sure how that happened, but I'll go ad fix that right away and set the default value of the DisplayContext derived from the input.
 >
-> I should probably also convert the SQL shell rendering to use the display context regardless of future plans, so that it renders consistently with all the rest. Not sure I can do that this weekend, but I'll log a ticket, [<span class="underline">here</span>](https://github.com/beancount/beancount/issues/105).
+> I should probably also convert the SQL shell rendering to use the display context regardless of future plans, so that it renders consistently with all the rest. Not sure I can do that this weekend, but I'll log a ticket, [<u>here</u>](https://github.com/beancount/beancount/issues/105).
 >
 > I hope this helps. You're welcome to ask questions if the above isn't clear. I'm sorry if this isn't entirely obvious... there's been a fair bit of history there and there's a lot of code. I should review the naming of options, I think the tolerance options all have "tolerance" in their name, but there aren't options to override the rendering and when I add them they should all have a common name as well.
 
-Further Reading<a id="further-reading"></a>
--------------------------------------------
+## Further Reading<a id="further-reading"></a>
 
-[<span class="underline">What Every Computer Scientist Should Know About Floating-Point Arithmetic</span>](http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html#689)
+[<u>What Every Computer Scientist Should Know About Floating-Point Arithmetic</u>](http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html#689)
 
 [^1]: This stands in contrast to Ledger which attempts to infer the precision based on other transactions recently parsed in the file, in file order. This has the unfortunate effect of creating “cross-talk” between the transactions in terms of what precision can be used.
 

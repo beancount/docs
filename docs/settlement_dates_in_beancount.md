@@ -1,29 +1,26 @@
-Settlement Dates & Transfer Accounts in Beancount<a id="title"></a>
-===================================================================
+# Settlement Dates & Transfer Accounts in Beancount<a id="title"></a>
 
 Martin Blais, July 2014
 
-[<span class="underline">http://furius.ca/beancount/doc/proposal-dates</span>](http://furius.ca/beancount/doc/proposal-dates)
+[<u>http://furius.ca/beancount/doc/proposal-dates</u>](http://furius.ca/beancount/doc/proposal-dates)
 
-> [<span class="underline">Motivation</span>](#motivation)
+> [<u>Motivation</u>](#motivation)
 >
-> [<span class="underline">Proposal Description</span>](#_1t2cyy3ee86k)
+> [<u>Proposal Description</u>](#_1t2cyy3ee86k)
 >
-> [<span class="underline">Remaining Questions</span>](#remaining-questions)
+> [<u>Remaining Questions</u>](#remaining-questions)
 >
-> [<span class="underline">Previous Work</span>](#_svp0j511dy5a)
+> [<u>Previous Work</u>](#_svp0j511dy5a)
 >
-> [<span class="underline">Ledger Effective and Auxiliary Dates</span>](#ledger-effective-and-auxiliary-dates)
+> [<u>Ledger Effective and Auxiliary Dates</u>](#ledger-effective-and-auxiliary-dates)
 >
-> [<span class="underline">References</span>](#references)
+> [<u>References</u>](#references)
 
-Motivation<a id="motivation"></a>
----------------------------------
+## Motivation<a id="motivation"></a>
 
 When a trade executes in an investment account, there is most often a delay between the date that the transaction is carried out (the “transaction date”) and the date that the funds are deposited in an associated cash account (the “settlement date”). This makes imported balance assertions sometimes requiring the fudging of their dates, and sometimes they can even be impossible. This document proposes the addition of an optional “settlement date” to be attached to a transaction or a posting, and associated semantics for how to deal with the problem.
 
-Proposal Description<a id="proposal-description"></a>
------------------------------------------------------
+## Proposal Description<a id="proposal-description"></a>
 
 ### Settlement Dates<a id="settlement-dates"></a>
 
@@ -61,18 +58,17 @@ Maybe someone can convince me otherwise.
 
 ### Transfer Accounts<a id="transfer-accounts"></a>
 
-In the previous section, we discuss a style whereby a single entry moving money between two accounts contains two dates and results in two separate entries. An auxiliary problem, which is related in its solution, is how to carry out the reverse operation, that is, how to *merge* two separate entries posting to a common transfer account (sometimes called a “[<span class="underline">suspense account</span>](https://en.wikipedia.org/wiki/Suspense_account)”).
+In the previous section, we discuss a style whereby a single entry moving money between two accounts contains two dates and results in two separate entries. An auxiliary problem, which is related in its solution, is how to carry out the reverse operation, that is, how to *merge* two separate entries posting to a common transfer account (sometimes called a “[<u>suspense account</u>](https://en.wikipedia.org/wiki/Suspense_account)”).
 
 For example, a user may want to input the two sides of a transaction separately, e.g. by running import scripts on separate input files, and instead of having to reconcile and merge those by hand, we would want to explicitly support this by identifying matching transactions to these transfer accounts and creating a common link between them.
 
 Most importantly, we want to be able to easily identify which of the transactions is not matched on the other side, which indicates missing data.
 
--   There is a prototype of this under [<span class="underline">beancount.plugins.tag\_pending</span>](https://github.com/beancount/beancount/tree/v2/beancount/plugins/tag_pending.py).
+-   There is a prototype of this under [<u>beancount.plugins.tag\_pending</u>](https://github.com/beancount/beancount/tree/v2/beancount/plugins/tag_pending.py).
 
--   Also see redstreet0’s “[<span class="underline">zerosum</span>](https://groups.google.com/d/msgid/beancount/8adbb83d-a7c7-476a-97ca-d600d110db20%40googlegroups.com?utm_medium=email&utm_source=footer)” plugin from [<span class="underline">this thread</span>](https://groups.google.com/d/msgid/beancount/8adbb83d-a7c7-476a-97ca-d600d110db20%40googlegroups.com?utm_medium=email&utm_source=footer).
+-   Also see redstreet0’s “[<u>zerosum</u>](https://groups.google.com/d/msgid/beancount/8adbb83d-a7c7-476a-97ca-d600d110db20%40googlegroups.com?utm_medium=email&utm_source=footer)” plugin from [<u>this thread</u>](https://groups.google.com/d/msgid/beancount/8adbb83d-a7c7-476a-97ca-d600d110db20%40googlegroups.com?utm_medium=email&utm_source=footer).
 
-Remaining Questions<a id="remaining-questions"></a>
----------------------------------------------------
+## Remaining Questions<a id="remaining-questions"></a>
 
 *How do we determine a proper transfer account name? Is a subaccount a reasonable approach? What if a user would like to have a single global limbo account?*
 
@@ -90,25 +86,23 @@ Remaining Questions<a id="remaining-questions"></a>
 
     TODO
 
-Unrooting Transactions<a id="unrooting-transactions"></a>
----------------------------------------------------------
+## Unrooting Transactions<a id="unrooting-transactions"></a>
 
 A wilder idea would be to add an extra level in the transaction-posting hierarchy, adding the capability to group multiple partial transactions, and move the balancing rule to that level. Basically, two transactions input separately and then grouped - by some rule, or trivially by themselves - could form a new unit of balance rule.
 
 That would be a much more demanding change on the schema and on the Beancount design but would allow to natively support partial transactions, keeping their individual dates, descriptions, etc. Maybe that's a better model? Consider the advantages.
 
-Previous Work<a id="previous-work"></a>
----------------------------------------
+## Previous Work<a id="previous-work"></a>
 
 ### Ledger Effective and Auxiliary Dates<a id="ledger-effective-and-auxiliary-dates"></a>
 
-Ledger has the concept of “[<span class="underline">auxiliary dates</span>](http://ledger-cli.org/3.0/doc/ledger3.html#Auxiliary-dates)”. The way these work is straightforward: any transaction may have a second date, and the user can select at runtime (with `--aux-date`) whether the main date or the auxiliary dates are meant to be used.
+Ledger has the concept of “[<u>auxiliary dates</u>](http://ledger-cli.org/3.0/doc/ledger3.html#Auxiliary-dates)”. The way these work is straightforward: any transaction may have a second date, and the user can select at runtime (with `--aux-date`) whether the main date or the auxiliary dates are meant to be used.
 
 It is unclear to me how this is meant to be used in practice, in the presence of balance assertions. Without balance assertions, I can see how it would just work: you’d render everything with settlement dates only. This would probably only make sense for specific reports.
 
 I would much rather keep a single semantic for the set of transactions that gets parsed in; the idea that the meaning of the transactions varies depending on the invocation conditions would set a precedent in Beancount, I’d prefer not to break this nice property, so by default I’d prefer to avoid implementing this solution.
 
-Auxiliary dates are also known as “[<span class="underline">effective dates</span>](http://ledger-cli.org/3.0/doc/ledger3.html#Effective-Dates)” and can be associated with each individual posting. Auxiliary dates are secondary to the the “primary date” or the “actual date”, being the posting date of the record):
+Auxiliary dates are also known as “[<u>effective dates</u>](http://ledger-cli.org/3.0/doc/ledger3.html#Effective-Dates)” and can be associated with each individual posting. Auxiliary dates are secondary to the the “primary date” or the “actual date”, being the posting date of the record):
 
     2008/10/16 * (2090) Bountiful Blessings Farm
         Expenses:Food:Groceries                  $ 37.50  ; [=2008/10/01]
@@ -134,10 +128,9 @@ This would break an invariant in Beancount: we require that you should always be
 
 *TODO(blais) - How is this handled in GnuCash and other GUI systems? Is there a standard account method?*
 
-References<a id="references"></a>
----------------------------------
+## References<a id="references"></a>
 
-The IRS [<span class="underline">requires you to use the trade date and NOT the settlement date</span>](http://www.irs.gov/publications/p17/ch14.html) for tax reporting; from the IRS Publication 17:
+The IRS [<u>requires you to use the trade date and NOT the settlement date</u>](http://www.irs.gov/publications/p17/ch14.html) for tax reporting; from the IRS Publication 17:
 
 > **Securities traded on established market.** For securities traded on an established securities market, your holding period begins the day after the trade date you bought the securities, and ends on the trade date you sold them.
 >
@@ -149,6 +142,6 @@ The IRS [<span class="underline">requires you to use the trade date and NOT the 
 
 ### Threads<a id="threads"></a>
 
--   [<span class="underline">An interesting "feature by coincidence"</span>](https://groups.google.com/d/msg/ledger-cli/ooxbPVRinSs/ymkRCerhxjcJ)
+-   [<u>An interesting "feature by coincidence"</u>](https://groups.google.com/d/msg/ledger-cli/ooxbPVRinSs/ymkRCerhxjcJ)
 
--   [<span class="underline">First Opinions, Coming from Ledger</span>](https://groups.google.com/d/msg/beancount/z9sPboW4U3c/UfJbIVzwmpMJ)
+-   [<u>First Opinions, Coming from Ledger</u>](https://groups.google.com/d/msg/beancount/z9sPboW4U3c/UfJbIVzwmpMJ)

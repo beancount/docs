@@ -1,53 +1,51 @@
-Command-line Accounting in Context<a id="title"></a>
-====================================================
+# Command-line Accounting in Context<a id="title"></a>
 
-[<span class="underline">Martin Blais</span>](http://plus.google.com/+MartinBlais), July 2014
+[<u>Martin Blais</u>](http://plus.google.com/+MartinBlais), July 2014
 
-[<span class="underline">http://furius.ca/beancount/doc/motivation</span>](http://furius.ca/beancount/doc/motivation)
+[<u>http://furius.ca/beancount/doc/motivation</u>](http://furius.ca/beancount/doc/motivation)
 
 *This text provides context and motivation for the usage of double-entry  
 command-line accounting systems to manage personal finances.*
 
-> [<span class="underline">Motivation</span>](#motivation)
+> [<u>Motivation</u>](#motivation)
 >
-> [<span class="underline">What exactly is “Accounting”?</span>](#what-exactly-is-accounting)
+> [<u>What exactly is “Accounting”?</u>](#what-exactly-is-accounting)
 >
-> [<span class="underline">What can it do for me?</span>](#what-can-it-do-for-me)
+> [<u>What can it do for me?</u>](#what-can-it-do-for-me)
 >
-> [<span class="underline">Keeping Books</span>](#keeping-books)
+> [<u>Keeping Books</u>](#keeping-books)
 >
-> [<span class="underline">Generating Reports</span>](#generating-reports)
+> [<u>Generating Reports</u>](#generating-reports)
 >
-> [<span class="underline">Custom Scripting</span>](#custom-scripting)
+> [<u>Custom Scripting</u>](#custom-scripting)
 >
-> [<span class="underline">Filing Documents</span>](#filing-documents)
+> [<u>Filing Documents</u>](#filing-documents)
 >
-> [<span class="underline">How the Pieces Fit Together</span>](#how-the-pieces-fit-together)
+> [<u>How the Pieces Fit Together</u>](#how-the-pieces-fit-together)
 >
-> [<span class="underline">Why not just use a spreadsheet?</span>](#why-not-just-use-a-spreadsheet)
+> [<u>Why not just use a spreadsheet?</u>](#why-not-just-use-a-spreadsheet)
 >
-> [<span class="underline">Why not just use a commercial app?</span>](#why-not-just-use-a-commercial-app)
+> [<u>Why not just use a commercial app?</u>](#why-not-just-use-a-commercial-app)
 >
-> [<span class="underline">How about Mint.com?</span>](#how-about-mint.com)
+> [<u>How about Mint.com?</u>](#how-about-mint.com)
 >
-> [<span class="underline">How about Quicken?</span>](#how-about-quicken)
+> [<u>How about Quicken?</u>](#how-about-quicken)
 >
-> [<span class="underline">How about Quickbooks?</span>](#how-about-quickbooks)
+> [<u>How about Quickbooks?</u>](#how-about-quickbooks)
 >
-> [<span class="underline">How about GnuCash?</span>](#how-about-gnucash)
+> [<u>How about GnuCash?</u>](#how-about-gnucash)
 >
-> [<span class="underline">Why build a computer language?</span>](#why-build-a-computer-language)
+> [<u>Why build a computer language?</u>](#why-build-a-computer-language)
 >
-> [<span class="underline">Advantages of Command-Line Bookkeeping</span>](#advantages-of-command-line-bookkeeping)
+> [<u>Advantages of Command-Line Bookkeeping</u>](#advantages-of-command-line-bookkeeping)
 >
-> [<span class="underline">Why not just use an SQL database?</span>](#why-not-just-use-an-sql-database)
+> [<u>Why not just use an SQL database?</u>](#why-not-just-use-an-sql-database)
 >
-> [<span class="underline">But... I just want to do X?</span>](#but...-i-just-want-to-do-x)
+> [<u>But... I just want to do X?</u>](#but...-i-just-want-to-do-x)
 >
-> [<span class="underline">Why am I so Excited?</span>](#why-am-i-so-excited)
+> [<u>Why am I so Excited?</u>](#why-am-i-so-excited)
 
-Motivation<a id="motivation"></a>
----------------------------------
+## Motivation<a id="motivation"></a>
 
 When I tell people about my command-line accounting hacking activities, I get a variety of reactions.
 
@@ -55,8 +53,7 @@ Sometimes I hear echoes of desperation about their own finances: many people wis
 
 This document attempts to explain what command-line bookkeeping is about in concrete terms, what you will get out of doing it, how the various software pieces fit together, and what kinds of results you can expect from this method. The fact is, the double-entry method is a basic technique that everyone should have been taught in high school. And using it for yourself is a simple and powerful process you can use to drive your entire financial life.
 
-What exactly is “Accounting”?<a id="what-exactly-is-accounting"></a>
---------------------------------------------------------------------
+## What exactly is “Accounting”?<a id="what-exactly-is-accounting"></a>
 
 When one talks about “accounting,” they often implicitly refer to one or more of various distinct financial processes:
 
@@ -76,8 +73,7 @@ When one talks about “accounting,” they often implicitly refer to one or mor
 
 In this document, I will describe how command-line accounting can provide help and support for these activities.
 
-What can it do for me?<a id="what-can-it-do-for-me"></a>
---------------------------------------------------------
+## What can it do for me?<a id="what-can-it-do-for-me"></a>
 
 You might legitimately ask: sure, but why bother? We can look at the uses of accounting in terms of the questions it can answer for you:
 
@@ -103,8 +99,7 @@ You might legitimately ask: sure, but why bother? We can look at the uses of acc
 
 I’m sure there is a lot more you can think of. Let me know.
 
-Keeping Books<a id="keeping-books"></a>
----------------------------------------
+## Keeping Books<a id="keeping-books"></a>
 
 Alright, so here’s the part where I give you the insight of the method. The central and most basic activity that provides support for all the other ones is *bookkeeping*. A most important and fundamental realization is that this relatively simple act—that of copying all of the financial transactions into a single integrated system—allows you to produce reports that solve all of the other problems. You are building a corpus of data, a list of dated transaction objects that each represents movements of money between some of the accounts that you own. This data provides a full timeline of your financial activity.
 
@@ -114,7 +109,7 @@ All you have to do is enter each transaction while respecting a simple constrain
 
 That’s it. This is the essence of the method, and an ensemble of transactions that respects this constraint acquires nice properties which are discussed in detail in some of my other documents. In order to generate sensible reports, all accounts are further labeled with one of four categories: *Assets*, *Liabilities*, *Income* and *Expenses*. A fifth category, *Equity*, exists only to summarize the history of all previous income and expense transactions.
 
-*Command-line accounting* systems are just simplistic computer languages for conveniently entering, reading and processing this transaction data, and ensure that the constraint of the double-entry method is respected. They’re simple counting systems, that can add any kind of “thing” in dedicated counters (“accounts”). They’re basically calculators with multiple buckets. [<span class="underline">Beancount</span>](http://furius.ca/beancount/) and [<span class="underline">Ledger</span>](http://ledger-cli.org) may differ slightly in their syntax and on some of their semantics, but the general principle is the same, and the simplifying assumptions are very similar.
+*Command-line accounting* systems are just simplistic computer languages for conveniently entering, reading and processing this transaction data, and ensure that the constraint of the double-entry method is respected. They’re simple counting systems, that can add any kind of “thing” in dedicated counters (“accounts”). They’re basically calculators with multiple buckets. [<u>Beancount</u>](http://furius.ca/beancount/) and [<u>Ledger</u>](http://ledger-cli.org) may differ slightly in their syntax and on some of their semantics, but the general principle is the same, and the simplifying assumptions are very similar.
 
 Here is a concrete example of what a transaction looks like, just so you can get a feeling for it. In a text file—which is the input to a command-line accounting system—something like the following is written and expresses a credit card transaction:
 
@@ -138,8 +133,7 @@ The syntax gets a little bit more complicated, for example it allows you to repr
 
 What you obtain is a full history, a complete timeline of all the financial transactions from all the accounts over time, often connected together, your financial life, *in a single text file*.
 
-Generating Reports<a id="generating-reports"></a>
--------------------------------------------------
+## Generating Reports<a id="generating-reports"></a>
 
 So what’s the point of manicuring this file? I have code that reads it, parses it, and that can serve various views and aggregations of it on a local web server running on my machine, or produce custom reports from this stream of data. The most useful views are undeniably the *balance sheet* and *income statement*, but there are others:
 
@@ -163,14 +157,13 @@ So what’s the point of manicuring this file? I have code that reads it, parses
 
 You basically end up managing your personal finances like a company would… but it’s very easy because you’re using a simple and cleverly designed computer language that makes a lot of simplifications (doing away with the concepts of “credit and debits” for example), reducing the process to its essential minimum.
 
-Custom Scripting<a id="custom-scripting"></a>
----------------------------------------------
+## Custom Scripting<a id="custom-scripting"></a>
 
 The applications are endless. I have all sorts of wild ideas for generating reports for custom projects. These are useful and fun experiments, “challenges” as I call them. Some examples:
 
--   I once owned a condo unit and I’ve been doing double-entry bookkeeping throughout the period I owned it, through selling it. All of the corresponding accounts share the `Loft4530` name in them. This means that I could potentially compute the precise [<span class="underline">internal rate of return</span>](http://en.wikipedia.org/wiki/Internal_rate_of_return) on all of the cash flows related to it, including such petty things as replacement light bulbs expenses. To consider it as a pure investment. Just for fun.
+-   I once owned a condo unit and I’ve been doing double-entry bookkeeping throughout the period I owned it, through selling it. All of the corresponding accounts share the `Loft4530` name in them. This means that I could potentially compute the precise [<u>internal rate of return</u>](http://en.wikipedia.org/wiki/Internal_rate_of_return) on all of the cash flows related to it, including such petty things as replacement light bulbs expenses. To consider it as a pure investment. Just for fun.
 
--   I can render a [<span class="underline">tree-map</span>](http://en.wikipedia.org/wiki/Treemapping) of my annual expenses and assets. This is a good visualization of these categories, that preserve their relative importance.
+-   I can render a [<u>tree-map</u>](http://en.wikipedia.org/wiki/Treemapping) of my annual expenses and assets. This is a good visualization of these categories, that preserve their relative importance.
 
 -   I could look at average expenses with a correction for the time-value of money. This would be fun, tell me how my cost of living has changed over time.
 
@@ -191,8 +184,7 @@ The beauty of it is that once you have the corpus of data, which is relatively e
 
 Voila. You’re on your way to spitting out whatever output you want. You have access to all the libraries in the Python world, and my code is mostly functional, heavily documented and thoroughly unit-tested. You should be able to find your way easily. Moreover, if you’re uncertain about using this system, you could just use it to begin entering your data and later write a script that converts it into something else.
 
-Filing Documents<a id="filing-documents"></a>
----------------------------------------------
+## Filing Documents<a id="filing-documents"></a>
 
 If you have defined accounts for each of your real-world accounts, you have also created a natural method for organizing your statements and other paper documents. As we are communicating more and more by email with our accountants and institutions, it is becoming increasingly common to scan letters to PDFs and have those available as computer files. All the banks have now gone paperless, and you can download these statements if you care (I tend to do this once at the end of the year, for preservation, just in case). It’s nice to be able to organize these nicely and retrieve those documents easily.
 
@@ -223,14 +215,13 @@ These example files would correspond to accounts with names `Assets:US:TDBank:Ch
 
 Moreover, the importing software I wrote is able to identify downloaded files and automatically move them into the corresponding account’s directory.
 
-How the Pieces Fit Together<a id="how-the-pieces-fit-together"></a>
--------------------------------------------------------------------
+## How the Pieces Fit Together<a id="how-the-pieces-fit-together"></a>
 
 So I’ve described what I do to organize my finances. Here I’ll tell you about the various software pieces and how they fit together:
 
--   [<span class="underline">Beancount</span>](http://furius.ca/beancount/) is the core of the system. It reads the text file I update, parses the computer language I’ve defined and produces reports from the resulting data structures. This software *only* reads the input file and does not communicate with other programs on purpose. It runs in isolation.
+-   [<u>Beancount</u>](http://furius.ca/beancount/) is the core of the system. It reads the text file I update, parses the computer language I’ve defined and produces reports from the resulting data structures. This software *only* reads the input file and does not communicate with other programs on purpose. It runs in isolation.
 
--   Beancount’s [<span class="underline">ingest</span>](http://github.com/beancount/beancount/tree/v2/beancount/ingest/) package and tools help automate the updating of account data by extracting transactions from file downloads from banks and other institutions. These tools orchestrate the running of importers which you implement (this is where all the messy importing code lives, the code you need to make it easier to keep your text file up-to-date, which can parse OFX and CSV files, for instance). See bean-extract, bean-identify tools.
+-   Beancount’s [<u>ingest</u>](http://github.com/beancount/beancount/tree/v2/beancount/ingest/) package and tools help automate the updating of account data by extracting transactions from file downloads from banks and other institutions. These tools orchestrate the running of importers which you implement (this is where all the messy importing code lives, the code you need to make it easier to keep your text file up-to-date, which can parse OFX and CSV files, for instance). See bean-extract, bean-identify tools.
 
 -   The ingest package also helps with filing documents (see bean-file tool). Because it is able to identify which document belongs to which account, it can move the downloaded file to my documents archive automatically. This saves me time.
 
@@ -240,8 +231,7 @@ See the diagram below for a pretty picture that illustrates how these work toget
 
 <img src="command_line_accounting_in_context/media/8c379088c695488f3b0837e6c1144e81ed6b47f4.png" style="width:5.56944in;height:6.22222in" />
 
-Why not just use a spreadsheet?<a id="why-not-just-use-a-spreadsheet"></a>
---------------------------------------------------------------------------
+## Why not just use a spreadsheet?<a id="why-not-just-use-a-spreadsheet"></a>
 
 This is indeed a good question, and spreadsheets are incredibly useful for sure. I certainly would not be writing my own software if I could track my finances with a spreadsheet.
 
@@ -251,12 +241,11 @@ Moreover, dealing with the accumulation of units with a cost basis would require
 
 I believe that the “transaction &lt;-&gt; postings” data representation combined with a sensible method for updating inventories is the essence of this system. The need for these is the justification to create a dedicated method to build this data, such as a computer language. Finally, having our own syntax offers the opportunity to provide other types of useful directives such as balance assertions, open/close dates, and sophisticated filtering of subsets of transactions. You just cannot do what we’re doing in a spreadsheet.
 
-Why not just use a commercial app?<a id="why-not-just-use-a-commercial-app"></a>
---------------------------------------------------------------------------------
+## Why not just use a commercial app?<a id="why-not-just-use-a-commercial-app"></a>
 
 ### How about Mint.com?<a id="how-about-mint.com"></a>
 
-Oftentimes people tell me they’re using [<span class="underline">Mint.com</span>](http://mint.com) to track their finances, usually with some amount of specific complaints following close behind. Online services such as Mint provide a subset of the functionality of double-entry accounting. The main focus of these services is the reporting of expenses by category, and the maintenance of a budget. As such, they do a great job at automating the download of your credit card and bank transactions. I think that if you want a low-maintenance option to tracking your finances and you don’t have a problem with the obvious privacy risks, this is a *fantastic* option: it comes with a web interface, mobile apps, and updating your accounts probably requires clicking some buttons, providing some passwords, and a small amount of manual corrections every couple of weeks.
+Oftentimes people tell me they’re using [<u>Mint.com</u>](http://mint.com) to track their finances, usually with some amount of specific complaints following close behind. Online services such as Mint provide a subset of the functionality of double-entry accounting. The main focus of these services is the reporting of expenses by category, and the maintenance of a budget. As such, they do a great job at automating the download of your credit card and bank transactions. I think that if you want a low-maintenance option to tracking your finances and you don’t have a problem with the obvious privacy risks, this is a *fantastic* option: it comes with a web interface, mobile apps, and updating your accounts probably requires clicking some buttons, providing some passwords, and a small amount of manual corrections every couple of weeks.
 
 I have several reservations about using it for myself, however:
 
@@ -268,7 +257,7 @@ I have several reservations about using it for myself, however:
 
 -   **Not international.** It probably does not work well with an international, multi-currency situation. These services target a “majority” of users, most of which have all their affairs in a single country. I live in the USA, have a past history in Canada, which involves remaining tax-sheltered investment accounts, occasional expenses during visits which justify maintaining a credit card there, and a future history which might involve some years spent in another country such as Hong Kong or Australia. Will this work in Mint? Probably not. They might support Canada, but will they support accounts in both places? How about some other country I might want to move to? I want a single integrated view of all my accounts across all countries in all currencies forever, nothing less. My system supports that very well. (I’m not aware of any double-entry system that deals with the international problem in a currency agnostic way as well as Beancount does.)
 
--   **Inability to deal with particular situations.** What if I own real estate? Will I be able to price the value of my home at a reasonable amount, so it creates an accurate balance sheet? Regularly obtaining “comparables” for my property from an eager real estate agent will tell me much more precisely how much my home is worth than services like [<span class="underline">Zillow</span>](http://zillow.com) ever could. I need to be able to input that for my balance sheet. What about those stock options from that privately held Australian company I used to work for? How do I price that? How about other intangible things, such as receivables from a personal loan I made to a friend? I doubt online services are able to provide you with the ability to enter those. If you want the whole picture with precision, you need to be able to make these adjustments.
+-   **Inability to deal with particular situations.** What if I own real estate? Will I be able to price the value of my home at a reasonable amount, so it creates an accurate balance sheet? Regularly obtaining “comparables” for my property from an eager real estate agent will tell me much more precisely how much my home is worth than services like [<u>Zillow</u>](http://zillow.com) ever could. I need to be able to input that for my balance sheet. What about those stock options from that privately held Australian company I used to work for? How do I price that? How about other intangible things, such as receivables from a personal loan I made to a friend? I doubt online services are able to provide you with the ability to enter those. If you want the whole picture with precision, you need to be able to make these adjustments.
 
 -   **Custom tracking.** Using “imaginary currencies”, I’m able to track all kinds of other things than currencies and stocks. For example, by using an “`IRAUSD`” commodity in Beancount I’m able to track how many 401k contributions I’ve made at any point during the year. I can count the after-tax basis of a traditional IRA account similarly. I can even count my vacation hours using an imaginary “`VACHR`” currency and verify it against my pay stubs.
 
@@ -288,11 +277,11 @@ So let’s talk about sophisticated software that is good enough for a company. 
 
 -   **It costs money.** Commercial software comes at a price. Ok, I probably could afford to pay a few hundred dollars per year (Quickbooks 2014 looks like around 300$/year for the full set of features), but I don’t really want to.
 
--   **Platform.** These softwares usually run on [<span class="underline">Microsoft Windows</span>](http://windows.microsoft.com/) and sometimes on [<span class="underline">Mac OS X</span>](https://www.apple.com/osx/). I’m a software developer, I mostly use [<span class="underline">Linux</span>](https://www.kernel.org), and a [<span class="underline">Macbook Air</span>](https://www.apple.com/macbook-air/) for a laptop, on which I get annoyed running anything other than [<span class="underline">tmux</span>](http://tmux.sourceforge.net/) and a [<span class="underline">web browser</span>](http://www.google.com/chrome/). I’m not going to reboot just to enter a quick cash transaction.
+-   **Platform.** These softwares usually run on [<u>Microsoft Windows</u>](http://windows.microsoft.com/) and sometimes on [<u>Mac OS X</u>](https://www.apple.com/osx/). I’m a software developer, I mostly use [<u>Linux</u>](https://www.kernel.org), and a [<u>Macbook Air</u>](https://www.apple.com/macbook-air/) for a laptop, on which I get annoyed running anything other than [<u>tmux</u>](http://tmux.sourceforge.net/) and a [<u>web browser</u>](http://www.google.com/chrome/). I’m not going to reboot just to enter a quick cash transaction.
 
 -   **Slow startup.** I cannot speak specifically to Quickbooks’ implementation, but virtually every software suite of commercial scope I’ve had to use had a splash screen and a slow, slow startup that involved initializing tons of plugins. They assume you’re going to spend hours in it, which is reasonable for commercial users, but not for me, if I want to do a quick update of my ledger.
 
--   **UIs are inadequate.** I haven’t seen their UI but given the nature of transactions and my desire to input precisely and search quickly and organize things, I want to be able to edit in as text. I imagine it would be inconvenient for me. With [<span class="underline">Emacs</span>](http://www.gnu.org/s/emacs/) and [<span class="underline">org-mode</span>](http://orgmode.org/), I can easily [<span class="underline">i-search</span>](https://www.gnu.org/software/emacs/manual/html_node/emacs/Incremental-Search.html) my way to any transaction within seconds after opening my ledger file.
+-   **UIs are inadequate.** I haven’t seen their UI but given the nature of transactions and my desire to input precisely and search quickly and organize things, I want to be able to edit in as text. I imagine it would be inconvenient for me. With [<u>Emacs</u>](http://www.gnu.org/s/emacs/) and [<u>org-mode</u>](http://orgmode.org/), I can easily [<u>i-search</u>](https://www.gnu.org/software/emacs/manual/html_node/emacs/Incremental-Search.html) my way to any transaction within seconds after opening my ledger file.
 
 <!-- -->
 
@@ -338,8 +327,7 @@ In summary, there are many advantages to using a command-line accounting system 
 
 -   **Customized.** You can produce very customized reports, that address *exactly* the kinds of problems you are having. One complaint I often hear from people about other financial software is that it doesn’t quite do what they want. With command-line accounting systems you can at least write it yourself, as a small extension that uses your corpus of data.
 
-Why not just use an SQL database?<a id="why-not-just-use-an-sql-database"></a>
-------------------------------------------------------------------------------
+## Why not just use an SQL database?<a id="why-not-just-use-an-sql-database"></a>
 
 I don’t like to reinvent the wheel. If this problem could be solved by filling up an SQL database and then making queries on it, that’s exactly what I would do. Creating a language is a large overhead, it needs to be maintained and evolved, it’s not an easy task, but as it turns out, necessary and justified to solve this problem.
 
@@ -357,17 +345,15 @@ Finally, input would be difficult. By defining a language, we side-step the prob
 
 Nevertheless, I really like the idea of working with databases. A script (bean-sql) is provided to convert the contents of a Beancount file to an SQL database; it’s not super elegant to carry out computations on those tables, but it’s provided nonetheless. You should be able to play around with it, even if operations are difficult. I might even pre-compute some of the operation’s outputs to make it easier to run SQL queries.
 
-But... I just want to do *X*?<a id="but...-i-just-want-to-do-x"></a>
---------------------------------------------------------------------
+## But... I just want to do *X*?<a id="but...-i-just-want-to-do-x"></a>
 
-Some may infer that what we’re doing must be terribly complicated given that they envision they might want to use such a system only for a single purpose. But the fact is, how many accounts you decide to track is a personal choice. You can choose to track as little as you want in as little detail as you deem sufficient. For example, if all that you’re interested in is investing, then you can keep books on only your investment accounts. If you’re interested in replacing your usage of [<span class="underline">Mint.com</span>](http://mint.com) or [<span class="underline">Quicken</span>](http://quicken.intuit.com/), you can simply just replicate the statements for your credit cards and see your corresponding expenses.
+Some may infer that what we’re doing must be terribly complicated given that they envision they might want to use such a system only for a single purpose. But the fact is, how many accounts you decide to track is a personal choice. You can choose to track as little as you want in as little detail as you deem sufficient. For example, if all that you’re interested in is investing, then you can keep books on only your investment accounts. If you’re interested in replacing your usage of [<u>Mint.com</u>](http://mint.com) or [<u>Quicken</u>](http://quicken.intuit.com/), you can simply just replicate the statements for your credit cards and see your corresponding expenses.
 
 The simplicity of having to just replicate the transactions in all your accounts over doing a painful annual “starting from scratch” evaluation of all your assets and expenses for the purpose of looking at your finances will convince you. Looking at your finances with a spreadsheet will require you to at least copy values from your portfolio. Every time you want to generate the report you’ll have to update the values… with my method, you just update each account’s full activity, and you can obtain the complete list holdings as a by-product. It’s easy to bring everything up-to-date if you have a systematic method.
 
 To those I say: try it out, accounting just for the bits that you’re interested in. Once you’ll have a taste of how the double-entry method works and have learned a little bit about the language syntax, you will want to get a fuller picture. You will get sucked in.
 
-Why am I so Excited?<a id="why-am-i-so-excited"></a>
-----------------------------------------------------
+## Why am I so Excited?<a id="why-am-i-so-excited"></a>
 
 Okay, so I’ve become an accounting nerd. I did not ask for it. Just kind-of happened while I wasn’t looking (I still don’t wear brown socks though). Why is it I can’t stop talking about this stuff?
 
@@ -375,10 +361,10 @@ I used to have a company. It was an umbrella for doing contract work (yes, I ori
 
 The thing is, although I am by nature quite methodical, I would sometimes, just *sometimes* forget to update one of the files. Things would fall out of sync. When this happened it was incredibly frustrating, I had to spend time digging around various statements and figure out where I had gone wrong. This was time-consuming and unpleasant. And of course, when something you have to do is unpleasant, you tend not to do it so well. I did not have a solid idea of the current state of affairs of my company during the year, I just worked and earned money for it. My accountant would draw a balance sheet once a year after doing taxes in July, and it was always a tiny bit of a surprise. I felt permanently somewhat confused, and frankly annoyed every time I had to deal with “money things.” It wasn’t quite a nightmare, but it was definitely making me tired. I felt my life was so much simpler when I just had a job.
 
-But one day… one day… I saw the light: I discovered the double-entry method. I don’t recall exactly how. I think it was on a website, yes… this site: [<span class="underline">dwmbeancounter.com</span>](http://www.dwmbeancounter.com/) (it’s a wonderful site). I realized that using a *single system*, I could account for all of these problems at the same time, and in a way that would impose an inherent error-checking mechanism. I was blown away! I think I printed the whole thing on paper at the time and worked my way through every tutorial. This simple counting trick is exactly what I was in dire need for.
+But one day… one day… I saw the light: I discovered the double-entry method. I don’t recall exactly how. I think it was on a website, yes… this site: [<u>dwmbeancounter.com</u>](http://www.dwmbeancounter.com/) (it’s a wonderful site). I realized that using a *single system*, I could account for all of these problems at the same time, and in a way that would impose an inherent error-checking mechanism. I was blown away! I think I printed the whole thing on paper at the time and worked my way through every tutorial. This simple counting trick is exactly what I was in dire need for.
 
-But all the software I tried was either disappointing, broken, or too complicated. So I read up on Ledger. And I got in touch with [<span class="underline">its author</span>](http://www.newartisans.com/). And then shortly after I started on Beancount[^1]. I’ll admit that going through the effort of designing my own system just to solve my accounting problems is a bit overkill, but I’ve been known to be a little more than extreme about [<span class="underline">certain things</span>](http://furius.ca/salsa-book/), and I’ve really enjoyed solving this problem. My life is fulfilled when I maintain a good balance of “learning” and “doing,” and this falls squarely in the “doing” domain.
+But all the software I tried was either disappointing, broken, or too complicated. So I read up on Ledger. And I got in touch with [<u>its author</u>](http://www.newartisans.com/). And then shortly after I started on Beancount[^1]. I’ll admit that going through the effort of designing my own system just to solve my accounting problems is a bit overkill, but I’ve been known to be a little more than extreme about [<u>certain things</u>](http://furius.ca/salsa-book/), and I’ve really enjoyed solving this problem. My life is fulfilled when I maintain a good balance of “learning” and “doing,” and this falls squarely in the “doing” domain.
 
 Ever since, I feel so excited about anything related to personal finance. Probably because it makes me so happy to have such a level of awareness about what’s going on with mine. I even sometimes find myself *loving* spending money in a new way, just from knowing that I’ll have to figure out how to account for it later. I feel so elated by the ability to solve these financial puzzles that I have had bouts of engaging complete weekends in building this software. They are small challenges with a truly practical application and a tangible consequence. Instant gratification. I get a feeling of *empowerment*. And I wish the same for you.
 
-[^1]: For a full list of differences, refer to [<span class="underline">this document</span>](a_comparison_of_beancount_and_ledger_hledger.md).
+[^1]: For a full list of differences, refer to [<u>this document</u>](a_comparison_of_beancount_and_ledger_hledger.md).

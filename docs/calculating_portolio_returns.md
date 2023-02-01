@@ -1,14 +1,12 @@
-Calculating Portfolio Returns<a id="title"></a>
-===============================================
+# Calculating Portfolio Returns<a id="title"></a>
 
-[<span class="underline">Martin Blais</span>](http://plus.google.com/+MartinBlais), Sept 2020
+[<u>Martin Blais</u>](http://plus.google.com/+MartinBlais), Sept 2020
 
-[<span class="underline">http://furius.ca/beancount/doc/returns</span>](http://furius.ca/beancount/doc/returns)
+[<u>http://furius.ca/beancount/doc/returns</u>](http://furius.ca/beancount/doc/returns)
 
 *This document describes how to compute portfolio returns from a Beancount ledger.*
 
-Motivation<a id="motivation"></a>
----------------------------------
+## Motivation<a id="motivation"></a>
 
 You will be surprised to find that discount brokers typically do not provide accurate and complete returns calculations for your investments based on your specific cash flows. They tend to report other measures of performance:
 
@@ -24,26 +22,25 @@ You will be surprised to find that discount brokers typically do not provide acc
 
 If I maintain your investment information in a Beancount ledger, in theory it contains all the data I need in order to compute your true returns, based on the specific timings of my own savings (cash infusions) and which positions I held at which time. It's just not in the simplest format required to do it— Beancount transactions are much more flexible than one might want and a simpler series of cash flows needs to be extracted from it. **This document explains how I finally did this from my own Ledger.** And how we might generalize this to yours, based on some simple rules. Most of this text is dedicated to the pedestrian details of extracting the right data.
 
-The source code can be found [<span class="underline">here</span>](https://github.com/beancount/beangrow).
+The source code can be found [<u>here</u>](https://github.com/beancount/beangrow).
 
 In addition, a fair and honest comparison to other investments scenarios should be possible, based on those same cash flows. For instance, you should be able to produce data that looks like "My investments in ZZZ have returned 8.2%, 1.1% of which were from dividends, and if I'd invested in a 60/40 portfolio of broad stocks and bonds it would have returned 7.2% instead." In other words, I want to assess my performance *relative* to a number of common alternatives.
 
-(Finally, note that if all you need is a snapshot of your current positions, that's already handled by the [<span class="underline">export script</span>](https://github.com/beancount/beancount/blob/v2/beancount/projects/export.py).)
+(Finally, note that if all you need is a snapshot of your current positions, that's already handled by the [<u>export script</u>](https://github.com/beancount/beancount/blob/v2/beancount/projects/export.py).)
 
 ### History<a id="history"></a>
 
-In 2014, I made [<span class="underline">a brief attempt</span>](https://github.com/beancount/beancount/blob/2.3.1/experiments/returns/returns.py) to break down information from my ledger to do this. At the time I got bogged down in details when some of the time-series I was extracting weren't producing what looked like sensible results (some with outliers). I got too detailed too fast. Sometimes it's better to just get the whole job done and come back for the details. I hadn't logged enough debugging information and I didn't have enough confidence in its output to use it. I never actually finished the work at the time, and eventually moved the scripts to experiments and shrugged. "Later."
+In 2014, I made [<u>a brief attempt</u>](https://github.com/beancount/beancount/blob/2.3.1/experiments/returns/returns.py) to break down information from my ledger to do this. At the time I got bogged down in details when some of the time-series I was extracting weren't producing what looked like sensible results (some with outliers). I got too detailed too fast. Sometimes it's better to just get the whole job done and come back for the details. I hadn't logged enough debugging information and I didn't have enough confidence in its output to use it. I never actually finished the work at the time, and eventually moved the scripts to experiments and shrugged. "Later."
 
 In August 2020, I sat down to do this again, this time with a less ambitious goal of just getting a good approximation and producing lots of debug output, boiling down extraction to pull out just the cash flows and to get the job complete over all my accounts, even if it meant making some adjustments to my input file. It turned out to be the right decision: I managed to complete the task, and this document presents my journey, the method, its assumptions, quirks, and some results.
 
-Overview of Method<a id="overview-of-method"></a>
--------------------------------------------------
+## Overview of Method<a id="overview-of-method"></a>
 
 The method I'll use is to extract cash flow information for each investment. What I call "**an investment**" in this context is a kind of **financial instrument**, e.g., shares of "VTI" for the Vanguard Total Stock Market ETF, **invested in a particular account**, e.g. a Vanguard 401k. A list of cash flows is a dated list of positive or negative currency being invested or withdrawn as proceeds to/from that investment. So I have a list of cash flows per account, and each account records only one financial instrument.
 
 For reporting I'll **group** those per-account series in logical units of "**reports**", for example lumping together ones for the same instrument bought in different accounts / brokers, or different instruments that represent the same underlying by merging their cash flows. Or even to group them by "strategy". Basically, by merging the cash flows of multiple accounts, I have a generic way to group any subsets of accounts and compute their returns.
 
-Using the cash flows, I will then run a **simple root finding routine to calculate the average annual rate** those flows would have to grow in order to result in their final market value. This provides me with overall returns. This is similar to calculating the [<span class="underline">Internal Rate of Return</span>](https://en.wikipedia.org/wiki/Internal_rate_of_return). I will do that for the entire time series, but also for sub-intervals within the time series to compute, e.g. calendar returns (i.e., each year or quarter) or cumulative returns for trailing periods. Since cash flows are flagged as dividends or not, I can separate the returns from appreciation from the returns from dividends. Reports with plots are produced for each of the groups.
+Using the cash flows, I will then run a **simple root finding routine to calculate the average annual rate** those flows would have to grow in order to result in their final market value. This provides me with overall returns. This is similar to calculating the [<u>Internal Rate of Return</u>](https://en.wikipedia.org/wiki/Internal_rate_of_return). I will do that for the entire time series, but also for sub-intervals within the time series to compute, e.g. calendar returns (i.e., each year or quarter) or cumulative returns for trailing periods. Since cash flows are flagged as dividends or not, I can separate the returns from appreciation from the returns from dividends. Reports with plots are produced for each of the groups.
 
 Here's a diagram that shows how the "configure", "compute\_returns" and "download\_prices" scripts work together:
 
@@ -51,10 +48,9 @@ Here's a diagram that shows how the "configure", "compute\_returns" and "downloa
 
 These will be further detailed below.
 
-Configuration<a id="configuration"></a>
----------------------------------------
+## Configuration<a id="configuration"></a>
 
-First, a [<span class="underline">configuration</span>](https://github.com/beancount/beancount/blob/v2/experiments/returns/config.proto) needs to be created to define a list of investments, and groups of those, for which reports will be produced. This configuration is provided as a text-formatted [<span class="underline">protocol buffer</span>](https://developers.google.com/protocol-buffers) message.
+First, a [<u>configuration</u>](https://github.com/beancount/beancount/blob/v2/experiments/returns/config.proto) needs to be created to define a list of investments, and groups of those, for which reports will be produced. This configuration is provided as a text-formatted [<u>protocol buffer</u>](https://developers.google.com/protocol-buffers) message.
 
 -   **Investment.** An investment corresponds to a particular instrument stored in a particular account. It also involves other transactions that don't directly involve that particular account. We want to provide a few set of account names:
 
@@ -135,7 +131,7 @@ Here's an example of 6 investments and 3 reports:
 
 Different reports can include the same investment. References to accounts and investment names support simple UNIX-style globbing patterns in the configuration. These are expanded to full account names at runtime and stored in the output.
 
-A "[<span class="underline">configure.py</span>](https://github.com/beancount/beancount/blob/v2/experiments/returns/configure.py)" script can automatically infer a working basic configuration from an existing Beancount ledger. A report will be generated for each unique instrument and the same metadata fields honored by the "export" script ("assetcls", "strategy") will also generate reports. I recommend you run this on your ledger and then custom tailor the configuration manually.
+A "[<u>configure.py</u>](https://github.com/beancount/beancount/blob/v2/experiments/returns/configure.py)" script can automatically infer a working basic configuration from an existing Beancount ledger. A report will be generated for each unique instrument and the same metadata fields honored by the "export" script ("assetcls", "strategy") will also generate reports. I recommend you run this on your ledger and then custom tailor the configuration manually.
 
 ### Finding Accounts<a id="finding-accounts"></a>
 
@@ -148,8 +144,7 @@ This has two consequences: (a) it makes it easy to find the list of accounts tha
 
 I further filter down this list to the subset of accounts which were still open up to 15 years ago (I close my accounts—using Beancount's Close directive—when they're done). In my particular case, I didn't have much savings back then, and there's no point in bothering to do the work to normalize those crumbs in my investing history for that far back.
 
-Extracting Cash Flow Data<a id="extracting-cash-flow-data"></a>
----------------------------------------------------------------
+## Extracting Cash Flow Data<a id="extracting-cash-flow-data"></a>
 
 This section describes the various steps I took to extract relevant data from my ledger.
 
@@ -287,12 +282,11 @@ Note that since many transactions do not generate cash flows, the list of cash f
 
 Finally, the list of cash flows for each group of investments reported can be trivially merged by concatenating them.
 
-Computing Returns<a id="computing-returns"></a>
------------------------------------------------
+## Computing Returns<a id="computing-returns"></a>
 
 ### Calculating the Average Growth Rate<a id="calculating-the-average-growth-rate"></a>
 
-For each series of cash flows, the cash flows are merged together. I use [<span class="underline">scipy.optimize.fsolve</span>](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fsolve.html) to calculate the rate that satisfies net present value:
+For each series of cash flows, the cash flows are merged together. I use [<u>scipy.optimize.fsolve</u>](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fsolve.html) to calculate the rate that satisfies net present value:
 
 *c**f*<sub>*i*</sub>/(1 + *r*)<sup>*t*<sub>*i*</sub></sup>= 0
 
@@ -336,8 +330,7 @@ Another important detail is that each investment has its own quote currency. I u
 
 It's convenient that Beancount's Inventory object has functions that can easily perform those conversions where needed. And since the cash flows I extracted are stored using Beancount's Amount object, I already have the quote currencies correctly in my extracted dataset. In any group, if all the instruments have the same quote currency, I report returns in that currency. If the group includes a mix of quote currencies, I further convert everything to USD (so I get USD returns).
 
-Reporting<a id="reporting"></a>
--------------------------------
+## Reporting<a id="reporting"></a>
 
 ### Grouping Accounts<a id="grouping-accounts"></a>
 
@@ -407,8 +400,7 @@ A few notes are in order:
 
 **Cost basis.** Note that nowhere in our calculations was the cost basis used or factored in, so don't confuse it with market value. The cost basis is only useful for tax-related effects.
 
-Other Instruments Types<a id="other-instruments-types"></a>
------------------------------------------------------------
+## Other Instruments Types<a id="other-instruments-types"></a>
 
 Note that computing returns in this manner isn't limited to only stocks and bonds. Using the same methodology, we can include other types of instruments:
 
@@ -450,7 +442,7 @@ Note that the match account configuration was necessary to pick up crumbs from l
 
 Cash flows can be extracted from all transactions for a home, so you can compute the returns for all the money poured into your home, as if it was done purely for investment purposes.
 
-Usually buying a home is done for other reasons — stability for children, the ability to make your own improvements, the forced savings involved in regular principal payments, and oftentimes just a sense of "having a home" — but in the vast majority of the cases, home ownership is more of a cost center and returns would have been better invested elsewhere (see [<span class="underline">this book</span>](https://www.amazon.in/Wealthy-Renter-Choose-Housing-That-ebook/dp/B01B2DK68E) for a great exposé of the pros & cons). Personally, I have better things to do than fix toilets and worry about leaky windows in the winter so I went back to renting, but I went through the experience once and it was quite worthwhile, as a learning experience but also to experience the "joy" of having my own place. Through the exercise is useful to calculate how much having your own home is actually costing you, and how much you might have made by putting the very same cash flows into the market instead.
+Usually buying a home is done for other reasons — stability for children, the ability to make your own improvements, the forced savings involved in regular principal payments, and oftentimes just a sense of "having a home" — but in the vast majority of the cases, home ownership is more of a cost center and returns would have been better invested elsewhere (see [<u>this book</u>](https://www.amazon.in/Wealthy-Renter-Choose-Housing-That-ebook/dp/B01B2DK68E) for a great exposé of the pros & cons). Personally, I have better things to do than fix toilets and worry about leaky windows in the winter so I went back to renting, but I went through the experience once and it was quite worthwhile, as a learning experience but also to experience the "joy" of having my own place. Through the exercise is useful to calculate how much having your own home is actually costing you, and how much you might have made by putting the very same cash flows into the market instead.
 
 It's a little more involved, because,
 
@@ -476,8 +468,7 @@ The main differences are that:
 
 -   **Prices for options.** Prices for options aren't as easily fetchable programmatically. I'm having to use a private API for this. Perhaps more importantly, declining theta, varying vol and non-linearity near the strike means I do need to have to have pretty recent price estimates in my ledger in order to compute returns on unrealized gains/losses. I think the effect is strong enough that I'd want to eventually have some code to always update the prices just before generating the reports.
 
-Future Work<a id="future-work"></a>
------------------------------------
+## Future Work<a id="future-work"></a>
 
 This section describes desired future improvements on the returns code, which I'm likely to implement, and the corresponding challenges.
 
@@ -510,7 +501,7 @@ Because this varies a lot, a good approximation can be obtained by sampling tota
 
 ### After-Tax Value<a id="after-tax-value"></a>
 
-At the moment I export all my holdings to a Google Sheets doc using the [<span class="underline">export script</span>](https://github.com/beancount/beancount/blob/master/beancount/projects/export.py), and from that, break it down between long-term and short-term positions vs. pre-tax, after-tax, Roth, and taxable buckets. From those 8 aggregates, I remove estimated taxes and report a single "estimated after-tax net worth" and corresponding tax liability. This is a rough estimate.
+At the moment I export all my holdings to a Google Sheets doc using the [<u>export script</u>](https://github.com/beancount/beancount/blob/master/beancount/projects/export.py), and from that, break it down between long-term and short-term positions vs. pre-tax, after-tax, Roth, and taxable buckets. From those 8 aggregates, I remove estimated taxes and report a single "estimated after-tax net worth" and corresponding tax liability. This is a rough estimate.
 
 The returns report is however much more detailed, and I could simulate tax payments not only on liquidation, but also at the end of each year (from dividends and sales). I have all the lot dates on each position held so I can automatically figure out short-term vs. long-term lots.
 
@@ -526,10 +517,9 @@ The configuration could easily be improved to let the user specify expected comm
 
 ### Risk Estimation & Beta<a id="risk-estimation-beta"></a>
 
-A perhaps more advanced topic would be to compute an estimate of the variance from the specific portfolio composition in order to calculate and report some measurement of risk, such as [<span class="underline">Sharpe Ratio</span>](https://en.wikipedia.org/wiki/Sharpe_ratio). This would require a sufficient number of regularly spaced price points. Variation of the measures over time could be fun too, as well as calculating the current portfolio's specific sensitivity to market as a whole (beta).
+A perhaps more advanced topic would be to compute an estimate of the variance from the specific portfolio composition in order to calculate and report some measurement of risk, such as [<u>Sharpe Ratio</u>](https://en.wikipedia.org/wiki/Sharpe_ratio). This would require a sufficient number of regularly spaced price points. Variation of the measures over time could be fun too, as well as calculating the current portfolio's specific sensitivity to market as a whole (beta).
 
-Conclusion<a id="conclusion"></a>
----------------------------------
+## Conclusion<a id="conclusion"></a>
 
 I had expected it would be possible to produce a clear picture of returns from Beancount data, and having done it I'm more satisfied with the level of detail and clarity I was to produce from my ledger than I had expected. This goes well beyond plotting of net worth over time, this actually works really well, and I can use it to compare the performance of different investments fairly. I hope at least some Beancount users will be able to run it on their ledgers and I'm looking forward to hearing some feedback from those who set it up.
 

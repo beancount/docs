@@ -1,16 +1,14 @@
-Beangulp<a id="title"></a>
-==========================
+# Beangulp<a id="title"></a>
 
-[<span class="underline">Martin Blais</span>](mailto:blais@furius.ca), Jan 2021
+[<u>Martin Blais</u>](mailto:blais@furius.ca), Jan 2021
 
     Importing data for Beancount has been supported originally by the LedgerHub project along with a library of importers, then reintegrated as a pure framework library (with some examples) in the Beancount repo as beancount.ingest, and now we're splitting up that repository again and will factor out the importing framework to another repo for easier maintenance and evolution. This document lays out some of the changes desired in this new version.
 
-New Repo<a id="new-repo"></a>
------------------------------
+## New Repo<a id="new-repo"></a>
 
 The new repository will be located at
 
-> [<span class="underline">http://github.com/beancount/beangulp</span>](http://github.com/beancount/beangulp)
+> [<u>http://github.com/beancount/beangulp</u>](http://github.com/beancount/beangulp)
 
 Beangulp will target compatibility with the latest beancount release from the v3 branch only.
 
@@ -18,15 +16,13 @@ Beancount v3 is expected to evolve rapidly at the beginning, thus, to make the l
 
     install_requires: beancount >3.0, <3.1
 
-See [<span class="underline">setuptools doc</span>](https://setuptools.readthedocs.io/en/latest/userguide/dependency_management.html#declaring-required-dependency) and [<span class="underline">PEP-440</span>](https://www.python.org/dev/peps/pep-0440/#version-specifiers).
+See [<u>setuptools doc</u>](https://setuptools.readthedocs.io/en/latest/userguide/dependency_management.html#declaring-required-dependency) and [<u>PEP-440</u>](https://www.python.org/dev/peps/pep-0440/#version-specifiers).
 
-Status<a id="status"></a>
--------------------------
+## Status<a id="status"></a>
 
 As of Jan 2022, most of this proposal is complete and implemented. (Thanks to Daniele Nicolodi for doing most of the work.)
 
-Changes<a id="changes"></a>
----------------------------
+## Changes<a id="changes"></a>
 
 ### Library Only<a id="library-only"></a>
 

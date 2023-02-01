@@ -1,48 +1,46 @@
-Beancount Example & Tutorial<a id="title"></a>
-==============================================
+# Beancount Example & Tutorial<a id="title"></a>
 
-[<span class="underline">Martin Blais</span>](mailto:blais@furius.ca), October 2014
+[<u>Martin Blais</u>](mailto:blais@furius.ca), October 2014
 
-[<span class="underline">http://furius.ca/beancount/doc/example</span>](http://furius.ca/beancount/doc/example)
+[<u>http://furius.ca/beancount/doc/example</u>](http://furius.ca/beancount/doc/example)
 
-> [<span class="underline">Example File Generator</span>](#example-file-generator)
+> [<u>Example File Generator</u>](#example-file-generator)
 >
-> [<span class="underline">Converting to Ledger Input</span>](#converting-to-ledger-input)
+> [<u>Converting to Ledger Input</u>](#converting-to-ledger-input)
 >
-> [<span class="underline">Profile of Example User</span>](#profile-of-example-user)
+> [<u>Profile of Example User</u>](#profile-of-example-user)
 >
-> [<span class="underline">Future Additions</span>](#future-additions)
+> [<u>Future Additions</u>](#future-additions)
 >
-> [<span class="underline">Tutorial</span>](#tutorial)
+> [<u>Tutorial</u>](#tutorial)
 >
-> [<span class="underline">Generate an Example File</span>](#generate-an-example-file)
+> [<u>Generate an Example File</u>](#generate-an-example-file)
 >
-> [<span class="underline">Generating Reports</span>](#generating-reports)
+> [<u>Generating Reports</u>](#generating-reports)
 >
-> [<span class="underline">Generating Balances</span>](#generating-balances)
+> [<u>Generating Balances</u>](#generating-balances)
 >
-> [<span class="underline">Generating a Balance Sheet and Income Statement</span>](#generating-a-balance-sheet-and-income-statement)
+> [<u>Generating a Balance Sheet and Income Statement</u>](#generating-a-balance-sheet-and-income-statement)
 >
-> [<span class="underline">Journals</span>](#journals)
+> [<u>Journals</u>](#journals)
 >
-> [<span class="underline">Holdings</span>](#holdings)
+> [<u>Holdings</u>](#holdings)
 >
-> [<span class="underline">Other Reports</span>](#other-reports)
+> [<u>Other Reports</u>](#other-reports)
 >
-> [<span class="underline">Other Formats</span>](#other-formats)
+> [<u>Other Formats</u>](#other-formats)
 >
-> [<span class="underline">Viewing Reports through the Web Interface</span>](#viewing-reports-through-the-web-interface)
+> [<u>Viewing Reports through the Web Interface</u>](#viewing-reports-through-the-web-interface)
 >
-> [<span class="underline">The Future of Beancount Reports</span>](#the-future-of-beancount-reports)
+> [<u>The Future of Beancount Reports</u>](#the-future-of-beancount-reports)
 
-Example File Generator<a id="example-file-generator"></a>
----------------------------------------------------------
+## Example File Generator<a id="example-file-generator"></a>
 
 Beancount has a command to generate a few years of a realistic user’s historical entries:
 
     bean-example > example.beancount
 
-The script checks if the output fails to process cleanly in Beancount (if this occurs, try rerunning or contact the author at [<span class="underline">blais@furius.ca</span>](mailto:blais@furius.ca)). Note that there is an option to fix the random generator’s seed to be used to generate the entries.
+The script checks if the output fails to process cleanly in Beancount (if this occurs, try rerunning or contact the author at [<u>blais@furius.ca</u>](mailto:blais@furius.ca)). Note that there is an option to fix the random generator’s seed to be used to generate the entries.
 
 You can generate multiple years of ledger data for this user; see available options with
 
@@ -66,8 +64,7 @@ It should be possible to convert example files generated from the script to Ledg
 
 If you encounter any problems with the conversion, please let me know. While I have an automated test to check that the conversion succeeds, I’m focusing my efforts on Beancount itself and I’m not using Ledger much other than for the occasional comparison or for illustrating something on the mailing-list.
 
-Profile of Example User<a id="profile-of-example-user"></a>
------------------------------------------------------------
+## Profile of Example User<a id="profile-of-example-user"></a>
 
 Here’s a high-level profile of this user. In the text that follows, I’ll use the masculine “he” for simplicity’s sake.
 
@@ -109,7 +106,7 @@ Here’s a high-level profile of this user. In the text that follows, I’ll use
 
 ### Future Additions<a id="future-additions"></a>
 
-Note that as I beef up the example generator script, this profile will increase in complexity. If there is a particular situation from the [<span class="underline">cookbook</span>](command_line_accounting_cookbook.md) or otherwise that you’d like to see in the example file, please let me know (a patch is the best way to let me know).
+Note that as I beef up the example generator script, this profile will increase in complexity. If there is a particular situation from the [<u>cookbook</u>](command_line_accounting_cookbook.md) or otherwise that you’d like to see in the example file, please let me know (a patch is the best way to let me know).
 
 -   Generate fake PDF files for documents (from an option) along with suitable document directives for them, most of them implicit but some explicit.
 
@@ -133,12 +130,11 @@ Note that as I beef up the example generator script, this profile will increase 
 
 -   Add foreign accounts in another currency and transactions and transfers in that currency.
 
-Tutorial<a id="tutorial"></a>
------------------------------
+## Tutorial<a id="tutorial"></a>
 
 This section provides basic examples of generating reports with Beancount, on the typical example file that would be output by it. The list of reports here is not meant to be exhaustive.
 
-You may follow the tutorial and generate your own example file, or look at the files from [<span class="underline">beancount/examples/tutorial</span>](http://github.com/beancount/beancount/tree/v2/examples/tutorial/) if you prefer.
+You may follow the tutorial and generate your own example file, or look at the files from [<u>beancount/examples/tutorial</u>](http://github.com/beancount/beancount/tree/v2/examples/tutorial/) if you prefer.
 
 ### Generate an Example File<a id="generate-an-example-file"></a>
 
@@ -156,35 +152,35 @@ It should return quietly, without outputting anything (bean-check only writes er
 
 ### Generating Reports<a id="generating-reports"></a>
 
-Let’s generate a report of the final balances of all accounts [<span class="underline">\[output\]</span>](http://furius.ca/beancount/examples/tutorial/balances.output):
+Let’s generate a report of the final balances of all accounts [<u>\[output\]</u>](http://furius.ca/beancount/examples/tutorial/balances.output):
 
     bean-report example.beancount balances
 
-As you can see, the bean-report script has subcommands for the various reports it generates. To list the available reports, use --help-reports [<span class="underline">\[output\]</span>](http://furius.ca/beancount/examples/tutorial/help-reports.output):
+As you can see, the bean-report script has subcommands for the various reports it generates. To list the available reports, use --help-reports [<u>\[output\]</u>](http://furius.ca/beancount/examples/tutorial/help-reports.output):
 
     bean-report --help-reports
 
-To list the options available for a particular report, use --help on it [<span class="underline">\[output\]</span>](http://furius.ca/beancount/examples/tutorial/help-subcmd.output):
+To list the options available for a particular report, use --help on it [<u>\[output\]</u>](http://furius.ca/beancount/examples/tutorial/help-subcmd.output):
 
     bean-report example.beancount balances --help
 
 The report-specific options vary for each report type.
 
-You can also list the global options for the script [<span class="underline">\[output\]</span>](http://furius.ca/beancount/examples/tutorial/help-global.output):
+You can also list the global options for the script [<u>\[output\]</u>](http://furius.ca/beancount/examples/tutorial/help-global.output):
 
     bean-report --help
 
-The global options allow you to specify the desired output format for the reports. To see which formats are available for which report, use --help-formats [<span class="underline">\[output\]</span>](http://furius.ca/beancount/examples/tutorial/help-formats.output):
+The global options allow you to specify the desired output format for the reports. To see which formats are available for which report, use --help-formats [<u>\[output\]</u>](http://furius.ca/beancount/examples/tutorial/help-formats.output):
 
     bean-report --help-formats
 
 ### Generating Balances<a id="generating-balances"></a>
 
-Good, so we know how to generate a report of balances for all accounts. This is a pretty detailed list of accounts though. Let’s just restrict the output to the accounts that we’re interested in [<span class="underline">\[output\]</span>](http://furius.ca/beancount/examples/tutorial/balances-restrict.output):
+Good, so we know how to generate a report of balances for all accounts. This is a pretty detailed list of accounts though. Let’s just restrict the output to the accounts that we’re interested in [<u>\[output\]</u>](http://furius.ca/beancount/examples/tutorial/balances-restrict.output):
 
     bean-report example.beancount balances -e ETrade
 
-Here you can view the number of units held in each of the investment subaccounts. To render the cost, use the --cost option [<span class="underline">\[output\]</span>](http://furius.ca/beancount/examples/tutorial/balances-restrict-cost.output):
+Here you can view the number of units held in each of the investment subaccounts. To render the cost, use the --cost option [<u>\[output\]</u>](http://furius.ca/beancount/examples/tutorial/balances-restrict-cost.output):
 
     bean-report example.beancount balances -e ETrade --cost
 
@@ -202,7 +198,7 @@ Let us generate a balance sheet:
 
     bean-report example.beancount balsheet
 
-Unfortunately, the only output format supported for it at this point is HTML. Also, filtering balance sheet entries from the command-line is not supported. Generate this to a file and open a browser to it [<span class="underline">\[output\]</span>](http://furius.ca/beancount/examples/tutorial/balsheet.output):
+Unfortunately, the only output format supported for it at this point is HTML. Also, filtering balance sheet entries from the command-line is not supported. Generate this to a file and open a browser to it [<u>\[output\]</u>](http://furius.ca/beancount/examples/tutorial/balsheet.output):
 
     bean-report example.beancount balsheet > /tmp/balsheet.html
 
@@ -212,49 +208,49 @@ You can to the same for income statements:
 
 ### Journals<a id="journals"></a>
 
-You can also generate journals (in Ledger parlance, these are “registers”). Let’s look at a checking account postings, for instance [<span class="underline">\[output\]</span>](http://furius.ca/beancount/examples/tutorial/journal.output):
+You can also generate journals (in Ledger parlance, these are “registers”). Let’s look at a checking account postings, for instance [<u>\[output\]</u>](http://furius.ca/beancount/examples/tutorial/journal.output):
 
     bean-report example.beancount journal -a Assets:US:BofA:Checking
 
-To render a column of running balances, add the --balance option [<span class="underline">\[output\]</span>](http://furius.ca/beancount/examples/tutorial/journal-with-balance.output):
+To render a column of running balances, add the --balance option [<u>\[output\]</u>](http://furius.ca/beancount/examples/tutorial/journal-with-balance.output):
 
     bean-report example.beancount journal -a Assets:US:BofA:Checking --balance
 
-The inventories are rendered in the number of units they’re holding [<span class="underline">\[output\]</span>](http://furius.ca/beancount/examples/tutorial/invest.output):
+The inventories are rendered in the number of units they’re holding [<u>\[output\]</u>](http://furius.ca/beancount/examples/tutorial/invest.output):
 
     bean-report example.beancount journal -a Assets:US:ETrade:GLD
 
-If you want to render the values at cost, use the --cost option [<span class="underline">\[output\]</span>](http://furius.ca/beancount/examples/tutorial/invest-with-cost.output):
+If you want to render the values at cost, use the --cost option [<u>\[output\]</u>](http://furius.ca/beancount/examples/tutorial/invest-with-cost.output):
 
     bean-report example.beancount journal -a Assets:US:ETrade:GLD --cost
 
-To render journals, you will typically restrict the set of postings that you want to view. If you did not, the postings would render no change, because all the legs of the transactions would be applied to the running balance and the total would be zero. But try it, nonetheless [<span class="underline">\[output\]</span>](http://furius.ca/beancount/examples/tutorial/journal-unrestricted.output):
+To render journals, you will typically restrict the set of postings that you want to view. If you did not, the postings would render no change, because all the legs of the transactions would be applied to the running balance and the total would be zero. But try it, nonetheless [<u>\[output\]</u>](http://furius.ca/beancount/examples/tutorial/journal-unrestricted.output):
 
     bean-report example.beancount journal --balance
 
 ### Holdings<a id="holdings"></a>
 
-There are a variety of ways to obtain aggregations for the total list of holdings. List the detailed holdings [<span class="underline">\[output\]</span>](http://furius.ca/beancount/examples/tutorial/holdings.output):
+There are a variety of ways to obtain aggregations for the total list of holdings. List the detailed holdings [<u>\[output\]</u>](http://furius.ca/beancount/examples/tutorial/holdings.output):
 
     bean-report example.beancount holdings
 
-To aggregate the holdings by account, do this [<span class="underline">\[output\]</span>](http://furius.ca/beancount/examples/tutorial/holdings-by-account.output):
+To aggregate the holdings by account, do this [<u>\[output\]</u>](http://furius.ca/beancount/examples/tutorial/holdings-by-account.output):
 
     bean-report example.beancount holdings --by=account
 
-Because it’s common practice to create and use a dedicated Beancount subaccount name for each commodity held in a real-world account, we can refine this further to aggregate to the parent (“root”) accounts of those subaccounts [<span class="underline">\[output\]</span>](http://furius.ca/beancount/examples/tutorial/holdings-by-root-account.output):
+Because it’s common practice to create and use a dedicated Beancount subaccount name for each commodity held in a real-world account, we can refine this further to aggregate to the parent (“root”) accounts of those subaccounts [<u>\[output\]</u>](http://furius.ca/beancount/examples/tutorial/holdings-by-root-account.output):
 
     bean-report example.beancount holdings --by=root-account
 
-We can aggregate by commodity [<span class="underline">\[output\]</span>](http://furius.ca/beancount/examples/tutorial/holdings-by-commodity.output):
+We can aggregate by commodity [<u>\[output\]</u>](http://furius.ca/beancount/examples/tutorial/holdings-by-commodity.output):
 
     bean-report example.beancount holdings --by=commodity
 
-Or by the currency in which the commodities are quoted, which gives us a glimpse into our currency exposure [<span class="underline">\[output\]</span>](http://furius.ca/beancount/examples/tutorial/holdings-by-currency.output):
+Or by the currency in which the commodities are quoted, which gives us a glimpse into our currency exposure [<u>\[output\]</u>](http://furius.ca/beancount/examples/tutorial/holdings-by-currency.output):
 
     bean-report example.beancount holdings --by=currency
 
-Finally, we can aggregate all the holdings to obtain net worth [<span class="underline">\[output\]</span>](http://furius.ca/beancount/examples/tutorial/networth.output):
+Finally, we can aggregate all the holdings to obtain net worth [<u>\[output\]</u>](http://furius.ca/beancount/examples/tutorial/networth.output):
 
     bean-report example.beancount networth
 
@@ -264,25 +260,25 @@ There are a few more options for converting amounts to a common currency. See he
 
 There are many other miscellaneous reports available. Try a few of those.
 
-Listing all accounts [<span class="underline">\[output\]</span>](http://furius.ca/beancount/examples/tutorial/accounts.output):
+Listing all accounts [<u>\[output\]</u>](http://furius.ca/beancount/examples/tutorial/accounts.output):
 
     bean-report example.beancount accounts
 
-Listing events [<span class="underline">\[output\]</span>](http://furius.ca/beancount/examples/tutorial/events.output):
+Listing events [<u>\[output\]</u>](http://furius.ca/beancount/examples/tutorial/events.output):
 
     bean-report example.beancount events
 
-Number of directives by type [<span class="underline">\[output\]</span>](http://furius.ca/beancount/examples/tutorial/stats-directives.output):
+Number of directives by type [<u>\[output\]</u>](http://furius.ca/beancount/examples/tutorial/stats-directives.output):
 
     bean-report example.beancount stats-directives
 
-Number of postings by type [<span class="underline">\[output\]</span>](http://furius.ca/beancount/examples/tutorial/stats-postings.output):
+Number of postings by type [<u>\[output\]</u>](http://furius.ca/beancount/examples/tutorial/stats-postings.output):
 
     bean-report example.beancount stats-postings
 
 ### Other Formats<a id="other-formats"></a>
 
-Reports may support various output formats. You can change the output format with the --format (-f) global option [<span class="underline">\[output\]</span>](http://furius.ca/beancount/examples/tutorial/holdings-csv.output):
+Reports may support various output formats. You can change the output format with the --format (-f) global option [<u>\[output\]</u>](http://furius.ca/beancount/examples/tutorial/holdings-csv.output):
 
     bean-report -f csv example.beancount holdings
 
@@ -294,16 +290,15 @@ The original way to access reports in Beancount is via its web interface that se
 
     bean-web example.beancount
 
-Then navigate with a web browser to [<span class="underline">http://localhost:8080</span>](http://localhost:8080). From there, you can click on any number of filtered views and access some of the reports previously demonstrated. For example, click on a year view; that will provide balance sheets and income statements and various other reports for this subset of transactions.
+Then navigate with a web browser to [<u>http://localhost:8080</u>](http://localhost:8080). From there, you can click on any number of filtered views and access some of the reports previously demonstrated. For example, click on a year view; that will provide balance sheets and income statements and various other reports for this subset of transactions.
 
 The bean-web tool has many options for restricting what is being served. (Note that by default the server listens only for connections from your computer; if you want to host this on a web server and accept connections from anywhere, use `--public`).
 
-*Note: There exists a separate project which provides a better web interface than the one which comes with Beancount: [<span class="underline">Fava</span>](https://github.com/aumayr/fava). You might want to check it out.*
+*Note: There exists a separate project which provides a better web interface than the one which comes with Beancount: [<u>Fava</u>](https://github.com/aumayr/fava). You might want to check it out.*
 
-The Future of Beancount Reports<a id="the-future-of-beancount-reports"></a>
----------------------------------------------------------------------------
+## The Future of Beancount Reports<a id="the-future-of-beancount-reports"></a>
 
-I find my command-line reports above to be rather unsatisfying, from the point-of-view of customizability. They bother me a lot. This is largely because I’ve been happy and satisfied with the capabilities of the web interface to Beancount. As I’m beginning to use the command-line interface more and more, I’m finding myself desiring for more explicit and well-defined way to apply all the filters I have available from the web interface, and more. For this reason, I’m [<span class="underline">currently implementing a query language that looks similar to SQL</span>](http://furius.ca/beancount/doc/proposal-filtering). This syntax will allow me to remove all the custom reports above and to replace them by a single consistent query syntax. This work is underway.
+I find my command-line reports above to be rather unsatisfying, from the point-of-view of customizability. They bother me a lot. This is largely because I’ve been happy and satisfied with the capabilities of the web interface to Beancount. As I’m beginning to use the command-line interface more and more, I’m finding myself desiring for more explicit and well-defined way to apply all the filters I have available from the web interface, and more. For this reason, I’m [<u>currently implementing a query language that looks similar to SQL</u>](http://furius.ca/beancount/doc/proposal-filtering). This syntax will allow me to remove all the custom reports above and to replace them by a single consistent query syntax. This work is underway.
 
 All the holdings reports and even their internal objects will be replaced by the SQL-like query syntax as well. Holdings need not be treated separately: they are simply the list of positions available at a particular point in time, and along with suitable accessors from the query syntax and support for aggregations over their many columns, we should be able to generate all of those reports equivalently and simplify the code.
 
