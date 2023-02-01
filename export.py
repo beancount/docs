@@ -15,6 +15,7 @@ from pypandoc.pandoc_download import download_pandoc
 
 # Downloads to ~/bin
 download_pandoc(version='2.8')
+print(f'Using pandoc {pypandoc.get_pandoc_version()}')
 
 INTERMEDIATE_FMT = 'docx'
 
