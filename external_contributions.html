@@ -126,6 +126,14 @@
     <li class="toctree-l3"><a class="reference internal" href="#tools">Tools</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#alternative-parsers">Alternative Parsers</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#bison">Bison</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#using-antlr">Using Antlr</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#using-tree-sitter">Using Tree-sitter</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#importers">Importers</a>
     </li>
@@ -300,7 +308,14 @@
 <p><a href="https://github.com/redstreet/fava_investor/tree/main/fava_investor/modules/minimizegains"><span class="underline">Gains Minimizer</span></a> (RedStreet): Automatically determine lots to sell to minimize capital gains taxes. <a href="http://favainvestor.pythonanywhere.com/example-beancount-file/extension/Investor/?module=minimizegains"><span class="underline">Live example.</span></a></p>
 <p><a href="https://github.com/maread99/beanahead"><span class="underline">beanahead</span></a> (Marcus Read): Adds the ability to include future transactions (automatically generates regular transactions, provides for ad hoc expected transactions, expected transactions are reconciled against imported transactions; all functionality accessible via cli).</p>
 <h2 id="alternative-parsers">Alternative Parsers<a id="alternative-parsers"></a><a class="headerlink" href="#alternative-parsers" title="Permanent link"></a></h2>
-<p><a href="https://github.com/jord1e/jbeancount"><span class="underline">jord1e/jbeancount</span></a> (Jordie Biemold): An alternative parser for Beancount input syntax in Java (using the Antlr4 parser generator). This provides access to parsed Beancount data - without the effect of plugins - from JVM languages. See <a href="https://groups.google.com/d/msgid/beancount/72ee8adb-a376-4e30-b6d4-ea8749f5f666n%40googlegroups.com?utm_medium=email&amp;utm_source=footer"><span class="underline">this post</span></a> for details.</p>
+<h3 id="bison">Bison<a id="bison"></a><a class="headerlink" href="#bison" title="Permanent link"></a></h3>
+<p>The Beancount v2 parser uses GNU flex + GNU bison (for maximum portability).</p>
+<p>The Beancount v3 parser uses <a href="https://www.genivia.com/doc/reflex/html/"><span class="underline">RE/flex</span></a> + GNU bison (for Unicode and C++).</p>
+<h3 id="using-antlr">Using Antlr<a id="using-antlr"></a><a class="headerlink" href="#using-antlr" title="Permanent link"></a></h3>
+<p><a href="https://github.com/jord1e/jbeancount"><span class="underline">jord1e/jbeancount</span></a> (Jordie Biemold) / using Antlr: An alternative parser for Beancount input syntax in Java (using the Antlr4 parser generator). This provides access to parsed Beancount data - without the effect of plugins - from JVM languages. See <a href="https://groups.google.com/d/msgid/beancount/72ee8adb-a376-4e30-b6d4-ea8749f5f666n%40googlegroups.com?utm_medium=email&amp;utm_source=footer"><span class="underline">this post</span></a> for details.</p>
+<h3 id="using-tree-sitter">Using Tree-sitter<a id="using-tree-sitter"></a><a class="headerlink" href="#using-tree-sitter" title="Permanent link"></a></h3>
+<p><a href="https://github.com/polarmutex/tree-sitter-beancount"><span class="underline">polarmutex/tree-sitter-beancount</span></a> (Bryan Ryall): A tree-sitter parser for the Beancount syntax.</p>
+<p><a href="https://github.com/dnicolodi/tree-sitter-beancount"><span class="underline">https://github.com/dnicolodi/tree-sitter-beancount</span></a> (Daniele Nicolodi): Another tree-sitter based parser for the Beancount syntax.</p>
 <h2 id="importers">Importers<a id="importers"></a><a class="headerlink" href="#importers" title="Permanent link"></a></h2>
 <p><a href="https://github.com/redstreet/beancount_reds_importers"><span class="underline">reds importers</span></a>: Simple importers and tools for <a href="https://github.com/redstreet/beancount_reds_importers/tree/main/beancount_reds_importers"><span class="underline">several</span></a> US based institutions, and various file types. Emphasizes ease of writing your own importers by providing well maintained common libraries for banks, credit cards, and investment houses, and for various file types, which minimizes the institution specific code you need to write. This is a reference implementation of the principles expressed in <strong><a href="https://reds-rants.netlify.app/personal-finance/the-five-minute-ledger-update/"><span class="underline">The Five Minute Ledger Update</span></a>.</strong> Contributions welcome. By RedStreet</p>
 <p><a href="https://github.com/madhat2r/plaid2text"><span class="underline">plaid2text</span></a>: An importer from <a href="http://www.plaid.com/"><span class="underline">Plaid</span></a> which stores the transactions to a Mongo DB and is able to render it to Beancount syntax. By Micah Duke.</p>
@@ -314,7 +329,8 @@
 <p><a href="https://github.com/Dr-Nuke/drnuke-bean"><span class="underline">Dr-Nuke/drnuke-bean</span></a> (Dr Nuke): An importer for IBKR, based on the flex query (API-like) and one for Swiss PostFinance.</p>
 <p><a href="https://github.com/luciano-fiandesio/beanborg"><span class="underline">Beanborg</span></a> (Luciano Fiandesio): Beanborg automatically imports financial transactions from external CSV files into the Beancount bookkeeping system.</p>
 <p><a href="https://gitlab.com/szabootibor/beancount-degiro"><span class="underline">szabootibor/beancount-degiro</span></a> (<a href="https://pypi.org/project/beancount-degiro"><span class="underline">PyPI</span></a>): Importer for the trading accounts of the Dutch broker Degiro.</p>
-<p><a href="https://github.com/siddhantgoel/beancount-ing-diba"><span class="underline">https://github.com/siddhantgoel/beancount-ing-diba</span></a> (<a href="https://pypi.org/project/beancount-ing-diba/"><span class="underline">PyPI</span></a>): ING account importer (NL).</p>
+<p><a href="https://github.com/siddhantgoel/beancount-ing-diba"><span class="underline">siddhantgoel/beancount-ing-diba</span></a> (<a href="https://pypi.org/project/beancount-ing-diba/"><span class="underline">PyPI</span></a>): ING account importer (NL).</p>
+<p><a href="https://github.com/PaulsTek/csv2bean"><span class="underline">PaulsTek/csv2bean</span></a> : Asimple application to preprocess csv files using google sheets in Go.</p>
 <h2 id="converters">Converters<a id="converters"></a><a class="headerlink" href="#converters" title="Permanent link"></a></h2>
 <p><a href="https://github.com/madhat2r/plaid2text"><span class="underline">plaid2text</span></a>: Python Scripts to export Plaid transactions and transform them into Ledger or Beancount syntax formatted files.</p>
 <p><a href="https://github.com/henriquebastos/gnucash-to-beancount/"><span class="underline">gnucash-to-beancount</span></a>: A script from Henrique Bastos to convert a GNUcash SQLite database into an equivalent Beancount input file.</p>
