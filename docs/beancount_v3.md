@@ -314,7 +314,7 @@ I'd like for "bn" to become the de-facto two-letter import on top of which we wr
 
     -   Converting to market value, and making corresponding account adjustments.
 
-    -   …. *add more* *…*
+    -   …. *add more …*
 
 -   **Exposed, usable booking.** Booking will be a simple loop that can be invoked from Python with an entry and some accumulated state. Moreover, the Inventory object should begin to implement some of the lower-level operations required for booking, such that iterating over a set of postings and doing e.g., average booking, can be done via method calls on an Inventory object. Inventory should take a more prominent place in the API.
 

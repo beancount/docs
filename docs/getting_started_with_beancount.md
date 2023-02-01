@@ -48,7 +48,7 @@ A few notes and an ultra brief overview of the Beancount syntax:
 
 -   Currencies must be entirely in capital letters (allowing numbers and some special characters, like “\_” or “-”). Currency symbols (such as $ or €) are not supported.
 
--   Account names do not admit spaces (though you can use dashes), and must have at least two components, separated by colons.
+-   Account names do not admit spaces (though you can use dashes), and must have at least two components, separated by colons. Each component of an account name must begin with a capital letter or number.
 
 -   Description strings must be quoted, like this: `"AMEX PMNT"`.
 

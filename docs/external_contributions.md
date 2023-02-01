@@ -98,7 +98,21 @@ Tools<a id="tools"></a>
 Alternative Parsers<a id="alternative-parsers"></a>
 ---------------------------------------------------
 
-[<span class="underline">jord1e/jbeancount</span>](https://github.com/jord1e/jbeancount) (Jordie Biemold): An alternative parser for Beancount input syntax in Java (using the Antlr4 parser generator). This provides access to parsed Beancount data - without the effect of plugins - from JVM languages. See [<span class="underline">this post</span>](https://groups.google.com/d/msgid/beancount/72ee8adb-a376-4e30-b6d4-ea8749f5f666n%40googlegroups.com?utm_medium=email&utm_source=footer) for details.
+### Bison<a id="bison"></a>
+
+The Beancount v2 parser uses GNU flex + GNU bison (for maximum portability).
+
+The Beancount v3 parser uses [<span class="underline">RE/flex</span>](https://www.genivia.com/doc/reflex/html/) + GNU bison (for Unicode and C++).
+
+### Using Antlr<a id="using-antlr"></a>
+
+[<span class="underline">jord1e/jbeancount</span>](https://github.com/jord1e/jbeancount) (Jordie Biemold) / using Antlr: An alternative parser for Beancount input syntax in Java (using the Antlr4 parser generator). This provides access to parsed Beancount data - without the effect of plugins - from JVM languages. See [<span class="underline">this post</span>](https://groups.google.com/d/msgid/beancount/72ee8adb-a376-4e30-b6d4-ea8749f5f666n%40googlegroups.com?utm_medium=email&utm_source=footer) for details.
+
+### Using Tree-sitter<a id="using-tree-sitter"></a>
+
+[<span class="underline">polarmutex/tree-sitter-beancount</span>](https://github.com/polarmutex/tree-sitter-beancount) (Bryan Ryall): A tree-sitter parser for the Beancount syntax.
+
+[<span class="underline">https://github.com/dnicolodi/tree-sitter-beancount</span>](https://github.com/dnicolodi/tree-sitter-beancount) (Daniele Nicolodi): Another tree-sitter based parser for the Beancount syntax.
 
 Importers<a id="importers"></a>
 -------------------------------
@@ -127,7 +141,9 @@ Importers<a id="importers"></a>
 
 [<span class="underline">szabootibor/beancount-degiro</span>](https://gitlab.com/szabootibor/beancount-degiro) ([<span class="underline">PyPI</span>](https://pypi.org/project/beancount-degiro)): Importer for the trading accounts of the Dutch broker Degiro.
 
-[<span class="underline">https://github.com/siddhantgoel/beancount-ing-diba</span>](https://github.com/siddhantgoel/beancount-ing-diba) ([<span class="underline">PyPI</span>](https://pypi.org/project/beancount-ing-diba/)): ING account importer (NL).
+[<span class="underline">siddhantgoel/beancount-ing-diba</span>](https://github.com/siddhantgoel/beancount-ing-diba) ([<span class="underline">PyPI</span>](https://pypi.org/project/beancount-ing-diba/)): ING account importer (NL).
+
+[<span class="underline">PaulsTek/csv2bean</span>](https://github.com/PaulsTek/csv2bean) : Asimple application to preprocess csv files using google sheets in Go.
 
 Converters<a id="converters"></a>
 ---------------------------------
