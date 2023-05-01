@@ -24,6 +24,8 @@ This document contains only packages that were discussed or have had an announce
 
 [<u>Scaled Estimates of Mutual Fund NAVs</u>](https://reds-rants.netlify.app/personal-finance/scaled-estimates-of-mutual-fund-navs/) (RedStreet) : Problem: Mutual fund NAVs (at least in the US) are updated exactly once per day, at the end of the day. When needing to make financial decisions when the trading window is still open (eg: when tax loss harvesting), and the end-of-day NAV is not yet available, it is sometimes useful to make a trivial estimate of that NAV, especially on days when there are huge changes in the market.
 
+[<u>A Shortcut to Scrape Trade History from Fidelity</u>](https://noisysignal.com/trade_hist_shortcut/) (David Avraamides) I wrote up a description of how I use a Shortcut to scrape trade history from Fidelity’s website, run it through a Python script to convert to Beancount’s ledger format, and then save it in the clipboard so I can paste it into a ledger file.
+
 ## Plugins<a id="plugins"></a>
 
 [<u>split\_transactions</u>](https://www.google.com/url?q=https%3A%2F%2Fgist.github.com%2Fkljohann%2Faebac3f0146680fd9aa5&sa=D&sntz=1&usg=AFQjCNGn2AkL35onTeXgOQzLzkjVpvLcpg): Johann Klähn [<u>wrote a plugin</u>](https://groups.google.com/d/msg/beancount/z9sPboW4U3c/1qIIzro4zFoJ) that can split a single transaction into many against a limbo account, as would be done for depreciation.
@@ -89,6 +91,8 @@ This document contains only packages that were discussed or have had an announce
 [<u>Gains Minimizer</u>](https://github.com/redstreet/fava_investor/tree/main/fava_investor/modules/minimizegains) (RedStreet): Automatically determine lots to sell to minimize capital gains taxes. [<u>Live example.</u>](http://favainvestor.pythonanywhere.com/example-beancount-file/extension/Investor/?module=minimizegains)
 
 [<u>beanahead</u>](https://github.com/maread99/beanahead) (Marcus Read): Adds the ability to include future transactions (automatically generates regular transactions, provides for ad hoc expected transactions, expected transactions are reconciled against imported transactions; all functionality accessible via cli).
+
+[<u>autobean-format</u>](https://github.com/SEIAROTg/autobean-format) (Archimedes Smith): Yet another formatter for beancount,, powered by earlier project autobean-refactor, a library for parsing and programmatically manipulating beancount files. based on a proper parser, allowing it to format every corner of your ledger, including arithmetic expressions.
 
 ## Alternative Parsers<a id="alternative-parsers"></a>
 
@@ -228,9 +232,11 @@ The Beancount v3 parser uses [<u>RE/flex</u>](https://www.genivia.com/doc/reflex
 
 [<u>jmgilman/bdantic</u>](https://github.com/jmgilman/bdantic): A package for extending beancount with [<u>pydantic</u>](https://pydantic-docs.helpmanual.io/). With this package you can convert your ledger to JSON, and more.
 
-[<u>autobean/refactor</u>](https://github.com/SEIAROTg/autobean/tree/master/autobean/refactor) (SEIAROTg): Tooling to programmatically edit one's ledger, including formatting, sorting, refactoring, rearranging accounts, optimizing via plugins, migration from v2, inserting transactions in a ledger on import, and more.
+[<u>autobean/refactor</u>](https://github.com/SEIAROTg/autobean/tree/master/autobean/refactor) (Archimedes Smith): Tooling to programmatically edit one's ledger, including formatting, sorting, refactoring, rearranging accounts, optimizing via plugins, migration from v2, inserting transactions in a ledger on import, and more.
 
 [<u>seltzered/beancolage</u>](https://github.com/seltzered/beancolage) (Vivek Gani): An Eclipse Theia (vendor-agnostic vscode) app that tries to bundle existing beancount-based packages such as vscode-beancount and Fava.
+
+[<u>aaronstacy.com/personal-finances-dashboard</u>](http://aaronstacy.com/personal-finances-dashboard/) : HTML + D3.js visualization dashboard for Beancount data.
 
 ## Mobile/Phone Data Entry<a id="mobilephone-data-entry"></a>
 
