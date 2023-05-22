@@ -8,4 +8,4 @@ pypandoc==1.9
 python-docx==0.8.11
 python-slugify==3.0.2
 pytkdocs==0.12.0
-requests==2.21.0
+requests==2.31.0
