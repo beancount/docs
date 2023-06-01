@@ -199,6 +199,8 @@ Here is a detailed breakdown of the various parts of the codebase today and what
 
 -   check_commodity
 
+-   close_tree
+
 -   commodity_attr
 
 -   check_average_cost

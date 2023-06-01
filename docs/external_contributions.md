@@ -94,6 +94,8 @@ This document contains only packages that were discussed or have had an announce
 
 [<u>autobean-format</u>](https://github.com/SEIAROTg/autobean-format) (Archimedes Smith): Yet another formatter for beancount,, powered by earlier project autobean-refactor, a library for parsing and programmatically manipulating beancount files. based on a proper parser, allowing it to format every corner of your ledger, including arithmetic expressions.
 
+[<u>akirak/flymake-bean-check</u>](https://github.com/akirak/flymake-bean-check) (Akira Komamura): flymake support for Emacs.
+
 ## Alternative Parsers<a id="alternative-parsers"></a>
 
 ### Bison<a id="bison"></a>

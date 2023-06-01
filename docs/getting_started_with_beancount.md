@@ -26,6 +26,10 @@ Support for editing Beancount ledger files in Vim has been implemented by Nathan
 
 Support for editing with Sublime has been contributed by Martin Andreas Andersen and is available in [<u>this github repository</u>](https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fdraug3n%2Fsublime-beancount&sa=D&sntz=1&usg=AFQjCNExx6wdX5QF1hnixgHcKJV-5XJwMA) or as a Sublime package [<u>here</u>](https://packagecontrol.io/packages/Beancount).
 
+### VSCode<a id="vscode"></a>
+
+There are a number of plugins for working with Beancount text files including [<u>VSCode-Beancount</u>](https://marketplace.visualstudio.com/items?itemName=Lencerf.beancount) by Lencerf.
+
 ## Creating your First Input File<a id="creating-your-first-input-file"></a>
 
 To get started, let’s create a minimal input file with two accounts and a single transaction. Enter or copy the following input to a text file:
