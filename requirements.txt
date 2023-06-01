@@ -1,6 +1,6 @@
 beancount==2.3.0
 beautifulsoup4==4.9.0
-mkdocs==1.2.3
+mkdocs==1.2.4
 mkdocs-redirects==1.0.3
 mkdocstrings==0.16.2
 panflute==2.0.5
@@ -9,3 +9,7 @@ python-docx==0.8.11
 python-slugify==3.0.2
 pytkdocs==0.12.0
 requests==2.21.0
+
+Jinja2==2.11.3  # Dependency of mkdocs
+MarkupSafe==2.0.1  # Dependency of mkdocs, Jinja2
+mkdocs-autorefs==0.3.0  # Dependency of mkdocstrings
