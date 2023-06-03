@@ -50,7 +50,7 @@ These will be further detailed below.
 
 ## Configuration<a id="configuration"></a>
 
-First, a [<u>configuration</u>](https://github.com/beancount/beancount/blob/v2/experiments/returns/config.proto) needs to be created to define a list of investments, and groups of those, for which reports will be produced. This configuration is provided as a text-formatted [<u>protocol buffer</u>](https://developers.google.com/protocol-buffers) message.
+First, a [<u>configuration</u>](https://github.com/beancount/beangrow/blob/master/beangrow/config.proto) needs to be created to define a list of investments, and groups of those, for which reports will be produced. This configuration is provided as a text-formatted [<u>protocol buffer</u>](https://developers.google.com/protocol-buffers) message.
 
 -   **Investment.** An investment corresponds to a particular instrument stored in a particular account. It also involves other transactions that don't directly involve that particular account. We want to provide a few set of account names:
 
@@ -131,7 +131,7 @@ Here's an example of 6 investments and 3 reports:
 
 Different reports can include the same investment. References to accounts and investment names support simple UNIX-style globbing patterns in the configuration. These are expanded to full account names at runtime and stored in the output.
 
-A "[<u>configure.py</u>](https://github.com/beancount/beancount/blob/v2/experiments/returns/configure.py)" script can automatically infer a working basic configuration from an existing Beancount ledger. A report will be generated for each unique instrument and the same metadata fields honored by the "export" script ("assetcls", "strategy") will also generate reports. I recommend you run this on your ledger and then custom tailor the configuration manually.
+A "[<u>configure.py</u>](https://github.com/beancount/beangrow/blob/master/beangrow/configure.py)" script can automatically infer a working basic configuration from an existing Beancount ledger. A report will be generated for each unique instrument and the same metadata fields honored by the "export" script ("assetcls", "strategy") will also generate reports. I recommend you run this on your ledger and then custom tailor the configuration manually.
 
 ### Finding Accounts<a id="finding-accounts"></a>
 
@@ -360,7 +360,7 @@ Note that different reports can include the same investments. Groupings aren't e
 
 Simply call
 
-    ./experiments/returns/compute_returns.py <file.beancount> <config.pbtxt> <output-dir>
+    ./beangrow/compute_returns.py <file.beancount> <config.pbtxt> <output-dir>
 
 to generate all reports and debugging files, where *&lt;config.pbtxt&gt;* is in the format shown in “Configuration” . It's a little slow — some performance improvements are possible — but if you supply a list of report names after the final argument, only those investments and reports will be processed, so you can iterate faster that way. See flags with `--help` for details, and `config.proto` for the configuration input documentation.
 
