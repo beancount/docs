@@ -40,19 +40,19 @@ One of the attributes of the method we show here is that the decision of how we 
 
 In this section we present a brief illustrated overview of the method. A set of common Assets accounts that belong to the project, and book all our individual expenses and transfer for the trip as coming from external Income accounts:
 
-<img src="sharing_expenses_with_beancount/media/905d3349c7af8500347aa0e5af656e943abe2591.png" style="width:3.94444in;height:2.08333in" />
+<img src="sharing_expenses_with_beancount/media/49de6863f17c9e00de5afa95b2b6bbe34eb50802.png" style="width:3.94444in;height:2.08333in" />
 
 During the trip, we use the common Assets to make expenses. Most of the expenses are attributed to both of us (and to be shared eventually), but some of the expenses are intended to be attributed to each of us individually:
 
-<img src="sharing_expenses_with_beancount/media/6497688e752bd90be8d7257afa678cc1fd1d8084.png" style="width:3.94444in;height:2.23611in" />
+<img src="sharing_expenses_with_beancount/media/30975a49f8dc6e0c1104f18cfff29ea06b399b27.png" style="width:3.94444in;height:2.23611in" />
 
 After the trip, remaining Assets (like cash we walked home with) gets distributed back to ourselves to zero out the balances of the Assets accounts and we record this through contra postings to Income accounts:
 
-<img src="sharing_expenses_with_beancount/media/e897ff1fb4ea70efa1164dca215811e00b4a06d0.png" style="width:3.90278in;height:2.94444in" />
+<img src="sharing_expenses_with_beancount/media/3fb9d5803335611baabec610978a84726222281f.png" style="width:3.90278in;height:2.94444in" />
 
 Finally, the list of shared Expenses are split between each other—using a plugin that forks every posting that is intended to be a shared expense—and the final amount is used to make a final transfer between each other so that we’ve each paid for our respective expenses and we’re square:
 
-<img src="sharing_expenses_with_beancount/media/1c45addecaf77f45c6cc5867529bfaed232e45f1.png" style="width:4.86111in;height:1.97222in" />
+<img src="sharing_expenses_with_beancount/media/cd932295217ae3f7b7f9c2e84535813026dd8fac.png" style="width:4.86111in;height:1.97222in" />
 
 Note that the final balance of expenses for each participant may differ, and these are due to particular expenses that were attributed separately, or if we decide to split the total unevenly.
 

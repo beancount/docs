@@ -8,6 +8,12 @@
 
 <table><tbody><tr class="odd"><td><em><strong>This document is about Beancount v3, an experimental in-development version (as of July 2020); Instructions for building the stable version (Beancount v2) can be found in <a href="installing_beancount.md"><u>this other document</u></a>.</strong></em></td></tr></tbody></table>
 
+## *Setup Python*<a id="setup-python"></a>
+
+*Python dependencies are still required to run programs.*
+
+    pip install –requirement requirements/dev.txt
+
 ## Building with Bazel<a id="building-with-bazel"></a>
 
 *Warning: This is an experimental development branch. Do not expect everything to be polished perfectly.*

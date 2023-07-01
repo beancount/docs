@@ -166,7 +166,7 @@ Finally, transactions may have more than two postings; in fact, they may have an
 
 For example, let’s look at what would happen if the owner gets her salary paid for December:
 
-<img src="the_double_entry_counting_method/media/19e2cc49a057dfeea1cf5254610eab4c9a124488.png" style="width:8.22222in;height:5.05556in" />
+<img src="the_double_entry_counting_method/media/ce1cc8d6be9b3de0868a301b333df0a67997f447.png" style="width:8.22222in;height:5.05556in" />
 
 Her gross salary received in this example is recorded as $-2,905 (I’ll explain the sign in a moment). $905 is set aside for taxes. Her “net” salary of $2,000, the remainder, is deposited in her “Checking” account and the resulting balance of that account is $2,921 (the previous balance of $921 + $2,000 = $2,921). This transaction has three postings: (+2,000) + (-2,905) + (+905) = 0. The double-entry rule is respected.
 
