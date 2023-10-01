@@ -218,7 +218,7 @@ After that, going back to the Kyle ledger, pulling in all the transactions again
 
 Here’s a diagram that puts in perspective the entire system together:
 
-<img src="how_we_share_expenses/media/6d398ad5da256204aab0f8760e6e04c079fcf192.png" style="width:8.79167in;height:6.94444in" />
+<img src="how_we_share_expenses/media/f7b43f7f027c2d46040a2011a86a8594c3491d4f.png" style="width:8.79167in;height:6.94444in" />
 
 I (“Dad”) use Beancount via Emacs, exclusively. Carolyn (“Mom”) only interacts with a single Google Sheets doc with three sheets in it. I pull in Carolyn’s shared expenses from a sheet that she fills in to a ledger which gets included in my personal ledger. I also pull in her expenses for Kyle in a similar document, and from my personal ledger I generate my own expenses for Kyle. Both of these documents are merged in a top-level ledger dedicated to Kyle’s expenses.
 

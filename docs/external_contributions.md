@@ -96,6 +96,8 @@ This document contains only packages that were discussed or have had an announce
 
 [<u>akirak/flymake-bean-check</u>](https://github.com/akirak/flymake-bean-check) (Akira Komamura): flymake support for Emacs.
 
+[<u>bean-download</u>](https://reds-rants.netlify.app/personal-finance/direct-downloads/) (Red Street): A downloader that ships with beancount-reds-importers that you can configure to run arbitrary commands to download your account statements. It now has a new feature: the needs-update subcommand.
+
 ## Alternative Parsers<a id="alternative-parsers"></a>
 
 ### Bison<a id="bison"></a>
@@ -143,6 +145,10 @@ The Beancount v3 parser uses [<u>RE/flex</u>](https://www.genivia.com/doc/reflex
 [<u>siddhantgoel/beancount-ing-diba</u>](https://github.com/siddhantgoel/beancount-ing-diba) ([<u>PyPI</u>](https://pypi.org/project/beancount-ing-diba/)): ING account importer (NL).
 
 [<u>PaulsTek/csv2bean</u>](https://github.com/PaulsTek/csv2bean) : Asimple application to preprocess csv files using google sheets in Go.
+
+[<u>ericaltendorf/magicbeans</u>](https://github.com/ericaltendorf/magicbeans) (Eric Altendorf): Beancount importers for crypto data.
+
+[<u>OSadovy/uabean</u>](https://github.com/OSadovy/uabean/) (Oleksii Sadovyi): A set of Beancount importers and scripts for popular Ukrainian banks and more.
 
 ## Converters<a id="converters"></a>
 
