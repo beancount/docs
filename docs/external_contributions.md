@@ -146,7 +146,7 @@ The Beancount v3 parser uses [<u>RE/flex</u>](https://www.genivia.com/doc/reflex
 
 [<u>PaulsTek/csv2bean</u>](https://github.com/PaulsTek/csv2bean) : Asimple application to preprocess csv files using google sheets in Go.
 
-[<u>ericaltendorf/magicbeans</u>](https://github.com/ericaltendorf/magicbeans) (Eric Altendorf): Beancount importers for crypto data.
+[<u>ericaltendorf/magicbeans</u>](https://github.com/ericaltendorf/magicbeans) (Eric Altendorf): Beancount importers for crypto data. Detailed lot tracking and capital gains/losses reporting for crypto assets. " I wrote it because I was not satisfied with the accuracy or transparency of existing commercial services for crypto tax reporting."
 
 [<u>OSadovy/uabean</u>](https://github.com/OSadovy/uabean/) (Oleksii Sadovyi): A set of Beancount importers and scripts for popular Ukrainian banks and more.
 
