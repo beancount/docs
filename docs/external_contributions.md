@@ -116,6 +116,12 @@ The Beancount v3 parser uses [<u>RE/flex</u>](https://www.genivia.com/doc/reflex
 
 [<u>https://github.com/dnicolodi/tree-sitter-beancount</u>](https://github.com/dnicolodi/tree-sitter-beancount) (Daniele Nicolodi): Another tree-sitter based parser for the Beancount syntax.
 
+### In Rust<a id="in-rust"></a>
+
+[<u>jcornaz/beancount-parser</u>](https://github.com/jcornaz/beancount-parser) (Jonathan Cornaz): A beancount file parser library for Rust. Uses nom.
+
+[<u>beancount\_parser\_lima</u>](https://docs.rs/beancount-parser-lima/latest/beancount_parser_lima/) (Simon Guest): A zero-copy parser for Beancount in Rust. It is intended to be a complete implementation of the Beancount file format, except for those parts which are deprecated and other features as documented here (in a list which may not be comprehensive). Uses [<u>Logos</u>](https://docs.rs/logos/latest/logos/), [<u>Chumsky</u>](https://docs.rs/chumsky/latest/chumsky/), and [<u>Ariadne</u>](https://docs.rs/ariadne/latest/ariadne/).
+
 ## Importers<a id="importers"></a>
 
 [<u>reds importers</u>](https://github.com/redstreet/beancount_reds_importers): Simple importers and tools for [<u>several</u>](https://github.com/redstreet/beancount_reds_importers/tree/main/beancount_reds_importers) US based institutions, and various file types. Emphasizes ease of writing your own importers by providing well maintained common libraries for banks, credit cards, and investment houses, and for various file types, which minimizes the institution specific code you need to write. This is a reference implementation of the principles expressed in **[<u>The Five Minute Ledger Update</u>](https://reds-rants.netlify.app/personal-finance/the-five-minute-ledger-update/).** Contributions welcome. By RedStreet

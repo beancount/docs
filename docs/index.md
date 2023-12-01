@@ -58,6 +58,8 @@
 
 [<u>Health care Expenses</u>](health_care_expenses.md) (incomplete): A not-quite finished document explaining how to handle the sequence of health care expenses for in and out of network providers in the USA.
 
+[<u>Tracking Medical Claims</u>](tracking_medical_claims.md): An example structure tracking out-of-network psychotherapy sessions with out-of-pocket payments, a medical claim, and an associated HSA repayment for the uncovered portion.
+
 [<u>Calculating Portolio Returns</u>](calculating_portolio_returns.md): How to compute portfolio returns from a Beancount ledger. This describes work done in an experimental script and the process that was involved in extracting the correct data for it.
 
 ## Documentation for Developers<a id="documentation-for-developers"></a>
