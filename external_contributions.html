@@ -133,6 +133,8 @@
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#using-tree-sitter">Using Tree-sitter</a>
     </li>
+    <li class="toctree-l4"><a class="reference internal" href="#in-rust">In Rust</a>
+    </li>
         </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#importers">Importers</a>
@@ -320,6 +322,9 @@
 <h3 id="using-tree-sitter">Using Tree-sitter<a id="using-tree-sitter"></a><a class="headerlink" href="#using-tree-sitter" title="Permanent link"></a></h3>
 <p><a href="https://github.com/polarmutex/tree-sitter-beancount"><u>polarmutex/tree-sitter-beancount</u></a> (Bryan Ryall): A tree-sitter parser for the Beancount syntax.</p>
 <p><a href="https://github.com/dnicolodi/tree-sitter-beancount"><u>https://github.com/dnicolodi/tree-sitter-beancount</u></a> (Daniele Nicolodi): Another tree-sitter based parser for the Beancount syntax.</p>
+<h3 id="in-rust">In Rust<a id="in-rust"></a><a class="headerlink" href="#in-rust" title="Permanent link"></a></h3>
+<p><a href="https://github.com/jcornaz/beancount-parser"><u>jcornaz/beancount-parser</u></a> (Jonathan Cornaz): A beancount file parser library for Rust. Uses nom.</p>
+<p><a href="https://docs.rs/beancount-parser-lima/latest/beancount_parser_lima/"><u>beancount_parser_lima</u></a> (Simon Guest): A zero-copy parser for Beancount in Rust. It is intended to be a complete implementation of the Beancount file format, except for those parts which are deprecated and other features as documented here (in a list which may not be comprehensive). Uses <a href="https://docs.rs/logos/latest/logos/"><u>Logos</u></a>, <a href="https://docs.rs/chumsky/latest/chumsky/"><u>Chumsky</u></a>, and <a href="https://docs.rs/ariadne/latest/ariadne/"><u>Ariadne</u></a>.</p>
 <h2 id="importers">Importers<a id="importers"></a><a class="headerlink" href="#importers" title="Permanent link"></a></h2>
 <p><a href="https://github.com/redstreet/beancount_reds_importers"><u>reds importers</u></a>: Simple importers and tools for <a href="https://github.com/redstreet/beancount_reds_importers/tree/main/beancount_reds_importers"><u>several</u></a> US based institutions, and various file types. Emphasizes ease of writing your own importers by providing well maintained common libraries for banks, credit cards, and investment houses, and for various file types, which minimizes the institution specific code you need to write. This is a reference implementation of the principles expressed in <strong><a href="https://reds-rants.netlify.app/personal-finance/the-five-minute-ledger-update/"><u>The Five Minute Ledger Update</u></a>.</strong> Contributions welcome. By RedStreet</p>
 <p><a href="https://github.com/madhat2r/plaid2text"><u>plaid2text</u></a>: An importer from <a href="http://www.plaid.com/"><u>Plaid</u></a> which stores the transactions to a Mongo DB and is able to render it to Beancount syntax. By Micah Duke.</p>

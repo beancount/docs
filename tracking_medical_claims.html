@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="https://beancount.github.io/docs/tracking_medical_claims.html">
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Tracking Out-of-Network Medical Claims in Beancount<a id="title"></a> - Beancount Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/theme_extra.css" />
+  <link href="assets/_mkdocstrings.css" rel="stylesheet" />
+  <link href="css/custom.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Tracking Out-of-Network Medical Claims in Beancount<a id=\"title\"></a>";
+    var mkdocs_page_input_path = "tracking_medical_claims.md";
+    var mkdocs_page_url = "/docs/tracking_medical_claims.html";
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="icon icon-home"> Beancount Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="index.html">Index</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Outline</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Documentation for Users</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="command_line_accounting_in_context.html">Command Line Accounting in Context</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="the_double_entry_counting_method.html">The Double Entry Counting Method</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="installing_beancount.html">Installing Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="running_beancount_and_generating_reports.html">Running Beancount and Generating Reports</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="getting_started_with_beancount.html">Getting Started with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_language_syntax.html">Beancount Language Syntax</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_options_reference.html">Beancount Options Reference</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="precision_tolerances.html">Precision Tolerances</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_query_language.html">Beancount Query Language</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_cheat_sheet.html">Beancount Cheat Sheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="how_inventories_work.html">How Inventories Work</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="exporting_your_portfolio.html">Exporting Your Portfolio</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="tutorial_example.html">Tutorial & Example</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_history_and_credits.html">Beancount History and Credits</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="a_comparison_of_beancount_and_ledger_hledger.html">A Comparison of Beancount and Ledger Hledger</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="fetching_prices_in_beancount.html">Fetching Prices in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="importing_external_data.html">Importing External Data</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Cookbooks & Examples</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="command_line_accounting_cookbook.html">Command Line Accounting Cookbook</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="trading_with_beancount.html">Trading with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="stock_vesting_in_beancount.html">Stock Vesting in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="sharing_expenses_with_beancount.html">Sharing Expenses with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="how_we_share_expenses.html">How We Share Expenses</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="health_care_expenses.html">Health Care Expenses</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="calculating_portolio_returns.html">Calculating Portfolio Returns</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Documentation for Developers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_scripting_plugins.html">Beancount Scripting Plugins</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_design_doc.html">Beancount Design Doc</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="ledgerhub_design_doc.html">Ledgerhub Design Doc</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="external_contributions.html">External Contributions</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Enhancement Proposals & Discussions</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="a_proposal_for_an_improvement_on_inventory_booking.html">A Proposal for an Improvement on Inventory Booking</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="settlement_dates_in_beancount.html">Settlement Dates in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="balance_assertions_in_beancount.html">Balance Assertions in Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="fund_accounting_with_beancount.html">Fund Accounting with Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="rounding_precision_in_beancount.html">Rounding Precision in Beancount</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Beancount 3</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_v3.html">Goals & Design</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="installing_beancount_v3.html">Installing Beancount</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beancount_v3_dependencies.html">Dependencies</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="beangulp.html">Beangulp</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">API reference</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/index.html">beancount</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.core.html">beancount.core</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ingest.html">beancount.ingest</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.loader.html">beancount.loader</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ops.html">beancount.ops</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.parser.html">beancount.parser</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.plugins.html">beancount.plugins</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.prices.html">beancount.prices</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.query.html">beancount.query</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.reports.html">beancount.reports</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.scripts.html">beancount.scripts</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.tools.html">beancount.tools</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.utils.html">beancount.utils</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.web.html">beancount.web</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Beancount Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Tracking Out-of-Network Medical Claims in Beancount<a id="title"></a></li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="tracking-out-of-network-medical-claims-in-beancount">Tracking Out-of-Network Medical Claims in Beancount<a id="title"></a><a class="headerlink" href="#tracking-out-of-network-medical-claims-in-beancount" title="Permanent link"></a></h1>
+<p><a href="mailto:blais@furius.ca"><u>Martin Blais</u></a> - Updated: November 2023</p>
+<p>Let's illustrate how one might handle dealing with medical treatment with insurance and HSA claims. Let's use an example of psychotherapy sessions, received out-of-network and paid upfront out of pocket and reimbursed later.</p>
+<p>When a session is received, it is booked to receivables and payables:</p>
+<pre><code>   2023-09-06 * "Dr. Freud" "Session" #freud-2023-09
+     Assets:AccountsReceivable:Psychotherapy     260.00 USD
+     Liabilities:AccountsPayable:Psychotherapy  -260.00 USD
+
+   2023-09-11 * "Dr. Freud" "Session" #freud-2023-09
+     Assets:AccountsReceivable:Psychotherapy     260.00 USD
+     Liabilities:AccountsPayable:Psychotherapy  -260.00 USD
+</code></pre>
+<p>Later on, some payments are made for it, clearing the payables:</p>
+<pre><code>   2023-09-12 * "ZELLE SENT" #freud-2023-09
+     Assets:US:BofA:Checking                     -520.00 USD
+     Liabilities:AccountsPayable:Psychotherapy    520.00 USD
+</code></pre>
+<p>And so on, for the entire month:</p>
+<pre><code>   2023-09-20 * "Dr. Freud" "Session" #freud-2023-09
+     Assets:AccountsReceivable:Psychotherapy     260.00 USD
+     Liabilities:AccountsPayable:Psychotherapy  -260.00 USD
+
+   2023-09-23 * "ZELLE SENT" #freud-2023-09
+     Assets:US:BofA:Checking                     -260.00 USD
+     Liabilities:AccountsPayable:Psychotherapy  260.00 USD
+
+
+   2023-09-27 * "Dr. Freud" "Session" #freud-2023-09
+     Assets:AccountsReceivable:Psychotherapy     260.00 USD
+     Liabilities:AccountsPayable:Psychotherapy  -260.00 USD
+
+   2023-09-28 * "ZELLE SENT" #freud-2023-09
+     Assets:US:BofA:Checking                     -260.00 USD
+     Liabilities:AccountsPayable:Psychotherapy  260.00 USD
+</code></pre>
+<p>At the end of the month, a claim form is produced by the therapist. We file the claim with the insurance company, clearing the receivable and shifting the remaining portion to a insurance company check to be issued:</p>
+<pre><code>   2023-09-28 * "Claim for September filed with insurance" #freud-2023-09
+     Assets:AccountsReceivable:Psychotherapy  -1040.00 USD
+     Expenses:Mental:Psychotherapy              312.00 USD
+     Assets:AccountsReceivable:Anthem           728.00 USD
+</code></pre>
+<p>Eventually, an EOB is produced to confirm how much is covered (in this example, 70%, which was known from the terms) and a check is received and deposited at the bank:</p>
+<pre><code>   2023-10-24 * "ATM CHECK DEPOSIT" #freud-2023-09
+     Assets:US:BofA:Checking             728.00 USD
+     Assets:AccountsReceivable:Anthem   -728.00 USD
+</code></pre>
+<p>At this stage we know the amount of the remaining portion eligible to be paid from the HSA, so we file a claim to the HSA company, once again booking them to a receivable and a payable:</p>
+<pre><code>   2023-10-25 * "HealthEquity" "Filed for reimbursement" #freud-2023-09
+     Liabilities:AccountsPayable:HealthEquity  -312.00 USD
+     Assets:AccountsReceivable:HealthEquity     312.00 USD
+</code></pre>
+<p>The HSA company makes a direct deposit to our checking account:</p>
+<pre><code>   2023-11-01 * "BofA bank (Claim ID:1234567-890); EFT to bank" #freud-2023-09
+     Assets:US:HealthEquity:Cash               -312.00 USD
+     Liabilities:AccountsPayable:HealthEquity   312.00 USD
+</code></pre>
+<p>And on the bank side when we import this transaction we book it against the receivable:</p>
+<pre><code>   2023-11-01 * "HEALTHEQUITY INC" #freud-2023-09
+     Assets:US:BofA:Checking                    312.00 USD
+     Assets:AccountsReceivable:HealthEquity    -312.00 USD
+</code></pre>
+<p>The final result is that the HSA was used to cover the uninsured portion of the cost.</p>
+<pre><code>|-- Assets                       
+|   |-- AccountsReceivable       
+|   |   |-- Anthem                
+|   |   |-- HealthEquity         
+|   |   `-- Psychotherapy        
+|   `-- US                       
+|       |-- HealthEquity         
+|       |   `-- Cash                  -312.00               USD
+|       `-- BofA                   
+|           `-- Checking         
+|-- Expenses                     
+|   `-- Mental                   
+|       `-- Psychotherapy              312.00               USD
+`-- Liabilities                  
+    `-- AccountsPayable          
+        |-- HealthEquity         
+        `-- Psychotherapy
+
+Net Income: (-312.00 USD)
+</code></pre>
+<p>There are some flaws with the approach above:</p>
+<ul>
+<li>The amount covered by insurance is known ahead of time; in many cases the amount is not known before the EOB is issued by the insurance (after all that's what it's for, it's the "Explanation of Benefits"). This would require modifying the above.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme_extra.js" defer></script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
