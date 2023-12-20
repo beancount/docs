@@ -13,8 +13,8 @@ from docx.opc.packuri import PackURI
 from docx.parts.image import ImagePart
 from pypandoc.pandoc_download import download_pandoc
 
-# Downloads to ~/bin
-download_pandoc(version='2.11.4')
+# Downloads to ~/.local/bin
+download_pandoc(version='2.11.4', targetfolder='~/.local/bin')
 print(f'Using pandoc {pypandoc.get_pandoc_version()}')
 
 INTERMEDIATE_FMT = 'docx'

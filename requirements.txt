@@ -4,7 +4,7 @@ mkdocs==1.2.4
 mkdocs-redirects==1.0.3
 mkdocstrings==0.16.2
 panflute==2.0.5
-pypandoc==1.9
+pypandoc==1.10
 python-docx==0.8.11
 python-slugify==3.0.2
 pytkdocs==0.12.0
