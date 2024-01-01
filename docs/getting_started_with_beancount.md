@@ -53,7 +53,7 @@ A few notes and an ultra brief overview of the Beancount syntax:
 
 -   Dates are only parsed in ISO8601 format, that is, YYYY-MM-DD.
 
--   Tags must begin with “\#”, and links with “^”.
+-   Tags must begin with “#”, and links with “^”.
 
 For a complete description of the syntax, visit the [<u>User’s Manual</u>](beancount_language_syntax.md).
 

@@ -112,7 +112,7 @@ rbcinvesting.Importer({
 })),  
   
 (('FileType: application/pdf',  
-'Filename:.\*/123456789-\\d\\d\\d\\d\[A-Z\]\[a-z\]\[a-z\]\\d\\d-\\d\\d\\d\\d\[A-Z\]\[a-z\]\[a-z\]\\d\\d.pdf'),  
+'Filename:.\*/123456789-\d\d\d\d\[A-Z\]\[a-z\]\[a-z\]\d\d-\d\d\d\d\[A-Z\]\[a-z\]\[a-z\]\d\d.pdf'),  
 rbcpdf.Importer({  
 'FILE': 'Assets:CA:RBC-Investing:RRSP',  
 })),

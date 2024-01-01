@@ -4,7 +4,18 @@
 
 [<u>http://furius.ca/beancount/doc/ingest</u>](http://furius.ca/beancount/doc/ingest)
 
-<table><tbody><tr class="odd"><td><em>This document is about Beancount v2; Beancount v3 is in development and uses a completely different build and installation system. For instructions on importing v3, see <a href="https://docs.google.com/document/d/1hBfsHZcoHgz5rvhCdP42g2FJ5ouycIMV4H1tfgXpwBU/"><u>this document</u></a> (Beangulp).</em></td></tr></tbody></table>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><em>This document is about Beancount v2; Beancount v3 is in development and uses a completely different build and installation system. For instructions on importing v3, see <a href="https://docs.google.com/document/d/1hBfsHZcoHgz5rvhCdP42g2FJ5ouycIMV4H1tfgXpwBU/"><u>this document</u></a> (Beangulp).</em></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
 
 > [<u>Introduction</u>](#introduction)
 >

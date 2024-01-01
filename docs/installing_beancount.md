@@ -6,7 +6,18 @@
 
 *Instructions for downloading and installing Beancount on your computer.*
 
-<table><tbody><tr class="odd"><td><em>This document is about Beancount v2; Beancount v3 is in development and uses a completely different build and installation system. For instructions on building v3, see <a href="installing_beancount_v3.md"><u>this document</u></a>.</em></td></tr></tbody></table>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><em>This document is about Beancount v2; Beancount v3 is in development and uses a completely different build and installation system. For instructions on building v3, see <a href="installing_beancount_v3.md"><u>this document</u></a>.</em></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
 
 ## Releases<a id="releases"></a>
 

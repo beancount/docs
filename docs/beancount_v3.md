@@ -536,6 +536,31 @@ It could be interesting to create a new directive to declare payee names ahead o
 
 **Price validation.** Since a lot of the conversions at price (i.e., using "@") are inferred by leaving out one number, we should validate that the effective price is within some tolerance of a pre-existing price point near the date. This would provide yet another level of checking.
 
+### Quantizing Operators<a id="quantizing-operators"></a>
+
+Another useful addition to the syntax would be operators that automatically quantize their result to a precision that depends on the particular target currency. For example,
+
+    1970-01-01 * "coffee"
+      Expenses:Food:Net           2.13 / 1.19 EUR
+      Expenses:Food:Taxes  2.13 / 1.19 * 0.19 EUR ; for example to calculate tax
+      Assets:Cash
+
+That would become:
+
+    1970-01-01 * "coffee"
+      Expenses:Food:Net   1.789915966386555 EUR
+      Expenses:Food:Taxes 0.340084033613445 EUR
+      Assets:Cash
+
+If instead an operator like this were provided, it would fix the issue:
+
+    1970-01-01 * "coffee"
+      Expenses:Food:Net           2.13 /. 1.19 EUR
+      Expenses:Food:Taxes  (2.13 / 1.19 * 0.19). EUR
+      Assets:Cash
+
+Or somesuch. Or maybe we'll want to add an option such that every evaluation of an arithmetic expression is automatically quantized as such.
+
 ### Constraints System & Budgeting<a id="constraints-system-budgeting"></a>
 
 Beancount does not support budgeting constraints explicitly, but I think it would be possible to extend the balance assertion semantics to cover this.
