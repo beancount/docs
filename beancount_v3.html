@@ -175,6 +175,8 @@
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#price-inference-from-database">Price Inference from Database</a>
     </li>
+    <li class="toctree-l4"><a class="reference internal" href="#quantizing-operators">Quantizing Operators</a>
+    </li>
     <li class="toctree-l4"><a class="reference internal" href="#constraints-system-budgeting">Constraints System &amp; Budgeting</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#average-cost-booking">Average Cost Booking</a>
@@ -900,6 +902,26 @@ Assets:US:Ameritrade:Futures:Contracts -1 NQH21 {271815.00 USD}</p>
 <h3 id="price-inference-from-database">Price Inference from Database<a id="price-inference-from-database"></a><a class="headerlink" href="#price-inference-from-database" title="Permanent link"></a></h3>
 <p><strong>Interpolation from price database.</strong> One of the oft-requested features is the ability to automatically interpolate prices from the internal price database history. I think that this should be doable unambiguously and deterministically and added to the interpolation algorithm.</p>
 <p><strong>Price validation.</strong> Since a lot of the conversions at price (i.e., using "@") are inferred by leaving out one number, we should validate that the effective price is within some tolerance of a pre-existing price point near the date. This would provide yet another level of checking.</p>
+<h3 id="quantizing-operators">Quantizing Operators<a id="quantizing-operators"></a><a class="headerlink" href="#quantizing-operators" title="Permanent link"></a></h3>
+<p>Another useful addition to the syntax would be operators that automatically quantize their result to a precision that depends on the particular target currency. For example,</p>
+<pre><code>1970-01-01 * "coffee"
+  Expenses:Food:Net           2.13 / 1.19 EUR
+  Expenses:Food:Taxes  2.13 / 1.19 * 0.19 EUR ; for example to calculate tax
+  Assets:Cash
+</code></pre>
+<p>That would become:</p>
+<pre><code>1970-01-01 * "coffee"
+  Expenses:Food:Net   1.789915966386555 EUR
+  Expenses:Food:Taxes 0.340084033613445 EUR
+  Assets:Cash
+</code></pre>
+<p>If instead an operator like this were provided, it would fix the issue:</p>
+<pre><code>1970-01-01 * "coffee"
+  Expenses:Food:Net           2.13 /. 1.19 EUR
+  Expenses:Food:Taxes  (2.13 / 1.19 * 0.19). EUR
+  Assets:Cash
+</code></pre>
+<p>Or somesuch. Or maybe we'll want to add an option such that every evaluation of an arithmetic expression is automatically quantized as such.</p>
 <h3 id="constraints-system-budgeting">Constraints System &amp; Budgeting<a id="constraints-system-budgeting"></a><a class="headerlink" href="#constraints-system-budgeting" title="Permanent link"></a></h3>
 <p>Beancount does not support budgeting constraints explicitly, but I think it would be possible to extend the balance assertion semantics to cover this.</p>
 <p>The current balance assertions check (a) a single commodity, and (b) that the amount is precisely equal to an expected one. Balance assertions should be extended to support inequalities, e.g.,</p>
