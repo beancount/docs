@@ -744,6 +744,12 @@ Note that this does require that a parent account have been declared as Open, in
 
 It is useful to insert a balance assertion for 0 units just before closing an account, just to make sure its contents are empty as you close it. The Close directive does not insert that for you automatically (we may eventually build a plug-in for it).
 
+#### Local Tolerance<a id="local-tolerance"></a>
+
+It's pretty common that sometimes one needs to override the tolerance on the balance check to loosen it on that balance assertion. This can be done using a local tolerance amount off of the balance amount, like this:
+
+    2013-09-20 balance Assets:Investing:Funds     319.020 ~ 0.002 RGAGX
+
 ### Pad<a id="pad"></a>
 
 A padding directive automatically inserts a transaction that will make the subsequent balance assertion succeed, if it is needed. It inserts the difference needed to fulfill that balance assertion. (What “rubber space” is in LaTeX, Pad directives are to balances in Beancount.)

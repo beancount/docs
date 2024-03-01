@@ -156,6 +156,8 @@ The Beancount v3 parser uses [<u>RE/flex</u>](https://www.genivia.com/doc/reflex
 
 [<u>OSadovy/uabean</u>](https://github.com/OSadovy/uabean/) (Oleksii Sadovyi): A set of Beancount importers and scripts for popular Ukrainian banks and more.
 
+[<u>fdavies93/seneca</u>](https://github.com/fdavies93/seneca) (Frank Davies): Importer for Wise. Multi-currency transfers.
+
 ## Converters<a id="converters"></a>
 
 [<u>plaid2text</u>](https://github.com/madhat2r/plaid2text): Python Scripts to export Plaid transactions and transform them into Ledger or Beancount syntax formatted files.
