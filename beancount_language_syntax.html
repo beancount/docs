@@ -846,6 +846,10 @@ poptag #berlin-trip-2014
 <p>Note that this does require that a parent account have been declared as Open, in order to be legitimately used in the balance assertions directive.</p>
 <h4 id="before-close">Before Close<a id="before-close"></a><a class="headerlink" href="#before-close" title="Permanent link"></a></h4>
 <p>It is useful to insert a balance assertion for 0 units just before closing an account, just to make sure its contents are empty as you close it. The Close directive does not insert that for you automatically (we may eventually build a plug-in for it).</p>
+<h4 id="local-tolerance">Local Tolerance<a id="local-tolerance"></a><a class="headerlink" href="#local-tolerance" title="Permanent link"></a></h4>
+<p>It's pretty common that sometimes one needs to override the tolerance on the balance check to loosen it on that balance assertion. This can be done using a local tolerance amount off of the balance amount, like this:</p>
+<pre><code>2013-09-20 balance Assets:Investing:Funds     319.020 ~ 0.002 RGAGX
+</code></pre>
 <h3 id="pad">Pad<a id="pad"></a><a class="headerlink" href="#pad" title="Permanent link"></a></h3>
 <p>A padding directive automatically inserts a transaction that will make the subsequent balance assertion succeed, if it is needed. It inserts the difference needed to fulfill that balance assertion. (What “rubber space” is in LaTeX, Pad directives are to balances in Beancount.)</p>
 <p>Note that by “subsequent,” I mean in <em>date order</em>, not in the order of the declarations in the file. This is the conceptual equivalent of a transaction that will automatically expand or contract to fill the difference between two balance assertions over time. It looks like this:</p>
