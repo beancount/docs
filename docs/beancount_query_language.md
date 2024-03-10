@@ -325,7 +325,7 @@ Some example functions follow:
 
 These are just examples; for the complete list, see “`help targets`”, “`help where`”, “`help from`”.
 
-Note that it is [<u>exceedingly easy</u>](https://github.com/beancount/beancount/tree/master/beancount/query/query_env.py) to add new functions to this list. As of December 2014, we are just beginning using the shell widely and we expect to be adding new functions as needed. If you need a function, please add a comment here or log a ticket and we will consider adding it to the list (we understand that the current list is limited). I intend to be liberal about adding new functions; as long as they have generic application, I don’t think it should be a problem. Otherwise, I may be able to provide a mechanism for user to register new functions as part of Python plugins that could live outside the Beancount codebase.
+Note that it is [<u>exceedingly easy</u>](https://github.com/beancount/beanquery/tree/master/beanquery/query_env.py) to add new functions to this list. As of December 2014, we are just beginning using the shell widely and we expect to be adding new functions as needed. If you need a function, please add a comment here or log a ticket and we will consider adding it to the list (we understand that the current list is limited). I intend to be liberal about adding new functions; as long as they have generic application, I don’t think it should be a problem. Otherwise, I may be able to provide a mechanism for user to register new functions as part of Python plugins that could live outside the Beancount codebase.
 
 ## Aggregate Functions<a id="aggregate-functions"></a>
 
