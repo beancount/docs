@@ -155,6 +155,14 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#installation-for-development-with-meson">Installation for development with meson </a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#on-linux">On Linux</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#on-windows">On Windows</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="beancount_v3_dependencies.html">Dependencies</a>
@@ -253,9 +261,9 @@
 </tbody>
 </table>
 
-<h2 id="setup-python"><em>Setup Python</em><a id="setup-python"></a><a class="headerlink" href="#setup-python" title="Permanent link"></a></h2>
-<p><em>Python dependencies are still required to run programs.</em></p>
-<pre><code>pip install –requirement requirements/dev.txt
+<h2 id="setup-python">Setup Python<a id="setup-python"></a><a class="headerlink" href="#setup-python" title="Permanent link"></a></h2>
+<p>Python dependencies are still required to run programs.</p>
+<pre><code>pip install –r requirements/dev.txt
 </code></pre>
 <h2 id="building-with-bazel">Building with Bazel<a id="building-with-bazel"></a><a class="headerlink" href="#building-with-bazel" title="Permanent link"></a></h2>
 <p><em>Warning: This is an experimental development branch. Do not expect everything to be polished perfectly.</em></p>
@@ -306,6 +314,69 @@
 <li>
 <p>pylint is not integrated in the build either.</p>
 </li>
+</ul>
+<h2 id="installation-for-development-with-meson">Installation for development with meson <a id="installation-for-development-with-meson"></a><a class="headerlink" href="#installation-for-development-with-meson" title="Permanent link"></a></h2>
+<p><em><strong>Note</strong>: this section is updated base on the following discussion: <a href="https://groups.google.com/g/beancount/c/7ppbyz_5B5w"><u>https://groups.google.com/g/beancount/c/7ppbyz_5B5w</u></a></em></p>
+<p>The Bazel build for Beancount v3 builds some experimental C++ code that is at the time of writing (9 March 2024) not yet used for anything else than a technology demonstration. In “production” v3 uses meson-python to build the extension modules and pack them up in a Python wheel. This is what is used by pip during installation.</p>
+<p>This section describes installation processes for the purposes of development beancount v3 python code, rather than experimenting with C++ code.</p>
+<h3 id="on-linux">On Linux<a id="on-linux"></a><a class="headerlink" href="#on-linux" title="Permanent link"></a></h3>
+<p>Tested with python3.12 on Ubuntu</p>
+<p>Related links</p>
+<p><a href="https://mesonbuild.com/meson-python/how-to-guides/editable-installs.html#build-dependencies"><u>https://mesonbuild.com/meson-python/how-to-guides/editable-installs.html</u></a></p>
+<pre><code>git clone https://github.com/beancount/beancount.git
+</code></pre>
+<p>Create and activate virtual environment</p>
+<pre><code>python3.12 -m venv beancount/venv
+. beancount/venv/bin/activate
+cd beancount
+</code></pre>
+<p>Install required packages.</p>
+<pre><code>python -m pip install meson-python meson ninja
+</code></pre>
+<p>Install beancount in editable mode with no build isolation</p>
+<pre><code>python -m pip install --no-build-isolation --editable .
+</code></pre>
+<p><strong>Note:</strong> There is an <a href="https://groups.google.com/g/beancount/c/7ppbyz_5B5w/m/YlHiKhynFAAJ"><u>opinion</u></a> that --no-build-isolation option is not needed, but it was also mentioned that the <a href="https://groups.google.com/g/beancount/c/7ppbyz_5B5w/m/nSxCzuutFAAJ"><u>installation wasn’t working</u></a> without this option. Also the <a href="https://mesonbuild.com/meson-python/how-to-guides/editable-installs.html#editable-installs"><u>documentation</u></a> suggests that this option is needed. This may depend on the type of Linux environment</p>
+<p>Install pytest</p>
+<pre><code>python -m pip install pytest
+</code></pre>
+<p>Run the tests and make sure everything is ok:</p>
+<pre><code>pytest --import-mode=importlib beancount/
+</code></pre>
+<h3 id="on-windows">On Windows<a id="on-windows"></a><a class="headerlink" href="#on-windows" title="Permanent link"></a></h3>
+<p>Tested on 64 bit Windows 10 Pro</p>
+<p><strong>prerequisites</strong></p>
+<p>Install Microsoft Visual Studio (tested on v 2022)</p>
+<p><strong>Procedure</strong></p>
+<pre><code>git clone https://github.com/beancount/beancount.git
+cd beancount
+</code></pre>
+<p>If running x64 bit Windows, start the "x64 Native Tools Command Prompt for VS 20XX". To do this press and release the Windows keys and type x64</p>
+<p><img src="installing_beancount_v3/media/9c5ea265a2ff61958e89a0965bd95bbd54854eb0.png" style="width:3.83854in;height:2.03255in" /></p>
+<p>Open this prompt</p>
+<p>Go to the directory, where beancount is installed</p>
+<pre><code>C:\Program Files\Microsoft Visual Studio\2022\Community&gt;cd C:\_code\t\beancount
+C:\_code\t\beancount&gt;
+</code></pre>
+<p>Activate the virtual environment</p>
+<pre><code>C:\_code\t\beancount&gt;venv\Scripts\Activate
+(venv) C:\_code\t\beancount&gt;
+</code></pre>
+<p>Instal required packages</p>
+<pre><code>(venv) C:\_code\t\beancount&gt;py -m pip install meson-python meson ninja
+</code></pre>
+<p>Install beancount in editable mode. Unlike on Linux the <strong><code>--no-build-isolation</code></strong> on Windows from one side throws some errors from the other side does not seem to be needed</p>
+<pre><code>(venv) C:\_code\t\beancount&gt; py -m pip install --editable .
+</code></pre>
+<p>Install pytest</p>
+<pre><code>(venv) C:\_code\t\beancount&gt;py -m pip install pytest
+</code></pre>
+<p>Run tests</p>
+<pre><code>(venv) C:\_code\t\beancount&gt;pytest --import-mode=importlib beancount
+</code></pre>
+<p>Note: some of the tests on Windows fail, but this is due to general <a href="https://github.com/beancount/beancount/issues?q=is%3Aopen+is%3Aissue+label%3Aportability"><u>portability issue</u></a></p>
+<ul>
+<li></li>
 </ul>
               
             </div>
