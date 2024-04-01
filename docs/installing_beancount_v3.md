@@ -19,11 +19,11 @@
 </tbody>
 </table>
 
-## *Setup Python*<a id="setup-python"></a>
+## Setup Python<a id="setup-python"></a>
 
-*Python dependencies are still required to run programs.*
+Python dependencies are still required to run programs.
 
-    pip install –requirement requirements/dev.txt
+    pip install –r requirements/dev.txt
 
 ## Building with Bazel<a id="building-with-bazel"></a>
 
@@ -86,3 +86,94 @@ A few build integration tasks remain to be done:
 -   pytype is not supported yet.
 
 -   pylint is not integrated in the build either.
+
+## Installation for development with meson <a id="installation-for-development-with-meson"></a>
+
+***Note**: this section is updated base on the following discussion: [<u>https://groups.google.com/g/beancount/c/7ppbyz\_5B5w</u>](https://groups.google.com/g/beancount/c/7ppbyz_5B5w)*
+
+The Bazel build for Beancount v3 builds some experimental C++ code that is at the time of writing (9 March 2024) not yet used for anything else than a technology demonstration. In “production” v3 uses meson-python to build the extension modules and pack them up in a Python wheel. This is what is used by pip during installation.
+
+This section describes installation processes for the purposes of development beancount v3 python code, rather than experimenting with C++ code.
+
+### On Linux<a id="on-linux"></a>
+
+Tested with python3.12 on Ubuntu
+
+Related links
+
+[<u>https://mesonbuild.com/meson-python/how-to-guides/editable-installs.html</u>](https://mesonbuild.com/meson-python/how-to-guides/editable-installs.html#build-dependencies)
+
+    git clone https://github.com/beancount/beancount.git
+
+Create and activate virtual environment
+
+    python3.12 -m venv beancount/venv
+    . beancount/venv/bin/activate
+    cd beancount
+
+Install required packages.
+
+    python -m pip install meson-python meson ninja
+
+Install beancount in editable mode with no build isolation
+
+    python -m pip install --no-build-isolation --editable .
+
+**Note:** There is an [<u>opinion</u>](https://groups.google.com/g/beancount/c/7ppbyz_5B5w/m/YlHiKhynFAAJ) that --no-build-isolation option is not needed, but it was also mentioned that the [<u>installation wasn’t working</u>](https://groups.google.com/g/beancount/c/7ppbyz_5B5w/m/nSxCzuutFAAJ) without this option. Also the [<u>documentation</u>](https://mesonbuild.com/meson-python/how-to-guides/editable-installs.html#editable-installs) suggests that this option is needed. This may depend on the type of Linux environment
+
+Install pytest
+
+    python -m pip install pytest
+
+Run the tests and make sure everything is ok:
+
+    pytest --import-mode=importlib beancount/
+
+### On Windows<a id="on-windows"></a>
+
+Tested on 64 bit Windows 10 Pro
+
+**prerequisites**
+
+Install Microsoft Visual Studio (tested on v 2022)
+
+**Procedure**
+
+    git clone https://github.com/beancount/beancount.git
+    cd beancount
+
+If running x64 bit Windows, start the "x64 Native Tools Command Prompt for VS 20XX". To do this press and release the Windows keys and type x64
+
+<img src="installing_beancount_v3/media/9c5ea265a2ff61958e89a0965bd95bbd54854eb0.png" style="width:3.83854in;height:2.03255in" />
+
+Open this prompt
+
+Go to the directory, where beancount is installed
+
+    C:\Program Files\Microsoft Visual Studio\2022\Community>cd C:\_code\t\beancount
+    C:\_code\t\beancount>
+
+Activate the virtual environment
+
+    C:\_code\t\beancount>venv\Scripts\Activate
+    (venv) C:\_code\t\beancount>
+
+Instal required packages
+
+    (venv) C:\_code\t\beancount>py -m pip install meson-python meson ninja
+
+Install beancount in editable mode. Unlike on Linux the **`--no-build-isolation`** on Windows from one side throws some errors from the other side does not seem to be needed
+
+    (venv) C:\_code\t\beancount> py -m pip install --editable .
+
+Install pytest
+
+    (venv) C:\_code\t\beancount>py -m pip install pytest
+
+Run tests
+
+    (venv) C:\_code\t\beancount>pytest --import-mode=importlib beancount
+
+Note: some of the tests on Windows fail, but this is due to general [<u>portability issue</u>](https://github.com/beancount/beancount/issues?q=is%3Aopen+is%3Aissue+label%3Aportability)
+
+-   
