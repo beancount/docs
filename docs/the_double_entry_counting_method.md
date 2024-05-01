@@ -92,94 +92,11 @@ It’s perfectly fine for accounts to contain a negative balance number. Remembe
 
 Something worthy of notice is how the timeline notation I’ve written in the previous section is analogous to paper account statements institutions maintain for each client and which you typically receive through the mail:
 
-<table>
-<colgroup>
-<col style="width: 15%" />
-<col style="width: 54%" />
-<col style="width: 14%" />
-<col style="width: 15%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><em><strong>Date</strong></em></th>
-<th><em><strong>Description</strong></em></th>
-<th><em><strong>Amount</strong></em></th>
-<th><em><strong>Balance</strong></em></th>
-</tr>
-<tr class="odd">
-<th>2016-10-02</th>
-<th>...</th>
-<th>100.00</th>
-<th>1100.00</th>
-</tr>
-<tr class="header">
-<th>2016-10-05</th>
-<th>...</th>
-<th>-25.00</th>
-<th>1075.00</th>
-</tr>
-<tr class="odd">
-<th>2016-10-06</th>
-<th>...</th>
-<th>-200.00</th>
-<th>875.00</th>
-</tr>
-<tr class="header">
-<th colspan="3"><em><strong>Final Balance</strong></em></th>
-<th>875.00</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
+<table><thead><tr class="header"><th><em><strong>Date</strong></em></th><th><em><strong>Description</strong></em></th><th><em><strong>Amount</strong></em></th><th><em><strong>Balance</strong></em></th></tr></thead><tbody><tr class="odd"><td>2016-10-02</td><td>...</td><td>100.00</td><td>1100.00</td></tr><tr class="even"><td>2016-10-05</td><td>...</td><td>-25.00</td><td>1075.00</td></tr><tr class="odd"><td>2016-10-06</td><td>...</td><td>-200.00</td><td>875.00</td></tr><tr class="even"><td><em><strong>Final Balance</strong></em></td><td>875.00</td><td></td><td></td></tr></tbody></table>
 
 Sometimes the amount column is split into two, one showing the positive amounts and the other the negative ones:
 
-<table>
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 38%" />
-<col style="width: 16%" />
-<col style="width: 14%" />
-<col style="width: 15%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><em><strong>Date</strong></em></th>
-<th><em><strong>Description</strong></em></th>
-<th><em><strong>Debit</strong></em></th>
-<th><em><strong>Credit</strong></em></th>
-<th><em><strong>Balance</strong></em></th>
-</tr>
-<tr class="odd">
-<th>2016-10-02</th>
-<th>...</th>
-<th></th>
-<th>100.00</th>
-<th>1100.00</th>
-</tr>
-<tr class="header">
-<th>2016-10-05</th>
-<th>...</th>
-<th>25.00</th>
-<th></th>
-<th>1075.00</th>
-</tr>
-<tr class="odd">
-<th>2016-10-06</th>
-<th>...</th>
-<th>200.00</th>
-<th></th>
-<th>875.00</th>
-</tr>
-<tr class="header">
-<th colspan="4"><em><strong>Final Balance</strong></em></th>
-<th>875.00</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
+<table><thead><tr class="header"><th><em><strong>Date</strong></em></th><th><em><strong>Description</strong></em></th><th><em><strong>Debit</strong></em></th><th><em><strong>Credit</strong></em></th><th><em><strong>Balance</strong></em></th></tr></thead><tbody><tr class="odd"><td>2016-10-02</td><td>...</td><td></td><td>100.00</td><td>1100.00</td></tr><tr class="even"><td>2016-10-05</td><td>...</td><td>25.00</td><td></td><td>1075.00</td></tr><tr class="odd"><td>2016-10-06</td><td>...</td><td>200.00</td><td></td><td>875.00</td></tr><tr class="even"><td><em><strong>Final Balance</strong></em></td><td>875.00</td><td></td><td></td><td></td></tr></tbody></table>
 
 Here, “debit” means “removed from your account” and “credit” means “deposited in your account.” Sometimes the words “withdrawals” and “deposits” will be used. It all depends on context: for checking and savings accounts it is usual to have both types of postings, but for a credit card account typically it shows only positive numbers and then the occasional monthly payment so the single column format is used.
 
@@ -277,36 +194,9 @@ On the other hand, the total amount of Restaurant expenses since the beginning o
 
 This situation is summarized in the following table:
 
-<table>
-<colgroup>
-<col style="width: 32%" />
-<col style="width: 34%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th></th>
-<th>Balance: Positive (+)</th>
-<th>Balance: Negative (-)</th>
-</tr>
-<tr class="odd">
-<th><p>Balance matters<br />
-<strong>at a point</strong> in time</p>
-<p>(Balance Sheet)</p></th>
-<th><strong>Assets</strong></th>
-<th><strong>Liabilities</strong></th>
-</tr>
-<tr class="header">
-<th><p><strong>Change</strong> in balance matters<br />
-<strong>over a period</strong> of time</p>
-<p>(Income Statement)</p></th>
-<th><strong>Expenses</strong></th>
-<th><strong>Income</strong></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
+<table><thead><tr class="header"><th></th><th>Balance: Positive (+)</th><th>Balance: Negative (-)</th></tr></thead><tbody><tr class="odd"><td><p>Balance matters<br />
+<strong>at a point</strong> in time</p><p>(Balance Sheet)</p></td><td><strong>Assets</strong></td><td><strong>Liabilities</strong></td></tr><tr class="even"><td><p><strong>Change</strong> in balance matters<br />
+<strong>over a period</strong> of time</p><p>(Income Statement)</p></td><td><strong>Expenses</strong></td><td><strong>Income</strong></td></tr></tbody></table>
 
 Let’s discuss each type of account and provide some examples, so that it doesn’t remain too abstract.
 
@@ -599,93 +489,7 @@ For example, this Beancount input:
 
 could be rendered as a table like this:
 
-<table>
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 4%" />
-<col style="width: 17%" />
-<col style="width: 23%" />
-<col style="width: 24%" />
-<col style="width: 10%" />
-<col style="width: 7%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><em><strong>Date</strong></em></th>
-<th><em><strong>Fl</strong></em></th>
-<th><em><strong>Payee</strong></em></th>
-<th><em><strong>Narration</strong></em></th>
-<th><em><strong>Account</strong></em></th>
-<th><em><strong>Number</strong></em></th>
-<th><em><strong>Ccy</strong></em></th>
-</tr>
-<tr class="odd">
-<th>2016-12-04</th>
-<th>*</th>
-<th></th>
-<th>Christmas gift</th>
-<th>Liabilities:CreditCard</th>
-<th>-153.45</th>
-<th>USD</th>
-</tr>
-<tr class="header">
-<th>2016-12-04</th>
-<th>*</th>
-<th></th>
-<th>Christmas gift</th>
-<th>Expenses:Gifts</th>
-<th>153.45</th>
-<th>USD</th>
-</tr>
-<tr class="odd">
-<th>2016-12-06</th>
-<th>*</th>
-<th>Biang!</th>
-<th>Dinner</th>
-<th>Liabilities:CreditCard</th>
-<th>-47.23</th>
-<th>USD</th>
-</tr>
-<tr class="header">
-<th>2016-12-06</th>
-<th>*</th>
-<th>Biang!</th>
-<th>Dinner</th>
-<th>Expenses:Restaurants</th>
-<th>47.23</th>
-<th>USD</th>
-</tr>
-<tr class="odd">
-<th>2016-12-07</th>
-<th>*</th>
-<th>Pouring Ribbons</th>
-<th>Drinks with friends</th>
-<th>Assets:Cash</th>
-<th>-25.00</th>
-<th>USD</th>
-</tr>
-<tr class="header">
-<th>2016-12-07</th>
-<th>*</th>
-<th>Pouring Ribbons</th>
-<th>Drinks with friends</th>
-<th>Expenses:Tips</th>
-<th>4.00</th>
-<th>USD</th>
-</tr>
-<tr class="odd">
-<th>2016-12-07</th>
-<th>*</th>
-<th>Pouring Ribbons</th>
-<th>Drinks with friends</th>
-<th>Expenses:Alcohol</th>
-<th>21.00</th>
-<th>USD</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
+<table><thead><tr class="header"><th><em><strong>Date</strong></em></th><th><em><strong>Fl</strong></em></th><th><em><strong>Payee</strong></em></th><th><em><strong>Narration</strong></em></th><th><em><strong>Account</strong></em></th><th><em><strong>Number</strong></em></th><th><em><strong>Ccy</strong></em></th></tr></thead><tbody><tr class="odd"><td>2016-12-04</td><td>*</td><td></td><td>Christmas gift</td><td>Liabilities:CreditCard</td><td>-153.45</td><td>USD</td></tr><tr class="even"><td>2016-12-04</td><td>*</td><td></td><td>Christmas gift</td><td>Expenses:Gifts</td><td>153.45</td><td>USD</td></tr><tr class="odd"><td>2016-12-06</td><td>*</td><td>Biang!</td><td>Dinner</td><td>Liabilities:CreditCard</td><td>-47.23</td><td>USD</td></tr><tr class="even"><td>2016-12-06</td><td>*</td><td>Biang!</td><td>Dinner</td><td>Expenses:Restaurants</td><td>47.23</td><td>USD</td></tr><tr class="odd"><td>2016-12-07</td><td>*</td><td>Pouring Ribbons</td><td>Drinks with friends</td><td>Assets:Cash</td><td>-25.00</td><td>USD</td></tr><tr class="even"><td>2016-12-07</td><td>*</td><td>Pouring Ribbons</td><td>Drinks with friends</td><td>Expenses:Tips</td><td>4.00</td><td>USD</td></tr><tr class="odd"><td>2016-12-07</td><td>*</td><td>Pouring Ribbons</td><td>Drinks with friends</td><td>Expenses:Alcohol</td><td>21.00</td><td>USD</td></tr></tbody></table>
 
 Notice how the values of Transaction fields are replicated for each posting. This is exactly like a regular database join operation. The posting fields begin at column “Account.” (Also note that this example table is simplified; in practice there are many more fields.)
 

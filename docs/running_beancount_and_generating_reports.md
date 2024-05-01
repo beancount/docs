@@ -130,18 +130,7 @@ There are a few special reports you should know about:
 
 The other reports are what you’d expect: they print out various tables of aggregations of amounts. The reports you can generate are described in a dedicated section below.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><em><strong>PLEASE NOTE!</strong></em> At the moment of release, the list of reports available from the web page will differ from the list available from the console. In a future release, I will consolidate those two lists and all the reports that are available from the web pages will also be available from the console, and in many different formats. Stay tuned.</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
+<table><tbody><tr class="odd"><td><em><strong>PLEASE NOTE!</strong></em> At the moment of release, the list of reports available from the web page will differ from the list available from the console. In a future release, I will consolidate those two lists and all the reports that are available from the web pages will also be available from the console, and in many different formats. Stay tuned.</td></tr></tbody></table>
 
 ### bean-query<a id="bean-query"></a>
 
@@ -287,18 +276,7 @@ There are many types of reports available, and there will be many more in the fu
 
     bean-report --help-reports
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><em><strong>PLEASE NOTE!</strong></em> At the moment, the sets of reports that are available from the web interface and from the console are different, though there is some overlap. In a subsequent version, the list of reports will be reconciled and all reports will be made available via both the web interface and the console, in a variety of data formats (text, CSV, HTML and maybe others.) For now, we will document these in the sections below.</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
+<table><tbody><tr class="odd"><td><em><strong>PLEASE NOTE!</strong></em> At the moment, the sets of reports that are available from the web interface and from the console are different, though there is some overlap. In a subsequent version, the list of reports will be reconciled and all reports will be made available via both the web interface and the console, in a variety of data formats (text, CSV, HTML and maybe others.) For now, we will document these in the sections below.</td></tr></tbody></table>
 
 ### Balance Reports<a id="balance-reports"></a>
 

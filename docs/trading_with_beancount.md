@@ -307,18 +307,7 @@ You could even go one step further and fold the commission on *sale* into the pr
 
 This may seem overkill, but imagine that those costs were much higher, as is the case on large commercial transactions; the details do begin to matter to the tax man. Accurate accounting is important, and we need to develop a method to do this more precisely.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><em><strong>We don’t currently have a good method of doing this with our input syntax. A suitable method is currently being developed and a <a href="a_proposal_for_an_improvement_on_inventory_booking.md"><u>proposal</u></a> is on the table. Also see mailing-list for details. [June 2014]</strong></em></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
+<table><tbody><tr class="odd"><td><em><strong>We don’t currently have a good method of doing this with our input syntax. A suitable method is currently being developed and a <a href="a_proposal_for_an_improvement_on_inventory_booking.md"><u>proposal</u></a> is on the table. Also see mailing-list for details. [June 2014]</strong></em></td></tr></tbody></table>
 
 ## Stock Splits<a id="stock-splits"></a>
 

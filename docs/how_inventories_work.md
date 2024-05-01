@@ -217,18 +217,7 @@ Even with negative units the number and cost get aggregated separately:
               units ccy    cost    cost-ccy lot-date    label
             98.1842 VBMPX {11.0508 USD,     2016-07-28, None}
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><em>This feature isn’t yet supported in Beancount; it’s fairly tricky to implement, and will be the subject in a minor release in the future.</em></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
+<table><tbody><tr class="odd"><td><em>This feature isn’t yet supported in Beancount; it’s fairly tricky to implement, and will be the subject in a minor release in the future.</em></td></tr></tbody></table>
 
 ### No Booking<a id="no-booking"></a>
 
@@ -320,19 +309,7 @@ See the [<u>Trading with Beancount</u>](trading_with_beancount.md) document for 
 
 The combination of acquiring some asset and selling it back is what we call a “trade.” In Beancount we consider only assets with a cost basis to be the subject of trades. Since booking reductions against accumulated inventory contents happens during the booking process, this is where trades should be identified and recorded.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><p>As of now [Dec 2016], trade recording has not been implemented.</p>
-<p>Some prototypes for it have been tested previously and I believe it will be very easy to add in the near future. This will be documented here. Watch this space.</p></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
+<table><tbody><tr class="odd"><td><p>As of now [Dec 2016], trade recording has not been implemented.</p><p>Some prototypes for it have been tested previously and I believe it will be very easy to add in the near future. This will be documented here. Watch this space.</p></td></tr></tbody></table>
 
 The way trades will be implemented is by allowing the booking process to insert matching metadata with unique UUIDs on both the augmenting and reducing postings, in the stream of transactions. Functions and reports will be provided that are able to easily extract the pairs of postings for each reducing postings and filter those out in different ways. Ultimately, one should be able to extract a list of all trades to a table, with the acquisition and sale price, as well as other fees.
 

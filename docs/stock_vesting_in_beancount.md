@@ -51,7 +51,7 @@ When you receive a new award (this may occur every year, for example, some peopl
 
     2014-04-02 open Assets:US:Hooli:Unvested:S0012345
 
-You may have multiple active awards at the same time. It’s nice to have a separate account per award, as it offers a natural way to list their contents and when the award expires, you can close the account—the list of open award accounts gives you the list of outstanding & actively vesting awards. In this example I used the number of the award (#S0012345) as the sub-account name. It’s useful to use the number as the statements typically include it.
+You may have multiple active awards at the same time. It’s nice to have a separate account per award, as it offers a natural way to list their contents and when the award expires, you can close the account—the list of open award accounts gives you the list of outstanding & actively vesting awards. In this example I used the number of the award (\#S0012345) as the sub-account name. It’s useful to use the number as the statements typically include it.
 
 I like to keep all the awards in a small dedicated section.
 

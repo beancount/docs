@@ -215,60 +215,7 @@ Functions with the same names are available to operate on position or inventory 
 
 Refer to the table below for explicit examples of each type of posting and how it would get converted and rendered.
 
-<table>
-<colgroup>
-<col style="width: 22%" />
-<col style="width: 22%" />
-<col style="width: 12%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 14%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>posting</strong></th>
-<th><strong>raw (full detail)</strong></th>
-<th><strong>units</strong></th>
-<th><strong>cost</strong></th>
-<th><strong>weight</strong></th>
-<th><strong>market</strong></th>
-</tr>
-<tr class="odd">
-<th><strong>Simple</strong></th>
-<th>50.00 USD</th>
-<th>50.00 USD</th>
-<th>50.00 USD</th>
-<th>50.00 USD</th>
-<th>50.00 USD</th>
-</tr>
-<tr class="header">
-<th><strong>With Price Conversion</strong></th>
-<th>50.00 USD @ 1.35 CAD</th>
-<th>50.00 USD</th>
-<th>50.00 USD</th>
-<th>67.50 CAD</th>
-<th>50.00 USD</th>
-</tr>
-<tr class="odd">
-<th><strong>Held at Cost</strong></th>
-<th>50 VEA {1.35 CAD}</th>
-<th>50 VEA</th>
-<th>67.50 CAD</th>
-<th>67.50 CAD</th>
-<th>67.50 CAD</th>
-</tr>
-<tr class="header">
-<th><strong>Held at Cost with Price</strong></th>
-<th>50 VEA {1.35 CAD} @ 1.45 CAD</th>
-<th>50 VEA</th>
-<th>67.50 CAD</th>
-<th>67.50 CAD</th>
-<th>72.50 CAD</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
+<table><thead><tr class="header"><th><strong>posting</strong></th><th><strong>raw (full detail)</strong></th><th><strong>units</strong></th><th><strong>cost</strong></th><th><strong>weight</strong></th><th><strong>market</strong></th></tr></thead><tbody><tr class="odd"><td><strong>Simple</strong></td><td>50.00 USD</td><td>50.00 USD</td><td>50.00 USD</td><td>50.00 USD</td><td>50.00 USD</td></tr><tr class="even"><td><strong>With Price Conversion</strong></td><td>50.00 USD @ 1.35 CAD</td><td>50.00 USD</td><td>50.00 USD</td><td>67.50 CAD</td><td>50.00 USD</td></tr><tr class="odd"><td><strong>Held at Cost</strong></td><td>50 VEA {1.35 CAD}</td><td>50 VEA</td><td>67.50 CAD</td><td>67.50 CAD</td><td>67.50 CAD</td></tr><tr class="even"><td><strong>Held at Cost with Price</strong></td><td>50 VEA {1.35 CAD} @ 1.45 CAD</td><td>50 VEA</td><td>67.50 CAD</td><td>67.50 CAD</td><td>72.50 CAD</td></tr></tbody></table>
 
 ## Operators<a id="operators"></a>
 

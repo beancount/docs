@@ -98,6 +98,8 @@ This document contains only packages that were discussed or have had an announce
 
 [<u>bean-download</u>](https://reds-rants.netlify.app/personal-finance/direct-downloads/) (Red Street): A downloader that ships with beancount-reds-importers that you can configure to run arbitrary commands to download your account statements. It now has a new feature: the needs-update subcommand.
 
+[<u>gerdemb/beanpost</u>](https://github.com/gerdemb/beanpost) (Ben Gerdemann): Beanpost consists of a PostgreSQL schema and import/export commands that let you transfer data between a beancount file and a PostgreSQL database. Much of Beancount's functionality is implemented using custom PostgreSQL functions, allowing for complex queries and data manipulation. This setup provides a flexible backend that can integrate with other tools like web apps or reporting systems.
+
 ## Alternative Parsers<a id="alternative-parsers"></a>
 
 ### Bison<a id="bison"></a>

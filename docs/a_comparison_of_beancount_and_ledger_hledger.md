@@ -72,7 +72,7 @@ Beancount’s syntax is somewhat simpler and quite a bit more restrictive than L
 
 -   Dates are only parsed from ISO8601 format, that is, “YYYY-MM-DD”.
 
--   Tags must begin with “#”, and links with “^”.
+-   Tags must begin with “\#”, and links with “^”.
 
 -   Apart from the tag stack, all context information has been removed. There is no account alias, for example, nor is there a notion of “apply” as in Ledger (see “apply root” and “apply tag”). It requires a bit more verbose input—full account names—and so assumes that you have account name completion setup in your editor.
 

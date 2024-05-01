@@ -288,7 +288,7 @@ Finally, the list of cash flows for each group of investments reported can be tr
 
 For each series of cash flows, the cash flows are merged together. I use [<u>scipy.optimize.fsolve</u>](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fsolve.html) to calculate the rate that satisfies net present value:
 
-*c**f*<sub>*i*</sub>/(1+*r*)<sup>*t*<sub>*i*</sub></sup>= 0
+*c**f*<sub>*i*</sub>/(1 + *r*)<sup>*t*<sub>*i*</sub></sup>= 0
 
 where *cf<sub>i</sub>* are the signed cash flow amounts and *t<sub>i</sub>* are the times from today for each cash flow (in years). We solve for *r*. To compute the returns without dividends, we just exclude cash flows returned from dividends. The difference tells us how much of our returns was due solely to dividend income.
 
