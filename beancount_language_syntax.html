@@ -675,18 +675,7 @@ AIRMILE
 </code></pre>
 <p>If multiple lots match against the reducing posting and their number is not the total number, we are in a situation of <em>ambiguous matches</em>. What happens then, is that the account’s <em>booking method</em> is invoked. There are multiple booking methods, but by default, all accounts are set to use the “STRICT” booking method. This method simply issues an error in an ambiguous situation.</p>
 <p>You may set the account’s booking method to “FIFO” to instruct Beancount to select the oldest of the lots. Or “LIFO” for the latest (youngest) of the lots. This will automatically select all the necessary matching lots to fulfill the reduction.</p>
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><em><strong>PLEASE NOTE!</strong></em> Requiring the dates to match will be dealt with more sensibly in the near future. See <a href="a_proposal_for_an_improvement_on_inventory_booking.md"><u>A Proposal for an Improvement on Inventory Booking</u></a> for details of this upcoming change.</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
+<table><tbody><tr class="odd"><td><em><strong>PLEASE NOTE!</strong></em> Requiring the dates to match will be dealt with more sensibly in the near future. See <a href="a_proposal_for_an_improvement_on_inventory_booking.md"><u>A Proposal for an Improvement on Inventory Booking</u></a> for details of this upcoming change.</td></tr></tbody></table>
 
 <p>For such postings, a change that results in a negative number of units is usually impossible. Beancount does not currently allow holding a negative number of a commodity held at cost. For example, an input with just this transaction will fail:</p>
 <pre><code>2014-05-23 *
@@ -704,18 +693,7 @@ AIRMILE
 </li>
 </ul>
 <p>This is why this check is enabled by default.</p>
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><em><strong>PLEASE NOTE!</strong></em> In a future version of Beancount, we will relax this constraint somewhat. We will allow an account to hold a negative number of units of a commodity if and only if there are no other units of that commodity held in the account. Either that, or we will allow you to mark an account as having no such constraints at all. The purpose is to allow the account of short positions in commodities. The only blocking factor is this constraint.</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
+<table><tbody><tr class="odd"><td><em><strong>PLEASE NOTE!</strong></em> In a future version of Beancount, we will relax this constraint somewhat. We will allow an account to hold a negative number of units of a commodity if and only if there are no other units of that commodity held in the account. Either that, or we will allow you to mark an account as having no such constraints at all. The purpose is to allow the account of short positions in commodities. The only blocking factor is this constraint.</td></tr></tbody></table>
 
 <p>For more details of the inventory booking algorithm, see the <a href="how_inventories_work.html"><u>How Inventories Work</u></a> document.</p>
 <h4 id="amount-interpolation">Amount Interpolation<a id="amount-interpolation"></a><a class="headerlink" href="#amount-interpolation" title="Permanent link"></a></h4>
@@ -1010,18 +988,7 @@ poptag #berlin-trip-2014
 <p>Events are often used to report on numbers of days. For example, in the province of Quebec (Canada) you are insured for free health care coverage if “<a href="http://www.ramq.gouv.qc.ca/en/citizens/health-insurance/registration/Pages/eligibility.aspx"><u>you spend 183 days of the calendar year or more, excluding trips of 21 days or less</u></a>.” If you travel abroad a lot, you could easily write a script to warn you of remaining day allocations to avoid losing your coverage. Many expats are in similar situations.</p>
 <p>In the same vein, the IRS recognizes US immigrants as “resident alien”—and thus subject to filing taxes, yay!—if you pass the <a href="http://www.irs.gov/Individuals/International-Taxpayers/Substantial-Presence-Test"><u>Substantial Presence Test</u></a>, which is defined as “being physically present in the US on at least 31 days during the current year, and 193 days during the 3 year period that includes the current year and the 2 years immediately before that, counting: all the days you were present in the current year, and ⅓ of the days of the year before that, and ⅙ of the year preceding that one.” Ouch… my head hurts. This gets complicated. Armed with your location over time, you could report it automatically.</p>
 <p>Events will also be usable in the filtering language, to specify non-contiguous periods of time. For example, if you are tracking your location using Event directives, you could produce reports for transactions that occur only when you are in a specific location, e.g., “Show me my expenses on all my trips to Germany,” or “Give me a list of payees for restaurant transactions when I’m in Montreal.”</p>
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><em><strong>PLEASE NOTE!</strong></em> Filters haven’t been implemented yet. Also, reports on events have not yet been re-implemented in Beancount 2.0. They will be reintroduced again soon, as well as filtering.</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
+<table><tbody><tr class="odd"><td><em><strong>PLEASE NOTE!</strong></em> Filters haven’t been implemented yet. Also, reports on events have not yet been re-implemented in Beancount 2.0. They will be reintroduced again soon, as well as filtering.</td></tr></tbody></table>
 
 <p>It is worth noticing that the Price and Event directives are the only ones not associated to an account.</p>
 <h3 id="query">Query<a id="query"></a><a class="headerlink" href="#query" title="Permanent link"></a></h3>
