@@ -79,7 +79,7 @@ For each service, your insurance covers a portion of it and you normally pay the
 
 Here is a sample from an EOB, with the important areas highlighted:
 
-<img src="health_care_expenses/media/e11ca5f096b4097c3f80fa3845a866cbb1860f81.png" style="width:6.5in;height:3.16667in" alt="eob-in.png" />
+<img src="health_care_expenses/media/cb380149d593035c851ca96e073492af535fbdec.png" style="width:6.5in;height:3.16667in" alt="eob-in.png" />
 
 The example above exhibits the following amounts:
 

@@ -1,6 +1,6 @@
 # External Contributions to Beancount<a id="title"></a>
 
-[<u>Martin Blais</u>](mailto:blais@furius.ca) - Updated: April 2016
+[<u>Martin Blais</u>](mailto:blais@furius.ca) - Updated: June 2024
 
 [<u>http://furius.ca/beancount/doc/contrib</u>](http://furius.ca/beancount/doc/contrib)
 
@@ -98,7 +98,11 @@ This document contains only packages that were discussed or have had an announce
 
 [<u>bean-download</u>](https://reds-rants.netlify.app/personal-finance/direct-downloads/) (Red Street): A downloader that ships with beancount-reds-importers that you can configure to run arbitrary commands to download your account statements. It now has a new feature: the needs-update subcommand.
 
-[<u>gerdemb/beanpost</u>](https://github.com/gerdemb/beanpost) (Ben Gerdemann): Beanpost consists of a PostgreSQL schema and import/export commands that let you transfer data between a beancount file and a PostgreSQL database. Much of Beancount's functionality is implemented using custom PostgreSQL functions, allowing for complex queries and data manipulation. This setup provides a flexible backend that can integrate with other tools like web apps or reporting systems.
+[<u>gerdemb/beanpost</u>](https://github.com/gerdemb/beanpost) (Ben Gerdemann): Beanpost consists of a PostgreSQL schema and import/export commands that let you transfer data between a beancount file and a PostgreSQL database. Much of Beancount's functionality is implemented using custom PostgreSQL functions, allowing for complex queries and data manipulation. This setup provides a flexible backend that can integrate with other tools like web apps or reporting systems
+
+[<u>LaunchPlatform/beanhub-cli</u>](https://github.com/LaunchPlatform/beanhub-cli) (Fang-Pen Lin): Command line tools for BeanHub or Beancount users.
+
+[<u>zacchiro/beangrep</u>](https://github.com/zacchiro/beangrep) : Beangrep is a grep-like filter for the Beancount plain text accounting system.
 
 ## Alternative Parsers<a id="alternative-parsers"></a>
 
@@ -159,6 +163,10 @@ The Beancount v3 parser uses [<u>RE/flex</u>](https://www.genivia.com/doc/reflex
 [<u>OSadovy/uabean</u>](https://github.com/OSadovy/uabean/) (Oleksii Sadovyi): A set of Beancount importers and scripts for popular Ukrainian banks and more.
 
 [<u>fdavies93/seneca</u>](https://github.com/fdavies93/seneca) (Frank Davies): Importer for Wise. Multi-currency transfers.
+
+[<u>LaunchPlatform/beanhub-import</u>](https://github.com/LaunchPlatform/beanhub-import) : New beancount importer with a UI.
+
+[<u>rlan/beancount-multitool</u>](https://github.com/rlan/beancount-multitool) (Rick Lan): Beancount Multitool is a command-line-interface (CLI) tool that converts financial data from financial institutions to Beancount files (supported: JA Bank ＪＡネットバンク, Rakuten Card 楽天カード, Rakuten Bank 楽天銀行, SBI Shinsei Bank 新生銀行). Associated post: [<u>https://www.linkedin.com/feed/update/urn:li:activity:7198125470662500352/</u>](https://www.linkedin.com/feed/update/urn:li:activity:7198125470662500352/)
 
 ## Converters<a id="converters"></a>
 
