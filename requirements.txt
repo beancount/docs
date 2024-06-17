@@ -13,4 +13,4 @@ requests==2.31.0
 Jinja2==2.11.3  # Dependency of mkdocs
 MarkupSafe==2.0.1  # Dependency of mkdocs, Jinja2
 mkdocs-autorefs==0.3.0  # Dependency of mkdocstrings
-urllib3==2.2.1  # Dependency of requests
+urllib3==2.2.2  # Dependency of requests
