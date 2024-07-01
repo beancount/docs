@@ -1,8 +1,8 @@
-# Beancount V3: Dependencies<a id="title"></a>
+# Beancount C++ version: Dependencies<a id="title"></a>
 
 [<u>Martin Blais</u>](mailto:blais@furius.ca), June 2020
 
-Beancount v3 is going to get rewritten in C++, here is the set of dependencies I've tested and that I'm comfortable maintaining in the long run:
+Beancount is going to get rewritten in C++, here is the set of dependencies I've tested and that I'm comfortable maintaining in the long run:
 
 ## Base environment<a id="base-environment"></a>
 
@@ -31,7 +31,7 @@ Beancount v3 is going to get rewritten in C++, here is the set of dependencies I
 -   **[<u>RE/flex lexer</u>](https://www.genivia.com/doc/reflex/html/)** ([<u>https://github.com/Genivia/RE-flex</u>](https://github.com/Genivia/RE-flex)): This modern regexp-based scanner generator supports Unicode natively and is very fast and well documented. It provides a great alternative to the aging GNU flex which made it difficult to support non-ASCII characters outside of string literals (i.e.., for account names). I've had success using it on other projects. Many users want account names in their home language; this will make it easy to provide a UTF-8 parser for the entire file.
 
 -   **[<u>GNU Bison</u>](https://www.gnu.org/software/bison/)** ([<u>https://git.savannah.gnu.org/git/bison.git</u>](https://git.savannah.gnu.org/git/bison.git)): We will stick with GNU Bison, but instead use the C++ complete modes it supports. I'm hesitating continuing with this parser generator as it's showing its age but it's pretty stable and I can't quite justify the extra work to upgrade to ANTLR.  
-    We will have to pull some tricks to support the same grammar for generating C code for v2 and C++ code for v3; the parser code could be provided with a dispatch table of functions, which would be static C functions in v2, and methods in v3. Some of the generation parameters (% directives) will be different (see [<u>here</u>](https://github.com/blais/oblique/blob/master/oblique/parser.yxx#L8) for an example).
+    We will have to pull some tricks to support the same grammar for generating C code for v2 and C++ code for the next version; the parser code could be provided with a dispatch table of functions, which would be static C functions in v2, and methods in a C++ version. Some of the generation parameters (% directives) will be different (see [<u>here</u>](https://github.com/blais/oblique/blob/master/oblique/parser.yxx#L8) for an example).
 
 -   [<u>I**nternational Components for Unicode (ICU)**</u>](http://site.icu-project.org/home) ([<u>https://github.com/unicode-org/icu.git</u>](https://github.com/unicode-org/icu.git)): This is the standard library to depend on for Unicode support. Our C++ will not use std::wstring/std::wchar, but rather regular std::string and function calls to this library where necessary.
 

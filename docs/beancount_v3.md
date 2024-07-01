@@ -1,8 +1,8 @@
-# Beancount V3: Goals & Design<a id="title"></a>
+# Beancount Vnext: Goals & Design<a id="title"></a>
 
 [<u>Martin Blais</u>](mailto:blais@furius.ca), July 2020
 
-[<u>http://furius.ca/beancount/doc/v3</u>](http://furius.ca/beancount/doc/v3)
+[<u>http://furius.ca/beancount/doc/Vnext</u>](beancount_v3.md)
 
 ## Motivation<a id="motivation"></a>
 
@@ -12,7 +12,7 @@ It's time to give Beancount a refresh and to put down a concrete plan for what t
 
 **Why rewrites happen.** When I wrote version 2 of Beancount (a full rewrite of the first version), it was because of a confluence of ideas for improving my first draft; I resisted for a while, but eventually it made so much sense to me that it became simply impossible not to write it. Many of the ideas driving the redesign at the time are still axioms in today's design: removing order dependence, normalizing the syntax to be well-defined with a BNF grammar, converting custom processing to a sequence of plugins off of a simple stream of directives, the current design of booking selection and how cost basis works, and all the directives beyond "Transaction". These ideas largely shape what a lot of people like about using Beancount today.
 
-**Goals.** Now is the time for yet another wave of evolution for Beancount, and similarly, a set of new ideas I'm going to lay down in this document form as potent a change as the v1 to v2 transition. The vision I have for v3 will *simplify* Beancount, by factoring into simpler, more isolated, more reusable, better defined parts, and not merely by adding new features on top of what's there. In many ways, v3 will be a *distillation* of the current system. It will also make space to finally implement some of the core features most often desired by users. And those changes will enhance some organizational aspects: allow for more contributions, and also trim down the part that I'm handling myself to less code, so I can more effectively focus on just the core features.
+**Goals.** Now is the time for yet another wave of evolution for Beancount, and similarly, a set of new ideas I'm going to lay down in this document form as potent a change as the v1 to v2 transition. The vision I have for Vnext will *simplify* Beancount, by factoring into simpler, more isolated, more reusable, better defined parts, and not merely by adding new features on top of what's there. In many ways, Vnext will be a *distillation* of the current system. It will also make space to finally implement some of the core features most often desired by users. And those changes will enhance some organizational aspects: allow for more contributions, and also trim down the part that I'm handling myself to less code, so I can more effectively focus on just the core features.
 
 ## Current Problems<a id="current-problems"></a>
 
@@ -24,7 +24,7 @@ My personal ledger, and I know that the ledgers of many users, are simply too la
 
 **Simple, portable C++.** It's important to mention that the C++ code I have in mind is not in the style of template-heavy modern C++ code you'd find in something like Boost. Rather, it's a lot more like the conservative [<u>"almost C without exceptions" subset of C++ that Google uses</u>](https://google.github.io/styleguide/cppguide.html), with a base on [<u>Abseil-Cpp</u>](http://abseil.io) (for example and flavor, see [<u>tips</u>](https://abseil.io/tips/)). The reasons for this are stability and portability, and while this rewrite is for faster performance, I believe that it will not be necessary to pull template tricks to make it run fast enough; just a straightforward port to avoid the Python runtime will likely be sufficient. Above all I want to keep the new code simple and "functional-ish" as much as possible (no classes if I can avoid it), relying on a trusted set of [<u>stable dependencies</u>](beancount_v3_dependencies.md), built hermetically using the [<u>Bazel</u>](http://bazel.build) build tool.
 
-**Python API.** It's also important that the Python API remains for plugins and scripts, and that the full suite of unit tests be carried over to the newer version of the code. After all, the ability to write custom scripts using all that personal finance data is one of the most attractive features of the text-based approach. Code beyond the new core implementation will remain in Python, and existing code built on top of the Python API should be very easily portable to V3. This can be achieved by exposing the directives with wrappers written in pybind11.
+**Python API.** It's also important that the Python API remains for plugins and scripts, and that the full suite of unit tests be carried over to the newer version of the code. After all, the ability to write custom scripts using all that personal finance data is one of the most attractive features of the text-based approach. Code beyond the new core implementation will remain in Python, and existing code built on top of the Python API should be very easily portable to Vnext. This can be achieved by exposing the directives with wrappers written in pybind11.
 
 **Other languages.** The resolved output of the Beancount core will be a stream of protocol buffer objects, so processing from other languages (e.g., Go) will have first-class support.
 
@@ -86,7 +86,7 @@ For most of the development of Beancount, I've been pretty reluctant to accept c
 
 Part of this is my fault: putting a high bar on contributions hasn't allowed potential contributors to acquire enough context and familiarity with the codebase to make changes compatible with its design.
 
-**Allowing more contributions.** Starting in v3 I'd like to restructure the project so that more people are able to get involved directly, and to closely work 1-on-1 with some contributors on particular features. Clearly Beancount benefits from direct input from more people. The recent move to GitHub only compounds the urgency for making that easier.
+**Allowing more contributions.** Starting in Vnext I'd like to restructure the project so that more people are able to get involved directly, and to closely work 1-on-1 with some contributors on particular features. Clearly Beancount benefits from direct input from more people. The recent move to GitHub only compounds the urgency for making that easier.
 
 To this effect, I'd like to implement a few strategies:
 
@@ -102,7 +102,7 @@ To this effect, I'd like to implement a few strategies:
 
 ### Restructuring the Code<a id="restructuring-the-code"></a>
 
-At the very coarse level, the code restructuring for v3 looks like this:
+At the very coarse level, the code restructuring for Vnext looks like this:
 
 -   **C++ core, parser, and built-in plugins.** The Beancount core, parser, booking algorithm and plugins get rewritten in simple C++, outputting its parsed and booked contents as a stream of protobuf objects.
 
@@ -116,7 +116,7 @@ Note that because the core outputs the stream of directives as proto objects, an
 
 Here is a detailed breakdown of the various parts of the codebase today and what I think will happen to them:
 
--   **Core.** This is the part of Beancount's code which will get rewritten in C++ and output a sequence of messages to a stream of directives. I'll continue keeping a tight focus on that part with a conservative eye toward stability, but in v3 will be adding desired new capabilities that have been lacking so far as described in the next section of this document. The core will include the following packages:
+-   **Core.** This is the part of Beancount's code which will get rewritten in C++ and output a sequence of messages to a stream of directives. I'll continue keeping a tight focus on that part with a conservative eye toward stability, but in Vnext will be adding desired new capabilities that have been lacking so far as described in the next section of this document. The core will include the following packages:
 
     -   beancount/core
 
@@ -148,7 +148,7 @@ Here is a detailed breakdown of the various parts of the codebase today and what
 >
 > b\) an accompanying command-line tool (currency "bean-price") for fetching those prices from the command-line. This requires the specification of "a price in a particular currency from a particular source" as a string. I'd like to improve that spec to make the USD: prefix optional, and maybe eliminate the chain of prices in the spec, which hasn't found much use in practice and move that upstream.
 >
-> c\) Make the interfaces to fetch ledger-related information (e.g., list of missing/required prices and lists of instruments) onto modules: beancount v2, beancount v3, ledger, hledger, and rendering output formats to any of these. In other words, this library should be able to fetch prices even if Beancount isn't installed. To turn this project into something that can run independent of beancount.
+> c\) Make the interfaces to fetch ledger-related information (e.g., list of missing/required prices and lists of instruments) onto modules: beancount v2, beancount Vnext, ledger, hledger, and rendering output formats to any of these. In other words, this library should be able to fetch prices even if Beancount isn't installed. To turn this project into something that can run independent of beancount.
 
 -   **Ingest.** The importers library will probably move to another repo and eventually could even find another owner. I think the most interesting part of it has been the establishment of clear phases: the identify, extract and file tasks, and a regression testing framework which works on real input files checking against expected converted outputs, which has worked well to minimize the pain of upgrading importers when they break (as they do break regularly, is a SNAFU). In the past I've had to pull some tricks to make command-line tools provided by the project support an input configuration as Python code but also possible to integrate in a script; I will remove the generic programs and users will be required to turn their configuration itself into a script that will just provide subcommands when run; the change will be very easy for existing users: it will require only a single line-of-code at the bottom of their existing files. The Bazel build may add some minor difficulties in loading a Python extension module built from within a Bazel workspace from an otherwise machine-wide Python installation, but I'm confident we'll figure it out. I'd also be happy for someone else to eventually take ownership of this framework, as long as the basic functionality and API remains stable.  
     The example csv and ofx importers should be removed from it and live in their own repos, perhaps:
@@ -259,13 +259,13 @@ Here is a detailed breakdown of the various parts of the codebase today and what
 
 -   **Scripts.** Some of the scripts are completely unrelated to Beancount, they are companions. The scrape validator. The sheets upload. The treeify tool. These should be moved elsewhere.
 
-One of the advantages of having all the code in the same repo is that it makes it possible to synchronize API changes across the entire codebase with a single commit. As such, I may keep some of the codes in the same repo until the new C++ core has stabilized, and properly separate them only when v3 releases.
+One of the advantages of having all the code in the same repo is that it makes it possible to synchronize API changes across the entire codebase with a single commit. As such, I may keep some of the codes in the same repo until the new C++ core has stabilized, and properly separate them only when Vnext releases.
 
 ### Universal Lightweight Query Engine (ulque)<a id="universal-lightweight-query-engine-ulque"></a>
 
 The SQL query engine for Beancount was initially a prototype but has grown to become the main way to get data out of it. I've been pretty liberal about adding functionality to it when needed and it's time to clean this up and consider a more polished solution.
 
-In V3, the query/SQL code gets eventually forked to a **separate project** (and repo) operating on arbitrary data schemas (via protobufs as a common description for various sources of data) and has support for Beancount integration. Imagine if you could automatically infer a schema from an arbitrary CSV file, and run operations on it, either as a Python library function or as a standalone tool. Furthermore, this tool will support sources and/or sinks to/from Google Sheets, XLS spreadsheets, containers of binary streams of serialized protos, tables from HTML web pages, PDF files, directories of files, and many more. This is going to be a data analysis tool with a scope closer to that of the [<u>Pandas</u>](https://pandas.pydata.org/) library rather than an accounting-focused project, but also a universal converter tool, that will include the functionality of the [**<u>upload-to-sheets</u>**](https://github.com/beancount/beancount/blob/master/bin/upload-to-sheets) script (which will get removed). One of the lessons from the SQL query engine in Beancount is that with just a little bit of post-processing (such as [**<u>treeify</u>**](https://github.com/beancount/beancount/blob/master/bin/treeify)), we can do most of the operations in Beancount (journals, balance sheet & income statements) as queries with filters and aggregations.
+In Vnext, the query/SQL code gets eventually forked to a **separate project** (and repo) operating on arbitrary data schemas (via protobufs as a common description for various sources of data) and has support for Beancount integration. Imagine if you could automatically infer a schema from an arbitrary CSV file, and run operations on it, either as a Python library function or as a standalone tool. Furthermore, this tool will support sources and/or sinks to/from Google Sheets, XLS spreadsheets, containers of binary streams of serialized protos, tables from HTML web pages, PDF files, directories of files, and many more. This is going to be a data analysis tool with a scope closer to that of the [<u>Pandas</u>](https://pandas.pydata.org/) library rather than an accounting-focused project, but also a universal converter tool, that will include the functionality of the [**<u>upload-to-sheets</u>**](https://github.com/beancount/beancount/blob/master/bin/upload-to-sheets) script (which will get removed). One of the lessons from the SQL query engine in Beancount is that with just a little bit of post-processing (such as [**<u>treeify</u>**](https://github.com/beancount/beancount/blob/master/bin/treeify)), we can do most of the operations in Beancount (journals, balance sheet & income statements) as queries with filters and aggregations.
 
 The tool will be made extensible in the ways required to add some of the idiosyncrasies required by Beancount, which are:
 
@@ -319,7 +319,7 @@ I'd like for "bn" to become the de-facto two-letter import on top of which we wr
 
 -   **Data types.** Well defined data types should be provided for all objects to make liberal use of the typing module over all new code. Maybe create a module called "bn.types" but they should be available directly from "bn.\*" so that there is a single short-named import.
 
--   **Terminology.** I'd like to stop using "entries" and consolidate over the name "directives" in v3.
+-   **Terminology.** I'd like to stop using "entries" and consolidate over the name "directives" in Vnext.
 
 -   **Realization.** I've been using a collections.defaultdict(Inventory) and a "realization" interchangeably. Both of these are mappings from an account name (or some other key) to an Inventory state object. I'd like to unify both of these constructs into the realization and make it into a commonly used object, with some helper methods.
 
@@ -339,7 +339,7 @@ Since we will now depend on C++, the parser will get to be rewritten. Worry not:
 
 -   **Plugins configuration as protos.** The options for the various plugins have been loosely defined as eval'ed Python code. This is pretty loose and doesn't provide a great opportunity for plugins to do validation nor document their expected inputs. I'd like to formalize plugin configuration syntax a bit, by supporting text-formatted protos in the input syntax (for a message type which would be provided by the plugins themselves).
 
--   **Parser in C++.** The parser will be rewritten in C++. In the process of writing V3, I'll try to maintain a single grammar for both for as long as possible by calling out to a C++ driver interface, which will have two distinct implementations: one for the V2 version calling into Python, and one for the V3 parser generating protos. In the process I may be porting the lexer and grammar Python implementation to C, as discussed [<u>in this ticket</u>](https://github.com/beancount/beancount/pull/471#issuecomment-643785321).
+-   **Parser in C++.** The parser will be rewritten in C++. In the process of writing Vnext, I'll try to maintain a single grammar for both for as long as possible by calling out to a C++ driver interface, which will have two distinct implementations: one for the V2 version calling into Python, and one for the Vnext parser generating protos. In the process I may be porting the lexer and grammar Python implementation to C, as discussed [<u>in this ticket</u>](https://github.com/beancount/beancount/pull/471#issuecomment-643785321).
 
 -   **Better includes.** Current includes fail to recognize options that aren't in the top-level file. This caused many surprises in the past and should be fixed. At the minimum, an error should be raised.
 
@@ -347,7 +347,7 @@ Since we will now depend on C++, the parser will get to be rewritten. Worry not:
 
 -   **Rename "augmentation" and "reduction" to "opening" and "closing" everywhere.** This is just more common terminology and will be more familiar and understandable to people outside of our context.
 
--   **Type annotations.** The use of mypy or pytype with type annotations in Python 3 is by now a very common sight, and works quite well. As part of V3, all of the core libraries will be modified to include type annotations and the build should be running [<u>pytype</u>](https://github.com/google/pytype) automatically. I'll need to add this to our Bazel rules (Google doesn't currently provide external support for this). While doing this, I may relax some of the Args/Returns documentation convention, because in many cases (but not all) the type annotations are sufficient to get a good interpretation of a function's API.
+-   **Type annotations.** The use of mypy or pytype with type annotations in Python 3 is by now a very common sight, and works quite well. As part of Vnext, all of the core libraries will be modified to include type annotations and the build should be running [<u>pytype</u>](https://github.com/google/pytype) automatically. I'll need to add this to our Bazel rules (Google doesn't currently provide external support for this). While doing this, I may relax some of the Args/Returns documentation convention, because in many cases (but not all) the type annotations are sufficient to get a good interpretation of a function's API.
 
 -   **PyLint in build.** Similarly, the linter should be run as an integral part of the build. I'd like to find a way to selectively and explicitly have to disable it during development, but otherwise be set up such that lint errors would be equivalent to build failures.
 
@@ -357,7 +357,7 @@ Since we will now depend on C++, the parser will get to be rewritten. Worry not:
 
 The story around how precision and tolerances are dealt with hasn't been great, for two reasons:
 
--   **Explicit tolerance option.** I've tried to design the tolerance (used for balancing transactions) to be automatic and automatically inferred from statistics from the numbers in the input. The results aren't great. In v3 I aim to provide an explicit option for setting the tolerance per currency.
+-   **Explicit tolerance option.** I've tried to design the tolerance (used for balancing transactions) to be automatic and automatically inferred from statistics from the numbers in the input. The results aren't great. In Vnext I aim to provide an explicit option for setting the tolerance per currency.
 
 -   **Precision.** There are various places where numbers get rendered in v2: the reports code, the SQL query, and debugging scripts, and the way precision is set hasn't been used consistently. The precision also needs to be explicitly settable by the user.
 
@@ -365,7 +365,7 @@ The story around how precision and tolerances are dealt with hasn't been great, 
 
 Moreover, there is a need to distinguish between the precision and tolerances for numbers when used as prices vs. when used as units (see [<u>here</u>](https://github.com/beancount/beancount/blob/master/TODO#complete-display-precision-work)). One way is to store the display context per currency PAIR, not per currency itself.
 
-The distinction between these quantities hasn't been documented well; I'll keep in mind to clearly annotate those codes in v3 and add suitable docs for this. Mostly the precision will be a rendering concern and a quantity that will be relevant for the new universal SQL query tool.
+The distinction between these quantities hasn't been documented well; I'll keep in mind to clearly annotate those codes in Vnext and add suitable docs for this. Mostly the precision will be a rendering concern and a quantity that will be relevant for the new universal SQL query tool.
 
 Some prior design documentation exists [<u>here</u>](rounding_precision_in_beancount.md).
 
@@ -454,7 +454,7 @@ When you import a transaction between multiple accounts within a single ledger, 
 
 One of the major shortcomings of the current core code is that the ability to insert a single transaction with postings at different dates is missing. Users are recommended to select a single date and fudge the other one. Some prior discussion on this topic exists [<u>here</u>](settlement_dates_in_beancount.md). Unfortunately, this method makes it impossible to represent the precise posting history on at least one of the two accounts.
 
-A good solution needs to be provided in v3, because this is a very common problem and I'd like to provide a system that allows you to precisely mirror your actual account history. The automatic insertion of transfer accounts to hold the commodities can be implemented as a feature, and it should live in the core.
+A good solution needs to be provided in Vnext, because this is a very common problem and I'd like to provide a system that allows you to precisely mirror your actual account history. The automatic insertion of transfer accounts to hold the commodities can be implemented as a feature, and it should live in the core.
 
 One possible idea would be to allow optional posting dates, like this:
 
@@ -516,7 +516,7 @@ There exists a method for dealing with multiple currencies without compromising 
 
 The problem is that it's a pain to use this method manually, it requires too much extra input. It's possible to have Beancount do that for us behind the scenes, completely automatically. I coded a proof-of-concept implementation [<u>here</u>](https://github.com/beancount/beancount/blob/master/beancount/plugins/currency_accounts.py), but [<u>it's incomplete</u>](https://github.com/beancount/beancount/blob/master/beancount/plugins/currency_accounts.py#L129).
 
-In v3:
+In Vnext:
 
 -   The insertion of the kludgey conversions transactions should be removed.
 
@@ -577,7 +577,7 @@ I'd be curious to hear what would work best from users who do budgeting and desi
 
 ### Average Cost Booking<a id="average-cost-booking"></a>
 
-Average cost booking has been discussed and a good solution sketched out a very long time ago. v3 should sport that method natively; a lot of users want to have this feature for dealing with their tax-deferred accounts. It takes a bit of work to handle the precision of the various automated conversions right.
+Average cost booking has been discussed and a good solution sketched out a very long time ago. Vnext should sport that method natively; a lot of users want to have this feature for dealing with their tax-deferred accounts. It takes a bit of work to handle the precision of the various automated conversions right.
 
 The way it would work is by automatically merging all related lots of the same commodity on a reduction, and optionally on an augmentation. Some constraints may be required (e.g. only a single commodity in that account).
 
@@ -599,11 +599,11 @@ A few core tasks related to P/L and trading still need to be implemented.
 
 Currently the application of reductions operates on the inventory preceding the transaction. This prevents the common case of self-reductions, and both I and some users have come across this problem before, e.g. [<u>this recent thread</u>](https://groups.google.com/d/msgid/beancount/aa5b7b54-9bd1-4308-b872-7d3e52b1ef71n%40googlegroups.com?utm_medium=email&utm_source=footer) ([<u>ticket</u>](https://github.com/beancount/beancount/issues/602)). This comes off as unintuitive to some users and ought to have a better solution than requiring splitting of transactions.
 
-Since we're rewriting the booking code entirely in v3, contemplate a new definition that would provide a well-defined behavior in this case. I remember from prior experiments attempting to implement this that it wasn't a trivial thing to define. Revisit. This would be a nice improvement.
+Since we're rewriting the booking code entirely in Vnext, contemplate a new definition that would provide a well-defined behavior in this case. I remember from prior experiments attempting to implement this that it wasn't a trivial thing to define. Revisit. This would be a nice improvement.
 
 ### Stock Splits<a id="stock-splits"></a>
 
-Some discussion and perhaps a strategy for handling stock splits should be devised in v3. Right now, Beancount ignores the issue. At the minimum this could be just adding the information to the price database. See [<u>this document</u>](http://furius.ca/beancount/doc/proposal-split) for more details.
+Some discussion and perhaps a strategy for handling stock splits should be devised in Vnext. Right now, Beancount ignores the issue. At the minimum this could be just adding the information to the price database. See [<u>this document</u>](http://furius.ca/beancount/doc/proposal-split) for more details.
 
 ### Multipliers<a id="multipliers"></a>
 
@@ -661,7 +661,7 @@ Kirill has proved that it would be possible to replace all the links to redirect
 
 ## Conclusion<a id="conclusion"></a>
 
-There are other items in the [<u>TODO file</u>](https://github.com/beancount/beancount/blob/master/TODO). These are just the main, big issues that I think matter the most and I'd like to address them in a v3 rewrite.
+There are other items in the [<u>TODO file</u>](https://github.com/beancount/beancount/blob/master/TODO). These are just the main, big issues that I think matter the most and I'd like to address them in a Vnext rewrite.
 
 Development branches will look like this:
 
@@ -669,9 +669,9 @@ Development branches will look like this:
 
     -   That branch will build with both the current setup.py system and Bazel.
 
-    -   Fixes will be implemented on that branch where possible, and merged to v3.
+    -   Fixes will be implemented on that branch where possible, and merged to Vnext.
 
--   **master**: Current master will become v3.
+-   **master**: Current master will become Vnext.
 
     -   Only the Bazel build will be supported on that branch.
 
@@ -679,7 +679,7 @@ Any comments appreciated.
 
 ## Appendix<a id="appendix"></a>
 
-*More core ideas for v3 that came about during discussions after the fact.*
+*More core ideas for Vnext that came about during discussions after the fact.*
 
 ### Customizable Booking<a id="customizable-booking"></a>
 
@@ -697,7 +697,7 @@ For transfer lots with cost basis… an idea would be to create a new kind of ho
 
 In order to make recomputation fast, the idea of creating a standalone "Beancount server" starts to make sense. The expensive part of the Beancout calculations on a large file is the booking and interpolation. The key to making things fast is thus to keep all the original unprocessed transactions in memory along with the booked and interpolated ones, and on a change, reparse the modified files and scan all the transactions, updating only the ones whose accounts have been affected.
 
-*This could be problematic in theory:* some plugins may rely on non-local effects in a way that affects what they output. I believe in practice it would work 99% of the time. But I think it may be worth a prototype. On the other hand, v3 may turn out to be fast enough recomputing everything from scratch every single time (my own file went from 4s -&gt; 0.3ms for the parsing stage of the largest file), so maybe this is irrelevant overall.
+*This could be problematic in theory:* some plugins may rely on non-local effects in a way that affects what they output. I believe in practice it would work 99% of the time. But I think it may be worth a prototype. On the other hand, Vnext may turn out to be fast enough recomputing everything from scratch every single time (my own file went from 4s -&gt; 0.3ms for the parsing stage of the largest file), so maybe this is irrelevant overall.
 
 Such a server would be a perfect companion to a running Emacs. We could build an Emacs mode which communicates with the server.
 

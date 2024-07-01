@@ -254,7 +254,17 @@ The Beancount v3 parser uses [<u>RE/flex</u>](https://www.genivia.com/doc/reflex
 
 [<u>scauligi/refried</u>](https://github.com/scauligi/refried) (Sunjay Cauligi): An envelope budgeting plugin for Fava, inspired by YNAB: all expense accounts become individual budgeting categories, budgeting is carried out using transactions to these accounts, and the plugin automaticallyapplies a tag to all rebudget transactions so they can easily be filtered out. Provides budget and account views like YNAB.
 
-[<u>BeanHub.io</u>](https://beanhub.io/): A web front-end for Beancount content.
+[<u>BeanHub.io</u>](https://beanhub.io/): A web front-end for Beancount content. "*Since I started using Beancount, I have dreamed of making it fully automatic. For a few years now, I've been building tools for that goal. Connecting to the bank and fetching data directly from there is one of the goals I want to achieve. I built this feature and have been testing it for a while for my accounting book. Now my Beancount books are 80% fully automatic. I can open my repository, and the transactions from the bank will automatically appear as a new commit like this without me lifting a finger.*
+
+*The whole import system is based on our open-source beanhub-import and beanhub-extract. The only proprietary part in the import flow is the Plaid integration. So, suppose you don't trust me and still want to import transactions automatically. As long as you connect to Plaid and write CSV files based on the transactions you fetched from Plaid, you should be able to have the same automatic transaction importing system without using the BeanHub service.*"
+
+Blog posts:
+
+> [<u>https://beanhub.io/blog/2024/06/24/introduction-of-beanhub-connect/</u>](https://beanhub.io/blog/2024/06/24/introduction-of-beanhub-connect/)
+>
+> [<u>https://beanhub.io/blog/2024/04/23/how-beanhub-works-part1-sandboxing/</u>](https://beanhub.io/blog/2024/04/23/how-beanhub-works-part1-sandboxing/)
+>
+> [<u>https://beanhub.io/blog/2024/06/26/how-beanhub-works-part2-layer-based-git-repos/</u>](https://beanhub.io/blog/2024/06/26/how-beanhub-works-part2-layer-based-git-repos/)
 
 [<u>jmgilman/bdantic</u>](https://github.com/jmgilman/bdantic): A package for extending beancount with [<u>pydantic</u>](https://pydantic-docs.helpmanual.io/). With this package you can convert your ledger to JSON, and more.
 

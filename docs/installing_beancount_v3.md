@@ -1,4 +1,4 @@
-# Installing Beancount (v3)<a id="title"></a>
+# Installing Beancount (C++ version)<a id="title"></a>
 
 [<u>Martin Blais</u>](mailto:blais@furius.ca) - July 2020
 
