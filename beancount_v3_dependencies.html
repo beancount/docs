@@ -228,9 +228,9 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="beancount-v3-dependencies">Beancount V3: Dependencies<a id="title"></a><a class="headerlink" href="#beancount-v3-dependencies" title="Permanent link"></a></h1>
+                <h1 id="beancount-c-version-dependencies">Beancount C++ version: Dependencies<a id="title"></a><a class="headerlink" href="#beancount-c-version-dependencies" title="Permanent link"></a></h1>
 <p><a href="mailto:blais@furius.ca"><u>Martin Blais</u></a>, June 2020</p>
-<p>Beancount v3 is going to get rewritten in C++, here is the set of dependencies I've tested and that I'm comfortable maintaining in the long run:</p>
+<p>Beancount is going to get rewritten in C++, here is the set of dependencies I've tested and that I'm comfortable maintaining in the long run:</p>
 <h2 id="base-environment">Base environment<a id="base-environment"></a><a class="headerlink" href="#base-environment" title="Permanent link"></a></h2>
 <ul>
 <li><a href="https://bazel.build/"><strong><u>Bazel build</u></strong></a> (<a href="https://github.com/bazelbuild/bazel"><u>https://github.com/bazelbuild/bazel</u></a>): The Google build system is the most stable approach to build that I know of, much better than SCons and certainly much better than CMake. It allows you to pin down a specific set of dependencies by explicitly referencing other repositories and git repos at specific commit revisions (including non-released ones), and the sometimes annoying constraints it imposes results in hermetically reproducible builds like no other build system can do. This minimizes surprises and hopefully the number of platform-dependent portability issues. It also minimizes the amount of pre-installed packages we assume your system has (e.g. it'll download and compile its own Bison, for example). It runs fast, computes the minimal set of tests and targets to rebuild, and is highly configurable.</li>
@@ -270,7 +270,7 @@
 </li>
 <li>
 <p><strong><a href="https://www.gnu.org/software/bison/"><u>GNU Bison</u></a></strong> (<a href="https://git.savannah.gnu.org/git/bison.git"><u>https://git.savannah.gnu.org/git/bison.git</u></a>): We will stick with GNU Bison, but instead use the C++ complete modes it supports. I'm hesitating continuing with this parser generator as it's showing its age but it's pretty stable and I can't quite justify the extra work to upgrade to ANTLR.<br />
-    We will have to pull some tricks to support the same grammar for generating C code for v2 and C++ code for v3; the parser code could be provided with a dispatch table of functions, which would be static C functions in v2, and methods in v3. Some of the generation parameters (% directives) will be different (see <a href="https://github.com/blais/oblique/blob/master/oblique/parser.yxx#L8"><u>here</u></a> for an example).</p>
+    We will have to pull some tricks to support the same grammar for generating C code for v2 and C++ code for the next version; the parser code could be provided with a dispatch table of functions, which would be static C functions in v2, and methods in a C++ version. Some of the generation parameters (% directives) will be different (see <a href="https://github.com/blais/oblique/blob/master/oblique/parser.yxx#L8"><u>here</u></a> for an example).</p>
 </li>
 <li>
 <p><a href="http://site.icu-project.org/home"><u>I<strong>nternational Components for Unicode (ICU)</strong></u></a> (<a href="https://github.com/unicode-org/icu.git"><u>https://github.com/unicode-org/icu.git</u></a>): This is the standard library to depend on for Unicode support. Our C++ will not use std::wstring/std::wchar, but rather regular std::string and function calls to this library where necessary.</p>
