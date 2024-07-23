@@ -624,7 +624,7 @@ The stream of directives comes with a few guarantees you can rest upon:
 
 The process of **loading** a list of entries from an input file is the heart of the project. It is important to understand it in order to understand how Beancount works. Refer to the diagram below.
 
-<img src="beancount_design_doc/media/4117596158f0642dae7becf17be7a89f169bf4a0.png" style="width:8.66667in;height:3.23611in" />
+<img src="beancount_design_doc/media/6bbbdc0339d6207eab9d578bc1fc954db96ed97d.png" style="width:8.66667in;height:3.23611in" />
 
 It consists of
 
@@ -698,7 +698,7 @@ So the parser will need to be split into two phases:
 
 2.  A separate step for the interpolation which will have available the inventory balances of each account as inputs. This second step is where the booking algorithms (e.g., FIFO) will be invoked from.
 
-<img src="beancount_design_doc/media/033922268f9fe3d624c80b311804a81e4990ae07.png" style="width:6.05556in;height:3.01389in" />
+<img src="beancount_design_doc/media/973adf6a5ea98d821f74996315976389bb1683dd.png" style="width:6.05556in;height:3.01389in" />
 
 See the diagram above for reference. Once implemented, everything else should be the same.
 

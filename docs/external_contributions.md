@@ -168,6 +168,8 @@ The Beancount v3 parser uses [<u>RE/flex</u>](https://www.genivia.com/doc/reflex
 
 [<u>rlan/beancount-multitool</u>](https://github.com/rlan/beancount-multitool) (Rick Lan): Beancount Multitool is a command-line-interface (CLI) tool that converts financial data from financial institutions to Beancount files (supported: JA Bank ＪＡネットバンク, Rakuten Card 楽天カード, Rakuten Bank 楽天銀行, SBI Shinsei Bank 新生銀行). Associated post: [<u>https://www.linkedin.com/feed/update/urn:li:activity:7198125470662500352/</u>](https://www.linkedin.com/feed/update/urn:li:activity:7198125470662500352/)
 
+[<u>LaunchPlatform/beanhub-import</u>](https://github.com/LaunchPlatform/beanhub-import) (Fang-Pen Lin): Beanhub-import is a simple, declarative, smart, and easy-to-use library for importing extracted transactions from beanhub-extract. It generates Beancount transactions based on predefined rules.
+
 ## Converters<a id="converters"></a>
 
 [<u>plaid2text</u>](https://github.com/madhat2r/plaid2text): Python Scripts to export Plaid transactions and transform them into Ledger or Beancount syntax formatted files.

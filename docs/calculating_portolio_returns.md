@@ -44,7 +44,7 @@ Using the cash flows, I will then run a **simple root finding routine to calcula
 
 Here's a diagram that shows how the "configure", "compute\_returns" and "download\_prices" scripts work together:
 
-<img src="calculating_portolio_returns/media/5a7ab6a50f230c54b1821653b48792a8a1e3a451.png" style="width:7.18056in;height:7.09722in" />
+<img src="calculating_portolio_returns/media/4f4d457bc907c750277ca40745ed1686f7d9017a.png" style="width:7.18056in;height:7.09722in" />
 
 These will be further detailed below.
 
