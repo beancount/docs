@@ -105,6 +105,8 @@
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="calculating_portolio_returns.html">Calculating Portfolio Returns</a>
                 </li>
+                <li class="toctree-l2"><a class="reference internal" href="tracking_medical_claims.html">Tracking Out-of-Network Medical Claims in Beancount</a>
+                </li>
     </ul>
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="#">Documentation for Developers</a>
@@ -270,8 +272,6 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.core.html">beancount.core</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ingest.html">beancount.ingest</a>
-                    </li>
                     <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.loader.html">beancount.loader</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ops.html">beancount.ops</a>
@@ -280,19 +280,11 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.plugins.html">beancount.plugins</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.prices.html">beancount.prices</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.query.html">beancount.query</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.reports.html">beancount.reports</a>
-                    </li>
                     <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.scripts.html">beancount.scripts</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.tools.html">beancount.tools</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.utils.html">beancount.utils</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.web.html">beancount.web</a>
                     </li>
                 </ul>
       </div>
@@ -804,7 +796,7 @@ Assets:US:TDBank:Savings
 </ul>
 <h2 id="loader-processing-order">Loader &amp; Processing Order<a id="loader-processing-order"></a><a class="headerlink" href="#loader-processing-order" title="Permanent link"></a></h2>
 <p>The process of <strong>loading</strong> a list of entries from an input file is the heart of the project. It is important to understand it in order to understand how Beancount works. Refer to the diagram below.</p>
-<p><img src="beancount_design_doc/media/4117596158f0642dae7becf17be7a89f169bf4a0.png" style="width:8.66667in;height:3.23611in" /></p>
+<p><img src="beancount_design_doc/media/6bbbdc0339d6207eab9d578bc1fc954db96ed97d.png" style="width:8.66667in;height:3.23611in" /></p>
 <p>It consists of</p>
 <ol>
 <li>
@@ -875,7 +867,7 @@ Assets:US:TDBank:Savings
 <p>A separate step for the interpolation which will have available the inventory balances of each account as inputs. This second step is where the booking algorithms (e.g., FIFO) will be invoked from.</p>
 </li>
 </ol>
-<p><img src="beancount_design_doc/media/033922268f9fe3d624c80b311804a81e4990ae07.png" style="width:6.05556in;height:3.01389in" /></p>
+<p><img src="beancount_design_doc/media/973adf6a5ea98d821f74996315976389bb1683dd.png" style="width:6.05556in;height:3.01389in" /></p>
 <p>See the diagram above for reference. Once implemented, everything else should be the same.</p>
 <h3 id="the-printer">The Printer<a id="the-printer"></a><a class="headerlink" href="#the-printer" title="Permanent link"></a></h3>
 <p>In the same package as the parser lives a printer. This isolates all the functionality that deals with the Beancount “language” in the <code>beancount.parser</code> package: the parser converts from input syntax to data structure and the printer does the reverse. No code outside this package should concern itself with the Beancount syntax.</p>

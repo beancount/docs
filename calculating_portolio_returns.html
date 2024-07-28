@@ -189,6 +189,8 @@
     </li>
     </ul>
                 </li>
+                <li class="toctree-l2"><a class="reference internal" href="tracking_medical_claims.html">Tracking Out-of-Network Medical Claims in Beancount</a>
+                </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="#">Documentation for Developers</a>
@@ -236,8 +238,6 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.core.html">beancount.core</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ingest.html">beancount.ingest</a>
-                    </li>
                     <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.loader.html">beancount.loader</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ops.html">beancount.ops</a>
@@ -246,19 +246,11 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.plugins.html">beancount.plugins</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.prices.html">beancount.prices</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.query.html">beancount.query</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.reports.html">beancount.reports</a>
-                    </li>
                     <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.scripts.html">beancount.scripts</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.tools.html">beancount.tools</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.utils.html">beancount.utils</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.web.html">beancount.web</a>
                     </li>
                 </ul>
       </div>
@@ -335,7 +327,7 @@
 <p>For reporting I'll <strong>group</strong> those per-account series in logical units of "<strong>reports</strong>", for example lumping together ones for the same instrument bought in different accounts / brokers, or different instruments that represent the same underlying by merging their cash flows. Or even to group them by "strategy". Basically, by merging the cash flows of multiple accounts, I have a generic way to group any subsets of accounts and compute their returns.</p>
 <p>Using the cash flows, I will then run a <strong>simple root finding routine to calculate the average annual rate</strong> those flows would have to grow in order to result in their final market value. This provides me with overall returns. This is similar to calculating the <a href="https://en.wikipedia.org/wiki/Internal_rate_of_return"><u>Internal Rate of Return</u></a>. I will do that for the entire time series, but also for sub-intervals within the time series to compute, e.g. calendar returns (i.e., each year or quarter) or cumulative returns for trailing periods. Since cash flows are flagged as dividends or not, I can separate the returns from appreciation from the returns from dividends. Reports with plots are produced for each of the groups.</p>
 <p>Here's a diagram that shows how the "configure", "compute_returns" and "download_prices" scripts work together:</p>
-<p><img src="calculating_portolio_returns/media/5a7ab6a50f230c54b1821653b48792a8a1e3a451.png" style="width:7.18056in;height:7.09722in" /></p>
+<p><img src="calculating_portolio_returns/media/4f4d457bc907c750277ca40745ed1686f7d9017a.png" style="width:7.18056in;height:7.09722in" /></p>
 <p>These will be further detailed below.</p>
 <h2 id="configuration">Configuration<a id="configuration"></a><a class="headerlink" href="#configuration" title="Permanent link"></a></h2>
 <p>First, a <a href="https://github.com/beancount/beancount/blob/v2/experiments/returns/config.proto"><u>configuration</u></a> needs to be created to define a list of investments, and groups of those, for which reports will be produced. This configuration is provided as a text-formatted <a href="https://developers.google.com/protocol-buffers"><u>protocol buffer</u></a> message.</p>
@@ -756,7 +748,7 @@ ASSET_OTHERASSET           : Exchange of stock/symbol
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="beancount_scripting_plugins.html" class="btn btn-neutral float-right" title="Beancount Scripting Plugins">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="tracking_medical_claims.html" class="btn btn-neutral float-right" title="Tracking Out-of-Network Medical Claims in Beancount">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="health_care_expenses.html" class="btn btn-neutral" title="Health Care Expenses"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -788,7 +780,7 @@ ASSET_OTHERASSET           : Exchange of stock/symbol
       <span><a href="health_care_expenses.html" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="beancount_scripting_plugins.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="tracking_medical_claims.html" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

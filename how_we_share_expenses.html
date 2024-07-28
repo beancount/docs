@@ -139,6 +139,8 @@
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="calculating_portolio_returns.html">Calculating Portfolio Returns</a>
                 </li>
+                <li class="toctree-l2"><a class="reference internal" href="tracking_medical_claims.html">Tracking Out-of-Network Medical Claims in Beancount</a>
+                </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="#">Documentation for Developers</a>
@@ -186,8 +188,6 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.core.html">beancount.core</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ingest.html">beancount.ingest</a>
-                    </li>
                     <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.loader.html">beancount.loader</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.ops.html">beancount.ops</a>
@@ -196,19 +196,11 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.plugins.html">beancount.plugins</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.prices.html">beancount.prices</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.query.html">beancount.query</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.reports.html">beancount.reports</a>
-                    </li>
                     <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.scripts.html">beancount.scripts</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.tools.html">beancount.tools</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.utils.html">beancount.utils</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="api_reference/beancount.web.html">beancount.web</a>
                     </li>
                 </ul>
       </div>
@@ -425,7 +417,7 @@ Mom OWES Dad:       0.00
 </code></pre>
 <h2 id="summary-of-the-system">Summary of the System<a id="summary-of-the-system"></a><a class="headerlink" href="#summary-of-the-system" title="Permanent link"></a></h2>
 <p>Here’s a diagram that puts in perspective the entire system together:</p>
-<p><img src="how_we_share_expenses/media/beea06bbfc314c84ad8172b5b42f72fdb5ee8d67.png" style="width:8.79167in;height:6.94444in" /></p>
+<p><img src="how_we_share_expenses/media/859a53a2976ca14d122483a7f69e419afe2609c0.png" style="width:8.79167in;height:6.94444in" /></p>
 <p>I (“Dad”) use Beancount via Emacs, exclusively. Carolyn (“Mom”) only interacts with a single Google Sheets doc with three sheets in it. I pull in Carolyn’s shared expenses from a sheet that she fills in to a ledger which gets included in my personal ledger. I also pull in her expenses for Kyle in a similar document, and from my personal ledger I generate my own expenses for Kyle. Both of these documents are merged in a top-level ledger dedicated to Kyle’s expenses.</p>
 <p>I’m not going to claim it’s simple and that it’s always up-to-date. I tend to update all of these things once/quarter and fix a few input errors each time we review it. I automate much of it via Makefiles, but frankly I don’t update it frequently enough to just remember where all the moving pieces are, so every time, there’s a bit of scrambling and reading my makefiles and figuring out what’s what (in fact, I was motivated to write this to cement my understanding solidly for the future). Amazingly enough, it hasn’t broken at all and I find all the pieces every time and make it work.</p>
 <p>And we have enough loose change between the two of us that it’s never that urgent to reconcile every week. My wife tends to pay more shared expenses and I tend to pay more Kyle’s expenses, so I often end up doing a transfer from one to the other to even things out and it’s relatively close—the shortfall in Kyle expenses makes up for my shortfall on the shared expenses.</p>
