@@ -1,3 +1,0 @@
-# beancount.web
-
-::: beancount.web

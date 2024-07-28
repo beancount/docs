@@ -1,15 +1,10 @@
 # `beancount`
 
 - [beancount.core](beancount.core.md)
-- [beancount.ingest](beancount.ingest.md)
 - [beancount.loader](beancount.loader.md)
 - [beancount.ops](beancount.ops.md)
 - [beancount.parser](beancount.parser.md)
 - [beancount.plugins](beancount.plugins.md)
-- [beancount.prices](beancount.prices.md)
-- [beancount.query](beancount.query.md)
-- [beancount.reports](beancount.reports.md)
 - [beancount.scripts](beancount.scripts.md)
 - [beancount.tools](beancount.tools.md)
 - [beancount.utils](beancount.utils.md)
-- [beancount.web](beancount.web.md)

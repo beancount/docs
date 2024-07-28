@@ -1,3 +1,0 @@
-# beancount.prices
-
-::: beancount.prices
