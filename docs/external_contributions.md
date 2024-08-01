@@ -26,6 +26,8 @@ This document contains only packages that were discussed or have had an announce
 
 [<u>A Shortcut to Scrape Trade History from Fidelity</u>](https://noisysignal.com/trade_hist_shortcut/) (David Avraamides) I wrote up a description of how I use a Shortcut to scrape trade history from Fidelity’s website, run it through a Python script to convert to Beancount’s ledger format, and then save it in the clipboard so I can paste it into a ledger file.
 
+[<u>Lazy Beancount</u>](https://lazy-beancount.xyz/) (Vasily M) / [<u>Evernight/lazy-beancount</u>](https://github.com/Evernight/lazy-beancount) : Opinionated guide on how to start (and continue) tracking personal finances using the open-source Beancount accounting system. It comes together with some code. The primary goal of this guide is to provide you a way to start managing your own finances using plain-text accounting gradually and incrementally. Also with various useful tools already included and set up.
+
 ## Plugins<a id="plugins"></a>
 
 [<u>split\_transactions</u>](https://www.google.com/url?q=https%3A%2F%2Fgist.github.com%2Fkljohann%2Faebac3f0146680fd9aa5&sa=D&sntz=1&usg=AFQjCNGn2AkL35onTeXgOQzLzkjVpvLcpg): Johann Klähn [<u>wrote a plugin</u>](https://groups.google.com/d/msg/beancount/z9sPboW4U3c/1qIIzro4zFoJ) that can split a single transaction into many against a limbo account, as would be done for depreciation.
@@ -61,6 +63,8 @@ This document contains only packages that were discussed or have had an announce
 [<u>Long\_short capital gains classifier</u>](https://github.com/redstreet/beancount_reds_plugins/tree/master/beancount_reds_plugins/capital_gains_classifier): Plugin from Red S to classify capital gains into long and short based on duration the assets were held, and into gains and losses based on value.
 
 [<u>Autoclose\_tree</u>](https://github.com/redstreet/beancount_reds_plugins/tree/main/beancount_reds_plugins/autoclose_tree): Automatically closes all of an account's descendants when an account is closed.
+
+[<u>Evernight/beancount-valuation</u>](https://github.com/Evernight/beancount-valuation) (Vasily M) : A Beancount plugin to track total value of the opaque fund. You can use it instead of the balance operation to assert total value of the account. If the value of the account is currently different, it will instead alter price of the underlying synthetical commodity created by the plugin used for technical purposes.
 
 ## Tools<a id="tools"></a>
 

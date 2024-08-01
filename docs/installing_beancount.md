@@ -8,7 +8,9 @@
 
 ## Releases<a id="releases"></a>
 
-Beancount is a mature project: the first version was written in 2008. The current version (v3) of Beancount is stable and under continued maintenance and development. There is a [<u>mailing-list</u>](https://groups.google.com/forum/#!forum/beancount) and a [<u>PyPI</u>](https://pypi.python.org/pypi/beancount) page.
+Beancount is a mature project: the first version was written in 2008. The current version of Beancount — branch "v3" — is stable and under continued maintenance and development. There is a [<u>mailing-list</u>](https://groups.google.com/forum/#!forum/beancount) and a [<u>PyPI</u>](https://pypi.python.org/pypi/beancount) page. The "master" branch is the development branch.
+
+(Note: If you used the "v2" branch in the past, many of the tools have been removed from branch "v3" and moved to their own dedicated github projects under [<u>http://github.com/beancount</u>](http://github.com/beancount). Some of the tools, e.g. bean-report, bean-web, have been deprecated.)
 
 ## Where to Get It<a id="where-to-get-it"></a>
 
