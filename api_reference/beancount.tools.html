@@ -358,7 +358,7 @@ beancount.tools.treeify.Node            (<span title="list">list</span>)
 
 
 <h4 id="beancount.tools.treeify.Node.__repr__" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">beancount</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">treeify</span><span class="o">.</span><span class="n">Node</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code>
+<code class="highlight language-python">beancount.tools.treeify.Node.__repr__(self)</code>
 
   <span class="doc doc-properties">
       <small class="doc doc-property doc-property-special"><code>special</code></small>
@@ -372,9 +372,9 @@ beancount.tools.treeify.Node            (<span title="list">list</span>)
 
         <details class="quote">
           <summary>Source code in <code>beancount/tools/treeify.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="k">return</span> <span class="s2">&quot;&lt;Node </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="p">[</span><span class="n">node</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">])</span>
-</code></pre></div>
+          <pre class="highlight"><code class="language-python">def __str__(self):
+    return '&lt;Node {} {}&gt;'.format(self.name, [node.name for node in self])
+</code></pre>
         </details>
     </div>
 
@@ -400,7 +400,7 @@ beancount.tools.treeify.Node            (<span title="list">list</span>)
 
 
 <h3 id="beancount.tools.treeify.create_tree" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">beancount</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">treeify</span><span class="o">.</span><span class="n">create_tree</span><span class="p">(</span><span class="n">column_matches</span><span class="p">,</span> <span class="n">regexp_split</span><span class="p">)</span></code>
+<code class="highlight language-python">beancount.tools.treeify.create_tree(column_matches, regexp_split)</code>
 
 
 <a href="#beancount.tools.treeify.create_tree" class="headerlink" title="Permanent link"></a></h3>
@@ -445,29 +445,29 @@ of components.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/tools/treeify.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">create_tree</span><span class="p">(</span><span class="n">column_matches</span><span class="p">,</span> <span class="n">regexp_split</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Build up a tree from a list of matches.</span>
+          <pre class="highlight"><code class="language-python">def create_tree(column_matches, regexp_split):
+    """Build up a tree from a list of matches.
 
-<span class="sd">    Args:</span>
-<span class="sd">      column_matches: A list of (line-number, name) pairs.</span>
-<span class="sd">      regexp_split: A regular expression string, to use for splitting the names</span>
-<span class="sd">        of components.</span>
-<span class="sd">    Returns:</span>
-<span class="sd">      An instance of Node, the root node of the created tree.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">root</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">no</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">column_matches</span><span class="p">:</span>
-        <span class="n">parts</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">regexp_split</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-        <span class="n">node</span> <span class="o">=</span> <span class="n">root</span>
-        <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">parts</span><span class="p">:</span>
-            <span class="n">last_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">node</span> <span class="k">else</span> <span class="kc">None</span>
-            <span class="k">if</span> <span class="n">last_node</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">last_node</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="n">part</span><span class="p">:</span>
-                <span class="n">last_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">part</span><span class="p">)</span>
-                <span class="n">node</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">last_node</span><span class="p">)</span>
-            <span class="n">node</span> <span class="o">=</span> <span class="n">last_node</span>
-        <span class="n">node</span><span class="o">.</span><span class="n">nos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">no</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">root</span>
-</code></pre></div>
+    Args:
+      column_matches: A list of (line-number, name) pairs.
+      regexp_split: A regular expression string, to use for splitting the names
+        of components.
+    Returns:
+      An instance of Node, the root node of the created tree.
+    """
+    root = Node('')
+    for no, name in column_matches:
+        parts = re.split(regexp_split, name)
+        node = root
+        for part in parts:
+            last_node = node[-1] if node else None
+            if last_node is None or last_node.name != part:
+                last_node = Node(part)
+                node.append(last_node)
+            node = last_node
+        node.nos.append(no)
+    return root
+</code></pre>
         </details>
     </div>
 
@@ -480,7 +480,7 @@ of components.</p></li>
 
 
 <h3 id="beancount.tools.treeify.dump_tree" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">beancount</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">treeify</span><span class="o">.</span><span class="n">dump_tree</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">file</span><span class="o">=&lt;</span><span class="n">_io</span><span class="o">.</span><span class="n">StringIO</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x78fcdeaef7c0</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+<code class="highlight language-python">beancount.tools.treeify.dump_tree(node, file=&lt;_io.StringIO object at 0x7a3206d45540&gt;, prefix='')</code>
 
 
 <a href="#beancount.tools.treeify.dump_tree" class="headerlink" title="Permanent link"></a></h3>
@@ -509,20 +509,20 @@ of components.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/tools/treeify.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">dump_tree</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Render a tree as a tree.</span>
+          <pre class="highlight"><code class="language-python">def dump_tree(node, file=sys.stdout, prefix=''):
+    """Render a tree as a tree.
 
-<span class="sd">    Args:</span>
-<span class="sd">      node: An instance of Node.</span>
-<span class="sd">      file: A file object to write to.</span>
-<span class="sd">      prefix: A prefix string for each of the lines of the children.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span>
-    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">node</span><span class="p">:</span>
-        <span class="n">dump_tree</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s2">&quot;... &quot;</span><span class="p">)</span>
-</code></pre></div>
+    Args:
+      node: An instance of Node.
+      file: A file object to write to.
+      prefix: A prefix string for each of the lines of the children.
+    """
+    file.write(prefix)
+    file.write(node.name)
+    file.write('\n')
+    for child in node:
+        dump_tree(child, file, prefix + '... ')
+</code></pre>
         </details>
     </div>
 
@@ -535,7 +535,7 @@ of components.</p></li>
 
 
 <h3 id="beancount.tools.treeify.enum_tree_by_input_line_num" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">beancount</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">treeify</span><span class="o">.</span><span class="n">enum_tree_by_input_line_num</span><span class="p">(</span><span class="n">tree_lines</span><span class="p">)</span></code>
+<code class="highlight language-python">beancount.tools.treeify.enum_tree_by_input_line_num(tree_lines)</code>
 
 
 <a href="#beancount.tools.treeify.enum_tree_by_input_line_num" class="headerlink" title="Permanent link"></a></h3>
@@ -564,28 +564,28 @@ of components.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/tools/treeify.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">enum_tree_by_input_line_num</span><span class="p">(</span><span class="n">tree_lines</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Accumulate the lines of a tree until a line number is found.</span>
+          <pre class="highlight"><code class="language-python">def enum_tree_by_input_line_num(tree_lines):
+    """Accumulate the lines of a tree until a line number is found.
 
-<span class="sd">    Args:</span>
-<span class="sd">      tree_lines: A list of lines as returned by render_tree.</span>
-<span class="sd">    Yields:</span>
-<span class="sd">      Pairs of (line number, list of (line, node)).</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">pending</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">first_line</span><span class="p">,</span> <span class="n">cont_line</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">tree_lines</span><span class="p">:</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">node</span><span class="o">.</span><span class="n">nos</span><span class="p">:</span>
-            <span class="n">pending</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">first_line</span><span class="p">,</span> <span class="n">node</span><span class="p">))</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">line</span> <span class="o">=</span> <span class="n">first_line</span>
-            <span class="k">for</span> <span class="n">no</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">nos</span><span class="p">:</span>
-                <span class="n">pending</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">line</span><span class="p">,</span> <span class="n">node</span><span class="p">))</span>
-                <span class="n">line</span> <span class="o">=</span> <span class="n">cont_line</span>
-                <span class="k">yield</span> <span class="p">(</span><span class="n">no</span><span class="p">,</span> <span class="n">pending</span><span class="p">)</span>
-                <span class="n">pending</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">if</span> <span class="n">pending</span><span class="p">:</span>
-        <span class="k">yield</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">pending</span><span class="p">)</span>
-</code></pre></div>
+    Args:
+      tree_lines: A list of lines as returned by render_tree.
+    Yields:
+      Pairs of (line number, list of (line, node)).
+    """
+    pending = []
+    for first_line, cont_line, node in tree_lines:
+        if not node.nos:
+            pending.append((first_line, node))
+        else:
+            line = first_line
+            for no in node.nos:
+                pending.append((line, node))
+                line = cont_line
+                yield (no, pending)
+                pending = []
+    if pending:
+        yield (None, pending)
+</code></pre>
         </details>
     </div>
 
@@ -598,7 +598,7 @@ of components.</p></li>
 
 
 <h3 id="beancount.tools.treeify.find_column" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">beancount</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">treeify</span><span class="o">.</span><span class="n">find_column</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">delimiter</span><span class="p">)</span></code>
+<code class="highlight language-python">beancount.tools.treeify.find_column(lines, pattern, delimiter)</code>
 
 
 <a href="#beancount.tools.treeify.find_column" class="headerlink" title="Permanent link"></a></h3>
@@ -652,62 +652,61 @@ skip some. However, they are in guaranteed in sorted order.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/tools/treeify.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">find_column</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">delimiter</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Find a valid column with hierarchical data in the text lines.</span>
+          <pre class="highlight"><code class="language-python">def find_column(lines, pattern, delimiter):
+    """Find a valid column with hierarchical data in the text lines.
 
-<span class="sd">    Args:</span>
-<span class="sd">      lines: A list of strings, the contents of the input.</span>
-<span class="sd">      pattern: A regular expression for the hierarchical entries.</span>
-<span class="sd">      delimiter: A regular expression that dictates how we detect the</span>
-<span class="sd">        end of a column. Normally this is a single space. If the patterns</span>
-<span class="sd">        contain spaces, you will need to increase this.</span>
-<span class="sd">    Returns:</span>
-<span class="sd">      A tuple of</span>
-<span class="sd">        matches: A list of (line-number, name) tuples where &#39;name&#39; is the</span>
-<span class="sd">          hierarchical string to treeify and line-number is an integer, the</span>
-<span class="sd">          line number where this applies.</span>
-<span class="sd">        left: An integer, the leftmost column.</span>
-<span class="sd">        right: An integer, the rightmost column.</span>
-<span class="sd">      Note that not all line numbers may be present, so you may need to</span>
-<span class="sd">      skip some. However, they are in guaranteed in sorted order.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># A mapping of the line beginning position to its match object.</span>
-    <span class="n">beginnings</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
-    <span class="n">pattern_and_whitespace</span> <span class="o">=</span> <span class="s2">&quot;(</span><span class="si">{}</span><span class="s2">)(?P&lt;ws&gt;</span><span class="si">{}</span><span class="s2">.|$)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">delimiter</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">no</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lines</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">pattern_and_whitespace</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
-            <span class="n">beginnings</span><span class="p">[</span><span class="n">match</span><span class="o">.</span><span class="n">start</span><span class="p">()]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">no</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="n">match</span><span class="p">))</span>
+    Args:
+      lines: A list of strings, the contents of the input.
+      pattern: A regular expression for the hierarchical entries.
+      delimiter: A regular expression that dictates how we detect the
+        end of a column. Normally this is a single space. If the patterns
+        contain spaces, you will need to increase this.
+    Returns:
+      A tuple of
+        matches: A list of (line-number, name) tuples where 'name' is the
+          hierarchical string to treeify and line-number is an integer, the
+          line number where this applies.
+        left: An integer, the leftmost column.
+        right: An integer, the rightmost column.
+      Note that not all line numbers may be present, so you may need to
+      skip some. However, they are in guaranteed in sorted order.
+    """
+    # A mapping of the line beginning position to its match object.
+    beginnings = collections.defaultdict(list)
+    pattern_and_whitespace = "({})(?P&lt;ws&gt;{}.|$)".format(pattern, delimiter)
+    for no, line in enumerate(lines):
+        for match in re.finditer(pattern_and_whitespace, line):
+            beginnings[match.start()].append((no, line, match))
 
-    <span class="c1"># For each potential column found, verify that it is valid. A valid column</span>
-    <span class="c1"># will have the maximum of its content text not overlap with any of the</span>
-    <span class="c1"># following text. We assume that a column will have been formatted to full</span>
-    <span class="c1"># width and that no text following the line overlap with the column, even in</span>
-    <span class="c1"># its trailing whitespace.</span>
-    <span class="c1">#</span>
-    <span class="c1"># In other words, the following example is a violation because &quot;10,990.74&quot;</span>
-    <span class="c1"># overlaps with the end of &quot;Insurance&quot; and so this would not be recognized</span>
-    <span class="c1"># as a valid column:</span>
-    <span class="c1">#</span>
-    <span class="c1"># Expenses:Food:Restaurant     10,990.74 USD</span>
-    <span class="c1"># Expenses:Health:Dental:Insurance   208.80 USD</span>
-    <span class="c1">#</span>
-    <span class="k">for</span> <span class="n">leftmost_column</span><span class="p">,</span> <span class="n">column_matches</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">beginnings</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
-        <span class="c1"># Compute the location of the rightmost column of text.</span>
-        <span class="n">rightmost_column</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">column_matches</span><span class="p">)</span>
+    # For each potential column found, verify that it is valid. A valid column
+    # will have the maximum of its content text not overlap with any of the
+    # following text. We assume that a column will have been formatted to full
+    # width and that no text following the line overlap with the column, even in
+    # its trailing whitespace.
+    #
+    # In other words, the following example is a violation because "10,990.74"
+    # overlaps with the end of "Insurance" and so this would not be recognized
+    # as a valid column:
+    #
+    # Expenses:Food:Restaurant     10,990.74 USD
+    # Expenses:Health:Dental:Insurance   208.80 USD
+    #
+    for leftmost_column, column_matches in sorted(beginnings.items()):
 
-        <span class="c1"># Compute the leftmost location of the content following the column text</span>
-        <span class="c1"># and past its whitespace.</span>
-        <span class="n">following_column</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span>
-            <span class="k">match</span><span class="o">.</span><span class="n">end</span><span class="p">()</span> <span class="k">if</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;ws&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="mi">10000</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">column_matches</span>
-        <span class="p">)</span>
+        # Compute the location of the rightmost column of text.
+        rightmost_column = max(match.end(1) for _, _, match in column_matches)
 
-        <span class="k">if</span> <span class="n">rightmost_column</span> <span class="o">&lt;</span> <span class="n">following_column</span><span class="p">:</span>
-            <span class="c1"># We process only the very first match.</span>
-            <span class="n">return_matches</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="p">(</span><span class="n">no</span><span class="p">,</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span> <span class="k">for</span> <span class="n">no</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">column_matches</span>
-            <span class="p">]</span>
-            <span class="k">return</span> <span class="n">return_matches</span><span class="p">,</span> <span class="n">leftmost_column</span><span class="p">,</span> <span class="n">rightmost_column</span>
-</code></pre></div>
+        # Compute the leftmost location of the content following the column text
+        # and past its whitespace.
+        following_column = min(match.end() if match.group('ws') else 10000
+                               for _, _, match in column_matches)
+
+        if rightmost_column &lt; following_column:
+            # We process only the very first match.
+            return_matches = [(no, match.group(1).rstrip())
+                              for no, _, match in column_matches]
+            return return_matches, leftmost_column, rightmost_column
+</code></pre>
         </details>
     </div>
 
@@ -721,7 +720,7 @@ skip some. However, they are in guaranteed in sorted order.</p></li>
 
 
 <h3 id="beancount.tools.treeify.render_tree" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">beancount</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">treeify</span><span class="o">.</span><span class="n">render_tree</span><span class="p">(</span><span class="n">root</span><span class="p">)</span></code>
+<code class="highlight language-python">beancount.tools.treeify.render_tree(root)</code>
 
 
 <a href="#beancount.tools.treeify.render_tree" class="headerlink" title="Permanent link"></a></h3>
@@ -753,80 +752,82 @@ and an integer, the width of the new columns.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/tools/treeify.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">render_tree</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Render a tree of nodes.</span>
+          <pre class="highlight"><code class="language-python">def render_tree(root):
+    """Render a tree of nodes.
 
-<span class="sd">    Returns:</span>
-<span class="sd">      A list of tuples of (first_line, continuation_line, node) where</span>
-<span class="sd">        first_line: A string, the first line to render, which includes the</span>
-<span class="sd">          account name.</span>
-<span class="sd">        continuation_line: A string, further line to render if necessary.</span>
-<span class="sd">        node: The Node instance which corresponds to this line.</span>
-<span class="sd">      and an integer, the width of the new columns.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Compute all the lines ahead of time in order to calculate the width.</span>
-    <span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
+    Returns:
+      A list of tuples of (first_line, continuation_line, node) where
+        first_line: A string, the first line to render, which includes the
+          account name.
+        continuation_line: A string, further line to render if necessary.
+        node: The Node instance which corresponds to this line.
+      and an integer, the width of the new columns.
+    """
+    # Compute all the lines ahead of time in order to calculate the width.
+    lines = []
 
-    <span class="c1"># Start with the root node. We push the constant prefix before this node,</span>
-    <span class="c1"># the account name, and the RealAccount instance. We will maintain a stack</span>
-    <span class="c1"># of children nodes to render.</span>
-    <span class="n">stack</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">root</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="kc">True</span><span class="p">)]</span>
-    <span class="k">while</span> <span class="n">stack</span><span class="p">:</span>
-        <span class="n">prefix</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">is_last</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    # Start with the root node. We push the constant prefix before this node,
+    # the account name, and the RealAccount instance. We will maintain a stack
+    # of children nodes to render.
+    stack = [('', root.name, root, True)]
+    while stack:
+        prefix, name, node, is_last = stack.pop(-1)
 
-        <span class="k">if</span> <span class="n">node</span> <span class="ow">is</span> <span class="n">root</span><span class="p">:</span>
-            <span class="c1"># For the root node, we don&#39;t want to render any prefix.</span>
-            <span class="n">first</span> <span class="o">=</span> <span class="n">cont</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="c1"># Compute the string that precedes the name directly and the one below</span>
-            <span class="c1"># that for the continuation lines.</span>
-            <span class="c1">#  |</span>
-            <span class="c1">#  @@@ Bank1    &lt;----------------</span>
-            <span class="c1">#  @@@ |</span>
-            <span class="c1">#  |   |-- Checking</span>
-            <span class="k">if</span> <span class="n">is_last</span><span class="p">:</span>
-                <span class="n">first</span> <span class="o">=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="n">PREFIX_LEAF_1</span>
-                <span class="n">cont</span> <span class="o">=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="n">PREFIX_LEAF_C</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">first</span> <span class="o">=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="n">PREFIX_CHILD_1</span>
-                <span class="n">cont</span> <span class="o">=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="n">PREFIX_CHILD_C</span>
+        if node is root:
+            # For the root node, we don't want to render any prefix.
+            first = cont = ''
+        else:
+            # Compute the string that precedes the name directly and the one below
+            # that for the continuation lines.
+            #  |
+            #  @@@ Bank1    &lt;----------------
+            #  @@@ |
+            #  |   |-- Checking
+            if is_last:
+                first = prefix + PREFIX_LEAF_1
+                cont = prefix + PREFIX_LEAF_C
+            else:
+                first = prefix + PREFIX_CHILD_1
+                cont = prefix + PREFIX_CHILD_C
 
-        <span class="c1"># Compute the name to render for continuation lines.</span>
-        <span class="c1">#  |</span>
-        <span class="c1">#  |-- Bank1</span>
-        <span class="c1">#  |   @@@       &lt;----------------</span>
-        <span class="c1">#  |   |-- Checking</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">node</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">cont_name</span> <span class="o">=</span> <span class="n">PREFIX_CHILD_C</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">cont_name</span> <span class="o">=</span> <span class="n">PREFIX_LEAF_C</span>
+        # Compute the name to render for continuation lines.
+        #  |
+        #  |-- Bank1
+        #  |   @@@       &lt;----------------
+        #  |   |-- Checking
+        if len(node) &gt; 0:
+            cont_name = PREFIX_CHILD_C
+        else:
+            cont_name = PREFIX_LEAF_C
 
-        <span class="c1"># Add a line for this account.</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">node</span> <span class="ow">is</span> <span class="n">root</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">name</span><span class="p">):</span>
-            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">first</span> <span class="o">+</span> <span class="n">name</span><span class="p">,</span> <span class="n">cont</span> <span class="o">+</span> <span class="n">cont_name</span><span class="p">,</span> <span class="n">node</span><span class="p">))</span>
+        # Add a line for this account.
+        if not (node is root and not name):
+            lines.append((first + name,
+                          cont + cont_name,
+                          node))
 
-        <span class="c1"># Push the children onto the stack, being careful with ordering and</span>
-        <span class="c1"># marking the last node as such.</span>
-        <span class="k">if</span> <span class="n">node</span><span class="p">:</span>
-            <span class="n">child_items</span> <span class="o">=</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
-            <span class="n">child_iter</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">child_items</span><span class="p">)</span>
-            <span class="n">child_node</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">child_iter</span><span class="p">)</span>
-            <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">cont</span><span class="p">,</span> <span class="n">child_node</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">child_node</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
-            <span class="k">for</span> <span class="n">child_node</span> <span class="ow">in</span> <span class="n">child_iter</span><span class="p">:</span>
-                <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">cont</span><span class="p">,</span> <span class="n">child_node</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">child_node</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>
+        # Push the children onto the stack, being careful with ordering and
+        # marking the last node as such.
+        if node:
+            child_items = reversed(node)
+            child_iter = iter(child_items)
+            child_node = next(child_iter)
+            stack.append((cont, child_node.name, child_node, True))
+            for child_node in child_iter:
+                stack.append((cont, child_node.name, child_node, False))
 
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">lines</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">lines</span>
+    if not lines:
+        return lines
 
-    <span class="c1"># Compute the maximum width of the lines and convert all of them to the same</span>
-    <span class="c1"># maximal width. This makes it easy on the client.</span>
-    <span class="n">max_width</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">first_line</span><span class="p">)</span> <span class="k">for</span> <span class="n">first_line</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">__</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">)</span>
-    <span class="n">line_format</span> <span class="o">=</span> <span class="s2">&quot;{{:</span><span class="si">{width}</span><span class="s2">}}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="n">max_width</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">[</span>
-        <span class="p">(</span><span class="n">line_format</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">first_line</span><span class="p">),</span> <span class="n">line_format</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cont_line</span><span class="p">),</span> <span class="n">node</span><span class="p">)</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">first_line</span><span class="p">,</span> <span class="n">cont_line</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span> <span class="ow">in</span> <span class="n">lines</span>
-    <span class="p">],</span> <span class="n">max_width</span>
-</code></pre></div>
+    # Compute the maximum width of the lines and convert all of them to the same
+    # maximal width. This makes it easy on the client.
+    max_width = max(len(first_line) for first_line, _, __ in lines)
+    line_format = '{{:{width}}}'.format(width=max_width)
+    return [(line_format.format(first_line),
+             line_format.format(cont_line),
+             node)
+            for (first_line, cont_line, node) in lines], max_width
+</code></pre>
         </details>
     </div>
 
@@ -910,7 +911,7 @@ beancount.tools.treeify_test.TestTreeifyBase            (<span title="unittest.c
 
 
 <h4 id="beancount.tools.treeify_test.TestTreeifyBase.treeify" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">beancount</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">treeify_test</span><span class="o">.</span><span class="n">TestTreeifyBase</span><span class="o">.</span><span class="n">treeify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">expect_errors</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+<code class="highlight language-python">beancount.tools.treeify_test.TestTreeifyBase.treeify(self, string, expect_errors=False, options=None)</code>
 
 
 <a href="#beancount.tools.treeify_test.TestTreeifyBase.treeify" class="headerlink" title="Permanent link"></a></h4>
@@ -956,26 +957,26 @@ errors.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/tools/treeify_test.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">treeify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">expect_errors</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Run treeify on the given string and assert no errors.</span>
+          <pre class="highlight"><code class="language-python">def treeify(self, string, expect_errors=False, options=None):
+    """Run treeify on the given string and assert no errors.
 
-<span class="sd">    Args:</span>
-<span class="sd">      string: A string, the input contents to run on.</span>
-<span class="sd">      expect_errors: A boolean, true if we should expect there to be errors.</span>
-<span class="sd">      options: An optional list of options for the subprogram.</span>
-<span class="sd">    Returns:</span>
-<span class="sd">      The converted output string. This fails the test if there were any</span>
-<span class="sd">      errors.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">returncode</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">errors</span> <span class="o">=</span> <span class="n">treeify</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
-    <span class="n">actual_errors</span> <span class="o">=</span> <span class="n">returncode</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="nb">bool</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">actual_errors</span> <span class="o">!=</span> <span class="n">expect_errors</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">expect_errors</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">fail</span><span class="p">(</span><span class="s2">&quot;Missing expected errors&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">fail</span><span class="p">(</span><span class="s2">&quot;Unexpected errors: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">errors</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">output</span>
-</code></pre></div>
+    Args:
+      string: A string, the input contents to run on.
+      expect_errors: A boolean, true if we should expect there to be errors.
+      options: An optional list of options for the subprogram.
+    Returns:
+      The converted output string. This fails the test if there were any
+      errors.
+    """
+    returncode, output, errors = treeify(string, options)
+    actual_errors = returncode != 0 or bool(errors)
+    if actual_errors != expect_errors:
+        if expect_errors:
+            self.fail("Missing expected errors")
+        else:
+            self.fail("Unexpected errors: {}".format(errors))
+    return output
+</code></pre>
         </details>
     </div>
 
@@ -988,7 +989,7 @@ errors.</p></li>
 
 
 <h4 id="beancount.tools.treeify_test.TestTreeifyBase.treeify_equal" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">beancount</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">treeify_test</span><span class="o">.</span><span class="n">TestTreeifyBase</span><span class="o">.</span><span class="n">treeify_equal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">expected</span><span class="p">,</span> <span class="n">expect_errors</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+<code class="highlight language-python">beancount.tools.treeify_test.TestTreeifyBase.treeify_equal(self, string, expected, expect_errors=False, options=None)</code>
 
 
 <a href="#beancount.tools.treeify_test.TestTreeifyBase.treeify_equal" class="headerlink" title="Permanent link"></a></h4>
@@ -1035,32 +1036,32 @@ output differed from the actual.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/tools/treeify_test.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">treeify_equal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">expected</span><span class="p">,</span> <span class="n">expect_errors</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Assert an expected treeification result.</span>
+          <pre class="highlight"><code class="language-python">def treeify_equal(self, string, expected, expect_errors=False, options=None):
+    """Assert an expected treeification result.
 
-<span class="sd">    Args:</span>
-<span class="sd">      string: An expected input contents string to treeify.</span>
-<span class="sd">      expected: A string, the expected treeified output.</span>
-<span class="sd">      expect_errors: A boolean, true if we should expect there to be errors.</span>
-<span class="sd">      options: An optional list of options for the subprogram.</span>
-<span class="sd">    Returns:</span>
-<span class="sd">      The actual output string. This fails the test if there the expected</span>
-<span class="sd">      output differed from the actual.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">input_</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
-    <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">treeify</span><span class="p">(</span><span class="n">input_</span><span class="p">,</span> <span class="n">expect_errors</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
-    <span class="n">expected</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="n">expected</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-(input)----------------------------------&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">input_</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-(output)---------------------------------&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-(expected)-------------------------------&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">expected</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------------------------------------&quot;</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">output</span>
-</code></pre></div>
+    Args:
+      string: An expected input contents string to treeify.
+      expected: A string, the expected treeified output.
+      expect_errors: A boolean, true if we should expect there to be errors.
+      options: An optional list of options for the subprogram.
+    Returns:
+      The actual output string. This fails the test if there the expected
+      output differed from the actual.
+    """
+    input_ = textwrap.dedent(string)
+    output = self.treeify(input_, expect_errors, options)
+    expected = textwrap.dedent(expected)
+    if DEBUG:
+        print('-(input)----------------------------------')
+        print(input_)
+        print('-(output)---------------------------------')
+        print(output)
+        print('-(expected)-------------------------------')
+        print(expected)
+        print('------------------------------------------')
+    self.assertEqual(expected, output)
+    return output
+</code></pre>
         </details>
     </div>
 
@@ -1084,7 +1085,7 @@ output differed from the actual.</p></li>
 
 
 <h3 id="beancount.tools.treeify_test.treeify" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">beancount</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">treeify_test</span><span class="o">.</span><span class="n">treeify</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+<code class="highlight language-python">beancount.tools.treeify_test.treeify(string, options=None)</code>
 
 
 <a href="#beancount.tools.treeify_test.treeify" class="headerlink" title="Permanent link"></a></h3>
@@ -1128,29 +1129,25 @@ output differed from the actual.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/tools/treeify_test.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">treeify</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Run treeify on the string.</span>
+          <pre class="highlight"><code class="language-python">def treeify(string, options=None):
+    """Run treeify on the string.
 
-<span class="sd">    Args:</span>
-<span class="sd">      string: The input string to feed treeify.</span>
-<span class="sd">      options: An optional list of options for the subprogram.</span>
-<span class="sd">    Returns:</span>
-<span class="sd">      The treeified string.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">pipe</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span>
-        <span class="p">[</span><span class="n">PROGRAM</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">options</span> <span class="ow">or</span> <span class="p">[]),</span>
-        <span class="n">shell</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
-        <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
-        <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
-    <span class="p">)</span>
-    <span class="n">output</span><span class="p">,</span> <span class="n">errors</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
-    <span class="k">return</span> <span class="p">(</span>
-        <span class="n">pipe</span><span class="o">.</span><span class="n">returncode</span><span class="p">,</span>
-        <span class="n">output</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">output</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="n">errors</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">errors</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="p">)</span>
-</code></pre></div>
+    Args:
+      string: The input string to feed treeify.
+      options: An optional list of options for the subprogram.
+    Returns:
+      The treeified string.
+    """
+    pipe = subprocess.Popen([PROGRAM] + (options or []),
+                            shell=False,
+                            stdin=subprocess.PIPE,
+                            stdout=subprocess.PIPE,
+                            stderr=subprocess.PIPE)
+    output, errors = pipe.communicate(string.encode('utf-8'))
+    return (pipe.returncode,
+            output.decode('utf-8') if output else '',
+            errors.decode('utf-8') if errors else '')
+</code></pre>
         </details>
     </div>
 
