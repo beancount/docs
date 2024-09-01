@@ -28,6 +28,10 @@ This document contains only packages that were discussed or have had an announce
 
 [<u>Lazy Beancount</u>](https://lazy-beancount.xyz/) (Vasily M) / [<u>Evernight/lazy-beancount</u>](https://github.com/Evernight/lazy-beancount) : Opinionated guide on how to start (and continue) tracking personal finances using the open-source Beancount accounting system. It comes together with some code. The primary goal of this guide is to provide you a way to start managing your own finances using plain-text accounting gradually and incrementally. Also with various useful tools already included and set up.
 
+[<u>The Zen of Balance — https://academy.beanhub.io/</u>](https://academy.beanhub.io/) (Fang-Pen Lin) : An explanation of double-entry accounting using visualizations and diagrams.
+
+[<u>Multiperiod hledger-Style Reports in beancount: Pivoting a Table | Altynbek Isabekov</u>](https://www.isabekov.pro/multiperiod-hledger-style-reports-in-beancount-pivoting-a-table/) : An article showing how to produce pivot table summaries of account balances, e.g. by year, with [<u>associated code (github)</u>](https://github.com/isabekov/beancount-multiperiod-reports).
+
 ## Plugins<a id="plugins"></a>
 
 [<u>split\_transactions</u>](https://www.google.com/url?q=https%3A%2F%2Fgist.github.com%2Fkljohann%2Faebac3f0146680fd9aa5&sa=D&sntz=1&usg=AFQjCNGn2AkL35onTeXgOQzLzkjVpvLcpg): Johann Klähn [<u>wrote a plugin</u>](https://groups.google.com/d/msg/beancount/z9sPboW4U3c/1qIIzro4zFoJ) that can split a single transaction into many against a limbo account, as would be done for depreciation.
@@ -131,6 +135,10 @@ The Beancount v3 parser uses [<u>RE/flex</u>](https://www.genivia.com/doc/reflex
 [<u>jcornaz/beancount-parser</u>](https://github.com/jcornaz/beancount-parser) (Jonathan Cornaz): A beancount file parser library for Rust. Uses nom.
 
 [<u>beancount\_parser\_lima</u>](https://docs.rs/beancount-parser-lima/latest/beancount_parser_lima/) (Simon Guest): A zero-copy parser for Beancount in Rust. It is intended to be a complete implementation of the Beancount file format, except for those parts which are deprecated and other features as documented here (in a list which may not be comprehensive). Uses [<u>Logos</u>](https://docs.rs/logos/latest/logos/), [<u>Chumsky</u>](https://docs.rs/chumsky/latest/chumsky/), and [<u>Ariadne</u>](https://docs.rs/ariadne/latest/ariadne/).
+
+### Emacs Lisp<a id="emacs-lisp"></a>
+
+[<u>trs-80/beancount-txn-elisp/</u>](https://sr.ht/~trs-80/beancount-txn-elisp/) : beancount-txn-elisp: A library to read/parse and write/insert individual Beancount transactions, implemented in Emacs Lisp.
 
 ## Importers<a id="importers"></a>
 

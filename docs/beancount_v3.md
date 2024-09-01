@@ -112,7 +112,7 @@ At the very coarse level, the code restructuring for Vnext looks like this:
 
 Note that because the core outputs the stream of directives as proto objects, any language supported by protobufs should be able to read those. This extends the reach of Beancount. Here's a simplified diagram showing how this might look:
 
-<img src="beancount_v3/media/c8e76e1f74eeaba6ecb79f612719f105efac6b88.png" style="width:3.47222in;height:3.38889in" />
+<img src="beancount_v3/media/b738066dfe69a152d18f2d828ca1663cc0b29a93.png" style="width:3.47222in;height:3.38889in" />
 
 Here is a detailed breakdown of the various parts of the codebase today and what I think will happen to them:
 
