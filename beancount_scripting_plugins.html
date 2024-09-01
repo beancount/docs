@@ -256,7 +256,7 @@
 <p>This document provides examples and guidelines on how to write scripts that use the contents of your ledger. It also provides information on how to write your own “plugins,” which are just Python functions that you can configure to transform your transactions or synthesize ones programmatically. These are the main two methods for extending Beancount’s features and for writing your own custom reports. You simply use Python to do this.</p>
 <h2 id="load-pipeline">Load Pipeline<a id="load-pipeline"></a><a class="headerlink" href="#load-pipeline" title="Permanent link"></a></h2>
 <p>You need to know a little bit about how Beancount processes its input files. Internally, the single point of entry to load an input file is the <code>beancount.loader.load_file()</code> function, which accepts an input file and carries out a list of transformation steps, as in this diagram:</p>
-<p><img src="beancount_scripting_plugins/media/4117596158f0642dae7becf17be7a89f169bf4a0.png" style="width:8.66667in;height:3.23611in" /></p>
+<p><img src="beancount_scripting_plugins/media/6bbbdc0339d6207eab9d578bc1fc954db96ed97d.png" style="width:8.66667in;height:3.23611in" /></p>
 <p>The stages of loading are as follows:</p>
 <ol>
 <li>
