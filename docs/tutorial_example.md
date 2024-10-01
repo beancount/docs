@@ -286,15 +286,9 @@ Note that “beancount” and “ledger” are valid output formats: they refer 
 
 ### Viewing Reports through the Web Interface<a id="viewing-reports-through-the-web-interface"></a>
 
-The original way to access reports in Beancount is via its web interface that serves to a local web server on your machine. Serve the example file like this:
+[<u>Fava</u>](https://beancount.github.io/fava/) is a separate project that provides a web interface for Beancount on your local machine. See a [<u>demo here</u>](https://fava.pythonanywhere.com/example-beancount-file/income_statement/). Fava’s [<u>github page</u>](https://github.com/beancount/fava?tab=readme-ov-file) shows you how to install and use it. Fava displays your account tree, balance and income statements, the journal, and holdings, and also allows Beancount queries to be run from within its web interface. Fava also has its own plugins for specialized needs.
 
-    bean-web example.beancount
-
-Then navigate with a web browser to [<u>http://localhost:8080</u>](http://localhost:8080). From there, you can click on any number of filtered views and access some of the reports previously demonstrated. For example, click on a year view; that will provide balance sheets and income statements and various other reports for this subset of transactions.
-
-The bean-web tool has many options for restricting what is being served. (Note that by default the server listens only for connections from your computer; if you want to host this on a web server and accept connections from anywhere, use `--public`).
-
-*Note: There exists a separate project which provides a better web interface than the one which comes with Beancount: [<u>Fava</u>](https://github.com/aumayr/fava). You might want to check it out.*
+*Note: if you are looking for bean-web, a web server that shipped with Beancount, it is now deprecated. Fava is the recommended web interface.*
 
 ## The Future of Beancount Reports<a id="the-future-of-beancount-reports"></a>
 

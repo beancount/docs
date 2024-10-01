@@ -288,6 +288,8 @@ Blog posts:
 
 [<u>aaronstacy.com/personal-finances-dashboard</u>](http://aaronstacy.com/personal-finances-dashboard/) : HTML + D3.js visualization dashboard for Beancount data.
 
+[<u>https://github.com/aleyoscar/beancount-pulsar</u>](https://github.com/aleyoscar/beancount-pulsar) : A Pulsar package for Beancount - Plain Text Accounting, with syntax highlighting, toggling comments, snippets for some directives and automatic indentation. Pulsar package: [<u>https://web.pulsar-edit.dev/packages/beancount-pulsar</u>](https://web.pulsar-edit.dev/packages/beancount-pulsar)
+
 ## Mobile/Phone Data Entry<a id="mobilephone-data-entry"></a>
 
 [<u>Beancount Mobile</u>](https://play.google.com/store/apps/details?id=link.beancount.mobile) App (Kirill Goncharov): A mobile data entry app for Beancount. (Currently only Android is supported.) Repo: [<u>https://github.com/xuhcc/beancount-mobile</u>](https://github.com/xuhcc/beancount-mobile) ([<u>Announcement</u>](https://groups.google.com/d/msgid/beancount/014e0879-70e0-4cac-b884-82d8004e1b43%40googlegroups.com?utm_medium=email&utm_source=footer)).

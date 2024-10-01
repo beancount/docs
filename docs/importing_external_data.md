@@ -90,7 +90,11 @@ I **manually** log into the various websites with my usernames & passwords and c
 
 While I’m not scripting the fetching, I think it’s possible to do so on some sites. That work is left for you to implement where you think it’s worth the time.
 
-### Typical Downloads<a id="typical-downloads"></a>
+However, today, thanks to the open banking project, we have universal APIs that allow for the quick and reliable download of transactions from multiple bank accounts.
+
+### Manual download<a id="manual-download"></a>
+
+#### Typical Downloads<a id="typical-downloads"></a>
 
 Here’s a description of the typical kinds of files involved; this describes my use case and what I’ve managed to do. This should give you a qualitative sense of what’s involved.
 
@@ -102,13 +106,19 @@ Here’s a description of the typical kinds of files involved; this describes my
 
 -   **Cash transactions**: I have to enter those by hand. I only book non-food expenses as individual transactions directly, and for food maybe once every six months I'll count my wallet balance and insert a summarizing transaction for each month to debit away the cash account towards food to make it balance. If you do this, you end up with surprisingly little transactions to type manually, maybe just a few each week (it depends on lifestyle choices, for me this works). When I’m on the go, I just note those on my phone in Google Keep and eventually transcribe them after they accumulate.
 
-### Extracting Data from PDF Files<a id="extracting-data-from-pdf-files"></a>
+#### Extracting Data from PDF Files<a id="extracting-data-from-pdf-files"></a>
 
 I've made some headway toward converting data from PDF files, which is a common need, but it's incomplete; it turns out that fully automating table extraction from PDF isn't easy in the general case. I have some code that is close to working and will release it when the time is right. Otherwise, the best FOSS solution I’ve found for this is a tool called [<u>TabulaPDF</u>](http://tabula.technology/) but you still need to manually identify where the tables of data are located on the page; you may be able to automate some fetching using its sister project [<u>tabula-java</u>](https://github.com/tabulapdf/tabula-java).
 
 Nevertheless, I usually have good success with my importers grepping around PDF statements converted to ugly text in order to identify what institution they are for and extracting the date of issuance of the document.
 
 Finally, there are a number of different tools used to extract text from PDF documents, such as [<u>PDFMiner</u>](https://pypi.python.org/pypi/pdfminer2), [<u>LibreOffice</u>](https://www.libreoffice.org), the [<u>xpdf</u>](http://www.tutorialspoint.com/unix_commands/pdftotext.htm) library, the [<u>poppler</u>](https://poppler.freedesktop.org/) library[^3] and more... but none of them works consistently on all input documents; you will likely end up installing many and relying on different ones for different input files. For this reason, I’m not requiring a dependency on PDF conversion tools from within Beancount. You should test what works on your specific documents and invoke those tools from your importer implementations.
+
+### Automatic download with open banking aggregator<a id="automatic-download-with-open-banking-aggregator"></a>
+
+The open-source accounting software Firefly III already integrates with some free open banking APIs. For more information, you can visit [<u>Firefly III Documentation</u>](https://docs.firefly-iii.org/how-to/data-importer/import/gocardless/). The Beancount ecosystem is still lagging in this domain.
+
+An example of an open banking aggregator that could be interesting is GoCardless. GoCardless supports many PSD2-compliant banks in the EU and the UK, and it is [<u>free to use</u>](https://nordigen.medium.com/were-launching-a-free-psd2-data-api-for-europe-941f6298c0dc).
 
 ## Tools<a id="tools"></a>
 
