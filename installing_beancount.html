@@ -257,12 +257,21 @@
 <p>First, you should have a working Python install. Install the latest stable version &gt;=3.8 using the download from <a href="http://python.org"><u>python.org</u></a>. Make sure you have the development headers and libraries installed as well (e.g., the “Python.h” header file). For example, on a Debian/Ubuntu system you would install the <strong><code>python3-dev</code></strong> package.</p>
 <p>Beancount supports setuptools since Feb 2016, and you will need to install dependencies. You will want to have the “pip3” tool installed. It’s installed by default along with Python3 by now—test this out by invoking “python3 -m pip --help” command.</p>
 <h3 id="installing-beancount_1">Installing Beancount<a id="installing-beancount"></a><a class="headerlink" href="#installing-beancount_1" title="Permanent link"></a></h3>
+<h4 id="installing-beancount-using-pipx">Installing Beancount using pipx<a id="installing-beancount-using-pipx"></a><a class="headerlink" href="#installing-beancount-using-pipx" title="Permanent link"></a></h4>
+<p>If you haven’t already, first <a href="https://github.com/pypa/pipx"><u>install pipx</u></a>.</p>
+<p>Next, use pipx to install Beancount. This should automatically download and install all the dependencies in a virtual environment.</p>
+<pre><code>pipx install beancount
+</code></pre>
+<p>Confirm Beancount has been installed.</p>
+<pre><code>pipx list
+</code></pre>
 <h4 id="installing-beancount-using-pip">Installing Beancount using pip<a id="installing-beancount-using-pip"></a><a class="headerlink" href="#installing-beancount-using-pip" title="Permanent link"></a></h4>
-<p>This is the easiest way to install Beancount. You just install Beancount using</p>
+<p>Installing Beancount using pip is no longer recommended, however you may install Beancount using</p>
 <pre><code>sudo -H python3 -m pip install beancount
 </code></pre>
 <p>This should automatically download and install all the dependencies.</p>
 <p>Note, however, that this will install the latest version that was pushed to the <a href="https://pypi.python.org/pypi/beancount/"><u>PyPI repository</u></a> and not the very latest version available from source. Releases to PyPI are made sporadically but frequently enough not to be too far behind. Consult the <a href="https://github.com/beancount/beancount/tree/v2/CHANGES"><u>CHANGES file</u></a> if you’d like to find out what is not included since the release date.</p>
+<p><strong>Warning: Proceed with caution this may break system libraries.</strong></p>
 <h4 id="installing-beancount-using-pip-from-the-repository">Installing Beancount using pip from the Repository<a id="installing-beancount-using-pip-from-the-repository"></a><a class="headerlink" href="#installing-beancount-using-pip-from-the-repository" title="Permanent link"></a></h4>
 <p>You can also use pip to install Beancount from its source code repository directly:</p>
 <pre><code>sudo -H python3 -m pip install git+https://github.com/beancount/beancount#egg=beancount

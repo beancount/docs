@@ -273,7 +273,7 @@
 <p><a href="#automating-network-downloads"><u>Automating Network Downloads</u></a></p>
 <p><a href="#typical-downloads"><u>Typical Downloads</u></a></p>
 <p><a href="#extracting-data-from-pdf-files"><u>Extracting Data from PDF Files</u></a></p>
-<p><a href="#tools"><u>Tools</u></a></p>
+<p><a href="#_gbwtrndma055"><u>Tools</u></a></p>
 <p><a href="#invocation"><u>Invocation</u></a></p>
 <p><a href="#configuration"><u>Configuration</u></a></p>
 <p><a href="#configuring-from-an-input-file"><u>Configuring from an Input File</u></a></p>
@@ -346,8 +346,20 @@
 <p>Nevertheless, I usually have good success with my importers grepping around PDF statements converted to ugly text in order to identify what institution they are for and extracting the date of issuance of the document.</p>
 <p>Finally, there are a number of different tools used to extract text from PDF documents, such as <a href="https://pypi.python.org/pypi/pdfminer2"><u>PDFMiner</u></a>, <a href="https://www.libreoffice.org"><u>LibreOffice</u></a>, the <a href="http://www.tutorialspoint.com/unix_commands/pdftotext.htm"><u>xpdf</u></a> library, the <a href="https://poppler.freedesktop.org/"><u>poppler</u></a> library<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> and more... but none of them works consistently on all input documents; you will likely end up installing many and relying on different ones for different input files. For this reason, I’m not requiring a dependency on PDF conversion tools from within Beancount. You should test what works on your specific documents and invoke those tools from your importer implementations.</p>
 <h3 id="automatic-download-with-open-banking-aggregator">Automatic download with open banking aggregator<a id="automatic-download-with-open-banking-aggregator"></a><a class="headerlink" href="#automatic-download-with-open-banking-aggregator" title="Permanent link"></a></h3>
-<p>The open-source accounting software Firefly III already integrates with some free open banking APIs. For more information, you can visit <a href="https://docs.firefly-iii.org/how-to/data-importer/import/gocardless/"><u>Firefly III Documentation</u></a>. The Beancount ecosystem is still lagging in this domain.</p>
-<p>An example of an open banking aggregator that could be interesting is GoCardless. GoCardless supports many PSD2-compliant banks in the EU and the UK, and it is <a href="https://nordigen.medium.com/were-launching-a-free-psd2-data-api-for-europe-941f6298c0dc"><u>free to use</u></a>.</p>
+<p>The open-source accounting software Firefly III already integrates with some free open banking APIs. For more information, you can visit <a href="https://docs.firefly-iii.org/how-to/data-importer/import/gocardless/"><u>Firefly III Documentation</u></a>. An example of an open banking aggregator that could be interesting is GoCardless. GoCardless supports many PSD2-compliant banks in the EU and the UK, and it is <a href="https://nordigen.medium.com/were-launching-a-free-psd2-data-api-for-europe-941f6298c0dc"><u>free to use</u></a>.</p>
+<p>In the Beancout ecosystem, the <a href="https://tariochbctools.readthedocs.io/en/latest/importers.html#nordigen"><u>tarioch/beancounttools</u></a> project contains an importer for Nordigen (which is the former name of the GoCardless banking api). This tool works with bean-extract.</p>
+<ol>
+<li>
+<p><a href="https://developer.gocardless.com/bank-account-data/quick-start-guide#step-5-list-accounts"><u>Simply create and configure a Gocardless account</u></a></p>
+</li>
+<li>
+<p><a href="https://tariochbctools.readthedocs.io/en/latest/importers.html#nordigen"><u>configure tarioch/beancounttools Nordigen importer</u></a>: add nordigen importer in my-smart.import and put nordigen.yaml in Downloads/</p>
+</li>
+<li>
+<p>run : `bean-extract -e database.beancount my-smart.import Download/ &gt; new.beancount`.</p>
+</li>
+</ol>
+<p>This will automatically ingest the data for you.</p>
 <h2 id="tools">Tools<a id="tools"></a><a class="headerlink" href="#tools" title="Permanent link"></a></h2>
 <p>There are three Beancount tools provided to orchestrate the three stages of importing:</p>
 <ol>
