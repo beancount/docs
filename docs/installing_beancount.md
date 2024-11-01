@@ -34,15 +34,29 @@ Beancount supports setuptools since Feb 2016, and you will need to install depen
 
 ### Installing Beancount<a id="installing-beancount"></a>
 
+#### Installing Beancount using pipx<a id="installing-beancount-using-pipx"></a>
+
+If you haven’t already, first [<u>install pipx</u>](https://github.com/pypa/pipx).
+
+Next, use pipx to install Beancount. This should automatically download and install all the dependencies in a virtual environment.
+
+    pipx install beancount
+
+Confirm Beancount has been installed.
+
+    pipx list
+
 #### Installing Beancount using pip<a id="installing-beancount-using-pip"></a>
 
-This is the easiest way to install Beancount. You just install Beancount using
+Installing Beancount using pip is no longer recommended, however you may install Beancount using
 
     sudo -H python3 -m pip install beancount
 
 This should automatically download and install all the dependencies.
 
 Note, however, that this will install the latest version that was pushed to the [<u>PyPI repository</u>](https://pypi.python.org/pypi/beancount/) and not the very latest version available from source. Releases to PyPI are made sporadically but frequently enough not to be too far behind. Consult the [<u>CHANGES file</u>](https://github.com/beancount/beancount/tree/v2/CHANGES) if you’d like to find out what is not included since the release date.
+
+**Warning: Proceed with caution this may break system libraries.**
 
 #### Installing Beancount using pip from the Repository<a id="installing-beancount-using-pip-from-the-repository"></a>
 

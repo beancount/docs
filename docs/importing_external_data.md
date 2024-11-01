@@ -16,7 +16,7 @@
 >
 > [<u>Extracting Data from PDF Files</u>](#extracting-data-from-pdf-files)
 >
-> [<u>Tools</u>](#tools)
+> [<u>Tools</u>](#_gbwtrndma055)
 >
 > [<u>Invocation</u>](#invocation)
 >
@@ -116,9 +116,17 @@ Finally, there are a number of different tools used to extract text from PDF doc
 
 ### Automatic download with open banking aggregator<a id="automatic-download-with-open-banking-aggregator"></a>
 
-The open-source accounting software Firefly III already integrates with some free open banking APIs. For more information, you can visit [<u>Firefly III Documentation</u>](https://docs.firefly-iii.org/how-to/data-importer/import/gocardless/). The Beancount ecosystem is still lagging in this domain.
+The open-source accounting software Firefly III already integrates with some free open banking APIs. For more information, you can visit [<u>Firefly III Documentation</u>](https://docs.firefly-iii.org/how-to/data-importer/import/gocardless/). An example of an open banking aggregator that could be interesting is GoCardless. GoCardless supports many PSD2-compliant banks in the EU and the UK, and it is [<u>free to use</u>](https://nordigen.medium.com/were-launching-a-free-psd2-data-api-for-europe-941f6298c0dc).
 
-An example of an open banking aggregator that could be interesting is GoCardless. GoCardless supports many PSD2-compliant banks in the EU and the UK, and it is [<u>free to use</u>](https://nordigen.medium.com/were-launching-a-free-psd2-data-api-for-europe-941f6298c0dc).
+In the Beancout ecosystem, the [<u>tarioch/beancounttools</u>](https://tariochbctools.readthedocs.io/en/latest/importers.html#nordigen) project contains an importer for Nordigen (which is the former name of the GoCardless banking api). This tool works with bean-extract.
+
+1.  [<u>Simply create and configure a Gocardless account</u>](https://developer.gocardless.com/bank-account-data/quick-start-guide#step-5-list-accounts)
+
+2.  [<u>configure tarioch/beancounttools Nordigen importer</u>](https://tariochbctools.readthedocs.io/en/latest/importers.html#nordigen): add nordigen importer in my-smart.import and put nordigen.yaml in Downloads/
+
+3.  run : \`bean-extract -e database.beancount my-smart.import Download/ &gt; new.beancount\`.
+
+This will automatically ingest the data for you.
 
 ## Tools<a id="tools"></a>
 

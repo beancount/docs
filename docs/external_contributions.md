@@ -94,6 +94,8 @@ This document contains only packages that were discussed or have had an announce
 
 [<u>sulemankm/budget\_report</u>](https://github.com/sulemankm/budget_report) : A very simple command-line budget tracking tool for beancount ledger files.
 
+[<u>fdavies93/minibudget</u>](https://github.com/fdavies93/minibudget) (Frank Davies): MiniBudget is a tool designed to enable personal and small business budgeting using a plaintext format. It's inspired by beancount and plainbudget.
+
 [<u>dyumnin/dyu\_accounting</u>](https://github.com/dyumnin/dyu_accounting) : Accounting setup to automate generation of various financial statements for Compliance with Indian Govt.
 
 [<u>Gains Minimizer</u>](https://github.com/redstreet/fava_investor/tree/main/fava_investor/modules/minimizegains) (RedStreet): Automatically determine lots to sell to minimize capital gains taxes. [<u>Live example.</u>](http://favainvestor.pythonanywhere.com/example-beancount-file/extension/Investor/?module=minimizegains)
