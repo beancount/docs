@@ -237,7 +237,7 @@
             <div class="section">
               
                 <h1 id="installing-beancount">Installing Beancount<a id="title"></a><a class="headerlink" href="#installing-beancount" title="Permanent link"></a></h1>
-<p><a href="mailto:blais@furius.ca"><u>Martin Blais</u></a> - Updated: June 2024</p>
+<p><a href="mailto:blais@furius.ca"><u>Martin Blais</u></a> - Updated: November 2024</p>
 <p><a href="http://furius.ca/beancount/doc/install"><u>http://furius.ca/beancount/doc/install</u></a></p>
 <p><em>Instructions for downloading and installing Beancount on your computer.</em></p>
 <h2 id="releases">Releases<a id="releases"></a><a class="headerlink" href="#releases" title="Permanent link"></a></h2>
@@ -285,19 +285,16 @@
 <p>If installing on Windows, see the Windows section below.</p>
 <h5 id="build-and-install-beancount-from-source-using-pip3">Build and Install Beancount from source using pip3<a id="build-and-install-beancount-from-source-using-pip3"></a><a class="headerlink" href="#build-and-install-beancount-from-source-using-pip3" title="Permanent link"></a></h5>
 <p>You can then install all the dependencies and Beancount itself using pip:</p>
-<pre><code>cd beancount
-sudo -H python3 -m pip install .
+<pre><code>sudo -H python3 -m pip install .
 </code></pre>
 <h5 id="installing-for-development">Installing for Development<a id="installing-for-development"></a><a class="headerlink" href="#installing-for-development" title="Permanent link"></a></h5>
 <p>If you want to execute the source in-place for making changes to it, you can use the setuptools “develop” command to point to it:</p>
-<pre><code>cd beancount
-sudo python3 setup.py develop
+<pre><code>sudo python3 setup.py develop
 </code></pre>
-<p>Warning: This modifies a .pth file in your Python installation to point to the path to your clone. You may or may not want this. I don't do this myself; the way I work with it is the "old school" way; I just build it locally and modify my shell's environment to find its libraries. You build it like this:</p>
-<pre><code>cd beancount
-python3 setup.py build_ext -i  # or "make build"
+<p>Warning: This modifies a .pth file in your Python installation to point to the path to your clone. You may or may not want this. I don't do this myself; the way I work is by compiling locally and setting up my shell's environment to find its libraries. You can do it like this:</p>
+<pre><code>make build
 </code></pre>
-<p>and then both the PATH and PYTHONPATH environment variables need to be updated for it like this:</p>
+<p>You will need to have "meson" and "ninja" installed to do this. Both the PATH and PYTHONPATH environment variables need to be updated to pick up the imports and binaries locally as follows:</p>
 <pre><code>export PATH=$PATH:/path/to/beancount/bin
 export PYTHONPATH=$PYTHONPATH:/path/to/beancount
 </code></pre>
@@ -306,6 +303,9 @@ export PYTHONPATH=$PYTHONPATH:/path/to/beancount
 <ul>
 <li>
 <p>pytest: for unit tests</p>
+</li>
+<li>
+<p>meson, meson-python, ninja: for building (on branch master)</p>
 </li>
 <li>
 <p>ruff: for linting</p>
@@ -326,7 +326,8 @@ export PYTHONPATH=$PYTHONPATH:/path/to/beancount
 <li>Arch: <a href="https://aur.archlinux.org/packages/beancount/"><u>https://aur.archlinux.org/packages/beancount/</u></a></li>
 </ul>
 <h3 id="windows-installation">Windows Installation<a id="windows-installation"></a><a class="headerlink" href="#windows-installation" title="Permanent link"></a></h3>
-<h4 id="native">Native<a id="native"></a><a class="headerlink" href="#native" title="Permanent link"></a></h4>
+<h4 id="native-for-development">Native for development<a id="native-for-development"></a><a class="headerlink" href="#native-for-development" title="Permanent link"></a></h4>
+<p>Install compiler</p>
 <p>Installing this package by pip requires compiling some C++ code during the installation procedure which is only possible if an appropriate compiler is available on the computer, otherwise you will receive an error message about missing <em>vsvarsall.bat</em> or <em>cl.exe</em>.</p>
 <p>To be able to compile C++ code for Python you will need to install the same major version of the C++ compiler as your Python installation was compiled with. By running <em>python</em> in a console and looking for a text similar to <em>[MSC v.1900 64 bit (AMD64)]</em> you can determine which compiler was used for your particular Python distribution. In this example it is <em>v.1900</em>.</p>
 <p>Using this number find the required Visual C++ version <a href="https://stackoverflow.com/questions/2676763/what-version-of-visual-studio-is-python-on-my-computer-compiled-with"><u>here</u></a>. Since different versions seem to be compatible as long as the first two digits are the same you can in theory use any Visual C++ compiler between 1900 and 1999.</p>
@@ -356,13 +357,44 @@ export PYTHONPATH=$PYTHONPATH:/path/to/beancount
 </ul>
 </li>
 <li>
-<p>Visual Studio 2019</p>
+<p>Visual Studio 2019, 2022</p>
 <ul>
 <li>add C++ build tools: C++ core features, MSVC v142 build tools</li>
 </ul>
 </li>
 </ul>
-<p>If cl.exe is not in your path after installation, run Developer Command Prompt for Visual Studio and run the commands there.</p>
+<h5 id="if-clexe-is-not-in-your-path-after-installation-run-developer-command-prompt-for-visual-studio-and-run-the-commands-there-install-winflexbison">If cl.exe is not in your path after installation, run Developer Command Prompt for Visual Studio and run the commands there.  Install <a href="https://github.com/lexxmark/winflexbison"><u>winflexbison</u></a><a id="if-cl.exe-is-not-in-your-path-after-installation-run-developer-command-prompt-for-visual-studio-and-run-the-commands-there.-install-winflexbison"></a><a class="headerlink" href="#if-clexe-is-not-in-your-path-after-installation-run-developer-command-prompt-for-visual-studio-and-run-the-commands-there-install-winflexbison" title="Permanent link"></a></h5>
+<p>Download zip file with the latest version of the winflexbison</p>
+<p><a href="https://github.com/lexxmark/winflexbison/releases"><u>https://github.com/lexxmark/winflexbison/releases</u></a></p>
+<p>Extract archive to some directory (e.g. <code>C:\Program Files (x86)\winflexbison</code>)</p>
+<p><a href="https://www.youtube.com/watch?v=9umV9jD6n80"><u>Update the Path environmental</u></a> variable to include that directory ( e.g. ‘<code>C:\Program Files (x86)\winflexbison</code>’)</p>
+<p>Reboot the PC</p>
+<p>Open the command prompt</p>
+<p>Issue the command</p>
+<pre><code>win_bison --version
+</code></pre>
+<h5 id="confirm-that-you-get-a-response-with-the-win_bizon-version-install-build-utilities">Confirm that you get a response with the win_bizon version  <strong>Install build utilities</strong><a id="confirm-that-you-get-a-response-with-the-win_bizon-version-install-build-utilities"></a><a class="headerlink" href="#confirm-that-you-get-a-response-with-the-win_bizon-version-install-build-utilities" title="Permanent link"></a></h5>
+<pre><code>python -m pip install meson-python meson ninja
+</code></pre>
+<h5 id="get-and-install-beancount">Get and Install beancount<a id="get-and-install-beancount"></a><a class="headerlink" href="#get-and-install-beancount" title="Permanent link"></a></h5>
+<p>Get the latest version of the <strong>beancount</strong> from github and build it</p>
+<pre><code>git clone https://github.com/beancount/beancount.git
+
+cd beancount
+</code></pre>
+<p>Install beancount from the source in editable mode</p>
+<pre><code>python -m pip install --no-build-isolation -e .
+</code></pre>
+<h5 id="test-beancount">Test beancount<a id="test-beancount"></a><a class="headerlink" href="#test-beancount" title="Permanent link"></a></h5>
+<p>Install pytest</p>
+<pre><code>python -m pip install pytest
+</code></pre>
+<p>Go to the inside directory and run unit tests</p>
+<pre><code>cd beancount
+
+python -m pytest
+</code></pre>
+<p>Confirm that the majority of tests have passed (approx 70 tests out of approx 1100 total fail on Windows as of November 2024, which is mostly related to the fact, that unit tests are written assuming POSIX environment (see issue <a href="https://github.com/beancount/beancount/issues/222"><u>222</u></a>, <a href="https://github.com/beancount/beancount/issues/550"><u>550</u></a> ))</p>
 <h4 id="with-cygwin">With Cygwin<a id="with-cygwin"></a><a class="headerlink" href="#with-cygwin" title="Permanent link"></a></h4>
 <p>Windows installation is, of course, a bit different. It’s a breeze if you use Cygwin. You just have to prep your machine first. Here’s how.</p>
 <ul>
