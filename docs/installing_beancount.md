@@ -1,6 +1,6 @@
 # Installing Beancount<a id="title"></a>
 
-[<u>Martin Blais</u>](mailto:blais@furius.ca) - Updated: June 2024
+[<u>Martin Blais</u>](mailto:blais@furius.ca) - Updated: November 2024
 
 [<u>http://furius.ca/beancount/doc/install</u>](http://furius.ca/beancount/doc/install)
 
@@ -80,22 +80,19 @@ If installing on Windows, see the Windows section below.
 
 You can then install all the dependencies and Beancount itself using pip:
 
-    cd beancount
     sudo -H python3 -m pip install .
 
 ##### Installing for Development<a id="installing-for-development"></a>
 
 If you want to execute the source in-place for making changes to it, you can use the setuptools “develop” command to point to it:
 
-    cd beancount
     sudo python3 setup.py develop 
 
-Warning: This modifies a .pth file in your Python installation to point to the path to your clone. You may or may not want this. I don't do this myself; the way I work with it is the "old school" way; I just build it locally and modify my shell's environment to find its libraries. You build it like this:
+Warning: This modifies a .pth file in your Python installation to point to the path to your clone. You may or may not want this. I don't do this myself; the way I work is by compiling locally and setting up my shell's environment to find its libraries. You can do it like this:
 
-    cd beancount
-    python3 setup.py build_ext -i  # or "make build"
+    make build
 
-and then both the PATH and PYTHONPATH environment variables need to be updated for it like this:
+You will need to have "meson" and "ninja" installed to do this. Both the PATH and PYTHONPATH environment variables need to be updated to pick up the imports and binaries locally as follows:
 
     export PATH=$PATH:/path/to/beancount/bin
     export PYTHONPATH=$PYTHONPATH:/path/to/beancount
@@ -105,6 +102,8 @@ and then both the PATH and PYTHONPATH environment variables need to be updated f
 Beancount needs a few more tools for development. If you’re reading this, you’re a developer, so I’ll assume you can figure out how to install packages, skip the detail, and just list what you might need:
 
 -   pytest: for unit tests
+
+-   meson, meson-python, ninja: for building (on branch master)
 
 -   ruff: for linting
 
@@ -122,7 +121,9 @@ Various distributions may package Beancount. Here are links to those known to ex
 
 ### Windows Installation<a id="windows-installation"></a>
 
-#### Native<a id="native"></a>
+#### Native for development<a id="native-for-development"></a>
+
+Install compiler
 
 Installing this package by pip requires compiling some C++ code during the installation procedure which is only possible if an appropriate compiler is available on the computer, otherwise you will receive an error message about missing *vsvarsall.bat* or *cl.exe*.
 
@@ -146,11 +147,57 @@ According to my experience both Python 3.8 and 3.6 was compiled with MSC v.1900 
 
     -   Install
 
--   Visual Studio 2019
+-   Visual Studio 2019, 2022
 
     -   add C++ build tools: C++ core features, MSVC v142 build tools
 
-If cl.exe is not in your path after installation, run Developer Command Prompt for Visual Studio and run the commands there.
+##### If cl.exe is not in your path after installation, run Developer Command Prompt for Visual Studio and run the commands there.  Install [<u>winflexbison</u>](https://github.com/lexxmark/winflexbison)<a id="if-cl.exe-is-not-in-your-path-after-installation-run-developer-command-prompt-for-visual-studio-and-run-the-commands-there.-install-winflexbison"></a>
+
+Download zip file with the latest version of the winflexbison
+
+[<u>https://github.com/lexxmark/winflexbison/releases</u>](https://github.com/lexxmark/winflexbison/releases)
+
+Extract archive to some directory (e.g. `C:\Program Files (x86)\winflexbison`)
+
+[<u>Update the Path environmental</u>](https://www.youtube.com/watch?v=9umV9jD6n80) variable to include that directory ( e.g. ‘`C:\Program Files (x86)\winflexbison`’)
+
+Reboot the PC
+
+Open the command prompt
+
+Issue the command
+
+    win_bison --version
+
+##### Confirm that you get a response with the win\_bizon version  **Install build utilities**<a id="confirm-that-you-get-a-response-with-the-win_bizon-version-install-build-utilities"></a>
+
+    python -m pip install meson-python meson ninja
+
+##### Get and Install beancount<a id="get-and-install-beancount"></a>
+
+Get the latest version of the **beancount** from github and build it
+
+    git clone https://github.com/beancount/beancount.git
+
+    cd beancount
+
+Install beancount from the source in editable mode
+
+    python -m pip install --no-build-isolation -e .
+
+##### Test beancount<a id="test-beancount"></a>
+
+Install pytest
+
+    python -m pip install pytest
+
+Go to the inside directory and run unit tests
+
+    cd beancount
+
+    python -m pytest
+
+Confirm that the majority of tests have passed (approx 70 tests out of approx 1100 total fail on Windows as of November 2024, which is mostly related to the fact, that unit tests are written assuming POSIX environment (see issue [<u>222</u>](https://github.com/beancount/beancount/issues/222), [<u>550</u>](https://github.com/beancount/beancount/issues/550) ))
 
 #### With Cygwin<a id="with-cygwin"></a>
 
