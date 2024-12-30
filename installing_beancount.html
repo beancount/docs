@@ -69,8 +69,6 @@
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#installing-beancount_1">Installing Beancount</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#windows-installation">Windows Installation</a>
-    </li>
     <li class="toctree-l4"><a class="reference internal" href="#checking-your-install">Checking your Install</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#reporting-problems">Reporting Problems</a>
@@ -325,9 +323,61 @@ export PYTHONPATH=$PYTHONPATH:/path/to/beancount
 <ul>
 <li>Arch: <a href="https://aur.archlinux.org/packages/beancount/"><u>https://aur.archlinux.org/packages/beancount/</u></a></li>
 </ul>
-<h3 id="windows-installation">Windows Installation<a id="windows-installation"></a><a class="headerlink" href="#windows-installation" title="Permanent link"></a></h3>
-<h4 id="native-for-development">Native for development<a id="native-for-development"></a><a class="headerlink" href="#native-for-development" title="Permanent link"></a></h4>
-<p>Install compiler</p>
+<h4 id="windows-installation">Windows Installation<a id="windows-installation"></a><a class="headerlink" href="#windows-installation" title="Permanent link"></a></h4>
+<h5 id="beancount-v3">beancount v3<a id="beancount-v3"></a><a class="headerlink" href="#beancount-v3" title="Permanent link"></a></h5>
+<p>If you intend to use beancount v3, then there is probably no reason to install it without beanquery, as custom reports and bean-web are discontinued in v3.</p>
+<p>In this case the simplest way to install beancount is to install beanquery, which will install beancount as a dependency.</p>
+<p>To do this simply run the following command</p>
+<pre><code>pip install beanquery
+</code></pre>
+<p>Or</p>
+<pre><code>python -m pip install beanquery
+</code></pre>
+<p>To test installation create a simple beancount ledger</p>
+<p>E.g.,:</p>
+<pre><code>====================================
+
+2024-01-01 open Assets:Bank
+
+2024-01-01 open Equity:Opening-Balances
+
+2024-01-01 * "Opening Balance"
+
+  Assets:Bank  1000.00 USD
+
+  Equity:Opening-Balances
+
+======================================
+</code></pre>
+<p>Save it to some file (e.g. tst.bean)</p>
+<p>Then run</p>
+<pre><code> bean-query tst.bean
+</code></pre>
+<p>Or</p>
+<pre><code>python -m beanquery tst.bean
+</code></pre>
+<p>Confirm, that you get prompt like that</p>
+<pre><code>Input file: "Beancount"
+
+Ready with 3 directives (2 postings in 1 transactions).
+
+beanquery&gt;
+</code></pre>
+<p>Congratulations! Installation is successful</p>
+<p>If for whatever reason you still want to install beancount standalone, you can do it like that:</p>
+<pre><code>pip install beancount
+</code></pre>
+<p>Or</p>
+<pre><code>python -m pip install beancount
+</code></pre>
+<h5 id="beancount-v2">beancount v2<a id="beancount-v2"></a><a class="headerlink" href="#beancount-v2" title="Permanent link"></a></h5>
+<p>To install the last v2 of beancount do the following:</p>
+<p><strong><code>pip install "beancount&lt;3"</code></strong></p>
+<p>or</p>
+<pre><code>                python -m pip install "beancount&lt;3"
+</code></pre>
+<h5 id="native-for-development">Native for development<a id="native-for-development"></a><a class="headerlink" href="#native-for-development" title="Permanent link"></a></h5>
+<h6 id="install-compiler">Install compiler<a id="install-compiler"></a><a class="headerlink" href="#install-compiler" title="Permanent link"></a></h6>
 <p>Installing this package by pip requires compiling some C++ code during the installation procedure which is only possible if an appropriate compiler is available on the computer, otherwise you will receive an error message about missing <em>vsvarsall.bat</em> or <em>cl.exe</em>.</p>
 <p>To be able to compile C++ code for Python you will need to install the same major version of the C++ compiler as your Python installation was compiled with. By running <em>python</em> in a console and looking for a text similar to <em>[MSC v.1900 64 bit (AMD64)]</em> you can determine which compiler was used for your particular Python distribution. In this example it is <em>v.1900</em>.</p>
 <p>Using this number find the required Visual C++ version <a href="https://stackoverflow.com/questions/2676763/what-version-of-visual-studio-is-python-on-my-computer-compiled-with"><u>here</u></a>. Since different versions seem to be compatible as long as the first two digits are the same you can in theory use any Visual C++ compiler between 1900 and 1999.</p>
@@ -363,7 +413,8 @@ export PYTHONPATH=$PYTHONPATH:/path/to/beancount
 </ul>
 </li>
 </ul>
-<h5 id="if-clexe-is-not-in-your-path-after-installation-run-developer-command-prompt-for-visual-studio-and-run-the-commands-there-install-winflexbison">If cl.exe is not in your path after installation, run Developer Command Prompt for Visual Studio and run the commands there.  Install <a href="https://github.com/lexxmark/winflexbison"><u>winflexbison</u></a><a id="if-cl.exe-is-not-in-your-path-after-installation-run-developer-command-prompt-for-visual-studio-and-run-the-commands-there.-install-winflexbison"></a><a class="headerlink" href="#if-clexe-is-not-in-your-path-after-installation-run-developer-command-prompt-for-visual-studio-and-run-the-commands-there-install-winflexbison" title="Permanent link"></a></h5>
+<p>If cl.exe is not in your path after installation, run Developer Command Prompt for Visual Studio and run the commands there.</p>
+<h6 id="install-winflexbison">Install winflexbison<a id="install-winflexbison"></a><a class="headerlink" href="#install-winflexbison" title="Permanent link"></a></h6>
 <p>Download zip file with the latest version of the winflexbison</p>
 <p><a href="https://github.com/lexxmark/winflexbison/releases"><u>https://github.com/lexxmark/winflexbison/releases</u></a></p>
 <p>Extract archive to some directory (e.g. <code>C:\Program Files (x86)\winflexbison</code>)</p>
@@ -373,10 +424,11 @@ export PYTHONPATH=$PYTHONPATH:/path/to/beancount
 <p>Issue the command</p>
 <pre><code>win_bison --version
 </code></pre>
-<h5 id="confirm-that-you-get-a-response-with-the-win_bizon-version-install-build-utilities">Confirm that you get a response with the win_bizon version  <strong>Install build utilities</strong><a id="confirm-that-you-get-a-response-with-the-win_bizon-version-install-build-utilities"></a><a class="headerlink" href="#confirm-that-you-get-a-response-with-the-win_bizon-version-install-build-utilities" title="Permanent link"></a></h5>
+<p>Confirm that you get a response with the win_bizon version</p>
+<h6 id="install-build-utilities">Install build utilities<a id="install-build-utilities"></a><a class="headerlink" href="#install-build-utilities" title="Permanent link"></a></h6>
 <pre><code>python -m pip install meson-python meson ninja
 </code></pre>
-<h5 id="get-and-install-beancount">Get and Install beancount<a id="get-and-install-beancount"></a><a class="headerlink" href="#get-and-install-beancount" title="Permanent link"></a></h5>
+<h6 id="get-and-install-beancount">Get and Install beancount<a id="get-and-install-beancount"></a><a class="headerlink" href="#get-and-install-beancount" title="Permanent link"></a></h6>
 <p>Get the latest version of the <strong>beancount</strong> from github and build it</p>
 <pre><code>git clone https://github.com/beancount/beancount.git
 
@@ -385,7 +437,7 @@ cd beancount
 <p>Install beancount from the source in editable mode</p>
 <pre><code>python -m pip install --no-build-isolation -e .
 </code></pre>
-<h5 id="test-beancount">Test beancount<a id="test-beancount"></a><a class="headerlink" href="#test-beancount" title="Permanent link"></a></h5>
+<h6 id="test-beancount">Test beancount<a id="test-beancount"></a><a class="headerlink" href="#test-beancount" title="Permanent link"></a></h6>
 <p>Install pytest</p>
 <pre><code>python -m pip install pytest
 </code></pre>

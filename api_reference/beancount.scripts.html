@@ -166,26 +166,6 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#beancount.scripts">beancount.scripts</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#beancount.scripts.bake">bake</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.bake.archive">archive()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.bake.archive_zip">archive_zip()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.bake.bake_to_directory">bake_to_directory()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.bake.normalize_filename">normalize_filename()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.bake.relativize_links">relativize_links()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.bake.remove_links">remove_links()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.bake.save_scraped_document">save_scraped_document()</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#beancount.scripts.check">check</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#beancount.scripts.deps">deps</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.deps.check_cdecimal">check_cdecimal()</a>
@@ -218,50 +198,56 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#beancount.scripts.doctor">doctor</a>
         <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.doctor.FileLocation">FileLocation</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.doctor.FileLocation.convert">convert()</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.doctor.FileRegion">FileRegion</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.doctor.FileRegion.convert">convert()</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.doctor.Group">Group</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.doctor.Group.command">command()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.doctor.Group.get_command">get_command()</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.doctor.RenderError">RenderError</a>
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.doctor.RenderError.__getnewargs__">__getnewargs__()</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.doctor.RenderError.__new__">__new__()</a>
     </li>
+    <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.doctor.RenderError.__replace__">__replace__()</a>
+    </li>
     <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.doctor.RenderError.__repr__">__repr__()</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.doctor.do_checkdeps">do_checkdeps()</a>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.doctor.find_linked_entries">find_linked_entries()</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.doctor.do_context">do_context()</a>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.doctor.find_tagged_entries">find_tagged_entries()</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.doctor.do_deps">do_deps()</a>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.doctor.render_mini_balances">render_mini_balances()</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.doctor.do_directories">do_directories()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.doctor.do_display_context">do_display_context()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.doctor.do_dump_lexer">do_dump_lexer()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.doctor.do_lex">do_lex()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.doctor.do_linked">do_linked()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.doctor.do_list_options">do_list_options()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.doctor.do_missing_open">do_missing_open()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.doctor.do_parse">do_parse()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.doctor.do_print_options">do_print_options()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.doctor.do_roundtrip">do_roundtrip()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.doctor.do_validate_html">do_validate_html()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.doctor.get_commands">get_commands()</a>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.doctor.resolve_region_to_entries">resolve_region_to_entries()</a>
     </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#beancount.scripts.example">example</a>
         <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.example.LiberalDate">LiberalDate</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.example.LiberalDate.convert">convert()</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.example.check_non_negative">check_non_negative()</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.example.compute_trip_dates">compute_trip_dates()</a>
@@ -342,102 +328,6 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#beancount.scripts.sql">sql</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.sql.BalanceWriter">BalanceWriter</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.sql.BalanceWriter.type">type</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.sql.BalanceWriter.get_detail">get_detail()</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.sql.CloseWriter">CloseWriter</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.sql.CloseWriter.type">type</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.sql.CloseWriter.get_detail">get_detail()</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.sql.DirectiveWriter">DirectiveWriter</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.sql.DirectiveWriter.__call__">__call__()</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.sql.DirectiveWriter.get_detail">get_detail()</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.sql.DocumentWriter">DocumentWriter</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.sql.DocumentWriter.type">type</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.sql.DocumentWriter.get_detail">get_detail()</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.sql.EventWriter">EventWriter</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.sql.EventWriter.type">type</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.sql.EventWriter.get_detail">get_detail()</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.sql.NoteWriter">NoteWriter</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.sql.NoteWriter.type">type</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.sql.NoteWriter.get_detail">get_detail()</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.sql.OpenWriter">OpenWriter</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.sql.OpenWriter.type">type</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.sql.OpenWriter.get_detail">get_detail()</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.sql.PadWriter">PadWriter</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.sql.PadWriter.type">type</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.sql.PadWriter.get_detail">get_detail()</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.sql.PriceWriter">PriceWriter</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.sql.PriceWriter.type">type</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.sql.PriceWriter.get_detail">get_detail()</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.sql.QueryWriter">QueryWriter</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.sql.QueryWriter.type">type</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.scripts.sql.QueryWriter.get_detail">get_detail()</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.sql.adapt_decimal">adapt_decimal()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.sql.convert_decimal">convert_decimal()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.sql.output_common">output_common()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.sql.output_transactions">output_transactions()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.scripts.sql.setup_decimal_support">setup_decimal_support()</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#beancount.scripts.tutorial">tutorial</a>
-    </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="beancount.tools.html">beancount.tools</a>
@@ -507,614 +397,6 @@ single directory, for analysis, grepping and unit testing.</p>
 
 
 
-
-
-  <div class="doc doc-object doc-module">
-
-
-
-<h2 id="beancount.scripts.bake" class="doc doc-heading">
-        <code>beancount.scripts.bake</code>
-
-
-
-<a href="#beancount.scripts.bake" class="headerlink" title="Permanent link"></a></h2>
-
-    <div class="doc doc-contents ">
-
-      <p>Bake a Beancount input file's web files to a directory hierarchy.</p>
-<p>You provide a Beancount filename, an output directory, and this script
-runs a server and a scraper that puts all the files in the directory,
-and if your output name has an archive suffix, we automatically the
-fetched directory contents to the archive and delete them.</p>
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.scripts.bake.archive" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.bake.archive(command_template, directory, archive, quiet=False)</code>
-
-
-<a href="#beancount.scripts.bake.archive" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Archive the directory to the given tar/gz archive filename.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>command_template</strong> – A string, the command template to format with in order
-to compute the command to run.</p></li>
-            <li><p><strong>directory</strong> – A string, the name of the directory to archive.</p></li>
-            <li><p><strong>archive</strong> – A string, the name of the file to output.</p></li>
-            <li><p><strong>quiet</strong> – A boolean, True to suppress output.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Exceptions:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><code>IOError</code> – if the directory does not exist or if the archive name already</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/bake.py</code></summary>
-          <pre class="highlight"><code class="language-python">def archive(command_template, directory, archive, quiet=False):
-    """Archive the directory to the given tar/gz archive filename.
-
-    Args:
-      command_template: A string, the command template to format with in order
-        to compute the command to run.
-      directory: A string, the name of the directory to archive.
-      archive: A string, the name of the file to output.
-      quiet: A boolean, True to suppress output.
-    Raises:
-      IOError: if the directory does not exist or if the archive name already
-      exists.
-
-    """
-    directory = path.abspath(directory)
-    archive = path.abspath(archive)
-    if not path.exists(directory):
-        raise IOError("Directory to archive '{}' does not exist".format(
-            directory))
-    if path.exists(archive):
-        raise IOError("Output archive name '{}' already exists".format(
-            archive))
-
-    command = command_template.format(directory=directory,
-                                      dirname=path.dirname(directory),
-                                      basename=path.basename(directory),
-                                      archive=archive)
-
-    pipe = subprocess.Popen(shlex.split(command),
-                            shell=False,
-                            cwd=path.dirname(directory),
-                            stdout=subprocess.PIPE if quiet else None,
-                            stderr=subprocess.PIPE if quiet else None)
-    _, _ = pipe.communicate()
-    if pipe.returncode != 0:
-        raise OSError("Archive failure")
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.scripts.bake.archive_zip" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.bake.archive_zip(directory, archive)</code>
-
-
-<a href="#beancount.scripts.bake.archive_zip" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Archive the directory to the given tar/gz archive filename.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>directory</strong> – A string, the name of the directory to archive.</p></li>
-            <li><p><strong>archive</strong> – A string, the name of the file to output.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/bake.py</code></summary>
-          <pre class="highlight"><code class="language-python">def archive_zip(directory, archive):
-    """Archive the directory to the given tar/gz archive filename.
-
-    Args:
-      directory: A string, the name of the directory to archive.
-      archive: A string, the name of the file to output.
-    """
-    # Figure out optimal level of compression among the supported ones in this
-    # installation.
-    for spec, compression in [
-            ('lzma', zipfile.ZIP_LZMA),
-            ('bz2', zipfile.ZIP_BZIP2),
-            ('zlib', zipfile.ZIP_DEFLATED)]:
-        if importlib.util.find_spec(spec):
-            zip_compression = compression
-            break
-    else:
-        # Default is no compression.
-        zip_compression = zipfile.ZIP_STORED
-
-    with file_utils.chdir(directory), zipfile.ZipFile(
-            archive, 'w', compression=zip_compression) as archfile:
-        for root, dirs, files in os.walk(directory):
-            for filename in files:
-                relpath = path.relpath(path.join(root, filename), directory)
-                archfile.write(relpath)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.scripts.bake.bake_to_directory" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.bake.bake_to_directory(webargs, output_dir, render_all_pages=True)</code>
-
-
-<a href="#beancount.scripts.bake.bake_to_directory" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Serve and bake a Beancount's web to a directory.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>webargs</strong> – An argparse parsed options object with the web app arguments.</p></li>
-            <li><p><strong>output_dir</strong> – A directory name. We don't check here whether it exists or not.</p></li>
-            <li><p><strong>quiet</strong> – A boolean, True to suppress web server fetch log.</p></li>
-            <li><p><strong>render_all_pages</strong> – If true, fetch the full set of pages, not just the subset that
-is palatable.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>True on success, False otherwise.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/bake.py</code></summary>
-          <pre class="highlight"><code class="language-python">def bake_to_directory(webargs, output_dir, render_all_pages=True):
-    """Serve and bake a Beancount's web to a directory.
-
-    Args:
-      webargs: An argparse parsed options object with the web app arguments.
-      output_dir: A directory name. We don't check here whether it exists or not.
-      quiet: A boolean, True to suppress web server fetch log.
-      render_all_pages: If true, fetch the full set of pages, not just the subset that
-        is palatable.
-    Returns:
-      True on success, False otherwise.
-    """
-    callback = functools.partial(save_scraped_document, output_dir)
-
-    if render_all_pages:
-        ignore_regexps = None
-    else:
-        regexps = [
-            # Skip the context pages, too slow.
-            r'/context/',
-            # Skip the link pages, too slow.
-            r'/link/',
-            # Skip the component pages... too many.
-            r'/view/component/',
-            # Skip served documents.
-            r'/.*/doc/',
-            # Skip monthly pages.
-            r'/view/year/\d\d\d\d/month/',
-        ]
-        ignore_regexps = '({})'.format('|'.join(regexps))
-
-    processed_urls, skipped_urls = web.scrape_webapp(webargs, callback, ignore_regexps)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.scripts.bake.normalize_filename" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.bake.normalize_filename(url)</code>
-
-
-<a href="#beancount.scripts.bake.normalize_filename" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Convert URL paths to filenames. Add .html extension if needed.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>url</strong> – A string, the url to convert.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>A string, possibly with an extension appended.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/bake.py</code></summary>
-          <pre class="highlight"><code class="language-python">def normalize_filename(url):
-    """Convert URL paths to filenames. Add .html extension if needed.
-
-    Args:
-      url: A string, the url to convert.
-    Returns:
-      A string, possibly with an extension appended.
-    """
-    if url.endswith('/'):
-        return path.join(url, 'index.html')
-    elif BINARY_MATCH(url):
-        return url
-    else:
-        return url if url.endswith('.html') else (url + '.html')
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.scripts.bake.relativize_links" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.bake.relativize_links(html, current_url)</code>
-
-
-<a href="#beancount.scripts.bake.relativize_links" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Make all the links in the contents string relative to an URL.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>html</strong> – An lxml document node.</p></li>
-            <li><p><strong>current_url</strong> – A string, the URL of the current page, a path to.
-a file or a directory. If the path represents a directory, the
-path ends with a /.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/bake.py</code></summary>
-          <pre class="highlight"><code class="language-python">def relativize_links(html, current_url):
-    """Make all the links in the contents string relative to an URL.
-
-    Args:
-      html: An lxml document node.
-      current_url: A string, the URL of the current page, a path to.
-        a file or a directory. If the path represents a directory, the
-        path ends with a /.
-    """
-    current_dir = path.dirname(current_url)
-    for element, attribute, link, pos in lxml.html.iterlinks(html):
-        if path.isabs(link):
-            relative_link = path.relpath(normalize_filename(link), current_dir)
-            element.set(attribute, relative_link)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.scripts.bake.remove_links" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.bake.remove_links(html, targets)</code>
-
-
-<a href="#beancount.scripts.bake.remove_links" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Convert a list of anchors (&lt;a&gt;) from an HTML tree to spans (&lt;span&gt;).</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>html</strong> – An lxml document node.</p></li>
-            <li><p><strong>targets</strong> – A set of string, targets to be removed.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/bake.py</code></summary>
-          <pre class="highlight"><code class="language-python">def remove_links(html, targets):
-    """Convert a list of anchors (&lt;a&gt;) from an HTML tree to spans (&lt;span&gt;).
-
-    Args:
-      html: An lxml document node.
-      targets: A set of string, targets to be removed.
-    """
-    for element, attribute, link, pos in lxml.html.iterlinks(html):
-        if link in targets:
-            del element.attrib[attribute]
-            element.tag = 'span'
-            element.set('class', 'removed-link')
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.scripts.bake.save_scraped_document" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.bake.save_scraped_document(output_dir, url, response, contents, html_root, skipped_urls)</code>
-
-
-<a href="#beancount.scripts.bake.save_scraped_document" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Callback function to process a document being scraped.</p>
-<p>This converts the document to have relative links and writes out the file to
-the output directory.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>output_dir</strong> – A string, the output directory to write.</p></li>
-            <li><p><strong>url</strong> – A string, the originally requested URL.</p></li>
-            <li><p><strong>response</strong> – An http response as per urlopen.</p></li>
-            <li><p><strong>contents</strong> – Bytes, the content of a response.</p></li>
-            <li><p><strong>html_root</strong> – An lxml root node for the document, optionally. If this is provided,
-this avoid you having to reprocess it (for performance reasons).</p></li>
-            <li><p><strong>skipped_urls</strong> – A set of the links from the file that were skipped.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/bake.py</code></summary>
-          <pre class="highlight"><code class="language-python">def save_scraped_document(output_dir, url, response, contents, html_root, skipped_urls):
-    """Callback function to process a document being scraped.
-
-    This converts the document to have relative links and writes out the file to
-    the output directory.
-
-    Args:
-      output_dir: A string, the output directory to write.
-      url: A string, the originally requested URL.
-      response: An http response as per urlopen.
-      contents: Bytes, the content of a response.
-      html_root: An lxml root node for the document, optionally. If this is provided,
-        this avoid you having to reprocess it (for performance reasons).
-      skipped_urls: A set of the links from the file that were skipped.
-    """
-    if response.status != 200:
-        logging.error("Invalid status: %s", response.status)
-
-    # Ignore directories.
-    if url.endswith('/'):
-        return
-
-    # Note that we're saving the file under the non-redirected URL, because this
-    # will have to be opened using files and there are no redirects that way.
-
-    if response.info().get_content_type() == 'text/html':
-        if html_root is None:
-            html_root = lxml.html.document_fromstring(contents)
-        remove_links(html_root, skipped_urls)
-        relativize_links(html_root, url)
-        contents = lxml.html.tostring(html_root, method="html")
-
-    # Compute output filename and write out the relativized contents.
-    output_filename = path.join(output_dir,
-                                normalize_filename(url).lstrip('/'))
-    os.makedirs(path.dirname(output_filename), exist_ok=True)
-    with open(output_filename, 'wb') as outfile:
-        outfile.write(contents)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-module">
-
-
-
-<h2 id="beancount.scripts.check" class="doc doc-heading">
-        <code>beancount.scripts.check</code>
-
-
-
-<a href="#beancount.scripts.check" class="headerlink" title="Permanent link"></a></h2>
-
-    <div class="doc doc-contents ">
-
-      <p>Parse, check and realize a beancount input file.</p>
-<p>This also measures the time it takes to run all these steps.</p>
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
 
 
 
@@ -1266,11 +548,10 @@ Beancount.</p></li>
 
         # Modules we really do need installed.
         check_import('dateutil'),
-        check_import('bottle'),
         check_import('ply', module_name='ply.yacc', min_version='3.4'),
-        check_import('lxml', module_name='lxml.etree', min_version='3'),
 
         # Optionally required to upload data to Google Drive.
+        # TODO(blais, 2023-11-18): oauth2client is deprecated.
         check_import('googleapiclient'),
         check_import('oauth2client'),
         check_import('httplib2'),
@@ -1280,7 +561,6 @@ Beancount.</p></li>
 
         # Optionally required to support imports (identify, extract, file) code.
         check_python_magic(),
-        check_import('beautifulsoup4', module_name='bs4', min_version='4'),
         ]
 </code></pre>
         </details>
@@ -1490,7 +770,7 @@ check_dependencies().</p></li>
             # 'filemagic' is installed; install python-magic.
             raise ImportError
         return ('python-magic', 'OK', True)
-    except ImportError:
+    except (ImportError, OSError):
         return ('python-magic', None, False)
 </code></pre>
         </details>
@@ -1866,6 +1146,290 @@ the name of debugging.</p>
 
 
 
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h3 id="beancount.scripts.doctor.FileLocation" class="doc doc-heading">
+        <code>
+beancount.scripts.doctor.FileLocation            (<span title="click.types.ParamType">ParamType</span>)
+        </code>
+
+
+
+<a href="#beancount.scripts.doctor.FileLocation" class="headerlink" title="Permanent link"></a></h3>
+
+    <div class="doc doc-contents ">
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="beancount.scripts.doctor.FileLocation.convert" class="doc doc-heading">
+<code class="highlight language-python">beancount.scripts.doctor.FileLocation.convert(self, value, param, ctx)</code>
+
+
+<a href="#beancount.scripts.doctor.FileLocation.convert" class="headerlink" title="Permanent link"></a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Convert the value to the correct type. This is not called if
+the value is <code>None</code> (the missing value).</p>
+<p>This must accept string values from the command line, as well as
+values that are already the correct type. It may also convert
+other compatible types.</p>
+<p>The <code>param</code> and <code>ctx</code> arguments may be <code>None</code> in certain
+situations, such as when converting prompt input.</p>
+<p>If the value cannot be converted, call :meth:<code>fail</code> with a
+descriptive message.</p>
+<p>:param value: The value to convert.
+:param param: The parameter that is using this type to convert
+    its value. May be <code>None</code>.
+:param ctx: The current context that arrived at this value. May
+    be <code>None</code>.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
+          <pre class="highlight"><code class="language-python">def convert(self, value, param, ctx):
+    match = re.match(r"(?:(.+):)?(\d+)$", value)
+    if not match:
+        self.fail("{!r} is not a valid location".format(value), param, ctx)
+    filename, lineno = match.groups()
+    if filename:
+        filename = os.path.abspath(filename)
+    return filename, int(lineno)
+</code></pre>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h3 id="beancount.scripts.doctor.FileRegion" class="doc doc-heading">
+        <code>
+beancount.scripts.doctor.FileRegion            (<span title="click.types.ParamType">ParamType</span>)
+        </code>
+
+
+
+<a href="#beancount.scripts.doctor.FileRegion" class="headerlink" title="Permanent link"></a></h3>
+
+    <div class="doc doc-contents ">
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="beancount.scripts.doctor.FileRegion.convert" class="doc doc-heading">
+<code class="highlight language-python">beancount.scripts.doctor.FileRegion.convert(self, value, param, ctx)</code>
+
+
+<a href="#beancount.scripts.doctor.FileRegion.convert" class="headerlink" title="Permanent link"></a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Convert the value to the correct type. This is not called if
+the value is <code>None</code> (the missing value).</p>
+<p>This must accept string values from the command line, as well as
+values that are already the correct type. It may also convert
+other compatible types.</p>
+<p>The <code>param</code> and <code>ctx</code> arguments may be <code>None</code> in certain
+situations, such as when converting prompt input.</p>
+<p>If the value cannot be converted, call :meth:<code>fail</code> with a
+descriptive message.</p>
+<p>:param value: The value to convert.
+:param param: The parameter that is using this type to convert
+    its value. May be <code>None</code>.
+:param ctx: The current context that arrived at this value. May
+    be <code>None</code>.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
+          <pre class="highlight"><code class="language-python">def convert(self, value, param, ctx):
+    match = re.match(r"(?:(.+):)?(\d+):(\d+)$", value)
+    if not match:
+        self.fail("{!r} is not a valid region".format(value), param, ctx)
+    filename, start_lineno, end_lineno = match.groups()
+    if filename:
+        filename = os.path.abspath(filename)
+    return filename, int(start_lineno), int(end_lineno)
+</code></pre>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h3 id="beancount.scripts.doctor.Group" class="doc doc-heading">
+        <code>
+beancount.scripts.doctor.Group            (<span title="click.core.Group">Group</span>)
+        </code>
+
+
+
+<a href="#beancount.scripts.doctor.Group" class="headerlink" title="Permanent link"></a></h3>
+
+    <div class="doc doc-contents ">
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="beancount.scripts.doctor.Group.command" class="doc doc-heading">
+<code class="highlight language-python">beancount.scripts.doctor.Group.command(self, *args, *, alias=None, **kwargs)</code>
+
+
+<a href="#beancount.scripts.doctor.Group.command" class="headerlink" title="Permanent link"></a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>A shortcut decorator for declaring and attaching a command to
+the group. This takes the same arguments as :func:<code>command</code> and
+immediately registers the created command with this group by
+calling :meth:<code>add_command</code>.</p>
+<p>To customize the command class used, set the
+:attr:<code>command_class</code> attribute.</p>
+<p>.. versionchanged:: 8.1
+    This decorator can be applied without parentheses.</p>
+<p>.. versionchanged:: 8.0
+    Added the :attr:<code>command_class</code> attribute.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
+          <pre class="highlight"><code class="language-python">def command(self, *args, alias=None, **kwargs):
+    wrap = click.Group.command(self, *args, **kwargs)
+    def decorator(f):
+        cmd = wrap(f)
+        if alias:
+            self.aliases[alias] = cmd.name
+        return cmd
+    return decorator
+</code></pre>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="beancount.scripts.doctor.Group.get_command" class="doc doc-heading">
+<code class="highlight language-python">beancount.scripts.doctor.Group.get_command(self, ctx, cmd_name)</code>
+
+
+<a href="#beancount.scripts.doctor.Group.get_command" class="headerlink" title="Permanent link"></a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Given a context and a command name, this returns a
+:class:<code>Command</code> object if it exists or returns <code>None</code>.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
+          <pre class="highlight"><code class="language-python">def get_command(self, ctx, cmd_name):
+    # aliases
+    name = self.aliases.get(cmd_name, cmd_name)
+    # allow to use '_' or '-' in command names.
+    name = name.replace('_', '-')
+    return click.Group.get_command(self, ctx, name)
+</code></pre>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
   <div class="doc doc-object doc-class">
 
 
@@ -1954,6 +1518,38 @@ beancount.scripts.doctor.RenderError            (<span title="tuple">tuple</span
 
 
 
+<h4 id="beancount.scripts.doctor.RenderError.__replace__" class="doc doc-heading">
+<code class="highlight language-python">beancount.scripts.doctor.RenderError.__replace__(/, self, **kwds)</code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-special"><code>special</code></small>
+  </span>
+
+<a href="#beancount.scripts.doctor.RenderError.__replace__" class="headerlink" title="Permanent link"></a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Return a new RenderError object replacing specified fields with new values</p>
+
+        <details class="quote">
+          <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
+          <pre class="highlight"><code class="language-python">def _replace(self, /, **kwds):
+    result = self._make(_map(kwds.pop, field_names, self))
+    if kwds:
+        raise TypeError(f'Got unexpected field names: {list(kwds)!r}')
+    return result
+</code></pre>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
 <h4 id="beancount.scripts.doctor.RenderError.__repr__" class="doc doc-heading">
 <code class="highlight language-python">beancount.scripts.doctor.RenderError.__repr__(self)</code>
 
@@ -1995,508 +1591,184 @@ beancount.scripts.doctor.RenderError            (<span title="tuple">tuple</span
 
 
 
-<h3 id="beancount.scripts.doctor.do_checkdeps" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.doctor.do_checkdeps(*unused_args)</code>
+<h3 id="beancount.scripts.doctor.find_linked_entries" class="doc doc-heading">
+<code class="highlight language-python">beancount.scripts.doctor.find_linked_entries(entries, links, follow_links)</code>
 
 
-<a href="#beancount.scripts.doctor.do_checkdeps" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Report on the runtime dependencies.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>unused_args</strong> – Ignored.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python">def do_deps(*unused_args):
-    """Report on the runtime dependencies.
-
-    Args:
-      unused_args: Ignored.
-    """
-    from beancount.scripts import deps
-    deps.list_dependencies(sys.stdout)
-    print('')
-    print('Use "pip3 install &lt;package&gt;" to install new packages.')
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.scripts.doctor.do_context" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.doctor.do_context(filename, args)</code>
-
-
-<a href="#beancount.scripts.doctor.do_context" class="headerlink" title="Permanent link"></a></h3>
+<a href="#beancount.scripts.doctor.find_linked_entries" class="headerlink" title="Permanent link"></a></h3>
 
     <div class="doc doc-contents ">
 
-      <p>Describe the context that a particular transaction is applied to.</p>
+      <p>Find all linked entries.</p>
+<p>Note that there is an option here: You can either just look at the links
+on the closest entry, or you can include the links of the linked
+transactions as well. Whichever one you want depends on how you use your
+links. Best would be to query the user (in Emacs) when there are many
+links present.</p>
 
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>filename</strong> – A string, which consists in the filename.</p></li>
-            <li><p><strong>args</strong> – A tuple of the rest of arguments. We're expecting the first argument
-to be a string which contains either a lineno integer or a filename:lineno
-combination (which can be used if the location is not in the top-level file).</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python">def do_context(filename, args):
-    """Describe the context that a particular transaction is applied to.
+          <pre class="highlight"><code class="language-python">def find_linked_entries(entries, links, follow_links: bool):
+    """Find all linked entries.
 
-    Args:
-      filename: A string, which consists in the filename.
-      args: A tuple of the rest of arguments. We're expecting the first argument
-        to be a string which contains either a lineno integer or a filename:lineno
-        combination (which can be used if the location is not in the top-level file).
+    Note that there is an option here: You can either just look at the links
+    on the closest entry, or you can include the links of the linked
+    transactions as well. Whichever one you want depends on how you use your
+    links. Best would be to query the user (in Emacs) when there are many
+    links present.
     """
-    from beancount.reports import context
-    from beancount import loader
-
-    # Check we have the required number of arguments.
-    if len(args) != 1:
-        raise SystemExit("Missing line number argument.")
-
-    # Load the input files.
-    entries, errors, options_map = loader.load_file(filename)
-
-    # Parse the arguments, get the line number.
-    match = re.match(r"(.+):(\d+)$", args[0])
-    if match:
-        search_filename = path.abspath(match.group(1))
-        lineno = int(match.group(2))
-    elif re.match(r"(\d+)$", args[0]):
-        # Note: Make sure to use the absolute filename used by the parser to
-        # resolve the file.
-        search_filename = options_map['filename']
-        lineno = int(args[0])
+    linked_entries = []
+    if not follow_links:
+        linked_entries = [entry
+                          for entry in entries
+                          if (isinstance(entry, data.Transaction) and
+                              entry.links and
+                              entry.links &amp; links)]
     else:
-        raise SystemExit("Invalid format for location.")
-
-    str_context = context.render_file_context(entries, options_map,
-                                              search_filename, lineno)
-    sys.stdout.write(str_context)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.scripts.doctor.do_deps" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.doctor.do_deps(*unused_args)</code>
-
-
-<a href="#beancount.scripts.doctor.do_deps" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Report on the runtime dependencies.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>unused_args</strong> – Ignored.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python">def do_deps(*unused_args):
-    """Report on the runtime dependencies.
-
-    Args:
-      unused_args: Ignored.
-    """
-    from beancount.scripts import deps
-    deps.list_dependencies(sys.stdout)
-    print('')
-    print('Use "pip3 install &lt;package&gt;" to install new packages.')
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.scripts.doctor.do_directories" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.doctor.do_directories(filename, args)</code>
-
-
-<a href="#beancount.scripts.doctor.do_directories" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Validate a directory hierarchy against a ledger's account names.</p>
-<p>Read a ledger's list of account names and check that all the capitalized
-subdirectory names under the given roots match the account names.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>filename</strong> – A string, the Beancount input filename.</p></li>
-            <li><p><strong>args</strong> – The rest of the arguments provided on the command-line, which in this
-case will be interpreted as the names of root directories to validate against
-the accounts in the given ledger.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python">def do_directories(filename, args):
-    """Validate a directory hierarchy against a ledger's account names.
-
-    Read a ledger's list of account names and check that all the capitalized
-    subdirectory names under the given roots match the account names.
-
-    Args:
-      filename: A string, the Beancount input filename.
-      args: The rest of the arguments provided on the command-line, which in this
-        case will be interpreted as the names of root directories to validate against
-        the accounts in the given ledger.
-    """
-    from beancount import loader
-    from beancount.scripts import directories
-    entries, _, __ = loader.load_file(filename)
-    directories.validate_directories(entries, args)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.scripts.doctor.do_display_context" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.doctor.do_display_context(filename, args)</code>
-
-
-<a href="#beancount.scripts.doctor.do_display_context" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Print out the precision inferred from the parsed numbers in the input file.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>filename</strong> – A string, which consists in the filename.</p></li>
-            <li><p><strong>args</strong> – A tuple of the rest of arguments. We're expecting the first argument
-to be an integer as a string.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python">def do_display_context(filename, args):
-    """Print out the precision inferred from the parsed numbers in the input file.
-
-    Args:
-      filename: A string, which consists in the filename.
-      args: A tuple of the rest of arguments. We're expecting the first argument
-        to be an integer as a string.
-    """
-    from beancount import loader
-    entries, errors, options_map = loader.load_file(filename)
-    dcontext = options_map['dcontext']
-    sys.stdout.write(str(dcontext))
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.scripts.doctor.do_dump_lexer" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.doctor.do_dump_lexer(filename, unused_args)</code>
-
-
-<a href="#beancount.scripts.doctor.do_dump_lexer" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Dump the lexer output for a Beancount syntax file.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>filename</strong> – A string, the Beancount input filename.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python">def do_lex(filename, unused_args):
-    """Dump the lexer output for a Beancount syntax file.
-
-    Args:
-      filename: A string, the Beancount input filename.
-    """
-    from beancount.parser import lexer
-    for token, lineno, text, obj in lexer.lex_iter(filename):
-        sys.stdout.write('{:12} {:6d} {}\n'.format(
-            '(None)' if token is None else token, lineno, repr(text)))
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.scripts.doctor.do_lex" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.doctor.do_lex(filename, unused_args)</code>
-
-
-<a href="#beancount.scripts.doctor.do_lex" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Dump the lexer output for a Beancount syntax file.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>filename</strong> – A string, the Beancount input filename.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python">def do_lex(filename, unused_args):
-    """Dump the lexer output for a Beancount syntax file.
-
-    Args:
-      filename: A string, the Beancount input filename.
-    """
-    from beancount.parser import lexer
-    for token, lineno, text, obj in lexer.lex_iter(filename):
-        sys.stdout.write('{:12} {:6d} {}\n'.format(
-            '(None)' if token is None else token, lineno, repr(text)))
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.scripts.doctor.do_linked" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.doctor.do_linked(filename, args)</code>
-
-
-<a href="#beancount.scripts.doctor.do_linked" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Print out a list of transactions linked to the one at the given line.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>filename</strong> – A string, which consists in the filename.</p></li>
-            <li><p><strong>args</strong> – A tuple of the rest of arguments. We're expecting the first argument
-to be an integer as a string.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python">def do_linked(filename, args):
-    """Print out a list of transactions linked to the one at the given line.
-
-    Args:
-      filename: A string, which consists in the filename.
-      args: A tuple of the rest of arguments. We're expecting the first argument
-        to be an integer as a string.
-    """
-    from beancount.parser import options
-    from beancount.parser import printer
-    from beancount.core import account_types
-    from beancount.core import inventory
-    from beancount.core import data
-    from beancount.core import realization
-    from beancount import loader
-
-    # Parse the arguments, get the line number.
-    if len(args) != 1:
-        raise SystemExit("Missing line number argument.")
-    lineno = int(args[0])
-
-    # Load the input file.
-    entries, errors, options_map = loader.load_file(filename)
-
-    # Find the closest entry.
-    closest_entry = data.find_closest(entries, options_map['filename'], lineno)
-
-    # Find its links.
-    if closest_entry is None:
-        raise SystemExit("No entry could be found before {}:{}".format(filename, lineno))
-    links = (closest_entry.links
-             if isinstance(closest_entry, data.Transaction)
-             else data.EMPTY_SET)
-    if not links:
-        linked_entries = [closest_entry]
-    else:
-        # Find all linked entries.
-        #
-        # Note that there is an option here: You can either just look at the links
-        # on the closest entry, or you can include the links of the linked
-        # transactions as well. Whichever one you want depends on how you use your
-        # links. Best would be to query the user (in Emacs) when there are many
-        # links present.
-        follow_links = True
-        if not follow_links:
+        links = set(links)
+        linked_entries = []
+        while True:
+            num_linked = len(linked_entries)
             linked_entries = [entry
                               for entry in entries
                               if (isinstance(entry, data.Transaction) and
                                   entry.links and
                                   entry.links &amp; links)]
-        else:
-            links = set(links)
-            linked_entries = []
-            while True:
-                num_linked = len(linked_entries)
-                linked_entries = [entry
-                                  for entry in entries
-                                  if (isinstance(entry, data.Transaction) and
-                                      entry.links and
-                                      entry.links &amp; links)]
-                if len(linked_entries) == num_linked:
-                    break
-                for entry in linked_entries:
-                    if entry.links:
-                        links.update(entry.links)
+            if len(linked_entries) == num_linked:
+                break
+            for entry in linked_entries:
+                if entry.links:
+                    links.update(entry.links)
+    return linked_entries
+</code></pre>
+        </details>
+    </div>
 
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h3 id="beancount.scripts.doctor.find_tagged_entries" class="doc doc-heading">
+<code class="highlight language-python">beancount.scripts.doctor.find_tagged_entries(entries, tag)</code>
+
+
+<a href="#beancount.scripts.doctor.find_tagged_entries" class="headerlink" title="Permanent link"></a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Find all entries with the given tag.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
+          <pre class="highlight"><code class="language-python">def find_tagged_entries(entries, tag):
+    """Find all entries with the given tag."""
+    return [entry
+            for entry in entries
+            if (isinstance(entry, data.Transaction) and
+                entry.tags and
+                tag in entry.tags)]
+</code></pre>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h3 id="beancount.scripts.doctor.render_mini_balances" class="doc doc-heading">
+<code class="highlight language-python">beancount.scripts.doctor.render_mini_balances(entries, options_map, conversion=None, price_map=None)</code>
+
+
+<a href="#beancount.scripts.doctor.render_mini_balances" class="headerlink" title="Permanent link"></a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Render a treeified list of the balances for the given transactions.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>entries</strong> – A list of selected transactions to render.</p></li>
+            <li><p><strong>options_map</strong> – The parsed options.</p></li>
+            <li><p><strong>conversion</strong> – Conversion method string, None, 'value' or 'cost'.</p></li>
+            <li><p><strong>price_map</strong> – A price map from the original entries. If this isn't provided,
+the inventories are rendered directly. If it is, their contents are
+converted to market value.</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
+          <pre class="highlight"><code class="language-python">def render_mini_balances(entries, options_map, conversion=None, price_map=None):
+    """Render a treeified list of the balances for the given transactions.
+
+    Args:
+      entries: A list of selected transactions to render.
+      options_map: The parsed options.
+      conversion: Conversion method string, None, 'value' or 'cost'.
+      price_map: A price map from the original entries. If this isn't provided,
+        the inventories are rendered directly. If it is, their contents are
+        converted to market value.
+    """
     # Render linked entries (in date order) as errors (for Emacs).
     errors = [RenderError(entry.meta, '', entry)
-              for entry in linked_entries]
+              for entry in entries]
     printer.print_errors(errors)
 
     # Print out balances.
-    real_root = realization.realize(linked_entries)
-    dformat = options_map['dcontext'].build(alignment=display_context.Align.DOT,
-                                            reserved=2)
+    real_root = realization.realize(entries)
+    dformat = options_map['dcontext'].build(alignment=Align.DOT, reserved=2)
+
+    # TODO(blais): I always want to be able to convert at cost. We need
+    # arguments capability.
+    #
+    # TODO(blais): Ideally this conversion inserts a new transactions to
+    # 'Unrealized' to account for the difference between cost and market value.
+    # Insert one and update the realization. Add an update() method to the
+    # realization, given a transaction.
+    acctypes = options.get_account_types(options_map)
+    if conversion == 'value':
+        assert price_map is not None
+
+        # Warning: Mutate the inventories in-place, converting them to market
+        # value.
+        balance_diff = inventory.Inventory()
+        for real_account in realization.iter_children(real_root):
+            balance_cost = real_account.balance.reduce(convert.get_cost)
+            balance_value = real_account.balance.reduce(convert.get_value, price_map)
+            real_account.balance = balance_value
+            balance_diff.add_inventory(balance_cost)
+            balance_diff.add_inventory(-balance_value)
+        if not balance_diff.is_empty():
+            account_unrealized = account.join(acctypes.income,
+                                              options_map["account_unrealized_gains"])
+            unrealized = realization.get_or_create(real_root, account_unrealized)
+            unrealized.balance.add_inventory(balance_diff)
+
+    elif conversion == 'cost':
+        for real_account in realization.iter_children(real_root):
+            real_account.balance = real_account.balance.reduce(convert.get_cost)
+
     realization.dump_balances(real_root, dformat, file=sys.stdout)
 
     # Print out net income change.
-    acctypes = options.get_account_types(options_map)
     net_income = inventory.Inventory()
     for real_node in realization.iter_children(real_root):
         if account_types.is_income_statement_account(real_node.account, acctypes):
@@ -2516,444 +1788,43 @@ to be an integer as a string.</p></li>
 
 
 
-<h3 id="beancount.scripts.doctor.do_list_options" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.doctor.do_list_options(*unused_args)</code>
+<h3 id="beancount.scripts.doctor.resolve_region_to_entries" class="doc doc-heading">
+<code class="highlight language-python">beancount.scripts.doctor.resolve_region_to_entries(entries, filename, region)</code>
 
 
-<a href="#beancount.scripts.doctor.do_list_options" class="headerlink" title="Permanent link"></a></h3>
+<a href="#beancount.scripts.doctor.resolve_region_to_entries" class="headerlink" title="Permanent link"></a></h3>
 
     <div class="doc doc-contents ">
 
-      <p>Print out a list of the available options.</p>
+      <p>Resolve a filename and region to a list of entries.</p>
 
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>unused_args</strong> – Ignored.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python">def do_list_options(*unused_args):
-    """Print out a list of the available options.
+          <pre class="highlight"><code class="language-python">def resolve_region_to_entries(
+    entries: List[data.Entries],
+    filename: str,
+    region: Tuple[str, int, int]
+) -&gt; List[data.Entries]:
+    """Resolve a filename and region to a list of entries."""
 
-    Args:
-      unused_args: Ignored.
-    """
-    from beancount.parser import options
-    print(options.list_options())
+    search_filename, first_lineno, last_lineno = region
+    if search_filename is None:
+        search_filename = filename
+
+    # Find all the entries in the region. (To be clear, this isn't like the
+    # 'linked' command, none of the links are followed.)
+    region_entries = [
+        entry
+        for entry in data.filter_txns(entries)
+        if (entry.meta['filename'] == search_filename and
+            first_lineno &lt;= entry.meta['lineno'] &lt;= last_lineno)]
+
+    return region_entries
 </code></pre>
         </details>
     </div>
 
   </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.scripts.doctor.do_missing_open" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.doctor.do_missing_open(filename, args)</code>
-
-
-<a href="#beancount.scripts.doctor.do_missing_open" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Print out Open directives that are missing for the given input file.</p>
-<p>This can be useful during demos in order to quickly generate all the
-required Open directives without having to type them manually.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>filename</strong> – A string, which consists in the filename.</p></li>
-            <li><p><strong>args</strong> – A tuple of the rest of arguments. We're expecting the first argument
-to be an integer as a string.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python">def do_missing_open(filename, args):
-    """Print out Open directives that are missing for the given input file.
-
-    This can be useful during demos in order to quickly generate all the
-    required Open directives without having to type them manually.
-
-    Args:
-      filename: A string, which consists in the filename.
-      args: A tuple of the rest of arguments. We're expecting the first argument
-        to be an integer as a string.
-    """
-    from beancount.parser import printer
-    from beancount.core import data
-    from beancount.core import getters
-    from beancount import loader
-
-    entries, errors, options_map = loader.load_file(filename)
-
-    # Get accounts usage and open directives.
-    first_use_map, _ = getters.get_accounts_use_map(entries)
-    open_close_map = getters.get_account_open_close(entries)
-
-    new_entries = []
-    for account, first_use_date in first_use_map.items():
-        if account not in open_close_map:
-            new_entries.append(
-                data.Open(data.new_metadata(filename, 0), first_use_date, account,
-                          None, None))
-
-    dcontext = options_map['dcontext']
-    printer.print_entries(data.sorted(new_entries), dcontext)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.scripts.doctor.do_parse" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.doctor.do_parse(filename, unused_args)</code>
-
-
-<a href="#beancount.scripts.doctor.do_parse" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Run the parser in debug mode.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>filename</strong> – A string, the Beancount input filename.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python">def do_parse(filename, unused_args):
-    """Run the parser in debug mode.
-
-    Args:
-      filename: A string, the Beancount input filename.
-    """
-    from beancount.parser import parser
-    entries, errors, _ = parser.parse_file(filename, yydebug=1)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.scripts.doctor.do_print_options" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.doctor.do_print_options(filename, *args)</code>
-
-
-<a href="#beancount.scripts.doctor.do_print_options" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Print out the actual options parsed from a file.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>unused_args</strong> – Ignored.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python">def do_print_options(filename, *args):
-    """Print out the actual options parsed from a file.
-
-    Args:
-      unused_args: Ignored.
-    """
-    from beancount import loader
-    _, __, options_map = loader.load_file(filename)
-    for key, value in sorted(options_map.items()):
-        print('{}: {}'.format(key, value))
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.scripts.doctor.do_roundtrip" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.doctor.do_roundtrip(filename, unused_args)</code>
-
-
-<a href="#beancount.scripts.doctor.do_roundtrip" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Round-trip test on arbitrary Ledger.</p>
-<p>Read a Ledger's transactions, print them out, re-read them again and compare
-them. Both sets of parsed entries should be equal. Both printed files are
-output to disk, so you can also run diff on them yourself afterwards.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>filename</strong> – A string, the Beancount input filename.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python">def do_roundtrip(filename, unused_args):
-    """Round-trip test on arbitrary Ledger.
-
-    Read a Ledger's transactions, print them out, re-read them again and compare
-    them. Both sets of parsed entries should be equal. Both printed files are
-    output to disk, so you can also run diff on them yourself afterwards.
-
-    Args:
-      filename: A string, the Beancount input filename.
-    """
-    from beancount.parser import printer
-    from beancount.core import compare
-    from beancount import loader
-
-    round1_filename = round2_filename = None
-    try:
-        logging.basicConfig(level=logging.INFO, format='%(levelname)-8s: %(message)s')
-        logging.info("Read the entries")
-        entries, errors, options_map = loader.load_file(filename)
-        printer.print_errors(errors, file=sys.stderr)
-
-        logging.info("Print them out to a file")
-        basename, extension = path.splitext(filename)
-        round1_filename = ''.join([basename, '.roundtrip1', extension])
-        with open(round1_filename, 'w') as outfile:
-            printer.print_entries(entries, file=outfile)
-
-        logging.info("Read the entries from that file")
-
-        # Note that we don't want to run any of the auto-generation here, but
-        # parsing now returns incomplete objects and we assume idempotence on a
-        # file that was output from the printer after having been processed, so
-        # it shouldn't add anything new. That is, a processed file printed and
-        # resolve when parsed again should contain the same entries, i.e.
-        # nothing new should be generated.
-        entries_roundtrip, errors, options_map = loader.load_file(round1_filename)
-
-        # Print out the list of errors from parsing the results.
-        if errors:
-            print(',----------------------------------------------------------------------')
-            printer.print_errors(errors, file=sys.stdout)
-            print('`----------------------------------------------------------------------')
-
-        logging.info("Print what you read to yet another file")
-        round2_filename = ''.join([basename, '.roundtrip2', extension])
-        with open(round2_filename, 'w') as outfile:
-            printer.print_entries(entries_roundtrip, file=outfile)
-
-        logging.info("Compare the original entries with the re-read ones")
-        same, missing1, missing2 = compare.compare_entries(entries, entries_roundtrip)
-        if same:
-            logging.info('Entries are the same. Congratulations.')
-        else:
-            logging.error('Entries differ!')
-            print()
-            print('\n\nMissing from original:')
-            for entry in entries:
-                print(entry)
-                print(compare.hash_entry(entry))
-                print(printer.format_entry(entry))
-                print()
-
-            print('\n\nMissing from round-trip:')
-            for entry in missing2:
-                print(entry)
-                print(compare.hash_entry(entry))
-                print(printer.format_entry(entry))
-                print()
-    finally:
-        for rfilename in (round1_filename, round2_filename):
-            if path.exists(rfilename):
-                os.remove(rfilename)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.scripts.doctor.do_validate_html" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.doctor.do_validate_html(directory, args)</code>
-
-
-<a href="#beancount.scripts.doctor.do_validate_html" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Validate all the HTML files under a directory hierarchy.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>directory</strong> – A string, the root directory whose contents to validate.</p></li>
-            <li><p><strong>args</strong> – A tuple of the rest of arguments.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python">def do_validate_html(directory, args):
-    """Validate all the HTML files under a directory hierarchy.
-
-    Args:
-      directory: A string, the root directory whose contents to validate.
-      args: A tuple of the rest of arguments.
-    """
-    from beancount.web import scrape
-    files, missing, empty = scrape.validate_local_links_in_dir(directory)
-    logging.info('%d files processed', len(files))
-    for target in missing:
-        logging.error('Missing %s', target)
-    for target in empty:
-        logging.error('Empty %s', target)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.scripts.doctor.get_commands" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.doctor.get_commands()</code>
-
-
-<a href="#beancount.scripts.doctor.get_commands" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Return a list of available commands in this file.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>A list of pairs of (command-name string, docstring).</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/doctor.py</code></summary>
-          <pre class="highlight"><code class="language-python">def get_commands():
-    """Return a list of available commands in this file.
-
-    Returns:
-      A list of pairs of (command-name string, docstring).
-    """
-    commands = []
-    for attr_name, attr_value in globals().items():
-        match = re.match('do_(.*)', attr_name)
-        if match:
-            commands.append((match.group(1),
-                             misc_utils.first_paragraph(attr_value.__doc__)))
-    return commands
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
 
 
 
@@ -2981,11 +1852,6 @@ output to disk, so you can also run diff on them yourself afterwards.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Generate a decently-sized example history, based on some rules.</p>
-<p>This script is used to generate some meaningful input to Beancount, input that
-looks as realistic as possible for a moderately complex mock individual. This
-can also be used as an input generator for a stress test for performance
-evaluation.</p>
 
 
 
@@ -3009,6 +1875,88 @@ evaluation.</p>
 
 
 
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h3 id="beancount.scripts.example.LiberalDate" class="doc doc-heading">
+        <code>
+beancount.scripts.example.LiberalDate            (<span title="click.types.ParamType">ParamType</span>)
+        </code>
+
+
+
+<a href="#beancount.scripts.example.LiberalDate" class="headerlink" title="Permanent link"></a></h3>
+
+    <div class="doc doc-contents ">
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="beancount.scripts.example.LiberalDate.convert" class="doc doc-heading">
+<code class="highlight language-python">beancount.scripts.example.LiberalDate.convert(self, value, param, ctx)</code>
+
+
+<a href="#beancount.scripts.example.LiberalDate.convert" class="headerlink" title="Permanent link"></a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Convert the value to the correct type. This is not called if
+the value is <code>None</code> (the missing value).</p>
+<p>This must accept string values from the command line, as well as
+values that are already the correct type. It may also convert
+other compatible types.</p>
+<p>The <code>param</code> and <code>ctx</code> arguments may be <code>None</code> in certain
+situations, such as when converting prompt input.</p>
+<p>If the value cannot be converted, call :meth:<code>fail</code> with a
+descriptive message.</p>
+<p>:param value: The value to convert.
+:param param: The parameter that is using this type to convert
+    its value. May be <code>None</code>.
+:param ctx: The current context that arrived at this value. May
+    be <code>None</code>.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>beancount/scripts/example.py</code></summary>
+          <pre class="highlight"><code class="language-python">def convert(self, value, param, ctx):
+    try:
+        date_utils.parse_date_liberally(value)
+    except ValueError:
+        self.fail("{!r} is not a valid date".format(value), param, ctx)
+</code></pre>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
 
 
 
@@ -3510,9 +2458,9 @@ accounts.</p></li>
         for txn_posting, balance in postings_for(entries, [account], before=True):
             while txn_posting.txn.date &gt;= next_date:
                 amount = balance[account].get_currency_units('CCY').number
-                balance_checks.extend(parse("""
+                balance_checks.extend(parse(f"""
                   {next_date} balance {account} {amount} CCY
-                """, **locals()))
+                """))
                 next_date = next(date_iter)
 
     return balance_checks
@@ -3589,7 +2537,7 @@ account with.</p></li>
       A list of directives.
     """
     amount_initial_neg = -amount_initial
-    new_entries = parse("""
+    new_entries = parse(f"""
 
       {date_begin} open Assets:CC:Bank1
         institution: "Bank1_Institution"
@@ -3605,7 +2553,7 @@ account with.</p></li>
         Assets:CC:Bank1:Checking   {amount_initial} CCY
         Equity:Opening-Balances    {amount_initial_neg} CCY
 
-    """, **locals())
+    """)
 
     date_balance = date_begin + datetime.timedelta(days=1)
     account = 'Assets:CC:Bank1:Checking'
@@ -3614,11 +2562,11 @@ account with.</p></li>
         if txn_posting.txn.date &gt;= date_balance:
             break
     amount_balance = balances[account].get_currency_units('CCY').number
-    bal_entries = parse("""
+    bal_entries = parse(f"""
 
       {date_balance} balance Assets:CC:Bank1:Checking   {amount_balance} CCY
 
-    """, **locals())
+    """)
 
     return new_entries + bal_entries
 </code></pre>
@@ -3802,11 +2750,15 @@ account with.</p></li>
     Returns:
       A list of directives.
     """
+    new_entries = []
+
     # The next date we're looking for.
-    next_date = next(iter(date_iter))
+    date_iter = iter(date_iter)
+    next_date = next(date_iter, None)
+    if not next_date:
+        return new_entries
 
     # Iterate over all the postings of the account to clear.
-    new_entries = []
     for txn_posting, balances in postings_for(entries, [account_clear]):
         balance_clear = balances[account_clear]
 
@@ -3814,17 +2766,16 @@ account with.</p></li>
         if next_date &lt;= txn_posting.txn.date:
             pos_amount = balance_clear.get_currency_units('CCY')
             neg_amount = -pos_amount
-            new_entries.extend(parse("""
+            new_entries.extend(parse(f"""
               {next_date} * "{payee}" "{narration}"
                 {account_clear}     {neg_amount.number:.2f} CCY
                 {account_from}      {pos_amount.number:.2f} CCY
-            """, **locals()))
+            """))
             balance_clear.add_amount(neg_amount)
 
             # Advance to the next date we're looking for.
-            try:
-                next_date = next(iter(date_iter))
-            except StopIteration:
+            next_date = next(date_iter, None)
+            if not next_date:
                 break
 
     return new_entries
@@ -3892,7 +2843,7 @@ account with.</p></li>
     Returns:
       A list of Commodity entries for all the commodities in use.
     """
-    return parse("""
+    return parse(f"""
 
         1792-01-01 commodity USD
           name: "US Dollar"
@@ -3939,7 +2890,7 @@ account with.</p></li>
         1900-01-01 commodity VMMXX
           export: "MUTF:VMMXX (MONEY:USD)"
 
-    """, **locals())
+    """)
 </code></pre>
         </details>
     </div>
@@ -4024,7 +2975,7 @@ contributions to.</p></li>
     Returns:
       A list of directives, including open directives for the account.
     """
-    preamble = parse("""
+    preamble = parse(f"""
 
         {date_begin} event "employer" "{employer_name}, {employer_address}"
 
@@ -4043,7 +2994,7 @@ contributions to.</p></li>
 
         ;{date_begin} open Expenses:Vacation:Employer
 
-    """, **locals())
+    """)
 
     date_prev = None
 
@@ -4101,12 +3052,14 @@ contributions to.</p></li>
         lifeinsurance_neg = -lifeinsurance
         vacation_hrs_neg = -vacation_hrs
 
-        template = """
+        transactions.extend(parse(f"""
             {date} * "{employer_name}" "Payroll"
               {account_deposit}                                 {deposit:.2f} CCY
+              """ + ("" if retirement == ZERO else f"""\
               {account_retirement}                              {retirement:.2f} CCY
               Assets:CC:Federal:PreTax401k                      {retirement_neg:.2f} DEFCCY
               Expenses:Taxes:Y{year}:CC:Federal:PreTax401k      {retirement:.2f} DEFCCY
+              """) + f"""\
               Income:CC:Employer1:Salary                        {gross_neg:.2f} CCY
               Income:CC:Employer1:GroupTermLife                 {lifeinsurance_neg:.2f} CCY
               Expenses:Health:Life:GroupTermLife                {lifeinsurance:.2f} CCY
@@ -4121,14 +3074,7 @@ contributions to.</p></li>
               Expenses:Taxes:Y{year}:CC:SocSec                  {socsec:.2f} CCY
               Assets:CC:Employer1:Vacation                      {vacation_hrs:.2f} VACHR
               Income:CC:Employer1:Vacation                      {vacation_hrs_neg:.2f} VACHR
-        """
-        if retirement == ZERO:
-            # Remove retirement lines.
-            template = '\n'.join(line
-                                 for line in template.splitlines()
-                                 if not re.search(r'\bretirement\b', line))
-
-        transactions.extend(parse(template, **locals()))
+        """))
 
     return preamble + transactions
 </code></pre>
@@ -4195,7 +3141,7 @@ contributions to.</p></li>
     Returns:
       A list of directives.
     """
-    return parse("""
+    return parse(f"""
 
       {date_birth} open Expenses:Food:Groceries
       {date_birth} open Expenses:Food:Restaurant
@@ -4212,7 +3158,7 @@ contributions to.</p></li>
       {date_birth} open Expenses:Financial:Fees
       {date_birth} open Expenses:Financial:Commissions
 
-    """, **locals())
+    """)
 </code></pre>
         </details>
     </div>
@@ -4407,11 +3353,11 @@ breaking the minimum.</p></li>
 
             date = txn_posting.txn.date + datetime.timedelta(days=1)
             amount_transfer_neg = -amount_transfer
-            new_entries.extend(parse("""
+            new_entries.extend(parse(f"""
               {date} * "Transfering accumulated savings to other account"
                 {account}          {amount_transfer_neg:2f} CCY
                 {account_out}      {amount_transfer:2f} CCY
-            """, **locals()))
+            """))
 
             offset_amount += amount_transfer
 
@@ -4506,11 +3452,11 @@ to randomly choose from</p></li>
                          if isinstance(narration, str)
                          else random.choice(narration))
         amount_neg = -amount
-        new_entries.extend(parse("""
+        new_entries.extend(parse(f"""
           {date} * "{txn_payee}" "{txn_narration}"
             {account_from}    {amount_neg:.2f} CCY
             {account_to}      {amount:.2f} CCY
-        """, **locals()))
+        """))
 
     return new_entries
 </code></pre>
@@ -4775,23 +3721,23 @@ credit card.</p>
     """
     match_frac = D('0.50')
 
-    new_entries = parse("""
+    new_entries = parse(f"""
 
-      {date} open {account_income}   CCY
+      {entries[0].date} open {account_income}   CCY
 
-    """, date=entries[0].date, account_income=account_income)
+    """)
 
     for txn_posting, balances in postings_for(entries, [account_invest]):
         amount = txn_posting.posting.units.number * match_frac
         amount_neg = -amount
         date = txn_posting.txn.date + ONE_DAY
-        new_entries.extend(parse("""
+        new_entries.extend(parse(f"""
 
           {date} * "Employer match for contribution"
             {account_invest}         {amount:.2f} CCY
             {account_income}         {amount_neg:.2f} CCY
 
-        """, **locals()))
+        """))
 
     return new_entries
 </code></pre>
@@ -4869,7 +3815,7 @@ opening directives for the desired investment commodities.</p></li>
     open_entries = []
     account_cash = join(account, 'Cash')
     date_origin = entries[0].date
-    open_entries.extend(parse("""
+    open_entries.extend(parse(f"""
 
       {date_origin} open {account} CCY
         institution: "Retirement_Institution"
@@ -4879,12 +3825,12 @@ opening directives for the desired investment commodities.</p></li>
       {date_origin} open {account_cash} CCY
         number: "882882"
 
-    """, **locals()))
+    """))
     for currency, _ in commodities_items:
-        open_entries.extend(parse("""
+        open_entries.extend(parse(f"""
           {date_origin} open {account}:{currency} {currency}
             number: "882882"
-        """, **locals()))
+        """))
 
     new_entries = []
     for txn_posting, balances in postings_for(entries, [account_cash]):
@@ -4905,13 +3851,13 @@ opening directives for the desired investment commodities.</p></li>
             units = (amount_fraction / price).quantize(D('0.001'))
             amount_cash = (units * price).quantize(D('0.01'))
             amount_cash_neg = -amount_cash
-            new_entries.extend(parse("""
+            new_entries.extend(parse(f"""
 
               {txn_date} * "Investing {fraction:.0%} of cash in {commodity}"
                 {account}:{commodity}  {units:.3f} {commodity} {{{price:.2f} CCY}}
                 {account}:Cash         {amount_cash_neg:.2f} CCY
 
-            """, **locals()))
+            """))
 
             balance.add_amount(amount.Amount(-amount_cash, 'CCY'))
 
@@ -4999,7 +3945,7 @@ opening directives for the desired investment commodities.</p></li>
     amount_limit = RETIREMENT_LIMITS.get(year, RETIREMENT_LIMITS[None])
     amount_limit_neg = -amount_limit
 
-    entries = parse("""
+    entries = parse(f"""
 
       ;; Open tax accounts for that year.
       {date_year} open Expenses:Taxes:Y{year}:CC:Federal:PreTax401k   DEFCCY
@@ -5030,7 +3976,7 @@ opening directives for the desired investment commodities.</p></li>
         Assets:CC:Bank1:Checking       {amount_state_neg:.2f} CCY
         Liabilities:AccountsPayable    {amount_state:.2f} CCY
 
-    """, **locals())
+    """)
 
     return [entry for entry in entries if entry.date &lt; date_max]
 </code></pre>
@@ -5097,12 +4043,12 @@ opening directives for the desired investment commodities.</p></li>
     Returns:
       A list of directives.
     """
-    return parse("""
+    return parse(f"""
       ;; Tax accounts not specific to a year.
       {date_birth} open Income:CC:Federal:PreTax401k     DEFCCY
       {date_birth} open Assets:CC:Federal:PreTax401k     DEFCCY
 
-    """, **locals())
+    """)
 </code></pre>
         </details>
     </div>
@@ -5178,21 +4124,22 @@ account's cash account.</p></li>
       A list of directives.
     """
     account = 'Assets:CC:Investment'
+    income = 'Income:CC:Investment'
     account_cash = join(account, 'Cash')
-    account_gains = 'Income:CC:Investment:Gains'
-    account_dividends = 'Income:CC:Investment:Dividends'
+    account_gains = '{income}:PnL'.format(income=income)
+    dividends = 'Dividend'
     accounts_stocks = ['Assets:CC:Investment:{}'.format(commodity)
                        for commodity in stocks]
 
-    open_entries = parse("""
+    open_entries = parse(f"""
       {date_begin} open {account}:Cash    CCY
       {date_begin} open {account_gains}    CCY
-      {date_begin} open {account_dividends}    CCY
-    """, **locals())
+    """)
     for stock in stocks:
-        open_entries.extend(parse("""
+        open_entries.extend(parse(f"""
           {date_begin} open {account}:{stock} {stock}
-        """, **locals()))
+          {date_begin} open {income}:{stock}:{dividends}    CCY
+        """))
 
     # Figure out dates at which dividends should be distributed, near the end of
     # each quarter.
@@ -5218,7 +4165,7 @@ account's cash account.</p></li>
     stocks_inventory = inventory.Inventory()
     new_entries = []
     dividend_date_iter = iter(dividend_dates)
-    next_dividend_date = next(dividend_date_iter)
+    next_dividend_date = next(dividend_date_iter, None)
     for date, balances in iter_dates_with_balance(date_begin, date_end,
                                                   entries, [account_cash]):
 
@@ -5237,18 +4184,16 @@ account's cash account.</p></li>
             portfolio_cost = total.reduce(convert.get_cost).get_currency_units('CCY').number
             amount_cash = (frac_dividend * portfolio_cost).quantize(D('0.01'))
             amount_cash_neg = -amount_cash
-            dividend = parse("""
+            stock = random.choice(stocks)
+            cash_dividend = parse(f"""
               {next_dividend_date} * "Dividends on portfolio"
                 {account}:Cash        {amount_cash:.2f} CCY
-                {account_dividends}   {amount_cash_neg:.2f} CCY
-            """, **locals())[0]
-            new_entries.append(dividend)
+                {income}:{stock}:{dividends}   {amount_cash_neg:.2f} CCY
+            """)[0]
+            new_entries.append(cash_dividend)
 
             # Advance the next dividend date.
-            try:
-                next_dividend_date = next(dividend_date_iter)
-            except StopIteration:
-                next_dividend_date = None
+            next_dividend_date = next(dividend_date_iter, None)
 
         # If the balance is high, buy with high probability.
         balance = balances[account_cash]
@@ -5272,12 +4217,12 @@ account's cash account.</p></li>
                     # logging.info('Buying %s %s @ %s CCY = %s CCY',
                     #              units, stock, price, units * price)
 
-                    buy = parse("""
+                    buy = parse(f"""
                       {date} * "Buy shares of {stock}"
                         {account}:Cash                  {amount_cash:.2f} CCY
                         {account}:{stock}               {units:.0f} {stock} {{{price:.2f} CCY}}
                         Expenses:Financial:Commissions  {commission:.2f} CCY
-                    """, **locals())[0]
+                    """)[0]
                     new_entries.append(buy)
 
                     account_stock = ':'.join([account, stock])
@@ -5314,13 +4259,13 @@ account's cash account.</p></li>
             stock = sell_position.units.currency
             amount_cash = market_value - commission
             amount_gain = -gain
-            sell = parse("""
+            sell = parse(f"""
               {date} * "Sell shares of {stock}"
                 {account}:{stock}               {sell_position} @ {price:.2f} CCY
                 {account}:Cash                  {amount_cash:.2f} CCY
                 Expenses:Financial:Commissions  {commission:.2f} CCY
                 {account_gains}                 {amount_gain:.2f} CCY
-            """, **locals())[0]
+            """)[0]
             new_entries.append(sell)
 
             balances[account_cash].add_position(sell.postings[1])
@@ -5421,25 +4366,25 @@ the expenses from.</p></li>
             if random.random() &lt; p_day_generate:
                 amount = random.normalvariate(mu, sigma3 / 3.)
                 amount_neg = -amount
-                new_entries.extend(parse("""
+                new_entries.extend(parse(f"""
                   {date} * "{payee}" "" #{tag}
                     {account_credit}     {amount_neg:.2f} CCY
                     {account_expense}    {amount:.2f} CCY
-                """, **locals()))
+                """))
 
     # Consume the vacation days.
     vacation_hrs = (date_end - date_begin).days * 8 # hrs/day
-    new_entries.extend(parse("""
+    new_entries.extend(parse(f"""
       {date_end} * "Consume vacation days"
         Assets:CC:Employer1:Vacation -{vacation_hrs:.2f} VACHR
         Expenses:Vacation             {vacation_hrs:.2f} VACHR
-    """, **locals()))
+    """))
 
     # Generate events for the trip.
-    new_entries.extend(parse("""
+    new_entries.extend(parse(f"""
       {date_begin} event "location" "{trip_city}"
       {date_end}   event "location" "{home_city}"
-    """, **locals()))
+    """))
 
     return new_entries
 </code></pre>
@@ -5662,7 +4607,6 @@ the expenses from.</p></li>
 
 
 
-
   <div class="doc doc-object doc-function">
 
 
@@ -5731,7 +4675,7 @@ the expenses from.</p></li>
 
 
 <h3 id="beancount.scripts.example.parse" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.example.parse(input_string, **replacements)</code>
+<code class="highlight language-python">beancount.scripts.example.parse(input_string)</code>
 
 
 <a href="#beancount.scripts.example.parse" class="headerlink" title="Permanent link"></a></h3>
@@ -5753,7 +4697,6 @@ interpolation to fill in the missing amounts.</p>
       <td class="field-body">
         <ul class="first simple">
             <li><p><strong>input_string</strong> – Beancount input text.</p></li>
-            <li><p><strong>**replacements</strong> – A dict of keywords to replace to their values.</p></li>
         </ul>
       </td>
     </tr>
@@ -5777,7 +4720,7 @@ interpolation to fill in the missing amounts.</p>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/scripts/example.py</code></summary>
-          <pre class="highlight"><code class="language-python">def parse(input_string, **replacements):
+          <pre class="highlight"><code class="language-python">def parse(input_string):
     """Parse some input string and assert no errors.
 
     This parse function does not just create the object, it also triggers local
@@ -5785,20 +4728,10 @@ interpolation to fill in the missing amounts.</p>
 
     Args:
       input_string: Beancount input text.
-      **replacements: A dict of keywords to replace to their values.
     Returns:
       A list of directive objects.
     """
-    if replacements:
-        class IgnoreFormatter(string.Formatter):
-            def check_unused_args(self, used_args, args, kwargs):
-                pass
-        formatter = IgnoreFormatter()
-        formatted_string = formatter.format(input_string, **replacements)
-    else:
-        formatted_string = input_string
-
-    entries, errors, options_map = parser.parse_string(textwrap.dedent(formatted_string))
+    entries, errors, options_map = parser.parse_string(textwrap.dedent(input_string))
     if errors:
         printer.print_errors(errors, file=sys.stderr)
         raise ValueError("Parsed text has errors")
@@ -6197,7 +5130,7 @@ transactions.</p></li>
     destinations.extend(destinations)
     random.shuffle(destinations)
     for (date_trip_begin, date_trip_end), (destination_name, config) in zip(
-        compute_trip_dates(date_begin, date_end), destinations):
+            compute_trip_dates(date_begin, date_end), destinations):
 
         # Compute a suitable tag.
         tag = 'trip-{}-{}'.format(destination_name.lower().replace(' ', '-'),
@@ -6404,15 +5337,12 @@ transactions.</p></li>
 
     <div class="doc doc-contents ">
 
-      <p>Align a beancount/ledger input file's numbers.</p>
-<p>This reformats at beancount or ledger input file so that the amounts in the
-postings are all aligned to the same column. The currency should match.</p>
-<p>Note: this does not parse the Beancount ledger. It simply uses regular
-expressions and text manipulations to do its work.</p>
 
 
 
   <div class="doc doc-children">
+
+
 
 
 
@@ -6504,9 +5434,12 @@ return value and the input contents.</p></li>
     # of the stripped prefix and the number.
     match_pairs = []
     for line in contents.splitlines():
-        match = re.match(
-            r'([^";]*?)\s+([-+]?\s*[\d,]+(?:\.\d*)?)\s+({}\b.*)'.format(amount.CURRENCY_RE),
-            line)
+        match = regex.match(
+            rf'(^\d[^";]*?|\s+{account.ACCOUNT_RE})\s+'
+            rf'({PARENTHESIZED_BINARY_OP_RE}|{NUMBER_RE})\s+'
+            rf'((?:{amount.CURRENCY_RE})\b.*)',
+            line,
+        )
         if match:
             prefix, number, rest = match.groups()
             match_pairs.append((prefix, number, rest))
@@ -6565,10 +5498,10 @@ return value and the input contents.</p></li>
     # Ensure that the file before and after have only whitespace differences.
     # This is a sanity check, to make really sure we never change anything but whitespace,
     # so it's safe.
-    # open('/tmp/before', 'w').write(re.sub(r'[ \t]+', ' ', contents))
-    # open('/tmp/after', 'w').write(re.sub(r'[ \t]+', ' ', formatted_contents))
-    old_stripped = re.sub(r'[ \t\n]+', ' ', contents.rstrip())
-    new_stripped = re.sub(r'[ \t\n]+', ' ', formatted_contents.rstrip())
+    # open('/tmp/before', 'w').write(regex.sub(r'[ \t]+', ' ', contents))
+    # open('/tmp/after', 'w').write(regex.sub(r'[ \t]+', ' ', formatted_contents))
+    old_stripped = regex.sub(r'[ \t\n]+', ' ', contents.rstrip())
+    new_stripped = regex.sub(r'[ \t\n]+', ' ', formatted_contents.rstrip())
     assert (old_stripped == new_stripped), (old_stripped, new_stripped)
 
     return formatted_contents
@@ -6654,7 +5587,6 @@ return None.</p></li>
 
 
 
-
   <div class="doc doc-object doc-function">
 
 
@@ -6714,7 +5646,7 @@ adjusted with a different whitespace prefix.</p></li>
       adjusted with a different whitespace prefix.
     """
     # Compute most frequent account name prefix.
-    match_posting = re.compile(r'([ \t]+)({}.*)'.format(account.ACCOUNT_RE)).match
+    match_posting = regex.compile(r'([ \t]+)({}.*)'.format(account.ACCOUNT_RE)).match
     width = compute_most_frequent(
         len(match.group(1))
         for match in (match_posting(prefix)
@@ -6736,2633 +5668,6 @@ adjusted with a different whitespace prefix.</p></li>
     </div>
 
   </div>
-
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-module">
-
-
-
-<h2 id="beancount.scripts.sql" class="doc doc-heading">
-        <code>beancount.scripts.sql</code>
-
-
-
-<a href="#beancount.scripts.sql" class="headerlink" title="Permanent link"></a></h2>
-
-    <div class="doc doc-contents ">
-
-      <p>Convert a Beancount ledger into an SQL database.</p>
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-class">
-
-
-
-<h3 id="beancount.scripts.sql.BalanceWriter" class="doc doc-heading">
-        <code>
-beancount.scripts.sql.BalanceWriter            (<a title="beancount.scripts.sql.DirectiveWriter" href="#beancount.scripts.sql.DirectiveWriter">DirectiveWriter</a>)
-        </code>
-
-
-
-<a href="#beancount.scripts.sql.BalanceWriter" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-class">
-
-
-
-<h4 id="beancount.scripts.sql.BalanceWriter.type" class="doc doc-heading">
-        <code>
-beancount.scripts.sql.BalanceWriter.type            (<span title="tuple">tuple</span>)
-        </code>
-
-
-
-<a href="#beancount.scripts.sql.BalanceWriter.type" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Balance(meta, date, account, amount, tolerance, diff_amount)</p>
-
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h5 id="beancount.scripts.sql.BalanceWriter.type.__getnewargs__" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.BalanceWriter.type.__getnewargs__(self)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-<a href="#beancount.scripts.sql.BalanceWriter.type.__getnewargs__" class="headerlink" title="Permanent link"></a></h5>
-
-    <div class="doc doc-contents ">
-
-      <p>Return self as a plain tuple.  Used by copy and pickle.</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
-    'Return self as a plain tuple.  Used by copy and pickle.'
-    return _tuple(self)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h5 id="beancount.scripts.sql.BalanceWriter.type.__new__" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.BalanceWriter.type.__new__(_cls, meta, date, account, amount, tolerance, diff_amount)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-      <small class="doc doc-property doc-property-staticmethod"><code>staticmethod</code></small>
-  </span>
-
-<a href="#beancount.scripts.sql.BalanceWriter.type.__new__" class="headerlink" title="Permanent link"></a></h5>
-
-    <div class="doc doc-contents ">
-
-      <p>Create new instance of Balance(meta, date, account, amount, tolerance, diff_amount)</p>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h5 id="beancount.scripts.sql.BalanceWriter.type.__repr__" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.BalanceWriter.type.__repr__(self)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-<a href="#beancount.scripts.sql.BalanceWriter.type.__repr__" class="headerlink" title="Permanent link"></a></h5>
-
-    <div class="doc doc-contents ">
-
-      <p>Return a nicely formatted representation string</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def __repr__(self):
-    'Return a nicely formatted representation string'
-    return self.__class__.__name__ + repr_fmt % self
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h4 id="beancount.scripts.sql.BalanceWriter.get_detail" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.BalanceWriter.get_detail(self, entry)</code>
-
-
-<a href="#beancount.scripts.sql.BalanceWriter.get_detail" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Provide data to store for details table.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>entry</strong> – An instance of the desired directive.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>A tuple of the values corresponding to the columns declared in the
-'columns' attribute.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def get_detail(self, entry):
-    return (entry.account,
-            entry.amount.number,
-            entry.amount.currency,
-            entry.diff_amount.currency if entry.diff_amount else None,
-            entry.diff_amount.currency if entry.diff_amount else None)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-class">
-
-
-
-<h3 id="beancount.scripts.sql.CloseWriter" class="doc doc-heading">
-        <code>
-beancount.scripts.sql.CloseWriter            (<a title="beancount.scripts.sql.DirectiveWriter" href="#beancount.scripts.sql.DirectiveWriter">DirectiveWriter</a>)
-        </code>
-
-
-
-<a href="#beancount.scripts.sql.CloseWriter" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-class">
-
-
-
-<h4 id="beancount.scripts.sql.CloseWriter.type" class="doc doc-heading">
-        <code>
-beancount.scripts.sql.CloseWriter.type            (<span title="tuple">tuple</span>)
-        </code>
-
-
-
-<a href="#beancount.scripts.sql.CloseWriter.type" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Close(meta, date, account)</p>
-
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h5 id="beancount.scripts.sql.CloseWriter.type.__getnewargs__" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.CloseWriter.type.__getnewargs__(self)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-<a href="#beancount.scripts.sql.CloseWriter.type.__getnewargs__" class="headerlink" title="Permanent link"></a></h5>
-
-    <div class="doc doc-contents ">
-
-      <p>Return self as a plain tuple.  Used by copy and pickle.</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
-    'Return self as a plain tuple.  Used by copy and pickle.'
-    return _tuple(self)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h5 id="beancount.scripts.sql.CloseWriter.type.__new__" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.CloseWriter.type.__new__(_cls, meta, date, account)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-      <small class="doc doc-property doc-property-staticmethod"><code>staticmethod</code></small>
-  </span>
-
-<a href="#beancount.scripts.sql.CloseWriter.type.__new__" class="headerlink" title="Permanent link"></a></h5>
-
-    <div class="doc doc-contents ">
-
-      <p>Create new instance of Close(meta, date, account)</p>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h5 id="beancount.scripts.sql.CloseWriter.type.__repr__" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.CloseWriter.type.__repr__(self)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-<a href="#beancount.scripts.sql.CloseWriter.type.__repr__" class="headerlink" title="Permanent link"></a></h5>
-
-    <div class="doc doc-contents ">
-
-      <p>Return a nicely formatted representation string</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def __repr__(self):
-    'Return a nicely formatted representation string'
-    return self.__class__.__name__ + repr_fmt % self
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h4 id="beancount.scripts.sql.CloseWriter.get_detail" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.CloseWriter.get_detail(self, entry)</code>
-
-
-<a href="#beancount.scripts.sql.CloseWriter.get_detail" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Provide data to store for details table.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>entry</strong> – An instance of the desired directive.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>A tuple of the values corresponding to the columns declared in the
-'columns' attribute.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def get_detail(self, entry):
-    return (entry.account,)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-class">
-
-
-
-<h3 id="beancount.scripts.sql.DirectiveWriter" class="doc doc-heading">
-        <code>
-beancount.scripts.sql.DirectiveWriter        </code>
-
-
-
-<a href="#beancount.scripts.sql.DirectiveWriter" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>A base class for writers of directives.
-This is used to factor out code for all the simple directives types
-(all types except Transaction).</p>
-
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h4 id="beancount.scripts.sql.DirectiveWriter.__call__" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.DirectiveWriter.__call__(self, connection, entries)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-<a href="#beancount.scripts.sql.DirectiveWriter.__call__" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Create a table for a directives.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>connection</strong> – A DBAPI-2.0 Connection object.</p></li>
-            <li><p><strong>entries</strong> – A list of directives.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def __call__(self, connection, entries):
-    """Create a table for a directives.
-
-    Args:
-      connection: A DBAPI-2.0 Connection object.
-      entries: A list of directives.
-    """
-    with connection:
-        columns_text = ','.join(self.columns.strip().splitlines())
-        connection.execute("""
-          CREATE TABLE {name}_detail (
-            id 			INTEGER PRIMARY KEY,
-            {columns}
-          );
-        """.format(name=self.name,
-                   columns=columns_text))
-
-        connection.execute("""
-          CREATE VIEW {name} AS
-            SELECT * FROM entry JOIN {name}_detail USING (id);
-        """.format(name=self.name))
-
-    with connection:
-        for eid, entry in enumerate(entries):
-            if not isinstance(entry, self.type):
-                continue
-
-            # Store common data.
-            connection.execute("""
-              INSERT INTO entry VALUES (?, ?, ?, ?, ?);
-            """, (eid, entry.date, self.name,
-                  entry.meta["filename"], entry.meta["lineno"]))
-
-            # Store detail data.
-            detail_data = self.get_detail(entry)
-            row_data = (eid,) + detail_data
-            query = """
-              INSERT INTO {name}_detail VALUES ({placeholder});
-            """.format(name=self.name,
-                       placeholder=','.join(['?'] * (1 + len(detail_data))))
-            connection.execute(query, row_data)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h4 id="beancount.scripts.sql.DirectiveWriter.get_detail" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.DirectiveWriter.get_detail(self, entry)</code>
-
-
-<a href="#beancount.scripts.sql.DirectiveWriter.get_detail" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Provide data to store for details table.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>entry</strong> – An instance of the desired directive.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>A tuple of the values corresponding to the columns declared in the
-'columns' attribute.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def get_detail(self, entry):
-    """Provide data to store for details table.
-
-    Args:
-      entry: An instance of the desired directive.
-    Returns:
-      A tuple of the values corresponding to the columns declared in the
-      'columns' attribute.
-    """
-    raise NotImplementedError
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-class">
-
-
-
-<h3 id="beancount.scripts.sql.DocumentWriter" class="doc doc-heading">
-        <code>
-beancount.scripts.sql.DocumentWriter            (<a title="beancount.scripts.sql.DirectiveWriter" href="#beancount.scripts.sql.DirectiveWriter">DirectiveWriter</a>)
-        </code>
-
-
-
-<a href="#beancount.scripts.sql.DocumentWriter" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-class">
-
-
-
-<h4 id="beancount.scripts.sql.DocumentWriter.type" class="doc doc-heading">
-        <code>
-beancount.scripts.sql.DocumentWriter.type            (<span title="tuple">tuple</span>)
-        </code>
-
-
-
-<a href="#beancount.scripts.sql.DocumentWriter.type" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Document(meta, date, account, filename, tags, links)</p>
-
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h5 id="beancount.scripts.sql.DocumentWriter.type.__getnewargs__" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.DocumentWriter.type.__getnewargs__(self)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-<a href="#beancount.scripts.sql.DocumentWriter.type.__getnewargs__" class="headerlink" title="Permanent link"></a></h5>
-
-    <div class="doc doc-contents ">
-
-      <p>Return self as a plain tuple.  Used by copy and pickle.</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
-    'Return self as a plain tuple.  Used by copy and pickle.'
-    return _tuple(self)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h5 id="beancount.scripts.sql.DocumentWriter.type.__new__" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.DocumentWriter.type.__new__(_cls, meta, date, account, filename, tags, links)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-      <small class="doc doc-property doc-property-staticmethod"><code>staticmethod</code></small>
-  </span>
-
-<a href="#beancount.scripts.sql.DocumentWriter.type.__new__" class="headerlink" title="Permanent link"></a></h5>
-
-    <div class="doc doc-contents ">
-
-      <p>Create new instance of Document(meta, date, account, filename, tags, links)</p>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h5 id="beancount.scripts.sql.DocumentWriter.type.__repr__" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.DocumentWriter.type.__repr__(self)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-<a href="#beancount.scripts.sql.DocumentWriter.type.__repr__" class="headerlink" title="Permanent link"></a></h5>
-
-    <div class="doc doc-contents ">
-
-      <p>Return a nicely formatted representation string</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def __repr__(self):
-    'Return a nicely formatted representation string'
-    return self.__class__.__name__ + repr_fmt % self
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h4 id="beancount.scripts.sql.DocumentWriter.get_detail" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.DocumentWriter.get_detail(self, entry)</code>
-
-
-<a href="#beancount.scripts.sql.DocumentWriter.get_detail" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Provide data to store for details table.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>entry</strong> – An instance of the desired directive.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>A tuple of the values corresponding to the columns declared in the
-'columns' attribute.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def get_detail(self, entry):
-    return (entry.account,
-            entry.filename)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-class">
-
-
-
-<h3 id="beancount.scripts.sql.EventWriter" class="doc doc-heading">
-        <code>
-beancount.scripts.sql.EventWriter            (<a title="beancount.scripts.sql.DirectiveWriter" href="#beancount.scripts.sql.DirectiveWriter">DirectiveWriter</a>)
-        </code>
-
-
-
-<a href="#beancount.scripts.sql.EventWriter" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-class">
-
-
-
-<h4 id="beancount.scripts.sql.EventWriter.type" class="doc doc-heading">
-        <code>
-beancount.scripts.sql.EventWriter.type            (<span title="tuple">tuple</span>)
-        </code>
-
-
-
-<a href="#beancount.scripts.sql.EventWriter.type" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Event(meta, date, type, description)</p>
-
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h5 id="beancount.scripts.sql.EventWriter.type.__getnewargs__" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.EventWriter.type.__getnewargs__(self)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-<a href="#beancount.scripts.sql.EventWriter.type.__getnewargs__" class="headerlink" title="Permanent link"></a></h5>
-
-    <div class="doc doc-contents ">
-
-      <p>Return self as a plain tuple.  Used by copy and pickle.</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
-    'Return self as a plain tuple.  Used by copy and pickle.'
-    return _tuple(self)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h5 id="beancount.scripts.sql.EventWriter.type.__new__" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.EventWriter.type.__new__(_cls, meta, date, type, description)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-      <small class="doc doc-property doc-property-staticmethod"><code>staticmethod</code></small>
-  </span>
-
-<a href="#beancount.scripts.sql.EventWriter.type.__new__" class="headerlink" title="Permanent link"></a></h5>
-
-    <div class="doc doc-contents ">
-
-      <p>Create new instance of Event(meta, date, type, description)</p>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h5 id="beancount.scripts.sql.EventWriter.type.__repr__" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.EventWriter.type.__repr__(self)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-<a href="#beancount.scripts.sql.EventWriter.type.__repr__" class="headerlink" title="Permanent link"></a></h5>
-
-    <div class="doc doc-contents ">
-
-      <p>Return a nicely formatted representation string</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def __repr__(self):
-    'Return a nicely formatted representation string'
-    return self.__class__.__name__ + repr_fmt % self
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h4 id="beancount.scripts.sql.EventWriter.get_detail" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.EventWriter.get_detail(self, entry)</code>
-
-
-<a href="#beancount.scripts.sql.EventWriter.get_detail" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Provide data to store for details table.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>entry</strong> – An instance of the desired directive.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>A tuple of the values corresponding to the columns declared in the
-'columns' attribute.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def get_detail(self, entry):
-    return (entry.type,
-            entry.description)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-class">
-
-
-
-<h3 id="beancount.scripts.sql.NoteWriter" class="doc doc-heading">
-        <code>
-beancount.scripts.sql.NoteWriter            (<a title="beancount.scripts.sql.DirectiveWriter" href="#beancount.scripts.sql.DirectiveWriter">DirectiveWriter</a>)
-        </code>
-
-
-
-<a href="#beancount.scripts.sql.NoteWriter" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-class">
-
-
-
-<h4 id="beancount.scripts.sql.NoteWriter.type" class="doc doc-heading">
-        <code>
-beancount.scripts.sql.NoteWriter.type            (<span title="tuple">tuple</span>)
-        </code>
-
-
-
-<a href="#beancount.scripts.sql.NoteWriter.type" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Note(meta, date, account, comment)</p>
-
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h5 id="beancount.scripts.sql.NoteWriter.type.__getnewargs__" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.NoteWriter.type.__getnewargs__(self)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-<a href="#beancount.scripts.sql.NoteWriter.type.__getnewargs__" class="headerlink" title="Permanent link"></a></h5>
-
-    <div class="doc doc-contents ">
-
-      <p>Return self as a plain tuple.  Used by copy and pickle.</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
-    'Return self as a plain tuple.  Used by copy and pickle.'
-    return _tuple(self)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h5 id="beancount.scripts.sql.NoteWriter.type.__new__" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.NoteWriter.type.__new__(_cls, meta, date, account, comment)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-      <small class="doc doc-property doc-property-staticmethod"><code>staticmethod</code></small>
-  </span>
-
-<a href="#beancount.scripts.sql.NoteWriter.type.__new__" class="headerlink" title="Permanent link"></a></h5>
-
-    <div class="doc doc-contents ">
-
-      <p>Create new instance of Note(meta, date, account, comment)</p>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h5 id="beancount.scripts.sql.NoteWriter.type.__repr__" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.NoteWriter.type.__repr__(self)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-<a href="#beancount.scripts.sql.NoteWriter.type.__repr__" class="headerlink" title="Permanent link"></a></h5>
-
-    <div class="doc doc-contents ">
-
-      <p>Return a nicely formatted representation string</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def __repr__(self):
-    'Return a nicely formatted representation string'
-    return self.__class__.__name__ + repr_fmt % self
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h4 id="beancount.scripts.sql.NoteWriter.get_detail" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.NoteWriter.get_detail(self, entry)</code>
-
-
-<a href="#beancount.scripts.sql.NoteWriter.get_detail" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Provide data to store for details table.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>entry</strong> – An instance of the desired directive.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>A tuple of the values corresponding to the columns declared in the
-'columns' attribute.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def get_detail(self, entry):
-    return (entry.account,
-            entry.comment)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-class">
-
-
-
-<h3 id="beancount.scripts.sql.OpenWriter" class="doc doc-heading">
-        <code>
-beancount.scripts.sql.OpenWriter            (<a title="beancount.scripts.sql.DirectiveWriter" href="#beancount.scripts.sql.DirectiveWriter">DirectiveWriter</a>)
-        </code>
-
-
-
-<a href="#beancount.scripts.sql.OpenWriter" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-class">
-
-
-
-<h4 id="beancount.scripts.sql.OpenWriter.type" class="doc doc-heading">
-        <code>
-beancount.scripts.sql.OpenWriter.type            (<span title="tuple">tuple</span>)
-        </code>
-
-
-
-<a href="#beancount.scripts.sql.OpenWriter.type" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Open(meta, date, account, currencies, booking)</p>
-
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h5 id="beancount.scripts.sql.OpenWriter.type.__getnewargs__" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.OpenWriter.type.__getnewargs__(self)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-<a href="#beancount.scripts.sql.OpenWriter.type.__getnewargs__" class="headerlink" title="Permanent link"></a></h5>
-
-    <div class="doc doc-contents ">
-
-      <p>Return self as a plain tuple.  Used by copy and pickle.</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
-    'Return self as a plain tuple.  Used by copy and pickle.'
-    return _tuple(self)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h5 id="beancount.scripts.sql.OpenWriter.type.__new__" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.OpenWriter.type.__new__(_cls, meta, date, account, currencies, booking)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-      <small class="doc doc-property doc-property-staticmethod"><code>staticmethod</code></small>
-  </span>
-
-<a href="#beancount.scripts.sql.OpenWriter.type.__new__" class="headerlink" title="Permanent link"></a></h5>
-
-    <div class="doc doc-contents ">
-
-      <p>Create new instance of Open(meta, date, account, currencies, booking)</p>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h5 id="beancount.scripts.sql.OpenWriter.type.__repr__" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.OpenWriter.type.__repr__(self)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-<a href="#beancount.scripts.sql.OpenWriter.type.__repr__" class="headerlink" title="Permanent link"></a></h5>
-
-    <div class="doc doc-contents ">
-
-      <p>Return a nicely formatted representation string</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def __repr__(self):
-    'Return a nicely formatted representation string'
-    return self.__class__.__name__ + repr_fmt % self
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h4 id="beancount.scripts.sql.OpenWriter.get_detail" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.OpenWriter.get_detail(self, entry)</code>
-
-
-<a href="#beancount.scripts.sql.OpenWriter.get_detail" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Provide data to store for details table.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>entry</strong> – An instance of the desired directive.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>A tuple of the values corresponding to the columns declared in the
-'columns' attribute.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def get_detail(self, entry):
-    return (entry.account,
-            ','.join(entry.currencies or []))
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-class">
-
-
-
-<h3 id="beancount.scripts.sql.PadWriter" class="doc doc-heading">
-        <code>
-beancount.scripts.sql.PadWriter            (<a title="beancount.scripts.sql.DirectiveWriter" href="#beancount.scripts.sql.DirectiveWriter">DirectiveWriter</a>)
-        </code>
-
-
-
-<a href="#beancount.scripts.sql.PadWriter" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-class">
-
-
-
-<h4 id="beancount.scripts.sql.PadWriter.type" class="doc doc-heading">
-        <code>
-beancount.scripts.sql.PadWriter.type            (<span title="tuple">tuple</span>)
-        </code>
-
-
-
-<a href="#beancount.scripts.sql.PadWriter.type" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Pad(meta, date, account, source_account)</p>
-
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h5 id="beancount.scripts.sql.PadWriter.type.__getnewargs__" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.PadWriter.type.__getnewargs__(self)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-<a href="#beancount.scripts.sql.PadWriter.type.__getnewargs__" class="headerlink" title="Permanent link"></a></h5>
-
-    <div class="doc doc-contents ">
-
-      <p>Return self as a plain tuple.  Used by copy and pickle.</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
-    'Return self as a plain tuple.  Used by copy and pickle.'
-    return _tuple(self)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h5 id="beancount.scripts.sql.PadWriter.type.__new__" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.PadWriter.type.__new__(_cls, meta, date, account, source_account)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-      <small class="doc doc-property doc-property-staticmethod"><code>staticmethod</code></small>
-  </span>
-
-<a href="#beancount.scripts.sql.PadWriter.type.__new__" class="headerlink" title="Permanent link"></a></h5>
-
-    <div class="doc doc-contents ">
-
-      <p>Create new instance of Pad(meta, date, account, source_account)</p>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h5 id="beancount.scripts.sql.PadWriter.type.__repr__" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.PadWriter.type.__repr__(self)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-<a href="#beancount.scripts.sql.PadWriter.type.__repr__" class="headerlink" title="Permanent link"></a></h5>
-
-    <div class="doc doc-contents ">
-
-      <p>Return a nicely formatted representation string</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def __repr__(self):
-    'Return a nicely formatted representation string'
-    return self.__class__.__name__ + repr_fmt % self
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h4 id="beancount.scripts.sql.PadWriter.get_detail" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.PadWriter.get_detail(self, entry)</code>
-
-
-<a href="#beancount.scripts.sql.PadWriter.get_detail" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Provide data to store for details table.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>entry</strong> – An instance of the desired directive.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>A tuple of the values corresponding to the columns declared in the
-'columns' attribute.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def get_detail(self, entry):
-    return (entry.account, entry.source_account)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-class">
-
-
-
-<h3 id="beancount.scripts.sql.PriceWriter" class="doc doc-heading">
-        <code>
-beancount.scripts.sql.PriceWriter            (<a title="beancount.scripts.sql.DirectiveWriter" href="#beancount.scripts.sql.DirectiveWriter">DirectiveWriter</a>)
-        </code>
-
-
-
-<a href="#beancount.scripts.sql.PriceWriter" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-class">
-
-
-
-<h4 id="beancount.scripts.sql.PriceWriter.type" class="doc doc-heading">
-        <code>
-beancount.scripts.sql.PriceWriter.type            (<span title="tuple">tuple</span>)
-        </code>
-
-
-
-<a href="#beancount.scripts.sql.PriceWriter.type" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Price(meta, date, currency, amount)</p>
-
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h5 id="beancount.scripts.sql.PriceWriter.type.__getnewargs__" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.PriceWriter.type.__getnewargs__(self)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-<a href="#beancount.scripts.sql.PriceWriter.type.__getnewargs__" class="headerlink" title="Permanent link"></a></h5>
-
-    <div class="doc doc-contents ">
-
-      <p>Return self as a plain tuple.  Used by copy and pickle.</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
-    'Return self as a plain tuple.  Used by copy and pickle.'
-    return _tuple(self)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h5 id="beancount.scripts.sql.PriceWriter.type.__new__" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.PriceWriter.type.__new__(_cls, meta, date, currency, amount)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-      <small class="doc doc-property doc-property-staticmethod"><code>staticmethod</code></small>
-  </span>
-
-<a href="#beancount.scripts.sql.PriceWriter.type.__new__" class="headerlink" title="Permanent link"></a></h5>
-
-    <div class="doc doc-contents ">
-
-      <p>Create new instance of Price(meta, date, currency, amount)</p>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h5 id="beancount.scripts.sql.PriceWriter.type.__repr__" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.PriceWriter.type.__repr__(self)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-<a href="#beancount.scripts.sql.PriceWriter.type.__repr__" class="headerlink" title="Permanent link"></a></h5>
-
-    <div class="doc doc-contents ">
-
-      <p>Return a nicely formatted representation string</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def __repr__(self):
-    'Return a nicely formatted representation string'
-    return self.__class__.__name__ + repr_fmt % self
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h4 id="beancount.scripts.sql.PriceWriter.get_detail" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.PriceWriter.get_detail(self, entry)</code>
-
-
-<a href="#beancount.scripts.sql.PriceWriter.get_detail" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Provide data to store for details table.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>entry</strong> – An instance of the desired directive.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>A tuple of the values corresponding to the columns declared in the
-'columns' attribute.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def get_detail(self, entry):
-    return (entry.currency,
-            entry.amount.number,
-            entry.amount.currency)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-class">
-
-
-
-<h3 id="beancount.scripts.sql.QueryWriter" class="doc doc-heading">
-        <code>
-beancount.scripts.sql.QueryWriter            (<a title="beancount.scripts.sql.DirectiveWriter" href="#beancount.scripts.sql.DirectiveWriter">DirectiveWriter</a>)
-        </code>
-
-
-
-<a href="#beancount.scripts.sql.QueryWriter" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-class">
-
-
-
-<h4 id="beancount.scripts.sql.QueryWriter.type" class="doc doc-heading">
-        <code>
-beancount.scripts.sql.QueryWriter.type            (<span title="tuple">tuple</span>)
-        </code>
-
-
-
-<a href="#beancount.scripts.sql.QueryWriter.type" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Query(meta, date, name, query_string)</p>
-
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h5 id="beancount.scripts.sql.QueryWriter.type.__getnewargs__" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.QueryWriter.type.__getnewargs__(self)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-<a href="#beancount.scripts.sql.QueryWriter.type.__getnewargs__" class="headerlink" title="Permanent link"></a></h5>
-
-    <div class="doc doc-contents ">
-
-      <p>Return self as a plain tuple.  Used by copy and pickle.</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
-    'Return self as a plain tuple.  Used by copy and pickle.'
-    return _tuple(self)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h5 id="beancount.scripts.sql.QueryWriter.type.__new__" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.QueryWriter.type.__new__(_cls, meta, date, name, query_string)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-      <small class="doc doc-property doc-property-staticmethod"><code>staticmethod</code></small>
-  </span>
-
-<a href="#beancount.scripts.sql.QueryWriter.type.__new__" class="headerlink" title="Permanent link"></a></h5>
-
-    <div class="doc doc-contents ">
-
-      <p>Create new instance of Query(meta, date, name, query_string)</p>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h5 id="beancount.scripts.sql.QueryWriter.type.__repr__" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.QueryWriter.type.__repr__(self)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-<a href="#beancount.scripts.sql.QueryWriter.type.__repr__" class="headerlink" title="Permanent link"></a></h5>
-
-    <div class="doc doc-contents ">
-
-      <p>Return a nicely formatted representation string</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def __repr__(self):
-    'Return a nicely formatted representation string'
-    return self.__class__.__name__ + repr_fmt % self
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h4 id="beancount.scripts.sql.QueryWriter.get_detail" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.QueryWriter.get_detail(self, entry)</code>
-
-
-<a href="#beancount.scripts.sql.QueryWriter.get_detail" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Provide data to store for details table.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>entry</strong> – An instance of the desired directive.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>A tuple of the values corresponding to the columns declared in the
-'columns' attribute.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def get_detail(self, entry):
-    return (entry.name,
-            entry.query_string)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.scripts.sql.adapt_decimal" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.adapt_decimal(number)</code>
-
-
-<a href="#beancount.scripts.sql.adapt_decimal" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Adapt a Decimal instance to a string for creating queries.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>number</strong> – An instance of Decimal.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>A string.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def adapt_decimal(number):
-    """Adapt a Decimal instance to a string for creating queries.
-
-    Args:
-      number: An instance of Decimal.
-    Returns:
-      A string.
-    """
-    return str(number)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.scripts.sql.convert_decimal" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.convert_decimal(string)</code>
-
-
-<a href="#beancount.scripts.sql.convert_decimal" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Convert a Decimal string to a Decimal instance.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>string</strong> – A decimal number in a string.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>An instance of Decimal.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def convert_decimal(string):
-    """Convert a Decimal string to a Decimal instance.
-
-    Args:
-      string: A decimal number in a string.
-    Returns:
-      An instance of Decimal.
-    """
-    return Decimal(string)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.scripts.sql.output_common" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.output_common(connection, unused_entries)</code>
-
-
-<a href="#beancount.scripts.sql.output_common" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Create a table of common data for all entries.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>connection</strong> – A DBAPI-2.0 Connection object.</p></li>
-            <li><p><strong>entries</strong> – A list of directives.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def output_common(connection, unused_entries):
-    """Create a table of common data for all entries.
-
-    Args:
-      connection: A DBAPI-2.0 Connection object.
-      entries: A list of directives.
-    """
-    with connection:
-        connection.execute("""
-          CREATE TABLE entry (
-            id 			INTEGER PRIMARY KEY,
-            date 		DATE,
-            type                CHARACTER(8),
-            source_filename	STRING,
-            source_lineno	INTEGER
-          );
-        """)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.scripts.sql.output_transactions" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.output_transactions(connection, entries)</code>
-
-
-<a href="#beancount.scripts.sql.output_transactions" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Create a table for transactions and fill in the data.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>connection</strong> – A DBAPI-2.0 Connection object.</p></li>
-            <li><p><strong>entries</strong> – A list of directives.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def output_transactions(connection, entries):
-    """Create a table for transactions and fill in the data.
-
-    Args:
-      connection: A DBAPI-2.0 Connection object.
-      entries: A list of directives.
-    """
-    with connection:
-        connection.execute("""
-          CREATE TABLE transactions_detail (
-            id 			INTEGER PRIMARY KEY,
-            flag 		CHARACTER(1),
-            payee 		VARCHAR,
-            narration 		VARCHAR,
-            tags                VARCHAR, -- Comma-separated
-            links               VARCHAR  -- Comma-separated
-          );
-        """)
-
-        connection.execute("""
-          CREATE VIEW transactions AS
-            SELECT * FROM entry JOIN transactions_detail USING (id);
-        """)
-
-        connection.execute("""
-          CREATE TABLE postings (
-            posting_id		INTEGER PRIMARY KEY,
-            id 			INTEGER,
-            flag                CHARACTER(1),
-            account             VARCHAR,
-            number              DECIMAL(16, 6),
-            currency            CHARACTER(10),
-            cost_number         DECIMAL(16, 6),
-            cost_currency       CHARACTER(10),
-            cost_date           DATE,
-            cost_label          VARCHAR,
-            price_number        DECIMAL(16, 6),
-            price_currency      CHARACTER(10),
-            FOREIGN KEY(id) REFERENCES entries(id)
-          );
-        """)
-
-    postings_count = iter(itertools.count())
-    with connection:
-        for eid, entry in enumerate(entries):
-            if not isinstance(entry, data.Transaction):
-                continue
-            connection.execute("""
-              insert into entry values (?, ?, ?, ?, ?);
-            """, (eid, entry.date, 'txn', entry.meta["filename"], entry.meta["lineno"]))
-
-            connection.execute("""
-              insert into transactions_detail values (?, ?, ?, ?, ?, ?);
-            """, (eid, entry.flag, entry.payee, entry.narration,
-                  ','.join(entry.tags or ()), ','.join(entry.links or ())))
-
-            for posting in entry.postings:
-                pid = next(postings_count)
-                units = posting.units
-                cost = posting.cost
-                price = posting.price
-                connection.execute("""
-                  INSERT INTO postings VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
-                """, (pid, eid,
-                      posting.flag,
-                      posting.account,
-                      units.number,
-                      units.currency,
-                      cost.number if cost else None,
-                      cost.currency if cost else None,
-                      cost.date if cost else None,
-                      cost.label if cost else None,
-                      price.number if price else None,
-                      price.currency if price else None))
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.scripts.sql.setup_decimal_support" class="doc doc-heading">
-<code class="highlight language-python">beancount.scripts.sql.setup_decimal_support()</code>
-
-
-<a href="#beancount.scripts.sql.setup_decimal_support" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Setup sqlite3 to support conversions to/from Decimal numbers.</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/scripts/sql.py</code></summary>
-          <pre class="highlight"><code class="language-python">def setup_decimal_support():
-    """Setup sqlite3 to support conversions to/from Decimal numbers.
-    """
-    dbapi.register_adapter(Decimal, adapt_decimal)
-    dbapi.register_converter("decimal", convert_decimal)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-module">
-
-
-
-<h2 id="beancount.scripts.tutorial" class="doc doc-heading">
-        <code>beancount.scripts.tutorial</code>
-
-
-
-<a href="#beancount.scripts.tutorial" class="headerlink" title="Permanent link"></a></h2>
-
-    <div class="doc doc-contents ">
-
-      <p>Write output files for the tutorial commands.</p>
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
 
 
 

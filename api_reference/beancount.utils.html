@@ -178,26 +178,6 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#beancount.utils.csv_utils">csv_utils</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.csv_utils.as_rows">as_rows()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.csv_utils.csv_clean_header">csv_clean_header()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.csv_utils.csv_dict_reader">csv_dict_reader()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.csv_utils.csv_split_sections">csv_split_sections()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.csv_utils.csv_split_sections_with_titles">csv_split_sections_with_titles()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.csv_utils.csv_tuple_reader">csv_tuple_reader()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.csv_utils.iter_sections">iter_sections()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.csv_utils.iter_until_empty">iter_until_empty()</a>
-    </li>
-        </ul>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#beancount.utils.date_utils">date_utils</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.date_utils.intimezone">intimezone()</a>
@@ -205,8 +185,6 @@
     <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.date_utils.iter_dates">iter_dates()</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.date_utils.next_month">next_month()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.date_utils.parse_date_liberally">parse_date_liberally()</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.date_utils.render_ofx_date">render_ofx_date()</a>
     </li>
@@ -233,12 +211,6 @@
     <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.encryption.is_gpg_installed">is_gpg_installed()</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.encryption.read_encrypted_file">read_encrypted_file()</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#beancount.utils.file_type">file_type</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.file_type.guess_file_type">guess_file_type()</a>
     </li>
         </ul>
     </li>
@@ -346,12 +318,6 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#beancount.utils.net_utils">net_utils</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.net_utils.retrying_urlopen">retrying_urlopen()</a>
-    </li>
-        </ul>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#beancount.utils.pager">pager</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.pager.ConditionalPager">ConditionalPager</a>
@@ -374,12 +340,6 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#beancount.utils.regexp_utils">regexp_utils</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.regexp_utils.re_replace_unicode">re_replace_unicode()</a>
-    </li>
-        </ul>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#beancount.utils.snoop">snoop</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.snoop.Snoop">Snoop</a>
@@ -396,13 +356,47 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#beancount.utils.table">table</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.table.Table">Table</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#beancount.utils.table.Table.__getnewargs__">__getnewargs__()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#beancount.utils.table.Table.__new__">__new__()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#beancount.utils.table.Table.__replace__">__replace__()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#beancount.utils.table.Table.__repr__">__repr__()</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.table.attribute_to_title">attribute_to_title()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.table.compute_table_widths">compute_table_widths()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.table.create_table">create_table()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.table.render_table">render_table()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.table.table_to_csv">table_to_csv()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.table.table_to_html">table_to_html()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.table.table_to_text">table_to_text()</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#beancount.utils.test_utils">test_utils</a>
         <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.test_utils.ClickTestCase">ClickTestCase</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.test_utils.RCall">RCall</a>
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#beancount.utils.test_utils.RCall.__getnewargs__">__getnewargs__()</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#beancount.utils.test_utils.RCall.__new__">__new__()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#beancount.utils.test_utils.RCall.__replace__">__replace__()</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#beancount.utils.test_utils.RCall.__repr__">__repr__()</a>
     </li>
@@ -416,7 +410,15 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.test_utils.call_command">call_command()</a>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.test_utils.TmpFilesTestBase">TmpFilesTestBase</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#beancount.utils.test_utils.TmpFilesTestBase.create_file_hierarchy">create_file_hierarchy()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#beancount.utils.test_utils.TmpFilesTestBase.setUp">setUp()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#beancount.utils.test_utils.TmpFilesTestBase.tearDown">tearDown()</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.test_utils.capture">capture()</a>
     </li>
@@ -440,8 +442,6 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.test_utils.record">record()</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.test_utils.run_with_args">run_with_args()</a>
-    </li>
     <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.test_utils.search_words">search_words()</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.test_utils.skipIfRaises">skipIfRaises()</a>
@@ -449,24 +449,6 @@
     <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.test_utils.subprocess_env">subprocess_env()</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.test_utils.tempdir">tempdir()</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#beancount.utils.text_utils">text_utils</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.text_utils.entitize_ampersand">entitize_ampersand()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.text_utils.replace_number">replace_number()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.text_utils.replace_numbers">replace_numbers()</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#beancount.utils.version">version</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.version.ArgumentParser">ArgumentParser()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.utils.version.compute_version_string">compute_version_string()</a>
     </li>
         </ul>
     </li>
@@ -625,7 +607,6 @@ sequence.</p></li>
     Returns:
       Return the index. May return None.
     """
-    # pylint: disable=invalid-name
     if key is None:
         key = lambda x: x  # Identity.
 
@@ -723,623 +704,6 @@ sequence.</p></li>
         else:
             lo = mid+1
     return lo
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-module">
-
-
-
-<h2 id="beancount.utils.csv_utils" class="doc doc-heading">
-        <code>beancount.utils.csv_utils</code>
-
-
-
-<a href="#beancount.utils.csv_utils" class="headerlink" title="Permanent link"></a></h2>
-
-    <div class="doc doc-contents ">
-
-      <p>Utilities for reading and writing CSV files.</p>
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.utils.csv_utils.as_rows" class="doc doc-heading">
-<code class="highlight language-python">beancount.utils.csv_utils.as_rows(string)</code>
-
-
-<a href="#beancount.utils.csv_utils.as_rows" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Split a string as rows of a CSV file.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>string</strong> – A string to be split, the contents of a CSV file.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>Lists of lists of strings.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/utils/csv_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python">def as_rows(string):
-    """Split a string as rows of a CSV file.
-
-    Args:
-      string: A string to be split, the contents of a CSV file.
-    Returns:
-      Lists of lists of strings.
-    """
-    return list(csv.reader(io.StringIO(textwrap.dedent(string))))
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.utils.csv_utils.csv_clean_header" class="doc doc-heading">
-<code class="highlight language-python">beancount.utils.csv_utils.csv_clean_header(header_row)</code>
-
-
-<a href="#beancount.utils.csv_utils.csv_clean_header" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Create a new class for the following rows from the header line.
-This both normalizes the header line and assign</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>header_row</strong> – A list of strings, the row with header titles.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>A list of strings, with possibly modified (cleaned) row titles, of the
-same lengths.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/utils/csv_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python">def csv_clean_header(header_row):
-    """Create a new class for the following rows from the header line.
-    This both normalizes the header line and assign
-
-    Args:
-      header_row: A list of strings, the row with header titles.
-    Returns:
-      A list of strings, with possibly modified (cleaned) row titles, of the
-      same lengths.
-    """
-    fieldnames = []
-    for index, column in enumerate(header_row):
-        field = column.lower()
-        field = re.sub(r'\bp/l\b', 'pnl', field)
-        field = re.sub('[^a-z0-9]', '_', field)
-        field = field.strip(' _')
-        field = re.sub('__+', '_', field)
-        if not field:
-            field = 'col{}'.format(index)
-        assert field not in fieldnames, field
-        fieldnames.append(field)
-    return fieldnames
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.utils.csv_utils.csv_dict_reader" class="doc doc-heading">
-<code class="highlight language-python">beancount.utils.csv_utils.csv_dict_reader(fileobj, **kw)</code>
-
-
-<a href="#beancount.utils.csv_utils.csv_dict_reader" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Read a CSV file yielding normalized dictionary fields.</p>
-<p>This is basically an alternative constructor for csv.DictReader that
-normalized the field names.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>fileobj</strong> – A file object to be read.</p></li>
-            <li><p><strong>**kw</strong> – Optional arguments forwarded to csv.DictReader.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>A csv.DictReader object.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/utils/csv_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python">def csv_dict_reader(fileobj, **kw):
-    """Read a CSV file yielding normalized dictionary fields.
-
-    This is basically an alternative constructor for csv.DictReader that
-    normalized the field names.
-
-    Args:
-      fileobj: A file object to be read.
-      **kw: Optional arguments forwarded to csv.DictReader.
-    Returns:
-      A csv.DictReader object.
-    """
-    reader = csv.DictReader(fileobj, **kw)
-    reader.fieldnames = csv_clean_header(reader.fieldnames)
-    return reader
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.utils.csv_utils.csv_split_sections" class="doc doc-heading">
-<code class="highlight language-python">beancount.utils.csv_utils.csv_split_sections(rows)</code>
-
-
-<a href="#beancount.utils.csv_utils.csv_split_sections" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Given rows, split them in at empty lines.
-This is useful for structured CSV files with multiple sections.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>rows</strong> – A list of rows, which are themselves lists of strings.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>A list of sections, which are lists of rows, which are lists of strings.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/utils/csv_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python">def csv_split_sections(rows):
-    """Given rows, split them in at empty lines.
-    This is useful for structured CSV files with multiple sections.
-
-    Args:
-      rows: A list of rows, which are themselves lists of strings.
-    Returns:
-      A list of sections, which are lists of rows, which are lists of strings.
-    """
-    sections = []
-    current_section = []
-    for row in rows:
-        if row:
-            current_section.append(row)
-        else:
-            sections.append(current_section)
-            current_section = []
-    if current_section:
-        sections.append(current_section)
-    return sections
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.utils.csv_utils.csv_split_sections_with_titles" class="doc doc-heading">
-<code class="highlight language-python">beancount.utils.csv_utils.csv_split_sections_with_titles(rows)</code>
-
-
-<a href="#beancount.utils.csv_utils.csv_split_sections_with_titles" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Given a list of rows, split their sections. If the sections have single
-column titles, consume those lines as their names and return a mapping of
-section names.</p>
-<p>This is useful for CSV files with multiple sections, where the separator is
-a title. We use this to separate the multiple tables within the CSV files.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>rows</strong> – A list of rows (list-of-strings).</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>A list of lists of rows (list-of-strings).</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/utils/csv_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python">def csv_split_sections_with_titles(rows):
-    """Given a list of rows, split their sections. If the sections have single
-    column titles, consume those lines as their names and return a mapping of
-    section names.
-
-    This is useful for CSV files with multiple sections, where the separator is
-    a title. We use this to separate the multiple tables within the CSV files.
-
-    Args:
-      rows: A list of rows (list-of-strings).
-    Returns:
-     A list of lists of rows (list-of-strings).
-
-    """
-    sections_map = {}
-    for index, section in enumerate(csv_split_sections(rows)):
-        # Skip too short sections, cannot possibly be a title.
-        if len(section) &lt; 2:
-            continue
-        if len(section[0]) == 1 and len(section[1]) != 1:
-            name = section[0][0]
-            section = section[1:]
-        else:
-            name = 'Section {}'.format(index)
-        sections_map[name] = section
-    return sections_map
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.utils.csv_utils.csv_tuple_reader" class="doc doc-heading">
-<code class="highlight language-python">beancount.utils.csv_utils.csv_tuple_reader(fileobj, **kw)</code>
-
-
-<a href="#beancount.utils.csv_utils.csv_tuple_reader" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Read a CSV file yielding namedtuple instances. The CSV file must have a
-header line.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>fileobj</strong> – A file object to be read.</p></li>
-            <li><p><strong>**kw</strong> – Optional arguments forwarded to csv.DictReader.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>      <p>Yields:
-  Nametuple instances, one for each row.</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/utils/csv_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python">def csv_tuple_reader(fileobj, **kw):
-    """Read a CSV file yielding namedtuple instances. The CSV file must have a
-    header line.
-
-    Args:
-      fileobj: A file object to be read.
-      **kw: Optional arguments forwarded to csv.DictReader.
-    Yields:
-      Nametuple instances, one for each row.
-    """
-    reader = csv.reader(fileobj, **kw)
-    ireader = iter(reader)
-    fieldnames = csv_clean_header(next(ireader))
-    Tuple = collections.namedtuple('Row', fieldnames)
-    for row in ireader:
-        try:
-            yield Tuple(*row)
-        except TypeError:
-            # If there's an error, it's usually from a line that has a 'END OF
-            # LINE' marker at the end, or some comment line.
-            assert len(row) in (0, 1)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.utils.csv_utils.iter_sections" class="doc doc-heading">
-<code class="highlight language-python">beancount.utils.csv_utils.iter_sections(fileobj, separating_predicate=None)</code>
-
-
-<a href="#beancount.utils.csv_utils.iter_sections" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>For a given file object, yield file-like objects for each of the sections
-contained therein. A section is defined as a list of lines that don't match
-the predicate. For example, if you want to split by empty lines, provide a
-predicate that will be true given an empty line, which will cause a new
-section to be begun.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>fileobj</strong> – A file object to read from.</p></li>
-            <li><p><strong>separating_predicate</strong> – A boolean predicate that is true on separating lines.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>      <p>Yields:
-  A list of lines that you can use to iterate.</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/utils/csv_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python">def iter_sections(fileobj, separating_predicate=None):
-    """For a given file object, yield file-like objects for each of the sections
-    contained therein. A section is defined as a list of lines that don't match
-    the predicate. For example, if you want to split by empty lines, provide a
-    predicate that will be true given an empty line, which will cause a new
-    section to be begun.
-
-    Args:
-      fileobj: A file object to read from.
-      separating_predicate: A boolean predicate that is true on separating lines.
-    Yields:
-      A list of lines that you can use to iterate.
-    """
-    if separating_predicate is None:
-        separating_predicate = lambda line: bool(line.strip())
-
-    lineiter = iter(fileobj)
-    for line in lineiter:
-        if separating_predicate(line):
-            iterator = itertools.chain((line,),
-                                       iter_until_empty(lineiter,
-                                                        separating_predicate))
-            yield iterator
-            for _ in iterator:
-                pass
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.utils.csv_utils.iter_until_empty" class="doc doc-heading">
-<code class="highlight language-python">beancount.utils.csv_utils.iter_until_empty(iterator, separating_predicate=None)</code>
-
-
-<a href="#beancount.utils.csv_utils.iter_until_empty" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>An iterator of lines that will stop at the first empty line.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>iterator</strong> – An iterator of lines.</p></li>
-            <li><p><strong>separating_predicate</strong> – A boolean predicate that is true on separating lines.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>      <p>Yields:
-  Non-empty lines. EOF when we hit an empty line.</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/utils/csv_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python">def iter_until_empty(iterator, separating_predicate=None):
-    """An iterator of lines that will stop at the first empty line.
-
-    Args:
-      iterator: An iterator of lines.
-      separating_predicate: A boolean predicate that is true on separating lines.
-    Yields:
-      Non-empty lines. EOF when we hit an empty line.
-    """
-    if separating_predicate is None:
-        separating_predicate = lambda line: bool(line.strip())
-
-    for line in iterator:
-        if not separating_predicate(line):
-            break
-        yield line
 </code></pre>
         </details>
     </div>
@@ -1598,81 +962,6 @@ def intimezone(tz_value: str):
 
 
 
-<h3 id="beancount.utils.date_utils.parse_date_liberally" class="doc doc-heading">
-<code class="highlight language-python">beancount.utils.date_utils.parse_date_liberally(string, parse_kwargs_dict=None)</code>
-
-
-<a href="#beancount.utils.date_utils.parse_date_liberally" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Parse arbitrary strings to dates.</p>
-<p>This function is intended to support liberal inputs, so that we can use it
-in accepting user-specified dates on command-line scripts.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>string</strong> – A string to parse.</p></li>
-            <li><p><strong>parse_kwargs_dict</strong> – Dict of kwargs to pass to dateutil parser.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>A datetime.date object.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/utils/date_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python">def parse_date_liberally(string, parse_kwargs_dict=None):
-    """Parse arbitrary strings to dates.
-
-    This function is intended to support liberal inputs, so that we can use it
-    in accepting user-specified dates on command-line scripts.
-
-    Args:
-      string: A string to parse.
-      parse_kwargs_dict: Dict of kwargs to pass to dateutil parser.
-    Returns:
-      A datetime.date object.
-    """
-    # At the moment, rely on the most excellent dateutil.
-    if parse_kwargs_dict is None:
-        parse_kwargs_dict = {}
-    return dateutil.parser.parse(string, **parse_kwargs_dict).date()
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
 <h3 id="beancount.utils.date_utils.render_ofx_date" class="doc doc-heading">
 <code class="highlight language-python">beancount.utils.date_utils.render_ofx_date(dtime)</code>
 
@@ -1904,7 +1193,7 @@ set method is make unavailable to prevent mutation beyond construction.</p>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/defdict.py</code></summary>
           <pre class="highlight"><code class="language-python">def get(self, key, _=None):
-    return self.__getitem__(key)
+    return self.__getitem__(key)  # pylint: disable=unnecessary-dunder-call
 </code></pre>
         </details>
     </div>
@@ -2154,138 +1443,6 @@ set method is make unavailable to prevent mutation beyond construction.</p>
         raise OSError("Could not decrypt file ({}): {}".format(pipe.returncode,
                                                                errors.decode('utf8')))
     return contents.decode('utf-8')
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-module">
-
-
-
-<h2 id="beancount.utils.file_type" class="doc doc-heading">
-        <code>beancount.utils.file_type</code>
-
-
-
-<a href="#beancount.utils.file_type" class="headerlink" title="Permanent link"></a></h2>
-
-    <div class="doc doc-contents ">
-
-      <p>Code that can guess a MIME type for a filename.</p>
-<p>This attempts to identify the mime-type of a file suing</p>
-<ol>
-<li>The built-in mimetypes library, then</li>
-<li>python-magic (if available), and finally</li>
-<li>some custom mappers for datatypes used in financial downloads, such as
-   Quicken files.</li>
-</ol>
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.utils.file_type.guess_file_type" class="doc doc-heading">
-<code class="highlight language-python">beancount.utils.file_type.guess_file_type(filename)</code>
-
-
-<a href="#beancount.utils.file_type.guess_file_type" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Attempt to guess the type of the input file.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>filename</strong> – A string, the name of the file to guess the type for.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>A suitable mimetype string, or None if we could not guess.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/utils/file_type.py</code></summary>
-          <pre class="highlight"><code class="language-python">def guess_file_type(filename):
-    """Attempt to guess the type of the input file.
-
-    Args:
-      filename: A string, the name of the file to guess the type for.
-    Returns:
-      A suitable mimetype string, or None if we could not guess.
-    """
-
-    # Try the standard mimetypes association.
-    filetype, _ = mimetypes.guess_type(filename, False)
-    if filetype:
-        return filetype
-
-    # Try out some extra types that only we know about.
-    for regexp, mimetype in EXTRA_FILE_TYPES:
-        if regexp.match(filename):
-            return mimetype
-
-    # Try out libmagic, if it is installed.
-    if magic:
-        filetype = magic.from_file(filename, mime=True)
-        if isinstance(filetype, bytes):
-            filetype = filetype.decode('utf8')
-        return filetype
-    else:
-        raise ValueError(("Could not identify the type of file '{}'; "
-                          "try installing python-magic").format(filename))
 </code></pre>
         </details>
     </div>
@@ -4331,7 +3488,7 @@ function 'keyfun'.</p>
       The input string, with offending characters replaced.
     """
     for sfrom, sto in [(r'[ \(\)]+', '_'),
-                      (r'_*\._*', '.')]:
+                       (r'_*\._*', '.')]:
         string = re.sub(sfrom, sto, string)
     string = string.strip('_')
     return string
@@ -4422,7 +3579,7 @@ function 'keyfun'.</p>
 
 
 <h3 id="beancount.utils.misc_utils.is_sorted" class="doc doc-heading">
-<code class="highlight language-python">beancount.utils.misc_utils.is_sorted(iterable, key=&lt;function &lt;lambda&gt; at 0x755e15ff8a40&gt;, cmp=&lt;function &lt;lambda&gt; at 0x755e15ff8ae0&gt;)</code>
+<code class="highlight language-python">beancount.utils.misc_utils.is_sorted(iterable, key=&lt;function &lt;lambda&gt; at 0x759d439f9d00&gt;, cmp=&lt;function &lt;lambda&gt; at 0x759d439f9da0&gt;)</code>
 
 
 <a href="#beancount.utils.misc_utils.is_sorted" class="headerlink" title="Permanent link"></a></h3>
@@ -5171,126 +4328,6 @@ Otherwise keep the first.</p></li>
 
 
 
-<h2 id="beancount.utils.net_utils" class="doc doc-heading">
-        <code>beancount.utils.net_utils</code>
-
-
-
-<a href="#beancount.utils.net_utils" class="headerlink" title="Permanent link"></a></h2>
-
-    <div class="doc doc-contents ">
-
-      <p>Network utilities.</p>
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.utils.net_utils.retrying_urlopen" class="doc doc-heading">
-<code class="highlight language-python">beancount.utils.net_utils.retrying_urlopen(url, timeout=5, max_retry=5)</code>
-
-
-<a href="#beancount.utils.net_utils.retrying_urlopen" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Open and download the given URL, retrying if it times out.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>url</strong> – A string, the URL to fetch.</p></li>
-            <li><p><strong>timeout</strong> – A timeout after which to stop waiting for a response and return an
-error.</p></li>
-            <li><p><strong>max_retry</strong> – The maximum number of times to retry.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>The contents of the fetched URL.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/utils/net_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python">def retrying_urlopen(url, timeout=5, max_retry=5):
-    """Open and download the given URL, retrying if it times out.
-
-    Args:
-      url: A string, the URL to fetch.
-      timeout: A timeout after which to stop waiting for a response and return an
-        error.
-      max_retry: The maximum number of times to retry.
-    Returns:
-      The contents of the fetched URL.
-    """
-    for _ in range(max_retry):
-        logging.debug("Reading %s", url)
-        try:
-            response = request.urlopen(url, timeout=timeout)
-            if response:
-                break
-        except error.URLError:
-            return None
-    if response and response.getcode() != 200:
-        return None
-    return response
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-module">
-
-
-
 <h2 id="beancount.utils.pager" class="doc doc-heading">
         <code>beancount.utils.pager</code>
 
@@ -5840,115 +4877,6 @@ def flush_only(fileobj):
 
 
 
-<h2 id="beancount.utils.regexp_utils" class="doc doc-heading">
-        <code>beancount.utils.regexp_utils</code>
-
-
-
-<a href="#beancount.utils.regexp_utils" class="headerlink" title="Permanent link"></a></h2>
-
-    <div class="doc doc-contents ">
-
-      <p>Regular expression helpers.</p>
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.utils.regexp_utils.re_replace_unicode" class="doc doc-heading">
-<code class="highlight language-python">beancount.utils.regexp_utils.re_replace_unicode(regexp)</code>
-
-
-<a href="#beancount.utils.regexp_utils.re_replace_unicode" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Substitute Unicode Properties in regular expressions with their
-corresponding expanded ranges.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>regexp</strong> – A regular expression string.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>Return the regular expression with Unicode Properties substituted.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/utils/regexp_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python">def re_replace_unicode(regexp):
-    """Substitute Unicode Properties in regular expressions with their
-    corresponding expanded ranges.
-
-    Args:
-      regexp: A regular expression string.
-    Returns:
-      Return the regular expression with Unicode Properties substituted.
-    """
-    for category, rangestr in UNICODE_RANGES.items():
-        regexp = regexp.replace(r'\p{' + category + '}', rangestr)
-    return regexp
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-module">
-
-
-
 <h2 id="beancount.utils.snoop" class="doc doc-heading">
         <code>beancount.utils.snoop</code>
 
@@ -6302,6 +5230,877 @@ decorate it like this:</p>
 
 
 
+<h2 id="beancount.utils.table" class="doc doc-heading">
+        <code>beancount.utils.table</code>
+
+
+
+<a href="#beancount.utils.table" class="headerlink" title="Permanent link"></a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Table rendering.</p>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h3 id="beancount.utils.table.Table" class="doc doc-heading">
+        <code>
+beancount.utils.table.Table            (<span title="tuple">tuple</span>)
+        </code>
+
+
+
+<a href="#beancount.utils.table.Table" class="headerlink" title="Permanent link"></a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Table(columns, header, body)</p>
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="beancount.utils.table.Table.__getnewargs__" class="doc doc-heading">
+<code class="highlight language-python">beancount.utils.table.Table.__getnewargs__(self)</code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-special"><code>special</code></small>
+  </span>
+
+<a href="#beancount.utils.table.Table.__getnewargs__" class="headerlink" title="Permanent link"></a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Return self as a plain tuple.  Used by copy and pickle.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>beancount/utils/table.py</code></summary>
+          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
+    'Return self as a plain tuple.  Used by copy and pickle.'
+    return _tuple(self)
+</code></pre>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="beancount.utils.table.Table.__new__" class="doc doc-heading">
+<code class="highlight language-python">beancount.utils.table.Table.__new__(_cls, columns, header, body)</code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-special"><code>special</code></small>
+      <small class="doc doc-property doc-property-staticmethod"><code>staticmethod</code></small>
+  </span>
+
+<a href="#beancount.utils.table.Table.__new__" class="headerlink" title="Permanent link"></a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Create new instance of Table(columns, header, body)</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="beancount.utils.table.Table.__replace__" class="doc doc-heading">
+<code class="highlight language-python">beancount.utils.table.Table.__replace__(/, self, **kwds)</code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-special"><code>special</code></small>
+  </span>
+
+<a href="#beancount.utils.table.Table.__replace__" class="headerlink" title="Permanent link"></a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Return a new Table object replacing specified fields with new values</p>
+
+        <details class="quote">
+          <summary>Source code in <code>beancount/utils/table.py</code></summary>
+          <pre class="highlight"><code class="language-python">def _replace(self, /, **kwds):
+    result = self._make(_map(kwds.pop, field_names, self))
+    if kwds:
+        raise TypeError(f'Got unexpected field names: {list(kwds)!r}')
+    return result
+</code></pre>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="beancount.utils.table.Table.__repr__" class="doc doc-heading">
+<code class="highlight language-python">beancount.utils.table.Table.__repr__(self)</code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-special"><code>special</code></small>
+  </span>
+
+<a href="#beancount.utils.table.Table.__repr__" class="headerlink" title="Permanent link"></a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Return a nicely formatted representation string</p>
+
+        <details class="quote">
+          <summary>Source code in <code>beancount/utils/table.py</code></summary>
+          <pre class="highlight"><code class="language-python">def __repr__(self):
+    'Return a nicely formatted representation string'
+    return self.__class__.__name__ + repr_fmt % self
+</code></pre>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h3 id="beancount.utils.table.attribute_to_title" class="doc doc-heading">
+<code class="highlight language-python">beancount.utils.table.attribute_to_title(fieldname)</code>
+
+
+<a href="#beancount.utils.table.attribute_to_title" class="headerlink" title="Permanent link"></a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Convert programming id into readable field name.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>fieldname</strong> – A string, a programming ids, such as 'book_value'.</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+        <ul class="first simple">
+          <li><p>A readable string, such as 'Book Value.'</p></li>
+        </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>beancount/utils/table.py</code></summary>
+          <pre class="highlight"><code class="language-python">def attribute_to_title(fieldname):
+    """Convert programming id into readable field name.
+
+    Args:
+      fieldname: A string, a programming ids, such as 'book_value'.
+    Returns:
+      A readable string, such as 'Book Value.'
+   """
+    return fieldname.replace('_', ' ').title()
+</code></pre>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h3 id="beancount.utils.table.compute_table_widths" class="doc doc-heading">
+<code class="highlight language-python">beancount.utils.table.compute_table_widths(rows)</code>
+
+
+<a href="#beancount.utils.table.compute_table_widths" class="headerlink" title="Permanent link"></a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Compute the max character widths of a list of rows.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>rows</strong> – A list of rows, which are sequences of strings.</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+        <ul class="first simple">
+          <li><p>A list of integers, the maximum widths required to render the columns of
+this table.</p></li>
+        </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Exceptions:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><code>IndexError</code> – If the rows are of different lengths.</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>beancount/utils/table.py</code></summary>
+          <pre class="highlight"><code class="language-python">def compute_table_widths(rows):
+    """Compute the max character widths of a list of rows.
+
+    Args:
+      rows: A list of rows, which are sequences of strings.
+    Returns:
+      A list of integers, the maximum widths required to render the columns of
+      this table.
+    Raises:
+      IndexError: If the rows are of different lengths.
+    """
+    row_iter = iter(rows)
+    first_row = next(row_iter)
+    num_columns = len(first_row)
+    column_widths = [len(cell) for cell in first_row]
+    for row in row_iter:
+        for i, cell in enumerate(row):
+            if not isinstance(cell, str):
+                cell = str(cell)
+            cell_len = len(cell)
+            if cell_len &gt; column_widths[i]:
+                column_widths[i] = cell_len
+        if i+1 != num_columns:
+            raise IndexError("Invalid number of rows")
+    return column_widths
+</code></pre>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h3 id="beancount.utils.table.create_table" class="doc doc-heading">
+<code class="highlight language-python">beancount.utils.table.create_table(rows, field_spec=None)</code>
+
+
+<a href="#beancount.utils.table.create_table" class="headerlink" title="Permanent link"></a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Convert a list of tuples to an table report object.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>rows</strong> – A list of tuples.</p></li>
+            <li><p><strong>field_spec</strong> – A list of strings, or a list of
+(FIELDNAME-OR-INDEX, HEADER, FORMATTER-FUNCTION)
+triplets, that selects a subset of the fields is to be rendered as well
+as their ordering. If this is a dict, the values are functions to call
+on the fields to render them. If a function is set to None, we will just
+call str() on the field.</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+        <ul class="first simple">
+          <li><p>A Table instance.</p></li>
+        </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>beancount/utils/table.py</code></summary>
+          <pre class="highlight"><code class="language-python">def create_table(rows, field_spec=None):
+    """Convert a list of tuples to an table report object.
+
+    Args:
+      rows: A list of tuples.
+      field_spec: A list of strings, or a list of
+        (FIELDNAME-OR-INDEX, HEADER, FORMATTER-FUNCTION)
+        triplets, that selects a subset of the fields is to be rendered as well
+        as their ordering. If this is a dict, the values are functions to call
+        on the fields to render them. If a function is set to None, we will just
+        call str() on the field.
+    Returns:
+      A Table instance.
+    """
+    # Normalize field_spec to a dict.
+    if field_spec is None:
+        namedtuple_class = type(rows[0])
+        field_spec = [(field, None, None)
+                      for field in namedtuple_class._fields]
+
+    elif isinstance(field_spec, (list, tuple)):
+        new_field_spec = []
+        for field in field_spec:
+            if isinstance(field, tuple):
+                assert len(field) &lt;= 3, field
+                if len(field) == 1:
+                    field = field[0]
+                    new_field_spec.append((field, None, None))
+                elif len(field) == 2:
+                    field, header = field
+                    new_field_spec.append((field, header, None))
+                elif len(field) == 3:
+                    new_field_spec.append(field)
+            else:
+                if isinstance(field, str):
+                    title = attribute_to_title(field)
+                elif isinstance(field, int):
+                    title = "Field {}".format(field)
+                else:
+                    raise ValueError("Invalid type for column name")
+                new_field_spec.append((field, title, None))
+
+        field_spec = new_field_spec
+
+    # Ensure a nicely formatted header.
+    field_spec = [((name, attribute_to_title(name), formatter)
+                   if header_ is None
+                   else (name, header_, formatter))
+                  for (name, header_, formatter) in field_spec]
+
+    assert isinstance(field_spec, list), field_spec
+    assert all(len(x) == 3 for x in field_spec), field_spec
+
+    # Compute the column names.
+    columns = [name for (name, _, __) in field_spec]
+
+    # Compute the table header.
+    header = [header_column for (_, header_column, __) in field_spec]
+
+    # Compute the table body.
+    body = []
+    for row in rows:
+        body_row = []
+        for name, _, formatter in field_spec:
+            if isinstance(name, str):
+                value = getattr(row, name)
+            elif isinstance(name, int):
+                value = row[name]
+            else:
+                raise ValueError("Invalid type for column name")
+            if value is not None:
+                if formatter is not None:
+                    value = formatter(value)
+                else:
+                    value = str(value)
+            else:
+                value = ''
+            body_row.append(value)
+        body.append(body_row)
+
+    return Table(columns, header, body)
+</code></pre>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h3 id="beancount.utils.table.render_table" class="doc doc-heading">
+<code class="highlight language-python">beancount.utils.table.render_table(table_, output, output_format, css_id=None, css_class=None)</code>
+
+
+<a href="#beancount.utils.table.render_table" class="headerlink" title="Permanent link"></a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Render the given table to the output file object in the requested format.</p>
+<p>The table gets written out to the 'output' file.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>table_</strong> – An instance of Table.</p></li>
+            <li><p><strong>output</strong> – A file object you can write to.</p></li>
+            <li><p><strong>output_format</strong> – A string, the format to write the table to,
+either 'csv', 'txt' or 'html'.</p></li>
+            <li><p><strong>css_id</strong> – A string, an optional CSS id for the table object (only used for HTML).</p></li>
+            <li><p><strong>css_class</strong> – A string, an optional CSS class for the table object (only used for HTML).</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>beancount/utils/table.py</code></summary>
+          <pre class="highlight"><code class="language-python">def render_table(table_, output, output_format, css_id=None, css_class=None):
+    """Render the given table to the output file object in the requested format.
+
+    The table gets written out to the 'output' file.
+
+    Args:
+      table_: An instance of Table.
+      output: A file object you can write to.
+      output_format: A string, the format to write the table to,
+        either 'csv', 'txt' or 'html'.
+      css_id: A string, an optional CSS id for the table object (only used for HTML).
+      css_class: A string, an optional CSS class for the table object (only used for HTML).
+    """
+    if output_format in ('txt', 'text'):
+        text = table_to_text(table_, "  ", formats={'*': '&gt;', 'account': '&lt;'})
+        output.write(text)
+
+    elif output_format in ('csv',):
+        table_to_csv(table_, file=output)
+
+    elif output_format in ('htmldiv', 'html'):
+
+        if output_format == 'html':
+            output.write('&lt;html&gt;\n')
+            output.write('&lt;body&gt;\n')
+
+        output.write('&lt;div id="{}"&gt;\n'.format(css_id) if css_id else '&lt;div&gt;\n')
+        classes = [css_class] if css_class else None
+        table_to_html(table_, file=output, classes=classes)
+        output.write('&lt;/div&gt;\n')
+
+        if output_format == 'html':
+            output.write('&lt;/body&gt;\n')
+            output.write('&lt;/html&gt;\n')
+
+    else:
+        raise NotImplementedError("Unsupported format: {}".format(output_format))
+</code></pre>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h3 id="beancount.utils.table.table_to_csv" class="doc doc-heading">
+<code class="highlight language-python">beancount.utils.table.table_to_csv(table, file=None, **kwargs)</code>
+
+
+<a href="#beancount.utils.table.table_to_csv" class="headerlink" title="Permanent link"></a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Render a Table to a CSV file.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>table</strong> – An instance of a Table.</p></li>
+            <li><p><strong>file</strong> – A file object to write to. If no object is provided, this
+function returns a string.</p></li>
+            <li><p><strong>**kwargs</strong> – Optional arguments forwarded to csv.writer().</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+        <ul class="first simple">
+          <li><p>A string, the rendered table, or None, if a file object is provided
+to write to.</p></li>
+        </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>beancount/utils/table.py</code></summary>
+          <pre class="highlight"><code class="language-python">def table_to_csv(table, file=None, **kwargs):
+    """Render a Table to a CSV file.
+
+    Args:
+      table: An instance of a Table.
+      file: A file object to write to. If no object is provided, this
+        function returns a string.
+      **kwargs: Optional arguments forwarded to csv.writer().
+    Returns:
+      A string, the rendered table, or None, if a file object is provided
+      to write to.
+    """
+    output_file = file or io.StringIO()
+
+    writer = csv.writer(output_file, **kwargs)
+    if table.header:
+        writer.writerow(table.header)
+    writer.writerows(table.body)
+
+    if not file:
+        return output_file.getvalue()
+</code></pre>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h3 id="beancount.utils.table.table_to_html" class="doc doc-heading">
+<code class="highlight language-python">beancount.utils.table.table_to_html(table, classes=None, file=None)</code>
+
+
+<a href="#beancount.utils.table.table_to_html" class="headerlink" title="Permanent link"></a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Render a Table to HTML.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>table</strong> – An instance of a Table.</p></li>
+            <li><p><strong>classes</strong> – A list of string, CSS classes to set on the table.</p></li>
+            <li><p><strong>file</strong> – A file object to write to. If no object is provided, this
+function returns a string.</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+        <ul class="first simple">
+          <li><p>A string, the rendered table, or None, if a file object is provided
+to write to.</p></li>
+        </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>beancount/utils/table.py</code></summary>
+          <pre class="highlight"><code class="language-python">def table_to_html(table, classes=None, file=None):
+    """Render a Table to HTML.
+
+    Args:
+      table: An instance of a Table.
+      classes: A list of string, CSS classes to set on the table.
+      file: A file object to write to. If no object is provided, this
+        function returns a string.
+    Returns:
+      A string, the rendered table, or None, if a file object is provided
+      to write to.
+    """
+    # Initialize file.
+    oss = io.StringIO() if file is None else file
+    oss.write('&lt;table class="{}"&gt;\n'.format(' '.join(classes or [])))
+
+    # Render header.
+    if table.header:
+        oss.write('  &lt;thead&gt;\n')
+        oss.write('    &lt;tr&gt;\n')
+        for header in table.header:
+            oss.write('      &lt;th&gt;{}&lt;/th&gt;\n'.format(header))
+        oss.write('    &lt;/tr&gt;\n')
+        oss.write('  &lt;/thead&gt;\n')
+
+    # Render body.
+    oss.write('  &lt;tbody&gt;\n')
+    for row in table.body:
+        oss.write('    &lt;tr&gt;\n')
+        for cell in row:
+            oss.write('      &lt;td&gt;{}&lt;/td&gt;\n'.format(cell))
+        oss.write('    &lt;/tr&gt;\n')
+    oss.write('  &lt;/tbody&gt;\n')
+
+    # Render footer.
+    oss.write('&lt;/table&gt;\n')
+    if file is None:
+        return oss.getvalue()
+</code></pre>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h3 id="beancount.utils.table.table_to_text" class="doc doc-heading">
+<code class="highlight language-python">beancount.utils.table.table_to_text(table, column_interspace=' ', formats=None)</code>
+
+
+<a href="#beancount.utils.table.table_to_text" class="headerlink" title="Permanent link"></a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Render a Table to ASCII text.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>table</strong> – An instance of a Table.</p></li>
+            <li><p><strong>column_interspace</strong> – A string to render between the columns as spacer.</p></li>
+            <li><p><strong>formats</strong> – An optional dict of column name to a format character that gets
+inserted in a format string specified, like this (where '&lt;char&gt;' is):
+{:&lt;char&gt;&lt;width&gt;}. A key of '<em>' will provide a default value, like
+this, for example: (... formats={'</em>': '&gt;'}).</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+        <ul class="first simple">
+          <li><p>A string, the rendered text table.</p></li>
+        </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>beancount/utils/table.py</code></summary>
+          <pre class="highlight"><code class="language-python">def table_to_text(table,
+                  column_interspace=" ",
+                  formats=None):
+    """Render a Table to ASCII text.
+
+    Args:
+      table: An instance of a Table.
+      column_interspace: A string to render between the columns as spacer.
+      formats: An optional dict of column name to a format character that gets
+        inserted in a format string specified, like this (where '&lt;char&gt;' is):
+        {:&lt;char&gt;&lt;width&gt;}. A key of '*' will provide a default value, like
+        this, for example: (... formats={'*': '&gt;'}).
+    Returns:
+      A string, the rendered text table.
+    """
+    column_widths = compute_table_widths(itertools.chain([table.header],
+                                                         table.body))
+
+    # Insert column format chars and compute line formatting string.
+    column_formats = []
+    if formats:
+        default_format = formats.get('*', None)
+    for column, width in zip(table.columns, column_widths):
+        if column and formats:
+            format_ = formats.get(column, default_format)
+            if format_:
+                column_formats.append("{{:{}{:d}}}".format(format_, width))
+            else:
+                column_formats.append("{{:{:d}}}".format(width))
+        else:
+            column_formats.append("{{:{:d}}}".format(width))
+
+    line_format = column_interspace.join(column_formats) + "\n"
+    separator = line_format.format(*[('-' * width) for width in column_widths])
+
+    # Render the header.
+    oss = io.StringIO()
+    if table.header:
+        oss.write(line_format.format(*table.header))
+
+    # Render the body.
+    oss.write(separator)
+    for row in table.body:
+        oss.write(line_format.format(*row))
+    oss.write(separator)
+
+    return oss.getvalue()
+</code></pre>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-module">
+
+
+
 <h2 id="beancount.utils.test_utils" class="doc doc-heading">
         <code>beancount.utils.test_utils</code>
 
@@ -6323,6 +6122,46 @@ decorate it like this:</p>
 
 
 
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h3 id="beancount.utils.test_utils.ClickTestCase" class="doc doc-heading">
+        <code>
+beancount.utils.test_utils.ClickTestCase            (<a title="beancount.utils.test_utils.TestCase" href="#beancount.utils.test_utils.TestCase">TestCase</a>)
+        </code>
+
+
+
+<a href="#beancount.utils.test_utils.ClickTestCase" class="headerlink" title="Permanent link"></a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Base class for command-line program test cases.</p>
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
 
 
 
@@ -6404,6 +6243,38 @@ beancount.utils.test_utils.RCall            (<span title="tuple">tuple</span>)
 
       <p>Create new instance of RCall(args, kwargs, return_value)</p>
 
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="beancount.utils.test_utils.RCall.__replace__" class="doc doc-heading">
+<code class="highlight language-python">beancount.utils.test_utils.RCall.__replace__(/, self, **kwds)</code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-special"><code>special</code></small>
+  </span>
+
+<a href="#beancount.utils.test_utils.RCall.__replace__" class="headerlink" title="Permanent link"></a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Return a new RCall object replacing specified fields with new values</p>
+
+        <details class="quote">
+          <summary>Source code in <code>beancount/utils/test_utils.py</code></summary>
+          <pre class="highlight"><code class="language-python">def _replace(self, /, **kwds):
+    result = self._make(_map(kwds.pop, field_names, self))
+    if kwds:
+        raise TypeError(f'Got unexpected field names: {list(kwds)!r}')
+    return result
+</code></pre>
+        </details>
     </div>
 
   </div>
@@ -6636,20 +6507,55 @@ def assertOutput(self, expected_text):
 
 
 
-
-  <div class="doc doc-object doc-function">
-
+  <div class="doc doc-object doc-class">
 
 
-<h3 id="beancount.utils.test_utils.call_command" class="doc doc-heading">
-<code class="highlight language-python">beancount.utils.test_utils.call_command(command)</code>
+
+<h3 id="beancount.utils.test_utils.TmpFilesTestBase" class="doc doc-heading">
+        <code>
+beancount.utils.test_utils.TmpFilesTestBase            (<span title="unittest.case.TestCase">TestCase</span>)
+        </code>
 
 
-<a href="#beancount.utils.test_utils.call_command" class="headerlink" title="Permanent link"></a></h3>
+
+<a href="#beancount.utils.test_utils.TmpFilesTestBase" class="headerlink" title="Permanent link"></a></h3>
 
     <div class="doc doc-contents ">
 
-      <p>Run the script with a subprocess.</p>
+      <p>A test utility base class that creates and cleans up a directory hierarchy.
+This convenience is useful for testing functions that work on files, such as the
+documents tests, or the accounts walk.</p>
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="beancount.utils.test_utils.TmpFilesTestBase.create_file_hierarchy" class="doc doc-heading">
+<code class="highlight language-python">beancount.utils.test_utils.TmpFilesTestBase.create_file_hierarchy(test_files, subdir='root')</code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-staticmethod"><code>staticmethod</code></small>
+  </span>
+
+<a href="#beancount.utils.test_utils.TmpFilesTestBase.create_file_hierarchy" class="headerlink" title="Permanent link"></a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>A test utility that creates a hierarchy of files.</p>
 
 <table class="field-list">
   <colgroup>
@@ -6661,8 +6567,11 @@ def assertOutput(self, expected_text):
       <th class="field-name">Parameters:</th>
       <td class="field-body">
         <ul class="first simple">
-            <li><p><strong>script_args</strong> – A list of strings, the arguments to the subprocess,
-including the script name.</p></li>
+            <li><p><strong>test_files</strong> – A list of strings, relative filenames to a temporary root
+directory. If the filename ends with a '/', we create a directory;
+otherwise, we create a regular file.</p></li>
+            <li><p><strong>subdir</strong> – A string, the subdirectory name under the temporary directory
+location, to create the hierarchy under.</p></li>
         </ul>
       </td>
     </tr>
@@ -6678,7 +6587,8 @@ including the script name.</p></li>
     <th class="field-name">Returns:</th>
     <td class="field-body">
         <ul class="first simple">
-          <li><p>A triplet of (return code integer, stdout ext, stderr text).</p></li>
+          <li><p>A pair of strings, the temporary directory, and the subdirectory under
+  that which hosts the root of the tree.</p></li>
         </ul>
     </td>
     </tr>
@@ -6686,26 +6596,100 @@ including the script name.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/utils/test_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python">def call_command(command):
-    """Run the script with a subprocess.
+          <pre class="highlight"><code class="language-python">@staticmethod
+def create_file_hierarchy(test_files, subdir='root'):
+    """A test utility that creates a hierarchy of files.
 
     Args:
-      script_args: A list of strings, the arguments to the subprocess,
-        including the script name.
+      test_files: A list of strings, relative filenames to a temporary root
+        directory. If the filename ends with a '/', we create a directory;
+        otherwise, we create a regular file.
+      subdir: A string, the subdirectory name under the temporary directory
+        location, to create the hierarchy under.
     Returns:
-      A triplet of (return code integer, stdout ext, stderr text).
+      A pair of strings, the temporary directory, and the subdirectory under
+        that which hosts the root of the tree.
     """
-    assert isinstance(command, list), command
-    p = subprocess.Popen(command,
-                         stdout=subprocess.PIPE,
-                         stderr=subprocess.PIPE)
-    stdout, stderr = p.communicate()
-    return p.returncode, stdout.decode(), stderr.decode()
+    tempdir = tempfile.mkdtemp(prefix="beancount-test-tmpdir.")
+    root = path.join(tempdir, subdir)
+    for filename in test_files:
+        abs_filename = path.join(tempdir, filename)
+        if filename.endswith('/'):
+            os.makedirs(abs_filename)
+        else:
+            parent_dir = path.dirname(abs_filename)
+            if not path.exists(parent_dir):
+                os.makedirs(parent_dir)
+            with open(abs_filename, 'w'): pass
+    return tempdir, root
 </code></pre>
         </details>
     </div>
 
   </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="beancount.utils.test_utils.TmpFilesTestBase.setUp" class="doc doc-heading">
+<code class="highlight language-python">beancount.utils.test_utils.TmpFilesTestBase.setUp(self)</code>
+
+
+<a href="#beancount.utils.test_utils.TmpFilesTestBase.setUp" class="headerlink" title="Permanent link"></a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Hook method for setting up the test fixture before exercising it.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>beancount/utils/test_utils.py</code></summary>
+          <pre class="highlight"><code class="language-python">def setUp(self):
+    self.tempdir, self.root = self.create_file_hierarchy(self.TEST_DOCUMENTS)
+</code></pre>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="beancount.utils.test_utils.TmpFilesTestBase.tearDown" class="doc doc-heading">
+<code class="highlight language-python">beancount.utils.test_utils.TmpFilesTestBase.tearDown(self)</code>
+
+
+<a href="#beancount.utils.test_utils.TmpFilesTestBase.tearDown" class="headerlink" title="Permanent link"></a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Hook method for deconstructing the test fixture after testing it.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>beancount/utils/test_utils.py</code></summary>
+          <pre class="highlight"><code class="language-python">def tearDown(self):
+    shutil.rmtree(self.tempdir, ignore_errors=True)
+</code></pre>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
 
 
 
@@ -6894,13 +6878,15 @@ useful for writing tests.</p>
     Returns:
       The decorated function.
     """
+    contents = kwargs.pop('contents', None)
+
     @functools.wraps(function)
     def new_function(self):
         allowed = ('buffering', 'encoding', 'newline', 'dir', 'prefix', 'suffix')
-        if any([key not in allowed for key in kwargs]):
+        if any(key not in allowed for key in kwargs):
             raise ValueError("Invalid kwarg to docfile_extra")
         with tempfile.NamedTemporaryFile('w', **kwargs) as file:
-            text = function.__doc__
+            text = contents or function.__doc__
             file.write(textwrap.dedent(text))
             file.flush()
             return function(self, file.name)
@@ -7134,8 +7120,7 @@ def environ(varname, newvalue):
     if match:
         return match.group(1)
 
-    while not all(path.exists(path.join(filename, sigfile))
-                  for sigfile in ('PKG-INFO', 'COPYING', 'README.rst')):
+    while not path.exists(path.join(filename, 'pyproject.toml')):
         prev_filename = filename
         filename = path.dirname(filename)
         if prev_filename == filename:
@@ -7405,88 +7390,6 @@ def patch(obj, attributes, replacement_type):
 
 
 
-<h3 id="beancount.utils.test_utils.run_with_args" class="doc doc-heading">
-<code class="highlight language-python">beancount.utils.test_utils.run_with_args(function, args)</code>
-
-
-<a href="#beancount.utils.test_utils.run_with_args" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Run the given function with sys.argv set to argv. The first argument is
-automatically inferred to be where the function object was defined. sys.argv
-is restored after the function is called.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>function</strong> – A function object to call with no arguments.</p></li>
-            <li><p><strong>argv</strong> – A list of arguments, excluding the script name, to be temporarily
-set on sys.argv.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>The return value of the function run.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/utils/test_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python">def run_with_args(function, args):
-    """Run the given function with sys.argv set to argv. The first argument is
-    automatically inferred to be where the function object was defined. sys.argv
-    is restored after the function is called.
-
-    Args:
-      function: A function object to call with no arguments.
-      argv: A list of arguments, excluding the script name, to be temporarily
-        set on sys.argv.
-    Returns:
-      The return value of the function run.
-    """
-    saved_argv = sys.argv
-    saved_handlers = logging.root.handlers
-    try:
-        module = sys.modules[function.__module__]
-        sys.argv = [module.__file__] + args
-        logging.root.handlers = []
-        return function()
-    finally:
-        sys.argv = saved_argv
-        logging.root.handlers = saved_handlers
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
 <h3 id="beancount.utils.test_utils.search_words" class="doc doc-heading">
 <code class="highlight language-python">beancount.utils.test_utils.search_words(words, line)</code>
 
@@ -7716,466 +7619,6 @@ def tempdir(delete=True, **kw):
     finally:
         if delete:
             shutil.rmtree(tempdir, ignore_errors=True)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-module">
-
-
-
-<h2 id="beancount.utils.text_utils" class="doc doc-heading">
-        <code>beancount.utils.text_utils</code>
-
-
-
-<a href="#beancount.utils.text_utils" class="headerlink" title="Permanent link"></a></h2>
-
-    <div class="doc doc-contents ">
-
-      <p>Text manipulation utilities.</p>
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.utils.text_utils.entitize_ampersand" class="doc doc-heading">
-<code class="highlight language-python">beancount.utils.text_utils.entitize_ampersand(filename)</code>
-
-
-<a href="#beancount.utils.text_utils.entitize_ampersand" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Convert unescaped ampersand characters (&amp;) to XML entities.</p>
-<p>This is used to fix code that has been programmed by bad developers who
-didn't think about escaping the entities in their strings.
-file does not contain</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>filename</strong> – A string, the name of the file to convert.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>A self-destructing NamedTemporaryFile object that has been flushed and
-which you may read to obtain the fixed contents.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/utils/text_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python">def entitize_ampersand(filename):
-    """Convert unescaped ampersand characters (&amp;) to XML entities.
-
-    This is used to fix code that has been programmed by bad developers who
-    didn't think about escaping the entities in their strings.
-    file does not contain
-    Args:
-      filename: A string, the name of the file to convert.
-    Returns:
-      A self-destructing NamedTemporaryFile object that has been flushed and
-      which you may read to obtain the fixed contents.
-    """
-    tidy_file = tempfile.NamedTemporaryFile(suffix='.xls', mode='w', delete=False)
-    with open(filename) as infile:
-        contents = infile.read()
-    new_contents = re.sub('&amp;([^;&amp;]{12})', '&amp;amp;\\1', contents)
-    tidy_file.write(new_contents)
-    tidy_file.flush()
-    return tidy_file
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.utils.text_utils.replace_number" class="doc doc-heading">
-<code class="highlight language-python">beancount.utils.text_utils.replace_number(match)</code>
-
-
-<a href="#beancount.utils.text_utils.replace_number" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Replace a single number matched from text into X'es.
-'match' is a MatchObject from a regular expressions match.
-(Use this with re.sub()).</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>match</strong> – A MatchObject.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>A replacement string, consisting only of X'es.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/utils/text_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python">def replace_number(match):
-    """Replace a single number matched from text into X'es.
-    'match' is a MatchObject from a regular expressions match.
-    (Use this with re.sub()).
-
-    Args:
-      match: A MatchObject.
-    Returns:
-      A replacement string, consisting only of X'es.
-    """
-    return re.sub('[0-9]', 'X', match.group(1)) + match.group(2)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.utils.text_utils.replace_numbers" class="doc doc-heading">
-<code class="highlight language-python">beancount.utils.text_utils.replace_numbers(text)</code>
-
-
-<a href="#beancount.utils.text_utils.replace_numbers" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Replace all numbers found within text.</p>
-<p>Note that this is a heuristic used to filter out private numbers from web
-pages in incognito mode and thus may not be perfect. It should let through
-numbers which are part of URLs.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>text</strong> – An input string object.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>A string, with relevant numbers hopefully replaced with X'es.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/utils/text_utils.py</code></summary>
-          <pre class="highlight"><code class="language-python">def replace_numbers(text):
-    """Replace all numbers found within text.
-
-    Note that this is a heuristic used to filter out private numbers from web
-    pages in incognito mode and thus may not be perfect. It should let through
-    numbers which are part of URLs.
-
-    Args:
-      text: An input string object.
-    Returns:
-      A string, with relevant numbers hopefully replaced with X'es.
-
-    """
-    return re.sub(r'\b([0-9,]+(?:\.[0-9]*)?)\b([ \t&lt;]+[^0-9,.]|$)', replace_number, text)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-module">
-
-
-
-<h2 id="beancount.utils.version" class="doc doc-heading">
-        <code>beancount.utils.version</code>
-
-
-
-<a href="#beancount.utils.version" class="headerlink" title="Permanent link"></a></h2>
-
-    <div class="doc doc-contents ">
-
-      <p>Implement common options across all programs.</p>
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.utils.version.ArgumentParser" class="doc doc-heading">
-<code class="highlight language-python">beancount.utils.version.ArgumentParser(*args, **kwargs)</code>
-
-
-<a href="#beancount.utils.version.ArgumentParser" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Add a standard --version option to an ArgumentParser.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>*args</strong> – Arguments for the parser.</p></li>
-            <li><p><strong>*kwargs</strong> – Keyword arguments for the parser.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>An instance of ArgumentParser, with our default options set.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/utils/version.py</code></summary>
-          <pre class="highlight"><code class="language-python">def ArgumentParser(*args, **kwargs):
-    """Add a standard --version option to an ArgumentParser.
-
-    Args:
-      *args: Arguments for the parser.
-      *kwargs: Keyword arguments for the parser.
-    Returns:
-      An instance of ArgumentParser, with our default options set.
-    """
-    parser = argparse.ArgumentParser(*args, **kwargs)
-
-    parser.add_argument('--version', '-V', action='version',
-                        version=compute_version_string(
-                            beancount.__version__,
-                            _parser.__vc_changeset__,
-                            _parser.__vc_timestamp__))
-
-    return parser
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.utils.version.compute_version_string" class="doc doc-heading">
-<code class="highlight language-python">beancount.utils.version.compute_version_string(version, changeset, timestamp)</code>
-
-
-<a href="#beancount.utils.version.compute_version_string" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Compute a version string from the changeset and timestamp baked in the parser.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>version</strong> – A string, the version number.</p></li>
-            <li><p><strong>changeset</strong> – A string, a version control string identifying the commit of the version.</p></li>
-            <li><p><strong>timestamp</strong> – An integer, the UNIX epoch timestamp of the changeset.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>A human-readable string for the version.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/utils/version.py</code></summary>
-          <pre class="highlight"><code class="language-python">def compute_version_string(version, changeset, timestamp):
-    """Compute a version string from the changeset and timestamp baked in the parser.
-
-    Args:
-      version: A string, the version number.
-      changeset: A string, a version control string identifying the commit of the version.
-      timestamp: An integer, the UNIX epoch timestamp of the changeset.
-    Returns:
-      A human-readable string for the version.
-    """
-    # Shorten changeset.
-    if changeset:
-        if re.match('hg:', changeset):
-            changeset = changeset[:15]
-        elif re.match('git:', changeset):
-            changeset = changeset[:12]
-
-    # Convert timestamp to a date.
-    date = None
-    if timestamp &gt; 0:
-        date = datetime.datetime.utcfromtimestamp(timestamp).date()
-
-    version = 'Beancount {}'.format(version)
-    if changeset or date:
-        version = '{} ({})'.format(
-            version, '; '.join(map(str, filter(None, [changeset, date]))))
-
-    return version
 </code></pre>
         </details>
     </div>

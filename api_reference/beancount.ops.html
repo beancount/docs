@@ -168,6 +168,8 @@
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.balance.BalanceError.__new__">__new__()</a>
     </li>
+    <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.balance.BalanceError.__replace__">__replace__()</a>
+    </li>
     <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.balance.BalanceError.__repr__">__repr__()</a>
     </li>
         </ul>
@@ -206,6 +208,8 @@
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.documents.DocumentError.__new__">__new__()</a>
     </li>
+    <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.documents.DocumentError.__replace__">__replace__()</a>
+    </li>
     <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.documents.DocumentError.__repr__">__repr__()</a>
     </li>
         </ul>
@@ -218,35 +222,15 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#beancount.ops.holdings">holdings</a>
+    <li class="toctree-l2"><a class="reference internal" href="#beancount.ops.find_prices">find_prices</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.holdings.Holding">Holding</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.holdings.Holding.__getnewargs__">__getnewargs__()</a>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.find_prices.find_balance_currencies">find_balance_currencies()</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.holdings.Holding.__new__">__new__()</a>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.find_prices.find_currencies_at_cost">find_currencies_at_cost()</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.holdings.Holding.__repr__">__repr__()</a>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.find_prices.find_currencies_converted">find_currencies_converted()</a>
     </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.holdings.aggregate_holdings_by">aggregate_holdings_by()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.holdings.aggregate_holdings_list">aggregate_holdings_list()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.holdings.convert_to_currency">convert_to_currency()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.holdings.get_commodities_at_date">get_commodities_at_date()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.holdings.get_final_holdings">get_final_holdings()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.holdings.holding_to_position">holding_to_position()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.holdings.holding_to_posting">holding_to_posting()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.holdings.reduce_relative">reduce_relative()</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.holdings.scale_holding">scale_holding()</a>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.find_prices.find_currencies_priced">find_currencies_priced()</a>
     </li>
         </ul>
     </li>
@@ -258,7 +242,11 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.lifetimes.get_commodity_lifetimes">get_commodity_lifetimes()</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.lifetimes.required_daily_prices">required_daily_prices()</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.lifetimes.required_weekly_prices">required_weekly_prices()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.lifetimes.trim_intervals">trim_intervals()</a>
     </li>
         </ul>
     </li>
@@ -269,6 +257,8 @@
     <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.pad.PadError.__getnewargs__">__getnewargs__()</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.pad.PadError.__new__">__new__()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.pad.PadError.__replace__">__replace__()</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.pad.PadError.__repr__">__repr__()</a>
     </li>
@@ -323,6 +313,8 @@
     <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.validation.ValidationError.__getnewargs__">__getnewargs__()</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.validation.ValidationError.__new__">__new__()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.validation.ValidationError.__replace__">__replace__()</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.validation.ValidationError.__repr__">__repr__()</a>
     </li>
@@ -540,6 +532,38 @@ beancount.ops.balance.BalanceError            (<span title="tuple">tuple</span>)
 
 
 
+<h4 id="beancount.ops.balance.BalanceError.__replace__" class="doc doc-heading">
+<code class="highlight language-python">beancount.ops.balance.BalanceError.__replace__(/, self, **kwds)</code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-special"><code>special</code></small>
+  </span>
+
+<a href="#beancount.ops.balance.BalanceError.__replace__" class="headerlink" title="Permanent link"></a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Return a new BalanceError object replacing specified fields with new values</p>
+
+        <details class="quote">
+          <summary>Source code in <code>beancount/ops/balance.py</code></summary>
+          <pre class="highlight"><code class="language-python">def _replace(self, /, **kwds):
+    result = self._make(_map(kwds.pop, field_names, self))
+    if kwds:
+        raise TypeError(f'Got unexpected field names: {list(kwds)!r}')
+    return result
+</code></pre>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
 <h4 id="beancount.ops.balance.BalanceError.__repr__" class="doc doc-heading">
 <code class="highlight language-python">beancount.ops.balance.BalanceError.__repr__(self)</code>
 
@@ -694,8 +718,8 @@ ones with a flag that indicates failure.</p>
             except KeyError:
                 check_errors.append(
                     BalanceError(entry.meta,
-                                 "Account '{}' does not exist: ".format(entry.account),
-                                 entry))
+                                 "Invalid reference to unknown account '{}'".format(
+                                     entry.account), entry))
                 continue
 
             if (expected_amount is not None and
@@ -929,7 +953,6 @@ enough not to belong in core/data.py.</p>
       Every entry in 'entries' that links to 'link.
     """
     for entry in entries:
-        # pylint: disable=bad-continuation
         if (isinstance(entry, data.Transaction) and
             entry.links and link in entry.links):
             yield entry
@@ -984,7 +1007,6 @@ enough not to belong in core/data.py.</p>
       Every entry in 'entries' that tags to 'tag.
     """
     for entry in entries:
-        # pylint: disable=bad-continuation
         if (isinstance(entry, data.Transaction) and
             entry.tags and
             tag in entry.tags):
@@ -1551,6 +1573,38 @@ beancount.ops.documents.DocumentError            (<span title="tuple">tuple</spa
 
 
 
+<h4 id="beancount.ops.documents.DocumentError.__replace__" class="doc doc-heading">
+<code class="highlight language-python">beancount.ops.documents.DocumentError.__replace__(/, self, **kwds)</code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-special"><code>special</code></small>
+  </span>
+
+<a href="#beancount.ops.documents.DocumentError.__replace__" class="headerlink" title="Permanent link"></a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Return a new DocumentError object replacing specified fields with new values</p>
+
+        <details class="quote">
+          <summary>Source code in <code>beancount/ops/documents.py</code></summary>
+          <pre class="highlight"><code class="language-python">def _replace(self, /, **kwds):
+    result = self._make(_map(kwds.pop, field_names, self))
+    if kwds:
+        raise TypeError(f'Got unexpected field names: {list(kwds)!r}')
+    return result
+</code></pre>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
 <h4 id="beancount.ops.documents.DocumentError.__repr__" class="doc doc-heading">
 <code class="highlight language-python">beancount.ops.documents.DocumentError.__repr__(self)</code>
 
@@ -1913,16 +1967,16 @@ generated during the process of creating document directives.</p></li>
 
 
 
-<h2 id="beancount.ops.holdings" class="doc doc-heading">
-        <code>beancount.ops.holdings</code>
+<h2 id="beancount.ops.find_prices" class="doc doc-heading">
+        <code>beancount.ops.find_prices</code>
 
 
 
-<a href="#beancount.ops.holdings" class="headerlink" title="Permanent link"></a></h2>
+<a href="#beancount.ops.find_prices" class="headerlink" title="Permanent link"></a></h2>
 
     <div class="doc doc-contents ">
 
-      <p>Compute final holdings for a list of entries.</p>
+      <p>A library of codes create price fetching jobs from strings and files.</p>
 
 
 
@@ -1933,130 +1987,6 @@ generated during the process of creating document directives.</p></li>
 
 
 
-
-
-
-  <div class="doc doc-object doc-class">
-
-
-
-<h3 id="beancount.ops.holdings.Holding" class="doc doc-heading">
-        <code>
-beancount.ops.holdings.Holding            (<span title="tuple">tuple</span>)
-        </code>
-
-
-
-<a href="#beancount.ops.holdings.Holding" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Holding(account, number, currency, cost_number, cost_currency, book_value, market_value, price_number, price_date)</p>
-
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h4 id="beancount.ops.holdings.Holding.__getnewargs__" class="doc doc-heading">
-<code class="highlight language-python">beancount.ops.holdings.Holding.__getnewargs__(self)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-<a href="#beancount.ops.holdings.Holding.__getnewargs__" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Return self as a plain tuple.  Used by copy and pickle.</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/ops/holdings.py</code></summary>
-          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
-    'Return self as a plain tuple.  Used by copy and pickle.'
-    return _tuple(self)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h4 id="beancount.ops.holdings.Holding.__new__" class="doc doc-heading">
-<code class="highlight language-python">beancount.ops.holdings.Holding.__new__(_cls, account, number, currency, cost_number, cost_currency, book_value, market_value, price_number, price_date)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-      <small class="doc doc-property doc-property-staticmethod"><code>staticmethod</code></small>
-  </span>
-
-<a href="#beancount.ops.holdings.Holding.__new__" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Create new instance of Holding(account, number, currency, cost_number, cost_currency, book_value, market_value, price_number, price_date)</p>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h4 id="beancount.ops.holdings.Holding.__repr__" class="doc doc-heading">
-<code class="highlight language-python">beancount.ops.holdings.Holding.__repr__(self)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-<a href="#beancount.ops.holdings.Holding.__repr__" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Return a nicely formatted representation string</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/ops/holdings.py</code></summary>
-          <pre class="highlight"><code class="language-python">def __repr__(self):
-    'Return a nicely formatted representation string'
-    return self.__class__.__name__ + repr_fmt % self
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
 
 
 
@@ -2065,18 +1995,21 @@ beancount.ops.holdings.Holding            (<span title="tuple">tuple</span>)
 
 
 
-<h3 id="beancount.ops.holdings.aggregate_holdings_by" class="doc doc-heading">
-<code class="highlight language-python">beancount.ops.holdings.aggregate_holdings_by(holdings, keyfun)</code>
+<h3 id="beancount.ops.find_prices.find_balance_currencies" class="doc doc-heading">
+<code class="highlight language-python">beancount.ops.find_prices.find_balance_currencies(entries, date=None)</code>
 
 
-<a href="#beancount.ops.holdings.aggregate_holdings_by" class="headerlink" title="Permanent link"></a></h3>
+<a href="#beancount.ops.find_prices.find_balance_currencies" class="headerlink" title="Permanent link"></a></h3>
 
     <div class="doc doc-contents ">
 
-      <p>Aggregate holdings by some key.</p>
-<p>Note that the cost-currency must always be included in the group-key (sums
-over multiple currency units do not make sense), so it is appended to the
-sort-key automatically.</p>
+      <p>Return currencies relevant for the given date.</p>
+<p>This computes the account balances as of the date, and returns the union of:
+a) The currencies held at cost, and
+b) Currency pairs from previous conversions, but only for currencies with
+   non-zero balances.</p>
+<p>This is intended to produce the list of currencies whose prices are relevant
+at a particular date, based on previous history.</p>
 
 <table class="field-list">
   <colgroup>
@@ -2088,8 +2021,8 @@ sort-key automatically.</p>
       <th class="field-name">Parameters:</th>
       <td class="field-body">
         <ul class="first simple">
-            <li><p><strong>keyfun</strong> – A callable, which returns the key to aggregate by. This key need
-not include the cost-currency.</p></li>
+            <li><p><strong>entries</strong> – A list of directives.</p></li>
+            <li><p><strong>date</strong> – A datetime.date instance.</p></li>
         </ul>
       </td>
     </tr>
@@ -2105,626 +2038,56 @@ not include the cost-currency.</p></li>
     <th class="field-name">Returns:</th>
     <td class="field-body">
         <ul class="first simple">
-          <li><p>A list of aggregated holdings.</p></li>
+          <li><p>A set of (base, quote) currencies.</p></li>
         </ul>
     </td>
     </tr>
   </tbody>
 </table>
         <details class="quote">
-          <summary>Source code in <code>beancount/ops/holdings.py</code></summary>
-          <pre class="highlight"><code class="language-python">def aggregate_holdings_by(holdings, keyfun):
-    """Aggregate holdings by some key.
+          <summary>Source code in <code>beancount/ops/find_prices.py</code></summary>
+          <pre class="highlight"><code class="language-python">def find_balance_currencies(entries, date=None):
+    """Return currencies relevant for the given date.
 
-    Note that the cost-currency must always be included in the group-key (sums
-    over multiple currency units do not make sense), so it is appended to the
-    sort-key automatically.
+    This computes the account balances as of the date, and returns the union of:
+    a) The currencies held at cost, and
+    b) Currency pairs from previous conversions, but only for currencies with
+       non-zero balances.
 
-    Args:
-      keyfun: A callable, which returns the key to aggregate by. This key need
-        not include the cost-currency.
-    Returns:
-      A list of aggregated holdings.
-    """
-    # Aggregate the groups of holdings.
-    grouped = collections.defaultdict(list)
-    for holding in holdings:
-        key = (keyfun(holding), holding.cost_currency)
-        grouped[key].append(holding)
-    grouped_holdings = (aggregate_holdings_list(key_holdings)
-                        for key_holdings in grouped.values())
-
-    # We could potentially filter out holdings with zero units here. These types
-    # of holdings might occur on a group with leaked (i.e., non-zero) cost basis
-    # and zero units. However, sometimes are valid merging of multiple
-    # currencies may occur, and the number value will be legitimately set to
-    # ZERO (for various reasons downstream), so we prefer not to ignore the
-    # holding. Callers must be prepared to deal with a holding of ZERO units and
-    # a non-zero cost basis. {0ed05c502e63, b/16}
-    ## nonzero_holdings = (holding
-    ##                     for holding in grouped_holdings
-    ##                     if holding.number != ZERO)
-
-    # Return the holdings in order.
-    return sorted(grouped_holdings,
-                  key=lambda holding: (holding.account, holding.currency))
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.ops.holdings.aggregate_holdings_list" class="doc doc-heading">
-<code class="highlight language-python">beancount.ops.holdings.aggregate_holdings_list(holdings)</code>
-
-
-<a href="#beancount.ops.holdings.aggregate_holdings_list" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Aggregate a list of holdings.</p>
-<p>If there are varying 'account', 'currency' or 'cost_currency' attributes,
-their values are replaced by '*'. Otherwise they are preserved. Note that
-all the cost-currency values must be equal in order for aggregations to
-succeed (without this constraint a sum of units in different currencies has
-no meaning).</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>holdings</strong> – A list of Holding instances.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>A single Holding instance, or None, if there are no holdings in the input
-list.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Exceptions:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><code>ValueError</code> – If multiple cost currencies encountered.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/ops/holdings.py</code></summary>
-          <pre class="highlight"><code class="language-python">def aggregate_holdings_list(holdings):
-    """Aggregate a list of holdings.
-
-    If there are varying 'account', 'currency' or 'cost_currency' attributes,
-    their values are replaced by '*'. Otherwise they are preserved. Note that
-    all the cost-currency values must be equal in order for aggregations to
-    succeed (without this constraint a sum of units in different currencies has
-    no meaning).
+    This is intended to produce the list of currencies whose prices are relevant
+    at a particular date, based on previous history.
 
     Args:
-      holdings: A list of Holding instances.
+      entries: A list of directives.
+      date: A datetime.date instance.
     Returns:
-      A single Holding instance, or None, if there are no holdings in the input
-      list.
-    Raises:
-      ValueError: If multiple cost currencies encountered.
+      A set of (base, quote) currencies.
     """
-    if not holdings:
-        return None
-
-    # Note: Holding is a bit overspecified with book and market values. We
-    # recompute them from cost and price numbers here anyhow.
-    units, total_book_value, total_market_value = ZERO, ZERO, ZERO
-    accounts = set()
+    # Compute the balances.
     currencies = set()
-    cost_currencies = set()
-    price_dates = set()
-    book_value_seen = False
-    market_value_seen = False
-    for holding in holdings:
-        units += holding.number
-        accounts.add(holding.account)
-        price_dates.add(holding.price_date)
-        currencies.add(holding.currency)
-        cost_currencies.add(holding.cost_currency)
-
-        if holding.book_value is not None:
-            total_book_value += holding.book_value
-            book_value_seen = True
-        elif holding.cost_number is not None:
-            total_book_value += holding.number * holding.cost_number
-            book_value_seen = True
-
-        if holding.market_value is not None:
-            total_market_value += holding.market_value
-            market_value_seen = True
-        elif holding.price_number is not None:
-            total_market_value += holding.number * holding.price_number
-            market_value_seen = True
-
-    if book_value_seen:
-        average_cost = total_book_value / units if units else None
-    else:
-        total_book_value = None
-        average_cost = None
-
-    if market_value_seen:
-        average_price = total_market_value / units if units else None
-    else:
-        total_market_value = None
-        average_price = None
-
-    if len(cost_currencies) != 1:
-        raise ValueError("Cost currencies are not homogeneous for aggregation: {}".format(
-            ','.join(map(str, cost_currencies))))
-
-    units = units if len(currencies) == 1 else ZERO
-    currency = currencies.pop() if len(currencies) == 1 else '*'
-    cost_currency = cost_currencies.pop()
-    account_ = (accounts.pop()
-                if len(accounts) == 1
-                else account.commonprefix(accounts))
-    price_date = price_dates.pop() if len(price_dates) == 1 else None
-    return Holding(account_, units, currency, average_cost, cost_currency,
-                   total_book_value, total_market_value, average_price, price_date)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.ops.holdings.convert_to_currency" class="doc doc-heading">
-<code class="highlight language-python">beancount.ops.holdings.convert_to_currency(price_map, target_currency, holdings_list)</code>
-
-
-<a href="#beancount.ops.holdings.convert_to_currency" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Convert the given list of holdings's fields to a common currency.</p>
-<p>If the rate is not available to convert, leave the fields empty.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>price_map</strong> – A price-map, as built by prices.build_price_map().</p></li>
-            <li><p><strong>target_currency</strong> – The target common currency to convert amounts to.</p></li>
-            <li><p><strong>holdings_list</strong> – A list of holdings.Holding instances.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>A modified list of holdings, with the 'extra' field set to the value in
-'currency', or None, if it was not possible to convert.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/ops/holdings.py</code></summary>
-          <pre class="highlight"><code class="language-python">def convert_to_currency(price_map, target_currency, holdings_list):
-    """Convert the given list of holdings's fields to a common currency.
-
-    If the rate is not available to convert, leave the fields empty.
-
-    Args:
-      price_map: A price-map, as built by prices.build_price_map().
-      target_currency: The target common currency to convert amounts to.
-      holdings_list: A list of holdings.Holding instances.
-    Returns:
-      A modified list of holdings, with the 'extra' field set to the value in
-      'currency', or None, if it was not possible to convert.
-    """
-    # A list of the fields we should convert.
-    convert_fields = ('cost_number', 'book_value', 'market_value', 'price_number')
-
-    new_holdings = []
-    for holding in holdings_list:
-        if holding.cost_currency == target_currency:
-            # The holding is already priced in the target currency; do nothing.
-            new_holding = holding
-        else:
-            if holding.cost_currency is None:
-                # There is no cost currency; make the holding priced in its own
-                # units. The price-map should yield a rate of 1.0 and everything
-                # else works out.
-                if holding.currency is None:
-                    raise ValueError("Invalid currency '{}'".format(holding.currency))
-                holding = holding._replace(cost_currency=holding.currency)
-
-                # Fill in with book and market value as well.
-                if holding.book_value is None:
-                    holding = holding._replace(book_value=holding.number)
-                if holding.market_value is None:
-                    holding = holding._replace(market_value=holding.number)
-
-            assert holding.cost_currency, "Missing cost currency: {}".format(holding)
-            base_quote = (holding.cost_currency, target_currency)
-
-            # Get the conversion rate and replace the required numerical
-            # fields..
-            _, rate = prices.get_latest_price(price_map, base_quote)
-            if rate is not None:
-                new_holding = misc_utils.map_namedtuple_attributes(
-                    convert_fields,
-                    lambda number, r=rate: number if number is None else number * r,
-                    holding)
-                # Ensure we set the new cost currency after conversion.
-                new_holding = new_holding._replace(cost_currency=target_currency)
-            else:
-                # Could not get the rate... clear every field and set the cost
-                # currency to None. This enough marks the holding conversion as
-                # a failure.
-                new_holding = misc_utils.map_namedtuple_attributes(
-                    convert_fields, lambda number: None, holding)
-                new_holding = new_holding._replace(cost_currency=None)
-
-        new_holdings.append(new_holding)
-
-    return new_holdings
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.ops.holdings.get_commodities_at_date" class="doc doc-heading">
-<code class="highlight language-python">beancount.ops.holdings.get_commodities_at_date(entries, options_map, date=None)</code>
-
-
-<a href="#beancount.ops.holdings.get_commodities_at_date" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Return a list of commodities present at a particular date.</p>
-<p>This routine fetches the holdings present at a particular date and returns a
-list of the commodities held in those holdings. This should define the list
-of price date points required to assess the market value of this portfolio.</p>
-<p>Notes:</p>
-<ul>
-<li>
-<p>The ticker symbol will be fetched from the corresponding Commodity
-  directive. If there is no ticker symbol defined for a directive or no
-  corresponding Commodity directive, the currency is still included, but
-  'None' is specified for the symbol. The code that uses this routine should
-  be free to use the currency name to make an attempt to fetch the currency
-  using its name, or to ignore it.</p>
-</li>
-<li>
-<p>The 'cost-currency' is that which is found on the holdings instance and
-  can be ignored. The 'quote-currency' is that which is declared on the
-  Commodity directive from its 'quote' metadata field.</p>
-</li>
-</ul>
-<p>This is used in a routine that fetches prices from a data source on the
-internet (either from LedgerHub, but you can reuse this in your own script
-if you build one).</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>entries</strong> – A list of directives.</p></li>
-            <li><p><strong>date</strong> – A datetime.date instance, the date at which to get the list of
-relevant holdings.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p><code>A list of (currency, cost-currency, quote-currency, ticker) tuples, where
-  currency</code> – The Beancount base currency to fetch a price for.
-  cost-currency: The cost-currency of the holdings found at the given date.
-  quote-currency: The currency formally declared as quote currency in the
-    metadata of Commodity directives.
-  ticker: The ticker symbol to use for fetching the price (extracted from
-    the metadata of Commodity directives).</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/ops/holdings.py</code></summary>
-          <pre class="highlight"><code class="language-python">def get_commodities_at_date(entries, options_map, date=None):
-    """Return a list of commodities present at a particular date.
-
-    This routine fetches the holdings present at a particular date and returns a
-    list of the commodities held in those holdings. This should define the list
-    of price date points required to assess the market value of this portfolio.
-
-    Notes:
-
-    * The ticker symbol will be fetched from the corresponding Commodity
-      directive. If there is no ticker symbol defined for a directive or no
-      corresponding Commodity directive, the currency is still included, but
-      'None' is specified for the symbol. The code that uses this routine should
-      be free to use the currency name to make an attempt to fetch the currency
-      using its name, or to ignore it.
-
-    * The 'cost-currency' is that which is found on the holdings instance and
-      can be ignored. The 'quote-currency' is that which is declared on the
-      Commodity directive from its 'quote' metadata field.
-
-    This is used in a routine that fetches prices from a data source on the
-    internet (either from LedgerHub, but you can reuse this in your own script
-    if you build one).
-
-    Args:
-      entries: A list of directives.
-      date: A datetime.date instance, the date at which to get the list of
-        relevant holdings.
-    Returns:
-      A list of (currency, cost-currency, quote-currency, ticker) tuples, where
-        currency: The Beancount base currency to fetch a price for.
-        cost-currency: The cost-currency of the holdings found at the given date.
-        quote-currency: The currency formally declared as quote currency in the
-          metadata of Commodity directives.
-        ticker: The ticker symbol to use for fetching the price (extracted from
-          the metadata of Commodity directives).
-    """
-    # Remove all the entries after the given date, if requested.
-    if date is not None:
-        entries = summarize.truncate(entries, date)
-
-    # Get the list of holdings at the particular date.
-    holdings_list = get_final_holdings(entries)
-
-    # Obtain the unique list of currencies we need to fetch.
-    commodities_list = {(holding.currency, holding.cost_currency)
-                        for holding in holdings_list}
-
-    # Add in the associated ticker symbols.
-    commodities_map = getters.get_commodity_map(entries)
-    commodities_symbols_list = []
-    for currency, cost_currency in sorted(commodities_list):
-        try:
-            commodity_entry = commodities_map[currency]
-            ticker = commodity_entry.meta.get('ticker', None)
-            quote_currency = commodity_entry.meta.get('quote', None)
-        except KeyError:
-            ticker = None
-            quote_currency = None
-
-        commodities_symbols_list.append(
-            (currency, cost_currency, quote_currency, ticker))
-
-    return commodities_symbols_list
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.ops.holdings.get_final_holdings" class="doc doc-heading">
-<code class="highlight language-python">beancount.ops.holdings.get_final_holdings(entries, included_account_types=None, price_map=None, date=None)</code>
-
-
-<a href="#beancount.ops.holdings.get_final_holdings" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Get a dictionary of the latest holdings by account.</p>
-<p>This basically just flattens the balance sheet's final positions, including
-that of equity accounts. If a 'price_map' is provided, insert price
-information in the flattened holdings at the latest date, or at the given
-date, if one is provided.</p>
-<p>Only the accounts in 'included_account_types' will be included, and this is
-always called for Assets and Liabilities only. If left unspecified, holdings
-from all account types will be included, including Equity, Income and
-Expenses.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>entries</strong> – A list of directives.</p></li>
-            <li><p><strong>included_account_types</strong> – A sequence of strings, the account types to
-include in the output. A reasonable example would be
-('Assets', 'Liabilities'). If not specified, include all account types.</p></li>
-            <li><p><strong>price_map</strong> – A dict of prices, as built by prices.build_price_map().</p></li>
-            <li><p><strong>date</strong> – A datetime.date instance, the date at which to price the
-holdings. If left unspecified, we use the latest price information.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p><code>A list of dicts, with the following fields</code> – </p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/ops/holdings.py</code></summary>
-          <pre class="highlight"><code class="language-python">def get_final_holdings(entries, included_account_types=None, price_map=None, date=None):
-    """Get a dictionary of the latest holdings by account.
-
-    This basically just flattens the balance sheet's final positions, including
-    that of equity accounts. If a 'price_map' is provided, insert price
-    information in the flattened holdings at the latest date, or at the given
-    date, if one is provided.
-
-    Only the accounts in 'included_account_types' will be included, and this is
-    always called for Assets and Liabilities only. If left unspecified, holdings
-    from all account types will be included, including Equity, Income and
-    Expenses.
-
-    Args:
-      entries: A list of directives.
-      included_account_types: A sequence of strings, the account types to
-        include in the output. A reasonable example would be
-        ('Assets', 'Liabilities'). If not specified, include all account types.
-      price_map: A dict of prices, as built by prices.build_price_map().
-      date: A datetime.date instance, the date at which to price the
-        holdings. If left unspecified, we use the latest price information.
-    Returns:
-      A list of dicts, with the following fields:
-    """
-    # Remove the entries inserted by unrealized gains/losses. Those entries do
-    # affect asset accounts, and we don't want them to appear in holdings.
-    #
-    # Note: Perhaps it would make sense to generalize this concept of "inserted
-    # unrealized gains."
-    simple_entries = [entry
-                      for entry in entries
-                      if (not isinstance(entry, data.Transaction) or
-                          entry.flag != flags.FLAG_UNREALIZED)]
-
-    # Realize the accounts into a tree (because we want the positions by-account).
-    root_account = realization.realize(simple_entries)
-
-    # For each account, look at the list of positions and build a list.
-    holdings = []
-    for real_account in sorted(list(realization.iter_children(root_account)),
-                               key=lambda ra: ra.account):
-
-        if included_account_types:
-            # Skip accounts of invalid types, we only want to reflect the requested
-            # account types, typically assets and liabilities.
-            account_type = account_types.get_account_type(real_account.account)
-            if account_type not in included_account_types:
-                continue
-
-        for pos in real_account.balance.get_positions():
+    currencies_on_books = set()
+    balances, _ = summarize.balance_by_account(entries, date)
+    for _, balance in balances.items():
+        for pos in balance:
             if pos.cost is not None:
-                # Get price information if we have a price_map.
-                market_value = None
-                if price_map is not None:
-                    base_quote = (pos.units.currency, pos.cost.currency)
-                    price_date, price_number = prices.get_price(price_map,
-                                                                base_quote, date)
-                    if price_number is not None:
-                        market_value = pos.units.number * price_number
-                else:
-                    price_date, price_number = None, None
-
-                holding = Holding(real_account.account,
-                                  pos.units.number,
-                                  pos.units.currency,
-                                  pos.cost.number,
-                                  pos.cost.currency,
-                                  pos.units.number * pos.cost.number,
-                                  market_value,
-                                  price_number,
-                                  price_date)
+                # Add currencies held at cost.
+                currencies.add((pos.units.currency, pos.cost.currency))
             else:
-                holding = Holding(real_account.account,
-                                  pos.units.number,
-                                  pos.units.currency,
-                                  None,
-                                  pos.units.currency,
-                                  pos.units.number,
-                                  pos.units.number,
-                                  None,
-                                  None)
-            holdings.append(holding)
+                # Add regular currencies.
+                currencies_on_books.add(pos.units.currency)
 
-    return holdings
+    # Create currency pairs from the currencies which are on account balances.
+    # In order to figure out the quote currencies, we use the list of price
+    # conversions until this date.
+    converted = (find_currencies_converted(entries, date) |
+                 find_currencies_priced(entries, date))
+    for cbase in currencies_on_books:
+        for base_quote in converted:
+            base, quote = base_quote
+            if base == cbase:
+                currencies.add(base_quote)
+
+    return currencies
 </code></pre>
         </details>
     </div>
@@ -2737,15 +2100,17 @@ holdings. If left unspecified, we use the latest price information.</p></li>
 
 
 
-<h3 id="beancount.ops.holdings.holding_to_position" class="doc doc-heading">
-<code class="highlight language-python">beancount.ops.holdings.holding_to_position(holding)</code>
+<h3 id="beancount.ops.find_prices.find_currencies_at_cost" class="doc doc-heading">
+<code class="highlight language-python">beancount.ops.find_prices.find_currencies_at_cost(entries, date=None)</code>
 
 
-<a href="#beancount.ops.holdings.holding_to_position" class="headerlink" title="Permanent link"></a></h3>
+<a href="#beancount.ops.find_prices.find_currencies_at_cost" class="headerlink" title="Permanent link"></a></h3>
 
     <div class="doc doc-contents ">
 
-      <p>Convert the holding to a position.</p>
+      <p>Return all currencies that were held at cost at some point.</p>
+<p>This returns all of them, even if not on the books at a particular point in
+time. This code does not look at account balances.</p>
 
 <table class="field-list">
   <colgroup>
@@ -2757,7 +2122,8 @@ holdings. If left unspecified, we use the latest price information.</p></li>
       <th class="field-name">Parameters:</th>
       <td class="field-body">
         <ul class="first simple">
-            <li><p><strong>holding</strong> – An instance of Holding.</p></li>
+            <li><p><strong>entries</strong> – A list of directives.</p></li>
+            <li><p><strong>date</strong> – A datetime.date instance.</p></li>
         </ul>
       </td>
     </tr>
@@ -2773,27 +2139,36 @@ holdings. If left unspecified, we use the latest price information.</p></li>
     <th class="field-name">Returns:</th>
     <td class="field-body">
         <ul class="first simple">
-          <li><p>An instance of Position.</p></li>
+          <li><p>A list of (base, quote) currencies.</p></li>
         </ul>
     </td>
     </tr>
   </tbody>
 </table>
         <details class="quote">
-          <summary>Source code in <code>beancount/ops/holdings.py</code></summary>
-          <pre class="highlight"><code class="language-python">def holding_to_position(holding):
-    """Convert the holding to a position.
+          <summary>Source code in <code>beancount/ops/find_prices.py</code></summary>
+          <pre class="highlight"><code class="language-python">def find_currencies_at_cost(entries, date=None):
+    """Return all currencies that were held at cost at some point.
+
+    This returns all of them, even if not on the books at a particular point in
+    time. This code does not look at account balances.
 
     Args:
-      holding: An instance of Holding.
+      entries: A list of directives.
+      date: A datetime.date instance.
     Returns:
-      An instance of Position.
+      A list of (base, quote) currencies.
     """
-    return position.Position(
-        amount.Amount(holding.number, holding.currency),
-        (position.Cost(holding.cost_number, holding.cost_currency, None, None)
-         if holding.cost_number
-         else None))
+    currencies = set()
+    for entry in entries:
+        if not isinstance(entry, data.Transaction):
+            continue
+        if date and entry.date &gt;= date:
+            break
+        for posting in entry.postings:
+            if posting.cost is not None and posting.cost.number is not None:
+                currencies.add((posting.units.currency, posting.cost.currency))
+    return currencies
 </code></pre>
         </details>
     </div>
@@ -2806,15 +2181,18 @@ holdings. If left unspecified, we use the latest price information.</p></li>
 
 
 
-<h3 id="beancount.ops.holdings.holding_to_posting" class="doc doc-heading">
-<code class="highlight language-python">beancount.ops.holdings.holding_to_posting(holding)</code>
+<h3 id="beancount.ops.find_prices.find_currencies_converted" class="doc doc-heading">
+<code class="highlight language-python">beancount.ops.find_prices.find_currencies_converted(entries, date=None)</code>
 
 
-<a href="#beancount.ops.holdings.holding_to_posting" class="headerlink" title="Permanent link"></a></h3>
+<a href="#beancount.ops.find_prices.find_currencies_converted" class="headerlink" title="Permanent link"></a></h3>
 
     <div class="doc doc-contents ">
 
-      <p>Convert the holding to an instance of Posting.</p>
+      <p>Return currencies from price conversions.</p>
+<p>This function looks at all price conversions that occurred until some date
+and produces a list of them. Note: This does not include Price directives,
+only postings with price conversions.</p>
 
 <table class="field-list">
   <colgroup>
@@ -2826,7 +2204,8 @@ holdings. If left unspecified, we use the latest price information.</p></li>
       <th class="field-name">Parameters:</th>
       <td class="field-body">
         <ul class="first simple">
-            <li><p><strong>holding</strong> – An instance of Holding.</p></li>
+            <li><p><strong>entries</strong> – A list of directives.</p></li>
+            <li><p><strong>date</strong> – A datetime.date instance.</p></li>
         </ul>
       </td>
     </tr>
@@ -2842,27 +2221,39 @@ holdings. If left unspecified, we use the latest price information.</p></li>
     <th class="field-name">Returns:</th>
     <td class="field-body">
         <ul class="first simple">
-          <li><p>An instance of Position.</p></li>
+          <li><p>A list of (base, quote) currencies.</p></li>
         </ul>
     </td>
     </tr>
   </tbody>
 </table>
         <details class="quote">
-          <summary>Source code in <code>beancount/ops/holdings.py</code></summary>
-          <pre class="highlight"><code class="language-python">def holding_to_posting(holding):
-    """Convert the holding to an instance of Posting.
+          <summary>Source code in <code>beancount/ops/find_prices.py</code></summary>
+          <pre class="highlight"><code class="language-python">def find_currencies_converted(entries, date=None):
+    """Return currencies from price conversions.
+
+    This function looks at all price conversions that occurred until some date
+    and produces a list of them. Note: This does not include Price directives,
+    only postings with price conversions.
 
     Args:
-      holding: An instance of Holding.
+      entries: A list of directives.
+      date: A datetime.date instance.
     Returns:
-      An instance of Position.
+      A list of (base, quote) currencies.
     """
-    position_ = holding_to_position(holding)
-    price = (amount.Amount(holding.price_number, holding.cost_currency)
-             if holding.price_number
-             else None)
-    return data.Posting(holding.account, position_.units, position_.cost, price, None, None)
+    currencies = set()
+    for entry in entries:
+        if not isinstance(entry, data.Transaction):
+            continue
+        if date and entry.date &gt;= date:
+            break
+        for posting in entry.postings:
+            price = posting.price
+            if posting.cost is not None or price is None:
+                continue
+            currencies.add((posting.units.currency, price.currency))
+    return currencies
 </code></pre>
         </details>
     </div>
@@ -2875,15 +2266,15 @@ holdings. If left unspecified, we use the latest price information.</p></li>
 
 
 
-<h3 id="beancount.ops.holdings.reduce_relative" class="doc doc-heading">
-<code class="highlight language-python">beancount.ops.holdings.reduce_relative(holdings)</code>
+<h3 id="beancount.ops.find_prices.find_currencies_priced" class="doc doc-heading">
+<code class="highlight language-python">beancount.ops.find_prices.find_currencies_priced(entries, date=None)</code>
 
 
-<a href="#beancount.ops.holdings.reduce_relative" class="headerlink" title="Permanent link"></a></h3>
+<a href="#beancount.ops.find_prices.find_currencies_priced" class="headerlink" title="Permanent link"></a></h3>
 
     <div class="doc doc-contents ">
 
-      <p>Convert the market and book values of the given list of holdings to relative data.</p>
+      <p>Return currencies seen in Price directives.</p>
 
 <table class="field-list">
   <colgroup>
@@ -2895,7 +2286,8 @@ holdings. If left unspecified, we use the latest price information.</p></li>
       <th class="field-name">Parameters:</th>
       <td class="field-body">
         <ul class="first simple">
-            <li><p><strong>holdings</strong> – A list of Holding instances.</p></li>
+            <li><p><strong>entries</strong> – A list of directives.</p></li>
+            <li><p><strong>date</strong> – A datetime.date instance.</p></li>
         </ul>
       </td>
     </tr>
@@ -2911,137 +2303,31 @@ holdings. If left unspecified, we use the latest price information.</p></li>
     <th class="field-name">Returns:</th>
     <td class="field-body">
         <ul class="first simple">
-          <li><p>A list of holdings instances with the absolute value fields replaced by
-fractions of total portfolio. The new list of holdings is sorted by
-currency, and the relative fractions are also relative to that currency.</p></li>
+          <li><p>A list of (base, quote) currencies.</p></li>
         </ul>
     </td>
     </tr>
   </tbody>
 </table>
         <details class="quote">
-          <summary>Source code in <code>beancount/ops/holdings.py</code></summary>
-          <pre class="highlight"><code class="language-python">def reduce_relative(holdings):
-    """Convert the market and book values of the given list of holdings to relative data.
+          <summary>Source code in <code>beancount/ops/find_prices.py</code></summary>
+          <pre class="highlight"><code class="language-python">def find_currencies_priced(entries, date=None):
+    """Return currencies seen in Price directives.
 
     Args:
-      holdings: A list of Holding instances.
+      entries: A list of directives.
+      date: A datetime.date instance.
     Returns:
-      A list of holdings instances with the absolute value fields replaced by
-      fractions of total portfolio. The new list of holdings is sorted by
-      currency, and the relative fractions are also relative to that currency.
+      A list of (base, quote) currencies.
     """
-    # Group holdings by value currency.
-    by_currency = collections.defaultdict(list)
-    ordering = {}
-    for index, holding in enumerate(holdings):
-        ordering.setdefault(holding.cost_currency, index)
-        by_currency[holding.cost_currency].append(holding)
-
-    fractional_holdings = []
-    for currency in sorted(by_currency, key=ordering.get):
-        currency_holdings = by_currency[currency]
-
-        # Compute total market value for that currency.
-        total_book_value = ZERO
-        total_market_value = ZERO
-        for holding in currency_holdings:
-            if holding.book_value:
-                total_book_value += holding.book_value
-            if holding.market_value:
-                total_market_value += holding.market_value
-
-        # Sort the currency's holdings with decreasing values of market value.
-        currency_holdings.sort(
-            key=lambda holding: holding.market_value or ZERO,
-            reverse=True)
-
-        # Output new holdings with the relevant values replaced.
-        for holding in currency_holdings:
-            fractional_holdings.append(
-                holding._replace(book_value=(holding.book_value / total_book_value
-                                             if holding.book_value is not None
-                                             else None),
-                                 market_value=(holding.market_value / total_market_value
-                                               if holding.market_value is not None
-                                               else None)))
-    return fractional_holdings
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-function">
-
-
-
-<h3 id="beancount.ops.holdings.scale_holding" class="doc doc-heading">
-<code class="highlight language-python">beancount.ops.holdings.scale_holding(holding, scale_factor)</code>
-
-
-<a href="#beancount.ops.holdings.scale_holding" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Scale the values of a holding.</p>
-
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li><p><strong>holding</strong> – An instance of Holding.</p></li>
-            <li><p><strong>scale_factor</strong> – A float or Decimal number.</p></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-        <ul class="first simple">
-          <li><p>A scaled copy of the holding.</p></li>
-        </ul>
-    </td>
-    </tr>
-  </tbody>
-</table>
-        <details class="quote">
-          <summary>Source code in <code>beancount/ops/holdings.py</code></summary>
-          <pre class="highlight"><code class="language-python">def scale_holding(holding, scale_factor):
-    """Scale the values of a holding.
-
-    Args:
-      holding: An instance of Holding.
-      scale_factor: A float or Decimal number.
-    Returns:
-      A scaled copy of the holding.
-    """
-    return Holding(
-        holding.account,
-        holding.number * scale_factor if holding.number else None,
-        holding.currency,
-        holding.cost_number,
-        holding.cost_currency,
-        holding.book_value * scale_factor if holding.book_value else None,
-        holding.market_value * scale_factor if holding.market_value else None,
-        holding.price_number,
-        holding.price_date)
+    currencies = set()
+    for entry in entries:
+        if not isinstance(entry, data.Price):
+            continue
+        if date and entry.date &gt;= date:
+            break
+        currencies.add((entry.currency, entry.amount.currency))
+    return currencies
 </code></pre>
         </details>
     </div>
@@ -3361,6 +2647,108 @@ was seen; the end/last dates are one day <em>after</em> the last date seen.</p><
 
 
 
+<h3 id="beancount.ops.lifetimes.required_daily_prices" class="doc doc-heading">
+<code class="highlight language-python">beancount.ops.lifetimes.required_daily_prices(lifetimes_map, date_last, weekdays_only=False)</code>
+
+
+<a href="#beancount.ops.lifetimes.required_daily_prices" class="headerlink" title="Permanent link"></a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Enumerate all the commodities and days where the price is required.</p>
+<p>Given a map of lifetimes for a set of commodities, enumerate all the days
+for each commodity where it is active. This can be used to connect to a
+historical price fetcher routine to fill in missing price entries from an
+existing ledger.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>lifetimes_map</strong> – A dict of currency to active intervals as returned by
+get_commodity_lifetimes().</p></li>
+            <li><p><strong>date_last</strong> – A datetime.date instance, the last date which we're interested in.</p></li>
+            <li><p><strong>weekdays_only</strong> – Option to limit fetching to weekdays only.</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+        <ul class="first simple">
+          <li><p>Tuples of (date, currency, cost-currency).</p></li>
+        </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>beancount/ops/lifetimes.py</code></summary>
+          <pre class="highlight"><code class="language-python">def required_daily_prices(lifetimes_map, date_last, weekdays_only=False):
+    """Enumerate all the commodities and days where the price is required.
+
+    Given a map of lifetimes for a set of commodities, enumerate all the days
+    for each commodity where it is active. This can be used to connect to a
+    historical price fetcher routine to fill in missing price entries from an
+    existing ledger.
+
+    Args:
+      lifetimes_map: A dict of currency to active intervals as returned by
+        get_commodity_lifetimes().
+      date_last: A datetime.date instance, the last date which we're interested in.
+      weekdays_only: Option to limit fetching to weekdays only.
+    Returns:
+      Tuples of (date, currency, cost-currency).
+    """
+    results = []
+    for currency_pair, intervals in lifetimes_map.items():
+        if currency_pair[1] is None:
+            continue
+        for date_begin, date_end in intervals:
+            # Find first Weekday starting on or before minimum date.
+            date = date_begin
+            if(weekdays_only):
+                diff_days = 4 - date_begin.weekday()
+                if diff_days &lt; 0:
+                    date += datetime.timedelta(days=diff_days)
+
+            # Iterate over all weekdays.
+            if date_end is None:
+                date_end = date_last
+            while date &lt; date_end:
+                results.append((date, currency_pair[0], currency_pair[1]))
+                if weekdays_only and date.weekday() == 4:
+                    date += 3 * ONEDAY
+                else:
+                    date += ONEDAY
+
+    return sorted(results)
+</code></pre>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
 <h3 id="beancount.ops.lifetimes.required_weekly_prices" class="doc doc-heading">
 <code class="highlight language-python">beancount.ops.lifetimes.required_weekly_prices(lifetimes_map, date_last)</code>
 
@@ -3433,7 +2821,7 @@ get_commodity_lifetimes().</p></li>
         for date_begin, date_end in intervals:
             # Find first Friday before the minimum date.
             diff_days = 4 - date_begin.weekday()
-            if diff_days &gt; 1:
+            if diff_days &gt;= 1:
                 diff_days -= 7
             date = date_begin + datetime.timedelta(days=diff_days)
 
@@ -3444,6 +2832,96 @@ get_commodity_lifetimes().</p></li>
                 results.append((date, currency_pair[0], currency_pair[1]))
                 date += ONE_WEEK
     return sorted(results)
+</code></pre>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h3 id="beancount.ops.lifetimes.trim_intervals" class="doc doc-heading">
+<code class="highlight language-python">beancount.ops.lifetimes.trim_intervals(intervals, trim_start=None, trim_end=None)</code>
+
+
+<a href="#beancount.ops.lifetimes.trim_intervals" class="headerlink" title="Permanent link"></a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Trim a list of date pairs to be within a start and end date.
+Useful in update-style price fetching.</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li><p><strong>intervals</strong> – A list of pairs of datetime.date instances</p></li>
+            <li><p><strong>trim_start</strong> – An inclusive starting date.</p></li>
+            <li><p><strong>trim_end</strong> – An exclusive starting date.</p></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+        <ul class="first simple">
+          <li><p>A list of new intervals (pairs of (date, date)).</p></li>
+        </ul>
+    </td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>beancount/ops/lifetimes.py</code></summary>
+          <pre class="highlight"><code class="language-python">def trim_intervals(intervals, trim_start=None, trim_end=None):
+    """Trim a list of date pairs to be within a start and end date.
+    Useful in update-style price fetching.
+
+    Args:
+      intervals: A list of pairs of datetime.date instances
+      trim_start: An inclusive starting date.
+      trim_end: An exclusive starting date.
+    Returns:
+      A list of new intervals (pairs of (date, date)).
+    """
+    new_intervals = []
+    iter_intervals = iter(intervals)
+    if(trim_start is not None and
+       trim_end is not None and
+       trim_end &lt; trim_start):
+        raise ValueError('Trim end date is before start date')
+
+    for date_begin, date_end in iter_intervals:
+        if(trim_start is not None and
+           trim_start &gt; date_begin):
+            date_begin = trim_start
+        if(trim_end is not None):
+            if(date_end is None or
+               trim_end &lt; date_end):
+                date_end = trim_end
+
+        if(date_end is None or
+           date_begin &lt;= date_end):
+            new_intervals.append((date_begin, date_end))
+    return new_intervals
 </code></pre>
         </details>
     </div>
@@ -3569,6 +3047,38 @@ beancount.ops.pad.PadError            (<span title="tuple">tuple</span>)
 
       <p>Create new instance of PadError(source, message, entry)</p>
 
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="beancount.ops.pad.PadError.__replace__" class="doc doc-heading">
+<code class="highlight language-python">beancount.ops.pad.PadError.__replace__(/, self, **kwds)</code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-special"><code>special</code></small>
+  </span>
+
+<a href="#beancount.ops.pad.PadError.__replace__" class="headerlink" title="Permanent link"></a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Return a new PadError object replacing specified fields with new values</p>
+
+        <details class="quote">
+          <summary>Source code in <code>beancount/ops/pad.py</code></summary>
+          <pre class="highlight"><code class="language-python">def _replace(self, /, **kwds):
+    result = self._make(_map(kwds.pop, field_names, self))
+    if kwds:
+        raise TypeError(f'Got unexpected field names: {list(kwds)!r}')
+    return result
+</code></pre>
+        </details>
     </div>
 
   </div>
@@ -3789,12 +3299,12 @@ errors produced.</p></li>
                         new_entry.postings.append(
                             data.Posting(active_pad.account,
                                          diff_position.units, diff_position.cost,
-                                         None, None, None))
+                                         None, None, {}))
                         neg_diff_position = -diff_position
                         new_entry.postings.append(
                             data.Posting(active_pad.source_account,
                                          neg_diff_position.units, neg_diff_position.cost,
-                                         None, None, None))
+                                         None, None, {}))
 
                         # Save it for later insertion after the active pad.
                         new_entries[id(active_pad)].append(new_entry)
@@ -3879,7 +3389,7 @@ total amount of that account.</p>
 
 
 <h3 id="beancount.ops.summarize.balance_by_account" class="doc doc-heading">
-<code class="highlight language-python">beancount.ops.summarize.balance_by_account(entries, date=None)</code>
+<code class="highlight language-python">beancount.ops.summarize.balance_by_account(entries, date=None, compress_unbooked=False)</code>
 
 
 <a href="#beancount.ops.summarize.balance_by_account" class="headerlink" title="Permanent link"></a></h3>
@@ -3902,6 +3412,11 @@ total amount of that account.</p>
             <li><p><strong>date</strong> – An optional datetime.date instance. If provided, stop accumulating
 on and after this date. This is useful for summarization before a
 specific date.</p></li>
+            <li><p><strong>compress_unbooked</strong> – For accounts that have a booking method of NONE,
+compress their positions into a single average position. This can be
+used when you export the full list of positions, because those accounts
+will have a myriad of small positions from fees at negative cost and
+what-not.</p></li>
         </ul>
       </td>
     </tr>
@@ -3928,7 +3443,7 @@ cutoff date, an index one beyond the last entry is returned.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python">def balance_by_account(entries, date=None):
+          <pre class="highlight"><code class="language-python">def balance_by_account(entries, date=None, compress_unbooked=False):
     """Sum up the balance per account for all entries strictly before 'date'.
 
     Args:
@@ -3936,11 +3451,17 @@ cutoff date, an index one beyond the last entry is returned.</p></li>
       date: An optional datetime.date instance. If provided, stop accumulating
         on and after this date. This is useful for summarization before a
         specific date.
+      compress_unbooked: For accounts that have a booking method of NONE,
+        compress their positions into a single average position. This can be
+        used when you export the full list of positions, because those accounts
+        will have a myriad of small positions from fees at negative cost and
+        what-not.
     Returns:
       A pair of a dict of account string to instance Inventory (the balance of
       this account before the given date), and the index in the list of entries
       where the date was encountered. If all entries are located before the
       cutoff date, an index one beyond the last entry is returned.
+
     """
     balances = collections.defaultdict(inventory.Inventory)
     for index, entry in enumerate(entries):
@@ -3961,6 +3482,25 @@ cutoff date, an index one beyond the last entry is returned.</p></li>
                 account_balance.add_position(posting)
     else:
         index = len(entries)
+
+    # If the account has "NONE" booking method, merge all its postings
+    # together in order to obtain an accurate cost basis and balance of
+    # units.
+    #
+    # (This is a complex issue.) If you accrued positions without having them
+    # booked properly against existing cost bases, you have not properly accounted
+    # for the profit/loss to other postings. This means that the resulting
+    # profit/loss is merged in the cost basis of the positive and negative
+    # postings.
+    if compress_unbooked:
+        oc_map = getters.get_account_open_close(entries)
+        accounts_map = {account: dopen for account, (dopen, _) in oc_map.items()}
+
+        for account, balance in balances.items():
+            dopen = accounts_map.get(account, None)
+            if dopen is not None and dopen.booking is data.Booking.NONE:
+                average_balance = balance.average()
+                balances[account] = inventory.Inventory(pos for pos in average_balance)
 
     return balances, index
 </code></pre>
@@ -4365,12 +3905,16 @@ sheet fed with only the summarized entries.</p></li>
       Same as clamp().
     """
     account_types = options.get_account_types(options_map)
-    previous_accounts = options.get_previous_accounts(options_map)
+    previous_earnings, previous_balances, _ = options.get_previous_accounts(options_map)
+    _, current_conversions = options.get_current_accounts(options_map)
+
     conversion_currency = options_map['conversion_currency']
     return clamp(entries, begin_date, end_date,
                  account_types,
                  conversion_currency,
-                 *previous_accounts)
+                 previous_earnings,
+                 previous_balances,
+                 current_conversions)
 </code></pre>
         </details>
     </div>
@@ -5414,7 +4958,7 @@ the transfer entries to receive balances at the given date.</p></li>
     # has been transferred away; they would break.
     after_entries = [entry
                      for entry in entries[index:]
-                     if not (isinstance(entry, balance.Balance) and
+                     if not (isinstance(entry, data.Balance) and
                              entry.account in transfer_balances)]
 
     # Split the new entries in a new list.
@@ -5622,6 +5166,38 @@ beancount.ops.validation.ValidationError            (<span title="tuple">tuple</
 
       <p>Create new instance of ValidationError(source, message, entry)</p>
 
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h4 id="beancount.ops.validation.ValidationError.__replace__" class="doc doc-heading">
+<code class="highlight language-python">beancount.ops.validation.ValidationError.__replace__(/, self, **kwds)</code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-special"><code>special</code></small>
+  </span>
+
+<a href="#beancount.ops.validation.ValidationError.__replace__" class="headerlink" title="Permanent link"></a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Return a new ValidationError object replacing specified fields with new values</p>
+
+        <details class="quote">
+          <summary>Source code in <code>beancount/ops/validation.py</code></summary>
+          <pre class="highlight"><code class="language-python">def _replace(self, /, **kwds):
+    result = self._make(_map(kwds.pop, field_names, self))
+    if kwds:
+        raise TypeError(f'Got unexpected field names: {list(kwds)!r}')
+    return result
+</code></pre>
+        </details>
     </div>
 
   </div>
@@ -6442,12 +6018,12 @@ however, because this may occur during import.</p>
    duplicate is detected, an error is generated.</p>
 </li>
 <li>
-<p>Close directives may only appears if an open directive has been seen
-   previous (chronologically).</p>
+<p>Close directives may only appear if an open directive has been seen
+   previously (chronologically).</p>
 </li>
 <li>
 <p>The date of close directives must be strictly greater than their
-  corresponding open directive.</p>
+   corresponding open directive.</p>
 </li>
 </ol>
 
@@ -6494,11 +6070,11 @@ however, because this may occur during import.</p>
     1. An open or a close directive may only show up once for each account. If a
        duplicate is detected, an error is generated.
 
-    2. Close directives may only appears if an open directive has been seen
-       previous (chronologically).
+    2. Close directives may only appear if an open directive has been seen
+       previously (chronologically).
 
     3. The date of close directives must be strictly greater than their
-      corresponding open directive.
+       corresponding open directive.
 
     Args:
       entries: A list of directives.
@@ -6531,7 +6107,7 @@ however, because this may occur during import.</p>
             else:
                 try:
                     open_entry = open_map[entry.account]
-                    if entry.date &lt;= open_entry.date:
+                    if entry.date &lt; open_entry.date:
                         errors.append(
                             ValidationError(
                                 entry.meta,
