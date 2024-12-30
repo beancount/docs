@@ -14,6 +14,8 @@ This document contains only packages that were discussed or have had an announce
 
 -   GitHub: A [<u>search for "beancount"</u>](https://github.com/search?p=5&q=beancount&ref=opensearch&type=Repositories) as of September 2020 brings up 318 projects.
 
+-   [<u>awesome-beancount.com</u>](https://awesome-beancount.com): A curated list of resources for Beancount, which is a command-line based double-entry bookkeeping system using plaintext files.
+
 ## Books and Articles<a id="books-and-articles"></a>
 
 [<u>Managing Personal Finances using Python</u>](https://personalfinancespython.com/) (Siddhant Goel): a 2020 book on plain-text accounting, and Beancount.
@@ -183,6 +185,8 @@ The Beancount v3 parser uses [<u>RE/flex</u>](https://www.genivia.com/doc/reflex
 [<u>rlan/beancount-multitool</u>](https://github.com/rlan/beancount-multitool) (Rick Lan): Beancount Multitool is a command-line-interface (CLI) tool that converts financial data from financial institutions to Beancount files (supported: JA Bank ＪＡネットバンク, Rakuten Card 楽天カード, Rakuten Bank 楽天銀行, SBI Shinsei Bank 新生銀行). Associated post: [<u>https://www.linkedin.com/feed/update/urn:li:activity:7198125470662500352/</u>](https://www.linkedin.com/feed/update/urn:li:activity:7198125470662500352/)
 
 [<u>LaunchPlatform/beanhub-import</u>](https://github.com/LaunchPlatform/beanhub-import) (Fang-Pen Lin): Beanhub-import is a simple, declarative, smart, and easy-to-use library for importing extracted transactions from beanhub-extract. It generates Beancount transactions based on predefined rules.
+
+[<u>Sieboldianus/beancount-hibiscus-importer</u>](https://github.com/Sieboldianus/beancount-hibiscus-importer): Hibiscus is a widely used open source software in Germany. It supports the retrieval of transactions from banks using the HBCI or FinTS standards and (with plugins) via web scraping (credit cards) or APIs (e.g. Paypal). This Beancount Hibiscus Importer provides import functionality to retrieve transactions from the Hibiscus H2DB (either directly or via XML-RPC) and convert them to the Beancount format using the v3 Beangulp interface.
 
 ## Converters<a id="converters"></a>
 

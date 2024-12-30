@@ -119,11 +119,81 @@ Various distributions may package Beancount. Here are links to those known to ex
 
 -   Arch: [<u>https://aur.archlinux.org/packages/beancount/</u>](https://aur.archlinux.org/packages/beancount/)
 
-### Windows Installation<a id="windows-installation"></a>
+#### Windows Installation<a id="windows-installation"></a>
 
-#### Native for development<a id="native-for-development"></a>
+##### beancount v3<a id="beancount-v3"></a>
 
-Install compiler
+If you intend to use beancount v3, then there is probably no reason to install it without beanquery, as custom reports and bean-web are discontinued in v3.
+
+In this case the simplest way to install beancount is to install beanquery, which will install beancount as a dependency.
+
+To do this simply run the following command
+
+    pip install beanquery
+
+Or
+
+    python -m pip install beanquery 
+
+To test installation create a simple beancount ledger
+
+E.g.,:
+
+    ====================================
+
+    2024-01-01 open Assets:Bank
+
+    2024-01-01 open Equity:Opening-Balances
+
+    2024-01-01 * "Opening Balance"
+
+      Assets:Bank  1000.00 USD
+
+      Equity:Opening-Balances
+
+    ======================================
+
+Save it to some file (e.g. tst.bean)
+
+Then run
+
+     bean-query tst.bean
+
+Or
+
+    python -m beanquery tst.bean
+
+Confirm, that you get prompt like that
+
+    Input file: "Beancount"
+
+    Ready with 3 directives (2 postings in 1 transactions).
+
+    beanquery>
+
+Congratulations! Installation is successful
+
+If for whatever reason you still want to install beancount standalone, you can do it like that:
+
+    pip install beancount
+
+Or
+
+    python -m pip install beancount
+
+##### beancount v2<a id="beancount-v2"></a>
+
+To install the last v2 of beancount do the following:
+
+**`pip install "beancount<3"`**
+
+or
+
+                    python -m pip install "beancount<3"
+
+##### Native for development<a id="native-for-development"></a>
+
+###### Install compiler<a id="install-compiler"></a>
 
 Installing this package by pip requires compiling some C++ code during the installation procedure which is only possible if an appropriate compiler is available on the computer, otherwise you will receive an error message about missing *vsvarsall.bat* or *cl.exe*.
 
@@ -151,7 +221,9 @@ According to my experience both Python 3.8 and 3.6 was compiled with MSC v.1900 
 
     -   add C++ build tools: C++ core features, MSVC v142 build tools
 
-##### If cl.exe is not in your path after installation, run Developer Command Prompt for Visual Studio and run the commands there.  Install [<u>winflexbison</u>](https://github.com/lexxmark/winflexbison)<a id="if-cl.exe-is-not-in-your-path-after-installation-run-developer-command-prompt-for-visual-studio-and-run-the-commands-there.-install-winflexbison"></a>
+If cl.exe is not in your path after installation, run Developer Command Prompt for Visual Studio and run the commands there.
+
+######  Install winflexbison<a id="install-winflexbison"></a>
 
 Download zip file with the latest version of the winflexbison
 
@@ -169,11 +241,13 @@ Issue the command
 
     win_bison --version
 
-##### Confirm that you get a response with the win\_bizon version  **Install build utilities**<a id="confirm-that-you-get-a-response-with-the-win_bizon-version-install-build-utilities"></a>
+Confirm that you get a response with the win\_bizon version
+
+######  Install build utilities<a id="install-build-utilities"></a>
 
     python -m pip install meson-python meson ninja
 
-##### Get and Install beancount<a id="get-and-install-beancount"></a>
+###### Get and Install beancount<a id="get-and-install-beancount"></a>
 
 Get the latest version of the **beancount** from github and build it
 
@@ -185,7 +259,7 @@ Install beancount from the source in editable mode
 
     python -m pip install --no-build-isolation -e .
 
-##### Test beancount<a id="test-beancount"></a>
+###### Test beancount<a id="test-beancount"></a>
 
 Install pytest
 

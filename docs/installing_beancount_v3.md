@@ -164,5 +164,3 @@ Run tests
     (venv) C:\_code\t\beancount>pytest --import-mode=importlib beancount
 
 Note: some of the tests on Windows fail, but this is due to general [<u>portability issue</u>](https://github.com/beancount/beancount/issues?q=is%3Aopen+is%3Aissue+label%3Aportability)
-
--   
