@@ -451,8 +451,8 @@ Finally, you can include both a cost and a price on a posting:
 
     2014-07-11 * "Sold shares of S&P 500"
       Assets:ETrade:IVV               -10 IVV {183.07 USD} @ 197.90 USD
-      Assets:ETrade:Cash          1979.90 USD
-      Income:ETrade:CapitalGains
+      Assets:ETrade:Cash          1979.00 USD
+      Income:ETrade:CapitalGains  -148.30 USD
 
 The price will only be used to insert a price entry in the prices database (see Price section below). This is discussed in more details in the Balancing Postings section of this document.
 
@@ -566,10 +566,10 @@ In the example above, the amount of the credit card posting has been elided. It 
 
     2014-07-11 * "Sold shares of S&P 500"
       Assets:ETrade:IVV                 -10 IVV {183.07 USD}
-      Assets:ETrade:Cash            1979.90 USD
+      Assets:ETrade:Cash            1979.00 USD
       Income:ETrade:CapitalGains
 
-In this case, the units of IVV are sold at a higher price ($197.90) than they were bought for ($183.07). The cash first posting has a weight of -10 x 183.07 = -1830.70 and the second posting a straightforward $1979.90. The last posting will be ascribed the difference, that is, a balance of `-149.20 USD`, which is to say, a *gain* of $149.20.
+In this case, the units of IVV are sold at a higher price ($197.90) than they were bought for ($183.07). The cash first posting has a weight of -10 x 183.07 = -1830.70 and the second posting a straightforward $1979.00. The last posting will be ascribed the difference, that is, a balance of `-148.30 USD`, which is to say, a *gain* of $148.30.
 
 When calculating the amount to be balanced, the same balance amounts that are used to check that the transaction balances to zero are used to fill in the missing amounts. For example, the following would not trigger an error:
 

@@ -116,6 +116,8 @@ This document contains only packages that were discussed or have had an announce
 
 [<u>zacchiro/beangrep</u>](https://github.com/zacchiro/beangrep) : Beangrep is a grep-like filter for the Beancount plain text accounting system.
 
+[<u>Ev2geny/evbeantools</u>](https://github.com/Ev2geny/evbeantools): This tool makes it possible to explain changes in the Net Worth between any two dates in a situation of multi-currency / multi-commodity ledger with changing exchange rates and transfers of funds from one commodity to another (both cost and not cost-based tracked). This is achieved by creating a converted / equivalent ledger, on which further analysis can be done using beanquery.
+
 ## Alternative Parsers<a id="alternative-parsers"></a>
 
 ### Bison<a id="bison"></a>
@@ -162,6 +164,8 @@ The Beancount v3 parser uses [<u>RE/flex</u>](https://www.genivia.com/doc/reflex
 
 [<u>prabusw/beancount-importer-zerodha</u>](https://github.com/prabusw/beancount-importer-zerodha): Importer for the Indian broker Zerodha.
 
+[<u>prabusw/beancount-importers-india</u>](https://github.com/prabusw/beancount-importers-india) : Importers for some of the Indian banks and brokers (updated to use beangulp + v3).
+
 [<u>swapi/beancount-utils</u>](https://github.com/swapi/beancount-utils) : Another importer for Zerodha.
 
 [<u>Dr-Nuke/drnuke-bean</u>](https://github.com/Dr-Nuke/drnuke-bean) (Dr Nuke): An importer for IBKR, based on the flex query (API-like) and one for Swiss PostFinance.
@@ -187,6 +191,8 @@ The Beancount v3 parser uses [<u>RE/flex</u>](https://www.genivia.com/doc/reflex
 [<u>LaunchPlatform/beanhub-import</u>](https://github.com/LaunchPlatform/beanhub-import) (Fang-Pen Lin): Beanhub-import is a simple, declarative, smart, and easy-to-use library for importing extracted transactions from beanhub-extract. It generates Beancount transactions based on predefined rules.
 
 [<u>Sieboldianus/beancount-hibiscus-importer</u>](https://github.com/Sieboldianus/beancount-hibiscus-importer): Hibiscus is a widely used open source software in Germany. It supports the retrieval of transactions from banks using the HBCI or FinTS standards and (with plugins) via web scraping (credit cards) or APIs (e.g. Paypal). This Beancount Hibiscus Importer provides import functionality to retrieve transactions from the Hibiscus H2DB (either directly or via XML-RPC) and convert them to the Beancount format using the v3 Beangulp interface.
+
+[<u>flowerbug/bcgt</u>](https://github.com/flowerbug/bcgt): A Beancount Tool to Generate Beancount Transactions for Stock Buys, Sells, Splits\[\*\]. Bcgt is adapted from the export.py program referenced from beangrow which was available in earlier beancount versions.
 
 ## Converters<a id="converters"></a>
 
