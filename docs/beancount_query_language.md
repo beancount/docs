@@ -175,7 +175,7 @@ The data attributes extracted from the postings or transactions have particular 
 
 -   String (Python str)
 
--   Date (a datetime.date instance). You can parse a date with the `#"..."` syntax; this uses Python’s dateutil module and is pretty liberal in the formats it accepts.
+-   Date (a datetime.date instance). Dates are entered in `YYYY-MM-DD` format: `SELECT * WHERE date < 2024-05-01`.
 
 -   Integer (Python int)
 
@@ -241,7 +241,7 @@ We also provide a regular expression search operator into a string object:
 
 At the moment, matching groups are ignored.
 
-You can use string, number and integer constants with those operators, and parentheses to explicitly state precedence. You can use the `#”...”` literal syntax to input dates (valid contents for the string are pretty liberal, it supports anything Python’s dateutil.parser supports).
+You can use string, number and integer constants with those operators, and parentheses to explicitly state precedence.
 
 Here is an example query that uses a few of these:
 
