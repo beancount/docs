@@ -18,7 +18,7 @@ This document describes our specialized SQL-like query client. It assumes you ha
 
 So one might ask: Why create another SQL client? Why not output the data to an SQLite database and allow the user to use that SQL client?
 
-Well, we have done that (see the [<u>bean-sql</u>](https://github.com/beancount/beancount/tree/v2/beancount/scripts/sql.py) script which converts your Beancount ledger into an SQLite database) and the results are not great. Writing queries is painful and carrying out operations on lots that are held at cost is difficult. By taking advantage of a few aspects of our in-memory data structures, we can do better. So Beancount comes with its own SQL-like query client called “[<u>bean-query</u>](https://github.com/beancount/beancount/tree/master/beancount/scripts/query.py)”.
+Well, we have done that (see the [<u>bean-sql</u>](https://github.com/beancount/beancount/tree/v2/beancount/scripts/sql.py) script which converts your Beancount ledger into an SQLite database) and the results are not great. Writing queries is painful and carrying out operations on lots that are held at cost is difficult. By taking advantage of a few aspects of our in-memory data structures, we can do better. So Beancount comes with its own SQL-like query client called “[<u>bean-query</u>](https://github.com/beancount/beanquery)”.
 
 The clients implements the following “extras” that are essential to Beancount:
 
@@ -175,7 +175,7 @@ The data attributes extracted from the postings or transactions have particular 
 
 -   String (Python str)
 
--   Date (a datetime.date instance). You can parse a date with the `#"..."` syntax; this uses Python’s dateutil module and is pretty liberal in the formats it accepts.
+-   Date (a datetime.date instance). Dates are entered in `YYYY-MM-DD` format: `SELECT * WHERE date < 2024-05-20`..
 
 -   Integer (Python int)
 
@@ -241,7 +241,7 @@ We also provide a regular expression search operator into a string object:
 
 At the moment, matching groups are ignored.
 
-You can use string, number and integer constants with those operators, and parentheses to explicitly state precedence. You can use the `#”...”` literal syntax to input dates (valid contents for the string are pretty liberal, it supports anything Python’s dateutil.parser supports).
+You can use string, number and integer constants with those operators, and parentheses to explicitly state precedence.
 
 Here is an example query that uses a few of these:
 
@@ -543,7 +543,7 @@ The ability to select from the result of another `SELECT` is not currently suppo
 
 ## More Information<a id="more-information"></a>
 
-This document attempts to provide a good high-level summary of the features supported in our query language. However, should you find you need more information, you may take a look at the [<u>original proposal</u>](http://furius.ca/beancount/doc/proposal-query), or consult the source code under the [<u>beancount.query</u>](https://github.com/beancount/beancount/tree/v2/beancount/query/) directory. In particular, the [<u>parser</u>](https://github.com/beancount/beancount/tree/master/beancount/parser) will provide insight into the specifics of the syntax, and the [<u>environments</u>](https://github.com/beancount/beancount/tree/v2/beancount/query/query_env.py) will shed some light on the supported data columns and functions. Feel free to rummage in the source code and ask questions on the mailing-list.
+This document attempts to provide a good high-level summary of the features supported in our query language. However, should you find you need more information, you may take a look at the [<u>original proposal</u>](http://furius.ca/beancount/doc/proposal-query), or consult the source code in the [<u>beanquery</u>](https://github.com/beancount/beanquery) repository. In particular, the [<u>parser tests</u>](https://github.com/beancount/beanquery/blob/master/beanquery/parser_test.py) will provide insight into the specifics of the syntax, and the [<u>query env tests</u>](https://github.com/beancount/beanquery/blob/master/beanquery/query_env_test.py) will shed some light on the supported data columns and functions. Feel free to rummage in the source code and ask questions on the mailing-list.
 
 ## Appendix<a id="appendix"></a>
 

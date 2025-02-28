@@ -82,6 +82,8 @@
 >
 > [<u>Update Activity (activity)</u>](#update-activity-activity)
 
+## IMPORTANT: This document applies to tools from the v2 branch which have been deprecated. Many of these tools have been deleted for v3 and beyond. <a id="important-this-document-applies-to-tools-from-the-v2-branch-which-have-been-deprecated.-many-of-these-tools-have-been-deleted-for-v3-and-beyond."></a>
+
 ## Introduction<a id="introduction"></a>
 
 This document describes the tools you use to process Beancount input files, and many of the reports available from it. The syntax of the language is described in the [<u>Beancount Language Syntax</u>](beancount_language_syntax.md) document. This manual only covers the technical details for using Beancount from the command-line.

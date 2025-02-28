@@ -54,7 +54,7 @@ Installing Beancount using pip is no longer recommended, however you may install
 
 This should automatically download and install all the dependencies.
 
-Note, however, that this will install the latest version that was pushed to the [<u>PyPI repository</u>](https://pypi.python.org/pypi/beancount/) and not the very latest version available from source. Releases to PyPI are made sporadically but frequently enough not to be too far behind. Consult the [<u>CHANGES file</u>](https://github.com/beancount/beancount/tree/v2/CHANGES) if you’d like to find out what is not included since the release date.
+Note, however, that this will install the latest version that was pushed to the [<u>PyPI repository</u>](https://pypi.python.org/pypi/beancount/) and not the very latest version available from source. Releases to PyPI are made sporadically but frequently enough not to be too far behind.
 
 **Warning: Proceed with caution this may break system libraries.**
 
