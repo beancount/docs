@@ -322,7 +322,7 @@
 <p>This document describes our specialized SQL-like query client. It assumes you have at least a passing knowledge of <a href="http://en.wikipedia.org/wiki/SQL"><u>SQL</u></a> syntax. If not, you may want to first read <a href="http://www.amazon.com/Practical-SQL-Handbook-Using-Variants/dp/0201703092/"><u>something</u></a> <a href="http://www.w3schools.com/sql/"><u>about</u></a> it.</p>
 <h2 id="motivation">Motivation<a id="motivation"></a><a class="headerlink" href="#motivation" title="Permanent link"></a></h2>
 <p>So one might ask: Why create another SQL client? Why not output the data to an SQLite database and allow the user to use that SQL client?</p>
-<p>Well, we have done that (see the <a href="https://github.com/beancount/beancount/tree/v2/beancount/scripts/sql.py"><u>bean-sql</u></a> script which converts your Beancount ledger into an SQLite database) and the results are not great. Writing queries is painful and carrying out operations on lots that are held at cost is difficult. By taking advantage of a few aspects of our in-memory data structures, we can do better. So Beancount comes with its own SQL-like query client called “<a href="https://github.com/beancount/beancount/tree/master/beancount/scripts/query.py"><u>bean-query</u></a>”.</p>
+<p>Well, we have done that (see the <a href="https://github.com/beancount/beancount/tree/v2/beancount/scripts/sql.py"><u>bean-sql</u></a> script which converts your Beancount ledger into an SQLite database) and the results are not great. Writing queries is painful and carrying out operations on lots that are held at cost is difficult. By taking advantage of a few aspects of our in-memory data structures, we can do better. So Beancount comes with its own SQL-like query client called “<a href="https://github.com/beancount/beanquery"><u>bean-query</u></a>”.</p>
 <p>The clients implements the following “extras” that are essential to Beancount:</p>
 <ul>
 <li>
@@ -449,7 +449,7 @@ WHERE account ~ “.*:Vacation” AND year &gt;= 2014;
 <p>String (Python str)</p>
 </li>
 <li>
-<p>Date (a datetime.date instance). You can parse a date with the <code>#"..."</code> syntax; this uses Python’s dateutil module and is pretty liberal in the formats it accepts.</p>
+<p>Date (a datetime.date instance). Dates are entered in <code>YYYY-MM-DD</code> format: <code>SELECT * WHERE date &lt; 2024-05-20</code>..</p>
 </li>
 <li>
 <p>Integer (Python int)</p>
@@ -528,7 +528,7 @@ WHERE account ~ “.*:Vacation” AND year &gt;= 2014;
 <li>~ (search regexp)</li>
 </ul>
 <p>At the moment, matching groups are ignored.</p>
-<p>You can use string, number and integer constants with those operators, and parentheses to explicitly state precedence. You can use the <code>#”...”</code> literal syntax to input dates (valid contents for the string are pretty liberal, it supports anything Python’s dateutil.parser supports).</p>
+<p>You can use string, number and integer constants with those operators, and parentheses to explicitly state precedence.</p>
 <p>Here is an example query that uses a few of these:</p>
 <pre><code>SELECT date, payee 
 WHERE account ~ 'Expenses:Food:Restaurant' 
@@ -749,7 +749,7 @@ WHERE year &lt;= 2015
 <h3 id="sub-selects">Sub-Selects<a id="sub-selects"></a><a class="headerlink" href="#sub-selects" title="Permanent link"></a></h3>
 <p>The ability to select from the result of another <code>SELECT</code> is not currently supported, but the internals of the query code are prepared to do so.</p>
 <h2 id="more-information">More Information<a id="more-information"></a><a class="headerlink" href="#more-information" title="Permanent link"></a></h2>
-<p>This document attempts to provide a good high-level summary of the features supported in our query language. However, should you find you need more information, you may take a look at the <a href="http://furius.ca/beancount/doc/proposal-query"><u>original proposal</u></a>, or consult the source code under the <a href="https://github.com/beancount/beancount/tree/v2/beancount/query/"><u>beancount.query</u></a> directory. In particular, the <a href="https://github.com/beancount/beancount/tree/master/beancount/parser"><u>parser</u></a> will provide insight into the specifics of the syntax, and the <a href="https://github.com/beancount/beancount/tree/v2/beancount/query/query_env.py"><u>environments</u></a> will shed some light on the supported data columns and functions. Feel free to rummage in the source code and ask questions on the mailing-list.</p>
+<p>This document attempts to provide a good high-level summary of the features supported in our query language. However, should you find you need more information, you may take a look at the <a href="http://furius.ca/beancount/doc/proposal-query"><u>original proposal</u></a>, or consult the source code in the <a href="https://github.com/beancount/beanquery"><u>beanquery</u></a> repository. In particular, the <a href="https://github.com/beancount/beanquery/blob/master/beanquery/parser_test.py"><u>parser tests</u></a> will provide insight into the specifics of the syntax, and the <a href="https://github.com/beancount/beanquery/blob/master/beanquery/query_env_test.py"><u>query env tests</u></a> will shed some light on the supported data columns and functions. Feel free to rummage in the source code and ask questions on the mailing-list.</p>
 <h2 id="appendix">Appendix<a id="appendix"></a><a class="headerlink" href="#appendix" title="Permanent link"></a></h2>
 <h3 id="future-features_1">Future Features<a id="future-features-1"></a><a class="headerlink" href="#future-features_1" title="Permanent link"></a></h3>
 <p><em>This section documents ideas for features to be implemented in a future version.</em></p>
