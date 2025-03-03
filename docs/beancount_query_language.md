@@ -221,23 +221,23 @@ Refer to the table below for explicit examples of each type of posting and how i
 
 Common comparison and logical operators are provided to operate on the available data columns:
 
--   = (equality), != (inequality)
+-   `=` (equality), `!=` (inequality)
 
--   < (less than), <= (less than or equal)
+-   `<` (less than), `<=` (less than or equal)
 
--   > (greater than), >= (greater than or equal)
+-   `>` (greater than), `>=` (greater than or equal)
 
--   AND (logical conjunction)
+-   `AND` (logical conjunction)
 
--   OR (logical disjunction)
+-   `OR` (logical disjunction)
 
--   NOT (logical negation)
+-   `NOT` (logical negation)
 
--   IN (set membership)
+-   `IN` (set membership)
 
 We also provide a regular expression search operator into a string object:
 
--   ~ (search regexp)
+-   `~` (search regexp)
 
 At the moment, matching groups are ignored.
 
