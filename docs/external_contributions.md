@@ -194,6 +194,10 @@ The Beancount v3 parser uses [<u>RE/flex</u>](https://www.genivia.com/doc/reflex
 
 [<u>flowerbug/bcgt</u>](https://github.com/flowerbug/bcgt): A Beancount Tool to Generate Beancount Transactions for Stock Buys, Sells, Splits\[\*\]. Bcgt is adapted from the export.py program referenced from beangrow which was available in earlier beancount versions.
 
+[<u>AmmarShaqeel/maybank-importer</u>](https://github.com/AmmarShaqeel/maybank-importer) (Ammar Shaqeel): Importer for PDF statements from Maybank (Malaysia).
+
+[<u>AmmarShaqeel/rajhi-importer</u>](https://github.com/AmmarShaqeel/rajhi-importer) (Ammar Shaqeel): Importer for PDF statements from Rajhi (Saudi Arabia).
+
 ## Converters<a id="converters"></a>
 
 [<u>plaid2text</u>](https://github.com/madhat2r/plaid2text): Python Scripts to export Plaid transactions and transform them into Ledger or Beancount syntax formatted files.
@@ -297,6 +301,8 @@ Blog posts:
 [<u>autobean/refactor</u>](https://github.com/SEIAROTg/autobean/tree/master/autobean/refactor) (Archimedes Smith): Tooling to programmatically edit one's ledger, including formatting, sorting, refactoring, rearranging accounts, optimizing via plugins, migration from v2, inserting transactions in a ledger on import, and more.
 
 [<u>seltzered/beancolage</u>](https://github.com/seltzered/beancolage) (Vivek Gani): An Eclipse Theia (vendor-agnostic vscode) app that tries to bundle existing beancount-based packages such as vscode-beancount and Fava.
+
+[<u>fengkx/beancount-lsp-client</u>](https://github.com/fengkx/beancount-lsp-client) / [<u>Beancount language service - Visual Studio Marketplace</u>](https://marketplace.visualstudio.com/items?itemName=fengkx.beancount-lsp-client) (Vito Leung): a Beancount VSCode extension (Language Server), offering capabilities like semantic highlighting, completion, diagnostics, renaming etc.
 
 [<u>aaronstacy.com/personal-finances-dashboard</u>](http://aaronstacy.com/personal-finances-dashboard/) : HTML + D3.js visualization dashboard for Beancount data.
 
