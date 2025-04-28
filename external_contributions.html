@@ -127,6 +127,8 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#tools">Tools</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ai-tools">AI Tools</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#alternative-parsers">Alternative Parsers</a>
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#bison">Bison</a>
@@ -296,6 +298,7 @@
 <p><a href="https://github.com/redstreet/beancount_reds_plugins/tree/master/beancount_reds_plugins/capital_gains_classifier"><u>Long_short capital gains classifier</u></a>: Plugin from Red S to classify capital gains into long and short based on duration the assets were held, and into gains and losses based on value.</p>
 <p><a href="https://github.com/redstreet/beancount_reds_plugins/tree/main/beancount_reds_plugins/autoclose_tree"><u>Autoclose_tree</u></a>: Automatically closes all of an account's descendants when an account is closed.</p>
 <p><a href="https://github.com/Evernight/beancount-valuation"><u>Evernight/beancount-valuation</u></a> (Vasily M) : A Beancount plugin to track total value of the opaque fund. You can use it instead of the balance operation to assert total value of the account. If the value of the account is currently different, it will instead alter price of the underlying synthetical commodity created by the plugin used for technical purposes.</p>
+<p><a href="https://github.com/Evernight/beancount-plugin-tax-uk/"><u>Evernight/beancount-plugin-tax-uk</u></a> (Vasily M): A plugin for Beancount that generates UK tax reports for capital gains, dividends and other investment income.</p>
 <h2 id="tools">Tools<a id="tools"></a><a class="headerlink" href="#tools" title="Permanent link"></a></h2>
 <p><a href="https://github.com/blaulan/alfred-beancount"><u>alfred-beancount</u></a> (Yue Wu): An add-on to the “Alfred” macOS tool to quickly enter transactions in one’s Beancount file. Supports full account names and payees match.</p>
 <p><a href="https://github.com/simon-v/bean-add"><u>bean-add</u></a> (Simon Volpert): A Beancount transaction entry assistant.</p>
@@ -319,6 +322,8 @@
 <p><a href="https://github.com/LaunchPlatform/beanhub-cli"><u>LaunchPlatform/beanhub-cli</u></a> (Fang-Pen Lin): Command line tools for BeanHub or Beancount users.</p>
 <p><a href="https://github.com/zacchiro/beangrep"><u>zacchiro/beangrep</u></a> : Beangrep is a grep-like filter for the Beancount plain text accounting system.</p>
 <p><a href="https://github.com/Ev2geny/evbeantools"><u>Ev2geny/evbeantools</u></a>: This tool makes it possible to explain changes in the Net Worth between any two dates in a situation of multi-currency / multi-commodity ledger with changing exchange rates and transfers of funds from one commodity to another (both cost and not cost-based tracked). This is achieved by creating a converted / equivalent ledger, on which further analysis can be done using beanquery.</p>
+<h2 id="ai-tools">AI Tools<a id="ai-tools"></a><a class="headerlink" href="#ai-tools" title="Permanent link"></a></h2>
+<p><a href="https://github.com/vanto/beanquery-mcp"><u>vanto/beanquery-mcp</u></a> (Tammo van Lessen): An experimental MCP server for beanquery as a demo with Claude to handle BQL. <a href="https://github.com/vanto/beanquery-mcp/blob/main/docs/screenshot-expanded.png"><u>screenshot</u></a>. (This is a PoC, and you should be careful which data you want to share with which LLM.)</p>
 <h2 id="alternative-parsers">Alternative Parsers<a id="alternative-parsers"></a><a class="headerlink" href="#alternative-parsers" title="Permanent link"></a></h2>
 <h3 id="bison">Bison<a id="bison"></a><a class="headerlink" href="#bison" title="Permanent link"></a></h3>
 <p>The Beancount v2 parser uses GNU flex + GNU bison (for maximum portability).</p>
