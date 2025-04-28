@@ -72,6 +72,8 @@ This document contains only packages that were discussed or have had an announce
 
 [<u>Evernight/beancount-valuation</u>](https://github.com/Evernight/beancount-valuation) (Vasily M) : A Beancount plugin to track total value of the opaque fund. You can use it instead of the balance operation to assert total value of the account. If the value of the account is currently different, it will instead alter price of the underlying synthetical commodity created by the plugin used for technical purposes.
 
+[<u>Evernight/beancount-plugin-tax-uk</u>](https://github.com/Evernight/beancount-plugin-tax-uk/) (Vasily M): A plugin for Beancount that generates UK tax reports for capital gains, dividends and other investment income.
+
 ## Tools<a id="tools"></a>
 
 [<u>alfred-beancount</u>](https://github.com/blaulan/alfred-beancount) (Yue Wu): An add-on to the “Alfred” macOS tool to quickly enter transactions in one’s Beancount file. Supports full account names and payees match.
@@ -117,6 +119,10 @@ This document contains only packages that were discussed or have had an announce
 [<u>zacchiro/beangrep</u>](https://github.com/zacchiro/beangrep) : Beangrep is a grep-like filter for the Beancount plain text accounting system.
 
 [<u>Ev2geny/evbeantools</u>](https://github.com/Ev2geny/evbeantools): This tool makes it possible to explain changes in the Net Worth between any two dates in a situation of multi-currency / multi-commodity ledger with changing exchange rates and transfers of funds from one commodity to another (both cost and not cost-based tracked). This is achieved by creating a converted / equivalent ledger, on which further analysis can be done using beanquery.
+
+## AI Tools<a id="ai-tools"></a>
+
+[<u>vanto/beanquery-mcp</u>](https://github.com/vanto/beanquery-mcp) (Tammo van Lessen): An experimental MCP server for beanquery as a demo with Claude to handle BQL. [<u>screenshot</u>](https://github.com/vanto/beanquery-mcp/blob/main/docs/screenshot-expanded.png). (This is a PoC, and you should be careful which data you want to share with which LLM.)
 
 ## Alternative Parsers<a id="alternative-parsers"></a>
 
