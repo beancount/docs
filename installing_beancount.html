@@ -73,6 +73,8 @@
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#reporting-problems">Reporting Problems</a>
     </li>
+    <li class="toctree-l4"><a class="reference internal" href="#alternative-installation-with-uv">Alternative Installation with uv</a>
+    </li>
         </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#editor-support">Editor Support</a>
@@ -263,6 +265,25 @@
 <p>Confirm Beancount has been installed.</p>
 <pre><code>pipx list
 </code></pre>
+<p>With version 3.1.0, this will install</p>
+<ul>
+<li>
+<p>bean-check</p>
+</li>
+<li>
+<p>bean-doctor</p>
+</li>
+<li>
+<p>bean-example</p>
+</li>
+<li>
+<p>bean-format</p>
+</li>
+<li>
+<p>treeify</p>
+</li>
+</ul>
+<p>(There is no bean-report, which is referenced in the Tutorial. It's been deprecated.)</p>
 <h4 id="installing-beancount-using-pip">Installing Beancount using pip<a id="installing-beancount-using-pip"></a><a class="headerlink" href="#installing-beancount-using-pip" title="Permanent link"></a></h4>
 <p>Installing Beancount using pip is no longer recommended, however you may install Beancount using</p>
 <pre><code>sudo -H python3 -m pip install beancount
@@ -332,6 +353,9 @@ export PYTHONPATH=$PYTHONPATH:/path/to/beancount
 </code></pre>
 <p>Or</p>
 <pre><code>python -m pip install beanquery
+</code></pre>
+<p>Or, if you prefer to use uv,</p>
+<pre><code>uv tool install beanquery
 </code></pre>
 <p>To test installation create a simple beancount ledger</p>
 <p>E.g.,:</p>
@@ -506,6 +530,48 @@ bean-check: error: the following arguments are required: filename
 <p>If you need to report a problem, either send email on the mailing-list or <a href="https://github.com/beancount/beancount/issues"><u>file a ticket</u></a> on Github. Running the following command lists the presence and versions of dependencies installed on your computer and it might be useful to include the output of this command in your bug report:</p>
 <pre><code>python3 -m beancount.scripts.deps
 </code></pre>
+<h3 id="alternative-installation-with-uv">Alternative Installation with uv<a id="alternative-installation-with-uv"></a><a class="headerlink" href="#alternative-installation-with-uv" title="Permanent link"></a></h3>
+<ul>
+<li>
+<p>Install uv from the Astral web site.</p>
+</li>
+<li>
+<p>Install Beancount using uv</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>uv tool install beancount
+
+uv tool install beanquery
+</code></pre>
+<p>This will install binaries (.exe on Windows) and add them to your PATH so that you can simply run these right after the installation:</p>
+<pre><code>beancount v3.1.0
+</code></pre>
+<ul>
+<li>
+<p>bean-check.exe</p>
+</li>
+<li>
+<p>bean-doctor.exe</p>
+</li>
+<li>
+<p>bean-example.exe</p>
+</li>
+<li>
+<p>bean-format.exe</p>
+</li>
+<li>
+<p>treeify.exe</p>
+</li>
+</ul>
+<!-- -->
+
+<pre><code>beanquery v0.2.0
+</code></pre>
+<ul>
+<li>bean-query.exe</li>
+</ul>
 <h2 id="editor-support">Editor Support<a id="editor-support"></a><a class="headerlink" href="#editor-support" title="Permanent link"></a></h2>
 <p>There is support for some editors available:</p>
 <ul>
