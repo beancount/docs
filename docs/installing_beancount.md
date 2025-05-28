@@ -46,6 +46,20 @@ Confirm Beancount has been installed.
 
     pipx list
 
+With version 3.1.0, this will install
+
+-   bean-check
+
+-   bean-doctor
+
+-   bean-example
+
+-   bean-format
+
+-   treeify
+
+(There is no bean-report, which is referenced in the Tutorial. It's been deprecated.)
+
 #### Installing Beancount using pip<a id="installing-beancount-using-pip"></a>
 
 Installing Beancount using pip is no longer recommended, however you may install Beancount using
@@ -134,6 +148,10 @@ To do this simply run the following command
 Or
 
     python -m pip install beanquery 
+
+Or, if you prefer to use uv,
+
+    uv tool install beanquery
 
 To test installation create a simple beancount ledger
 
@@ -329,6 +347,38 @@ If this works, you can now go to the [<u>tutorial</u>](tutorial_example.md) and 
 If you need to report a problem, either send email on the mailing-list or [<u>file a ticket</u>](https://github.com/beancount/beancount/issues) on Github. Running the following command lists the presence and versions of dependencies installed on your computer and it might be useful to include the output of this command in your bug report:
 
     python3 -m beancount.scripts.deps
+
+### Alternative Installation with uv<a id="alternative-installation-with-uv"></a>
+
+-   Install uv from the Astral web site.
+
+-   Install Beancount using uv
+
+<!-- -->
+
+    uv tool install beancount
+
+    uv tool install beanquery
+
+This will install binaries (.exe on Windows) and add them to your PATH so that you can simply run these right after the installation:
+
+    beancount v3.1.0
+
+-   bean-check.exe
+
+-   bean-doctor.exe
+
+-   bean-example.exe
+
+-   bean-format.exe
+
+-   treeify.exe
+
+<!-- -->
+
+    beanquery v0.2.0
+
+-   bean-query.exe
 
 ## Editor Support<a id="editor-support"></a>
 

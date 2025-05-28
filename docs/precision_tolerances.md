@@ -1,12 +1,34 @@
 # Beancount Precision & Tolerances<a id="title"></a>
 
-[<u>Martin Blais</u>](http://plus.google.com/+MartinBlais), May 2015
+[<u>Martin Blais</u>](http://plus.google.com/+MartinBlais), May 2015, Updated May 2025
 
 [<u>http://furius.ca/beancount/doc/tolerances</u>](http://furius.ca/beancount/doc/tolerances)
 
 *This document describes how Beancount handles the limited precision of numbers in transaction balance checks and balance assertions. It also documents rounding that may occur in inferring numbers automatically.*
 
-## Motivation<a id="motivation"></a>
+## Introduction<a id="introduction"></a>
+
+Beancounts stores all of its numbers in decimal form, that is, the digits you enter in the input file are *precisely* represented in the computer's memory. We do not use floating-point numbers. The reasons for this are presented elsewhere, but essentially it is to allow us to perform exact sums without any rounding error.
+
+There are four areas where the number of fractional digits in these decimal numbers become involved in Beancount. This section discusses these:
+
+-   **Tolerances:** When we perform balance check calculations, we must account for the precision at which the numbers are stored, e.g., 1 cent for US dollars. Because currencies are stored by institutions at a limited precision, this means that rounding occurs naturally in balances. We must account for this properly in order to allow for this rounding yet detect imbalances that would result from errors larger than this.
+
+-   **Interpolation**: Beancount syntax allows users to leave out some numbers to be automatically filled in for convenience. When computing those missing numbers, we want to use the customary precision for that currency so that when the numbers are displayed they have a natural value that matches what an institution might calculate themselves.
+
+-   **Display**: When displaying numbers, every currency has a customary number of digits that are used to represent its amounts. If the numbers we're displaying are the result of a division we need to perform rounding in order to avoid showing a large number of irrelevant digits to the user (which is undesirable).
+
+-   **Computation**: When performing computations, decimal numbers aren't limited in the way that floating-point representations naturally are from their hardware implementations. We specify the precision of calculations that result in a large number of fractional digits (such as the division operation).
+
+This document discusses each of those issues in turn, how Beancount attempts to automatically figure out good defaults, and how to specify configuration to control the precision and tolerances it uses.
+
+### Definitions<a id="definitions"></a>
+
+"**Precision**": In the context of Beancount, the word "precision" has historically been abused a bit by its original author. In this document, we will take "precision" to mean either (a) the number of fractional digits to represent a decimal number, e.g., 12.356 uses a precision of "3", or (b) an example of the smallest number for that precision, e.g., a precision of "3" is input as "0.01" for configuration purposes.
+
+"**Tolerance**" is just a number that will be used directly, such as "0.0005". It is not subject to the "tolerance\_multiplier" mentioned below (you can say that the "tolerance\_multiplier" adjusts a "precision" number).
+
+## Tolerances: Imprecision in Balance Checks<a id="tolerances-imprecision-in-balance-checks"></a>
 
 Beancount automatically enforces that the amounts on the Postings of Transactions entered in an input file sum up to zero. In order for Beancount to verify this in a realistic way, it must tolerate a small amount of imprecision. This is because Beancount lets you **replicate what happens in real world account transactions**, and in the real world, institutions round amounts up or down for practical reasons.
 
@@ -28,9 +50,9 @@ Once again, rounding occurs in this transaction: not only the Net Asset Value of
 
 From Beancount’s point-of-view, both of the examples above are balancing transactions. Clearly, if we are to try to represent and reproduce the transactions of external accounts to our input file, there needs to be some tolerance in the balance verification algorithm.
 
-## How Precision is Determined<a id="how-precision-is-determined"></a>
+### How Default Tolerances are Determined<a id="how-default-tolerances-are-determined"></a>
 
-Beancount attempts to derive the precision from each transaction **automatically**, from the input, for each Transaction **in isolation**[^1]. Let us inspect our last example again:
+Beancount attempts to derive the tolerance for each transaction **automatically**, from the input, for each Transaction **in isolation**[^1]. Let us inspect our last example again:
 
     2013-04-03 * "Buy Mutual Fund - Price as of date based on closing price"
       Assets:US:Vanguard:RGAGX       10.22626 RGAGX {37.61 USD}
@@ -42,7 +64,7 @@ In this transaction, Beancount will infer the tolerance of
 
 -   USD at 2 fractional digits, that is, **0.005 USD**.
 
-Note that the tolerance used is **half of the last digit of precision** provided by the user. This is entirely inferred from the input, without having to fetch any global tolerance declaration. Also note how the precision is calculated **separately for each currency**.
+Note that the tolerance used is **a fraction (typically half) of the last digit of precision** provided by the user. This is entirely inferred from the input, without having to fetch any global tolerance declaration. Also note how the tolerance is calculated **separately for each currency**.
 
 Observe that although we are inferring a tolerance for units of RGAGX, it is actually not used in the balancing of this transaction, because the “weight” of the first posting is in USD (10.22626 x 37.61 = 384.6096386 USD).
 
@@ -52,11 +74,11 @@ So what happens here? The weights of each postings are calculated:
 
 -   -384.61 USD for the second
 
-These are summed together, by currency (there is only USD in the weights of this transaction) which results in a *residual* value of -0.0003614 USD. This value is compared to the tolerance for units of USD: |-0.0003614| &lt; 0.005, and this transaction balances.
+These are summed together, by currency (there are only USD units in the weights of this transaction) which results in a *residual* value of -0.0003614 USD. This value is compared to the tolerance for units of USD: |-0.0003614| &lt; 0.005, and this transaction balances.
 
-### Prices and Costs<a id="prices-and-costs"></a>
+#### Prices and Costs<a id="prices-and-costs"></a>
 
-For the purpose of inferring the tolerance to be used, the price and cost amounts declared on a transaction’s Postings **are ignored**. This makes sense if you consider that these are usually specified at a higher precision than the base amounts of the postings—and sometimes this extra precision is necessary to make the transaction balance. These should not be used in setting the precision of the whole transaction.
+For the purpose of inferring the tolerance to be used, the price and cost amounts declared on a transaction’s Postings **are ignored**. This makes sense if you consider that these are usually specified at a higher precision than the base amounts of the postings—and sometimes this extra precision is necessary to make the transaction balance. These should not be used in setting the tolerances for the whole transaction.
 
 For example, in the following transaction:
 
@@ -67,9 +89,9 @@ For example, in the following transaction:
 
 The only tolerance inferred here is 0.005 for CAD. (54 HOOL does not yield anything in this case because it is integral; the next section explains this). There is no tolerance inferred for USD, neither from the cost from the first posting (21.8800 USD), nor from the prices of the remaining postings (0.6842 USD).
 
-### Integer Amounts<a id="integer-amounts"></a>
+#### Integer Amounts<a id="integer-amounts"></a>
 
-For integer amounts in the input, the precision is **not** inferred to 0.5, that is, this should fail to balance:
+For integer amounts in the input, the tolerance is **not** inferred to 0.5, that is, this should fail to balance:
 
     2013-04-03 * "Buy Mutual Fund - Price as of date based on closing price"
       Assets:US:Vanguard:RGAGX    10.21005 RGAGX {37.61 USD}
@@ -77,13 +99,13 @@ For integer amounts in the input, the precision is **not** inferred to 0.5, that
 
 In other words, integer amounts do not contribute a number of digits to the determination of the tolerance for their currency.
 
-By default, the tolerance used on amounts without an inferred precision is **zero**. So in this example, because we cannot infer the precision of USD (recall that the cost is ignored), this transaction will fail to balance, because its residual is non-zero (|-0.0003614| &gt; 0).
+By default, the tolerance used on amounts without fractional digits is **zero**. So in this example, because we cannot infer the precision of USD numbers (recall that the cost is ignored), this transaction will fail to balance, because its residual is non-zero (|-0.0003614| &gt; 0).
 
-You can customize what the default tolerance should be for each currency separately and for any currency as well (see section below on how to do this).
+You can customize what the default value inferred for tolerance should be for each currency separately and for any currency as well (see the configuration section below on how to do this).
 
-This treatment of integer amounts implies that the **maximum amount of precision** that one can specify just by inputting numbers is 0.05 units of the currency, for example, by providing a number such as 10.7 as input[^2]. On the other hand, the settings for the default tolerance to use allows specifying arbitrary numbers.
+(This treatment of integer amounts implies that the **maximum precision** that one can specify just by inputting numbers is 0.05 units of the currency; for example, by providing a number such as 10.7 as input[^2] the precision is 0.1 and we multiply by the tolerance multiplier of 0.5 to obtain 0.05. On the other hand, the settings for the default tolerance to use allows specifying arbitrary numbers.)
 
-### Resolving Ambiguities<a id="resolving-ambiguities"></a>
+#### Resolving Ambiguities<a id="resolving-ambiguities"></a>
 
 A case that presents itself rarely is one where multiple different precisions are being input for the same currency. In this case, the **largest** (coarsest) of the inferred input tolerances is used.
 
@@ -97,7 +119,7 @@ For example, if we wanted to track income to more than pennies, we might write t
 
 The amounts we have for USD in this case are 2141.36, 0.08 and -10.125, which infer tolerances of either 0.005 or 0.0005. We select the coarsest amount: this transaction tolerates an imprecision of 0.005 USD.
 
-### Default Tolerances<a id="default-tolerances"></a>
+#### Configuration for Default Tolerances<a id="configuration-for-default-tolerances"></a>
 
 When a transaction’s numbers do not provide enough information to infer a tolerance *locally*, we fall back to some default tolerance value. As seen in previous examples, this may occur either because (a) the numbers associated with the currency we need it for are integral, or (b) sufficient numbers are simply absent from the input.
 
@@ -115,21 +137,23 @@ The general form for this option is:
 
     option "inferred_tolerance_default" "<currency>:<tolerance>"
 
-Just to be clear: this option is *only* used when the tolerance cannot be inferred. If you have overly large rounding errors and the numbers in your transactions do infer some tolerance value, this value will be ignored (e.g., setting it to a larger number to try to address that fix will not work). If you need to loosen up the tolerance, see the “`inferred_tolerance_multiplier`” in the next section.
+Just to be clear: this option is *only* used when the tolerance cannot be inferred. If you have overly large rounding errors and the numbers in your transactions do infer some tolerance value, this value will be ignored (e.g., setting it to a larger number to try to address that fix will not work). If you need to loosen up the tolerance, see the “`tolerance_multiplier`” in the next section.
 
 *(Note: I’ve been considering dedicating a special meta-data field to the Commodity directive for this, but this would break from the invariant that meta-data is only there to be used by users and plugins, so I’ve refrained so far.)*
 
-### Tolerance Multiplier<a id="tolerance-multiplier"></a>
+#### Tolerance Multiplier<a id="tolerance-multiplier"></a>
 
 We’re shown previously that when the tolerance value isn’t provided explicitly, that it is inferred from the numbers on the postings. By default, the smallest digit found on those numbers is divided by half to obtain the tolerance because we assume that the institutions which we’re reproducing the transactions apply rounding and so the error should never be more than half.
 
-But in reality, you may find that the rounding errors sometime exceed this value. For this reason, we provide an option to set the multiplier for the inferred tolerance:
+But in reality, you might find that the rounding errors sometimes exceed this value. For this reason, we provide an option to set the multiplier for the inferred tolerance:
 
-    option "inferred_tolerance_multiplier" "1.2"
+    option "tolerance_multiplier" "0.6"
 
-This value overrides the default multiplier. In this example, for a transaction with postings only with values such as 24.45 CHF, the inferred tolerance for CHF would be +/- 0.012 CHF.
+This value overrides the default multiplier of **0.5**. In this example, for a transaction with postings only with values such as 24.45 CHF, the inferred tolerance for CHF would be +/- 0.012 CHF.
 
-### Inferring Tolerances from Cost<a id="inferring-tolerances-from-cost"></a>
+Note: I believe that you should probably never have to change to change this (and I use the default myself), but it's provided in case I'm wrong about this.
+
+#### Inferring Tolerances from Cost<a id="inferring-tolerances-from-cost"></a>
 
 There is also a feature that expands the maximum tolerance inferred on transactions to include values on cost currencies inferred by postings held at-cost or converted at price. Those postings can imply a tolerance value by multiplying the smallest digit of the unit by the cost or price value and taking half of that value.
 
@@ -141,7 +165,7 @@ You turn on the feature like this:
 
 Enabling this flag only makes the tolerances potentially wider, never smaller.
 
-## Balance Assertions & Padding<a id="balance-assertions-padding"></a>
+### Balance Assertions & Padding<a id="balance-assertions-padding"></a>
 
 There are a few other places where approximate comparisons are needed. Balance assertions also compare two numbers:
 
@@ -157,11 +181,11 @@ This assertion would accept values from 4.26 RGAGX to 4.28 RGAGX.
 
 Note that the inferred tolerances are also expanded by the inferred tolerance multiplier discussed above.
 
-### Tolerances that Trigger Padding<a id="tolerances-that-trigger-padding"></a>
+#### Tolerances that Trigger Padding<a id="tolerances-that-trigger-padding"></a>
 
 Pad directives automatically insert transactions to bring account balances in-line with a subsequent balance assertion. The insertion only triggers if the balance differs from the expected value, and the tolerance for this to occur behaves exactly the same as for balance assertions.
 
-### Explicit Tolerances on Balance Assertions<a id="explicit-tolerances-on-balance-assertions"></a>
+#### Explicit Tolerances on Balance Assertions<a id="explicit-tolerances-on-balance-assertions"></a>
 
 Beancount supports the specification of an explicit tolerance amount, like this:
 
@@ -169,34 +193,44 @@ Beancount supports the specification of an explicit tolerance amount, like this:
 
 This feature was added because of some observed peculiarities in Vanguard investment accounts whereby rounding appears to follow odd rules and balances don’t match.
 
-## Saving Rounding Error<a id="saving-rounding-error"></a>
+### Porting Existing Input<a id="porting-existing-input"></a>
 
-As we saw previously, transactions don’t have to balance exactly, they allow for a small amount of imprecision. This bothers some people. If you would like to track and measure the residual amounts allowed by the tolerances, Beancount offers an option to automatically insert postings that will make each transaction balance exactly.
+The inference of tolerance values from the transaction’s numbers is generally good enough to keep existing files working without changes. There may be new errors appearing in older files once we process them with the method described in this document, but they should either point to previously undetected errors in the input, or be fixable with simple addition of a suitable number of digits.
 
-You enable the feature like this:
+As a testimony, porting the author’s very large input file has been a relatively painless process that took less than 1 hour.
 
-    option "account_rounding" "Equity:RoundingError"
+In order to ease the transition, you will probably want to change the default tolerance for all currencies to match the previous value that Beancount had been using, like this:
 
-This tells Beancount to insert postings to compensate for the rounding error to an “`Equity:RoundingError`” account. For example, with the feature enabled, the following transaction:
+    option "inferred_tolerance_default" "*:0.005"
 
-    2013-02-23 * "Buying something"
-      Assets:Invest     1.245 RGAGX {43.23 USD}
-      Assets:Cash      -53.82 USD                                         
+I would recommend you start with this and fix all errors in your file, then proceed to removing this and fix the rest of errors. This should make it easier to adapt your file to this new behavior.
 
-will be automatically transformed into this:
+As an example of how to fix a new error… converting this newly failing transaction from the Integer Amounts section:
 
-    2013-02-23 * "Buying something"
-      Assets:Invest             1.245 RGAGX {43.23 USD}
-      Assets:Cash              -53.82 USD
-      Equity:RoundingError   -0.00135 USD                                         
+    2013-04-03 * "Buy Mutual Fund - Price as of date based on closing price"
+      Assets:US:Vanguard:RGAGX    10.21005 RGAGX {37.61 USD}
+      Assets:US:Vanguard:Cash         -384 USD
 
-You can verify that this transaction balances exactly. If the transaction already balances exactly (this is the case for most transactions) no posting is inserted.
+by inserting zero’s to provide a locally inferred value like this:
 
-Finally, if you require that all accounts be opened explicitly, you should remember to declare the rounding account in your file at an appropriate date, like this:
+    2013-04-03 * "Buy Mutual Fund - Price as of date based on closing price"
+      Assets:US:Vanguard:RGAGX    10.21005 RGAGX {37.61 USD}
+      Assets:US:Vanguard:Cash      -384.00 USD
 
-    2000-01-01 open Equity:RoundingError
+is sufficient to silence the balance check.
 
-## Precision of Inferred Numbers<a id="precision-of-inferred-numbers"></a>
+## Interpolation: Filling in with Round Numbers<a id="interpolation-filling-in-with-round-numbers"></a>
+
+Beancount allows users to leave out some numbers to be filled in, or *interpolated*. For example, the value for the profit here is left for it to fill in:
+
+    2013-04-03 * "Buy Mutual Fund - Price as of date based on closing price"
+      Assets:US:Vanguard:RGAGX       -10.22626 RGAGX {37.61 USD}
+      Assets:US:Vanguard:Cash         645.61 USD
+      Income:US:Vanguard:Profit
+
+While Beancount could fill in the precise difference, in practice the profit/loss here would be calculated by brokers at two digits of precision as $216.00, even though the unrounded number would be $261.0003614. Beancount does *rounding* of numbers at a specific precision, and that precision also depends on the currency the amount represents. We would insert "**`216.00 USD`**" here.
+
+### Precision of Inferred Numbers<a id="precision-of-inferred-numbers"></a>
 
 Beancount is able to infer some missing numbers in the input. For example, the second posting in this transaction is “interpolated” automatically by Beancount:
 
@@ -239,41 +273,65 @@ Finally, if you enabled the accumulation of rounding error, the posting’s amou
       Assets:Investments:Cash     -227.207 USD
       Equity:RoundingError          0.0003 USD
 
-## Porting Existing Input<a id="porting-existing-input"></a>
+### Saving Rounding Error<a id="saving-rounding-error"></a>
 
-The inference of tolerance values from the transaction’s numbers is generally good enough to keep existing files working without changes. There may be new errors appearing in older files once we process them with the method described in this document, but they should either point to previously undetected errors in the input, or be fixable with simple addition of a suitable number of digits.
+As we saw previously, transactions don’t have to balance exactly, they allow for a small amount of imprecision. This bothers some people. If you would like to track and measure the residual amounts allowed by the tolerances, Beancount offers an option to automatically insert postings that will make each transaction balance exactly.
 
-As a testimony, porting the author’s very large input file has been a relatively painless process that took less than 1 hour.
+You enable the feature like this:
 
-In order to ease the transition, you will probably want to change the default tolerance for all currencies to match the previous value that Beancount had been using, like this:
+    option "account_rounding" "Equity:RoundingError"
 
-    option "inferred_tolerance_default" "*:0.005"
+This tells Beancount to insert postings to compensate for the rounding error to an “`Equity:RoundingError`” account. For example, with the feature enabled, the following transaction:
 
-I would recommend you start with this and fix all errors in your file, then proceed to removing this and fix the rest of errors. This should make it easier to adapt your file to this new behavior.
+    2013-02-23 * "Buying something"
+      Assets:Invest     1.245 RGAGX {43.23 USD}
+      Assets:Cash      -53.82 USD                                         
 
-As an example of how to fix a new error… converting this newly failing transaction from the Integer Amounts section:
+will be automatically transformed into this:
 
-    2013-04-03 * "Buy Mutual Fund - Price as of date based on closing price"
-      Assets:US:Vanguard:RGAGX    10.21005 RGAGX {37.61 USD}
-      Assets:US:Vanguard:Cash         -384 USD
+    2013-02-23 * "Buying something"
+      Assets:Invest             1.245 RGAGX {43.23 USD}
+      Assets:Cash              -53.82 USD
+      Equity:RoundingError   -0.00135 USD                                         
 
-by inserting zero’s to provide a locally inferred value like this:
+You can verify that this transaction balances exactly. If the transaction already balances exactly (this is the case for most transactions) no posting is inserted. Note that rounding errors inserted in this way **are not rounded like other interpolated numbers**.
 
-    2013-04-03 * "Buy Mutual Fund - Price as of date based on closing price"
-      Assets:US:Vanguard:RGAGX    10.21005 RGAGX {37.61 USD}
-      Assets:US:Vanguard:Cash      -384.00 USD
+Finally, if you require that all accounts be opened explicitly, you should remember to declare the rounding account in your file at an appropriate date, like this:
 
-is sufficient to silence the balance check.
+    2000-01-01 open Equity:RoundingError
 
-## Representational Issues<a id="representational-issues"></a>
+## Display: Rounding Numbers for Display<a id="display-rounding-numbers-for-display"></a>
 
-Internally, Beancount uses a decimal number representation (not a binary/float representation, neither rational numbers). Calculations that result in a large number of fractional digits are carried out to 28 decimal places (the default precision from the context of Python’s IEEE decimal implementation). This is plenty sufficient, because the method we propose above rarely trickles these types of numbers throughout the system: the tolerances allows us to post the precise amounts declared by users, and only automatically derived prices and costs will possibly result in precisions calculated to an unrealistic number of digits that could creep into aggregations in the rest of the system.
+When displaying numbers, it's really incongruous to witness a number that is the result of a division with an unusually large number of digits[^3]. For example, a cost amount rendered as "`134.2374736427639678237437 USD`" is not useful to the reader, the extra digits are small and not very meaningful quantities; we would much rather present "`134.24 USD`". Thus, the numbers must be rounded to a certain precision.
+
+The number of digits to use to render those numbers depend on a few things:
+
+-   **The currency that the numbers represent.** Dollars typically use a resolution of 1 penny ($0.01) and a precision of 2. Japanese Yen typically use integers (1 JPY is a small value). Mutual fund shares are typically using at least 3 digits because one share may represent a relatively large amount. Exchange rates may use as many as 5 digits of precision (e.g., USD/JPY).
+
+-   **The context for the numbers.** When representing the cost of a single unit of another commodity, it is sometimes the case that the precision at which we want this cost differs from the common precision used for total values of that number.
+
+As of 2025, there is a new configuration option that allows you to specify the intended precision of a particular currency by example, like this:
+
+    option "display_precision" "USD:0.01"
+    option "display_precision" "AUD:0.01"
+
+## Computation: Operations At Finite Precision<a id="computation-operations-at-finite-precision"></a>
+
+Finally, when computations occur on [<u>decimal numbers</u>](https://en.wikipedia.org/wiki/Decimal_data_type), rounding must occur. All numbers in Beancount are represented internally in decimal form.
+
+This is a topic people who haven't studied computer science may not be familiar with, but an important one. The vast majority of the time computers use floating-point numbers which are binary approximations of real numbers. Rounding occurs naturally due to the limited number of digits available in these representations. To represent and compute with decimal numbers, we use a software implementation that is not subject to the limitation of the hardware and thus is able to represent computations at an arbitrary precision (at a cost—it's a fair bit slower).
+
+With decimal numbers, for some operations resulting in a large number of fractional decimal digits, we must decide which precision to round the results to (lest we spend a lot of space representing very small digits).
+
+Calculations that result in a large number of fractional digits are carried out to 28 decimal places (the default precision from the context of Python’s IEEE decimal implementation). This is plenty sufficient, because the method we propose above rarely trickles these types of numbers throughout the system: the tolerances allows us to post the precise amounts declared by users, and only automatically derived prices and costs will possibly result in precisions calculated to an unrealistic number of digits that could creep into aggregations in the rest of the system.
+
+See the [<u>Decimal fixed-point and floating-point arithmetic</u>](https://docs.python.org/3/library/decimal.html) and [<u>What Every Computer Scientist Should Know About Floating-Point Arithmetic</u>](http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html#689) documents for a more thorough discussion of this.
 
 ## References<a id="references"></a>
 
 The [<u>original proposal</u>](rounding_precision_in_beancount.md) that led to this implementation can be [<u>found here</u>](rounding_precision_in_beancount.md). In particular, the proposal highlights on the other systems have attempted to deal with this issue. There are also [<u>some discussions</u>](https://groups.google.com/forum/#!msg/ledger-cli/m-TgILbfrwA/YjkmOM3LHXIJ) on the mailing-list dedicated to this topic.
 
-Note that for the longest time, Beancount used a fixed precision of 0.005 across all currencies. This was eliminated once the method described in this document was implemented.
+Note that for the longest time, Beancount used a fixed tolerance of 0.005 across all currencies. This was eliminated once the method described in this document was implemented.
 
 Also, for Balance and Pad directives, there used to be a “tolerance” option that was set by default to 0.015 of any units. This option has been deprecated with the merging of the changes described in this document.
 
@@ -305,10 +363,10 @@ Here’s an overview of the status of numbers rendering in Beancount as of March
 >
 > I hope this helps. You're welcome to ask questions if the above isn't clear. I'm sorry if this isn't entirely obvious... there's been a fair bit of history there and there's a lot of code. I should review the naming of options, I think the tolerance options all have "tolerance" in their name, but there aren't options to override the rendering and when I add them they should all have a common name as well.
 
-## Further Reading<a id="further-reading"></a>
-
-[<u>What Every Computer Scientist Should Know About Floating-Point Arithmetic</u>](http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html#689)
+As of May 2025, the configuration settings for tolerances and precision is under review. This has been a pain point for a very long time.
 
 [^1]: This stands in contrast to Ledger which attempts to infer the precision based on other transactions recently parsed in the file, in file order. This has the unfortunate effect of creating “cross-talk” between the transactions in terms of what precision can be used.
 
 [^2]: Note that due to the way Beancount represents numbers internally, it is also not able to distinguish between “230” and “230.”; these parse into the same representation for Beancount. Therefore, we are not able to use that distinction in the input to support a precision of 0.5.
+
+[^3]: Except for debugging. During debugging we should display the full value with no rounding.
