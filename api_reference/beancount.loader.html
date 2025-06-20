@@ -164,8 +164,6 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#beancount.loader.LoadError.__new__">__new__()</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.loader.LoadError.__replace__">__replace__()</a>
-    </li>
     <li class="toctree-l3"><a class="reference internal" href="#beancount.loader.LoadError.__repr__">__repr__()</a>
     </li>
         </ul>
@@ -293,12 +291,15 @@ beancount.loader.LoadError            (<span title="tuple">tuple</span>)
 
     <div class="doc doc-contents ">
 
-      <p>LoadError(source, message, entry)</p>
+      <p>Represents an error encountered during the loading process.</p>
 
 
 
 
   <div class="doc doc-children">
+
+
+
 
 
 
@@ -343,7 +344,7 @@ beancount.loader.LoadError            (<span title="tuple">tuple</span>)
 
 
 <h3 id="beancount.loader.LoadError.__new__" class="doc doc-heading">
-<code class="highlight language-python">beancount.loader.LoadError.__new__(_cls, source, message, entry)</code>
+<code class="highlight language-python">beancount.loader.LoadError.__new__(_cls, source, message, entry=None)</code>
 
   <span class="doc doc-properties">
       <small class="doc doc-property doc-property-special"><code>special</code></small>
@@ -356,38 +357,6 @@ beancount.loader.LoadError            (<span title="tuple">tuple</span>)
 
       <p>Create new instance of LoadError(source, message, entry)</p>
 
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h3 id="beancount.loader.LoadError.__replace__" class="doc doc-heading">
-<code class="highlight language-python">beancount.loader.LoadError.__replace__(/, self, **kwds)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-<a href="#beancount.loader.LoadError.__replace__" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>Return a new LoadError object replacing specified fields with new values</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/loader.py</code></summary>
-          <pre class="highlight"><code class="language-python">def _replace(self, /, **kwds):
-    result = self._make(_map(kwds.pop, field_names, self))
-    if kwds:
-        raise TypeError(f'Got unexpected field names: {list(kwds)!r}')
-    return result
-</code></pre>
-        </details>
     </div>
 
   </div>
@@ -459,9 +428,9 @@ beancount.loader.LoadError            (<span title="tuple">tuple</span>)
       <th class="field-name">Parameters:</th>
       <td class="field-body">
         <ul class="first simple">
-            <li><p><strong>options_map</strong> – The target map in which we want to aggregate attributes.
+            <li><p><strong>options_map</strong> (<code>OptionsMap</code>) – The target map in which we want to aggregate attributes.
 Note: This value is mutated in-place.</p></li>
-            <li><p><strong>other_options_map</strong> – A list of other options maps, some of whose values
+            <li><p><strong>other_options_map</strong> (<code>list[OptionsMap]</code>) – A list of other options maps, some of whose values
 we'd like to see aggregated.</p></li>
         </ul>
       </td>
@@ -470,7 +439,9 @@ we'd like to see aggregated.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/loader.py</code></summary>
-          <pre class="highlight"><code class="language-python">def aggregate_options_map(options_map, other_options_map):
+          <pre class="highlight"><code class="language-python">def aggregate_options_map(
+    options_map: OptionsMap, other_options_map: list[OptionsMap]
+) -&gt; OptionsMap:
     """Aggregate some of the attributes of options map.
 
     Args:
@@ -486,7 +457,6 @@ we'd like to see aggregated.</p></li>
         currencies.extend(omap["operating_currency"])
         options_map["dcontext"].update_from(omap["dcontext"])
     options_map["operating_currency"] = list(misc_utils.uniquify(currencies))
-
 
     # Produce a 'pythonpath' value for transformers.
     pythonpath = set()
@@ -564,8 +534,7 @@ we'd like to see aggregated.</p></li>
     """
     modules = []
     for module in plugin_modules:
-        modules.extend([getattr(module, name)
-                        for name in module.__plugins__])
+        modules.extend([getattr(module, name) for name in module.__plugins__])
     return modules
 </code></pre>
         </details>
@@ -615,11 +584,11 @@ we'd like to see aggregated.</p></li>
     """
     md5 = hashlib.md5()
     for filename in sorted(filenames):
-        md5.update(filename.encode('utf8'))
+        md5.update(filename.encode("utf8"))
         if not path.exists(filename):
             continue
         stat = os.stat(filename)
-        md5.update(struct.pack('dd', stat.st_mtime_ns, stat.st_size))
+        md5.update(struct.pack("dd", stat.st_mtime_ns, stat.st_size))
     return md5.hexdigest()
 </code></pre>
         </details>
@@ -689,6 +658,7 @@ will return the name of the corresponding cache file.</p></li>
     Returns:
       A decorated function which will delete the cached filename, if it exists.
     """
+
     @functools.wraps(function)
     def wrapped(toplevel_filename, *args, **kw):
         # Delete the cache.
@@ -698,6 +668,7 @@ will return the name of the corresponding cache file.</p></li>
 
         # Invoke the original function.
         return function(toplevel_filename, *args, **kw)
+
     return wrapped
 </code></pre>
         </details>
@@ -797,31 +768,34 @@ will get replaced by the top-level filename. This may be absolute or relative.</
 
         <details class="quote">
           <summary>Source code in <code>beancount/loader.py</code></summary>
-          <pre class="highlight"><code class="language-python">def initialize(use_cache: bool, cache_filename: Optional[str] = None):
+          <pre class="highlight"><code class="language-python">def initialize(use_cache: bool, cache_filename: str | None = None) -&gt; None:
     """Initialize the loader."""
 
     # Unless an environment variable disables it, use the pickle load cache
     # automatically. Note that this works across all Python programs running the
     # loader which is why it's located here.
-    # pylint: disable=invalid-name
+
     global _load_file
 
     # Make a function to compute the cache filename.
-    cache_pattern = (cache_filename or
-                     os.getenv('BEANCOUNT_LOAD_CACHE_FILENAME') or
-                     PICKLE_CACHE_FILENAME)
+    cache_pattern = (
+        cache_filename
+        or os.getenv("BEANCOUNT_LOAD_CACHE_FILENAME")
+        or PICKLE_CACHE_FILENAME
+    )
     cache_getter = functools.partial(get_cache_filename, cache_pattern)
 
     if use_cache:
-        _load_file = pickle_cache_function(cache_getter, PICKLE_CACHE_THRESHOLD,
-                                           _uncached_load_file)
+        _load_file = pickle_cache_function(
+            cache_getter, PICKLE_CACHE_THRESHOLD, _uncached_load_file
+        )
     else:
         if cache_filename is not None:
-            logging.warning("Cache disabled; "
-                            "Explicitly overridden cache filename %s will be ignored.",
-                            cache_filename)
-        _load_file = delete_cache_function(cache_getter,
-                                           _uncached_load_file)
+            logging.warning(
+                "Cache disabled; Explicitly overridden cache filename %s will be ignored.",
+                cache_filename,
+            )
+        _load_file = delete_cache_function(cache_getter, _uncached_load_file)
 </code></pre>
         </details>
     </div>
@@ -899,6 +873,7 @@ None: Do nothing, no check.</p></li>
     Returns:
       A wrapped method that accepts a single 'self' argument.
     """
+
     def decorator(fun):
         """A decorator that parses the function's docstring as an argument.
 
@@ -908,6 +883,7 @@ None: Do nothing, no check.</p></li>
         Returns:
           A decorated test function.
         """
+
         @functools.wraps(fun)
         def wrapper(self):
             entries, errors, options_map = load_string(fun.__doc__, dedent=True)
@@ -963,12 +939,12 @@ None: Do nothing, no check.</p></li>
       <th class="field-name">Parameters:</th>
       <td class="field-body">
         <ul class="first simple">
-            <li><p><strong>filename</strong> – The name of an encrypted file to be parsed.</p></li>
-            <li><p><strong>log_timings</strong> – See load_string().</p></li>
-            <li><p><strong>log_errors</strong> – See load_string().</p></li>
-            <li><p><strong>extra_validations</strong> – See load_string().</p></li>
-            <li><p><strong>dedent</strong> – See load_string().</p></li>
-            <li><p><strong>encoding</strong> – See load_string().</p></li>
+            <li><p><strong>filename</strong> (<code>str | Path</code>) – The name of an encrypted file to be parsed.</p></li>
+            <li><p><strong>log_timings</strong> (<code>Any</code>) – See load_string().</p></li>
+            <li><p><strong>log_errors</strong> (<code>Any</code>) – See load_string().</p></li>
+            <li><p><strong>extra_validations</strong> (<code>list[Any] | None</code>) – See load_string().</p></li>
+            <li><p><strong>dedent</strong> (<code>bool</code>) – See load_string().</p></li>
+            <li><p><strong>encoding</strong> (<code>str | None</code>) – See load_string().</p></li>
         </ul>
       </td>
     </tr>
@@ -984,7 +960,7 @@ None: Do nothing, no check.</p></li>
     <th class="field-name">Returns:</th>
     <td class="field-body">
         <ul class="first simple">
-          <li><p>A triple of (entries, errors, option_map) where "entries" is a date-sorted
+          <li><p><code>tuple[data.Directives, list[data.BeancountError], OptionsMap]</code> – A triple of (entries, errors, option_map) where "entries" is a date-sorted
 list of entries from the file, "errors" a list of error objects generated
 while parsing and validating the file, and "options_map", a dict of the
 options parsed from the file.</p></li>
@@ -995,8 +971,14 @@ options parsed from the file.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/loader.py</code></summary>
-          <pre class="highlight"><code class="language-python">def load_encrypted_file(filename, log_timings=None, log_errors=None, extra_validations=None,
-                        dedent=False, encoding=None):
+          <pre class="highlight"><code class="language-python">def load_encrypted_file(
+    filename: str | Path,
+    log_timings: Any = None,
+    log_errors: Any = None,
+    extra_validations: list[Any] | None = None,
+    dedent: bool = False,
+    encoding: str | None = None,
+) -&gt; tuple[data.Directives, list[data.BeancountError], OptionsMap]:
     """Load an encrypted Beancount input file.
 
     Args:
@@ -1013,11 +995,13 @@ options parsed from the file.</p></li>
       options parsed from the file.
     """
     contents = encryption.read_encrypted_file(filename)
-    return load_string(contents,
-                       log_timings=log_timings,
-                       log_errors=log_errors,
-                       extra_validations=extra_validations,
-                       encoding=encoding)
+    return load_string(
+        contents,
+        log_timings=log_timings,
+        log_errors=log_errors,
+        extra_validations=extra_validations,
+        encoding=encoding,
+    )
 </code></pre>
         </details>
     </div>
@@ -1050,15 +1034,15 @@ options parsed from the file.</p></li>
       <th class="field-name">Parameters:</th>
       <td class="field-body">
         <ul class="first simple">
-            <li><p><strong>filename</strong> – The name of the file to be parsed.</p></li>
-            <li><p><strong>log_timings</strong> – A file object or function to write timings to,
+            <li><p><strong>filename</strong> (<code>str | Path</code>) – The name of the file to be parsed.</p></li>
+            <li><p><strong>log_timings</strong> (<code>Any</code>) – A file object or function to write timings to,
 or None, if it should remain quiet. (Note that this is intended to use
 the logging methods and does not insert a newline.)</p></li>
-            <li><p><strong>log_errors</strong> – A file object or function to write errors to,
+            <li><p><strong>log_errors</strong> (<code>Any</code>) – A file object or function to write errors to,
 or None, if it should remain quiet.</p></li>
-            <li><p><strong>extra_validations</strong> – A list of extra validation functions to run after loading
+            <li><p><strong>extra_validations</strong> (<code>list[Any] | None</code>) – A list of extra validation functions to run after loading
 this list of entries.</p></li>
-            <li><p><strong>encoding</strong> – A string or None, the encoding to decode the input filename with.</p></li>
+            <li><p><strong>encoding</strong> (<code>str | None</code>) – A string or None, the encoding to decode the input filename with.</p></li>
         </ul>
       </td>
     </tr>
@@ -1074,7 +1058,7 @@ this list of entries.</p></li>
     <th class="field-name">Returns:</th>
     <td class="field-body">
         <ul class="first simple">
-          <li><p>A triple of (entries, errors, option_map) where "entries" is a date-sorted
+          <li><p><code>tuple[data.Directives, list[data.BeancountError], OptionsMap]</code> – A triple of (entries, errors, option_map) where "entries" is a date-sorted
 list of entries from the file, "errors" a list of error objects generated
 while parsing and validating the file, and "options_map", a dict of the
 options parsed from the file.</p></li>
@@ -1085,8 +1069,13 @@ options parsed from the file.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/loader.py</code></summary>
-          <pre class="highlight"><code class="language-python">def load_file(filename, log_timings=None, log_errors=None, extra_validations=None,
-              encoding=None):
+          <pre class="highlight"><code class="language-python">def load_file(
+    filename: str | Path,
+    log_timings: Any = None,
+    log_errors: Any = None,
+    extra_validations: list[Any] | None = None,
+    encoding: str | None = None,
+) -&gt; tuple[data.Directives, list[data.BeancountError], OptionsMap]:
     """Open a Beancount input file, parse it, run transformations and validate.
 
     Args:
@@ -1112,13 +1101,12 @@ options parsed from the file.</p></li>
     if encryption.is_encrypted_file(filename):
         # Note: Caching is not supported for encrypted files.
         entries, errors, options_map = load_encrypted_file(
-            filename,
-            log_timings, log_errors,
-            extra_validations, False, encoding)
+            filename, log_timings, log_errors, extra_validations, False, encoding
+        )
     else:
         entries, errors, options_map = _load_file(
-            filename, log_timings,
-            extra_validations, encoding)
+            filename, log_timings, extra_validations, encoding
+        )
         _log_errors(errors, log_errors)
     return entries, errors, options_map
 </code></pre>
@@ -1153,15 +1141,15 @@ options parsed from the file.</p></li>
       <th class="field-name">Parameters:</th>
       <td class="field-body">
         <ul class="first simple">
-            <li><p><strong>string</strong> – A Beancount input string.</p></li>
+            <li><p><strong>string</strong> (<code>str</code>) – A Beancount input string.</p></li>
             <li><p><strong>log_timings</strong> – A file object or function to write timings to,
 or None, if it should remain quiet.</p></li>
             <li><p><strong>log_errors</strong> – A file object or function to write errors to,
 or None, if it should remain quiet.</p></li>
-            <li><p><strong>extra_validations</strong> – A list of extra validation functions to run after loading
+            <li><p><strong>extra_validations</strong> (<code>list[Any] | None</code>) – A list of extra validation functions to run after loading
 this list of entries.</p></li>
-            <li><p><strong>dedent</strong> – A boolean, if set, remove the whitespace in front of the lines.</p></li>
-            <li><p><strong>encoding</strong> – A string or None, the encoding to decode the input string with.</p></li>
+            <li><p><strong>dedent</strong> (<code>bool</code>) – A boolean, if set, remove the whitespace in front of the lines.</p></li>
+            <li><p><strong>encoding</strong> (<code>str | None</code>) – A string or None, the encoding to decode the input string with.</p></li>
         </ul>
       </td>
     </tr>
@@ -1177,7 +1165,7 @@ this list of entries.</p></li>
     <th class="field-name">Returns:</th>
     <td class="field-body">
         <ul class="first simple">
-          <li><p>A triple of (entries, errors, option_map) where "entries" is a date-sorted
+          <li><p><code>tuple[data.Directives, list[data.BeancountError], OptionsMap]</code> – A triple of (entries, errors, option_map) where "entries" is a date-sorted
 list of entries from the string, "errors" a list of error objects
 generated while parsing and validating the string, and "options_map", a
 dict of the options parsed from the string.</p></li>
@@ -1188,9 +1176,14 @@ dict of the options parsed from the string.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/loader.py</code></summary>
-          <pre class="highlight"><code class="language-python">def load_string(string, log_timings=None, log_errors=None, extra_validations=None,
-                dedent=False, encoding=None):
-
+          <pre class="highlight"><code class="language-python">def load_string(
+    string: str,
+    log_timings=None,
+    log_errors=None,
+    extra_validations: list[Any] | None = None,
+    dedent: bool = False,
+    encoding: str | None = None,
+) -&gt; tuple[data.Directives, list[data.BeancountError], OptionsMap]:
     """Open a Beancount input string, parse it, run transformations and validate.
 
     Args:
@@ -1211,8 +1204,9 @@ dict of the options parsed from the string.</p></li>
     """
     if dedent:
         string = textwrap.dedent(string)
-    entries, errors, options_map = _load([(string, False)], log_timings,
-                                         extra_validations, encoding)
+    entries, errors, options_map = _load(
+        [(string, False)], log_timings, extra_validations, encoding
+    )
     _log_errors(errors, log_errors)
     return entries, errors, options_map
 </code></pre>
@@ -1247,7 +1241,7 @@ dict of the options parsed from the string.</p></li>
       <th class="field-name">Parameters:</th>
       <td class="field-body">
         <ul class="first simple">
-            <li><p><strong>options_map</strong> – An options dict as per the parser.</p></li>
+            <li><p><strong>options_map</strong> (<code>OptionsMap</code>) – An options dict as per the parser.</p></li>
             <li><p><strong>mtime</strong> – A modified time, to check if it covers the include files in the options_map.</p></li>
         </ul>
       </td>
@@ -1264,7 +1258,7 @@ dict of the options parsed from the string.</p></li>
     <th class="field-name">Returns:</th>
     <td class="field-body">
         <ul class="first simple">
-          <li><p>A boolean, true if the input is obsoleted by changes in the input files.</p></li>
+          <li><p><code>bool</code> – A boolean, true if the input is obsoleted by changes in the input files.</p></li>
         </ul>
     </td>
     </tr>
@@ -1272,7 +1266,7 @@ dict of the options parsed from the string.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/loader.py</code></summary>
-          <pre class="highlight"><code class="language-python">def needs_refresh(options_map):
+          <pre class="highlight"><code class="language-python">def needs_refresh(options_map: OptionsMap) -&gt; bool:
     """Predicate that returns true if at least one of the input files may have changed.
 
     Args:
@@ -1283,8 +1277,8 @@ dict of the options parsed from the string.</p></li>
     """
     if options_map is None:
         return True
-    input_hash = compute_input_hash(options_map['include'])
-    return 'input_hash' not in options_map or input_hash != options_map['input_hash']
+    input_hash = compute_input_hash(options_map["include"])
+    return "input_hash" not in options_map or input_hash != options_map["input_hash"]
 </code></pre>
         </details>
     </div>
@@ -1323,9 +1317,9 @@ recomputed and the cache refreshed.</p>
       <th class="field-name">Parameters:</th>
       <td class="field-body">
         <ul class="first simple">
-            <li><p><strong>cache_getter</strong> – A function of one argument, the top-level filename, which
+            <li><p><strong>cache_getter</strong> (<code>Callable[[str], str]</code>) – A function of one argument, the top-level filename, which
 will return the name of the corresponding cache file.</p></li>
-            <li><p><strong>time_threshold</strong> – A float, the number of seconds below which we don't bother
+            <li><p><strong>time_threshold</strong> (<code>float</code>) – A float, the number of seconds below which we don't bother
 caching.</p></li>
             <li><p><strong>function</strong> – A function object to decorate for caching.</p></li>
         </ul>
@@ -1352,7 +1346,9 @@ it is available.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/loader.py</code></summary>
-          <pre class="highlight"><code class="language-python">def pickle_cache_function(cache_getter, time_threshold, function):
+          <pre class="highlight"><code class="language-python">def pickle_cache_function(
+    cache_getter: Callable[[str], str], time_threshold: float, function
+):
     """Decorate a loader function to make it loads its result from a pickle cache.
 
     This considers the first argument as a top-level filename and assumes the
@@ -1372,6 +1368,7 @@ it is available.</p></li>
       A decorated function which will pull its result from a cache file if
       it is available.
     """
+
     @functools.wraps(function)
     def wrapped(toplevel_filename, *args, **kw):
         cache_filename = cache_getter(toplevel_filename)
@@ -1380,7 +1377,7 @@ it is available.</p></li>
         # timestamps to check.
         exists = path.exists(cache_filename)
         if exists:
-            with open(cache_filename, 'rb') as file:
+            with open(cache_filename, "rb") as file:
                 try:
                     result = pickle.load(file)
                 except Exception as exc:
@@ -1407,8 +1404,9 @@ it is available.</p></li>
                 os.remove(cache_filename)
             except OSError as exc:
                 # Warn for errors on read-only filesystems.
-                logging.warning("Could not remove picklecache file %s: %s",
-                                cache_filename, exc)
+                logging.warning(
+                    "Could not remove picklecache file %s: %s", cache_filename, exc
+                )
 
         time_before = time.time()
         result = function(toplevel_filename, *args, **kw)
@@ -1416,15 +1414,17 @@ it is available.</p></li>
 
         # Overwrite the cache file if the time it takes to compute it
         # justifies it.
-        if time_after - time_before &gt; time_threshold:
+        if time_after - time_before &gt;= time_threshold:
             try:
-                with open(cache_filename, 'wb') as file:
+                with open(cache_filename, "wb") as file:
                     pickle.dump(result, file)
             except Exception as exc:
-                logging.warning("Could not write to picklecache file %s: %s",
-                                cache_filename, exc)
+                logging.warning(
+                    "Could not write to picklecache file %s: %s", cache_filename, exc
+                )
 
         return result
+
     return wrapped
 </code></pre>
         </details>
@@ -1459,10 +1459,10 @@ it is available.</p></li>
       <th class="field-name">Parameters:</th>
       <td class="field-body">
         <ul class="first simple">
-            <li><p><strong>entries</strong> – A list of directives as read from the parser.</p></li>
-            <li><p><strong>parse_errors</strong> – A list of errors so far.</p></li>
-            <li><p><strong>options_map</strong> – An options dict as read from the parser.</p></li>
-            <li><p><strong>log_timings</strong> – A function to write timing log entries to, or None, if it
+            <li><p><strong>entries</strong> (<code>data.Directives</code>) – A list of directives as read from the parser.</p></li>
+            <li><p><strong>parse_errors</strong> (<code>list[data.BeancountError]</code>) – A list of errors so far.</p></li>
+            <li><p><strong>options_map</strong> (<code>OptionsMap</code>) – An options dict as read from the parser.</p></li>
+            <li><p><strong>log_timings</strong> (<code>Any</code>) – A function to write timing log entries to, or None, if it
 should be quiet.</p></li>
         </ul>
       </td>
@@ -1479,7 +1479,7 @@ should be quiet.</p></li>
     <th class="field-name">Returns:</th>
     <td class="field-body">
         <ul class="first simple">
-          <li><p>A list of modified entries, and a list of errors, also possibly modified.</p></li>
+          <li><p><code>tuple[data.Directives, list[data.BeancountError]]</code> – A list of modified entries, and a list of errors, also possibly modified.</p></li>
         </ul>
     </td>
     </tr>
@@ -1487,7 +1487,12 @@ should be quiet.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/loader.py</code></summary>
-          <pre class="highlight"><code class="language-python">def run_transformations(entries, parse_errors, options_map, log_timings):
+          <pre class="highlight"><code class="language-python">def run_transformations(
+    entries: data.Directives,
+    parse_errors: list[data.BeancountError],
+    options_map: OptionsMap,
+    log_timings: Any,
+) -&gt; tuple[data.Directives, list[data.BeancountError]]:
     """Run the various transformations on the entries.
 
     This is where entries are being synthesized, checked, plugins are run, etc.
@@ -1505,25 +1510,25 @@ should be quiet.</p></li>
     errors = list(parse_errors)
 
     # Process the plugins.
-    if options_map['plugin_processing_mode'] == 'raw':
+    if options_map["plugin_processing_mode"] == "raw":
         plugins_iter = options_map["plugin"]
-    elif options_map['plugin_processing_mode'] == 'default':
-        plugins_iter = itertools.chain(PLUGINS_PRE,
-                                       options_map["plugin"],
-                                       PLUGINS_AUTO,
-                                       PLUGINS_POST)
+    elif options_map["plugin_processing_mode"] == "default":
+        plugins_iter = itertools.chain(
+            PLUGINS_PRE, options_map["plugin"], PLUGINS_AUTO, PLUGINS_POST
+        )
     else:
         assert "Invalid value for plugin_processing_mode: {}".format(
-            options_map['plugin_processing_mode'])
+            options_map["plugin_processing_mode"]
+        )
 
     for plugin_name, plugin_config in plugins_iter:
-
         # Issue a warning on a renamed module.
         renamed_name = RENAMED_MODULES.get(plugin_name, None)
         if renamed_name:
-            warnings.warn("Deprecation notice: Module '{}' has been renamed to '{}'; "
-                          "please adjust your plugin directive.".format(
-                              plugin_name, renamed_name))
+            warnings.warn(
+                "Deprecation notice: Module '{}' has been renamed to '{}'; "
+                "please adjust your plugin directive.".format(plugin_name, renamed_name)
+            )
             plugin_name = renamed_name
 
         # Try to import the module.
@@ -1532,14 +1537,17 @@ should be quiet.</p></li>
         # import time exceptions fail a run, by choice.
         try:
             module = importlib.import_module(plugin_name)
-            if not hasattr(module, '__plugins__'):
+            if not hasattr(module, "__plugins__"):
                 continue
         except ImportError:
             # Upon failure, just issue an error.
             formatted_traceback = traceback.format_exc().replace("\n", "\n  ")
-            errors.append(LoadError(data.new_metadata("&lt;load&gt;", 0),
-                                    'Error importing "{}": {}'.format(
-                                        plugin_name, formatted_traceback), None))
+            errors.append(
+                LoadError(
+                    data.new_metadata("&lt;load&gt;", 0),
+                    'Error importing "{}": {}'.format(plugin_name, formatted_traceback),
+                )
+            )
             continue
 
         # Apply it.
@@ -1568,9 +1576,14 @@ should be quiet.</p></li>
 
                     # Upon failure, just issue an error.
                     formatted_traceback = traceback.format_exc().replace("\n", "\n  ")
-                    errors.append(LoadError(data.new_metadata("&lt;load&gt;", 0),
-                                            'Error applying plugin "{}": {}'.format(
-                                                plugin_name, formatted_traceback), None))
+                    errors.append(
+                        LoadError(
+                            data.new_metadata("&lt;load&gt;", 0),
+                            'Error applying plugin "{}": {}'.format(
+                                plugin_name, formatted_traceback
+                            ),
+                        )
+                    )
                     continue
 
             # Ensure that the entries are sorted. Don't trust the plugins

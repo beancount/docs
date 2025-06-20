@@ -162,18 +162,6 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#beancount.ops.balance">balance</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.balance.BalanceError">BalanceError</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.balance.BalanceError.__getnewargs__">__getnewargs__()</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.balance.BalanceError.__new__">__new__()</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.balance.BalanceError.__replace__">__replace__()</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.balance.BalanceError.__repr__">__repr__()</a>
-    </li>
-        </ul>
-    </li>
     <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.balance.check">check()</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#beancount.ops.balance.get_balance_tolerance">get_balance_tolerance()</a>
@@ -207,8 +195,6 @@
     <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.documents.DocumentError.__getnewargs__">__getnewargs__()</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.documents.DocumentError.__new__">__new__()</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.documents.DocumentError.__replace__">__replace__()</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.documents.DocumentError.__repr__">__repr__()</a>
     </li>
@@ -257,8 +243,6 @@
     <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.pad.PadError.__getnewargs__">__getnewargs__()</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.pad.PadError.__new__">__new__()</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.pad.PadError.__replace__">__replace__()</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.pad.PadError.__repr__">__repr__()</a>
     </li>
@@ -313,8 +297,6 @@
     <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.validation.ValidationError.__getnewargs__">__getnewargs__()</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.validation.ValidationError.__new__">__new__()</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.validation.ValidationError.__replace__">__replace__()</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#beancount.ops.validation.ValidationError.__repr__">__repr__()</a>
     </li>
@@ -444,162 +426,6 @@
 
 
 
-  <div class="doc doc-object doc-class">
-
-
-
-<h3 id="beancount.ops.balance.BalanceError" class="doc doc-heading">
-        <code>
-beancount.ops.balance.BalanceError            (<span title="tuple">tuple</span>)
-        </code>
-
-
-
-<a href="#beancount.ops.balance.BalanceError" class="headerlink" title="Permanent link"></a></h3>
-
-    <div class="doc doc-contents ">
-
-      <p>BalanceError(source, message, entry)</p>
-
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h4 id="beancount.ops.balance.BalanceError.__getnewargs__" class="doc doc-heading">
-<code class="highlight language-python">beancount.ops.balance.BalanceError.__getnewargs__(self)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-<a href="#beancount.ops.balance.BalanceError.__getnewargs__" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Return self as a plain tuple.  Used by copy and pickle.</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/ops/balance.py</code></summary>
-          <pre class="highlight"><code class="language-python">def __getnewargs__(self):
-    'Return self as a plain tuple.  Used by copy and pickle.'
-    return _tuple(self)
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h4 id="beancount.ops.balance.BalanceError.__new__" class="doc doc-heading">
-<code class="highlight language-python">beancount.ops.balance.BalanceError.__new__(_cls, source, message, entry)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-      <small class="doc doc-property doc-property-staticmethod"><code>staticmethod</code></small>
-  </span>
-
-<a href="#beancount.ops.balance.BalanceError.__new__" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Create new instance of BalanceError(source, message, entry)</p>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h4 id="beancount.ops.balance.BalanceError.__replace__" class="doc doc-heading">
-<code class="highlight language-python">beancount.ops.balance.BalanceError.__replace__(/, self, **kwds)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-<a href="#beancount.ops.balance.BalanceError.__replace__" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Return a new BalanceError object replacing specified fields with new values</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/ops/balance.py</code></summary>
-          <pre class="highlight"><code class="language-python">def _replace(self, /, **kwds):
-    result = self._make(_map(kwds.pop, field_names, self))
-    if kwds:
-        raise TypeError(f'Got unexpected field names: {list(kwds)!r}')
-    return result
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h4 id="beancount.ops.balance.BalanceError.__repr__" class="doc doc-heading">
-<code class="highlight language-python">beancount.ops.balance.BalanceError.__repr__(self)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-<a href="#beancount.ops.balance.BalanceError.__repr__" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Return a nicely formatted representation string</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/ops/balance.py</code></summary>
-          <pre class="highlight"><code class="language-python">def __repr__(self):
-    'Return a nicely formatted representation string'
-    return self.__class__.__name__ + repr_fmt % self
-</code></pre>
-        </details>
-    </div>
-
-  </div>
-
-
-
-
-
-  </div>
-
-    </div>
-
-  </div>
-
-
-
 
   <div class="doc doc-object doc-function">
 
@@ -676,22 +502,22 @@ ones with a flag that indicates failure.</p>
     # order to hold the incremental tree of balances, so that we can easily get
     # the amounts of an account's subaccounts for making checks on parent
     # accounts.
-    real_root = realization.RealAccount('')
+    real_root = realization.RealAccount("")
 
     # Figure out the set of accounts for which we need to compute a running
     # inventory balance.
-    asserted_accounts = {entry.account
-                         for entry in entries
-                         if isinstance(entry, Balance)}
+    asserted_accounts = {entry.account for entry in entries if isinstance(entry, Balance)}
 
     # Add all children accounts of an asserted account to be calculated as well,
     # and pre-create these accounts, and only those (we're just being tight to
     # make sure).
-    asserted_match_list = [account.parent_matcher(account_)
-                           for account_ in asserted_accounts]
+    asserted_match_list = [
+        account.parent_matcher(account_) for account_ in asserted_accounts
+    ]
     for account_ in getters.get_accounts(entries):
-        if (account_ in asserted_accounts or
-            any(match(account_) for match in asserted_match_list)):
+        if account_ in asserted_accounts or any(
+            match(account_) for match in asserted_match_list
+        ):
             realization.get_or_create(real_root, account_)
 
     # Get the Open directives for each account.
@@ -713,23 +539,33 @@ ones with a flag that indicates failure.</p>
             # Check that the currency of the balance check is one of the allowed
             # currencies for that account.
             expected_amount = entry.amount
+            open = None
             try:
                 open, _ = open_close_map[entry.account]
             except KeyError:
                 check_errors.append(
-                    BalanceError(entry.meta,
-                                 "Invalid reference to unknown account '{}'".format(
-                                     entry.account), entry))
-                continue
+                    BalanceError(
+                        entry.meta,
+                        "Invalid reference to unknown account '{}'".format(entry.account),
+                        entry,
+                    )
+                )
 
-            if (expected_amount is not None and
-                open and open.currencies and
-                expected_amount.currency not in open.currencies):
+            if (
+                expected_amount is not None
+                and open
+                and open.currencies
+                and expected_amount.currency not in open.currencies
+            ):
                 check_errors.append(
-                    BalanceError(entry.meta,
-                                 "Invalid currency '{}' for Balance directive: ".format(
-                                     expected_amount.currency),
-                                 entry))
+                    BalanceError(
+                        entry.meta,
+                        "Invalid currency '{}' for Balance directive: ".format(
+                            expected_amount.currency
+                        ),
+                        entry,
+                    )
+                )
 
             # Sum up the current balances for this account and its
             # sub-accounts. We want to support checks for parent accounts
@@ -756,24 +592,27 @@ ones with a flag that indicates failure.</p>
 
             if abs(diff_amount.number) &gt; tolerance:
                 check_errors.append(
-                    BalanceError(entry.meta,
-                                 ("Balance failed for '{}': "
-                                  "expected {} != accumulated {} ({} {})").format(
-                                      entry.account, expected_amount, balance_amount,
-                                      abs(diff_amount.number),
-                                      ('too much'
-                                       if diff_amount.number &gt; 0
-                                       else 'too little')),
-                                 entry))
+                    BalanceError(
+                        entry.meta,
+                        (
+                            "Balance failed for '{}': expected {} != accumulated {} ({} {})"
+                        ).format(
+                            entry.account,
+                            expected_amount,
+                            balance_amount,
+                            abs(diff_amount.number),
+                            ("too much" if diff_amount.number &gt; 0 else "too little"),
+                        ),
+                        entry,
+                    )
+                )
 
                 # Substitute the entry by a failing entry, with the diff_amount
                 # field set on it. I'm not entirely sure that this is the best
                 # of ideas, maybe leaving the original check intact and insert a
                 # new error entry might be more functional or easier to
                 # understand.
-                entry = entry._replace(
-                    meta=entry.meta.copy(),
-                    diff_amount=diff_amount)
+                entry = entry._replace(meta=entry.meta.copy(), diff_amount=diff_amount)
 
         new_entries.append(entry)
 
@@ -855,7 +694,7 @@ ones with a flag that indicates failure.</p>
             # Pad because the user creates these and the rounding of those
             # balances may often be further off than those used within a single
             # transaction.
-            tolerance = options_map["inferred_tolerance_multiplier"] * 2
+            tolerance = options_map["tolerance_multiplier"] * 2
             tolerance = ONE.scaleb(expo) * tolerance
         else:
             tolerance = ZERO
@@ -953,8 +792,7 @@ enough not to belong in core/data.py.</p>
       Every entry in 'entries' that links to 'link.
     """
     for entry in entries:
-        if (isinstance(entry, data.Transaction) and
-            entry.links and link in entry.links):
+        if isinstance(entry, data.Transaction) and entry.links and link in entry.links:
             yield entry
 </code></pre>
         </details>
@@ -1007,9 +845,7 @@ enough not to belong in core/data.py.</p>
       Every entry in 'entries' that tags to 'tag.
     """
     for entry in entries:
-        if (isinstance(entry, data.Transaction) and
-            entry.tags and
-            tag in entry.tags):
+        if isinstance(entry, data.Transaction) and entry.tags and tag in entry.tags:
             yield entry
 </code></pre>
         </details>
@@ -1408,34 +1244,47 @@ entries merged together.</p></li>
     for entry in data.filter_txns(entries):
         for posting in entry.postings:
             # We strip the number off the posting to act as an aggregation key.
-            key = data.Posting(posting.account,
-                               Amount(None, posting.units.currency),
-                               posting.cost,
-                               posting.price,
-                               posting.flag,
-                               None)
+            key = data.Posting(
+                posting.account,
+                Amount(None, posting.units.currency),
+                posting.cost,
+                posting.price,
+                posting.flag,
+                None,
+            )
             postings_map[key] += posting.units.number
 
     # Create a new transaction with the aggregated postings.
-    new_entry = data.Transaction(prototype_txn.meta,
-                                 prototype_txn.date,
-                                 prototype_txn.flag,
-                                 prototype_txn.payee,
-                                 prototype_txn.narration,
-                                 data.EMPTY_SET, data.EMPTY_SET, [])
+    new_entry = data.Transaction(
+        prototype_txn.meta,
+        prototype_txn.date,
+        prototype_txn.flag,
+        prototype_txn.payee,
+        prototype_txn.narration,
+        data.EMPTY_SET,
+        data.EMPTY_SET,
+        [],
+    )
 
     # Sort for at least some stability of output.
-    sorted_items = sorted(postings_map.items(),
-                          key=lambda item: (item[0].account,
-                                            item[0].units.currency,
-                                            item[1]))
+    sorted_items = sorted(
+        postings_map.items(),
+        key=lambda item: (item[0].account, item[0].units.currency, item[1]),
+    )
 
     # Issue the merged postings.
     for posting, number in sorted_items:
         units = Amount(number, posting.units.currency)
         new_entry.postings.append(
-            data.Posting(posting.account, units, posting.cost, posting.price,
-                         posting.flag, posting.meta))
+            data.Posting(
+                posting.account,
+                units,
+                posting.cost,
+                posting.price,
+                posting.flag,
+                posting.meta,
+            )
+        )
 
     return new_entry
 </code></pre>
@@ -1500,12 +1349,42 @@ beancount.ops.documents.DocumentError            (<span title="tuple">tuple</spa
 
     <div class="doc doc-contents ">
 
-      <p>DocumentError(source, message, entry)</p>
+      <p>Error encountered during document processing.</p>
 
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>source</code></td>
+        <td><code>dict[str, Any]</code></td>
+        <td><p>Source metadata for the error</p></td>
+      </tr>
+      <tr>
+        <td><code>message</code></td>
+        <td><code>str</code></td>
+        <td><p>Error message string</p></td>
+      </tr>
+      <tr>
+        <td><code>entry</code></td>
+        <td><code>beancount.core.data.Document | None</code></td>
+        <td><p>The related entry that caused the error</p></td>
+      </tr>
+  </tbody>
+</table>
 
 
 
   <div class="doc doc-children">
+
+
+
 
 
 
@@ -1563,38 +1442,6 @@ beancount.ops.documents.DocumentError            (<span title="tuple">tuple</spa
 
       <p>Create new instance of DocumentError(source, message, entry)</p>
 
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h4 id="beancount.ops.documents.DocumentError.__replace__" class="doc doc-heading">
-<code class="highlight language-python">beancount.ops.documents.DocumentError.__replace__(/, self, **kwds)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-<a href="#beancount.ops.documents.DocumentError.__replace__" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Return a new DocumentError object replacing specified fields with new values</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/ops/documents.py</code></summary>
-          <pre class="highlight"><code class="language-python">def _replace(self, /, **kwds):
-    result = self._make(_map(kwds.pop, field_names, self))
-    if kwds:
-        raise TypeError(f'Got unexpected field names: {list(kwds)!r}')
-    return result
-</code></pre>
-        </details>
     </div>
 
   </div>
@@ -1724,40 +1571,49 @@ of new errors generated.</p></li>
     # file itself.
     if not path.isabs(directory):
         input_directory = path.dirname(input_filename)
-        directory = path.abspath(path.normpath(path.join(input_directory,
-                                                         directory)))
+        directory = path.abspath(path.normpath(path.join(input_directory, directory)))
 
     # If the directory does not exist, just generate an error and return.
     if not path.exists(directory):
         meta = data.new_metadata(input_filename, 0)
         error = DocumentError(
-            meta, "Document root '{}' does not exist".format(directory), None)
+            meta, "Document root '{}' does not exist".format(directory), None
+        )
         return ([], [error])
 
     # Walk the hierarchy of files.
     entries = []
     for root, account_name, dirs, files in account.walk(directory):
-
         # Look for files that have a dated filename.
         for filename in files:
-            match = re.match(r'(\d\d\d\d)-(\d\d)-(\d\d).(.*)', filename)
+            match = re.match(r"(\d\d\d\d)-(\d\d)-(\d\d).(.*)", filename)
             if not match:
                 continue
 
             # If a restricting set of accounts was specified, skip document
             # directives found in accounts with no corresponding account name.
-            if accounts_only is not None and not account_name in accounts_only:
+            if accounts_only is not None and account_name not in accounts_only:
                 if strict:
                     if any(account_name.startswith(account) for account in accounts_only):
-                        errors.append(DocumentError(
-                            data.new_metadata(input_filename, 0),
-                            "Document '{}' found in child account {}".format(
-                                filename, account_name), None))
+                        errors.append(
+                            DocumentError(
+                                data.new_metadata(input_filename, 0),
+                                "Document '{}' found in child account {}".format(
+                                    filename, account_name
+                                ),
+                                None,
+                            )
+                        )
                     elif any(account.startswith(account_name) for account in accounts_only):
-                        errors.append(DocumentError(
-                            data.new_metadata(input_filename, 0),
-                            "Document '{}' found in parent account {}".format(
-                                filename, account_name), None))
+                        errors.append(
+                            DocumentError(
+                                data.new_metadata(input_filename, 0),
+                                "Document '{}' found in parent account {}".format(
+                                    filename, account_name
+                                ),
+                                None,
+                            )
+                        )
                 continue
 
             # Create a new directive.
@@ -1765,13 +1621,22 @@ of new errors generated.</p></li>
             try:
                 date = datetime.date(*map(int, match.group(1, 2, 3)))
             except ValueError as exc:
-                errors.append(DocumentError(
-                    data.new_metadata(input_filename, 0),
-                    "Invalid date on document file '{}': {}".format(
-                        filename, exc), None))
+                errors.append(
+                    DocumentError(
+                        data.new_metadata(input_filename, 0),
+                        "Invalid date on document file '{}': {}".format(filename, exc),
+                        None,
+                    )
+                )
             else:
-                entry = data.Document(meta, date, account_name, path.join(root, filename),
-                                      data.EMPTY_SET, data.EMPTY_SET)
+                entry = data.Document(
+                    meta,
+                    date,
+                    account_name,
+                    path.join(root, filename),
+                    data.EMPTY_SET,
+                    data.EMPTY_SET,
+                )
                 entries.append(entry)
 
     return (entries, errors)
@@ -1852,7 +1717,7 @@ generated during the process of creating document directives.</p></li>
     # Detect filenames that should convert into entries.
     autodoc_entries = []
     autodoc_errors = []
-    document_dirs = options_map['documents']
+    document_dirs = options_map["documents"]
     if document_dirs:
         # Restrict to the list of valid accounts only.
         accounts = getters.get_accounts(entries)
@@ -1940,9 +1805,10 @@ generated during the process of creating document directives.</p></li>
             continue
         if not path.exists(entry.filename):
             errors.append(
-                DocumentError(entry.meta,
-                              'File does not exist: "{}"'.format(entry.filename),
-                              entry))
+                DocumentError(
+                    entry.meta, 'File does not exist: "{}"'.format(entry.filename), entry
+                )
+            )
     return entries, errors
 </code></pre>
         </details>
@@ -2079,8 +1945,9 @@ at a particular date, based on previous history.</p>
     # Create currency pairs from the currencies which are on account balances.
     # In order to figure out the quote currencies, we use the list of price
     # conversions until this date.
-    converted = (find_currencies_converted(entries, date) |
-                 find_currencies_priced(entries, date))
+    converted = find_currencies_converted(entries, date) | find_currencies_priced(
+        entries, date
+    )
     for cbase in currencies_on_books:
         for base_quote in converted:
             base, quote = base_quote
@@ -2519,8 +2386,10 @@ to be distinct, to allow a gap.</p></li>
     Returns:
       A new dict of lifetimes map where some intervals may have been joined.
     """
-    return {currency_pair: compress_intervals_days(intervals, num_days)
-            for currency_pair, intervals in lifetimes_map.items()}
+    return {
+        currency_pair: compress_intervals_days(intervals, num_days)
+        for currency_pair, intervals in lifetimes_map.items()
+    }
 </code></pre>
         </details>
     </div>
@@ -2618,7 +2487,8 @@ was seen; the end/last dates are one day <em>after</em> the last date seen.</p><
         # occur very frequently.
         if commodities_changed:
             new_commodities = set(
-                itertools.chain(*(inv.currency_pairs() for inv in balances.values())))
+                itertools.chain(*(inv.currency_pairs() for inv in balances.values()))
+            )
             if new_commodities != commodities:
                 # The new global set of commodities has changed; update our
                 # the dictionary of intervals.
@@ -2721,7 +2591,7 @@ get_commodity_lifetimes().</p></li>
         for date_begin, date_end in intervals:
             # Find first Weekday starting on or before minimum date.
             date = date_begin
-            if(weekdays_only):
+            if weekdays_only:
                 diff_days = 4 - date_begin.weekday()
                 if diff_days &lt; 0:
                     date += datetime.timedelta(days=diff_days)
@@ -2904,22 +2774,17 @@ Useful in update-style price fetching.</p>
     """
     new_intervals = []
     iter_intervals = iter(intervals)
-    if(trim_start is not None and
-       trim_end is not None and
-       trim_end &lt; trim_start):
-        raise ValueError('Trim end date is before start date')
+    if trim_start is not None and trim_end is not None and trim_end &lt; trim_start:
+        raise ValueError("Trim end date is before start date")
 
     for date_begin, date_end in iter_intervals:
-        if(trim_start is not None and
-           trim_start &gt; date_begin):
+        if trim_start is not None and trim_start &gt; date_begin:
             date_begin = trim_start
-        if(trim_end is not None):
-            if(date_end is None or
-               trim_end &lt; date_end):
+        if trim_end is not None:
+            if date_end is None or trim_end &lt; date_end:
                 date_end = trim_end
 
-        if(date_end is None or
-           date_begin &lt;= date_end):
+        if date_end is None or date_begin &lt;= date_end:
             new_intervals.append((date_begin, date_end))
     return new_intervals
 </code></pre>
@@ -2984,12 +2849,15 @@ beancount.ops.pad.PadError            (<span title="tuple">tuple</span>)
 
     <div class="doc doc-contents ">
 
-      <p>PadError(source, message, entry)</p>
+      <p>Represents an error encountered during padding.</p>
 
 
 
 
   <div class="doc doc-children">
+
+
+
 
 
 
@@ -3047,38 +2915,6 @@ beancount.ops.pad.PadError            (<span title="tuple">tuple</span>)
 
       <p>Create new instance of PadError(source, message, entry)</p>
 
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h4 id="beancount.ops.pad.PadError.__replace__" class="doc doc-heading">
-<code class="highlight language-python">beancount.ops.pad.PadError.__replace__(/, self, **kwds)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-<a href="#beancount.ops.pad.PadError.__replace__" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Return a new PadError object replacing specified fields with new values</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/ops/pad.py</code></summary>
-          <pre class="highlight"><code class="language-python">def _replace(self, /, **kwds):
-    result = self._make(_map(kwds.pop, field_names, self))
-    if kwds:
-        raise TypeError(f'Got unexpected field names: {list(kwds)!r}')
-    return result
-</code></pre>
-        </details>
     </div>
 
   </div>
@@ -3218,7 +3054,6 @@ errors produced.</p></li>
 
     # Process each account that has a padding group.
     for account_, pad_list in sorted(pad_dict.items()):
-
         # Last encountered / currency active pad entry.
         active_pad = None
 
@@ -3235,7 +3070,6 @@ errors produced.</p></li>
 
         pad_balance = inventory.Inventory()
         for entry in postings:
-
             assert not isinstance(entry, data.Posting)
             if isinstance(entry, data.TxnPosting):
                 # This is a transaction; update the running balance for this
@@ -3269,42 +3103,71 @@ errors produced.</p></li>
                     # Pad only if pad entry is active and we haven't already
                     # padded that lot since it was last encountered.
                     if active_pad and (check_amount.currency not in padded_lots):
-
                         # Note: we decide that it's an error to try to pad
                         # positions at cost; we check here that all the existing
                         # positions with that currency have no cost.
-                        positions = [pos
-                                     for pos in pad_balance.get_positions()
-                                     if pos.units.currency == check_amount.currency]
+                        positions = [
+                            pos
+                            for pos in pad_balance.get_positions()
+                            if pos.units.currency == check_amount.currency
+                        ]
                         for position_ in positions:
                             if position_.cost is not None:
                                 pad_errors.append(
-                                    PadError(entry.meta,
-                                             ("Attempt to pad an entry with cost for "
-                                              "balance: {}".format(pad_balance)),
-                                             active_pad))
+                                    PadError(
+                                        entry.meta,
+                                        (
+                                            "Attempt to pad an entry with cost for "
+                                            "balance: {}".format(pad_balance)
+                                        ),
+                                        active_pad,
+                                    )
+                                )
 
                         # Thus our padding lot is without cost by default.
                         diff_position = position.Position.from_amounts(
-                            amount.Amount(check_amount.number - balance_amount.number,
-                                          check_amount.currency))
+                            amount.Amount(
+                                check_amount.number - balance_amount.number,
+                                check_amount.currency,
+                            )
+                        )
 
                         # Synthesize a new transaction entry for the difference.
-                        narration = ('(Padding inserted for Balance of {} for '
-                                     'difference {})').format(check_amount, diff_position)
+                        narration = (
+                            "(Padding inserted for Balance of {} for difference {})"
+                        ).format(check_amount, diff_position)
                         new_entry = data.Transaction(
-                            active_pad.meta.copy(), active_pad.date, flags.FLAG_PADDING,
-                            None, narration, data.EMPTY_SET, data.EMPTY_SET, [])
+                            active_pad.meta.copy(),
+                            active_pad.date,
+                            flags.FLAG_PADDING,
+                            None,
+                            narration,
+                            data.EMPTY_SET,
+                            data.EMPTY_SET,
+                            [],
+                        )
 
                         new_entry.postings.append(
-                            data.Posting(active_pad.account,
-                                         diff_position.units, diff_position.cost,
-                                         None, None, {}))
+                            data.Posting(
+                                active_pad.account,
+                                diff_position.units,
+                                diff_position.cost,
+                                None,
+                                None,
+                                entry.meta,
+                            )
+                        )
                         neg_diff_position = -diff_position
                         new_entry.postings.append(
-                            data.Posting(active_pad.source_account,
-                                         neg_diff_position.units, neg_diff_position.cost,
-                                         None, None, {}))
+                            data.Posting(
+                                active_pad.source_account,
+                                neg_diff_position.units,
+                                neg_diff_position.cost,
+                                None,
+                                None,
+                                entry.meta,
+                            )
+                        )
 
                         # Save it for later insertion after the active pad.
                         new_entries[id(active_pad)].append(new_entry)
@@ -3313,7 +3176,8 @@ errors produced.</p></li>
                         pos, _ = pad_balance.add_position(diff_position)
                         if pos is not None and pos.is_negative_at_cost():
                             raise ValueError(
-                                "Position held at cost goes negative: {}".format(pos))
+                                "Position held at cost goes negative: {}".format(pos)
+                            )
 
                 # Mark this lot as padded. Further checks should not pad this lot.
                 padded_lots.add(check_amount.currency)
@@ -3328,8 +3192,7 @@ errors produced.</p></li>
                 padded_entries.extend(entry_list)
             else:
                 # Generate errors on unused pad entries.
-                pad_errors.append(
-                    PadError(entry.meta, "Unused Pad entry", entry))
+                pad_errors.append(PadError(entry.meta, "Unused Pad entry", entry))
 
     return padded_entries, pad_errors
 </code></pre>
@@ -3408,11 +3271,11 @@ total amount of that account.</p>
       <th class="field-name">Parameters:</th>
       <td class="field-body">
         <ul class="first simple">
-            <li><p><strong>entries</strong> – A list of directives.</p></li>
-            <li><p><strong>date</strong> – An optional datetime.date instance. If provided, stop accumulating
+            <li><p><strong>entries</strong> (<code>Directives</code>) – A list of directives.</p></li>
+            <li><p><strong>date</strong> (<code>datetime.date | None</code>) – An optional datetime.date instance. If provided, stop accumulating
 on and after this date. This is useful for summarization before a
 specific date.</p></li>
-            <li><p><strong>compress_unbooked</strong> – For accounts that have a booking method of NONE,
+            <li><p><strong>compress_unbooked</strong> (<code>bool</code>) – For accounts that have a booking method of NONE,
 compress their positions into a single average position. This can be
 used when you export the full list of positions, because those accounts
 will have a myriad of small positions from fees at negative cost and
@@ -3432,7 +3295,7 @@ what-not.</p></li>
     <th class="field-name">Returns:</th>
     <td class="field-body">
         <ul class="first simple">
-          <li><p>A pair of a dict of account string to instance Inventory (the balance of
+          <li><p><code>tuple[dict[Account, inventory.Inventory], int]</code> – A pair of a dict of account string to instance Inventory (the balance of
 this account before the given date), and the index in the list of entries
 where the date was encountered. If all entries are located before the
 cutoff date, an index one beyond the last entry is returned.</p></li>
@@ -3443,7 +3306,11 @@ cutoff date, an index one beyond the last entry is returned.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python">def balance_by_account(entries, date=None, compress_unbooked=False):
+          <pre class="highlight"><code class="language-python">def balance_by_account(
+    entries: Directives,
+    date: datetime.date | None = None,
+    compress_unbooked: bool = False,
+) -&gt; tuple[dict[Account, inventory.Inventory], int]:
     """Sum up the balance per account for all entries strictly before 'date'.
 
     Args:
@@ -3463,7 +3330,9 @@ cutoff date, an index one beyond the last entry is returned.</p></li>
       cutoff date, an index one beyond the last entry is returned.
 
     """
-    balances = collections.defaultdict(inventory.Inventory)
+    balances: dict[Account, inventory.Inventory] = collections.defaultdict(
+        inventory.Inventory
+    )
     for index, entry in enumerate(entries):
         if date and entry.date &gt;= date:
             break
@@ -3538,13 +3407,13 @@ balance of precisely zero.</p>
       <th class="field-name">Parameters:</th>
       <td class="field-body">
         <ul class="first simple">
-            <li><p><strong>entries</strong> – A list of directives.</p></li>
-            <li><p><strong>account_types</strong> – An instance of AccountTypes.</p></li>
-            <li><p><strong>conversion_currency</strong> – A string, the transfer currency to use for zero prices
+            <li><p><strong>entries</strong> (<code>Directives</code>) – A list of directives.</p></li>
+            <li><p><strong>account_types</strong> (<code>AccountTypes</code>) – An instance of AccountTypes.</p></li>
+            <li><p><strong>conversion_currency</strong> (<code>Currency</code>) – A string, the transfer currency to use for zero prices
 on the conversion entry.</p></li>
-            <li><p><strong>account_earnings</strong> – A string, the name of the equity account to transfer
+            <li><p><strong>account_earnings</strong> (<code>Account</code>) – A string, the name of the equity account to transfer
 final balances of the income and expense accounts to.</p></li>
-            <li><p><strong>account_conversions</strong> – A string, the name of the equity account to use as
+            <li><p><strong>account_conversions</strong> (<code>Account</code>) – A string, the name of the equity account to use as
 the source for currency conversions.</p></li>
         </ul>
       </td>
@@ -3561,7 +3430,7 @@ the source for currency conversions.</p></li>
     <th class="field-name">Returns:</th>
     <td class="field-body">
         <ul class="first simple">
-          <li><p>A modified list of entries, with the income and expense accounts
+          <li><p><code>Directives</code> – A modified list of entries, with the income and expense accounts
 transferred.</p></li>
         </ul>
     </td>
@@ -3570,11 +3439,13 @@ transferred.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python">def cap(entries,
-        account_types,
-        conversion_currency,
-        account_earnings,
-        account_conversions):
+          <pre class="highlight"><code class="language-python">def cap(
+    entries: Directives,
+    account_types: AccountTypes,
+    conversion_currency: Currency,
+    account_earnings: Account,
+    account_conversions: Account,
+) -&gt; Directives:
     """Transfer net income to equity and insert a final conversion entry.
 
     This is used to move and nullify balances from the income and expense
@@ -3597,11 +3468,12 @@ transferred.</p></li>
 
     # Transfer the balances of income and expense accounts as earnings / net
     # income.
-    income_statement_account_pred = (
-        lambda account: is_income_statement_account(account, account_types))
-    entries = transfer_balances(entries, None,
-                                income_statement_account_pred,
-                                account_earnings)
+    income_statement_account_pred = lambda account: is_income_statement_account(
+        account, account_types
+    )
+    entries = transfer_balances(
+        entries, None, income_statement_account_pred, account_earnings
+    )
 
     # Insert final conversion entries.
     entries = conversions(entries, account_conversions, conversion_currency, None)
@@ -3640,8 +3512,8 @@ transferred.</p></li>
       <th class="field-name">Parameters:</th>
       <td class="field-body">
         <ul class="first simple">
-            <li><p><strong>entries</strong> – See cap().</p></li>
-            <li><p><strong>options_map</strong> – A parser's option_map.</p></li>
+            <li><p><strong>entries</strong> (<code>Directives</code>) – See cap().</p></li>
+            <li><p><strong>options_map</strong> (<code>OptionsMap</code>) – A parser's option_map.</p></li>
         </ul>
       </td>
     </tr>
@@ -3657,7 +3529,7 @@ transferred.</p></li>
     <th class="field-name">Returns:</th>
     <td class="field-body">
         <ul class="first simple">
-          <li><p>Same as close().</p></li>
+          <li><p><code>Directives</code> – Same as close().</p></li>
         </ul>
     </td>
     </tr>
@@ -3665,7 +3537,7 @@ transferred.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python">def cap_opt(entries, options_map):
+          <pre class="highlight"><code class="language-python">def cap_opt(entries: Directives, options_map: OptionsMap) -&gt; Directives:
     """Close by getting all the parameters from an options map.
 
     See cap() for details.
@@ -3678,11 +3550,8 @@ transferred.</p></li>
     """
     account_types = options.get_account_types(options_map)
     current_accounts = options.get_current_accounts(options_map)
-    conversion_currency = options_map['conversion_currency']
-    return cap(entries,
-               account_types,
-               conversion_currency,
-               *current_accounts)
+    conversion_currency = options_map["conversion_currency"]
+    return cap(entries, account_types, conversion_currency, *current_accounts)
 </code></pre>
         </details>
     </div>
@@ -3727,20 +3596,20 @@ resulting balance of all account should be empty.</p>
       <th class="field-name">Parameters:</th>
       <td class="field-body">
         <ul class="first simple">
-            <li><p><strong>entries</strong> – A list of directive tuples.</p></li>
-            <li><p><strong>begin_date</strong> – A datetime.date instance, the beginning of the period.</p></li>
-            <li><p><strong>end_date</strong> – A datetime.date instance, one day beyond the end of the period.</p></li>
-            <li><p><strong>account_types</strong> – An instance of AccountTypes.</p></li>
-            <li><p><strong>conversion_currency</strong> – A string, the transfer currency to use for zero prices
+            <li><p><strong>entries</strong> (<code>Directives</code>) – A list of directive tuples.</p></li>
+            <li><p><strong>begin_date</strong> (<code>datetime.date</code>) – A datetime.date instance, the beginning of the period.</p></li>
+            <li><p><strong>end_date</strong> (<code>datetime.date</code>) – A datetime.date instance, one day beyond the end of the period.</p></li>
+            <li><p><strong>account_types</strong> (<code>AccountTypes</code>) – An instance of AccountTypes.</p></li>
+            <li><p><strong>conversion_currency</strong> (<code>Currency</code>) – A string, the transfer currency to use for zero prices
 on the conversion entry.</p></li>
-            <li><p><strong>account_earnings</strong> – A string, the name of the account to transfer
+            <li><p><strong>account_earnings</strong> (<code>Account</code>) – A string, the name of the account to transfer
 previous earnings from the income statement accounts to the balance
 sheet.</p></li>
-            <li><p><strong>account_opening</strong> – A string, the name of the account in equity
+            <li><p><strong>account_opening</strong> (<code>Account</code>) – A string, the name of the account in equity
 to transfer previous balances from, in order to initialize account
 balances at the beginning of the period. This is typically called an
 opening balances account.</p></li>
-            <li><p><strong>account_conversions</strong> – A string, the name of the equity account to
+            <li><p><strong>account_conversions</strong> (<code>Account</code>) – A string, the name of the equity account to
 book currency conversions against.</p></li>
         </ul>
       </td>
@@ -3768,13 +3637,16 @@ sheet fed with only the summarized entries.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python">def clamp(entries,
-          begin_date, end_date,
-          account_types,
-          conversion_currency,
-          account_earnings,
-          account_opening,
-          account_conversions):
+          <pre class="highlight"><code class="language-python">def clamp(
+    entries: Directives,
+    begin_date: datetime.date,
+    end_date: datetime.date,
+    account_types: AccountTypes,
+    conversion_currency: Currency,
+    account_earnings: Account,
+    account_opening: Account,
+    account_conversions: Account,
+):
     """Filter entries to include only those during a specified time period.
 
     Firstly, this method will transfer all balances for the income and expense
@@ -3814,10 +3686,12 @@ sheet fed with only the summarized entries.</p></li>
       sheet fed with only the summarized entries.
     """
     # Transfer income and expenses before the period to equity.
-    income_statement_account_pred = (
-        lambda account: is_income_statement_account(account, account_types))
-    entries = transfer_balances(entries, begin_date,
-                                income_statement_account_pred, account_earnings)
+    income_statement_account_pred = lambda account: is_income_statement_account(
+        account, account_types
+    )
+    entries = transfer_balances(
+        entries, begin_date, income_statement_account_pred, account_earnings
+    )
 
     # Summarize all the previous balances, after transferring the income and
     # expense balances, so all entries for those accounts before the begin date
@@ -3864,10 +3738,10 @@ sheet fed with only the summarized entries.</p></li>
       <th class="field-name">Parameters:</th>
       <td class="field-body">
         <ul class="first simple">
-            <li><p><strong>entries</strong> – See clamp().</p></li>
-            <li><p><strong>begin_date</strong> – See clamp().</p></li>
-            <li><p><strong>end_date</strong> – See clamp().</p></li>
-            <li><p><strong>options_map</strong> – A parser's option_map.</p></li>
+            <li><p><strong>entries</strong> (<code>Directives</code>) – See clamp().</p></li>
+            <li><p><strong>begin_date</strong> (<code>datetime.date</code>) – See clamp().</p></li>
+            <li><p><strong>end_date</strong> (<code>datetime.date</code>) – See clamp().</p></li>
+            <li><p><strong>options_map</strong> (<code>OptionsMap</code>) – A parser's option_map.</p></li>
         </ul>
       </td>
     </tr>
@@ -3883,7 +3757,7 @@ sheet fed with only the summarized entries.</p></li>
     <th class="field-name">Returns:</th>
     <td class="field-body">
         <ul class="first simple">
-          <li><p>Same as clamp().</p></li>
+          <li><p><code>tuple[Directives, int]</code> – Same as clamp().</p></li>
         </ul>
     </td>
     </tr>
@@ -3891,7 +3765,12 @@ sheet fed with only the summarized entries.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python">def clamp_opt(entries, begin_date, end_date, options_map):
+          <pre class="highlight"><code class="language-python">def clamp_opt(
+    entries: Directives,
+    begin_date: datetime.date,
+    end_date: datetime.date,
+    options_map: OptionsMap,
+) -&gt; tuple[Directives, int]:
     """Clamp by getting all the parameters from an options map.
 
     See clamp() for details.
@@ -3908,13 +3787,17 @@ sheet fed with only the summarized entries.</p></li>
     previous_earnings, previous_balances, _ = options.get_previous_accounts(options_map)
     _, current_conversions = options.get_current_accounts(options_map)
 
-    conversion_currency = options_map['conversion_currency']
-    return clamp(entries, begin_date, end_date,
-                 account_types,
-                 conversion_currency,
-                 previous_earnings,
-                 previous_balances,
-                 current_conversions)
+    conversion_currency = options_map["conversion_currency"]
+    return clamp(
+        entries,
+        begin_date,
+        end_date,
+        account_types,
+        conversion_currency,
+        previous_earnings,
+        previous_balances,
+        current_conversions,
+    )
 </code></pre>
         </details>
     </div>
@@ -3949,12 +3832,12 @@ accounts by transferring them to an equity account.</p>
       <th class="field-name">Parameters:</th>
       <td class="field-body">
         <ul class="first simple">
-            <li><p><strong>entries</strong> – A list of directive tuples.</p></li>
-            <li><p><strong>date</strong> – A datetime.date instance, one day beyond the end of the period. This
+            <li><p><strong>entries</strong> (<code>Directives</code>) – A list of directive tuples.</p></li>
+            <li><p><strong>date</strong> (<code>datetime.date</code>) – A datetime.date instance, one day beyond the end of the period. This
 date can be optionally left to None in order to close at the end of the
 list of entries.</p></li>
-            <li><p><strong>account_types</strong> – An instance of AccountTypes.</p></li>
-            <li><p><strong>account_earnings</strong> – A string, the name of the account to transfer
+            <li><p><strong>account_types</strong> (<code>AccountTypes</code>) – An instance of AccountTypes.</p></li>
+            <li><p><strong>account_earnings</strong> (<code>Account</code>) – A string, the name of the account to transfer
 previous earnings from the income statement accounts to the balance
 sheet.</p></li>
         </ul>
@@ -3972,7 +3855,7 @@ sheet.</p></li>
     <th class="field-name">Returns:</th>
     <td class="field-body">
         <ul class="first simple">
-          <li><p>A new list of entries is returned, and the index that points to one before
+          <li><p><code>tuple[Directives, int]</code> – A new list of entries is returned, and the index that points to one before
 the last original transaction before the transfers.</p></li>
         </ul>
     </td>
@@ -3981,10 +3864,12 @@ the last original transaction before the transfers.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python">def clear(entries,
-          date,
-          account_types,
-          account_earnings):
+          <pre class="highlight"><code class="language-python">def clear(
+    entries: Directives,
+    date: datetime.date,
+    account_types: AccountTypes,
+    account_earnings: Account,
+) -&gt; tuple[Directives, int]:
     """Transfer income and expenses balances at the given date to the equity accounts.
 
     This method insert entries to zero out balances on income and expenses
@@ -4006,10 +3891,12 @@ the last original transaction before the transfers.</p></li>
     index = len(entries)
 
     # Transfer income and expenses before the period to equity.
-    income_statement_account_pred = (
-        lambda account: is_income_statement_account(account, account_types))
-    new_entries = transfer_balances(entries, date,
-                                    income_statement_account_pred, account_earnings)
+    income_statement_account_pred = lambda account: is_income_statement_account(
+        account, account_types
+    )
+    new_entries = transfer_balances(
+        entries, date, income_statement_account_pred, account_earnings
+    )
 
     return new_entries, index
 </code></pre>
@@ -4036,9 +3923,10 @@ the last original transaction before the transfers.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python">def clear_opt(entries, date, options_map):
-    """Convenience function to clear() using an options map.
-    """
+          <pre class="highlight"><code class="language-python">def clear_opt(
+    entries: Directives, date: datetime.date, options_map: OptionsMap
+) -&gt; tuple[Directives, int]:
+    """Convenience function to clear() using an options map."""
     account_types = options.get_account_types(options_map)
     current_accounts = options.get_current_accounts(options_map)
     return clear(entries, date, account_types, current_accounts[0])
@@ -4088,13 +3976,13 @@ balance sheet, use transfer() to move the net income to the equity accounts.</p>
       <th class="field-name">Parameters:</th>
       <td class="field-body">
         <ul class="first simple">
-            <li><p><strong>entries</strong> – A list of directive tuples.</p></li>
-            <li><p><strong>date</strong> – A datetime.date instance, one day beyond the end of the period. This
+            <li><p><strong>entries</strong> (<code>Directives</code>) – A list of directive tuples.</p></li>
+            <li><p><strong>date</strong> (<code>datetime.date</code>) – A datetime.date instance, one day beyond the end of the period. This
 date can be optionally left to None in order to close at the end of the
 list of entries.</p></li>
-            <li><p><strong>conversion_currency</strong> – A string, the transfer currency to use for zero prices
+            <li><p><strong>conversion_currency</strong> (<code>Currency</code>) – A string, the transfer currency to use for zero prices
 on the conversion entry.</p></li>
-            <li><p><strong>account_conversions</strong> – A string, the name of the equity account to
+            <li><p><strong>account_conversions</strong> (<code>Account</code>) – A string, the name of the equity account to
 book currency conversions against.</p></li>
         </ul>
       </td>
@@ -4111,7 +3999,7 @@ book currency conversions against.</p></li>
     <th class="field-name">Returns:</th>
     <td class="field-body">
         <ul class="first simple">
-          <li><p>A new list of entries is returned, and the index that points to one beyond
+          <li><p><code>tuple[Directives, int]</code> – A new list of entries is returned, and the index that points to one beyond
 the last original transaction that was provided. Further entries may have
 been inserted to normalize conversions and ensure the total balance sums
 to zero.</p></li>
@@ -4122,10 +4010,12 @@ to zero.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python">def close(entries,
-          date,
-          conversion_currency,
-          account_conversions):
+          <pre class="highlight"><code class="language-python">def close(
+    entries: Directives,
+    date: datetime.date,
+    conversion_currency: Currency,
+    account_conversions: Account,
+) -&gt; tuple[Directives, int]:
     """Truncate entries that occur after a particular date and ensure balance.
 
     This method essentially removes entries after a date. It truncates the
@@ -4192,10 +4082,11 @@ to zero.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python">def close_opt(entries, date, options_map):
-    """Convenience function to close() using an options map.
-    """
-    conversion_currency = options_map['conversion_currency']
+          <pre class="highlight"><code class="language-python">def close_opt(
+    entries: Directives, date: datetime.date, options_map: OptionsMap
+) -&gt; tuple[Directives, int]:
+    """Convenience function to close() using an options map."""
+    conversion_currency = options_map["conversion_currency"]
     current_accounts = options.get_current_accounts(options_map)
     return close(entries, date, conversion_currency, current_accounts[1])
 </code></pre>
@@ -4230,11 +4121,11 @@ to zero.</p></li>
       <th class="field-name">Parameters:</th>
       <td class="field-body">
         <ul class="first simple">
-            <li><p><strong>entries</strong> – A list of entries.</p></li>
-            <li><p><strong>conversion_account</strong> – A string, the account to book against.</p></li>
-            <li><p><strong>conversion_currency</strong> – A string, the transfer currency to use for zero prices
+            <li><p><strong>entries</strong> (<code>Directives</code>) – A list of entries.</p></li>
+            <li><p><strong>conversion_account</strong> (<code>Account</code>) – A string, the account to book against.</p></li>
+            <li><p><strong>conversion_currency</strong> (<code>Currency</code>) – A string, the transfer currency to use for zero prices
 on the conversion entry.</p></li>
-            <li><p><strong>date</strong> – The date before which to insert the conversion entry. The new
+            <li><p><strong>date</strong> (<code>datetime.date | None</code>) – The date before which to insert the conversion entry. The new
 entry will be inserted as the last entry of the date just previous
 to this date.</p></li>
         </ul>
@@ -4252,7 +4143,7 @@ to this date.</p></li>
     <th class="field-name">Returns:</th>
     <td class="field-body">
         <ul class="first simple">
-          <li><p>A modified list of entries.</p></li>
+          <li><p><code>Directives</code> – A modified list of entries.</p></li>
         </ul>
     </td>
     </tr>
@@ -4260,7 +4151,12 @@ to this date.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python">def conversions(entries, conversion_account, conversion_currency, date=None):
+          <pre class="highlight"><code class="language-python">def conversions(
+    entries: Directives,
+    conversion_account: Account,
+    conversion_currency: Currency,
+    date: datetime.date | None = None,
+) -&gt; Directives:
     """Insert a conversion entry at date 'date' at the given account.
 
     Args:
@@ -4291,10 +4187,18 @@ to this date.</p></li>
         index = len(entries)
         last_date = entries[-1].date
 
-    meta = data.new_metadata('&lt;conversions&gt;', -1)
-    narration = 'Conversion for {}'.format(conversion_balance)
-    conversion_entry = Transaction(meta, last_date, flags.FLAG_CONVERSIONS,
-                                   None, narration, data.EMPTY_SET, data.EMPTY_SET, [])
+    meta = data.new_metadata("&lt;conversions&gt;", -1)
+    narration = "Conversion for {}".format(conversion_balance)
+    conversion_entry = Transaction(
+        meta,
+        last_date,
+        flags.FLAG_CONVERSIONS,
+        None,
+        narration,
+        data.EMPTY_SET,
+        data.EMPTY_SET,
+        [],
+    )
     for position in conversion_cost_balance.get_positions():
         # Important note: Set the cost to zero here to maintain the balance
         # invariant. (This is the only single place we cheat on the balance rule
@@ -4303,8 +4207,8 @@ to this date.</p></li>
         price = amount.Amount(ZERO, conversion_currency)
         neg_pos = -position
         conversion_entry.postings.append(
-            data.Posting(conversion_account, neg_pos.units, neg_pos.cost,
-                         price, None, None))
+            data.Posting(conversion_account, neg_pos.units, neg_pos.cost, price, None, None)
+        )
 
     # Make a copy of the list of entries and insert the new transaction into it.
     new_entries = list(entries)
@@ -4349,16 +4253,16 @@ posting with this position on one leg, and with 5000 USD on the
       <th class="field-name">Parameters:</th>
       <td class="field-body">
         <ul class="first simple">
-            <li><p><strong>balances</strong> – A dict of account name strings to Inventory instances.</p></li>
-            <li><p><strong>date</strong> – A datetime.date object, the date at which to create the transaction.</p></li>
-            <li><p><strong>source_account</strong> – A string, the name of the account to pull the balances
+            <li><p><strong>balances</strong> (<code>dict[Account, inventory.Inventory]</code>) – A dict of account name strings to Inventory instances.</p></li>
+            <li><p><strong>date</strong> (<code>datetime.date</code>) – A datetime.date object, the date at which to create the transaction.</p></li>
+            <li><p><strong>source_account</strong> (<code>Account</code>) – A string, the name of the account to pull the balances
 from. This is the magician's hat to pull the rabbit from.</p></li>
-            <li><p><strong>direction</strong> – If 'direction' is True, the new entries transfer TO the
+            <li><p><strong>direction</strong> (<code>bool</code>) – If 'direction' is True, the new entries transfer TO the
 balances account from the source account; otherwise the new entries
 transfer FROM the balances into the source account.</p></li>
-            <li><p><strong>meta</strong> – A dict to use as metadata for the transactions.</p></li>
-            <li><p><strong>flag</strong> – A string, the flag to use for the transactions.</p></li>
-            <li><p><strong>narration_template</strong> – A format string for creating the narration. It is
+            <li><p><strong>meta</strong> (<code>data.Meta</code>) – A dict to use as metadata for the transactions.</p></li>
+            <li><p><strong>flag</strong> (<code>data.Flag</code>) – A string, the flag to use for the transactions.</p></li>
+            <li><p><strong>narration_template</strong> (<code>str</code>) – A format string for creating the narration. It is
 formatted with 'account' and 'date' replacement variables.</p></li>
         </ul>
       </td>
@@ -4375,7 +4279,7 @@ formatted with 'account' and 'date' replacement variables.</p></li>
     <th class="field-name">Returns:</th>
     <td class="field-body">
         <ul class="first simple">
-          <li><p>A list of newly synthesizes Transaction entries.</p></li>
+          <li><p><code>Directives</code> – A list of newly synthesizes Transaction entries.</p></li>
         </ul>
     </td>
     </tr>
@@ -4383,9 +4287,16 @@ formatted with 'account' and 'date' replacement variables.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python">def create_entries_from_balances(balances, date, source_account, direction,
-                                 meta, flag, narration_template):
-    """"Create a list of entries from a dict of balances.
+          <pre class="highlight"><code class="language-python">def create_entries_from_balances(
+    balances: dict[Account, inventory.Inventory],
+    date: datetime.date,
+    source_account: Account,
+    direction: bool,
+    meta: data.Meta,
+    flag: data.Flag,
+    narration_template: str,
+) -&gt; Directives:
+    """ "Create a list of entries from a dict of balances.
 
     This method creates a list of new entries to transfer the amounts in the
     'balances' dict to/from another account specified in 'source_account'.
@@ -4410,9 +4321,8 @@ formatted with 'account' and 'date' replacement variables.</p></li>
     Returns:
       A list of newly synthesizes Transaction entries.
     """
-    new_entries = []
+    new_entries: Directives = []
     for account, account_balance in sorted(balances.items()):
-
         # Don't create new entries where there is no balance.
         if account_balance.is_empty():
             continue
@@ -4422,16 +4332,17 @@ formatted with 'account' and 'date' replacement variables.</p></li>
         if not direction:
             account_balance = -account_balance
 
-        postings = []
+        postings: list[data.Posting] = []
         new_entry = Transaction(
-            meta, date, flag, None, narration, data.EMPTY_SET, data.EMPTY_SET, postings)
+            meta, date, flag, None, narration, data.EMPTY_SET, data.EMPTY_SET, postings
+        )
 
         for position in account_balance.get_positions():
-            postings.append(data.Posting(account, position.units, position.cost,
-                                         None, None, None))
+            postings.append(
+                data.Posting(account, position.units, position.cost, None, None, None)
+            )
             cost = -convert.get_cost(position)
-            postings.append(data.Posting(source_account, cost, None,
-                                         None, None, None))
+            postings.append(data.Posting(source_account, cost, None, None, None, None))
 
         new_entries.append(new_entry)
 
@@ -4470,8 +4381,8 @@ date, in the same order they were observed in the document.</p>
       <th class="field-name">Parameters:</th>
       <td class="field-body">
         <ul class="first simple">
-            <li><p><strong>entries</strong> – A list of directives.</p></li>
-            <li><p><strong>date</strong> – The date at which to look for an open entry. If not specified, will
+            <li><p><strong>entries</strong> (<code>Directives</code>) – A list of directives.</p></li>
+            <li><p><strong>date</strong> (<code>datetime.date</code>) – The date at which to look for an open entry. If not specified, will
 return the entries still open at the latest date.</p></li>
         </ul>
       </td>
@@ -4488,7 +4399,7 @@ return the entries still open at the latest date.</p></li>
     <th class="field-name">Returns:</th>
     <td class="field-body">
         <ul class="first simple">
-          <li><p>A list of Open directives.</p></li>
+          <li><p><code>list[Open]</code> – A list of Open directives.</p></li>
         </ul>
     </td>
     </tr>
@@ -4496,7 +4407,7 @@ return the entries still open at the latest date.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python">def get_open_entries(entries, date):
+          <pre class="highlight"><code class="language-python">def get_open_entries(entries: Directives, date: datetime.date) -&gt; list[Open]:
     """Gather the list of active Open entries at date.
 
     This returns the list of Open entries that have not been closed at the given
@@ -4509,7 +4420,7 @@ return the entries still open at the latest date.</p></li>
     Returns:
       A list of Open directives.
     """
-    open_entries = {}
+    open_entries: dict[Account, tuple[int, Open]] = {}
     for index, entry in enumerate(entries):
         if date is not None and entry.date &gt;= date:
             break
@@ -4583,19 +4494,19 @@ for only the opening balances.</p>
       <th class="field-name">Parameters:</th>
       <td class="field-body">
         <ul class="first simple">
-            <li><p><strong>entries</strong> – A list of directive tuples.</p></li>
-            <li><p><strong>date</strong> – A datetime.date instance, the date at which to do this.</p></li>
-            <li><p><strong>account_types</strong> – An instance of AccountTypes.</p></li>
-            <li><p><strong>conversion_currency</strong> – A string, the transfer currency to use for zero prices
+            <li><p><strong>entries</strong> (<code>Directives</code>) – A list of directive tuples.</p></li>
+            <li><p><strong>date</strong> (<code>datetime.date</code>) – A datetime.date instance, the date at which to do this.</p></li>
+            <li><p><strong>account_types</strong> (<code>AccountTypes</code>) – An instance of AccountTypes.</p></li>
+            <li><p><strong>conversion_currency</strong> (<code>Currency</code>) – A string, the transfer currency to use for zero prices
 on the conversion entry.</p></li>
-            <li><p><strong>account_earnings</strong> – A string, the name of the account to transfer
+            <li><p><strong>account_earnings</strong> (<code>Account</code>) – A string, the name of the account to transfer
 previous earnings from the income statement accounts to the balance
 sheet.</p></li>
-            <li><p><strong>account_opening</strong> – A string, the name of the account in equity
+            <li><p><strong>account_opening</strong> (<code>Account</code>) – A string, the name of the account in equity
 to transfer previous balances from, in order to initialize account
 balances at the beginning of the period. This is typically called an
 opening balances account.</p></li>
-            <li><p><strong>account_conversions</strong> – A string, the name of the equity account to
+            <li><p><strong>account_conversions</strong> (<code>Account</code>) – A string, the name of the equity account to
 book currency conversions against.</p></li>
         </ul>
       </td>
@@ -4612,7 +4523,7 @@ book currency conversions against.</p></li>
     <th class="field-name">Returns:</th>
     <td class="field-body">
         <ul class="first simple">
-          <li><p>A new list of entries is returned, and the index that points to the first
+          <li><p><code>tuple[Directives, int]</code> – A new list of entries is returned, and the index that points to the first
 original transaction after the beginning date of the period. This index
 can be used to generate the opening balances report, which is a balance
 sheet fed with only the summarized entries.</p></li>
@@ -4623,13 +4534,15 @@ sheet fed with only the summarized entries.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python">def open(entries,
-         date,
-         account_types,
-         conversion_currency,
-         account_earnings,
-         account_opening,
-         account_conversions):
+          <pre class="highlight"><code class="language-python">def open(
+    entries: Directives,
+    date: datetime.date,
+    account_types: AccountTypes,
+    conversion_currency: Currency,
+    account_earnings: Account,
+    account_opening: Account,
+    account_conversions: Account,
+) -&gt; tuple[Directives, int]:
     """Summarize entries before a date and transfer income/expenses to equity.
 
     This method essentially prepares a list of directives to contain only
@@ -4712,12 +4625,13 @@ sheet fed with only the summarized entries.</p></li>
 
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python">def open_opt(entries, date, options_map):
-    """Convenience function to open() using an options map.
-    """
+          <pre class="highlight"><code class="language-python">def open_opt(
+    entries: Directives, date: datetime.date, options_map: OptionsMap
+) -&gt; tuple[Directives, int]:
+    """Convenience function to open() using an options map."""
     account_types = options.get_account_types(options_map)
     previous_accounts = options.get_previous_accounts(options_map)
-    conversion_currency = options_map['conversion_currency']
+    conversion_currency = options_map["conversion_currency"]
     return open(entries, date, account_types, conversion_currency, *previous_accounts)
 </code></pre>
         </details>
@@ -4759,9 +4673,9 @@ replaced by a few summarization entries, one for each account.</p>
       <th class="field-name">Parameters:</th>
       <td class="field-body">
         <ul class="first simple">
-            <li><p><strong>entries</strong> – A list of directives.</p></li>
-            <li><p><strong>date</strong> – A datetime.date instance, the cutoff date before which to summarize.</p></li>
-            <li><p><strong>account_opening</strong> – A string, the name of the source account to book summarization
+            <li><p><strong>entries</strong> (<code>Directives</code>) – A list of directives.</p></li>
+            <li><p><strong>date</strong> (<code>datetime.date</code>) – A datetime.date instance, the cutoff date before which to summarize.</p></li>
+            <li><p><strong>account_opening</strong> (<code>Account</code>) – A string, the name of the source account to book summarization
 entries against.</p></li>
         </ul>
       </td>
@@ -4778,7 +4692,7 @@ entries against.</p></li>
     <th class="field-name">Returns:</th>
     <td class="field-body">
         <ul class="first simple">
-          <li><p>The function returns a list of new entries and the integer index at which
+          <li><p><code>tuple[Directives, int]</code> – The function returns a list of new entries and the integer index at which
 the entries on or after the cutoff date begin.</p></li>
         </ul>
     </td>
@@ -4787,7 +4701,9 @@ the entries on or after the cutoff date begin.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python">def summarize(entries, date, account_opening):
+          <pre class="highlight"><code class="language-python">def summarize(
+    entries: Directives, date: datetime.date, account_opening: Account
+) -&gt; tuple[Directives, int]:
     """Summarize all entries before a date by replacing then with summarization entries.
 
     This function replaces the transactions up to (and not including) the given
@@ -4818,9 +4734,14 @@ the entries on or after the cutoff date begin.</p></li>
 
     # Create summarization / opening balance entries.
     summarizing_entries = create_entries_from_balances(
-        balances, summarize_date, account_opening, True,
-        data.new_metadata('&lt;summarize&gt;', 0), flags.FLAG_SUMMARIZE,
-        "Opening balance for '{account}' (Summarization)")
+        balances,
+        summarize_date,
+        account_opening,
+        True,
+        data.new_metadata("&lt;summarize&gt;", 0),
+        flags.FLAG_SUMMARIZE,
+        "Opening balance for '{account}' (Summarization)",
+    )
 
     # Insert the last price entry for each commodity from before the date.
     price_entries = prices.get_last_price_entries(entries, date)
@@ -4829,8 +4750,9 @@ the entries on or after the cutoff date begin.</p></li>
     open_entries = get_open_entries(entries, date)
 
     # Compute entries before the date and preserve the entries after the date.
-    before_entries = sorted(open_entries + price_entries + summarizing_entries,
-                            key=data.entry_sortkey)
+    before_entries = sorted(
+        open_entries + price_entries + summarizing_entries, key=data.entry_sortkey
+    )
     after_entries = entries[index:]
 
     # Return a new list of entries and the index that points after the entries
@@ -4877,11 +4799,11 @@ output.</p>
       <th class="field-name">Parameters:</th>
       <td class="field-body">
         <ul class="first simple">
-            <li><p><strong>entries</strong> – A list of directives.</p></li>
-            <li><p><strong>date</strong> – A datetime.date instance, the date at which to make the transfer.</p></li>
-            <li><p><strong>account_pred</strong> – A predicate function that, given an account string, returns
+            <li><p><strong>entries</strong> (<code>Directives</code>) – A list of directives.</p></li>
+            <li><p><strong>date</strong> (<code>datetime.date | None</code>) – A datetime.date instance, the date at which to make the transfer.</p></li>
+            <li><p><strong>account_pred</strong> (<code>Callable[[Account], bool]</code>) – A predicate function that, given an account string, returns
 true if the account is meant to be transferred.</p></li>
-            <li><p><strong>transfer_account</strong> – A string, the name of the source account to be used on
+            <li><p><strong>transfer_account</strong> (<code>Account</code>) – A string, the name of the source account to be used on
 the transfer entries to receive balances at the given date.</p></li>
         </ul>
       </td>
@@ -4898,7 +4820,7 @@ the transfer entries to receive balances at the given date.</p></li>
     <th class="field-name">Returns:</th>
     <td class="field-body">
         <ul class="first simple">
-          <li><p>A new list of entries, with the new transfer entries added in.</p></li>
+          <li><p><code>Directives</code> – A new list of entries, with the new transfer entries added in.</p></li>
         </ul>
     </td>
     </tr>
@@ -4906,7 +4828,12 @@ the transfer entries to receive balances at the given date.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python">def transfer_balances(entries, date, account_pred, transfer_account):
+          <pre class="highlight"><code class="language-python">def transfer_balances(
+    entries: Directives,
+    date: datetime.date | None,
+    account_pred: Callable[[Account], bool],
+    transfer_account: Account,
+) -&gt; Directives:
     """Synthesize transactions to transfer balances from some accounts at a given date.
 
     For all accounts that match the 'account_pred' predicate, create new entries
@@ -4938,9 +4865,9 @@ the transfer entries to receive balances at the given date.</p></li>
     balances, index = balance_by_account(entries, date)
 
     # Filter out to keep only the accounts we want.
-    transfer_balances = {account: balance
-                         for account, balance in balances.items()
-                         if account_pred(account)}
+    transfer_balances = {
+        account: balance for account, balance in balances.items() if account_pred(account)
+    }
 
     # We need to insert the entries at the end of the previous day.
     if date:
@@ -4950,19 +4877,25 @@ the transfer entries to receive balances at the given date.</p></li>
 
     # Create transfer entries.
     transfer_entries = create_entries_from_balances(
-        transfer_balances, transfer_date, transfer_account, False,
-        data.new_metadata('&lt;transfer_balances&gt;', 0), flags.FLAG_TRANSFER,
-        "Transfer balance for '{account}' (Transfer balance)")
+        transfer_balances,
+        transfer_date,
+        transfer_account,
+        False,
+        data.new_metadata("&lt;transfer_balances&gt;", 0),
+        flags.FLAG_TRANSFER,
+        "Transfer balance for '{account}' (Transfer balance)",
+    )
 
     # Remove balance assertions that occur after a transfer on an account that
     # has been transferred away; they would break.
-    after_entries = [entry
-                     for entry in entries[index:]
-                     if not (isinstance(entry, data.Balance) and
-                             entry.account in transfer_balances)]
+    after_entries = [
+        entry
+        for entry in entries[index:]
+        if not (isinstance(entry, data.Balance) and entry.account in transfer_balances)
+    ]
 
     # Split the new entries in a new list.
-    return (entries[:index] + transfer_entries + after_entries)
+    return entries[:index] + transfer_entries + after_entries
 </code></pre>
         </details>
     </div>
@@ -4995,8 +4928,8 @@ the transfer entries to receive balances at the given date.</p></li>
       <th class="field-name">Parameters:</th>
       <td class="field-body">
         <ul class="first simple">
-            <li><p><strong>entries</strong> – A sorted list of directives.</p></li>
-            <li><p><strong>date</strong> – A datetime.date instance.</p></li>
+            <li><p><strong>entries</strong> (<code>Directives</code>) – A sorted list of directives.</p></li>
+            <li><p><strong>date</strong> (<code>datetime.date</code>) – A datetime.date instance.</p></li>
         </ul>
       </td>
     </tr>
@@ -5012,7 +4945,7 @@ the transfer entries to receive balances at the given date.</p></li>
     <th class="field-name">Returns:</th>
     <td class="field-body">
         <ul class="first simple">
-          <li><p>A truncated list of directives.</p></li>
+          <li><p><code>Directives</code> – A truncated list of directives.</p></li>
         </ul>
     </td>
     </tr>
@@ -5020,7 +4953,7 @@ the transfer entries to receive balances at the given date.</p></li>
 </table>
         <details class="quote">
           <summary>Source code in <code>beancount/ops/summarize.py</code></summary>
-          <pre class="highlight"><code class="language-python">def truncate(entries, date):
+          <pre class="highlight"><code class="language-python">def truncate(entries: Directives, date: datetime.date) -&gt; Directives:
     """Filter out all the entries at and after date. Returns a new list of entries.
 
     Args:
@@ -5029,8 +4962,7 @@ the transfer entries to receive balances at the given date.</p></li>
     Returns:
       A truncated list of directives.
     """
-    index = bisect_key.bisect_left_with_key(entries, date,
-                                            key=lambda entry: entry.date)
+    index = bisect_key.bisect_left_with_key(entries, date, key=lambda entry: entry.date)
     return entries[:index]
 </code></pre>
         </details>
@@ -5103,12 +5035,15 @@ beancount.ops.validation.ValidationError            (<span title="tuple">tuple</
 
     <div class="doc doc-contents ">
 
-      <p>ValidationError(source, message, entry)</p>
+      <p>An error from one of the checks.</p>
 
 
 
 
   <div class="doc doc-children">
+
+
+
 
 
 
@@ -5166,38 +5101,6 @@ beancount.ops.validation.ValidationError            (<span title="tuple">tuple</
 
       <p>Create new instance of ValidationError(source, message, entry)</p>
 
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-method">
-
-
-
-<h4 id="beancount.ops.validation.ValidationError.__replace__" class="doc doc-heading">
-<code class="highlight language-python">beancount.ops.validation.ValidationError.__replace__(/, self, **kwds)</code>
-
-  <span class="doc doc-properties">
-      <small class="doc doc-property doc-property-special"><code>special</code></small>
-  </span>
-
-<a href="#beancount.ops.validation.ValidationError.__replace__" class="headerlink" title="Permanent link"></a></h4>
-
-    <div class="doc doc-contents ">
-
-      <p>Return a new ValidationError object replacing specified fields with new values</p>
-
-        <details class="quote">
-          <summary>Source code in <code>beancount/ops/validation.py</code></summary>
-          <pre class="highlight"><code class="language-python">def _replace(self, /, **kwds):
-    result = self._make(_map(kwds.pop, field_names, self))
-    if kwds:
-        raise TypeError(f'Got unexpected field names: {list(kwds)!r}')
-    return result
-</code></pre>
-        </details>
     </div>
 
   </div>
@@ -5318,8 +5221,9 @@ this list of entries.</p></li>
     # Run various validation routines define above.
     errors = []
     for validation_function in validation_tests:
-        with misc_utils.log_time('function: {}'.format(validation_function.__name__),
-                                 log_timings, indent=2):
+        with misc_utils.log_time(
+            "function: {}".format(validation_function.__name__), log_timings, indent=2
+        ):
             new_errors = validation_function(entries, options_map)
         errors.extend(new_errors)
 
@@ -5426,8 +5330,7 @@ transaction entries, given the same date.</p>
                 if account not in active_set:
                     # Allow document and note directives that occur after an
                     # account is closed.
-                    if (isinstance(entry, ALLOW_AFTER_CLOSE) and
-                        account in opened_accounts):
+                    if isinstance(entry, ALLOW_AFTER_CLOSE) and account in opened_accounts:
                         continue
 
                     # Register an error to be logged later, with an appropriate
@@ -5532,9 +5435,12 @@ transformed transactions.</p>
             tolerances = interpolate.infer_tolerances(entry.postings, options_map)
             if not residual.is_small(tolerances):
                 errors.append(
-                    ValidationError(entry.meta,
-                                    "Transaction does not balance: {}".format(residual),
-                                    entry))
+                    ValidationError(
+                        entry.meta,
+                        "Transaction does not balance: {}".format(residual),
+                        entry,
+                    )
+                )
 
     return errors
 </code></pre>
@@ -5614,9 +5520,11 @@ commodities.</p>
     """
 
     # Get all the open entries with currency constraints.
-    open_map = {entry.account: entry
-                for entry in entries
-                if isinstance(entry, Open) and entry.currencies}
+    open_map = {
+        entry.account: entry
+        for entry in entries
+        if isinstance(entry, Open) and entry.currencies
+    }
 
     errors = []
     for entry in entries:
@@ -5640,8 +5548,11 @@ commodities.</p>
                     ValidationError(
                         entry.meta,
                         "Invalid currency {} for account '{}'".format(
-                            posting.units.currency, posting.account),
-                        entry))
+                            posting.units.currency, posting.account
+                        ),
+                        entry,
+                    )
+                )
 
     return errors
 </code></pre>
@@ -5723,12 +5634,12 @@ This routine checks all the data types and assumptions on entries.</p>
     for entry in entries:
         try:
             data.sanity_check_types(
-                entry, options_map["allow_deprecated_none_for_tags_and_links"])
+                entry, options_map["allow_deprecated_none_for_tags_and_links"]
+            )
         except AssertionError as exc:
             errors.append(
-                ValidationError(entry.meta,
-                                "Invalid data types: {}".format(exc),
-                                entry))
+                ValidationError(entry.meta, "Invalid data types: {}".format(exc), entry)
+            )
     return errors
 </code></pre>
         </details>
@@ -5803,10 +5714,11 @@ make sure we don't have to do any further processing on them.</p>
     Returns:
       A list of new errors, if any were found.
     """
-    return [ValidationError(entry.meta, "Invalid relative path for entry", entry)
-            for entry in entries
-            if (isinstance(entry, Document) and
-                not path.isabs(entry.filename))]
+    return [
+        ValidationError(entry.meta, "Invalid relative path for entry", entry)
+        for entry in entries
+        if (isinstance(entry, Document) and not path.isabs(entry.filename))
+    ]
 </code></pre>
         </details>
     </div>
@@ -5898,7 +5810,9 @@ however, because this may occur during import.</p>
                     ValidationError(
                         entry.meta,
                         "Duplicate balance assertion with different amounts",
-                        entry))
+                        entry,
+                    )
+                )
         except KeyError:
             balance_entries[key] = entry
 
@@ -5985,7 +5899,9 @@ however, because this may occur during import.</p>
                     ValidationError(
                         entry.meta,
                         "Duplicate commodity directives for '{}'".format(key),
-                        entry))
+                        entry,
+                    )
+                )
         except KeyError:
             commodity_entries[key] = entry
 
@@ -6086,14 +6002,15 @@ however, because this may occur during import.</p>
     open_map = {}
     close_map = {}
     for entry in entries:
-
         if isinstance(entry, Open):
             if entry.account in open_map:
                 errors.append(
                     ValidationError(
                         entry.meta,
                         "Duplicate open directive for {}".format(entry.account),
-                        entry))
+                        entry,
+                    )
+                )
             else:
                 open_map[entry.account] = entry
 
@@ -6103,7 +6020,9 @@ however, because this may occur during import.</p>
                     ValidationError(
                         entry.meta,
                         "Duplicate close directive for {}".format(entry.account),
-                        entry))
+                        entry,
+                    )
+                )
             else:
                 try:
                     open_entry = open_map[entry.account]
@@ -6113,13 +6032,17 @@ however, because this may occur during import.</p>
                                 entry.meta,
                                 "Internal error: closing date for {} "
                                 "appears before opening date".format(entry.account),
-                                entry))
+                                entry,
+                            )
+                        )
                 except KeyError:
                     errors.append(
                         ValidationError(
                             entry.meta,
                             "Unopened account {} is being closed".format(entry.account),
-                            entry))
+                            entry,
+                        )
+                    )
 
                 close_map[entry.account] = entry
 
