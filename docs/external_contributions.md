@@ -120,6 +120,12 @@ This document contains only packages that were discussed or have had an announce
 
 [<u>Ev2geny/evbeantools</u>](https://github.com/Ev2geny/evbeantools): This tool makes it possible to explain changes in the Net Worth between any two dates in a situation of multi-currency / multi-commodity ledger with changing exchange rates and transfers of funds from one commodity to another (both cost and not cost-based tracked). This is achieved by creating a converted / equivalent ledger, on which further analysis can be done using beanquery.
 
+[<u>d-k-c/bean-acb</u>](https://github.com/d-k-c/bean-acb) (Damien Riegel): A script that helps with tracking the Adjusted Cost Base (ACB) for a property. This rule is used in Canada to compute the capital gain that must be declared when disposing of a property.
+
+[<u>tesujimath/bean-sort</u>](https://github.com/tesujimath/bean-sort) (Simon Guest) : bean-sort is a naive sorting utility for Beancount files. It is naive in that it makes no attempt to parse the file, simply splitting on date fields.
+
+Beanquick ([<u>https://twobitsware.com/beanquick</u>](https://twobitsware.com/beanquick)): A macOS app providing three ways to enter transactions, from guided forms to fast syntax.
+
 ## AI Tools<a id="ai-tools"></a>
 
 [<u>vanto/beanquery-mcp</u>](https://github.com/vanto/beanquery-mcp) (Tammo van Lessen): An experimental MCP server for beanquery as a demo with Claude to handle BQL. [<u>screenshot</u>](https://github.com/vanto/beanquery-mcp/blob/main/docs/screenshot-expanded.png). (This is a PoC, and you should be careful which data you want to share with which LLM.)
