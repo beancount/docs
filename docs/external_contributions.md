@@ -126,6 +126,12 @@ This document contains only packages that were discussed or have had an announce
 
 Beanquick ([<u>https://twobitsware.com/beanquick</u>](https://twobitsware.com/beanquick)): A macOS app providing three ways to enter transactions, from guided forms to fast syntax.
 
+[<u>paulsc/fava-edit-replay</u>](https://github.com/paulsc/fava-edit-replay) (Paul S): This extension allows you to apply bulk edits to multiple Beancount transactions at once, save edit operations (a combination of search filters and a diff) as "replays" that can be applied later, filter transactions by account, time period, or custom filters, suggests filters based on last modified transaction.
+
+[<u>alensiljak/ledger2bql</u>](https://github.com/alensiljak/ledger2bql) (Alen Šiljak): ledger-style queries for Beancount.
+
+[<u>bean-inquiry/</u>](https://pypi.org/project/bean-inquiry/) (Oscar & Ale): Run queries with parameters.
+
 ## AI Tools<a id="ai-tools"></a>
 
 [<u>vanto/beanquery-mcp</u>](https://github.com/vanto/beanquery-mcp) (Tammo van Lessen): An experimental MCP server for beanquery as a demo with Claude to handle BQL. [<u>screenshot</u>](https://github.com/vanto/beanquery-mcp/blob/main/docs/screenshot-expanded.png). (This is a PoC, and you should be careful which data you want to share with which LLM.)
@@ -209,6 +215,10 @@ The Beancount v3 parser uses [<u>RE/flex</u>](https://www.genivia.com/doc/reflex
 [<u>AmmarShaqeel/maybank-importer</u>](https://github.com/AmmarShaqeel/maybank-importer) (Ammar Shaqeel): Importer for PDF statements from Maybank (Malaysia).
 
 [<u>AmmarShaqeel/rajhi-importer</u>](https://github.com/AmmarShaqeel/rajhi-importer) (Ammar Shaqeel): Importer for PDF statements from Rajhi (Saudi Arabia).
+
+[<u>redstreet/beancount\_reds\_importers//amazon</u>](https://github.com/redstreet/beancount_reds_importers/tree/main/beancount_reds_importers/importers/amazon) (Redstreet): Beancount Reds Importers for processing your Amazon GDPR data export.
+
+[<u>tarioch/beancounttools</u>](https://github.com/tarioch/beancounttools/): importer for [<u>AwardWallet</u>](https://awardwallet.com/) which has a (free) API and integrates ~460 loyalty programmes for airlines, car rental, shopping and others.
 
 ## Converters<a id="converters"></a>
 
