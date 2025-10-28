@@ -74,6 +74,8 @@ This document contains only packages that were discussed or have had an announce
 
 [<u>Evernight/beancount-plugin-tax-uk</u>](https://github.com/Evernight/beancount-plugin-tax-uk/) (Vasily M): A plugin for Beancount that generates UK tax reports for capital gains, dividends and other investment income.
 
+[<u>beancount\_reds\_plugins/…/box\_accrual</u>](https://github.com/redstreet/beancount_reds_plugins/tree/main/beancount_reds_plugins/box_accrual) (Redstreet): Automatically prorate synthetic loan (box spread) capital losses across calendar years, creating accurate annual accrual entries for reporting.
+
 ## Tools<a id="tools"></a>
 
 [<u>alfred-beancount</u>](https://github.com/blaulan/alfred-beancount) (Yue Wu): An add-on to the “Alfred” macOS tool to quickly enter transactions in one’s Beancount file. Supports full account names and payees match.
@@ -134,7 +136,11 @@ Beanquick ([<u>https://twobitsware.com/beanquick</u>](https://twobitsware.com/be
 
 ## AI Tools<a id="ai-tools"></a>
 
+### MCP Servers<a id="mcp-servers"></a>
+
 [<u>vanto/beanquery-mcp</u>](https://github.com/vanto/beanquery-mcp) (Tammo van Lessen): An experimental MCP server for beanquery as a demo with Claude to handle BQL. [<u>screenshot</u>](https://github.com/vanto/beanquery-mcp/blob/main/docs/screenshot-expanded.png). (This is a PoC, and you should be careful which data you want to share with which LLM.)
+
+[<u>StdioA/beancount-mcp</u>](https://github.com/StdioA/beancount-mcp) (David Dai): A Beancount MCP server which can execute beancount query, and submit (a) transaction to the ledger.
 
 ## Alternative Parsers<a id="alternative-parsers"></a>
 
