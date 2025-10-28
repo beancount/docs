@@ -128,6 +128,10 @@
     <li class="toctree-l3"><a class="reference internal" href="#tools">Tools</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#ai-tools">AI Tools</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#mcp-servers">MCP Servers</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#alternative-parsers">Alternative Parsers</a>
         <ul>
@@ -299,6 +303,7 @@
 <p><a href="https://github.com/redstreet/beancount_reds_plugins/tree/main/beancount_reds_plugins/autoclose_tree"><u>Autoclose_tree</u></a>: Automatically closes all of an account's descendants when an account is closed.</p>
 <p><a href="https://github.com/Evernight/beancount-valuation"><u>Evernight/beancount-valuation</u></a> (Vasily M) : A Beancount plugin to track total value of the opaque fund. You can use it instead of the balance operation to assert total value of the account. If the value of the account is currently different, it will instead alter price of the underlying synthetical commodity created by the plugin used for technical purposes.</p>
 <p><a href="https://github.com/Evernight/beancount-plugin-tax-uk/"><u>Evernight/beancount-plugin-tax-uk</u></a> (Vasily M): A plugin for Beancount that generates UK tax reports for capital gains, dividends and other investment income.</p>
+<p><a href="https://github.com/redstreet/beancount_reds_plugins/tree/main/beancount_reds_plugins/box_accrual"><u>beancount_reds_plugins/…/box_accrual</u></a> (Redstreet): Automatically prorate synthetic loan (box spread) capital losses across calendar years, creating accurate annual accrual entries for reporting.</p>
 <h2 id="tools">Tools<a id="tools"></a><a class="headerlink" href="#tools" title="Permanent link"></a></h2>
 <p><a href="https://github.com/blaulan/alfred-beancount"><u>alfred-beancount</u></a> (Yue Wu): An add-on to the “Alfred” macOS tool to quickly enter transactions in one’s Beancount file. Supports full account names and payees match.</p>
 <p><a href="https://github.com/simon-v/bean-add"><u>bean-add</u></a> (Simon Volpert): A Beancount transaction entry assistant.</p>
@@ -329,7 +334,9 @@
 <p><a href="https://github.com/alensiljak/ledger2bql"><u>alensiljak/ledger2bql</u></a> (Alen Šiljak): ledger-style queries for Beancount.</p>
 <p><a href="https://pypi.org/project/bean-inquiry/"><u>bean-inquiry/</u></a> (Oscar &amp; Ale): Run queries with parameters.</p>
 <h2 id="ai-tools">AI Tools<a id="ai-tools"></a><a class="headerlink" href="#ai-tools" title="Permanent link"></a></h2>
+<h3 id="mcp-servers">MCP Servers<a id="mcp-servers"></a><a class="headerlink" href="#mcp-servers" title="Permanent link"></a></h3>
 <p><a href="https://github.com/vanto/beanquery-mcp"><u>vanto/beanquery-mcp</u></a> (Tammo van Lessen): An experimental MCP server for beanquery as a demo with Claude to handle BQL. <a href="https://github.com/vanto/beanquery-mcp/blob/main/docs/screenshot-expanded.png"><u>screenshot</u></a>. (This is a PoC, and you should be careful which data you want to share with which LLM.)</p>
+<p><a href="https://github.com/StdioA/beancount-mcp"><u>StdioA/beancount-mcp</u></a> (David Dai): A Beancount MCP server which can execute beancount query, and submit (a) transaction to the ledger.</p>
 <h2 id="alternative-parsers">Alternative Parsers<a id="alternative-parsers"></a><a class="headerlink" href="#alternative-parsers" title="Permanent link"></a></h2>
 <h3 id="bison">Bison<a id="bison"></a><a class="headerlink" href="#bison" title="Permanent link"></a></h3>
 <p>The Beancount v2 parser uses GNU flex + GNU bison (for maximum portability).</p>
