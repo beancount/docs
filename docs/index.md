@@ -92,8 +92,6 @@
 
 *Documents, links, blog entries, writings, etc. about Beancount written by other authors.\]*
 
-[<u>Beancount Source Code Documentation</u>](http://aumayr.github.io/beancount-docs-static/) (Dominik Aumayr): Sphinx-generated source code documentation of the Beancount codebase. The code to produce this is [<u>located here</u>](https://github.com/aumayr/beancount-docs).
-
 [<u>Beancount ou la comptabilité pour les hackers</u>](http://blog.deguet.fr/beancount-comptabilite-pour-hackers/) (Cyril Deguet): An overview blog entry (in french).
 
 ## V3 Documentation<a id="v3-documentation"></a>
