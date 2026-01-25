@@ -90,7 +90,7 @@
 
 ## External Links<a id="external-links"></a>
 
-*Documents, links, blog entries, writings, etc. about Beancount written by other authors.\]*
+*Documents, links, blog entries, writings, etc. about Beancount written by other authors.*
 
 [<u>Beancount ou la comptabilité pour les hackers</u>](http://blog.deguet.fr/beancount-comptabilite-pour-hackers/) (Cyril Deguet): An overview blog entry (in french).
 
