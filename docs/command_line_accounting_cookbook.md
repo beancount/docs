@@ -342,7 +342,7 @@ The 401k plan allows you to make contributions to a tax-deferred retirement acco
       Assets:US:Vanguard:Cash               1000.00 USD
       … 
 
-If you’re accounting for your available contributions (see the tax section of this document), you will want to reduce your “401k contribution” *Assets* account at the same time. You would add two more postings to the transaction:
+If you’re accounting for your available contributions, you will want to reduce your “401k contribution” *Assets* account at the same time. You would add two more postings to the transaction:
 
     2014-02-28 * "HOOLI INC       PAYROLL"
       Assets:US:BofA:Checking                       3364.67 USD
@@ -358,7 +358,7 @@ If your employer matches your contributions, this may not show on your pay stubs
       Income:US:Hooli:Match401k           -1173.08 USD
       Assets:US:Vanguard:Cash              1173.08 USD
 
-And then insert a second transaction when you invest this case, or directly purchasing assets from the contribution if you have specified an asset allocation and this is automated by the broker:
+And then insert a second transaction when you invest this cash, or directly purchasing assets from the contribution if you have specified an asset allocation and this is automated by the broker:
 
     2013-03-16 * "BUYMF - MATCH"
       Income:US:Hooli:Match401k    -1173.08 USD

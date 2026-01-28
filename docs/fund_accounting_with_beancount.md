@@ -141,6 +141,12 @@ For me, this approach to fund accounting is appealing because it relies on and p
 
 *(Carl)* Here is an example of how I might try to handle things associated with my paycheck, which involves deferred compensation (403(b) -- extremely similar to a 401(k)) and a Flexible Spending Account (somewhat similar to an HSA which has been discussed previously on the ledger-cli group).
 
+*(L. Maganti via Johannes H)* This example shows how two funds (for a husband and wife) were be setup with shared source data and individual views for husband, wife, and family.
+
+-   [<u>https://lalitm.com/post/one-number-i-trust</u>](https://lalitm.com/post/one-number-i-trust)
+
+-   [<u>https://github.com/LalitMaganti/beancount-blog-examples/tree/main/chapter-6</u>](https://github.com/LalitMaganti/beancount-blog-examples/tree/main/chapter-6)
+
 ### Without Funds<a id="without-funds"></a>
 
 (Carl) First, without Funds (this passes a bean-check):

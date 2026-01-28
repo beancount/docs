@@ -34,6 +34,8 @@ This document contains only packages that were discussed or have had an announce
 
 [<u>Multiperiod hledger-Style Reports in beancount: Pivoting a Table | Altynbek Isabekov</u>](https://www.isabekov.pro/multiperiod-hledger-style-reports-in-beancount-pivoting-a-table/) : An article showing how to produce pivot table summaries of account balances, e.g. by year, with [<u>associated code (github)</u>](https://github.com/isabekov/beancount-multiperiod-reports).
 
+[<u>One Number I Trust: Plain-Text Accounting for a Multi-Currency Household - Lalit Maganti</u>](https://lalitm.com/post/one-number-i-trust/) - an article documenting various examples of DEB usage.
+
 ## Plugins<a id="plugins"></a>
 
 [<u>split\_transactions</u>](https://www.google.com/url?q=https%3A%2F%2Fgist.github.com%2Fkljohann%2Faebac3f0146680fd9aa5&sa=D&sntz=1&usg=AFQjCNGn2AkL35onTeXgOQzLzkjVpvLcpg): Johann Klähn [<u>wrote a plugin</u>](https://groups.google.com/d/msg/beancount/z9sPboW4U3c/1qIIzro4zFoJ) that can split a single transaction into many against a limbo account, as would be done for depreciation.
@@ -141,6 +143,10 @@ Beanquick ([<u>https://twobitsware.com/beanquick</u>](https://twobitsware.com/be
 [<u>vanto/beanquery-mcp</u>](https://github.com/vanto/beanquery-mcp) (Tammo van Lessen): An experimental MCP server for beanquery as a demo with Claude to handle BQL. [<u>screenshot</u>](https://github.com/vanto/beanquery-mcp/blob/main/docs/screenshot-expanded.png). (This is a PoC, and you should be careful which data you want to share with which LLM.)
 
 [<u>StdioA/beancount-mcp</u>](https://github.com/StdioA/beancount-mcp) (David Dai): A Beancount MCP server which can execute beancount query, and submit (a) transaction to the ledger.
+
+## Alternative Implementations<a id="alternative-implementations"></a>
+
+[<u>themoritz/turbobean</u>](https://github.com/themoritz/turbobean) (Moritz Drexl): An alternative implementation of Beancount in Zig.
 
 ## Alternative Parsers<a id="alternative-parsers"></a>
 
