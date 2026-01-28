@@ -133,6 +133,8 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#alternative-implementations">Alternative Implementations</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#alternative-parsers">Alternative Parsers</a>
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#bison">Bison</a>
@@ -283,6 +285,7 @@
 <p><a href="https://lazy-beancount.xyz/"><u>Lazy Beancount</u></a> (Vasily M) / <a href="https://github.com/Evernight/lazy-beancount"><u>Evernight/lazy-beancount</u></a> : Opinionated guide on how to start (and continue) tracking personal finances using the open-source Beancount accounting system. It comes together with some code. The primary goal of this guide is to provide you a way to start managing your own finances using plain-text accounting gradually and incrementally. Also with various useful tools already included and set up.</p>
 <p><a href="https://academy.beanhub.io/"><u>The Zen of Balance — https://academy.beanhub.io/</u></a> (Fang-Pen Lin) : An explanation of double-entry accounting using visualizations and diagrams.</p>
 <p><a href="https://www.isabekov.pro/multiperiod-hledger-style-reports-in-beancount-pivoting-a-table/"><u>Multiperiod hledger-Style Reports in beancount: Pivoting a Table | Altynbek Isabekov</u></a> : An article showing how to produce pivot table summaries of account balances, e.g. by year, with <a href="https://github.com/isabekov/beancount-multiperiod-reports"><u>associated code (github)</u></a>.</p>
+<p><a href="https://lalitm.com/post/one-number-i-trust/"><u>One Number I Trust: Plain-Text Accounting for a Multi-Currency Household - Lalit Maganti</u></a> - an article documenting various examples of DEB usage.</p>
 <h2 id="plugins">Plugins<a id="plugins"></a><a class="headerlink" href="#plugins" title="Permanent link"></a></h2>
 <p><a href="https://www.google.com/url?q=https%3A%2F%2Fgist.github.com%2Fkljohann%2Faebac3f0146680fd9aa5&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGn2AkL35onTeXgOQzLzkjVpvLcpg"><u>split_transactions</u></a>: Johann Klähn <a href="https://groups.google.com/d/msg/beancount/z9sPboW4U3c/1qIIzro4zFoJ"><u>wrote a plugin</u></a> that can split a single transaction into many against a limbo account, as would be done for depreciation.</p>
 <p><a href="https://github.com/redstreet/beancount_reds_plugins"><u>zerosum</u></a>: Red S <a href="https://groups.google.com/d/msg/beancount/MU6KozsmqGQ/sehD3dqZslEJ"><u>wrote a plugin</u></a> to match up transactions that when taken together should sum up to zero and move them to a separate account.</p>
@@ -337,6 +340,8 @@
 <h3 id="mcp-servers">MCP Servers<a id="mcp-servers"></a><a class="headerlink" href="#mcp-servers" title="Permanent link"></a></h3>
 <p><a href="https://github.com/vanto/beanquery-mcp"><u>vanto/beanquery-mcp</u></a> (Tammo van Lessen): An experimental MCP server for beanquery as a demo with Claude to handle BQL. <a href="https://github.com/vanto/beanquery-mcp/blob/main/docs/screenshot-expanded.png"><u>screenshot</u></a>. (This is a PoC, and you should be careful which data you want to share with which LLM.)</p>
 <p><a href="https://github.com/StdioA/beancount-mcp"><u>StdioA/beancount-mcp</u></a> (David Dai): A Beancount MCP server which can execute beancount query, and submit (a) transaction to the ledger.</p>
+<h2 id="alternative-implementations">Alternative Implementations<a id="alternative-implementations"></a><a class="headerlink" href="#alternative-implementations" title="Permanent link"></a></h2>
+<p><a href="https://github.com/themoritz/turbobean"><u>themoritz/turbobean</u></a> (Moritz Drexl): An alternative implementation of Beancount in Zig.</p>
 <h2 id="alternative-parsers">Alternative Parsers<a id="alternative-parsers"></a><a class="headerlink" href="#alternative-parsers" title="Permanent link"></a></h2>
 <h3 id="bison">Bison<a id="bison"></a><a class="headerlink" href="#bison" title="Permanent link"></a></h3>
 <p>The Beancount v2 parser uses GNU flex + GNU bison (for maximum portability).</p>

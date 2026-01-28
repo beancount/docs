@@ -3405,7 +3405,7 @@ def from_string(string):
 
 
 <h4 id="beancount.core.amount.Amount.to_string" class="doc doc-heading">
-<code class="highlight language-python">beancount.core.amount.Amount.to_string(self, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7f6b92fccd70&gt;)</code>
+<code class="highlight language-python">beancount.core.amount.Amount.to_string(self, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7f241e3116a0&gt;)</code>
 
 
 <a href="#beancount.core.amount.Amount.to_string" class="headerlink" title="Permanent link"></a></h4>
@@ -5536,13 +5536,13 @@ expecting 'account' to have at this date.</p></td>
       </tr>
       <tr>
         <td><code>diff_amount</code></td>
-        <td><code>Optional[beancount.core.amount.Amount]</code></td>
+        <td><code>beancount.core.amount.Amount | None</code></td>
         <td><p>None if the balance check succeeds. This value is set to
 an Amount instance if the balance fails, the amount of the difference.</p></td>
       </tr>
       <tr>
         <td><code>tolerance</code></td>
-        <td><code>Optional[decimal.Decimal]</code></td>
+        <td><code>decimal.Decimal | None</code></td>
         <td><p>A Decimal object, the amount of tolerance to use in the
 verification.</p></td>
       </tr>
@@ -5552,6 +5552,7 @@ verification.</p></td>
 
 
   <div class="doc doc-children">
+
 
 
 
@@ -5754,6 +5755,7 @@ beancount.core.data.Close            (<span title="tuple">tuple</span>)
 
 
 
+
   <div class="doc doc-object doc-method">
 
 
@@ -5935,6 +5937,7 @@ let us know).</p>
 
 
   <div class="doc doc-children">
+
 
 
 
@@ -6142,6 +6145,7 @@ of the same type by the parser.)</p></td>
 
 
 
+
   <div class="doc doc-object doc-method">
 
 
@@ -6326,12 +6330,12 @@ with.</p></td>
       </tr>
       <tr>
         <td><code>tags</code></td>
-        <td><code>Optional[Set]</code></td>
+        <td><code>Set | None</code></td>
         <td><p>A set of tag strings (without the '#'), or None, if an empty set.</p></td>
       </tr>
       <tr>
         <td><code>links</code></td>
-        <td><code>Optional[Set]</code></td>
+        <td><code>Set | None</code></td>
         <td><p>A set of link strings (without the '^'), or None, if an empty set.</p></td>
       </tr>
   </tbody>
@@ -6340,6 +6344,7 @@ with.</p></td>
 
 
   <div class="doc doc-children">
+
 
 
 
@@ -6567,6 +6572,7 @@ of the transaction.</p></td>
 
 
 
+
   <div class="doc doc-object doc-method">
 
 
@@ -6768,6 +6774,7 @@ want it to.</p></td>
 
 
 
+
   <div class="doc doc-object doc-method">
 
 
@@ -6945,7 +6952,7 @@ currencies may be stored in this account.</p></td>
       </tr>
       <tr>
         <td><code>booking</code></td>
-        <td><code>Optional[beancount.core.data.Booking]</code></td>
+        <td><code>beancount.core.data.Booking | None</code></td>
         <td><p>A Booking enum, the booking method to use to disambiguate
 postings to this account (when zero or more than one postings match the
 specification), or None if not specified. In practice, this attribute will
@@ -6958,6 +6965,7 @@ Booking below for a selection of valid methods.</p></td>
 
 
   <div class="doc doc-children">
+
 
 
 
@@ -7169,6 +7177,7 @@ in order to fill 'account'.</p></td>
 
 
 
+
   <div class="doc doc-object doc-method">
 
 
@@ -7332,18 +7341,18 @@ entry field should be set to.</p>
       </tr>
       <tr>
         <td><code>units</code></td>
-        <td><code>Optional[beancount.core.amount.Amount]</code></td>
+        <td><code>beancount.core.amount.Amount | None</code></td>
         <td><p>An Amount, the units of the position, or None if it is to be
 inferred from the other postings in the transaction.</p></td>
       </tr>
       <tr>
         <td><code>cost</code></td>
-        <td><code>Union[beancount.core.position.Cost, beancount.core.position.CostSpec]</code></td>
+        <td><code>beancount.core.position.Cost | beancount.core.position.CostSpec | None</code></td>
         <td><p>A Cost or CostSpec instances, the units of the position.</p></td>
       </tr>
       <tr>
         <td><code>price</code></td>
-        <td><code>Optional[beancount.core.amount.Amount]</code></td>
+        <td><code>beancount.core.amount.Amount | None</code></td>
         <td><p>An Amount, the price at which the position took place, or
 None, where not relevant. Providing a price member to a posting
 automatically adds a price in the prices database at the date of the
@@ -7351,7 +7360,7 @@ transaction.</p></td>
       </tr>
       <tr>
         <td><code>flag</code></td>
-        <td><code>Optional[str]</code></td>
+        <td><code>str | None</code></td>
         <td><p>An optional flag, a one-character string or None, which is to be
 associated with the posting. Most postings don't have a flag, but it can
 be convenient to mark a particular posting as problematic or pending to
@@ -7359,7 +7368,7 @@ be reconciled for a future import of its account.</p></td>
       </tr>
       <tr>
         <td><code>meta</code></td>
-        <td><code>Optional[Dict[str, Any]]</code></td>
+        <td><code>Dict[str, Any] | None</code></td>
         <td><p>A dict of strings to values, the metadata that was attached
 specifically to that posting, or None, if not provided. In practice, most
 of the instances will be unlikely to have metadata.</p></td>
@@ -7370,6 +7379,7 @@ of the instances will be unlikely to have metadata.</p></td>
 
 
   <div class="doc doc-children">
+
 
 
 
@@ -7564,6 +7574,7 @@ trading system, you should probably use something else).</p>
 
 
   <div class="doc doc-children">
+
 
 
 
@@ -7774,6 +7785,7 @@ the CLOSE modifier in the shell syntax.</p></td>
 
 
 
+
   <div class="doc doc-object doc-method">
 
 
@@ -7950,7 +7962,7 @@ generated.</p></td>
       </tr>
       <tr>
         <td><code>payee</code></td>
-        <td><code>Optional[str]</code></td>
+        <td><code>str | None</code></td>
         <td><p>A free-form string that identifies the payee, or None, if absent.</p></td>
       </tr>
       <tr>
@@ -7981,6 +7993,7 @@ doc under Posting above.</p></td>
 
 
   <div class="doc doc-children">
+
 
 
 
@@ -8169,6 +8182,7 @@ realization.</p>
 
 
   <div class="doc doc-children">
+
 
 
 
@@ -8388,13 +8402,13 @@ expecting 'account' to have at this date.</p></td>
       </tr>
       <tr>
         <td><code>diff_amount</code></td>
-        <td><code>Optional[beancount.core.amount.Amount]</code></td>
+        <td><code>beancount.core.amount.Amount | None</code></td>
         <td><p>None if the balance check succeeds. This value is set to
 an Amount instance if the balance fails, the amount of the difference.</p></td>
       </tr>
       <tr>
         <td><code>tolerance</code></td>
-        <td><code>Optional[decimal.Decimal]</code></td>
+        <td><code>decimal.Decimal | None</code></td>
         <td><p>A Decimal object, the amount of tolerance to use in the
 verification.</p></td>
       </tr>
@@ -8404,6 +8418,7 @@ verification.</p></td>
 
 
   <div class="doc doc-children">
+
 
 
 
@@ -8605,6 +8620,7 @@ beancount.core.data.dtypes.Close            (<span title="tuple">tuple</span>)
 
 
 
+
   <div class="doc doc-object doc-method">
 
 
@@ -8786,6 +8802,7 @@ let us know).</p>
 
 
   <div class="doc doc-children">
+
 
 
 
@@ -8993,6 +9010,7 @@ of the same type by the parser.)</p></td>
 
 
 
+
   <div class="doc doc-object doc-method">
 
 
@@ -9177,12 +9195,12 @@ with.</p></td>
       </tr>
       <tr>
         <td><code>tags</code></td>
-        <td><code>Optional[Set]</code></td>
+        <td><code>Set | None</code></td>
         <td><p>A set of tag strings (without the '#'), or None, if an empty set.</p></td>
       </tr>
       <tr>
         <td><code>links</code></td>
-        <td><code>Optional[Set]</code></td>
+        <td><code>Set | None</code></td>
         <td><p>A set of link strings (without the '^'), or None, if an empty set.</p></td>
       </tr>
   </tbody>
@@ -9191,6 +9209,7 @@ with.</p></td>
 
 
   <div class="doc doc-children">
+
 
 
 
@@ -9418,6 +9437,7 @@ of the transaction.</p></td>
 
 
 
+
   <div class="doc doc-object doc-method">
 
 
@@ -9619,6 +9639,7 @@ want it to.</p></td>
 
 
 
+
   <div class="doc doc-object doc-method">
 
 
@@ -9796,7 +9817,7 @@ currencies may be stored in this account.</p></td>
       </tr>
       <tr>
         <td><code>booking</code></td>
-        <td><code>Optional[beancount.core.data.Booking]</code></td>
+        <td><code>beancount.core.data.Booking | None</code></td>
         <td><p>A Booking enum, the booking method to use to disambiguate
 postings to this account (when zero or more than one postings match the
 specification), or None if not specified. In practice, this attribute will
@@ -9809,6 +9830,7 @@ Booking below for a selection of valid methods.</p></td>
 
 
   <div class="doc doc-children">
+
 
 
 
@@ -10020,6 +10042,7 @@ in order to fill 'account'.</p></td>
 
 
 
+
   <div class="doc doc-object doc-method">
 
 
@@ -10199,6 +10222,7 @@ trading system, you should probably use something else).</p>
 
 
   <div class="doc doc-children">
+
 
 
 
@@ -10409,6 +10433,7 @@ the CLOSE modifier in the shell syntax.</p></td>
 
 
 
+
   <div class="doc doc-object doc-method">
 
 
@@ -10585,7 +10610,7 @@ generated.</p></td>
       </tr>
       <tr>
         <td><code>payee</code></td>
-        <td><code>Optional[str]</code></td>
+        <td><code>str | None</code></td>
         <td><p>A free-form string that identifies the payee, or None, if absent.</p></td>
       </tr>
       <tr>
@@ -10616,6 +10641,7 @@ doc under Posting above.</p></td>
 
 
   <div class="doc doc-children">
+
 
 
 
@@ -17819,7 +17845,7 @@ is considered small, or a dict of currency to such epsilon precision.</p></li>
 
 
 <h4 id="beancount.core.inventory.Inventory.to_string" class="doc doc-heading">
-<code class="highlight language-python">beancount.core.inventory.Inventory.to_string(self, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7f6b92fccd70&gt;, parens=True)</code>
+<code class="highlight language-python">beancount.core.inventory.Inventory.to_string(self, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7f241e3116a0&gt;, parens=True)</code>
 
 
 <a href="#beancount.core.inventory.Inventory.to_string" class="headerlink" title="Permanent link"></a></h4>
@@ -18369,7 +18395,7 @@ search.</p></li>
     <th class="field-name">Returns:</th>
     <td class="field-body">
         <ul class="first simple">
-          <li><p><code>Optional[decimal.Decimal]</code> – A decimal object to use with decimal.Decimal.quantize().</p></li>
+          <li><p><code>decimal.Decimal | None</code> – A decimal object to use with decimal.Decimal.quantize().</p></li>
         </ul>
     </td>
     </tr>
@@ -18643,6 +18669,7 @@ beancount.core.position.Cost            (<span title="tuple">tuple</span>)
 
 
 
+
   <div class="doc doc-object doc-method">
 
 
@@ -18790,6 +18817,7 @@ beancount.core.position.CostSpec            (<span title="tuple">tuple</span>)
 
 
   <div class="doc doc-children">
+
 
 
 
@@ -19945,7 +19973,7 @@ number of units.</p>
 
 
 <h4 id="beancount.core.position.Position.to_string" class="doc doc-heading">
-<code class="highlight language-python">beancount.core.position.Position.to_string(self, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7f6b92fccd70&gt;, detail=True)</code>
+<code class="highlight language-python">beancount.core.position.Position.to_string(self, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7f241e3116a0&gt;, detail=True)</code>
 
 
 <a href="#beancount.core.position.Position.to_string" class="headerlink" title="Permanent link"></a></h4>
@@ -20352,7 +20380,7 @@ def from_string(string):
 
 
 <h3 id="beancount.core.position.to_string" class="doc doc-heading">
-<code class="highlight language-python">beancount.core.position.to_string(pos, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7f6b92fccd70&gt;, detail=True)</code>
+<code class="highlight language-python">beancount.core.position.to_string(pos, dformat=&lt;beancount.core.display_context.DisplayFormatter object at 0x7f241e3116a0&gt;, detail=True)</code>
 
 
 <a href="#beancount.core.position.to_string" class="headerlink" title="Permanent link"></a></h3>
@@ -21171,7 +21199,7 @@ to compute total value of a set of accounts in one of those currencies.</p>
             <li><p><strong>orig_price_map</strong> (<code>PriceMap</code>) – An existing price map.</p></li>
             <li><p><strong>from_currency</strong> (<code>str</code>) – The quote currency with existing project points (e.g., USD).</p></li>
             <li><p><strong>to_currency</strong> (<code>str</code>) – The quote currency to insert price points for (e.g., CAD).</p></li>
-            <li><p><strong>base_currencies</strong> (<code>Optional[Set[str]]</code>) – An optional set of commodities to restrict the
+            <li><p><strong>base_currencies</strong> (<code>Set[str] | None</code>) – An optional set of commodities to restrict the
 projections to (e.g., {HOOL}).</p></li>
         </ul>
       </td>

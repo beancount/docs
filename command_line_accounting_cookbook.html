@@ -518,7 +518,7 @@ Expenses:Loft4530:Taxes:School
   Assets:US:Vanguard:Cash               1000.00 USD
   …
 </code></pre>
-<p>If you’re accounting for your available contributions (see the tax section of this document), you will want to reduce your “401k contribution” <em>Assets</em> account at the same time. You would add two more postings to the transaction:</p>
+<p>If you’re accounting for your available contributions, you will want to reduce your “401k contribution” <em>Assets</em> account at the same time. You would add two more postings to the transaction:</p>
 <pre><code>2014-02-28 * "HOOLI INC       PAYROLL"
   Assets:US:BofA:Checking                       3364.67 USD
   …
@@ -532,7 +532,7 @@ Expenses:Loft4530:Taxes:School
   Income:US:Hooli:Match401k           -1173.08 USD
   Assets:US:Vanguard:Cash              1173.08 USD
 </code></pre>
-<p>And then insert a second transaction when you invest this case, or directly purchasing assets from the contribution if you have specified an asset allocation and this is automated by the broker:</p>
+<p>And then insert a second transaction when you invest this cash, or directly purchasing assets from the contribution if you have specified an asset allocation and this is automated by the broker:</p>
 <pre><code>2013-03-16 * "BUYMF - MATCH"
   Income:US:Hooli:Match401k    -1173.08 USD
   Assets:US:Vanguard:VMBPX       106.741 VMBPX {10.99 USD}
