@@ -134,7 +134,9 @@ Beanquick ([<u>https://twobitsware.com/beanquick</u>](https://twobitsware.com/be
 
 [<u>alensiljak/ledger2bql</u>](https://github.com/alensiljak/ledger2bql) (Alen Šiljak): ledger-style queries for Beancount.
 
-[<u>bean-inquiry/</u>](https://pypi.org/project/bean-inquiry/) (Oscar & Ale): Run queries with parameters.
+[<u>bean-inquiry</u>](https://pypi.org/project/bean-inquiry/) (Oscar & Ale): Run queries with parameters.
+
+[<u>slimslickner/beanschedule</u>](https://github.com/slimslickner/beanschedule) (Tim Tichner): beanschedule provides two primary features: a plugin for forecasting scheduled transactions and a hook for augmenting imported transactions. Every schedule is defined as a yaml file with match logic, recurrence rules, and expected postings. Currently, the only "dynamic" posting is loan amortization which would include accounts like Interest and Principal; the basic match is just a cost range.
 
 ## AI Tools<a id="ai-tools"></a>
 
@@ -146,7 +148,11 @@ Beanquick ([<u>https://twobitsware.com/beanquick</u>](https://twobitsware.com/be
 
 ## Alternative Implementations<a id="alternative-implementations"></a>
 
-[<u>themoritz/turbobean</u>](https://github.com/themoritz/turbobean) (Moritz Drexl): An alternative implementation of Beancount in Zig.
+[<u>yagebu/uromyces</u>](https://github.com/yagebu/uromyces) (Jakob Schnitzer) : uromyces is a toy Rust re-implementation of parts of Beancount's functionality.
+
+[<u>themoritz/turbobean</u>](https://github.com/themoritz/turbobean) (Moritz Drexl): An alternative implementation of Beancount in Zig. A from-scratch implementation of Beancount that is fast and independent of the Python ecosystem.
+
+[<u>tesujimath/limabean</u>](https://github.com/tesujimath/limabean) (Simon Guest): This is a new implementation of Beancount using Rust and Clojure and the Lima parser.
 
 ## Alternative Parsers<a id="alternative-parsers"></a>
 
@@ -231,6 +237,8 @@ The Beancount v3 parser uses [<u>RE/flex</u>](https://www.genivia.com/doc/reflex
 [<u>redstreet/beancount\_reds\_importers//amazon</u>](https://github.com/redstreet/beancount_reds_importers/tree/main/beancount_reds_importers/importers/amazon) (Redstreet): Beancount Reds Importers for processing your Amazon GDPR data export.
 
 [<u>tarioch/beancounttools</u>](https://github.com/tarioch/beancounttools/): importer for [<u>AwardWallet</u>](https://awardwallet.com/) which has a (free) API and integrates ~460 loyalty programmes for airlines, car rental, shopping and others.
+
+[<u>https://github.com/tesujimath/limabean-harvest</u>](https://github.com/tesujimath/limabean-harvest) (Simon Guest): limabean-harvest is a new Beancount importer, built on similar principles to limabean, that is, a mix of Rust and Clojure. Its compelling features are: configuration as data not code, inference of secondary accounts from payee and narration fields, which in particular enables pairing of transactions across accounts where both accounts are imported in the same group.
 
 ## Converters<a id="converters"></a>
 
