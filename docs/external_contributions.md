@@ -78,6 +78,8 @@ This document contains only packages that were discussed or have had an announce
 
 [<u>beancount\_reds\_plugins/…/box\_accrual</u>](https://github.com/redstreet/beancount_reds_plugins/tree/main/beancount_reds_plugins/box_accrual) (Redstreet): Automatically prorate synthetic loan (box spread) capital losses across calendar years, creating accurate annual accrual entries for reporting.
 
+[<u>scanta2/ESPPresso</u>](https://github.com/scanta2/ESPPresso) (Stefano Mihai Canta): Beancount plugin to compute ordinary income for ESPP dispositions.
+
 ## Tools<a id="tools"></a>
 
 [<u>alfred-beancount</u>](https://github.com/blaulan/alfred-beancount) (Yue Wu): An add-on to the “Alfred” macOS tool to quickly enter transactions in one’s Beancount file. Supports full account names and payees match.
@@ -137,6 +139,8 @@ Beanquick ([<u>https://twobitsware.com/beanquick</u>](https://twobitsware.com/be
 [<u>bean-inquiry</u>](https://pypi.org/project/bean-inquiry/) (Oscar & Ale): Run queries with parameters.
 
 [<u>slimslickner/beanschedule</u>](https://github.com/slimslickner/beanschedule) (Tim Tichner): beanschedule provides two primary features: a plugin for forecasting scheduled transactions and a hook for augmenting imported transactions. Every schedule is defined as a yaml file with match logic, recurrence rules, and expected postings. Currently, the only "dynamic" posting is loan amortization which would include accounts like Interest and Principal; the basic match is just a cost range.
+
+[<u>romamo/beancount-cli</u>](https://github.com/romamo/beancount-cli) (Roman Medvedev): It's a modern CLI built on Beancount v3 and Pydantic. Beyond the standard ledger tasks, I've been focusing on making it "agent-friendly"—meaning it plays really well with AI assistants and automated workflows through descriptive help strings and built-in JSON schema discovery.
 
 ## AI Tools<a id="ai-tools"></a>
 

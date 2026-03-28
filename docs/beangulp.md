@@ -24,7 +24,7 @@ As of Jan 2022, most of this proposal is complete and implemented. (Thanks to Da
 
 ## Changes<a id="changes"></a>
 
-### dLibrary Only<a id="dlibrary-only"></a>
+### Library Only<a id="library-only"></a>
 
 The current implementation allows one to use
 
