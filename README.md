@@ -48,14 +48,14 @@ python crawl.py
 
 ## Documentation website
 
-Generate static website using [MkDocs](https://www.mkdocs.org/):
+Generate static website using [Zensical](https://zensical.org/):
 
 ```
-python build.py serve
+make serve
 ```
 
-Deploy to GitHub pages:
+Build the static site:
 
 ```
-python build.py gh-deploy
+make build
 ```

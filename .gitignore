@@ -19,3 +19,5 @@ site/
 !README.md
 !CONTRIBUTING.md
 !docs/**/*
+.cache
+__pycache__

@@ -1,3 +1,4 @@
+import asyncio
 import json
 import os
 import shutil
@@ -47,32 +48,56 @@ def get_index() -> dict:
     return document_map
 
 
-def main():
+async def process_document(document_id, filename, semaphore):
     """
-    Export and convert all found documents
+    Export and convert a single document with concurrency control.
+    """
+    async with semaphore:
+        print(f'Processing https://docs.google.com/document/d/{document_id}/')
+
+        def _sync_process():
+            with tempfile.NamedTemporaryFile() as document_file, \
+                    tempfile.TemporaryDirectory() as drawings_dir:
+                download_document(document_id, file_name=document_file.name)
+                download_drawings(document_id, drawings_dir)
+                document = prepare_docx(document_file.name, drawings_dir)
+            output_path = os.path.join('docs', filename)
+            convert(document, output_path)
+
+        # Offload synchronous/blocking tasks to a thread pool
+        await asyncio.to_thread(_sync_process)
+
+
+async def async_main():
+    """
+    Export and convert all found documents in parallel
     """
     # Remove old docs before converting
-    for filename in os.listdir('docs'):
-        if filename in ['js', 'css', 'api_reference']:
-            continue
-        filepath = os.path.join('docs', filename)
-        if os.path.isfile(filepath):
-            os.remove(filepath)
-        else:
-            shutil.rmtree(filepath)
-    documents = get_index()
-    for document_id, filename in documents.items():
-        print(f'Processing https://docs.google.com/document/d/{document_id}/')
-        with tempfile.NamedTemporaryFile() as document_file, \
-                tempfile.TemporaryDirectory() as drawings_dir:
-            download_document(document_id, file_name=document_file.name)
-            download_drawings(document_id, drawings_dir)
-            document = prepare_docx(document_file.name, drawings_dir)
-        output_path = os.path.join('docs', filename)
-        convert(document, output_path)
+    if os.path.exists('docs'):
+        for filename in os.listdir('docs'):
+            if filename in ['js', 'css', 'api_reference']:
+                continue
+            filepath = os.path.join('docs', filename)
+            if os.path.isfile(filepath):
+                os.remove(filepath)
+            else:
+                shutil.rmtree(filepath)
+    else:
+        os.makedirs('docs')
 
+    # get_index is fast enough to run synchronously once
+    documents = get_index()
+
+    # Limit concurrency to avoid rate limits or memory exhaustion
+    semaphore = asyncio.Semaphore(10)
+    tasks = [
+        process_document(document_id, filename, semaphore)
+        for document_id, filename in documents.items()
+    ]
+
+    await asyncio.gather(*tasks)
     print('Done.')
 
 
 if __name__ == '__main__':
-    main()
+    asyncio.run(async_main())
