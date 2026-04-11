@@ -19,3 +19,4 @@ site/
 !README.md
 !CONTRIBUTING.md
 !docs/**/*
+.cache
