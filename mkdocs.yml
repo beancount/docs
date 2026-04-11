@@ -2,9 +2,10 @@ site_name: Beancount Documentation
 site_description: Auto-generated markdown version
 site_url: "https://beancount.github.io/docs/"
 strict: false
-use_directory_urls: false
+use_directory_urls: true
 
-# repo_url: https://github.com/beancount/docs
+repo_url: https://github.com/beancount/docs
+repo_name: beancount/docs
 
 theme:
   name: "material"
@@ -44,7 +45,6 @@ theme:
     - announce.dismiss
   logo: "img/logo.png"
   favicon: "img/logo.png"
-
 
 nav:
   - Index: index.md
@@ -108,6 +108,10 @@ extra_css:
 extra_javascript:
   - javascripts/shortcuts.js
 
+extra:
+  version:
+    provider: mike
+
 markdown_extensions:
   - tables
   - admonition
@@ -151,6 +155,7 @@ plugins:
   - search
   - social
   - glightbox
+  - mike
   - mkdocstrings:
       handlers:
         python:
