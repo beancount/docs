@@ -134,7 +134,7 @@ The IRS [<u>requires you to use the trade date and NOT the settlement date</u>](
 
 > **Securities traded on established market.** For securities traded on an established securities market, your holding period begins the day after the trade date you bought the securities, and ends on the trade date you sold them.
 >
-> <img src="settlement_dates_in_beancount/media/1336b54a60f8aa4b92957260378207d6479e7c39.gif" style="width:0.5625in;height:0.5625in" />Do not confuse the trade date with the settlement date, which is the date by which the stock must be delivered and payment must be made.
+> ![](settlement_dates_in_beancount/media/1336b54a60f8aa4b92957260378207d6479e7c39.gif)Do not confuse the trade date with the settlement date, which is the date by which the stock must be delivered and payment must be made.
 >
 > **Example.**
 >

@@ -404,6 +404,18 @@ It would be nice to be able to normalize the payee names by translating them at 
 
 *Beancount does not provide a hook for letting you do this this yet. It will eventually. You could also build a plugin to rename those accounts when loading your ledger. I’ll build that too—it’s easy and would result in much nicer output.*
 
+### Handling Duplicate Transactions<a id="handling-duplicate-transactions"></a>
+
+*&gt; (Johannes H) How do you handle duplicate transactions? Does beancount detect likely duplicates? I think this would generally be an important feature.*
+
+Duplicates are intended to be resolved by hand. An important part of reconciliation is eyeballing the transactions to make sure they're as expected.
+
+One idea that has been expressed in the past is that of allow a single posting and automatically finding corresponding transactions and merge them together. This is the dual of another operation. See http://furius.ca/beancount/doc/proposal-settlement for more of that discussion.
+
+Beancount currently detects "duplicates", but they're not the duplicates you're referring to; they would be exact duplicates, resulting from a copy-paste error. Separately imported transactions which happen to be duplicates of each other won't be detected by this.
+
+It's not entirely obvious what rules one would use for robust detection of those duplicates. One side often reports a different date from the other side and memos/descriptions always differ. I encourage you to write a plugin to build some detection that works for you, and after testing this for a while, you're welcome to report how well you got it to work. It should be straightforward to write a simple plugin that outputs a list of potential duplicates as Beancount errors.
+
 ## Future Work<a id="future-work"></a>
 
 A list of things I’d really want to add, beyond fortifying what’s already there:

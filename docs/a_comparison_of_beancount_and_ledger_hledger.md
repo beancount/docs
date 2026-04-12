@@ -224,32 +224,6 @@ Beancount generally attempts to *minimize* the number of features it provides. T
 
 But here is a list of features that Beancount does not support that are supported in Ledger, and that I think would be nice to have eventually. The list below is unlikely to be exhaustive.
 
-### <s>Console Output</s><a id="console-output"></a>
-
-<s>Beancount’s original implementation focused on providing a web view for all of its contents. During the 2.0 rewrite I began implementing some console/text outputs, mainly because I want to be able for reports to be exportable to share with others. I have a trial balance view (like Ledger’s “bal” report) but for now the journal view isn’t implemented.</s>
-
-<s>Ledger, on the other hand, has always focused on console reports.</s>
-
-<s>I’ll make all the reports in Beancount support output to text format first thing after the initial release, as I’m increasingly enjoying text reports. Use bean-query --list-formats to view current status of this.</s>
-
-### <s>Filtering Language</s><a id="filtering-language"></a>
-
-<s>Beancount does not yet have a filtering language. Until recently, its web interface was the main mode for rendering reports and exploring the contents of its ledger, and it provided limited subsets of transactions in the form of “views”, e.g., per-year, per-tag, etc. Having a filtering language in particular allows one to do away with many sub-accounts. I want to simplify my chart of accounts so I need this.</s>
-
-<s>I’m working on adding a simple logical expression language to do arbitrary filters on the set of Beancount transactions. This is straightforward to implement and a high priority.</s>
-
-### <s>No Meta-data</s><a id="no-meta-data"></a>
-
-<s>Beancount does not currently support meta-data. Ledger users routinely make liberal use of metadata. This has been identified as a powerful feature and a prototype has already been implemented. Meta-data will be supported on any directive type as well as on any posting. A dictionary of key-value pairs will be attached to each of these objects. Supported values will include strings, dates, numbers, currencies and amounts.</s>
-
-<s>So far the plan is to restrict Beancount’s own code to make no specific use of meta-data, on purpose. The meta-data will be strictly made available for user-plugins and custom user scripts to make use of.</s>
-
-### <s>No Arithmetic Expressions</s><a id="no-arithmetic-expressions"></a>
-
-<s>Beancount does not support arbitrary expression evaluation in the syntax, in the places where numbers are allowed in the input. Ledger does. I have had no use for these yet, but I have no particular reason against adding this, I just haven’t implemented it, as I don’t need it myself.</s>
-
-<s>I think an implementation would be straightforward and very low risk, a simple change to the parser and there is already a callback for numbers. I think there are many legitimate uses for it.</s>
-
 ### Limited Support for Unicode<a id="limited-support-for-unicode"></a>
 
 Beancount supports UTF8 or and other encodings ***in strings only*** (that is, for input that is in quotes). For example, you can enter payees and narrations with non-ASCII characters, but not account names (which aren’t in quotes). Ledger supports other encodings over the entire file.

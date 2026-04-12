@@ -133,7 +133,7 @@ Install Microsoft Visual Studio (tested on v 2022)
 
 If running x64 bit Windows, start the "x64 Native Tools Command Prompt for VS 20XX". To do this press and release the Windows keys and type x64
 
-<img src="installing_beancount_v3/media/9c5ea265a2ff61958e89a0965bd95bbd54854eb0.png" style="width:3.83854in;height:2.03255in" />
+![](installing_beancount_v3/media/9c5ea265a2ff61958e89a0965bd95bbd54854eb0.png)
 
 Open this prompt
 

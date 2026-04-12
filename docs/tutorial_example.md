@@ -32,7 +32,7 @@
 >
 > [<u>Viewing Reports through the Web Interface</u>](#viewing-reports-through-the-web-interface)
 >
-> [<u>The Future of Beancount Reports</u>](#the-future-of-beancount-reports)
+> [<u>The Future of Beancount Reports</u>](#_vlh1pclqsgq8)
 
 ## Example File Generator<a id="example-file-generator"></a>
 
@@ -289,11 +289,3 @@ Note that “beancount” and “ledger” are valid output formats: they refer 
 [<u>Fava</u>](https://beancount.github.io/fava/) is a separate project that provides a web interface for Beancount on your local machine. See a [<u>demo here</u>](https://fava.pythonanywhere.com/example-beancount-file/income_statement/). Fava’s [<u>github page</u>](https://github.com/beancount/fava?tab=readme-ov-file) shows you how to install and use it. Fava displays your account tree, balance and income statements, the journal, and holdings, and also allows Beancount queries to be run from within its web interface. Fava also has its own plugins for specialized needs.
 
 *Note: if you are looking for bean-web, a web server that shipped with Beancount, it is now deprecated. Fava is the recommended web interface.*
-
-## The Future of Beancount Reports<a id="the-future-of-beancount-reports"></a>
-
-I find my command-line reports above to be rather unsatisfying, from the point-of-view of customizability. They bother me a lot. This is largely because I’ve been happy and satisfied with the capabilities of the web interface to Beancount. As I’m beginning to use the command-line interface more and more, I’m finding myself desiring for more explicit and well-defined way to apply all the filters I have available from the web interface, and more. For this reason, I’m [<u>currently implementing a query language that looks similar to SQL</u>](http://furius.ca/beancount/doc/proposal-filtering). This syntax will allow me to remove all the custom reports above and to replace them by a single consistent query syntax. This work is underway.
-
-All the holdings reports and even their internal objects will be replaced by the SQL-like query syntax as well. Holdings need not be treated separately: they are simply the list of positions available at a particular point in time, and along with suitable accessors from the query syntax and support for aggregations over their many columns, we should be able to generate all of those reports equivalently and simplify the code.
-
-*— Martin Blais, October 2014*

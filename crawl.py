@@ -89,7 +89,7 @@ async def async_main():
     documents = get_index()
 
     # Limit concurrency to avoid rate limits or memory exhaustion
-    semaphore = asyncio.Semaphore(10)
+    semaphore = asyncio.Semaphore(32)
     tasks = [
         process_document(document_id, filename, semaphore)
         for document_id, filename in documents.items()

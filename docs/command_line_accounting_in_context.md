@@ -229,7 +229,7 @@ So I’ve described what I do to organize my finances. Here I’ll tell you abou
 
 See the diagram below for a pretty picture that illustrates how these work together.
 
-<img src="command_line_accounting_in_context/media/8c379088c695488f3b0837e6c1144e81ed6b47f4.png" style="width:5.56944in;height:6.22222in" />
+![](command_line_accounting_in_context/media/8c379088c695488f3b0837e6c1144e81ed6b47f4.png)
 
 ## Why not just use a spreadsheet?<a id="why-not-just-use-a-spreadsheet"></a>
 

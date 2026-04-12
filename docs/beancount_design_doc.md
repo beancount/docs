@@ -198,7 +198,7 @@ There may be a few more produced in the future but in any case, the core should 
 
 All source code lives under a “[<u>beancount</u>](https://github.com/beancount/beancount/tree/master/beancount/)” Python package. It consists of several packages with well-defined roles, the dependencies between which are enforced strictly.
 
-<img src="beancount_design_doc/media/387889600cf8649fb88c89349dfbbdc9cb2fc7c4.png" style="width:5.80556in;height:4.94444in" />
+![](beancount_design_doc/media/387889600cf8649fb88c89349dfbbdc9cb2fc7c4.png)
 
 *Beancount source code packages and approximate dependencies between them.*
 
@@ -391,7 +391,7 @@ Finally, the loader produces lists of directives which are all simple `namedtupl
 
 The following diagram explains how these objects relate to each other, starting from a Posting.
 
-<img src="beancount_design_doc/media/5babd760547ea333a338558c5688dbbadc278a67.png" style="width:4.36111in;height:6.11111in" />
+![](beancount_design_doc/media/5babd760547ea333a338558c5688dbbadc278a67.png)
 
 For example, to access the number of units of a postings you could use
 
@@ -407,7 +407,7 @@ You can print out the tuples in Python to figure out their structure.
 
 For the sake of preservation, if you go back in time in the repository, the structure of postings was deeper and more complex. The new design reflects a flatter and simpler version of it. Here is what the old design used to look like:
 
-<img src="beancount_design_doc/media/458836b1e3d3fe85ff59395e3b8a4c7b19a9ed96.png" style="width:6.69444in;height:4.19444in" />
+![](beancount_design_doc/media/458836b1e3d3fe85ff59395e3b8a4c7b19a9ed96.png)
 
 ## Directives<a id="directives"></a>
 
@@ -624,7 +624,7 @@ The stream of directives comes with a few guarantees you can rest upon:
 
 The process of **loading** a list of entries from an input file is the heart of the project. It is important to understand it in order to understand how Beancount works. Refer to the diagram below.
 
-<img src="beancount_design_doc/media/d3e464c1d017210fad49eefaf841df09d0b099a0.png" style="width:8.66667in;height:3.23611in" />
+![](beancount_design_doc/media/d3e464c1d017210fad49eefaf841df09d0b099a0.png)
 
 It consists of
 
@@ -660,7 +660,7 @@ There is a lexer file lexer.l written in flex and a Bison grammar in grammar.y. 
 
 Eventually we could consider creating a small dependency rule in setup.py to invoke flex and Bison automatically but at the moment, in order to minimize the installation burden, I check the generated source code in the repository (lexer.h/c and grammar.h/c).
 
-<img src="beancount_design_doc/media/f3e3cb4fac691f4accc0aff37c8d8084c9851580.png" style="width:7.70833in;height:4.01389in" />
+![](beancount_design_doc/media/f3e3cb4fac691f4accc0aff37c8d8084c9851580.png)
 
 The interaction between the Python and C code works like this:
 
@@ -698,7 +698,7 @@ So the parser will need to be split into two phases:
 
 2.  A separate step for the interpolation which will have available the inventory balances of each account as inputs. This second step is where the booking algorithms (e.g., FIFO) will be invoked from.
 
-<img src="beancount_design_doc/media/59a34fa93688dea77594fef565ce9887520d9c84.png" style="width:6.05556in;height:3.01389in" />
+![](beancount_design_doc/media/59a34fa93688dea77594fef565ce9887520d9c84.png)
 
 See the diagram above for reference. Once implemented, everything else should be the same.
 
@@ -708,7 +708,7 @@ In the same package as the parser lives a printer. This isolates all the functio
 
 At some point I decided to make sure that the printer was able to round-trip through the parser, that is, given a stream of entries produced by the loader, you should be able to convert those to text input and parse them back in and the resulting set of entries should be the same (outputting the re-read input back to text should produce the same text), e.g.,
 
-<img src="beancount_design_doc/media/25a2c2bf3db79c90e5456c58e57d492cf11110a0.png" style="width:7.56944in;height:0.83333in" />
+![](beancount_design_doc/media/25a2c2bf3db79c90e5456c58e57d492cf11110a0.png)
 
 Note that the reverse isn’t necessarily true: reading an input file and processing it through the loader potentially synthesizes a lot of entries (thanks to the plugins), so printing it back may not produce the same input file (even ignoring reordering and white space concerns).
 
@@ -759,7 +759,7 @@ I refer to those objects using the variable names `dcontext` and `dformat` throu
 
 It occurs often that one needs to compute the final balances of a list of filtered transactions, and to report on them in a hierarchical account structure. See diagram below.
 
-## <img src="beancount_design_doc/media/b633e0570d20bca6677965dc55c7eb506255230b.png" style="width:8.66667in;height:3.06944in" /><a id="section"></a>
+## ![](beancount_design_doc/media/b633e0570d20bca6677965dc55c7eb506255230b.png)<a id="section"></a>
 
 For the purpose of creating hierarchical renderings, I provide a process called a “[<u>realization</u>](https://github.com/beancount/beancount/tree/master/beancount/core/realization.py).” A realization is a tree of nodes, each of which contains
 

@@ -60,31 +60,31 @@ The double-entry system is just a simple *method of counting*, with some simple 
 
 Let’s begin by defining the notion of an **account**. An account is something that can contain things, like a bag. It is used to count things, to accumulate things. Let’s draw a horizontal arrow to visually represent the evolving contents of an account over time:
 
-<img src="the_double_entry_counting_method/media/2f37aa3938d599d4783ca9b74965026fba0a3b50.png" style="width:6.23611in;height:0.11111in" />
+![](the_double_entry_counting_method/media/2f37aa3938d599d4783ca9b74965026fba0a3b50.png)
 
 On the left, we have the past, and to the right, increasing time: the present, the future, etc.
 
 For now, let’s assume that accounts can contain only one kind of thing, for example, *dollars*. All accounts begin with an empty content of zero dollars. We will call the number of units in the account the **balance** of an account. Note that it represents its contents at a particular point in time. I will draw the balance using a number above the account’s timeline:
 
-<img src="the_double_entry_counting_method/media/54633827be99c315dc937778221752b848411ca9.png" style="width:6.23611in;height:0.56944in" />
+![](the_double_entry_counting_method/media/54633827be99c315dc937778221752b848411ca9.png)
 
 The contents of accounts can change over time. In order to change the content of an account, we have to add something to it. We will call this addition a **posting** to an account, and I will draw this change as a circled number on the account’s timeline, for example, adding $100 to the account:
 
-<img src="the_double_entry_counting_method/media/004bc3354eb84bf554a8e5080a21f8d16fc29d82.png" style="width:6.23611in;height:0.77778in" />
+![](the_double_entry_counting_method/media/004bc3354eb84bf554a8e5080a21f8d16fc29d82.png)
 
 Now, we can draw the updated balance of the account after the posting with another little number right after it:
 
-<img src="the_double_entry_counting_method/media/6281f96c3465982c6bf48fccb302b40f90890311.png" style="width:6.23611in;height:0.77778in" />
+![](the_double_entry_counting_method/media/6281f96c3465982c6bf48fccb302b40f90890311.png)
 
 The account’s balance, after adding $100, is now $100.
 
 We can also remove from the contents of an account. For example, we could remove $25, and the resulting account balance is now $75:
 
-<img src="the_double_entry_counting_method/media/1672e121ec80f8fcdb158bb497e05e6dc809dee5.png" style="width:6.23611in;height:0.77778in" />
+![](the_double_entry_counting_method/media/1672e121ec80f8fcdb158bb497e05e6dc809dee5.png)
 
 Account balances can also become *negative*, if we remove more dollars than there are in the account. For example, if we remove $200 from this account, the balance now becomes $-125:
 
-<img src="the_double_entry_counting_method/media/862c0b57a35631a52eead2cf8cdd7b5f2a1aa106.png" style="width:6.23611in;height:0.77778in" />
+![](the_double_entry_counting_method/media/862c0b57a35631a52eead2cf8cdd7b5f2a1aa106.png)
 
 It’s perfectly fine for accounts to contain a negative balance number. Remember that all we’re doing is counting things. As we will see shortly, some accounts will remain with a negative balance for most of their timeline.
 
@@ -106,15 +106,15 @@ In any case, the “balance” column always shows the resulting balance *after*
 
 In this story, this account belongs to someone. We’ll call this person the **owner** of the account. The account can be used to represent a real world account, for example, imagine that we use it to represent the content of the owner’s checking account at a bank. So we’re going to label the account by giving it a name, in this case “Checking”:
 
-<img src="the_double_entry_counting_method/media/a4ac6f0f3d2cf7df150fd501f0ab9a5942f79a80.png" style="width:6.23611in;height:0.98611in" />
+![](the_double_entry_counting_method/media/a4ac6f0f3d2cf7df150fd501f0ab9a5942f79a80.png)
 
 Imagine that at some point, this account has a balance of $1000, like I’ve drawn on the picture. Now, if the owner spends $79 of this account, we would represent it like this:
 
-<img src="the_double_entry_counting_method/media/75337406afb5f23c23733fd25be8683ae151b410.png" style="width:6.23611in;height:0.98611in" />
+![](the_double_entry_counting_method/media/75337406afb5f23c23733fd25be8683ae151b410.png)
 
 Furthermore, if the expense was for a meal at a restaurant, we could flag the posting with a **category** to indicate what the change was used for. Let’s say, “Restaurant”, like this:
 
-<img src="the_double_entry_counting_method/media/d7f6ec08cb13d409752000bb42495399abc85848.png" style="width:6.23611in;height:1.81944in" />
+![](the_double_entry_counting_method/media/d7f6ec08cb13d409752000bb42495399abc85848.png)
 
 Now, if we have a lot of these, we could write a computer program to accumulate all the changes for each category and calculate the sums for each of them. That would tell us how much we spent in restaurants in total, for example. This is called the **single-entry method** of accounting.
 
@@ -124,17 +124,17 @@ But we’re not going to do it this way; we have a better way. Bear with me for 
 
 An owner may have multiple accounts. I will represent this by drawing many similar account timelines on the same graphic. As before, these are labeled with unique names. Let’s assume that the owner has the same “Checking” account as previously, but now also a **“**Restaurant**”** account as well, which can be used to accumulate all food expenses at restaurants. It looks like this:
 
-<img src="the_double_entry_counting_method/media/3088280515ab5b6da599edd5a1b2ca30100f2b0b.png" style="width:6.23611in;height:2.01389in" />
+![](the_double_entry_counting_method/media/3088280515ab5b6da599edd5a1b2ca30100f2b0b.png)
 
 Now, instead of *categorizing* the posting to a “restaurant category” as we did previously, we could create a matching posting on the “Restaurant” account to record how much we spent for food, with the amount spent ($79):
 
-<img src="the_double_entry_counting_method/media/2801d8aff3ccd91dcd584f58a5bcabbb57fb19d4.png" style="width:6.23611in;height:2.01389in" />
+![](the_double_entry_counting_method/media/2801d8aff3ccd91dcd584f58a5bcabbb57fb19d4.png)
 
 The “Restaurant” account, like all other accounts, also has an accumulated balance, so we can find out how much we spent in “Restaurant” in total. This is entirely symmetrical to counting changes in a checking account.
 
 Now, we can associate the two postings together, by creating a kind of “parent” box that refers to both of them. We will call this object a **transaction**:
 
-<img src="the_double_entry_counting_method/media/18524adffedac5e812eb65dcbb179b66b0ae9e53.png" style="width:6.23611in;height:2.69444in" />
+![](the_double_entry_counting_method/media/18524adffedac5e812eb65dcbb179b66b0ae9e53.png)
 
 Notice here that we’ve also associated a description to this transaction: “Dinner at Uncle Boons”. A transaction also has a **date**, and all of its postings are recorded to occur on that date. We call this the transaction date.
 
@@ -146,13 +146,13 @@ Remember this, as this is the foundation of the double-entry method, and its mos
 
 In our example, we remove $79 from the “Checking” account and “give it” to the “Restaurant” account. ($79) + ($-79) = $0. To emphasize this, I could draw a little summation line under the postings of the transaction, like this:
 
-<img src="the_double_entry_counting_method/media/a56ad72219b0d8a6c90c692655d1b24459add2d6.png" style="width:2.18055in;height:2.5in" />
+![](the_double_entry_counting_method/media/a56ad72219b0d8a6c90c692655d1b24459add2d6.png)
 
 ### Many Accounts<a id="many-accounts"></a>
 
 There may be many such transactions, over many different accounts. For example, if the owner of the accounts had a lunch the next day which she paid using a credit card, it could be represented by creating a “Credit Card” account dedicated to tracking the real world credit card balance, and with a corresponding transaction:
 
-<img src="the_double_entry_counting_method/media/458909db06c7f38f7896205f67d60397b292e7d9.png" style="width:7.45833in;height:3.47222in" />
+![](the_double_entry_counting_method/media/458909db06c7f38f7896205f67d60397b292e7d9.png)
 
 In this example, the owner spent $35 at a restaurant called “Eataly.” The previous balance of the owner’s credit card was $-450; after the expense, the new balance is $-485.
 
@@ -166,7 +166,7 @@ Finally, transactions may have more than two postings; in fact, they may have an
 
 For example, let’s look at what would happen if the owner gets her salary paid for December:
 
-<img src="the_double_entry_counting_method/media/19e2cc49a057dfeea1cf5254610eab4c9a124488.png" style="width:8.22222in;height:5.05556in" />
+![](the_double_entry_counting_method/media/19e2cc49a057dfeea1cf5254610eab4c9a124488.png)
 
 Her gross salary received in this example is recorded as $-2,905 (I’ll explain the sign in a moment). $905 is set aside for taxes. Her “net” salary of $2,000, the remainder, is deposited in her “Checking” account and the resulting balance of that account is $2,921 (the previous balance of $921 + $2,000 = $2,921). This transaction has three postings: (+2,000) + (-2,905) + (+905) = 0. The double-entry rule is respected.
 
@@ -214,19 +214,19 @@ Other than that, you can select any name you like for your accounts. You can cre
 
 Let us now revisit our example and add some more accounts:
 
-<img src="the_double_entry_counting_method/media/281c7a6ed22a8168fc1094a1faa61f2b0fdd7ca3.png" style="width:5.5in;height:2.03125in" />
+![](the_double_entry_counting_method/media/281c7a6ed22a8168fc1094a1faa61f2b0fdd7ca3.png)
 
 And let’s imagine there are more transactions:
 
-<img src="the_double_entry_counting_method/media/e3008a34f9ce7a224e33d4cbb79bcebbb08d418e.png" style="width:6.5in;height:2.76389in" />
+![](the_double_entry_counting_method/media/e3008a34f9ce7a224e33d4cbb79bcebbb08d418e.png)
 
 … and even more of them:
 
-<img src="the_double_entry_counting_method/media/18b769f7a3cdf7fd67a983d3a39325b563d8d346.png" style="width:6.5in;height:2.98611in" />
+![](the_double_entry_counting_method/media/18b769f7a3cdf7fd67a983d3a39325b563d8d346.png)
 
 Finally, we can label each of those accounts with one of the four types of accounts by prepending the type to their account names:
 
-<img src="the_double_entry_counting_method/media/1f84bcb0ad4787659c157280f6f4ae5ea720482d.png" style="width:6.5in;height:2.98611in" />
+![](the_double_entry_counting_method/media/1f84bcb0ad4787659c157280f6f4ae5ea720482d.png)
 
 A realistic book from someone tracking all of their personal affairs might easily contain thousands of transactions per year. But the principles remain simple and they remain the same: postings are applied to accounts over time, and must be parented to a transaction, and within this transaction the sum of all the postings is zero.
 
@@ -238,13 +238,13 @@ We will now turn our attention to obtaining useful information from this data, s
 
 Take our last example: we can easily reorder all the accounts such that all the Asset accounts appear together at the top, then all the Liabilities accounts, then Income, and finally Expenses accounts. We are simply changing the order without modifying the structure of transactions, in order to group each type of accounts together:
 
-<img src="the_double_entry_counting_method/media/175f3223735d9d04b2a7e3f421bc6280f3cda5eb.png" style="width:6.5in;height:3in" />
+![](the_double_entry_counting_method/media/175f3223735d9d04b2a7e3f421bc6280f3cda5eb.png)
 
 We’ve reordered the accounts with Assets accounts grouped at the top, then Liabilities, then some Equity accounts (which we have just introduced, more about them is discussed later), then Income and finally Expenses at the bottom.
 
 If we sum up the postings on all of the accounts and render just the account name and its final balance on the right, we obtain a report we call the “trial balance.”
 
-<img src="the_double_entry_counting_method/media/71edc0da7e156b4e07cd6f4f0addded7f15cb33e.png" style="width:2.83154in;height:4.47917in" />
+![](the_double_entry_counting_method/media/71edc0da7e156b4e07cd6f4f0addded7f15cb33e.png)
 
 This simply reflects the balance of each account at a particular point in time. And because each of the accounts began with a zero balance, and each transaction has itself a zero balance, we know that the sum of all those balances must equal zero.[^1] This is a consequence of our constraining that each of the postings be part of a transaction, and that each transaction have postings that balance each other out.
 
@@ -254,7 +254,7 @@ One kind of common information that is useful to extract from the list of transa
 
 In order to generate this summary, we simply turn our attention to the balances of the accounts of types Income and Expenses, summing up just the transactions for a particular period, and we draw the Income balances on the left, and Expenses balances on the right:
 
-<img src="the_double_entry_counting_method/media/6d57026ecb4c28873f77167eb49ea8025bbf150b.png" style="width:6.5in;height:2.29167in" alt="out.png" />
+![out.png](the_double_entry_counting_method/media/6d57026ecb4c28873f77167eb49ea8025bbf150b.png)
 
 It is important to take note of the signs here: Income numbers are negative, and Expenses numbers are positive. So if you earned more than you spent (a good outcome), the final sum of Income + Expenses balances will be a negative number. Like any other income, a net income that has a negative number means that there is a corresponding amount of Assets and/or Liabilities with positive numbers (this is good for you).
 
@@ -272,7 +272,7 @@ A better way to achieve the same thing is to zero out the balances of the Income
 
 Those transactions inserted for all income statement accounts are pictured in green below. Now summing the entire set of transactions through the end of the ledger would yield only the changes during year 2016 because the balances were zero on that date:
 
-<img src="the_double_entry_counting_method/media/7f10adb5a661d0aa0b66f5f66aafb3ff5eefa212.png" style="width:6.5in;height:2.91667in" />
+![](the_double_entry_counting_method/media/7f10adb5a661d0aa0b66f5f66aafb3ff5eefa212.png)
 
 This is the semantics of the “CLEAR” operation of the bean-query shell.
 
@@ -300,13 +300,13 @@ Once again: you don’t need to define nor use these accounts yourself, as these
 
 Another kind of summary is a listing of the owner’s assets and debts, for each of the accounts. This answers the question: “*Where’s the money?*” In theory, we could just restrict our focus to the Assets and Liabilities accounts and draw those up in a report:
 
-<img src="the_double_entry_counting_method/media/093cd8751f07c38e909b7621675daa80db8fb634.png" style="width:4.14583in;height:1.70833in" alt="out.png" />
+![out.png](the_double_entry_counting_method/media/093cd8751f07c38e909b7621675daa80db8fb634.png)
 
 However, in practice, there is another closely related question that comes up and which is usually answered at the same time: “*Once all debts are paid off, how much are we left with?*” This is called the **net worth**.
 
 If the Income & Expenses accounts have been cleared to zero and all their balances have been transferred to Equity accounts, the net worth should be equal to the sum of all the Equity accounts. So in building up the Balance Sheet, it it customary to clear the net income and then display the balances of the Equity accounts. The report looks like this:
 
-<img src="the_double_entry_counting_method/media/d495b61bc719ab90cdfc9fd379ef62531cff0627.png" style="width:6.5in;height:1.25in" alt="out.png" />
+![out.png](the_double_entry_counting_method/media/d495b61bc719ab90cdfc9fd379ef62531cff0627.png)
 
 Note that the balance sheet can be drawn for *any point in time*, simply by truncating the list of transactions following a particular date. A balance sheet displays a snapshot of balances at one date; an income statement displays the difference of those balances between two dates.
 
@@ -316,11 +316,11 @@ It is useful to summarize a history of past transactions into a single equivalen
 
 That somewhere else will be the Equity account **Opening Balances**. First, we can do this for all Assets and Liabilities accounts (see transactions in blue):
 
-<img src="the_double_entry_counting_method/media/035eb15afa1439450886d6ce20c60013227283b7.png" style="width:6.5in;height:3.04167in" />
+![](the_double_entry_counting_method/media/035eb15afa1439450886d6ce20c60013227283b7.png)
 
 Then we delete all the transactions that precede the opening date, to obtain a truncated list of transactions:
 
-<img src="the_double_entry_counting_method/media/2596047a5cbd9da8a925c7a7ee10fef9681ce472.png" style="width:6.5in;height:3.01389in" />
+![](the_double_entry_counting_method/media/2596047a5cbd9da8a925c7a7ee10fef9681ce472.png)
 
 This is a useful operation when we’re focused on the transactions for a particular interval of time.
 
@@ -344,13 +344,13 @@ These are the meaning of the “OPEN” and “CLOSE” operations of the bean-q
 
 “Closing” involves two steps. First, we remove all transactions following the closing date:
 
-<img src="the_double_entry_counting_method/media/e9bbbbdf2a94fe681fd547cf470c4d19ae1e6c0e.png" style="width:6.5in;height:3.01389in" />
+![](the_double_entry_counting_method/media/e9bbbbdf2a94fe681fd547cf470c4d19ae1e6c0e.png)
 
 We can process this stream of transactions to produce an Income Statement for the period.
 
 Then we clear again at the *end* date of the desired report, but this time we clear the net income to “Equity:Earnings:Current”:
 
-<img src="the_double_entry_counting_method/media/1dc844e93000faa184bd3e1ec3e0cd4e1a9fb5fb.png" style="width:6.5in;height:3.09722in" />
+![](the_double_entry_counting_method/media/1dc844e93000faa184bd3e1ec3e0cd4e1a9fb5fb.png)
 
 From these transactions, we produce the Balance Sheet at the end of the period.
 

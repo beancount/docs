@@ -79,7 +79,7 @@ For each service, your insurance covers a portion of it and you normally pay the
 
 Here is a sample from an EOB, with the important areas highlighted:
 
-<img src="health_care_expenses/media/cb380149d593035c851ca96e073492af535fbdec.png" style="width:6.5in;height:3.16667in" alt="eob-in.png" />
+![eob-in.png](health_care_expenses/media/cb380149d593035c851ca96e073492af535fbdec.png)
 
 The example above exhibits the following amounts:
 
@@ -165,7 +165,7 @@ If you have a doctor that you visit regularly, you may create dedicated Liabilit
 
 For out-of-network providers, the EOBs are slightly different:
 
-<img src="health_care_expenses/media/e782f46cd15b6e2c62bbea96fc482ae790ea9580.png" style="width:6.5in;height:3.47222in" alt="eob-oon.png" />
+![eob-oon.png](health_care_expenses/media/e782f46cd15b6e2c62bbea96fc482ae790ea9580.png)
 
 What we noticed is that there is an “other amount” section, which is essentially what will be written off by the provider, and the Patient Savings section is empty.
 

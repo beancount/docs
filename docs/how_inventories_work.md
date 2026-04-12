@@ -254,9 +254,11 @@ There are a few booking methods available to handle the last case:
 
 -   **LIFO.** Units from youngest (latest) lots are selected until the reduction is complete.
 
--   **AVERAGE.** After every reduction, all the units of the affected commodity are merged and their new average cost is recalculated.
-
 -   **NONE.** Booking is disabled; the reducing lots is simply added to the inventory. This results in an inventory with mixed signs and only the total number of units and total cost basis are sensible numbers.
+
+Note that this is **not** supported yet but could be in a future version:
+
+-   **AVERAGE.** After every reduction, all the units of the affected commodity are merged and their new average cost is recalculated.
 
 Beancount has a default booking method for all accounts, which can be overridden with an option:
 
@@ -339,7 +341,7 @@ It is useful to know how positions are represented in an inventory object. A *Po
 
 We often refer to these position objects as “lots” or “legs.” Schematically, a position object looks like this:
 
-<img src="how_inventories_work/media/b0b9a000087bf0e796355c21e57f8fed16e750d9.png" style="width:3.76389in;height:3.75in" />
+![](how_inventories_work/media/b0b9a000087bf0e796355c21e57f8fed16e750d9.png)
 
 The structure of a *Position* object.
 

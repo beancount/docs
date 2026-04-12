@@ -153,7 +153,9 @@ If you'd like to do some troubleshooting and print out the list of seen commodit
 
 ### Writing Your Own Script<a id="writing-your-own-script"></a>
 
-If the workflow defined by this tool does not fit your needs and you would like to cook up your own script, you should not have to start from scratch; you should be able to reuse the existing price fetching code to do that. I'm hoping to provide a few examples of such scripts in the experiments directory. For example, given an existing file it would be convenient to fetch all prices of assets every Friday in order to fill up a history of missing prices. Another example would be to fetch all price directives required in order to correctly compute investment returns in the presence of contributions and distributions.
+If the workflow defined by this tool does not fit your needs and you would like to cook up your own script, you should not have to start from scratch; you should be able to reuse the existing price fetching code to do that. For example, given an existing file it would be convenient to fetch all prices of assets every Friday in order to fill up a history of missing prices. Another example would be to fetch all price directives required in order to correctly compute investment returns in the presence of contributions and distributions.
+
+You can find the code for several price sources in the [<u>beanprice</u>](https://github.com/beancount/beanprice/) repository, as well as other price sources, like pricehist module.
 
 ### Contributions<a id="contributions"></a>
 
