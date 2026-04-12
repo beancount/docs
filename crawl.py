@@ -75,7 +75,7 @@ async def async_main():
     # Remove old docs before converting
     if os.path.exists('docs'):
         for filename in os.listdir('docs'):
-            if filename in ['js', 'css', 'api_reference']:
+            if filename in ['js', 'css', 'api_reference', 'img', 'javascripts']:
                 continue
             filepath = os.path.join('docs', filename)
             if os.path.isfile(filepath):
