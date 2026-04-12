@@ -34,6 +34,14 @@ Beancount supports setuptools since Feb 2016, and you will need to install depen
 
 ### Installing Beancount<a id="installing-beancount"></a>
 
+#### Installing Beancount using uv<a id="installing-beancount-using-uv"></a>
+
+By far the easiest way to run beancount in 2026 is via uv, e.g.,
+
+    uvx --from beancount <command>
+
+See the uv manual for more details.
+
 #### Installing Beancount using pipx<a id="installing-beancount-using-pipx"></a>
 
 If you haven’t already, first [<u>install pipx</u>](https://github.com/pypa/pipx).
@@ -98,11 +106,7 @@ You can then install all the dependencies and Beancount itself using pip:
 
 ##### Installing for Development<a id="installing-for-development"></a>
 
-If you want to execute the source in-place for making changes to it, you can use the setuptools “develop” command to point to it:
-
-    sudo python3 setup.py develop 
-
-Warning: This modifies a .pth file in your Python installation to point to the path to your clone. You may or may not want this. I don't do this myself; the way I work is by compiling locally and setting up my shell's environment to find its libraries. You can do it like this:
+If you want to compile and execute the source in-place for making changes to it, you can do it like this:
 
     make build
 
@@ -326,7 +330,7 @@ The newly released Windows 10 Anniversary Update brings WSL 'Windows Subsystem f
 This makes beancount installation easy, from bash:
 
     sudo apt-get install python3-pip
-    sudo pip3 install m3-cdecimal
+    sudo pip3 install m3-cdecimal  # probably not needed anymore
     sudo pip3 install beancount --pre
 
 This is not totally “Windows compatible”, as it is running in a pico-process, but provides a convenient way to get the Linux command-line experience on Windows. *(Contrib: willwray)*

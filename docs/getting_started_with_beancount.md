@@ -112,6 +112,8 @@ Here’s what the opening accounts might look like for an investment account:
 
 The point is that all these accounts are related somehow. The various sections of the cookbook will describe the set of accounts suggested to create for each section.
 
+A note about the above: if you don't like the redundancy of the currency appearing both in the account name and in the constraint, you can place more than a single current in an account, Beancount handles that just fine. Doing it as per the above example just helps for some configurations with, e.g., beangrow.
+
 Not all sections have to be that way. For example, I have the following sections:
 
 -   **Eternal accounts.** I have a section at the top dedicated to contain special and “eternal” accounts, such as payables and receivables.
@@ -147,7 +149,7 @@ The credit card download will yield you this:
     2014-06-10 * "AMEX EPAYMENT    ACH PMT"
       Liabilities:US:Amex:Platinum       923.24 USD
 
-Many times, transactions from these accounts need to be booked to an expense account, but in this case, these are two separate legs of the same transaction: a transfer. When you import one of these, you normally look for the other side and merge them together:
+Many times, transactions from these accounts need to be booked to an expense account, but in this case, these are two separate legs of the same transaction: a transfer. When you import one of these, you typicallynormally look for the other side and merge them together:
 
     ;2014-06-08 * "ONLINE PAYMENT - THANK YOU"
     2014-06-10 * "AMEX EPAYMENT    ACH PMT"
@@ -173,6 +175,10 @@ Later on, when I import the checking account’s transactions and go fishing for
 So if you organize your account in sections the way I suggest above, which section of the file should you leave such “merged” transactions in, that is, transactions that involve two separate accounts? Well, it’s your call. For example, in the case of a transfer between two accounts organized such that they have their own dedicated sections, it would be nice to be able to leave both transactions there so that when you edit your input file you see them in either section, but unfortunately, the transaction must occur in only one place in your document. You have to choose one.
 
 Personally I’m a little careless about being consistent which of the section I choose to leave the transaction in; sometimes I choose one section of my input file, or that of the other account, for the same pair of accounts. It hasn’t been a problem, as I use Emacs and i-search liberally which makes it easy to dig around my gigantic input file. If you want to keep your input more tidy and organized, you could come up with a rule for yourself, e.g. “credit card payments are always left in the paying account’s section, not in the credit card account’s section”, or perhaps you could leave the transaction in both sections and comment one out[^2].
+
+### Suspense Accounts<a id="suspense-accounts"></a>
+
+Eventually the correct thing to be done will be to support [<u>suspense accounts</u>](https://www.google.com/url?q=http://en.wikipedia.org/wiki/Suspense_account&sa=D&source=docs&ust=1776012592990052&usg=AOvVaw0ucmanriL2B86xf-AgKu1l) (which I also refer to as "transfer accounts" in these documents). This will be done with an input style that involves inputting two incomplete transactions with a way to automatically link together those transactions in order to avoid forgotten amounts posted to transfer/suspense accounts. See [<u>this document</u>](settlement_dates_in_beancount.md) for a discussion.
 
 ## Padding<a id="padding"></a>
 
