@@ -10,6 +10,7 @@ from panflute import (
     Code,
     CodeBlock,
     Header,
+    Image,
     LineBreak,
     Link,
     ListItem,
@@ -130,6 +131,11 @@ def action(elem, doc):
     elif isinstance(elem, CodeBlock):
         # Remove unnecessary leading tabs from code blocks
         elem.text = re.sub(r'^\t', '', elem.text, flags=re.MULTILINE)
+
+    elif isinstance(elem, Image):
+        # Clear attributes to force Markdown syntax
+        elem.attributes.clear()
+        return elem
 
 
 def main(doc=None):
