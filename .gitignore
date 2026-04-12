@@ -20,3 +20,4 @@ site/
 !CONTRIBUTING.md
 !docs/**/*
 .cache
+__pycache__
