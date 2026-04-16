@@ -111,6 +111,7 @@ extra_css:
   - css/custom.css
 extra_javascript:
   - javascripts/shortcuts.js
+  - javascripts/header.js
 
 extra:
   version:
