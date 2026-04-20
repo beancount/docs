@@ -88,12 +88,6 @@
 
 [<u>Rounding & Precision in Beancount</u>](rounding_precision_in_beancount.md): A discussion of important rounding and precision issues for balance checks and a proposal for a better method to infer required precision. ([<u>Implemented</u>](precision_tolerances.md))
 
-## External Links<a id="external-links"></a>
-
-*Documents, links, blog entries, writings, etc. about Beancount written by other authors.*
-
-[<u>Beancount ou la comptabilité pour les hackers</u>](http://blog.deguet.fr/beancount-comptabilite-pour-hackers/) (Cyril Deguet): An overview blog entry (in french).
-
 ## V3 Documentation<a id="v3-documentation"></a>
 
 *As of summer 2020, a rewrite to C++ is underway. These are the documents related to that.*
@@ -106,7 +100,7 @@
 
 [<u>Beancount V3: Dependencies</u>](beancount_v3_dependencies.md): Software dependencies for building version 3.
 
-[<u>Beangulp</u>](beangulp.md): The renewed ingestion framework for v3.
+[<u>Beangulp Design Doc for New Repo</u>](beangulp_design_doc_for_new_repo.md): The renewed ingestion framework for v3.
 
 ## About this Documentation<a id="about-this-documentation"></a>
 

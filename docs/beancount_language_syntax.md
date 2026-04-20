@@ -64,7 +64,7 @@
 >
 > [<u>Commodities</u>](#commodities)
 >
-> [<u>Cost Basis</u>](#cost-basis)
+> [<u>Cost Basis</u>](#padding-cost-basis)
 >
 > [<u>Multiple Paddings</u>](#multiple-paddings)
 >
@@ -146,7 +146,7 @@ This also explains why balance assertions are verified before any transactions t
 
 ### Accounts<a id="accounts"></a>
 
-Beancount accumulates commodities in accounts. The names of these accounts do not have to be declared before being used in the file, they are recognized as “accounts” by virtue of their syntax alone[^1]. An account name is a colon-separated list of capitalized words which begin with a letter, and whose first word must be one of five account types:
+Beancount accumulates commodities in accounts. The names of these accounts do not have to be declared before being used in the file, they are recognized as “accounts” by virtue of their syntax alone[^1]. An account name is a colon-separated list of components whose first component must be one of five account types:
 
     Assets Liabilities Equity Income Expenses
 
@@ -220,7 +220,9 @@ The Beancount input file isn’t intended to contain only your directives: you c
 
 You can use one or more “;” characters if you like. Prepend on all lines if you want to enter a larger comment text. If you prefer to have the comment text parsed in and rendered in your journals, see the Note directive elsewhere in this document.
 
-Any line that does not begin as a valid Beancount syntax directive (e.g. with a date) is silently ignored. This way you can insert markup to organize your file for various outline modes, such as [<u>org-mode</u>](http://orgmode.org/) in Emacs. For example, you could organize your input file by institution like this and fold & unfold each of the sections independently,:
+(At some point, ny line that did not begin as a valid Beancount syntax directive (e.g. with a date) is silently ignored. This got changed sometime in 2019. TODO(blais): revisit.)
+
+This way you can insert markup to organize your file for various outline modes, such as [<u>org-mode</u>](http://orgmode.org/) in Emacs. For example, you could organize your input file by institution like this and fold & unfold each of the sections independently,:
 
     * Banking
     ** Bank of America
@@ -270,6 +272,8 @@ Another optional declaration for opening accounts is the “booking method”, w
 -   **STRICT**: The lot specification has to match exactly one lot. This is the default method. If this booking method is invoked, it will simply raise an error. This ensures that your input file explicitly selects all matching lots.
 
 -   **NONE**: No lot matching is performed. Lots of any price will be accepted. A mix of positive and negative numbers of lots for the same currency is allowed. (This is similar to how Ledger treats matching… it ignores it.)
+
+TODO(blais): The list above is out of date.
 
 ### Close<a id="close"></a>
 
@@ -338,6 +342,8 @@ A flag is used to indicate the status of a transaction, and the particular meani
 
 -   !: Incomplete transaction, needs confirmation or revision, “this looks incorrect.”
 
+TODO(blais): Enumerate the full list of valid flags here [<u>from the parser</u>](https://github.com/beancount/beancount/blob/master/beancount/parser/lexer.l#L134).
+
 In the case of the first example using “txn” to leave the transaction unflagged, the default flag (“\*”) will be set on the transaction object. (I nearly always use the “\*” variant and never the keyword one, it is mainly there for consistency with all the other directive formats.)
 
 You can also attach flags to the postings themselves, if you want to flag one of the transaction’s legs in particular:
@@ -398,11 +404,6 @@ If you want to set just a payee, put an empty narration string:
 
     2014-05-05 * "Cafe Mogador" ""
        … 
-
-For legacy reasons, a pipe symbol (“|”) is accepted between those strings (but this will be removed at some point in the future):
-
-    2014-05-05 * "Cafe Mogador" | ""
-       …
 
 You may also leave out either (but you must provide a flag):
 
@@ -808,7 +809,7 @@ Note that the Pad directive does not specify any commodities at all. All commodi
 
 If the account contained other commodities that aren’t balance asserted, no posting would be inserted for those.
 
-#### Cost Basis<a id="cost-basis"></a>
+#### Padding Cost Basis<a id="padding-cost-basis"></a>
 
 At the moment, Pad directives do not work with accounts holding positions held at cost. The directive is really only useful for cash accounts. (This is mainly because balance assertions do not yet allow specifying a cost basis to assert. It is possible that in the future we decide to support asserting the total cost basis, and that point we could consider supporting padding with cost basis.)
 
@@ -892,14 +893,14 @@ Remember that Beancount knows nothing about what HOOL, USD or CAD are. They are 
 If you use the `beancount.plugins.implicit_prices` plugin, every time a Posting appears that has a cost or an optional price declared, it will use that cost or price to automatically synthesize a Price directive. For example, this transaction:
 
     2014-05-23 *
-      Assets:Investments:MSFT        -10 MSFT {43.40 USD}
-      Assets:Investments:Cash     434.00 USD
+      Assets:Investments:MSFT         10 MSFT {43.40 USD}
+      Assets:Investments:Cash     -434.00 USD
 
 automatically becomes this after parsing:
 
     2014-05-23 *
-      Assets:Investments:MSFT        -10 MSFT {43.40 USD}
-      Assets:Investments:Cash     434.00 USD
+      Assets:Investments:MSFT         10 MSFT {43.40 USD}
+      Assets:Investments:Cash     -434.00 USD
 
     2014-05-23 price MSFT  43.40 USD
 
@@ -1083,7 +1084,7 @@ The specified path can be an absolute or a relative filename. If the filename is
 
 Include directives are not processed strictly (as in C, for example). The include directives are accumulated by the Beancount parser and processed separately by the loader. This is possible because the order of declarations of a Beancount input file is not relevant.
 
-However, for the moment, options are parsed per-file. The options-map that is kept for post-parse processing is the options-map returned for the top-level file. This is probably subject to review in the future.
+However, for the moment, options are parsed anew within each file. The options-map that is kept for post-parse processing is the options-map that is returned for the top-level file. (FYI this is poorly defined and was a second-order effect of adding include files without a proper design; it is definitely subject to review in the future as it has caused issues.)
 
 ## What’s Next?<a id="whats-next"></a>
 
@@ -1093,4 +1094,4 @@ This document described all the possible syntax of the Beancount language. If yo
 
 [^2]: Note that this is valid whether the price is specified as a per-unit price with the @ syntax or as a total price using the @@ syntax.
 
-[^3]: I really dislike the name “event” for this directive. I’ve been trying to find a better alternative, so far without success. The name “register” might be more appropriate, as it resembles that of a processor’s register, but that could be confused with an *account register* report. “variable” might work, but somehow that just sounds too computer-sciency and out of context. If you can think of something better, please make a suggestion and I’ll seriously entertain a complete rename (with legacy support for “event”).
+[^3]: I really dislike the name “event” for this directive. I’ve been trying to find a better alternative, so far without success. The name “register” might be more appropriate, as it resembles that of a processor’s register, but that could be confused with an *account register* report. “variable” might work, but somehow that just sounds too computer-sciency and out of context. If you can think of something better, please make a suggestion and I’ll seriously entertain a complete rename (with legacy support for “event”). Another name suggested by Ajit Singh was "temporal." Micah Duke suggested "mark".

@@ -291,6 +291,8 @@ I've used the convention that the Fund name precedes the root account name. Note
 
 *By Carl Hauser*
 
+    This is a followup to the Transfers discussion above. I realized that making the "transfer" nature explicit and giving it its own meaning (all transfers must balance) would make it possible to catch what for me is an occasional data entry error.
+
 One problem that I’ve experienced using the Fund approach is that it’s a bit too easy to make mistakes when transferring money between funds, such as in the very last transaction above. Formalizing the idea of Transfer accounts can help with this. The most common mistake is to end up with something that moves assets in both accounts in the same direction -- both up or both down as in this mistaken version of the transaction in question:
 
     2014-07-20 ! "Medical expense reimbursed from FSA - with mistake"
@@ -341,5 +343,107 @@ Some might think that this is too complicated. Without changing the Transfer acc
 Simon Michael mentions that this is related to HLedger [<u>account aliases</u>](http://hledger.org/how-to-use-account-aliases):
 
 > “I think this is related to the situation where you want to view entities' finances both separately and merged. Account aliases can be another way to approximate this, as in[<u>http://hledger.org/how-to-use-account-aliases</u>](http://hledger.org/how-to-use-account-aliases).”
+
+## Comments / Integrated<a id="comments-integrated"></a>
+
+Martin Blais - Jul 29, 2014
+
+    An obvious idea here would be to combine multiple input files into a single one by renaming accounts automatically. You'd keep multiple files, one for each fund, and have a script to combine them together, adding the necessary prefixes.
+
+Carl Hauser - Jul 29, 2014
+
+    Yes. That would be nice. It wouldn't cover all cases as you need the ability to have xacts that involve multiple funds. Another thought is to reuse the tag context idea and have a Fund context that sticks a fund name onto postings that don't already have a Fund. (Would have to be careful about the empty fund name in this case though).
+
+Martin Blais - Jul 30, 2014
+
+    Note that you can currently just use #fund-Operations and #fund-Endowment, even without key-values. This can work temporarily.
+
+Carl Hauser - Jul 30, 2014
+
+    But you'd need to allow tags on postings, I think. Again, a plugin could propagate tags according to the rules I gave and ensure that ultimately there was only one fund tag on each posting.
+
+Martin Blais - Jul 30, 2014
+
+    From my perspective, a component of an account name is not that much different than a tag on a posting. In fact it's better: a particular account should never receive two differing fund=X values.
+
+Carl Hauser - Jul 30, 2014
+
+    I agree that this is a relatively minor decision about implementation -- the meaning needed is clear enough and whether it is done with a fund name component or tags with semantics assigned should be decided by what makes most sense for the implementation. Especially at this early stage.
+
+Kane York - Nov 12, 2018
+
+    the naming pattern here suggests an additional rule enforcement - what if this was named (Main:)Transfer:FSA:Outgoing:Contribution - that is, the first component after "Transfer" must be the target fund name?
+
+Kane York - Nov 12, 2018
+
+    Then, an additional inference rule can be added, where any A:Transfer:B / B:Transfer:A pair can have one leg omit the amount (inferred from the other amount), so long as there is only one such pair for A and B in the transaction.
+
+About reporting:
+
+Martin Blais - Jul 29, 2014
+
+    Custom reports are quite easy to build, but if we can generalize nicely enough, this could be built-in. Can you provide an example of that report looks like? (Use a screenshot if that's easy, you can blur the numbers.)
+
+Martin Blais - Jul 30, 2014
+
+    Nice. This would be so easy to implement. Thanks for the screenshot.
+
+Martin Blais - Jul 30, 2014
+
+    I'd like to hear about how you handle rendering a register for the underlying "real" accounts, like say, the checking account. How would that look like? Do you ever want to render the outgoing transfers to the funds' accounts? Or do you want to be able to render with and without those transfers, e.g., replicate just the activity of the actual bank, to reconcile it against the account statement? What does this look like?
+
+Carl Hauser - Jul 30, 2014
+
+> In PCP reconciliation happens against a list of postings for the real account (collected by looking at transactions in all the funds that use that real account). Of course, being a GUI-based program they have a separate interactive screen on which you do this.
+>
+> For transfer xacts, that just move money between funds but don't move money in or out of the real account, the net is 0 on the real account and I think they are omitted from the reconciliation. If they're not then you have to match them up manually. But you have to do such manual matching sometimes anyway because a check transaction and a void transaction for the check show up separately and are not reflected on the statement. I don't think it's a big deal either way.
+
+About transfers:
+
+Martin Blais - Jul 29, 2014
+
+    I've used these "transfer accounts" in one case so far, for convenience, but I wonder, why wouldn't you just directly make transfers between two asset accounts in a single transaction?
+
+Carl Hauser - Jul 29, 2014
+
+    You need to balance the transaction in each fund -- so there need to be two legs in each fund and the transfer/income/expense account does that. It is all done in one transaction.
+
+Martin Blais - Jul 29, 2014
+
+    Aaaah I think I see what you're saying. What you really mean is that when you look at a single fund's books, you don't want to see any of the other funds' accounts, even the "global" ones. Makes sense.
+
+Carl Hauser - Jul 29, 2014
+
+> Re: "you don't want to see any of the other funds' accounts, even the "global" ones. Makes sense."
+>
+> It's more fundamental than what you prefer to see. If you don't insist that a transaction be balanced for every fund it uses, things go wrong (I've spent years! fixing things in the church's books where transactions had balanced credits and debits overall but were unbalanced within individual funds).
+>
+> Consider:
+>
+> 2014/07/25 \* "Transfer from endowment to operating" "Endowment income is
+>
+> available for operations"
+>
+> Operations:Assets:Bank 200.00 USD
+>
+> Endowment:Assets:Bank -200.00 USD
+>
+> This is balanced overall but not balanced in either account. If we now do a trial balance on the Operations Fund it won't balance and we have to go figure out why. Wrongness is also noted when closing books at the end of the year and adjusting equity with retained earnings, etc.
+
+Martin Blais - Jul 29, 2014
+
+> Ha, yes, I see.
+>
+> What I meant was a bit subtle: if you drew the balance sheet for the Operations Fund, Beancount would necessarily show you the change in the Endowment Fund (and the Endowment:Assets:Bank account would appear on that balance sheet), and so it would be balanced.
+>
+> For the very reason that you mention, I plan not to support filtering of transactions at the postings level, that is, all filters would only be able to select a subset of transactions, each with all of their legs. Because all transactions balance, the balance sheet will balance too. Filtering should only mean "filtering of which transactions to report on."
+>
+> Now when it comes to display, if you choose to narrow down a report by a subset of accounts, that may not balance, but it should be obvious when that's the case.
+>
+> I hope this makes sense and does not feel limitative.
+
+Carl Hauser -Jul 29, 2014
+
+    Yes, it makes sense and it would not be a limitation for my use cases. Enforcing my "balance in each fund" rule could be done by a plugin if desired.
 
 [^1]: If you find yourself culturally challenged by our modern lifestyle, perhaps you can imagine the case of roommates, although I don’t like the reductionist view this association brings to my mind.

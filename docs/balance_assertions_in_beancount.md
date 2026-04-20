@@ -184,6 +184,52 @@ Possible syntax ideas:
 
 I’m still undecided which is best. So far it seems a matter of taste.
 
+## User Comments<a id="user-comments"></a>
+
+Red S - Dec 16, 2015
+
+    A multi-commodity partial assertion may be useful too. For example, "<date> balance <account> 0 USD,CAD,AAPL". In this case, if the account had say five commodities, we might explicitly specify a non-zero balance for the first two, and then specify a zero balance for the remaining using the above notation. What do you think?
+
+Martin Blais - Dec 17, 2015
+
+> Two comments:
+>
+> \- The syntax of a single number + a list of commodities is unlike anything else in the current syntax. Feels a bit foreign and inconsistent to include.
+>
+> \- I think this can be easily reproduced with multiple lines.
+>
+> I need to put more thought to this to fully hash this out.
+
+Thanks,
+
+Red S - Dec 17, 2015
+
+> True, it can be reproduced with multiple lines in theory, but as I found out yesterday when pulling in an older account, it gets cumbersome quickly even with ~15 commodities.
+>
+> And true about the syntax too, though the syntax for the open directive which accepts a list of commodities comes close.
+
+Martin Blais - Dec 17, 2015
+
+    Indeed, I hadn't thought of that one.
+
+About keeping a date on file balance assertions:
+
+Anonymous - Jul 13, 2014
+
+> I take issue with this: concrete syntax is too important for the kind of tools we're using/designing to be misleading. If a date is required, it should be used and meaningful. If what we are trying to express does not, at a semantic level, requires a date, then its concrete syntax should not have a date.
+>
+> If the sole reason for requiring a date is that all other directives have one, then we should generalize our notion of what a directive is, from "something that starts with a date" to " something that has an optional starting date".
+>
+> — Zack
+
+Martin Blais - Jul 13, 2014
+
+    Point taken. Still unsure. The reason I'd be willing to make the exception here is because that would be the only type of directive not requiring a date. On the other hand, if I processed those directives at parse time - and I cannot, because of upcoming changes in interpolation - not having a date makes it clear that it is not a directive but rather a special parser command, like option and pushtag/poptag.
+
+Martin Blais - Jul 13, 2014
+
+    Another reason in the favor of dating file assertions is that they can then be displayed in the journal of entries. You may not have used Beancount and noticed that I render balance entries in the journals. If I don't have a date on file assertions, I have nowhere to place them. I suppose I could use the date of the preceding transactions - in file order - that has a posting to this account, but this seems pretty implicit to me. Or I could just decide not to render them at all.
+
 [^1]: As far as we know, the notion of inputting an explicit expected amount is unique to command-line accounting systems. Other systems “reconcile” by freezing changes in the past.
 
 [^2]: There are multiple reasons for this. First, in pre-computer times, accounting was done using books, and recomputing running balances manually would have involved making multiple annoying corrections to a book. This must have been incredibly inconvenient, and inserting correcting entries at the current time is a lot easier. Secondly, if your accounting balances are used to file taxes, changing some of the balances retroactively makes it difficult to go back and check the detail of reported amounts in case of an audit. This problem also applies to our context, but whether a past correction should be allowed is a choice that depends on the context and the particular account, and we leave it up to the user to decide whether it should be allowed.

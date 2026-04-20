@@ -16,7 +16,7 @@
     "17wTH7aKnN_7-6nCxsOad6zIQfHwQgJUdI02RjzQuNi8": "beancount_history_and_credits.md",
     "1dW2vIjaXVJAf9hr7GlZVe3fJOkM-MtlVjvCO1ZpNLmg": "a_comparison_of_beancount_and_ledger_hledger.md",
     "1thYRAMell_QT1Da1F_laprSs6BlROZjyK_h3V8qHW9c": "fetching_prices_in_beancount.md",
-    "11EwQdujzEo2cxqaF5PgxCEZXWfKKQCYSMfdJowp_1S8": "importing_external_data.md",
+    "1hBfsHZcoHgz5rvhCdP42g2FJ5ouycIMV4H1tfgXpwBU": "importing_external_data.md",
     "1Tss0IEzEyAPuKSGeNsfNgb0BfiW2ZHyP5nCFBW1uWlk": "command_line_accounting_cookbook.md",
     "1WjARst_cSxNE-Lq6JnJ5CC41T3WndEsiMw4d46r2694": "trading_with_beancount.md",
     "1mHNlNMTZsKPMjP_qQmedoizZFQy1-GzlR2lX5zy_0ok": "stock_vesting_in_beancount.md",
@@ -37,5 +37,5 @@
     "1qPdNXaz5zuDQ8M9uoZFyyFis7hA0G55BEfhWhrVBsfc": "beancount_v3.md",
     "1WwZYqsp28Uuk5eFqHQ1u1zqdjghymy8S_Yo-OJENoa4": "installing_beancount_v3.md",
     "10R-msZljuqFY8nckUnR1jVxMX1ol7rJUCMZo7w7QUQs": "beancount_v3_dependencies.md",
-    "1O42HgYQBQEna6YpobTqszSgTGnbRX7RdjmzR2xumfjs": "beangulp.md"
+    "1O42HgYQBQEna6YpobTqszSgTGnbRX7RdjmzR2xumfjs": "beangulp_design_doc_for_new_repo.md"
 }

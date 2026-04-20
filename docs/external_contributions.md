@@ -36,6 +36,10 @@ This document contains only packages that were discussed or have had an announce
 
 [<u>One Number I Trust: Plain-Text Accounting for a Multi-Currency Household - Lalit Maganti</u>](https://lalitm.com/post/one-number-i-trust/) - an article documenting various examples of DEB usage.
 
+[<u>Interactive beanquery manual</u>](https://github.com/Ev2geny/beanquery-interactive-manual) (Chary Ev2geny): covers the latest features of beanquery, includes many real examples using actual ledgers, self-documenting: all query outputs are computed by running beanquery as part of the notebook execution, interactive: when run as a marimo notebook, readers can experiment by changing the default ledgers and/or queries, with outputs updating automatically.
+
+[<u>Beancount ou la comptabilité pour les hackers</u>](https://cdeguet.net/blog/beancount-comptabilite-pour-hackers/) (Cyril Deguet)
+
 ## Plugins<a id="plugins"></a>
 
 [<u>split\_transactions</u>](https://www.google.com/url?q=https%3A%2F%2Fgist.github.com%2Fkljohann%2Faebac3f0146680fd9aa5&sa=D&sntz=1&usg=AFQjCNGn2AkL35onTeXgOQzLzkjVpvLcpg): Johann Klähn [<u>wrote a plugin</u>](https://groups.google.com/d/msg/beancount/z9sPboW4U3c/1qIIzro4zFoJ) that can split a single transaction into many against a limbo account, as would be done for depreciation.

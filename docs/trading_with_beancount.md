@@ -96,7 +96,7 @@ Do you notice something funny going on here? -3 x 160 = -480, -480 + 500.05 + 9.
       Expenses:Financial:Commissions     9.95 USD
       Income:US:ETrade:PnL
 
-The last leg will be automatically filled in by Beancount to `-30 USD`, as we’re allowed one posting without an amount (and remember that in the double-entry system without credits and debits, a profit is a negative number for “Income” accounts). This is the number the government is interested in for your taxes.
+The last leg will be automatically filled in by Beancount to `-30 USD`, as we’re allowed one posting without an amount (and remember that in the double-entry system without credits and debits, a profit is a negative number for “Income” accounts). This is the number the government is interested in for your taxes. (Well not quite: the commissions should be further excluded in order to compute the actual capital gains; but this automatically computes the P/L including the commissions. There's no auto-fill way to do this; you can remove the commissions in reporting.)
 
 In summary, you now have:
 
@@ -206,11 +206,11 @@ There are more… but I’m not going to elaborate on them here. My goal is to s
 
 ## Dated lots<a id="dated-lots"></a>
 
-We’ve almost completed the whole picture of how this works. There is one more rather technical detail to add and it begins with a question: What if I bought multiple lots of share at the same price?
+We’ve almost completed the whole picture of how this works. There is one more rather technical detail to add and it begins with a question: What if I bought multiple lots of shares at the same price?
 
 As we alluded to in the previous section, the duration for which you held a position may have an impact on your taxation, even if the P/L ends up being the same. How do we differentiate between these lots?
 
-Well… I had simplified things a tiny bit earlier, just to make it simpler to understand. When we put positions in an inventory, on the label that we attach to the things we put in it, we also mark down the date that lot was acquired if you supply it. This is how you would book entering the position this way:
+Well… I had simplified things a tiny bit earlier, just to make it simpler to understand. When we put positions in an inventory, on the label that we attach to the things we put in it, we can also mark down the date that lot was acquired if you supply it. Normally, the transaction date of an opening position is automatically inserted for you, so without entering the dates, you get the equivalent of this, automatically:
 
     2014-05-20 * "First trade"
       Assets:US:ETrade:IBM          5 IBM {180.00 USD, 2014-05-20}
@@ -222,13 +222,15 @@ Well… I had simplified things a tiny bit earlier, just to make it simpler to u
       Assets:US:ETrade:Cash           -549.95 USD
       Expenses:Financial:Commissions     9.95 USD
 
-Now when you sell, you can do the same thing to disambiguate which lot’s position you want to reduce:
+Now when you sell, you can disambiguate which lot's position you want to reduce:
 
     2014-08-04 * "Selling off first trade"
       Assets:US:ETrade:IBM         -5 IBM {180.00 USD, 2014-05-20}
       Assets:US:ETrade:Cash            815.05 USD
       Expenses:Financial:Commissions     9.95 USD
       Income:US:ETrade:PnL
+
+If you are moving positions between accounts and would like to maintain the original acquisition date of the lot, you can use the same syntax (the date does *not* have to match that of the transaction that it is attached to).
 
 Note that it’s really unlikely that your broker will provide the information in the downloadable CSV or OFX files from their website… you probably won’t be able to automate the lot detail of this transaction, you might have to pick up the PDF trade confirmations your broker provides to enter this manually, if it ever happens. But how often does it happen that you buy two lots at the same price? I trade relatively frequently - about every two weeks - and in 8 years worth of data I don’t have a single occurrence of it. In practice, unless you do thousands of trades per day- and Beancount isn’t really designed to handle that kind of activity, at least not in the most efficient way - it just won’t happen very much.
 
@@ -245,20 +247,6 @@ Beancount supports a type of entry called a `price` entry that allows you to tel
     2014-05-25 price IBM   182.27 USD
 
 In order to keep Beancount simple and with few dependencies, the software does not automatically fetch these prices (you can check out LedgerHub for this purpose, or write your own script that will insert the latest prices in your input file if so desired… there are many libraries to fetch prices from the internet online). It only knows about market prices from all these price entries. Using these, it builds an in-memory historical database of prices over time and can query it to obtain the most current values.
-
-Instead of supporting different reporting modes with options, you can trigger the insertion of unrealized gains by enabling a plugin:
-
-    plugin "beancount.plugins.unrealized" "Unrealized"
-
-This will create a synthetic transaction at the date of the last of directives, that reflects the unrealized P/L. It books one side as Income and the other side as a change in Asset:
-
-    2014-05-25 U "Unrealized gain for 7 units of IBM (price:
-                  182.2700 USD as of 2014-05-25, 
-                  average cost: 160.0000 USD)"
-      Assets:US:ETrade:IBM:Unrealized          155.89 USD
-      Income:US:ETrade:IBM:Unrealized         -155.89 USD
-
-Note that I used an option in this example to specify a sub-account to book the unrealized gains to. The unrealized P/L shows up on a separate line in the balance sheet and the parent account should show the market value on its balance (which includes that of its sub-accounts).
 
 ## Commissions<a id="commissions"></a>
 
@@ -345,7 +333,7 @@ If we have the specific lot prices being adjusted, it is doable to book these in
       Assets:CA:RRSP:XSP            100 ADSK {23.40 CAD}
       Income:CA:RRSP:Gains      -230.00 CAD
 
-However, this is really uncommon. The more common case of this is of an account using the average cost booking method, we don’t currently have a way to deal with this. There is an [<u>active proposal</u>](a_proposal_for_an_improvement_on_inventory_booking.md) in place to make this possible.
+However, this is really uncommon. The more common case of this is of an account using the average cost booking method, we don’t currently have a way to deal with this. (There is a [<u>proposal</u>](a_proposal_for_an_improvement_on_inventory_booking.md) in place to make this possible; it is not completed.)
 
 The cost basis adjustment is commonly found in Return of Capital events. These happen, for example, when funds are returning capital to the shareholders. This can be caused by winding down the operation. From the taxation point of view, these are non-taxable events and affect the cost basis of the equity in the fund. The number of shares might stay the same, but their cost basis needs to be adjusted for potential Gain/Loss calculation at the point of sale in the future.
 

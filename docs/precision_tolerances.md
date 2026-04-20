@@ -363,7 +363,7 @@ Here’s an overview of the status of numbers rendering in Beancount as of March
 >
 > I hope this helps. You're welcome to ask questions if the above isn't clear. I'm sorry if this isn't entirely obvious... there's been a fair bit of history there and there's a lot of code. I should review the naming of options, I think the tolerance options all have "tolerance" in their name, but there aren't options to override the rendering and when I add them they should all have a common name as well.
 
-As of May 2025, the configuration settings for tolerances and precision is under review. This has been a pain point for a very long time.
+**Note: As of April 2026, the configuration settings for tolerances and precision is under review. This has been a pain point for a very long time.**
 
 [^1]: This stands in contrast to Ledger which attempts to infer the precision based on other transactions recently parsed in the file, in file order. This has the unfortunate effect of creating “cross-talk” between the transactions in terms of what precision can be used.
 

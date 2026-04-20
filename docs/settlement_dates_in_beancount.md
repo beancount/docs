@@ -76,7 +76,29 @@ Most importantly, we want to be able to easily identify which of the transaction
 
 *Does this property solve the problem of making balance assertions between trade and settlement?*
 
-    TODO [Write out a detailed example]
+> TODO \[Write out a detailed example\]
+>
+> *Comment thread:*
+>
+> *Martin Blais \[12:00 PM\]*
+>
+> *Filippo, would the previous proposal address the issue? If you drew a balance sheet when some amounts are in transit of being settled, they would show up in a limbo account.*
+>
+> *Filippo Tampieri \[12:15 PM\]*
+>
+> *Yes, I like the idea of keeping the main date for the trade date, so that all reports would only worry about that one and the checks could use the settlement date.*
+>
+> *Observation: Scotia iTRADE reports separate lines for "trade date cash" and "settlement date cash" on the summary balance page when logging in, but shows only settlement dates for all transactions on monthly statements (without further explanation).*
+>
+> *Martin Blais \[12:45 PM\]*
+>
+> *As a side note, if the transfer account is a sub-account of the investment base (e.g., Assets:US:ScottTrade), and you have two sub-accounts for cash—such as :Cash and :Transfer—you can run a balance assertion on the parent account.*
+>
+> *This allows you to check against the sum of the sub-accounts for that commodity, effectively verifying both the available cash and the amounts in limbo to settle:*
+>
+> *2014-06-30 balance Assets:US:ScottTrade xxx USD*
+>
+> *In this case, xxx represents your current cash + amount to settle. This functionality is currently supported; you can perform balance assertions on parent accounts.*
 
 *Any drawbacks?*
 
@@ -115,7 +137,7 @@ Auxiliary dates are also known as “[<u>effective dates</u>](http://ledger-cli.
 
 The original motivation for this was for budgeting, allow one to move accounting of expenses to neighboring budget periods in order to carry over actual paid amounts to those periods. Bank amounts in one month could be set against a budget from the immediately preceding or following month, as needed. (Note: John Wiegley)
 
-This is similar to one of the syntaxes I’m suggesting above—letting the user specify a date for each posting—but the other postings are not split as independent transactions. The usage of those dates is similarly triggered by a command-line option (`--effective`). I’m assuming that the posting on the checking account above occurs at once at 2008/10/16, regardless of reporting date. Let’s verify this:
+This is similar to one of the syntaxes I’m suggesting above—letting the user specify a date for each posting—but the other postings are not split as independent transactions. The usage of those dates are similarly triggered by a command-line option (`--effective`). I’m assuming that the posting on the checking account above occurs at once at 2008/10/16, regardless of reporting date. Let’s verify this:
 
     $ ledger -f settlement1.lgr reg checking --effective
     08-Oct-16 Bountiful Blessings.. Assets:Checking           $ -225.00    $ -225.00
@@ -127,6 +149,10 @@ This would break an invariant in Beancount: we require that you should always be
 ### GnuCash<a id="gnucash"></a>
 
 *TODO(blais) - How is this handled in GnuCash and other GUI systems? Is there a standard account method?*
+
+> *Alen Šiljak (May 8, 2019)*
+>
+> *GnuCash has Post Date and Enter Date fields but I'm not sure when or how they differ effectively.*
 
 ## References<a id="references"></a>
 
@@ -140,8 +166,42 @@ The IRS [<u>requires you to use the trade date and NOT the settlement date</u>](
 >
 > You are a cash method, calendar year taxpayer. You sold stock at a gain on December 30, 2013. According to the rules of the stock exchange, the sale was closed by delivery of the stock 4 trading days after the sale, on January 6, 2014. You received payment of the sales price on that same day. Report your gain on your 2013 return, even though you received the payment in 2014. The gain is long term or short term depending on whether you held the stock more than 1 year. Your holding period ended on December 30. If you had sold the stock at a loss, you would also report it on your 2013 return.
 
+Anonymous comment:
+
+    The German tax authorities may give you a choice of which date to use. That's why I'm paying attention to how you do it. Gnucash can apparently "almost" use settlement dates, but according to the documentation it seems to do it badly if at all.
+
 ### Threads<a id="threads"></a>
 
 -   [<u>An interesting "feature by coincidence"</u>](https://groups.google.com/d/msg/ledger-cli/ooxbPVRinSs/ymkRCerhxjcJ)
 
 -   [<u>First Opinions, Coming from Ledger</u>](https://groups.google.com/d/msg/beancount/z9sPboW4U3c/UfJbIVzwmpMJ)
+
+Budgeting:
+
+> *Martin Blais - /Jul 1, 2014*
+>
+> *Can someone who uses this feature in Ledger provide an example of how you're using this?*
+>
+> *John Wiegley - Jul 1, 2014*
+>
+> *I'm not sure I've ever tried using the features in combination, actually.*
+>
+> *Martin Blais - Jul 1, 2014*
+>
+> *Thanks John. I'm going to try to put together a more specific example to solve the settlement date problem and try to understand it better.*
+>
+> *John Wiegley - Jul 1, 2014*
+>
+> *I originally wanted auxiliary dates to help with budgeting (so that bank amounts in one month could be set against a budget from the immediately preceding or following month, as need be), but I must say that since I do not do much budgeting now, I simply never use them. They are indeed useful for that one case though.*
+>
+> *Martin Blais - Jul 1, 2014*
+>
+> *Interesting, thanks for the context, I'll update the doc.*
+>
+> *Budgeting still eludes me a bit; like you, I don't really do it myself, but when I think about it, it seems like there are two cases: (1) a "goal" case whereby unused amounts don't carry over between months (if monthly), and (2) a case where unused amounts can be carried over and used to offset another month which, if I understand correctly, is the use case you're referring to.*
+>
+> *(1) is easy to implement with a new directive (that's my current plan) that just spits our warnings when sums bust constraints.*
+>
+> *(2) eludes me. I think it's something that would require a set of parallel accounts. I haven't thought of an elegant solution to this yet.*
+>
+> *I will fork this into another proposal doc, this is another discussion.*

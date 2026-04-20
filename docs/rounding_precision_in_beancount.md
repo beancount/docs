@@ -151,3 +151,29 @@ By default, this accumulation should be turned off. It’s not clear whether the
 ## Implementation<a id="implementation"></a>
 
 The implementation of this proposal is [<u>documented here</u>](precision_tolerances.md).
+
+## User Comments<a id="user-comments"></a>
+
+Johannes H - Oct 19, 2014
+
+> I would have expected the opposite system behavior. An integer should imply the loosest possible matching.
+>
+> \* Because if a user spares the effort of typing fractional digits (e.g., he/she types "1000" instead of "1000.00"), then this can be seen as an indicator that the user does not care much about precision. I would therefore expect the system to likewise be more sloppy in interpreting the number.
+>
+> \* If, in contrast, a user is willing to make the effort of specifying a number's exact precision by typing extra digits or by typing an extra decimal point (e.g., "1000.00" or "1000." instead of simply "1000"), then this can be seen as an indicator that he/she cares about the number's precision. Thus the user's effort and strictness in specifying the precision should be reflected by a more strict interpretation by the system.
+>
+> Show less
+
+Martin Blais - Oct 25, 2014
+
+> We agree about your second point but not about the first. The second point is addressed by this proposal.
+>
+> If an integer is interpreted to mean the loosest precision, how do we then specify complete precision? "xx.000000000"? (not nice) Some other syntax, e.g. "1000.-"? How would you like to specify it? We do need a way to specify full precision in some cases. (see below).
+>
+> And what would then the difference be between "1000" and "1000." ? I see the user inputting "1000." as indicating that he doesn't care about the fractional digits. The meaning for "1000" is up for grabs, we can make it mean something else. I thought it could be the rightful spot to mean full precision.
+>
+> The thing is, in practice, integers without a period are used in two cases:
+>
+> \- Specifying a number of integral shares, which must be precise.
+>
+> \- Brevity in input. 100$ is easier to type than 100.00$. These integer amounts are typically used for cash, or for amounts approximated and entered manually, where there is no issue in precision (full precision can apply without causing problems).

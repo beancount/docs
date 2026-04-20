@@ -146,7 +146,7 @@ There is an exception:
 
 -   Options may have effects during the processing of the file and should appear at the beginning. At the moment, Beancount does not enforce this, e.g., by performing multiple passes of parsing, but it probably should.
 
--   What’s more, options in included files are currently ignored. You should put all your options in the top-level ledger file.
+-   What’s more, options in included files are parsed within each file but only the options parsed from the top-level file are kept. You should put all your options in the top-level ledger file. (TODO(mblais): This is subject to review and must be redesigned.)
 
 ### All Transactions Must Balance<a id="all-transactions-must-balance"></a>
 
@@ -170,7 +170,7 @@ Accounts have lifetimes; an account opens at a particular date and optionally cl
 
 All accounts are required to have a corresponding Open directive in the stream. By default, this is enforced by spitting out an error when posting to an account whose Open directive hasn’t been seen in the stream. You can automate the generation of these directives by using the “auto\_accounts” plugin, but in any case, the stream of entries will always contain the Open directives. This is an assumption that one should be able to rely upon when writing scripts.
 
-(Eventually a similar constraint will be applied for Commodity directives so that the stream always includes one before it is used; and they should be auto-generated as well. This is not the case right now \[June 2015\].)
+(A similar constraint can be optionally applied for Commodity directives so that the stream always includes a declaration of one before it is used; see the beancount.plugin.check\_commodities plugin.)
 
 ### Supports Dates Only (and No Time)<a id="supports-dates-only-and-no-time"></a>
 
@@ -646,7 +646,7 @@ The parser and the loader produce three lists:
 
 -   entries: A list of directive tuples from beancount.core.data. This is the stream of data which should consists mostly of Transaction and Balance instances. As much as possible, all data transformations are performed by inserting or removing entries from this list. Throughout the code and documents, I refer to these as entries or directives interchangeably.
 
--   errors: A list of error objects. In Beancount I don’t use exceptions to report errors; rather, all the functions produce error objects and they are displayed at the most appropriate time. (These deserve a base common type but for now the convention they respect is that they all provide a source (filename, line-no), message and entry attributes.)
+-   errors: A list of error objects. In Beancount I don’t use exceptions to report errors; rather, all the functions produce error objects and they are displayed at the most appropriate time. (These deserve a base common type but for now the convention they respect is that they all provide a source (filename, line-no), message and entry attributes. TODO(mblais): I'd like to clean this up a bit eventually and enforce the commonalities on all error types.)
 
 -   options_map: A dict of the options provided in the file and derived during parsing. Though this is a mutable object, we never modify it once produced by the parser.
 
@@ -676,7 +676,7 @@ Note that the grammar.py Builder derives from a similar Builder class defined in
 
 I just came up with this; I haven’t seen this done anywhere else. I tried it and the faster parser made a huge difference compared to using PLY so I stuck with that. I quite like the pattern, it’s a good compromise that offers the flexibility of a parser generator yet allows me to handle the rules using Python. Eventually I’d like to move just some of the most important callbacks to C code in order to make this a great deal faster (I haven’t done any real performance optimizations yet).
 
-This has worked well so far but for one thing: There are several limitations inherent in the flex tokenizer that have proved problematic. In particular, in order to recognize transaction postings using indent I have had to tokenize the whitespace that occurs at the beginning of a line. Also, single-characters in the input should be parsed as flags and at the moment this is limited to a small subset of characters. I’d like to eventually write a custom lexer with some lookahead capabilities to better deal with these problems (this is easy to do).
+This has worked well so far but for one thing[^4]: There are several limitations inherent in the flex tokenizer that have proved problematic. In particular, in order to recognize transaction postings using indent I have had to tokenize the whitespace that occurs at the beginning of a line. Also, single-characters in the input should be parsed as flags and at the moment this is limited to a small subset of characters. I’d like to eventually write a custom lexer with some lookahead capabilities to better deal with these problems (this is easy to do).
 
 ### Two Stages of Parsing: Incomplete Entries<a id="two-stages-of-parsing-incomplete-entries"></a>
 
@@ -751,7 +751,7 @@ Consider that:
 
 -   We want to render text report which need to align numbers with varying number of fractional digits together, aligning them by their period or rightmost digits, and possibly rendering a currency thereafter.
 
-In order to deal with this thorny problem, I built a kind of accumulator which is used to record all numbers seen from some input and tally statistics about the precisions witnessed for each currency. I call this a [<u>DisplayContext</u>](https://github.com/beancount/beancount/tree/master/beancount/core/display_context.py). From this object one can request to build a DisplayFormatter object which can be used to render numbers in a particular way.
+In order to deal with this thorny problem, I built a kind of accumulator which is used to record all numbers seen from some input and tally statistics about the precisions witnessed for each currency. I call this a [<u>DisplayContext</u>](https://github.com/beancount/beancount/tree/master/beancount/core/display_context.py). From this object one can request to build a DisplayFormatter object which can be used to render numbers[^5] in a particular way.
 
 I refer to those objects using the variable names `dcontext` and `dformat` throughout the code. The parser automatically creates a DisplayContext object and feeds it all the numbers it sees during parsing. The object is available in the options\_map produced by the loader.
 
@@ -880,3 +880,7 @@ Nothing in Beancount is inspired from the following docs, but you may find them 
 [^2]: There is an option called operating\_currency but it is only used to provide good defaults for building reports, never in the processing of transactions. It is used to tell the reporting code which commodities should be broken out to have their own columns of balances, for example.
 
 [^3]: In previous version of Beancount this was not true, the Posting used to have a ‘position’ attribute and composed it. I prefer the flattened design, as many of the functions apply to either a Position or a Posting. Think of a Posting as *deriving* from a Position, though, technically it does not.
+
+[^4]: Error handling has been a bit difficult so far but that's my fault. Certain types of errors will cause a core dump (I call abort()) but this hasn't been too bad yet because I output a suitable error message right before. However, I'm in the process of fixing this and this behavior should be gone shortly. See branch "unicode" that will deal explicitly with this.
+
+[^5]: TODO(mblais): The DisplayContext mechanism was created and some of the codebase was ported to it, but some of the code remains to be converted to use it. This is the case for the bean-query table render, for instance, which has its own mechanism, and for the web interface, which just hasn't had the code review yet. I'll close this ticket when that's done and completed.

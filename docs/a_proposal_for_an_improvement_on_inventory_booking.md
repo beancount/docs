@@ -264,6 +264,10 @@ The issue that concerns booking is, when you sell that position, which cost do y
 
 Now, what if we automatically attach the transaction date? Does it get reset on the split and now you would have to use 2014-04-17? If so, we could not automatically inspect the list of trades to determine whether this is a long-term vs. short-term trade. We need to somehow preserve some of the attributes of the original event that augmented this position, which includes the original trade date (not the split date) and the original user-specified label on the position, if one was provided.
 
+> Aditya Mehta (Apr 13, 2019) proposes:
+>
+> *Suggestion to fit this in the existing posting structure: instead of adding a single entry which replaces the pre-split commodity with the split one, one could add back dated entries on every transaction made on the pre-split commodity. For instance, in the above example, HOOL split on 2014-04-17 but was originally bought on 2014-01-04. Instead of adding the entries on 2014-04-17, the entries can be added on 2017-01-04 itself. This could be made a plugin where the split is reported as a special transaction on 2017-04-17 but impacts the accounts in a back dated manner.*
+
 ### Forcing a Single Method per Account<a id="forcing-a-single-method-per-account"></a>
 
 For accounts that will use the average booking method, it may be useful to [<u>allow specifying that an account should only use this booking method</u>](https://groups.google.com/d/msg/ledger-cli/aQvbjTZa7HE/55mx1LSM0sIJ). The idea is to avoid data entry errors when we know that an account is only able to use this method.
@@ -400,6 +404,8 @@ With output:
                   USD100
 
 This is a bit surprising, I expected the lots to book against each other. I suspect this may be an unreported bug, and not intended behaviour.
+
+    Comment: The mechanism by which an inventory is booked should definitely not be a reporting level feature in my view. In Ledger this appears to be the case: if I read the documentation, it mentions: "--lot-prices: Report the price at which ...". What this tells me is that Ledger does not do any booking of inventories, it only adds all these lots, and then the booking occurs with "grouping" during reporting. Is this right? This would also explain why it makes it possible to sell lots that don't exist in their inventory. In Beancount, a lot reduction happens before parsing time. This is important: I enforce that you should not be able to sell a lot that does not exist. It also opens the door to implementing this proposal.
 
 Finally, the “`{}`” cost syntax is allowed be used on augmenting legs as well. The documentation [<u>points to these methods being equivalent</u>](http://ledger-cli.org/3.0/doc/ledger3.html#Prices-versus-costs). It results in an inventory lot that does not have a date associated with it, but the other leg is not converted to cost:
 

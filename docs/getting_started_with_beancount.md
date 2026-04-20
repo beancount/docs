@@ -139,7 +139,7 @@ This tells Beancount not to show the account in reports that don’t include any
 
 ## De-duping<a id="de-duping"></a>
 
-One problem that will occur frequently is that once you have [<u>some sort of code or process</u>](importing_external_data.md) set up to automatically extract postings from downloaded files, you will end up importing postings which provide two separate sides of the same transaction. An example is the payment of a credit card balance via a transfer from a checking account. If you download the transactions for your checking account, you will extract something like this:
+One problem that will occur frequently is that once you have [<u>some sort of code or process</u>](http://furius.ca/beancount/doc/ingest) set up to automatically extract postings from downloaded files, you will end up importing postings which provide two separate sides of the same transaction. An example is the payment of a credit card balance via a transfer from a checking account. If you download the transactions for your checking account, you will extract something like this:
 
     2014-06-08 * "ONLINE PAYMENT - THANK YOU"
       Assets:CA:BofA:Checking           -923.24 USD

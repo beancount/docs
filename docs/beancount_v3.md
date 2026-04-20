@@ -98,7 +98,7 @@ To this effect, I'd like to implement a few strategies:
 
 3.  **20% projects.** I should provide a list of "20% projects" that are well aligned with the direction of the project for others to take up if they want to, and add profuse guidance and detail of downstream side-effects from those proposed features. The idea is to make it possible for newcomers to contribute changes that are likely to fit well and be easily integrated and accepted on the codebase.:
 
--   **Proposals.** Beancount's equivalents of Python's "[<u>PEPs</u>](https://www.python.org/dev/peps/)" are essentially the Google Docs proposal documents I started from threads where many others comment and add suggestions. A central list of those should be shared to a folder, identified as such, and allow others to write similar proposals. Maybe a little more structure and discipline around those would be useful.
+-   **Proposals.** Beancount's equivalents of Python's "[<u>PEPs</u>](https://www.python.org/dev/peps/)" are essentially the Google Docs proposal documents I started from threads where many others comment and add suggestions. A central list of those should be shared to a folder, identified as such, and allow others to write similar proposals. Maybe a little more structure and discipline around those would be useful (Github Projects or Airtable (I think) could be useful for this).
 
 ### Restructuring the Code<a id="restructuring-the-code"></a>
 
@@ -138,7 +138,7 @@ Here is a detailed breakdown of the various parts of the codebase today and what
 
     -   beancount/tools
 
--   **Prices.** This is a simple library and tool that helps users fetch prices from external sources. This should definitely move to another repo and I'd welcome a new owner building a competing solution. People are sending me patches for new price sources and I have too little time to maintain them over time, as the upstream sources change or even disappear. This requires very little from Beancount itself (in theory you could just print() the directives for output, without even loading library code) but I think the Beancount core should include and functions to enumerate a list of required date/instrument pairs at a particular date from a given ledger (and I'm happy to support that). Note that the internal price database core will remain in the core, because it's needed there. The affected packages are:
+-   `Prices. This is a simple library and tool that helps users fetch prices from external sources. This should definitely move to another repo and I'd welcome a new owner building a competing solution. People are sending me patches for new price sources and I have too little time to maintain them over time, as the upstream sources change or even disappear. This requires very little from Beancount itself (in theory you could just print() the directives for output, without even loading library code) but I think the Beancount core should include and functions to enumerate a list of required date/instrument pairs at a particular date from a given ledger (and I'm happy to support that). Note that the internal price database core will remain in the core, because it's needed there. The affected packages are:`
 
     -   beancount/prices
 
@@ -165,15 +165,15 @@ Here is a detailed breakdown of the various parts of the codebase today and what
 
 -   beancount/ingest/importers: someone could revive a repository of importer implementations, like what LedgerHub once aimed to become, and swallow those codes.
 
-> See [<u>this document</u>](beangulp.md) for details on what's to happen with the ingestion code.
+> See [<u>this document</u>](beangulp_design_doc_for_new_repo.md) for details on what's to happen with the ingestion code.
 
--   **Custom reports and bean-web** should be removed: the underlying [<u>bottle</u>](https://bottlepy.org/docs/dev/) library seems unmaintained at this point, Fava subsumes bean-web, and I never liked the custom reports code anyway (they're a pain to modify). I never use them myself anymore (other than through bean-web). I really think it's possible to replace those with filters on top enhanced SQL query results. The conversion to Ledger and HLedger from Beancount now seems largely useless, I'm not sure anyone's using those. I'll probably move these to another repo, where they would eventually rot, or if someone cares, adopt them and maintain or evolve them.
+-   `Custom reports and bean-web should be removed: the underlying bottle library seems unmaintained at this point, Fava subsumes bean-web, and I never liked the custom reports code anyway (they're a pain to modify). I never use them myself anymore (other than through bean-web). I really think it's possible to replace those with filters on top enhanced SQL query results. The conversion to Ledger and HLedger from Beancount now seems largely useless, I'm not sure anyone's using those. I'll probably move these to another repo, where they would eventually rot, or if someone cares, adopt them and maintain or evolve them.`
 
 -   beancount/web : will be deleted or moved to another repo.
 
 -   beancount/reports : will be deleted or moved to another repo.
 
--   Note that this includes deprecating **`beancount/scripts/bake`**, which depends heavily on bean-web. I have no substitute for bean-bake, but I think I'd like to eventually build something better, a tool that would directly render a user-provided list of specific SQL queries to PDF files and collate them, something you can print.
+-   `Note that this includes deprecating beancount/scripts/bake, which depends heavily on bean-web. I have no substitute for bean-bake, but I think I'd like to eventually build something better, a tool that would directly render a user-provided list of specific SQL queries to PDF files and collate them, something you can print.`
 
 <!-- -->
 
@@ -219,13 +219,13 @@ Here is a detailed breakdown of the various parts of the codebase today and what
 
 -   onecommodity
 
--   sellgains
+-   sellgains # should be renamed check_gains to match the others
 
 -   unique_prices
 
-<!-- -->
-
-    The following are the experimental implementations of ideas that should move to a dedicated repo where other people can chip in other plugin implementations:
+> *Note (from Adam Wolenc): There may be value in distinguishing between mutating (auto\_accounts, implicit\_prices, etc.) and non-mutating (nounused, leafonly, etc.) plugins.*
+>
+> The following are the experimental implementations of ideas that should move to a dedicated repo where other people can chip in other plugin implementations:
 
 -   book_conversions
 
@@ -312,6 +312,8 @@ I'd like for "bn" to become the de-facto two-letter import on top of which we wr
     -   Accumulating lots of an inventory and printing them.
 
     -   Converting to market value, and making corresponding account adjustments.
+
+    -   How to load beancount files (deserialize), and how to modify beancount files (modifying the AST) and then save them (serialize).
 
     -   …. *add more …*
 
@@ -623,7 +625,7 @@ If you look at investment brokers out there, no one calculates returns correctly
 
 <!-- -->
 
-1.  **Lack of interest or dividends.** Other brokers will report P/L over time from the investments, but they fail to account for actual interest or dividends received (they only look at the price of the underlying) so that's not useful for bonds or for stocks with significant dividends, or when grouping them, they fail to account for the addition of new positions over time.
+1.  **Lack of interest or dividends.** Other brokers will report P/L over time from the investments, but they fail to account for actual interest or dividends received[^1] (they only look at the price of the underlying) so that's not useful for bonds or for stocks with significant dividends, or when grouping them, they fail to account for the addition of new positions over time.
 
 **Counterfactual performance.** Finally, all of them fail to compare your actual annualized performance with that of a benchmark portfolio with equivalent cash infusions. For example, instead of your actual investments made, compare with the performance you would have obtained if you had invested in some standardized portfolio of investments over that particular time period, given the actual historical prices of those instruments. Ideally one should be able to define any alternative portfolio to compare against using their particular cash transfers.
 
@@ -658,6 +660,8 @@ I'm going to delete that code. It's only been used in the reports code anyway, w
 **Remove dependency on furius.ca.** The current Google Docs based documentation links to other documents via a global redirect (the definition is found [<u>here</u>](https://github.com/beancount/beancount/blob/master/.htaccess)). While it does not happen often that my web server goes down (perhaps a few times per year), when it does it takes a few days to rectify the situation. That server is hosted graciously in the company of some friends of mine.
 
 Kirill has proved that it would be possible to replace all the links to redirects on github, that would look like this: *beancount.github.io/&lt;document&gt;* instead of *furius.ca/beancount/doc/&lt;document&gt;*. In order to do this, I'll need to run a script using the [<u>Docs API</u>](https://developers.google.com/docs/api) on all the Google Docs to change them automatically.
+
+**General documentation "clean-up".** Removing references to old plugins, recommendations and so on
 
 ## Conclusion<a id="conclusion"></a>
 
@@ -704,3 +708,141 @@ Such a server would be a perfect companion to a running Emacs. We could build an
 ### Tags & Links Merge with MetaData<a id="tags-links-merge-with-metadata"></a>
 
 *TODO(blais): Add colon syntax*
+
+## User Comments<a id="user-comments"></a>
+
+About tags & links:
+
+Anonymous - Feb 16, 2021
+
+> Problem: I've made several plugins, that in principle should work on the same transaction, but there are some technicalities that makes it impossible or requires ugly workarounds.
+>
+> Proposal: for greater plugin compatibility between each other, standardize on visible vs invisible metadata, where "invisible" means it's not printer for human to see. It could be as simple as double underscore prefix convention. This way, plugins could signal "I touched this transaction and here's a hint", where other plugins compatible with the former would be able to pick up the hint. And so without annoying the user.
+>
+> Example: deprecation plugin first checks and errors when user wishes to deprecate non-asset position, but spread plugin takes one transaction and creates several transactions that not all contain asset positions.
+>
+> \- before: deprecation plugin will show a false-positive error because spread plugin dumbly copied deprecation tag to transaction without assets.
+>
+> \- after: deprecation plugin will be able to detect transactions created by spread plugin and silently ignore them.
+
+Martin Blais - Feb 16, 2021
+
+    The question of ordering for plugins is made difficult by the fact that they can be inserted in any order. I'm not so sure what the best solution for this will be.
+
+Anonymous - Feb 22, 2021
+
+> For me it's ok that plugins are order-sensitive. E.g. with games and mods, all games I've seen are either of three types
+>
+> 1\. no mods
+>
+> 2\. only one mod at a time
+>
+> 3\. order-sensitive many mods. And it's common for authors to tell in READMEs "NOT compatible with X" or "compatible with Y, put my mod AFTER it".
+>
+> In my opinion, if user uses a plugin it's fair to assume that user had read at least start of it's README. Furthermore, plugins maaay have checks for cases of wrong order and output appropriate error to ask user to fix the plugin order.
+
+(more)
+
+Anonymous
+
+> I like this! It would be great to keep tags and links but as mere shortcuts that adds metadata under the hood. Easier for user at data input time, and easier for plugin writers to handle 1 case instead of juggling 3 similar ones.
+>
+> Furthermore, I'd propose to consider transaction-level metadata being "inherited by"/"trickled-down to" it's postings unless overridden on themselves.
+>
+> I've already created a helper that behaves similarly. Here's an example at it's testsuite: https://github.com/Akuukis/beancount\_share/blob/master/tests/features/shortcuts.feature
+>
+> I think this is a topic worthy of a BEP to discuss specific implementations. Do you already have a place for those, e.g. github?
+
+Postings vs. Settlement Dates
+
+Justus Pendleton - Jul 5, 2020
+
+> If possible, I think I'd prefer a syntax where the accounts stay vertically aligned. That is, don't put the settlement date at the front like this. Instead put it after the account. Possibly even in some kind of bracketing to make it visually distinct? Maybe something like
+>
+> Liabilities:US:Amex:BlueCash /2020-01-21/ 2397.72 USD
+
+Martin Blais - Jul 5, 2020
+
+    I share your aesthetic concern. Maybe I could allow a date anywhere on the line... at the front, the back, really, anywhere. It would remain unambiguous. Easily done.
+
+About Input Split Transactions
+
+Justus Pendleton - Jul 5, 2020
+
+    I suppose this means a posting could then have multiple filenames & linenos in the its metadata? A UI (like fava) that lets you edit a posting would need to know where to navigate and there could now be multiple options.
+
+Martin Blais - Jul 5, 2020
+
+    Good point. The natural place for this would be to add metadata on the postings in addition to that from the transaction (if the concept of a "primary" location is needed).
+
+About Input Split Transactions
+
+Red S - Feb 2, 2021
+
+> Optionally, the unmatched transactions could be collected and posted into a (configurable) account. Eg: Assets:Unmatched.
+>
+> I find it common that one side of transactions (eg: credit card payment's credit) posts a few days after the other side posts (the bank's debit). If I import between these dates, I'd rather not have an error, but a known sum in "Assets:Unmatched" that I expect to go away within a few days, and that accurately captures the state of things.
+>
+> This is how my /zerosum plugin currently works, which I find very useful.
+
+Martin Blais- Feb 2, 2021
+
+    That's a good point but then how do we differentiate a transaction that is at the tail of the date range that's just temporarily incomplete and one that's an error because it's never been balanced? The ledgers are huge it's easy to forget stuff. I'd rather you explicitly insert that unmatched account and be pedantic about incomplete one legged transactions and avoid errors. Or we could set a threshold on ignoring those in the last few days at the tail of the date range but that does add a bit of logic.
+
+Red S - Feb 3, 2021
+
+> "(perhaps declaring valid account pairs, thresholding on date differences and exactly matching amounts)." --&gt; this is more or less what zerosum does, see here for an example:
+>
+> https://github.com/redstreet/beancount\_reds\_plugins/blob/master/beancount\_reds\_plugins/zerosum/zerosum-example.beancount
+>
+> We could use that threshold for the secondary purpose: don't raise an error until n days after today, where n is the threshold.
+>
+> Better yet, beancount core could be pedantic always like you suggest, and a plugin could insert the "matching" transaction for into a user configured account like "Assets:Unmatched-but-Recent". Assuming v3 will allow plugins to run after the matching.
+
+About Strict Payees
+
+Justus Pendleton - Jul 5, 2020
+
+> This is an interesting idea but it seems like you might want an easy syntax to add a "non-strict" payee. e.g. something like ~"Mexican Restaurant" (the tilde-indicates it is non-strict).
+>
+> Or some kind of start/end non strict (similar to how you can do with tagging). For me, at least, non-strict payees mostly come up when I go on vacation and I'm not sure I really want lots of payees defined for Iceland or Japan where they only ever appear once in my life.
+>
+> But in general I like the direction of this. I doubt I'm the only one who struggles with this. "Did I call it IRS or IRS.gov or US Treasury when I paid taxes last time?"
+
+Gerry Agbobada - Aug 24, 2020
+
+> Some shorthand to create a payee like that tilde would be nice.
+>
+> For example if I pay you something for the first time :
+>
+> \- putting "Justus Pendleton" only would error out
+>
+> \- putting o"Justus Pendleton" ('o' is the marker here) would actually acts as opening a payee with your name, so I explicitely mark the transaction to enable verification later.
+>
+> This would help avoiding a big list of payee open directives
+
+About Budgeting Constraints
+
+Justus Pendleton - Jul 5, 2020
+
+> One of the biggest differences (for me, at least) between budgeting and balance statements is I often budgeting on "parent nodes" but I only do balance statements on "leaf nodes". For instance, I might have a budget for "Annual:Vacation" and expect it to sum up all the leaf nodes under that.
+>
+> For extra complications budgeting is (for me) always done in a single currency, which might be different from the currency that was actually spent.
+
+Martin Blais - Jul 5, 2020
+
+    These are interesting points. Do you think you can formalize these as constraints? If so, it would be useful to share the specific types of constraints you're using frequently.
+
+Justus Pendleton - Jul 6, 2020
+
+    I'll try to put some thoughts together on the mailing-list.
+
+Anonymous - Feb 16, 2021
+
+    I'd like to add a specific constraint `Assets:Cash > 0 EUR` which should be valid at any point in time.
+
+Thomas den Hollander - Jun 30, 2021
+
+    I would be careful to distinguish between two very different situations: balance assertions to verify that beancount matches the actual account balance and assertions that check budgetting constraints. A discrepancy in the first case guarantees that something is factually wrong in the ledger, while the second case may be just overspending (that actually happened). I would prefer if beancount itself would stay descriptive and explicitely prescriptive checks would move to plugins.
+
+[^1]: Apparently WealthFront may have correct reporting that includes both but I haven't been able to verify it. (Reported by Jordan "Cricket" Moore).

@@ -1,4 +1,4 @@
-# Beangulp<a id="title"></a>
+# Beangulp Design Doc for New Repo<a id="title"></a>
 
 [<u>Martin Blais</u>](mailto:blais@furius.ca), Jan 2021
 
@@ -129,3 +129,23 @@ A really convenient and easily built feature that the new code should have is th
 This could also be a flag to "extract"
 
 `$ ./myimport.py extract -f ledger.beancount -F Amex`
+
+## User Comments<a id="user-comments"></a>
+
+-   Red S: [<u>https://github.com/redstreet/beancount\_reds\_importers/blob/master/beancount\_reds\_importers/libimport/csv\_multitable\_reader.py</u>](https://github.com/redstreet/beancount_reds_importers/blob/master/beancount_reds_importers/libimport/csv_multitable_reader.py) - A rudimentary but fully functional multitable reader for csv, xlsx that I actively use.
+
+-   Huruka Momo:
+
+> How about separating find\_duplicate\_entries into an object such as Comparator?
+>
+> As mentioned before, there may be various types of bill file, and the bill provided by each financial party also needs to use different parsing rules.
+>
+> The original transaction records(hereinafter called OriTxns) obtained by parsing should be standardized (required fields for importing beans) and extensible. Then, OriTxns can be processed by Comparator, and a variety of flags and supplementary information are set. For example, compare with existing bean txns and mark duplicate, or compare with another bill to supplement information and then compare with existing bean txns. To implement the Comparator, users can choose their favorite method. For example, I choose to use Pandas to compare.
+>
+> The corresponding expenss classification may be done together at this step, or executed by a classifier object？ Because I saw someone on Github uses machine learning to process it.
+>
+> But here I haven’t figured out what general data format the parsed OriTxns should use. Now I use Pandas DataFrame, but this is certainly not universal.
+>
+> The processed OriTxns can be transferred to the Importer, and then imported into Beancount by the Importer. It can be relatively simple, because like account associated has been known before, and Headers and data are neat and clean. The necessary data is imported by default, and the user can tell the Importer to specify which column data should be imported into Beancount in the form of Tag, Link or MetaData.
+>
+> edit: Oh, I found out that there is a comparator after looking through the source code. The name similar is really not intuitive enough and Comparator is a bit deep.

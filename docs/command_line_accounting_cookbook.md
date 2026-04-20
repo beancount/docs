@@ -156,6 +156,10 @@ Based on these two indicators, you should be able to figure out any case. Let’
 
 -   You own some shares of a bond, and receive an interest payment. This interest is cash deposited in an Assets account, for example, a trading account. What is the other leg to be booked to?
 
+#### Dealing with Incomplete Sources<a id="dealing-with-incomplete-sources"></a>
+
+If a user is trying to fill in as much of their financial history as possible, there will be holes. In some cases, you may have only half of a transaction — e.g. an IRA contribution was made, but you don't know which bank account sourced the money, because you don't have bank records going back that far. Do you model this with a special Equity account to keep from upsetting the balance sheet (as an Assets:Unknown would)? I think you can do that, or you can use the bank account you had at the time and pad to it accordingly.
+
 ### Choosing Opening Dates<a id="choosing-opening-dates"></a>
 
 Some of the accounts you need to define don’t correspond to real world accounts. The `Expenses:Groceries` account represents the sum total of grocery expenses since you started counting. Personally, I like to use my *birth date* on those. There’s a rationale to it: it sums all the groceries you’ve ever spent money on, and this started only when you came to this world.
@@ -261,6 +265,8 @@ You will also need to have some accounts defined elsewhere for the various expen
     2012-12-13 open Expenses:Transportation:PreTax      USD ; "Transit PreTax"
 
 These correspond to typical company group plan life insurance payments, premiums for dental, medical and vision insurances, reimbursements for home internet usage, and pre-tax payments for public transit (the city of New York allows you to pay for your MetroCard with pre-tax money through your employer).
+
+Note: In general when structuring your accounts I find it useful to have a grouping for each tax year, as in `Expenses:Taxes:TY2014`. This is so that positions associated with that tax year can occur at any date (i.e., in the following year, when paying for those taxes or receiving a refund). Expenses, however, do not share this quality and it's sufficient have non-"yeared" accounts. Sometimes you do want more granular tracking, say of income, e.g., Income:US:Etrade:Interest, which allows you to use the account names to filter these transactions. The bottom line is that in using this data we want to filter postings, and the account name is one of the useful attributes of postings for that (but you can use other ones, such as the transaction's payee).
 
 ### Booking Salary Deposits<a id="booking-salary-deposits"></a>
 
@@ -507,7 +513,7 @@ Selling some of the same stock work similarly, except that an extra posting is a
 
 Note that the postings of shares removed from the `Assets:US:ETrade:LQD` account is a lot *reduction* and you must provide information to identify which lot you’re reducing, in this case, by providing the per-share cost basis of 119.24 USD.
 
-I normally let Beancount calculate the capital gain or loss for me, which is why I don’t specify it in the last posting. Beancount will automatically balance the transaction by setting the amount of this posting to -20.80 USD, which is a *gain* of 20.80 USD (remember that the signs are inverted for income accounts). Specifying the sale price of 123.40 USD is optional, and it is *ignored* for the purpose of balancing the transaction, the cash deposit and commissions legs determine the profit.
+I normally let Beancount calculate the capital gain or loss for me, which is why I don’t specify it in the last posting. Beancount will automatically balance the transaction by setting the amount of this posting to -20.80 USD, which is a *gain* of 20.80 USD (remember that the signs are inverted for income accounts). Specifying the sale price of 123.40 USD is optional, and it is *ignored* for the purpose of balancing the transaction, the cash deposit and commissions legs determine the profit The cash received + commissions in this case, as well as the cost basis of what was sold are sufficient informations to fill in the missing P/L posting amount.
 
 ### Receiving Dividends<a id="receiving-dividends"></a>
 

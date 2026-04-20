@@ -86,7 +86,7 @@ This section describes installation processes for the purposes of development be
 
 ### On Linux<a id="on-linux"></a>
 
-Tested with python3.12 on Ubuntu
+Tested with python3.12 and python3.12-dev on Ubuntu
 
 Related links
 
